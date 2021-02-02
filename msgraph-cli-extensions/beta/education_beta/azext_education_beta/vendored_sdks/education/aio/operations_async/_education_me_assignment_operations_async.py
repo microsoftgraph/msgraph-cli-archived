@@ -600,21 +600,11 @@ class EducationMeAssignmentOperations:
         education_assignment_id: str,
         id: Optional[str] = None,
         distribute_for_student_work: Optional[bool] = None,
+        created_by: Optional["models.MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["models.MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        microsoft_graph_identity_display_name: Optional[str] = None,
-        microsoft_graph_identity_id: Optional[str] = None,
-        display_name1: Optional[str] = None,
-        id1: Optional[str] = None,
-        display_name2: Optional[str] = None,
-        id2: Optional[str] = None,
-        display_name3: Optional[str] = None,
-        id3: Optional[str] = None,
-        display_name4: Optional[str] = None,
-        id4: Optional[str] = None,
-        display_name5: Optional[str] = None,
-        id5: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphEducationAssignmentResource":
         """Create new navigation property to resources for education.
@@ -627,54 +617,16 @@ class EducationMeAssignmentOperations:
         :type id: str
         :param distribute_for_student_work:
         :type distribute_for_student_work: bool
+        :param created_by: identitySet.
+        :type created_by: ~education.models.MicrosoftGraphIdentitySet
         :param created_date_time:
         :type created_date_time: ~datetime.datetime
         :param display_name:
         :type display_name: str
+        :param last_modified_by: identitySet.
+        :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
         :param last_modified_date_time:
         :type last_modified_date_time: ~datetime.datetime
-        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
-         not always be available or up to date. For example, if a user changes their display name, the
-         API may show the new value in a future response, but the items associated with the user won't
-         show up as having changed when using delta.
-        :type microsoft_graph_identity_display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
-        :param display_name1: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name1: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
-        :param display_name2: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name2: str
-        :param id2: Unique identifier for the identity.
-        :type id2: str
-        :param display_name3: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name3: str
-        :param id3: Unique identifier for the identity.
-        :type id3: str
-        :param display_name4: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name4: str
-        :param id4: Unique identifier for the identity.
-        :type id4: str
-        :param display_name5: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name5: str
-        :param id5: Unique identifier for the identity.
-        :type id5: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphEducationAssignmentResource, or the result of cls(response)
         :rtype: ~education.models.MicrosoftGraphEducationAssignmentResource
@@ -684,7 +636,7 @@ class EducationMeAssignmentOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationAssignmentResource(id=id, distribute_for_student_work=distribute_for_student_work, created_date_time=created_date_time, display_name_resource_display_name=display_name, last_modified_date_time=last_modified_date_time, display_name_resource_last_modified_by_user_display_name=microsoft_graph_identity_display_name, id_resource_last_modified_by_user_id=microsoft_graph_identity_id, display_name_resource_last_modified_by_device_display_name=display_name1, id_resource_last_modified_by_device_id=id1, display_name_resource_last_modified_by_application_display_name=display_name2, id_resource_last_modified_by_application_id=id2, display_name_resource_created_by_user_display_name=display_name3, id_resource_created_by_user_id=id3, display_name_resource_created_by_device_display_name=display_name4, id_resource_created_by_device_id=id4, display_name_resource_created_by_application_display_name=display_name5, id_resource_created_by_application_id=id5)
+        _body = models.MicrosoftGraphEducationAssignmentResource(id=id, distribute_for_student_work=distribute_for_student_work, created_by=created_by, created_date_time=created_date_time, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -798,21 +750,11 @@ class EducationMeAssignmentOperations:
         education_assignment_resource_id: str,
         id: Optional[str] = None,
         distribute_for_student_work: Optional[bool] = None,
+        created_by: Optional["models.MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["models.MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        microsoft_graph_identity_display_name: Optional[str] = None,
-        microsoft_graph_identity_id: Optional[str] = None,
-        display_name1: Optional[str] = None,
-        id1: Optional[str] = None,
-        display_name2: Optional[str] = None,
-        id2: Optional[str] = None,
-        display_name3: Optional[str] = None,
-        id3: Optional[str] = None,
-        display_name4: Optional[str] = None,
-        id4: Optional[str] = None,
-        display_name5: Optional[str] = None,
-        id5: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property resources in education.
@@ -827,54 +769,16 @@ class EducationMeAssignmentOperations:
         :type id: str
         :param distribute_for_student_work:
         :type distribute_for_student_work: bool
+        :param created_by: identitySet.
+        :type created_by: ~education.models.MicrosoftGraphIdentitySet
         :param created_date_time:
         :type created_date_time: ~datetime.datetime
         :param display_name:
         :type display_name: str
+        :param last_modified_by: identitySet.
+        :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
         :param last_modified_date_time:
         :type last_modified_date_time: ~datetime.datetime
-        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
-         not always be available or up to date. For example, if a user changes their display name, the
-         API may show the new value in a future response, but the items associated with the user won't
-         show up as having changed when using delta.
-        :type microsoft_graph_identity_display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
-        :param display_name1: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name1: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
-        :param display_name2: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name2: str
-        :param id2: Unique identifier for the identity.
-        :type id2: str
-        :param display_name3: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name3: str
-        :param id3: Unique identifier for the identity.
-        :type id3: str
-        :param display_name4: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name4: str
-        :param id4: Unique identifier for the identity.
-        :type id4: str
-        :param display_name5: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name5: str
-        :param id5: Unique identifier for the identity.
-        :type id5: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -884,7 +788,7 @@ class EducationMeAssignmentOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationAssignmentResource(id=id, distribute_for_student_work=distribute_for_student_work, created_date_time=created_date_time, display_name_resource_display_name=display_name, last_modified_date_time=last_modified_date_time, display_name_resource_last_modified_by_user_display_name=microsoft_graph_identity_display_name, id_resource_last_modified_by_user_id=microsoft_graph_identity_id, display_name_resource_last_modified_by_device_display_name=display_name1, id_resource_last_modified_by_device_id=id1, display_name_resource_last_modified_by_application_display_name=display_name2, id_resource_last_modified_by_application_id=id2, display_name_resource_created_by_user_display_name=display_name3, id_resource_created_by_user_id=id3, display_name_resource_created_by_device_display_name=display_name4, id_resource_created_by_device_id=id4, display_name_resource_created_by_application_display_name=display_name5, id_resource_created_by_application_id=id5)
+        _body = models.MicrosoftGraphEducationAssignmentResource(id=id, distribute_for_student_work=distribute_for_student_work, created_by=created_by, created_date_time=created_date_time, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

@@ -12,62 +12,62 @@
 from knack.help_files import helps
 
 
-helps['teams'] = """
+helps['teams chat-chat'] = """
     type: group
-    short-summary: teams
+    short-summary: teams chat-chat
 """
 
-helps['teams delete'] = """
+helps['teams chat-chat delete'] = """
     type: command
     short-summary: "Delete entity from chats"
 """
 
-helps['teams create-chat'] = """
+helps['teams chat-chat create-chat'] = """
     type: command
     short-summary: "Add new entity to chats"
 """
 
-helps['teams get-chat'] = """
+helps['teams chat-chat get-chat'] = """
     type: command
     short-summary: "Get entity from chats by key"
 """
 
-helps['teams list-chat'] = """
+helps['teams chat-chat list-chat'] = """
     type: command
     short-summary: "Get entities from chats"
 """
 
-helps['teams update-chat'] = """
+helps['teams chat-chat update-chat'] = """
     type: command
     short-summary: "Update entity in chats"
 """
 
-helps['teams'] = """
+helps['teams chat'] = """
     type: group
-    short-summary: teams
+    short-summary: teams chat
 """
 
-helps['teams get-all-message'] = """
+helps['teams chat get-all-message'] = """
     type: command
     short-summary: "Invoke function getAllMessages"
 """
 
-helps['teams'] = """
+helps['teams group'] = """
     type: group
-    short-summary: teams
+    short-summary: teams group
 """
 
-helps['teams delete'] = """
+helps['teams group delete'] = """
     type: command
     short-summary: "Delete navigation property team for groups"
 """
 
-helps['teams get-team'] = """
+helps['teams group get-team'] = """
     type: command
     short-summary: "Get team from groups"
 """
 
-helps['teams update-team'] = """
+helps['teams group update-team'] = """
     type: command
     short-summary: "Update the navigation property team in groups"
     parameters:
@@ -504,17 +504,17 @@ value in a future response, but the items associated with the user won't show up
             Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
 """
 
-helps['teams'] = """
+helps['teams team-team'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-team
 """
 
-helps['teams delete'] = """
+helps['teams team-team delete'] = """
     type: command
     short-summary: "Delete entity from teams"
 """
 
-helps['teams create-team'] = """
+helps['teams team-team create-team'] = """
     type: command
     short-summary: "Add new entity to teams"
     parameters:
@@ -951,17 +951,17 @@ value in a future response, but the items associated with the user won't show up
             Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
 """
 
-helps['teams get-team'] = """
+helps['teams team-team get-team'] = """
     type: command
     short-summary: "Get entity from teams by key"
 """
 
-helps['teams list-team'] = """
+helps['teams team-team list-team'] = """
     type: command
     short-summary: "Get entities from teams"
 """
 
-helps['teams update-team'] = """
+helps['teams team-team update-team'] = """
     type: command
     short-summary: "Update entity in teams"
     parameters:
@@ -1398,27 +1398,27 @@ value in a future response, but the items associated with the user won't show up
             Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
 """
 
-helps['teams'] = """
+helps['teams team'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team
 """
 
-helps['teams delete'] = """
+helps['teams team delete'] = """
     type: command
     short-summary: "Delete ref of navigation property template for teams"
 """
 
-helps['teams archive'] = """
+helps['teams team archive'] = """
     type: command
     short-summary: "Invoke action archive"
 """
 
-helps['teams clone'] = """
+helps['teams team clone'] = """
     type: command
     short-summary: "Invoke action clone"
 """
 
-helps['teams create-channel'] = """
+helps['teams team create-channel'] = """
     type: command
     short-summary: "Create new navigation property to channels for teams"
     parameters:
@@ -1433,7 +1433,7 @@ helps['teams create-channel'] = """
             Multiple actions can be specified by using more than one --members argument.
 """
 
-helps['teams create-installed-app'] = """
+helps['teams team create-installed-app'] = """
     type: command
     short-summary: "Create new navigation property to installedApps for teams"
     parameters:
@@ -1459,12 +1459,12 @@ helps['teams create-installed-app'] = """
             Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
-helps['teams create-member'] = """
+helps['teams team create-member'] = """
     type: command
     short-summary: "Create new navigation property to members for teams"
 """
 
-helps['teams create-operation'] = """
+helps['teams team create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for teams"
     parameters:
@@ -1477,97 +1477,97 @@ helps['teams create-operation'] = """
             message: Operation error message.
 """
 
-helps['teams get-all-message'] = """
+helps['teams team get-all-message'] = """
     type: command
     short-summary: "Invoke function getAllMessages"
 """
 
-helps['teams get-channel'] = """
+helps['teams team get-channel'] = """
     type: command
     short-summary: "Get channels from teams"
 """
 
-helps['teams get-group'] = """
+helps['teams team get-group'] = """
     type: command
     short-summary: "Get group from teams"
 """
 
-helps['teams get-installed-app'] = """
+helps['teams team get-installed-app'] = """
     type: command
     short-summary: "Get installedApps from teams"
 """
 
-helps['teams get-member'] = """
+helps['teams team get-member'] = """
     type: command
     short-summary: "Get members from teams"
 """
 
-helps['teams get-operation'] = """
+helps['teams team get-operation'] = """
     type: command
     short-summary: "Get operations from teams"
 """
 
-helps['teams get-primary-channel'] = """
+helps['teams team get-primary-channel'] = """
     type: command
     short-summary: "Get primaryChannel from teams"
 """
 
-helps['teams get-ref-group'] = """
+helps['teams team get-ref-group'] = """
     type: command
     short-summary: "Get ref of group from teams"
 """
 
-helps['teams get-ref-template'] = """
+helps['teams team get-ref-template'] = """
     type: command
     short-summary: "Get ref of template from teams"
 """
 
-helps['teams get-schedule'] = """
+helps['teams team get-schedule'] = """
     type: command
     short-summary: "Get schedule from teams"
 """
 
-helps['teams get-template'] = """
+helps['teams team get-template'] = """
     type: command
     short-summary: "Get template from teams"
 """
 
-helps['teams list-channel'] = """
+helps['teams team list-channel'] = """
     type: command
     short-summary: "Get channels from teams"
 """
 
-helps['teams list-installed-app'] = """
+helps['teams team list-installed-app'] = """
     type: command
     short-summary: "Get installedApps from teams"
 """
 
-helps['teams list-member'] = """
+helps['teams team list-member'] = """
     type: command
     short-summary: "Get members from teams"
 """
 
-helps['teams list-operation'] = """
+helps['teams team list-operation'] = """
     type: command
     short-summary: "Get operations from teams"
 """
 
-helps['teams set-ref-group'] = """
+helps['teams team set-ref-group'] = """
     type: command
     short-summary: "Update the ref of navigation property group in teams"
 """
 
-helps['teams set-ref-template'] = """
+helps['teams team set-ref-template'] = """
     type: command
     short-summary: "Update the ref of navigation property template in teams"
 """
 
-helps['teams unarchive'] = """
+helps['teams team unarchive'] = """
     type: command
     short-summary: "Invoke action unarchive"
 """
 
-helps['teams update-channel'] = """
+helps['teams team update-channel'] = """
     type: command
     short-summary: "Update the navigation property channels in teams"
     parameters:
@@ -1582,7 +1582,7 @@ helps['teams update-channel'] = """
             Multiple actions can be specified by using more than one --members argument.
 """
 
-helps['teams update-installed-app'] = """
+helps['teams team update-installed-app'] = """
     type: command
     short-summary: "Update the navigation property installedApps in teams"
     parameters:
@@ -1608,12 +1608,12 @@ helps['teams update-installed-app'] = """
             Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
-helps['teams update-member'] = """
+helps['teams team update-member'] = """
     type: command
     short-summary: "Update the navigation property members in teams"
 """
 
-helps['teams update-operation'] = """
+helps['teams team update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in teams"
     parameters:
@@ -1626,7 +1626,7 @@ helps['teams update-operation'] = """
             message: Operation error message.
 """
 
-helps['teams update-primary-channel'] = """
+helps['teams team update-primary-channel'] = """
     type: command
     short-summary: "Update the navigation property primaryChannel in teams"
     parameters:
@@ -1641,7 +1641,7 @@ helps['teams update-primary-channel'] = """
             Multiple actions can be specified by using more than one --members argument.
 """
 
-helps['teams update-schedule'] = """
+helps['teams team update-schedule'] = """
     type: command
     short-summary: "Update the navigation property schedule in teams"
     parameters:
@@ -1836,22 +1836,22 @@ value in a future response, but the items associated with the user won't show up
             Multiple actions can be specified by using more than one --time-off-requests argument.
 """
 
-helps['teams'] = """
+helps['teams team-channel'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-channel
 """
 
-helps['teams delete'] = """
+helps['teams team-channel delete'] = """
     type: command
     short-summary: "Delete navigation property filesFolder for teams"
 """
 
-helps['teams create-member'] = """
+helps['teams team-channel create-member'] = """
     type: command
     short-summary: "Create new navigation property to members for teams"
 """
 
-helps['teams create-message'] = """
+helps['teams team-channel create-message'] = """
     type: command
     short-summary: "Create new navigation property to messages for teams"
     parameters:
@@ -1954,7 +1954,7 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams create-tab'] = """
+helps['teams team-channel create-tab'] = """
     type: command
     short-summary: "Create new navigation property to tabs for teams"
     parameters:
@@ -1980,52 +1980,431 @@ helps['teams create-tab'] = """
             Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
-helps['teams get-file-folder'] = """
+helps['teams team-channel get-file-folder'] = """
     type: command
     short-summary: "Get filesFolder from teams"
 """
 
-helps['teams get-member'] = """
+helps['teams team-channel get-member'] = """
     type: command
     short-summary: "Get members from teams"
 """
 
-helps['teams get-message'] = """
+helps['teams team-channel get-message'] = """
     type: command
     short-summary: "Get messages from teams"
 """
 
-helps['teams get-tab'] = """
+helps['teams team-channel get-tab'] = """
     type: command
     short-summary: "Get tabs from teams"
 """
 
-helps['teams list-member'] = """
+helps['teams team-channel list-member'] = """
     type: command
     short-summary: "Get members from teams"
 """
 
-helps['teams list-message'] = """
+helps['teams team-channel list-message'] = """
     type: command
     short-summary: "Get messages from teams"
 """
 
-helps['teams list-tab'] = """
+helps['teams team-channel list-tab'] = """
     type: command
     short-summary: "Get tabs from teams"
 """
 
-helps['teams update-file-folder'] = """
+helps['teams team-channel update-file-folder'] = """
     type: command
     short-summary: "Update the navigation property filesFolder in teams"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-by=XX last-modified-date-time=XX publication=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-by: identitySet
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-fields
+        short-summary: "fieldValueSet"
+        long-summary: |
+            Usage: --list-item-fields id=XX
+
+            id: Read-only.
+      - name: --workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --workbook-comments
+        long-summary: |
+            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+
+            content: The content of comment.
+            content-type: Indicates the type for the comment.
+            replies: Read-only. Nullable.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --workbook-comments argument.
+      - name: --workbook-functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --workbook-functions id=XX
+
+            id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --remote-item-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --remote-item-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-package
+        short-summary: "package"
+        long-summary: |
+            Usage: --remote-item-package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --remote-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --remote-item-special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --remote-item-special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --remote-item-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --folder-view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --file-hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
-helps['teams update-member'] = """
+helps['teams team-channel update-member'] = """
     type: command
     short-summary: "Update the navigation property members in teams"
 """
 
-helps['teams update-message'] = """
+helps['teams team-channel update-message'] = """
     type: command
     short-summary: "Update the navigation property messages in teams"
     parameters:
@@ -2128,7 +2507,7 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams update-tab'] = """
+helps['teams team-channel update-tab'] = """
     type: command
     short-summary: "Update the navigation property tabs in teams"
     parameters:
@@ -2154,22 +2533,22 @@ helps['teams update-tab'] = """
             Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
-helps['teams'] = """
+helps['teams team-channel-message'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-channel-message
 """
 
-helps['teams delete'] = """
+helps['teams team-channel-message delete'] = """
     type: command
     short-summary: "Delete navigation property replies for teams"
 """
 
-helps['teams create-hosted-content'] = """
+helps['teams team-channel-message create-hosted-content'] = """
     type: command
     short-summary: "Create new navigation property to hostedContents for teams"
 """
 
-helps['teams create-reply'] = """
+helps['teams team-channel-message create-reply'] = """
     type: command
     short-summary: "Create new navigation property to replies for teams"
     parameters:
@@ -2272,32 +2651,32 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams get-hosted-content'] = """
+helps['teams team-channel-message get-hosted-content'] = """
     type: command
     short-summary: "Get hostedContents from teams"
 """
 
-helps['teams get-reply'] = """
+helps['teams team-channel-message get-reply'] = """
     type: command
     short-summary: "Get replies from teams"
 """
 
-helps['teams list-hosted-content'] = """
+helps['teams team-channel-message list-hosted-content'] = """
     type: command
     short-summary: "Get hostedContents from teams"
 """
 
-helps['teams list-reply'] = """
+helps['teams team-channel-message list-reply'] = """
     type: command
     short-summary: "Get replies from teams"
 """
 
-helps['teams update-hosted-content'] = """
+helps['teams team-channel-message update-hosted-content'] = """
     type: command
     short-summary: "Update the navigation property hostedContents in teams"
 """
 
-helps['teams update-reply'] = """
+helps['teams team-channel-message update-reply'] = """
     type: command
     short-summary: "Update the navigation property replies in teams"
     parameters:
@@ -2400,92 +2779,92 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams'] = """
+helps['teams team-channel-tab'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-channel-tab
 """
 
-helps['teams delete'] = """
+helps['teams team-channel-tab delete'] = """
     type: command
     short-summary: "Delete ref of navigation property teamsApp for teams"
 """
 
-helps['teams get-ref-team-app'] = """
+helps['teams team-channel-tab get-ref-team-app'] = """
     type: command
     short-summary: "Get ref of teamsApp from teams"
 """
 
-helps['teams get-team-app'] = """
+helps['teams team-channel-tab get-team-app'] = """
     type: command
     short-summary: "Get teamsApp from teams"
 """
 
-helps['teams set-ref-team-app'] = """
+helps['teams team-channel-tab set-ref-team-app'] = """
     type: command
     short-summary: "Update the ref of navigation property teamsApp in teams"
 """
 
-helps['teams'] = """
+helps['teams team-installed-app'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-installed-app
 """
 
-helps['teams delete'] = """
+helps['teams team-installed-app delete'] = """
     type: command
     short-summary: "Delete ref of navigation property teamsAppDefinition for teams"
 """
 
-helps['teams get-ref-team-app'] = """
+helps['teams team-installed-app get-ref-team-app'] = """
     type: command
     short-summary: "Get ref of teamsApp from teams"
 """
 
-helps['teams get-ref-team-app-definition'] = """
+helps['teams team-installed-app get-ref-team-app-definition'] = """
     type: command
     short-summary: "Get ref of teamsAppDefinition from teams"
 """
 
-helps['teams get-team-app'] = """
+helps['teams team-installed-app get-team-app'] = """
     type: command
     short-summary: "Get teamsApp from teams"
 """
 
-helps['teams get-team-app-definition'] = """
+helps['teams team-installed-app get-team-app-definition'] = """
     type: command
     short-summary: "Get teamsAppDefinition from teams"
 """
 
-helps['teams set-ref-team-app'] = """
+helps['teams team-installed-app set-ref-team-app'] = """
     type: command
     short-summary: "Update the ref of navigation property teamsApp in teams"
 """
 
-helps['teams set-ref-team-app-definition'] = """
+helps['teams team-installed-app set-ref-team-app-definition'] = """
     type: command
     short-summary: "Update the ref of navigation property teamsAppDefinition in teams"
 """
 
-helps['teams upgrade'] = """
+helps['teams team-installed-app upgrade'] = """
     type: command
     short-summary: "Invoke action upgrade"
 """
 
-helps['teams'] = """
+helps['teams team-primary-channel'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-primary-channel
 """
 
-helps['teams delete'] = """
+helps['teams team-primary-channel delete'] = """
     type: command
     short-summary: "Delete navigation property filesFolder for teams"
 """
 
-helps['teams create-member'] = """
+helps['teams team-primary-channel create-member'] = """
     type: command
     short-summary: "Create new navigation property to members for teams"
 """
 
-helps['teams create-message'] = """
+helps['teams team-primary-channel create-message'] = """
     type: command
     short-summary: "Create new navigation property to messages for teams"
     parameters:
@@ -2588,7 +2967,7 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams create-tab'] = """
+helps['teams team-primary-channel create-tab'] = """
     type: command
     short-summary: "Create new navigation property to tabs for teams"
     parameters:
@@ -2614,52 +2993,431 @@ helps['teams create-tab'] = """
             Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
-helps['teams get-file-folder'] = """
+helps['teams team-primary-channel get-file-folder'] = """
     type: command
     short-summary: "Get filesFolder from teams"
 """
 
-helps['teams get-member'] = """
+helps['teams team-primary-channel get-member'] = """
     type: command
     short-summary: "Get members from teams"
 """
 
-helps['teams get-message'] = """
+helps['teams team-primary-channel get-message'] = """
     type: command
     short-summary: "Get messages from teams"
 """
 
-helps['teams get-tab'] = """
+helps['teams team-primary-channel get-tab'] = """
     type: command
     short-summary: "Get tabs from teams"
 """
 
-helps['teams list-member'] = """
+helps['teams team-primary-channel list-member'] = """
     type: command
     short-summary: "Get members from teams"
 """
 
-helps['teams list-message'] = """
+helps['teams team-primary-channel list-message'] = """
     type: command
     short-summary: "Get messages from teams"
 """
 
-helps['teams list-tab'] = """
+helps['teams team-primary-channel list-tab'] = """
     type: command
     short-summary: "Get tabs from teams"
 """
 
-helps['teams update-file-folder'] = """
+helps['teams team-primary-channel update-file-folder'] = """
     type: command
     short-summary: "Update the navigation property filesFolder in teams"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-by=XX last-modified-date-time=XX publication=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-by: identitySet
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-fields
+        short-summary: "fieldValueSet"
+        long-summary: |
+            Usage: --list-item-fields id=XX
+
+            id: Read-only.
+      - name: --workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --workbook-comments
+        long-summary: |
+            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+
+            content: The content of comment.
+            content-type: Indicates the type for the comment.
+            replies: Read-only. Nullable.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --workbook-comments argument.
+      - name: --workbook-functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --workbook-functions id=XX
+
+            id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --remote-item-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --remote-item-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-package
+        short-summary: "package"
+        long-summary: |
+            Usage: --remote-item-package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --remote-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --remote-item-special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --remote-item-special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --remote-item-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --folder-view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --file-hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
-helps['teams update-member'] = """
+helps['teams team-primary-channel update-member'] = """
     type: command
     short-summary: "Update the navigation property members in teams"
 """
 
-helps['teams update-message'] = """
+helps['teams team-primary-channel update-message'] = """
     type: command
     short-summary: "Update the navigation property messages in teams"
     parameters:
@@ -2762,7 +3520,7 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams update-tab'] = """
+helps['teams team-primary-channel update-tab'] = """
     type: command
     short-summary: "Update the navigation property tabs in teams"
     parameters:
@@ -2788,22 +3546,22 @@ helps['teams update-tab'] = """
             Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
-helps['teams'] = """
+helps['teams team-primary-channel-message'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-primary-channel-message
 """
 
-helps['teams delete'] = """
+helps['teams team-primary-channel-message delete'] = """
     type: command
     short-summary: "Delete navigation property replies for teams"
 """
 
-helps['teams create-hosted-content'] = """
+helps['teams team-primary-channel-message create-hosted-content'] = """
     type: command
     short-summary: "Create new navigation property to hostedContents for teams"
 """
 
-helps['teams create-reply'] = """
+helps['teams team-primary-channel-message create-reply'] = """
     type: command
     short-summary: "Create new navigation property to replies for teams"
     parameters:
@@ -2906,32 +3664,32 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams get-hosted-content'] = """
+helps['teams team-primary-channel-message get-hosted-content'] = """
     type: command
     short-summary: "Get hostedContents from teams"
 """
 
-helps['teams get-reply'] = """
+helps['teams team-primary-channel-message get-reply'] = """
     type: command
     short-summary: "Get replies from teams"
 """
 
-helps['teams list-hosted-content'] = """
+helps['teams team-primary-channel-message list-hosted-content'] = """
     type: command
     short-summary: "Get hostedContents from teams"
 """
 
-helps['teams list-reply'] = """
+helps['teams team-primary-channel-message list-reply'] = """
     type: command
     short-summary: "Get replies from teams"
 """
 
-helps['teams update-hosted-content'] = """
+helps['teams team-primary-channel-message update-hosted-content'] = """
     type: command
     short-summary: "Update the navigation property hostedContents in teams"
 """
 
-helps['teams update-reply'] = """
+helps['teams team-primary-channel-message update-reply'] = """
     type: command
     short-summary: "Update the navigation property replies in teams"
     parameters:
@@ -3034,47 +3792,47 @@ response, but the items associated with the user won't show up as having changed
 
 """
 
-helps['teams'] = """
+helps['teams team-primary-channel-tab'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-primary-channel-tab
 """
 
-helps['teams delete'] = """
+helps['teams team-primary-channel-tab delete'] = """
     type: command
     short-summary: "Delete ref of navigation property teamsApp for teams"
 """
 
-helps['teams get-ref-team-app'] = """
+helps['teams team-primary-channel-tab get-ref-team-app'] = """
     type: command
     short-summary: "Get ref of teamsApp from teams"
 """
 
-helps['teams get-team-app'] = """
+helps['teams team-primary-channel-tab get-team-app'] = """
     type: command
     short-summary: "Get teamsApp from teams"
 """
 
-helps['teams set-ref-team-app'] = """
+helps['teams team-primary-channel-tab set-ref-team-app'] = """
     type: command
     short-summary: "Update the ref of navigation property teamsApp in teams"
 """
 
-helps['teams'] = """
+helps['teams team-schedule'] = """
     type: group
-    short-summary: teams
+    short-summary: teams team-schedule
 """
 
-helps['teams delete'] = """
+helps['teams team-schedule delete'] = """
     type: command
     short-summary: "Delete navigation property timesOff for teams"
 """
 
-helps['teams create-offer-shift-request'] = """
+helps['teams team-schedule create-offer-shift-request'] = """
     type: command
     short-summary: "Create new navigation property to offerShiftRequests for teams"
 """
 
-helps['teams create-open-shift'] = """
+helps['teams team-schedule create-open-shift'] = """
     type: command
     short-summary: "Create new navigation property to openShifts for teams"
     parameters:
@@ -3102,27 +3860,27 @@ their shift. For example, an assignment or a scheduled break or lunch. Required.
             notes: The shift notes for the shiftItem.
 """
 
-helps['teams create-open-shift-change-request'] = """
+helps['teams team-schedule create-open-shift-change-request'] = """
     type: command
     short-summary: "Create new navigation property to openShiftChangeRequests for teams"
 """
 
-helps['teams create-scheduling-group'] = """
+helps['teams team-schedule create-scheduling-group'] = """
     type: command
     short-summary: "Create new navigation property to schedulingGroups for teams"
 """
 
-helps['teams create-shift'] = """
+helps['teams team-schedule create-shift'] = """
     type: command
     short-summary: "Create new navigation property to shifts for teams"
 """
 
-helps['teams create-swap-shift-change-request'] = """
+helps['teams team-schedule create-swap-shift-change-request'] = """
     type: command
     short-summary: "Create new navigation property to swapShiftsChangeRequests for teams"
 """
 
-helps['teams create-time-off'] = """
+helps['teams team-schedule create-time-off'] = """
     type: command
     short-summary: "Create new navigation property to timesOff for teams"
     parameters:
@@ -3140,117 +3898,117 @@ helps['teams create-time-off'] = """
             time-off-reason-id: ID of the timeOffReason for this timeOffItem. Required.
 """
 
-helps['teams create-time-off-reason'] = """
+helps['teams team-schedule create-time-off-reason'] = """
     type: command
     short-summary: "Create new navigation property to timeOffReasons for teams"
 """
 
-helps['teams create-time-off-request'] = """
+helps['teams team-schedule create-time-off-request'] = """
     type: command
     short-summary: "Create new navigation property to timeOffRequests for teams"
 """
 
-helps['teams get-offer-shift-request'] = """
+helps['teams team-schedule get-offer-shift-request'] = """
     type: command
     short-summary: "Get offerShiftRequests from teams"
 """
 
-helps['teams get-open-shift'] = """
+helps['teams team-schedule get-open-shift'] = """
     type: command
     short-summary: "Get openShifts from teams"
 """
 
-helps['teams get-open-shift-change-request'] = """
+helps['teams team-schedule get-open-shift-change-request'] = """
     type: command
     short-summary: "Get openShiftChangeRequests from teams"
 """
 
-helps['teams get-scheduling-group'] = """
+helps['teams team-schedule get-scheduling-group'] = """
     type: command
     short-summary: "Get schedulingGroups from teams"
 """
 
-helps['teams get-shift'] = """
+helps['teams team-schedule get-shift'] = """
     type: command
     short-summary: "Get shifts from teams"
 """
 
-helps['teams get-swap-shift-change-request'] = """
+helps['teams team-schedule get-swap-shift-change-request'] = """
     type: command
     short-summary: "Get swapShiftsChangeRequests from teams"
 """
 
-helps['teams get-time-off'] = """
+helps['teams team-schedule get-time-off'] = """
     type: command
     short-summary: "Get timesOff from teams"
 """
 
-helps['teams get-time-off-reason'] = """
+helps['teams team-schedule get-time-off-reason'] = """
     type: command
     short-summary: "Get timeOffReasons from teams"
 """
 
-helps['teams get-time-off-request'] = """
+helps['teams team-schedule get-time-off-request'] = """
     type: command
     short-summary: "Get timeOffRequests from teams"
 """
 
-helps['teams list-offer-shift-request'] = """
+helps['teams team-schedule list-offer-shift-request'] = """
     type: command
     short-summary: "Get offerShiftRequests from teams"
 """
 
-helps['teams list-open-shift'] = """
+helps['teams team-schedule list-open-shift'] = """
     type: command
     short-summary: "Get openShifts from teams"
 """
 
-helps['teams list-open-shift-change-request'] = """
+helps['teams team-schedule list-open-shift-change-request'] = """
     type: command
     short-summary: "Get openShiftChangeRequests from teams"
 """
 
-helps['teams list-scheduling-group'] = """
+helps['teams team-schedule list-scheduling-group'] = """
     type: command
     short-summary: "Get schedulingGroups from teams"
 """
 
-helps['teams list-shift'] = """
+helps['teams team-schedule list-shift'] = """
     type: command
     short-summary: "Get shifts from teams"
 """
 
-helps['teams list-swap-shift-change-request'] = """
+helps['teams team-schedule list-swap-shift-change-request'] = """
     type: command
     short-summary: "Get swapShiftsChangeRequests from teams"
 """
 
-helps['teams list-time-off'] = """
+helps['teams team-schedule list-time-off'] = """
     type: command
     short-summary: "Get timesOff from teams"
 """
 
-helps['teams list-time-off-reason'] = """
+helps['teams team-schedule list-time-off-reason'] = """
     type: command
     short-summary: "Get timeOffReasons from teams"
 """
 
-helps['teams list-time-off-request'] = """
+helps['teams team-schedule list-time-off-request'] = """
     type: command
     short-summary: "Get timeOffRequests from teams"
 """
 
-helps['teams share'] = """
+helps['teams team-schedule share'] = """
     type: command
     short-summary: "Invoke action share"
 """
 
-helps['teams update-offer-shift-request'] = """
+helps['teams team-schedule update-offer-shift-request'] = """
     type: command
     short-summary: "Update the navigation property offerShiftRequests in teams"
 """
 
-helps['teams update-open-shift'] = """
+helps['teams team-schedule update-open-shift'] = """
     type: command
     short-summary: "Update the navigation property openShifts in teams"
     parameters:
@@ -3278,27 +4036,27 @@ their shift. For example, an assignment or a scheduled break or lunch. Required.
             notes: The shift notes for the shiftItem.
 """
 
-helps['teams update-open-shift-change-request'] = """
+helps['teams team-schedule update-open-shift-change-request'] = """
     type: command
     short-summary: "Update the navigation property openShiftChangeRequests in teams"
 """
 
-helps['teams update-scheduling-group'] = """
+helps['teams team-schedule update-scheduling-group'] = """
     type: command
     short-summary: "Update the navigation property schedulingGroups in teams"
 """
 
-helps['teams update-shift'] = """
+helps['teams team-schedule update-shift'] = """
     type: command
     short-summary: "Update the navigation property shifts in teams"
 """
 
-helps['teams update-swap-shift-change-request'] = """
+helps['teams team-schedule update-swap-shift-change-request'] = """
     type: command
     short-summary: "Update the navigation property swapShiftsChangeRequests in teams"
 """
 
-helps['teams update-time-off'] = """
+helps['teams team-schedule update-time-off'] = """
     type: command
     short-summary: "Update the navigation property timesOff in teams"
     parameters:
@@ -3316,42 +4074,42 @@ helps['teams update-time-off'] = """
             time-off-reason-id: ID of the timeOffReason for this timeOffItem. Required.
 """
 
-helps['teams update-time-off-reason'] = """
+helps['teams team-schedule update-time-off-reason'] = """
     type: command
     short-summary: "Update the navigation property timeOffReasons in teams"
 """
 
-helps['teams update-time-off-request'] = """
+helps['teams team-schedule update-time-off-request'] = """
     type: command
     short-summary: "Update the navigation property timeOffRequests in teams"
 """
 
-helps['teams'] = """
+helps['teams teamwork-teamwork'] = """
     type: group
-    short-summary: teams
+    short-summary: teams teamwork-teamwork
 """
 
-helps['teams get-teamwork'] = """
+helps['teams teamwork-teamwork get-teamwork'] = """
     type: command
     short-summary: "Get teamwork"
 """
 
-helps['teams update-teamwork'] = """
+helps['teams teamwork-teamwork update-teamwork'] = """
     type: command
     short-summary: "Update teamwork"
 """
 
-helps['teams'] = """
+helps['teams teamwork'] = """
     type: group
-    short-summary: teams
+    short-summary: teams teamwork
 """
 
-helps['teams delete'] = """
+helps['teams teamwork delete'] = """
     type: command
     short-summary: "Delete navigation property workforceIntegrations for teamwork"
 """
 
-helps['teams create-workforce-integration'] = """
+helps['teams teamwork create-workforce-integration'] = """
     type: command
     short-summary: "Create new navigation property to workforceIntegrations for teamwork"
     parameters:
@@ -3363,17 +4121,17 @@ helps['teams create-workforce-integration'] = """
             secret: Encryption shared secret.
 """
 
-helps['teams get-workforce-integration'] = """
+helps['teams teamwork get-workforce-integration'] = """
     type: command
     short-summary: "Get workforceIntegrations from teamwork"
 """
 
-helps['teams list-workforce-integration'] = """
+helps['teams teamwork list-workforce-integration'] = """
     type: command
     short-summary: "Get workforceIntegrations from teamwork"
 """
 
-helps['teams update-workforce-integration'] = """
+helps['teams teamwork update-workforce-integration'] = """
     type: command
     short-summary: "Update the navigation property workforceIntegrations in teamwork"
     parameters:
@@ -3385,17 +4143,17 @@ helps['teams update-workforce-integration'] = """
             secret: Encryption shared secret.
 """
 
-helps['teams'] = """
+helps['teams user'] = """
     type: group
-    short-summary: teams
+    short-summary: teams user
 """
 
-helps['teams delete'] = """
+helps['teams user delete'] = """
     type: command
     short-summary: "Delete navigation property joinedTeams for users"
 """
 
-helps['teams create-joined-team'] = """
+helps['teams user create-joined-team'] = """
     type: command
     short-summary: "Create new navigation property to joinedTeams for users"
     parameters:
@@ -3832,17 +4590,17 @@ value in a future response, but the items associated with the user won't show up
             Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
 """
 
-helps['teams get-joined-team'] = """
+helps['teams user get-joined-team'] = """
     type: command
     short-summary: "Get joinedTeams from users"
 """
 
-helps['teams list-joined-team'] = """
+helps['teams user list-joined-team'] = """
     type: command
     short-summary: "Get joinedTeams from users"
 """
 
-helps['teams update-joined-team'] = """
+helps['teams user update-joined-team'] = """
     type: command
     short-summary: "Update the navigation property joinedTeams in users"
     parameters:

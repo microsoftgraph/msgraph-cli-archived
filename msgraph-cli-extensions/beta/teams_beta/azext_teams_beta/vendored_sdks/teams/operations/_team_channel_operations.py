@@ -118,7 +118,102 @@ class TeamChannelOperations(object):
         self,
         team_id,  # type: str
         channel_id,  # type: str
-        body,  # type: "models.MicrosoftGraphDriveItem"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        e_tag=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        name=None,  # type: Optional[str]
+        web_url=None,  # type: Optional[str]
+        created_by_user=None,  # type: Optional["models.MicrosoftGraphUser"]
+        last_modified_by_user=None,  # type: Optional["models.MicrosoftGraphUser"]
+        drive_id=None,  # type: Optional[str]
+        drive_type=None,  # type: Optional[str]
+        microsoft_graph_item_reference_id=None,  # type: Optional[str]
+        microsoft_graph_item_reference_name=None,  # type: Optional[str]
+        path=None,  # type: Optional[str]
+        share_id=None,  # type: Optional[str]
+        sharepoint_ids=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        site_id=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        microsoft_graph_identity_id=None,  # type: Optional[str]
+        microsoft_graph_identity_display_name=None,  # type: Optional[str]
+        id1=None,  # type: Optional[str]
+        display_name1=None,  # type: Optional[str]
+        id2=None,  # type: Optional[str]
+        display_name2=None,  # type: Optional[str]
+        id3=None,  # type: Optional[str]
+        display_name3=None,  # type: Optional[str]
+        id4=None,  # type: Optional[str]
+        display_name4=None,  # type: Optional[str]
+        id5=None,  # type: Optional[str]
+        audio=None,  # type: Optional["models.MicrosoftGraphAudio"]
+        content=None,  # type: Optional[bytes]
+        c_tag=None,  # type: Optional[str]
+        file_system_info=None,  # type: Optional["models.MicrosoftGraphFileSystemInfo"]
+        image=None,  # type: Optional["models.MicrosoftGraphImage"]
+        location=None,  # type: Optional["models.MicrosoftGraphGeoCoordinates"]
+        photo=None,  # type: Optional["models.MicrosoftGraphPhoto"]
+        publication=None,  # type: Optional["models.MicrosoftGraphPublicationFacet"]
+        root=None,  # type: Optional[Dict[str, object]]
+        microsoft_graph_sharepoint_ids=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        size=None,  # type: Optional[int]
+        video=None,  # type: Optional["models.MicrosoftGraphVideo"]
+        web_dav_url=None,  # type: Optional[str]
+        activities=None,  # type: Optional[List["models.MicrosoftGraphItemActivityOld"]]
+        children=None,  # type: Optional[List["models.MicrosoftGraphDriveItem"]]
+        list_item=None,  # type: Optional["models.MicrosoftGraphListItem"]
+        permissions=None,  # type: Optional[List["models.MicrosoftGraphPermission"]]
+        subscriptions=None,  # type: Optional[List["models.MicrosoftGraphSubscription"]]
+        thumbnails=None,  # type: Optional[List["models.MicrosoftGraphThumbnailSet"]]
+        versions=None,  # type: Optional[List["models.MicrosoftGraphDriveItemVersion"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        all_time=None,  # type: Optional["models.MicrosoftGraphItemActivityStat"]
+        item_activity_stats=None,  # type: Optional[List["models.MicrosoftGraphItemActivityStat"]]
+        last_seven_days=None,  # type: Optional["models.MicrosoftGraphItemActivityStat"]
+        id6=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphWorkbookApplication"]
+        comments=None,  # type: Optional[List["models.MicrosoftGraphWorkbookComment"]]
+        functions=None,  # type: Optional["models.MicrosoftGraphWorkbookFunctions"]
+        names=None,  # type: Optional[List["models.MicrosoftGraphWorkbookNamedItem"]]
+        operations=None,  # type: Optional[List["models.MicrosoftGraphWorkbookOperation"]]
+        tables=None,  # type: Optional[List["models.MicrosoftGraphWorkbookTable"]]
+        worksheets=None,  # type: Optional[List["models.MicrosoftGraphWorkbookWorksheet"]]
+        microsoft_graph_special_folder_name=None,  # type: Optional[str]
+        owner=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        scope=None,  # type: Optional[str]
+        shared_by=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        shared_date_time=None,  # type: Optional[datetime.datetime]
+        on_click_telemetry_url=None,  # type: Optional[str]
+        created_by=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        microsoft_graph_remote_item_created_date_time_created_date_time=None,  # type: Optional[datetime.datetime]
+        file=None,  # type: Optional["models.MicrosoftGraphFile"]
+        microsoft_graph_file_system_info_file_system_info=None,  # type: Optional["models.MicrosoftGraphFileSystemInfo"]
+        folder=None,  # type: Optional["models.MicrosoftGraphFolder"]
+        microsoft_graph_remote_item_id=None,  # type: Optional[str]
+        microsoft_graph_image=None,  # type: Optional["models.MicrosoftGraphImage"]
+        last_modified_by=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_remote_item_name=None,  # type: Optional[str]
+        package=None,  # type: Optional["models.MicrosoftGraphPackage"]
+        parent_reference=None,  # type: Optional["models.MicrosoftGraphItemReference"]
+        shared=None,  # type: Optional["models.MicrosoftGraphShared"]
+        sharepoint_ids1=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        integer_size=None,  # type: Optional[int]
+        special_folder=None,  # type: Optional["models.MicrosoftGraphSpecialFolder"]
+        microsoft_graph_video=None,  # type: Optional["models.MicrosoftGraphVideo"]
+        microsoft_graph_remote_item_web_dav_url_web_dav_url=None,  # type: Optional[str]
+        microsoft_graph_remote_item_web_url=None,  # type: Optional[str]
+        queued_date_time=None,  # type: Optional[datetime.datetime]
+        type=None,  # type: Optional[str]
+        child_count=None,  # type: Optional[int]
+        view=None,  # type: Optional["models.MicrosoftGraphFolderView"]
+        hashes=None,  # type: Optional["models.MicrosoftGraphHashes"]
+        mime_type=None,  # type: Optional[str]
+        processing_metadata=None,  # type: Optional[bool]
+        state=None,  # type: Optional[str]
+        album=None,  # type: Optional["models.MicrosoftGraphAlbum"]
+        integer_child_count=None,  # type: Optional[int]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -130,8 +225,239 @@ class TeamChannelOperations(object):
         :type team_id: str
         :param channel_id: key: id of channel.
         :type channel_id: str
-        :param body: New navigation property values.
-        :type body: ~teams.models.MicrosoftGraphDriveItem
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: Date and time of item creation. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param description: Provides a user-visible description of the item. Optional.
+        :type description: str
+        :param e_tag: ETag for the item. Read-only.
+        :type e_tag: str
+        :param last_modified_date_time: Date and time the item was last modified. Read-only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param name: The name of the item. Read-write.
+        :type name: str
+        :param web_url: URL that displays the resource in the browser. Read-only.
+        :type web_url: str
+        :param created_by_user: Represents an Azure Active Directory user object.
+        :type created_by_user: ~teams.models.MicrosoftGraphUser
+        :param last_modified_by_user: Represents an Azure Active Directory user object.
+        :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
+        :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
+        :type drive_id: str
+        :param drive_type: Identifies the type of drive. See [drive][] resource for values.
+        :type drive_type: str
+        :param microsoft_graph_item_reference_id: Unique identifier of the item in the drive. Read-
+         only.
+        :type microsoft_graph_item_reference_id: str
+        :param microsoft_graph_item_reference_name: The name of the item being referenced. Read-only.
+        :type microsoft_graph_item_reference_name: str
+        :param path: Path that can be used to navigate to the item. Read-only.
+        :type path: str
+        :param share_id: A unique identifier for a shared resource that can be accessed via the
+         [Shares][] API.
+        :type share_id: str
+        :param sharepoint_ids: sharepointIds.
+        :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
+        :param site_id:
+        :type site_id: str
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
+        :param audio: audio.
+        :type audio: ~teams.models.MicrosoftGraphAudio
+        :param content: The content stream, if the item represents a file.
+        :type content: bytes
+        :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
+         metadata is changed. Note This property is not returned if the item is a folder. Read-only.
+        :type c_tag: str
+        :param file_system_info: fileSystemInfo.
+        :type file_system_info: ~teams.models.MicrosoftGraphFileSystemInfo
+        :param image: image.
+        :type image: ~teams.models.MicrosoftGraphImage
+        :param location: geoCoordinates.
+        :type location: ~teams.models.MicrosoftGraphGeoCoordinates
+        :param photo: photo.
+        :type photo: ~teams.models.MicrosoftGraphPhoto
+        :param publication: publicationFacet.
+        :type publication: ~teams.models.MicrosoftGraphPublicationFacet
+        :param root: root.
+        :type root: dict[str, object]
+        :param microsoft_graph_sharepoint_ids: sharepointIds.
+        :type microsoft_graph_sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
+        :param size: Size of the item in bytes. Read-only.
+        :type size: long
+        :param video: video.
+        :type video: ~teams.models.MicrosoftGraphVideo
+        :param web_dav_url: WebDAV compatible URL for the item.
+        :type web_dav_url: str
+        :param activities: The list of recent activities that took place on this item.
+        :type activities: list[~teams.models.MicrosoftGraphItemActivityOld]
+        :param children: Collection containing Item objects for the immediate children of Item. Only
+         items representing folders have children. Read-only. Nullable.
+        :type children: list[~teams.models.MicrosoftGraphDriveItem]
+        :param list_item: listItem.
+        :type list_item: ~teams.models.MicrosoftGraphListItem
+        :param permissions: The set of permissions for the item. Read-only. Nullable.
+        :type permissions: list[~teams.models.MicrosoftGraphPermission]
+        :param subscriptions: The set of subscriptions on the item. Only supported on the root of a
+         drive.
+        :type subscriptions: list[~teams.models.MicrosoftGraphSubscription]
+        :param thumbnails: Collection containing [ThumbnailSet][] objects associated with the item. For
+         more info, see [getting thumbnails][]. Read-only. Nullable.
+        :type thumbnails: list[~teams.models.MicrosoftGraphThumbnailSet]
+        :param versions: The list of previous versions of the item. For more info, see [getting
+         previous versions][]. Read-only. Nullable.
+        :type versions: list[~teams.models.MicrosoftGraphDriveItemVersion]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param all_time: itemActivityStat.
+        :type all_time: ~teams.models.MicrosoftGraphItemActivityStat
+        :param item_activity_stats:
+        :type item_activity_stats: list[~teams.models.MicrosoftGraphItemActivityStat]
+        :param last_seven_days: itemActivityStat.
+        :type last_seven_days: ~teams.models.MicrosoftGraphItemActivityStat
+        :param id6: Read-only.
+        :type id6: str
+        :param application: workbookApplication.
+        :type application: ~teams.models.MicrosoftGraphWorkbookApplication
+        :param comments:
+        :type comments: list[~teams.models.MicrosoftGraphWorkbookComment]
+        :param functions: workbookFunctions.
+        :type functions: ~teams.models.MicrosoftGraphWorkbookFunctions
+        :param names: Represents a collection of workbook scoped named items (named ranges and
+         constants). Read-only.
+        :type names: list[~teams.models.MicrosoftGraphWorkbookNamedItem]
+        :param operations: The status of workbook operations. Getting an operation collection is not
+         supported, but you can get the status of a long-running operation if the Location header is
+         returned in the response. Read-only.
+        :type operations: list[~teams.models.MicrosoftGraphWorkbookOperation]
+        :param tables: Represents a collection of tables associated with the workbook. Read-only.
+        :type tables: list[~teams.models.MicrosoftGraphWorkbookTable]
+        :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
+         only.
+        :type worksheets: list[~teams.models.MicrosoftGraphWorkbookWorksheet]
+        :param microsoft_graph_special_folder_name: The unique identifier for this item in the
+         /drive/special collection.
+        :type microsoft_graph_special_folder_name: str
+        :param owner: identitySet.
+        :type owner: ~teams.models.MicrosoftGraphIdentitySet
+        :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
+         Read-only.
+        :type scope: str
+        :param shared_by: identitySet.
+        :type shared_by: ~teams.models.MicrosoftGraphIdentitySet
+        :param shared_date_time: The UTC date and time when the item was shared. Read-only.
+        :type shared_date_time: ~datetime.datetime
+        :param on_click_telemetry_url: A callback URL that can be used to record telemetry information.
+         The application should issue a GET on this URL if the user interacts with this item to improve
+         the quality of results.
+        :type on_click_telemetry_url: str
+        :param created_by: identitySet.
+        :type created_by: ~teams.models.MicrosoftGraphIdentitySet
+        :param microsoft_graph_remote_item_created_date_time_created_date_time: Date and time of item
+         creation. Read-only.
+        :type microsoft_graph_remote_item_created_date_time_created_date_time: ~datetime.datetime
+        :param file: file.
+        :type file: ~teams.models.MicrosoftGraphFile
+        :param microsoft_graph_file_system_info_file_system_info: fileSystemInfo.
+        :type microsoft_graph_file_system_info_file_system_info: ~teams.models.MicrosoftGraphFileSystemInfo
+        :param folder: folder.
+        :type folder: ~teams.models.MicrosoftGraphFolder
+        :param microsoft_graph_remote_item_id: Unique identifier for the remote item in its drive.
+         Read-only.
+        :type microsoft_graph_remote_item_id: str
+        :param microsoft_graph_image: image.
+        :type microsoft_graph_image: ~teams.models.MicrosoftGraphImage
+        :param last_modified_by: identitySet.
+        :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
+        :param microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time: Date and
+         time the item was last modified. Read-only.
+        :type microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_remote_item_name: Optional. Filename of the remote item. Read-only.
+        :type microsoft_graph_remote_item_name: str
+        :param package: package.
+        :type package: ~teams.models.MicrosoftGraphPackage
+        :param parent_reference: itemReference.
+        :type parent_reference: ~teams.models.MicrosoftGraphItemReference
+        :param shared: shared.
+        :type shared: ~teams.models.MicrosoftGraphShared
+        :param sharepoint_ids1: sharepointIds.
+        :type sharepoint_ids1: ~teams.models.MicrosoftGraphSharepointIds
+        :param integer_size: Size of the remote item. Read-only.
+        :type integer_size: long
+        :param special_folder: specialFolder.
+        :type special_folder: ~teams.models.MicrosoftGraphSpecialFolder
+        :param microsoft_graph_video: video.
+        :type microsoft_graph_video: ~teams.models.MicrosoftGraphVideo
+        :param microsoft_graph_remote_item_web_dav_url_web_dav_url: DAV compatible URL for the item.
+        :type microsoft_graph_remote_item_web_dav_url_web_dav_url: str
+        :param microsoft_graph_remote_item_web_url: URL that displays the resource in the browser.
+         Read-only.
+        :type microsoft_graph_remote_item_web_url: str
+        :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
+         Read-only.
+        :type queued_date_time: ~datetime.datetime
+        :param type: A string indicating the type of package. While oneNote is the only currently
+         defined value, you should expect other package types to be returned and handle them
+         accordingly.
+        :type type: str
+        :param child_count: Number of children contained immediately within this container.
+        :type child_count: int
+        :param view: folderView.
+        :type view: ~teams.models.MicrosoftGraphFolderView
+        :param hashes: hashes.
+        :type hashes: ~teams.models.MicrosoftGraphHashes
+        :param mime_type: The MIME type for the file. This is determined by logic on the server and
+         might not be the value provided when the file was uploaded. Read-only.
+        :type mime_type: str
+        :param processing_metadata:
+        :type processing_metadata: bool
+        :param state: Represents the state of the deleted item.
+        :type state: str
+        :param album: album.
+        :type album: ~teams.models.MicrosoftGraphAlbum
+        :param integer_child_count:
+        :type integer_child_count: int
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -140,6 +466,8 @@ class TeamChannelOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDriveItem(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=microsoft_graph_item_reference_id, name_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, audio=audio, content=content, c_tag=c_tag, file_system_info=file_system_info, image=image, location=location, photo=photo, publication=publication, root=root, sharepoint_ids=microsoft_graph_sharepoint_ids, size=size, video=video, web_dav_url=web_dav_url, activities=activities, children=children, list_item=list_item, permissions=permissions, subscriptions=subscriptions, thumbnails=thumbnails, versions=versions, id_analytics_id=microsoft_graph_entity_id, all_time=all_time, item_activity_stats=item_activity_stats, last_seven_days=last_seven_days, id_workbook_id=id6, application=application, comments=comments, functions=functions, names=names, operations=operations, tables=tables, worksheets=worksheets, name_special_folder_name=microsoft_graph_special_folder_name, owner=owner, scope=scope, shared_by=shared_by, shared_date_time=shared_date_time, on_click_telemetry_url=on_click_telemetry_url, created_by=created_by, created_date_time_remote_item_created_date_time=microsoft_graph_remote_item_created_date_time_created_date_time, file=file, file_system_info_remote_item_file_system_info=microsoft_graph_file_system_info_file_system_info, folder=folder, id_remote_item_id=microsoft_graph_remote_item_id, image_remote_item_image=microsoft_graph_image, last_modified_by=last_modified_by, last_modified_date_time_remote_item_last_modified_date_time=microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time, name_remote_item_name=microsoft_graph_remote_item_name, package=package, parent_reference=parent_reference, shared=shared, sharepoint_ids_remote_item_sharepoint_ids=sharepoint_ids1, size_remote_item_size=integer_size, special_folder=special_folder, video_remote_item_video=microsoft_graph_video, web_dav_url_remote_item_web_dav_url=microsoft_graph_remote_item_web_dav_url_web_dav_url, web_url_remote_item_web_url=microsoft_graph_remote_item_web_url, queued_date_time=queued_date_time, type=type, child_count_folder_child_count=child_count, view=view, hashes=hashes, mime_type=mime_type, processing_metadata=processing_metadata, state=state, album=album, child_count_bundle_child_count=integer_child_count)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -160,7 +488,7 @@ class TeamChannelOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

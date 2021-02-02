@@ -754,7 +754,56 @@ class UserOperations(object):
     def create_managed_device(
         self,
         user_id,  # type: str
-        body,  # type: "models.MicrosoftGraphManagedDevice"
+        id=None,  # type: Optional[str]
+        activation_lock_bypass_code=None,  # type: Optional[str]
+        android_security_patch_level=None,  # type: Optional[str]
+        azure_ad_device_id=None,  # type: Optional[str]
+        azure_ad_registered=None,  # type: Optional[bool]
+        compliance_grace_period_expiration_date_time=None,  # type: Optional[datetime.datetime]
+        compliance_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphComplianceState"]]
+        configuration_manager_client_enabled_features=None,  # type: Optional["models.MicrosoftGraphConfigurationManagerClientEnabledFeatures"]
+        device_action_results=None,  # type: Optional[List["models.MicrosoftGraphDeviceActionResult"]]
+        device_category_display_name=None,  # type: Optional[str]
+        device_enrollment_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceEnrollmentType"]]
+        device_health_attestation_state=None,  # type: Optional["models.MicrosoftGraphDeviceHealthAttestationState"]
+        device_name=None,  # type: Optional[str]
+        device_registration_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceRegistrationState"]]
+        eas_activated=None,  # type: Optional[bool]
+        eas_activation_date_time=None,  # type: Optional[datetime.datetime]
+        eas_device_id=None,  # type: Optional[str]
+        email_address=None,  # type: Optional[str]
+        enrolled_date_time=None,  # type: Optional[datetime.datetime]
+        exchange_access_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceManagementExchangeAccessState"]]
+        exchange_access_state_reason=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceManagementExchangeAccessStateReason"]]
+        exchange_last_successful_sync_date_time=None,  # type: Optional[datetime.datetime]
+        free_storage_space_in_bytes=None,  # type: Optional[int]
+        imei=None,  # type: Optional[str]
+        is_encrypted=None,  # type: Optional[bool]
+        is_supervised=None,  # type: Optional[bool]
+        jail_broken=None,  # type: Optional[str]
+        last_sync_date_time=None,  # type: Optional[datetime.datetime]
+        managed_device_name=None,  # type: Optional[str]
+        managed_device_owner_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedDeviceOwnerType"]]
+        management_agent=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagementAgentType"]]
+        manufacturer=None,  # type: Optional[str]
+        meid=None,  # type: Optional[str]
+        model=None,  # type: Optional[str]
+        operating_system=None,  # type: Optional[str]
+        os_version=None,  # type: Optional[str]
+        partner_reported_threat_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedDevicePartnerReportedHealthState"]]
+        phone_number=None,  # type: Optional[str]
+        remote_assistance_session_error_details=None,  # type: Optional[str]
+        remote_assistance_session_url=None,  # type: Optional[str]
+        serial_number=None,  # type: Optional[str]
+        subscriber_carrier=None,  # type: Optional[str]
+        total_storage_space_in_bytes=None,  # type: Optional[int]
+        user_display_name=None,  # type: Optional[str]
+        microsoft_graph_managed_device_user_id=None,  # type: Optional[str]
+        user_principal_name=None,  # type: Optional[str]
+        wi_fi_mac_address=None,  # type: Optional[str]
+        device_compliance_policy_states=None,  # type: Optional[List["models.MicrosoftGraphDeviceCompliancePolicyState"]]
+        device_configuration_states=None,  # type: Optional[List["models.MicrosoftGraphDeviceConfigurationState"]]
+        device_category=None,  # type: Optional["models.MicrosoftGraphDeviceCategory"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphManagedDevice"
@@ -764,8 +813,119 @@ class UserOperations(object):
 
         :param user_id: key: id of user.
         :type user_id: str
-        :param body: New navigation property.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
+        :param id: Read-only.
+        :type id: str
+        :param activation_lock_bypass_code: Code that allows the Activation Lock on a device to be
+         bypassed.
+        :type activation_lock_bypass_code: str
+        :param android_security_patch_level: Android security patch level.
+        :type android_security_patch_level: str
+        :param azure_ad_device_id: The unique identifier for the Azure Active Directory device. Read
+         only.
+        :type azure_ad_device_id: str
+        :param azure_ad_registered: Whether the device is Azure Active Directory registered.
+        :type azure_ad_registered: bool
+        :param compliance_grace_period_expiration_date_time: The DateTime when device compliance grace
+         period expires.
+        :type compliance_grace_period_expiration_date_time: ~datetime.datetime
+        :param compliance_state:
+        :type compliance_state: str or ~devices_corporate_management.models.MicrosoftGraphComplianceState
+        :param configuration_manager_client_enabled_features: configuration Manager client enabled
+         features.
+        :type configuration_manager_client_enabled_features: ~devices_corporate_management.models.MicrosoftGraphConfigurationManagerClientEnabledFeatures
+        :param device_action_results: List of ComplexType deviceActionResult objects.
+        :type device_action_results: list[~devices_corporate_management.models.MicrosoftGraphDeviceActionResult]
+        :param device_category_display_name: Device category display name.
+        :type device_category_display_name: str
+        :param device_enrollment_type:
+        :type device_enrollment_type: str or ~devices_corporate_management.models.MicrosoftGraphDeviceEnrollmentType
+        :param device_health_attestation_state: deviceHealthAttestationState.
+        :type device_health_attestation_state: ~devices_corporate_management.models.MicrosoftGraphDeviceHealthAttestationState
+        :param device_name: Name of the device.
+        :type device_name: str
+        :param device_registration_state:
+        :type device_registration_state: str or ~devices_corporate_management.models.MicrosoftGraphDeviceRegistrationState
+        :param eas_activated: Whether the device is Exchange ActiveSync activated.
+        :type eas_activated: bool
+        :param eas_activation_date_time: Exchange ActivationSync activation time of the device.
+        :type eas_activation_date_time: ~datetime.datetime
+        :param eas_device_id: Exchange ActiveSync Id of the device.
+        :type eas_device_id: str
+        :param email_address: Email(s) for the user associated with the device.
+        :type email_address: str
+        :param enrolled_date_time: Enrollment time of the device.
+        :type enrolled_date_time: ~datetime.datetime
+        :param exchange_access_state:
+        :type exchange_access_state: str or ~devices_corporate_management.models.MicrosoftGraphDeviceManagementExchangeAccessState
+        :param exchange_access_state_reason:
+        :type exchange_access_state_reason: str or ~devices_corporate_management.models.MicrosoftGraphDeviceManagementExchangeAccessStateReason
+        :param exchange_last_successful_sync_date_time: Last time the device contacted Exchange.
+        :type exchange_last_successful_sync_date_time: ~datetime.datetime
+        :param free_storage_space_in_bytes: Free Storage in Bytes.
+        :type free_storage_space_in_bytes: long
+        :param imei: IMEI.
+        :type imei: str
+        :param is_encrypted: Device encryption status.
+        :type is_encrypted: bool
+        :param is_supervised: Device supervised status.
+        :type is_supervised: bool
+        :param jail_broken: whether the device is jail broken or rooted.
+        :type jail_broken: str
+        :param last_sync_date_time: The date and time that the device last completed a successful sync
+         with Intune.
+        :type last_sync_date_time: ~datetime.datetime
+        :param managed_device_name: Automatically generated name to identify a device. Can be
+         overwritten to a user friendly name.
+        :type managed_device_name: str
+        :param managed_device_owner_type:
+        :type managed_device_owner_type: str or ~devices_corporate_management.models.MicrosoftGraphManagedDeviceOwnerType
+        :param management_agent:
+        :type management_agent: str or ~devices_corporate_management.models.MicrosoftGraphManagementAgentType
+        :param manufacturer: Manufacturer of the device.
+        :type manufacturer: str
+        :param meid: MEID.
+        :type meid: str
+        :param model: Model of the device.
+        :type model: str
+        :param operating_system: Operating system of the device. Windows, iOS, etc.
+        :type operating_system: str
+        :param os_version: Operating system version of the device.
+        :type os_version: str
+        :param partner_reported_threat_state:
+        :type partner_reported_threat_state: str or ~devices_corporate_management.models.MicrosoftGraphManagedDevicePartnerReportedHealthState
+        :param phone_number: Phone number of the device.
+        :type phone_number: str
+        :param remote_assistance_session_error_details: An error string that identifies issues when
+         creating Remote Assistance session objects.
+        :type remote_assistance_session_error_details: str
+        :param remote_assistance_session_url: Url that allows a Remote Assistance session to be
+         established with the device.
+        :type remote_assistance_session_url: str
+        :param serial_number: SerialNumber.
+        :type serial_number: str
+        :param subscriber_carrier: Subscriber Carrier.
+        :type subscriber_carrier: str
+        :param total_storage_space_in_bytes: Total Storage in Bytes.
+        :type total_storage_space_in_bytes: long
+        :param user_display_name: User display name.
+        :type user_display_name: str
+        :param microsoft_graph_managed_device_user_id: Unique Identifier for the user associated with
+         the device.
+        :type microsoft_graph_managed_device_user_id: str
+        :param user_principal_name: Device user principal name.
+        :type user_principal_name: str
+        :param wi_fi_mac_address: Wi-Fi MAC.
+        :type wi_fi_mac_address: str
+        :param device_compliance_policy_states: Device compliance policy states for this device.
+        :type device_compliance_policy_states: list[~devices_corporate_management.models.MicrosoftGraphDeviceCompliancePolicyState]
+        :param device_configuration_states: Device configuration states for this device.
+        :type device_configuration_states: list[~devices_corporate_management.models.MicrosoftGraphDeviceConfigurationState]
+        :param device_category: Device categories provides a way to organize your devices. Using device
+         categories, company administrators can define their own categories that make sense to their
+         company. These categories can then be applied to a device in the Intune Azure console or
+         selected by a user during device enrollment. You can filter reports and create dynamic Azure
+         Active Directory device groups based on device categories.
+        :type device_category: ~devices_corporate_management.models.MicrosoftGraphDeviceCategory
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphManagedDevice, or the result of cls(response)
         :rtype: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
@@ -774,6 +934,8 @@ class UserOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDevice"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphManagedDevice(id=id, activation_lock_bypass_code=activation_lock_bypass_code, android_security_patch_level=android_security_patch_level, azure_ad_device_id=azure_ad_device_id, azure_ad_registered=azure_ad_registered, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, compliance_state=compliance_state, configuration_manager_client_enabled_features=configuration_manager_client_enabled_features, device_action_results=device_action_results, device_category_display_name=device_category_display_name, device_enrollment_type=device_enrollment_type, device_health_attestation_state=device_health_attestation_state, device_name=device_name, device_registration_state=device_registration_state, eas_activated=eas_activated, eas_activation_date_time=eas_activation_date_time, eas_device_id=eas_device_id, email_address=email_address, enrolled_date_time=enrolled_date_time, exchange_access_state=exchange_access_state, exchange_access_state_reason=exchange_access_state_reason, exchange_last_successful_sync_date_time=exchange_last_successful_sync_date_time, free_storage_space_in_bytes=free_storage_space_in_bytes, imei=imei, is_encrypted=is_encrypted, is_supervised=is_supervised, jail_broken=jail_broken, last_sync_date_time=last_sync_date_time, managed_device_name=managed_device_name, managed_device_owner_type=managed_device_owner_type, management_agent=management_agent, manufacturer=manufacturer, meid=meid, model=model, operating_system=operating_system, os_version=os_version, partner_reported_threat_state=partner_reported_threat_state, phone_number=phone_number, remote_assistance_session_error_details=remote_assistance_session_error_details, remote_assistance_session_url=remote_assistance_session_url, serial_number=serial_number, subscriber_carrier=subscriber_carrier, total_storage_space_in_bytes=total_storage_space_in_bytes, user_display_name=user_display_name, user_id=microsoft_graph_managed_device_user_id, user_principal_name=user_principal_name, wi_fi_mac_address=wi_fi_mac_address, device_compliance_policy_states=device_compliance_policy_states, device_configuration_states=device_configuration_states, device_category=device_category)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -794,7 +956,7 @@ class UserOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDevice')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -886,7 +1048,56 @@ class UserOperations(object):
         self,
         user_id,  # type: str
         managed_device_id,  # type: str
-        body,  # type: "models.MicrosoftGraphManagedDevice"
+        id=None,  # type: Optional[str]
+        activation_lock_bypass_code=None,  # type: Optional[str]
+        android_security_patch_level=None,  # type: Optional[str]
+        azure_ad_device_id=None,  # type: Optional[str]
+        azure_ad_registered=None,  # type: Optional[bool]
+        compliance_grace_period_expiration_date_time=None,  # type: Optional[datetime.datetime]
+        compliance_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphComplianceState"]]
+        configuration_manager_client_enabled_features=None,  # type: Optional["models.MicrosoftGraphConfigurationManagerClientEnabledFeatures"]
+        device_action_results=None,  # type: Optional[List["models.MicrosoftGraphDeviceActionResult"]]
+        device_category_display_name=None,  # type: Optional[str]
+        device_enrollment_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceEnrollmentType"]]
+        device_health_attestation_state=None,  # type: Optional["models.MicrosoftGraphDeviceHealthAttestationState"]
+        device_name=None,  # type: Optional[str]
+        device_registration_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceRegistrationState"]]
+        eas_activated=None,  # type: Optional[bool]
+        eas_activation_date_time=None,  # type: Optional[datetime.datetime]
+        eas_device_id=None,  # type: Optional[str]
+        email_address=None,  # type: Optional[str]
+        enrolled_date_time=None,  # type: Optional[datetime.datetime]
+        exchange_access_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceManagementExchangeAccessState"]]
+        exchange_access_state_reason=None,  # type: Optional[Union[str, "models.MicrosoftGraphDeviceManagementExchangeAccessStateReason"]]
+        exchange_last_successful_sync_date_time=None,  # type: Optional[datetime.datetime]
+        free_storage_space_in_bytes=None,  # type: Optional[int]
+        imei=None,  # type: Optional[str]
+        is_encrypted=None,  # type: Optional[bool]
+        is_supervised=None,  # type: Optional[bool]
+        jail_broken=None,  # type: Optional[str]
+        last_sync_date_time=None,  # type: Optional[datetime.datetime]
+        managed_device_name=None,  # type: Optional[str]
+        managed_device_owner_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedDeviceOwnerType"]]
+        management_agent=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagementAgentType"]]
+        manufacturer=None,  # type: Optional[str]
+        meid=None,  # type: Optional[str]
+        model=None,  # type: Optional[str]
+        operating_system=None,  # type: Optional[str]
+        os_version=None,  # type: Optional[str]
+        partner_reported_threat_state=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedDevicePartnerReportedHealthState"]]
+        phone_number=None,  # type: Optional[str]
+        remote_assistance_session_error_details=None,  # type: Optional[str]
+        remote_assistance_session_url=None,  # type: Optional[str]
+        serial_number=None,  # type: Optional[str]
+        subscriber_carrier=None,  # type: Optional[str]
+        total_storage_space_in_bytes=None,  # type: Optional[int]
+        user_display_name=None,  # type: Optional[str]
+        microsoft_graph_managed_device_user_id=None,  # type: Optional[str]
+        user_principal_name=None,  # type: Optional[str]
+        wi_fi_mac_address=None,  # type: Optional[str]
+        device_compliance_policy_states=None,  # type: Optional[List["models.MicrosoftGraphDeviceCompliancePolicyState"]]
+        device_configuration_states=None,  # type: Optional[List["models.MicrosoftGraphDeviceConfigurationState"]]
+        device_category=None,  # type: Optional["models.MicrosoftGraphDeviceCategory"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -898,8 +1109,119 @@ class UserOperations(object):
         :type user_id: str
         :param managed_device_id: key: id of managedDevice.
         :type managed_device_id: str
-        :param body: New navigation property values.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
+        :param id: Read-only.
+        :type id: str
+        :param activation_lock_bypass_code: Code that allows the Activation Lock on a device to be
+         bypassed.
+        :type activation_lock_bypass_code: str
+        :param android_security_patch_level: Android security patch level.
+        :type android_security_patch_level: str
+        :param azure_ad_device_id: The unique identifier for the Azure Active Directory device. Read
+         only.
+        :type azure_ad_device_id: str
+        :param azure_ad_registered: Whether the device is Azure Active Directory registered.
+        :type azure_ad_registered: bool
+        :param compliance_grace_period_expiration_date_time: The DateTime when device compliance grace
+         period expires.
+        :type compliance_grace_period_expiration_date_time: ~datetime.datetime
+        :param compliance_state:
+        :type compliance_state: str or ~devices_corporate_management.models.MicrosoftGraphComplianceState
+        :param configuration_manager_client_enabled_features: configuration Manager client enabled
+         features.
+        :type configuration_manager_client_enabled_features: ~devices_corporate_management.models.MicrosoftGraphConfigurationManagerClientEnabledFeatures
+        :param device_action_results: List of ComplexType deviceActionResult objects.
+        :type device_action_results: list[~devices_corporate_management.models.MicrosoftGraphDeviceActionResult]
+        :param device_category_display_name: Device category display name.
+        :type device_category_display_name: str
+        :param device_enrollment_type:
+        :type device_enrollment_type: str or ~devices_corporate_management.models.MicrosoftGraphDeviceEnrollmentType
+        :param device_health_attestation_state: deviceHealthAttestationState.
+        :type device_health_attestation_state: ~devices_corporate_management.models.MicrosoftGraphDeviceHealthAttestationState
+        :param device_name: Name of the device.
+        :type device_name: str
+        :param device_registration_state:
+        :type device_registration_state: str or ~devices_corporate_management.models.MicrosoftGraphDeviceRegistrationState
+        :param eas_activated: Whether the device is Exchange ActiveSync activated.
+        :type eas_activated: bool
+        :param eas_activation_date_time: Exchange ActivationSync activation time of the device.
+        :type eas_activation_date_time: ~datetime.datetime
+        :param eas_device_id: Exchange ActiveSync Id of the device.
+        :type eas_device_id: str
+        :param email_address: Email(s) for the user associated with the device.
+        :type email_address: str
+        :param enrolled_date_time: Enrollment time of the device.
+        :type enrolled_date_time: ~datetime.datetime
+        :param exchange_access_state:
+        :type exchange_access_state: str or ~devices_corporate_management.models.MicrosoftGraphDeviceManagementExchangeAccessState
+        :param exchange_access_state_reason:
+        :type exchange_access_state_reason: str or ~devices_corporate_management.models.MicrosoftGraphDeviceManagementExchangeAccessStateReason
+        :param exchange_last_successful_sync_date_time: Last time the device contacted Exchange.
+        :type exchange_last_successful_sync_date_time: ~datetime.datetime
+        :param free_storage_space_in_bytes: Free Storage in Bytes.
+        :type free_storage_space_in_bytes: long
+        :param imei: IMEI.
+        :type imei: str
+        :param is_encrypted: Device encryption status.
+        :type is_encrypted: bool
+        :param is_supervised: Device supervised status.
+        :type is_supervised: bool
+        :param jail_broken: whether the device is jail broken or rooted.
+        :type jail_broken: str
+        :param last_sync_date_time: The date and time that the device last completed a successful sync
+         with Intune.
+        :type last_sync_date_time: ~datetime.datetime
+        :param managed_device_name: Automatically generated name to identify a device. Can be
+         overwritten to a user friendly name.
+        :type managed_device_name: str
+        :param managed_device_owner_type:
+        :type managed_device_owner_type: str or ~devices_corporate_management.models.MicrosoftGraphManagedDeviceOwnerType
+        :param management_agent:
+        :type management_agent: str or ~devices_corporate_management.models.MicrosoftGraphManagementAgentType
+        :param manufacturer: Manufacturer of the device.
+        :type manufacturer: str
+        :param meid: MEID.
+        :type meid: str
+        :param model: Model of the device.
+        :type model: str
+        :param operating_system: Operating system of the device. Windows, iOS, etc.
+        :type operating_system: str
+        :param os_version: Operating system version of the device.
+        :type os_version: str
+        :param partner_reported_threat_state:
+        :type partner_reported_threat_state: str or ~devices_corporate_management.models.MicrosoftGraphManagedDevicePartnerReportedHealthState
+        :param phone_number: Phone number of the device.
+        :type phone_number: str
+        :param remote_assistance_session_error_details: An error string that identifies issues when
+         creating Remote Assistance session objects.
+        :type remote_assistance_session_error_details: str
+        :param remote_assistance_session_url: Url that allows a Remote Assistance session to be
+         established with the device.
+        :type remote_assistance_session_url: str
+        :param serial_number: SerialNumber.
+        :type serial_number: str
+        :param subscriber_carrier: Subscriber Carrier.
+        :type subscriber_carrier: str
+        :param total_storage_space_in_bytes: Total Storage in Bytes.
+        :type total_storage_space_in_bytes: long
+        :param user_display_name: User display name.
+        :type user_display_name: str
+        :param microsoft_graph_managed_device_user_id: Unique Identifier for the user associated with
+         the device.
+        :type microsoft_graph_managed_device_user_id: str
+        :param user_principal_name: Device user principal name.
+        :type user_principal_name: str
+        :param wi_fi_mac_address: Wi-Fi MAC.
+        :type wi_fi_mac_address: str
+        :param device_compliance_policy_states: Device compliance policy states for this device.
+        :type device_compliance_policy_states: list[~devices_corporate_management.models.MicrosoftGraphDeviceCompliancePolicyState]
+        :param device_configuration_states: Device configuration states for this device.
+        :type device_configuration_states: list[~devices_corporate_management.models.MicrosoftGraphDeviceConfigurationState]
+        :param device_category: Device categories provides a way to organize your devices. Using device
+         categories, company administrators can define their own categories that make sense to their
+         company. These categories can then be applied to a device in the Intune Azure console or
+         selected by a user during device enrollment. You can filter reports and create dynamic Azure
+         Active Directory device groups based on device categories.
+        :type device_category: ~devices_corporate_management.models.MicrosoftGraphDeviceCategory
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -908,6 +1230,8 @@ class UserOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphManagedDevice(id=id, activation_lock_bypass_code=activation_lock_bypass_code, android_security_patch_level=android_security_patch_level, azure_ad_device_id=azure_ad_device_id, azure_ad_registered=azure_ad_registered, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, compliance_state=compliance_state, configuration_manager_client_enabled_features=configuration_manager_client_enabled_features, device_action_results=device_action_results, device_category_display_name=device_category_display_name, device_enrollment_type=device_enrollment_type, device_health_attestation_state=device_health_attestation_state, device_name=device_name, device_registration_state=device_registration_state, eas_activated=eas_activated, eas_activation_date_time=eas_activation_date_time, eas_device_id=eas_device_id, email_address=email_address, enrolled_date_time=enrolled_date_time, exchange_access_state=exchange_access_state, exchange_access_state_reason=exchange_access_state_reason, exchange_last_successful_sync_date_time=exchange_last_successful_sync_date_time, free_storage_space_in_bytes=free_storage_space_in_bytes, imei=imei, is_encrypted=is_encrypted, is_supervised=is_supervised, jail_broken=jail_broken, last_sync_date_time=last_sync_date_time, managed_device_name=managed_device_name, managed_device_owner_type=managed_device_owner_type, management_agent=management_agent, manufacturer=manufacturer, meid=meid, model=model, operating_system=operating_system, os_version=os_version, partner_reported_threat_state=partner_reported_threat_state, phone_number=phone_number, remote_assistance_session_error_details=remote_assistance_session_error_details, remote_assistance_session_url=remote_assistance_session_url, serial_number=serial_number, subscriber_carrier=subscriber_carrier, total_storage_space_in_bytes=total_storage_space_in_bytes, user_display_name=user_display_name, user_id=microsoft_graph_managed_device_user_id, user_principal_name=user_principal_name, wi_fi_mac_address=wi_fi_mac_address, device_compliance_policy_states=device_compliance_policy_states, device_configuration_states=device_configuration_states, device_category=device_category)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -928,7 +1252,7 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDevice')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

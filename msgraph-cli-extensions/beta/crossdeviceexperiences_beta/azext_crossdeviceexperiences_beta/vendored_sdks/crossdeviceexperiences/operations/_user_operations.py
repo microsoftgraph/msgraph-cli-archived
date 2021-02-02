@@ -646,7 +646,47 @@ class UserOperations(object):
     def create_device(
         self,
         user_id,  # type: str
-        body,  # type: "models.MicrosoftGraphDevice"
+        id=None,  # type: Optional[str]
+        deleted_date_time=None,  # type: Optional[datetime.datetime]
+        account_enabled=None,  # type: Optional[bool]
+        alternative_security_ids=None,  # type: Optional[List["models.MicrosoftGraphAlternativeSecurityId"]]
+        approximate_last_sign_in_date_time=None,  # type: Optional[datetime.datetime]
+        compliance_expiration_date_time=None,  # type: Optional[datetime.datetime]
+        device_category=None,  # type: Optional[str]
+        device_id=None,  # type: Optional[str]
+        device_metadata=None,  # type: Optional[str]
+        device_ownership=None,  # type: Optional[str]
+        device_version=None,  # type: Optional[int]
+        display_name=None,  # type: Optional[str]
+        domain_name=None,  # type: Optional[str]
+        enrollment_profile_name=None,  # type: Optional[str]
+        enrollment_type=None,  # type: Optional[str]
+        extension_attributes=None,  # type: Optional["models.MicrosoftGraphOnPremisesExtensionAttributes"]
+        is_compliant=None,  # type: Optional[bool]
+        is_managed=None,  # type: Optional[bool]
+        is_rooted=None,  # type: Optional[bool]
+        management_type=None,  # type: Optional[str]
+        on_premises_last_sync_date_time=None,  # type: Optional[datetime.datetime]
+        on_premises_sync_enabled=None,  # type: Optional[bool]
+        operating_system=None,  # type: Optional[str]
+        operating_system_version=None,  # type: Optional[str]
+        physical_ids=None,  # type: Optional[List[str]]
+        profile_type=None,  # type: Optional[str]
+        registration_date_time=None,  # type: Optional[datetime.datetime]
+        system_labels=None,  # type: Optional[List[str]]
+        trust_type=None,  # type: Optional[str]
+        kind=None,  # type: Optional[str]
+        manufacturer=None,  # type: Optional[str]
+        model=None,  # type: Optional[str]
+        name=None,  # type: Optional[str]
+        platform=None,  # type: Optional[str]
+        status=None,  # type: Optional[str]
+        member_of=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        registered_owners=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        registered_users=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        transitive_member_of=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        extensions=None,  # type: Optional[List["models.MicrosoftGraphExtension"]]
+        commands=None,  # type: Optional[List["models.MicrosoftGraphCommand"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDevice"
@@ -656,8 +696,114 @@ class UserOperations(object):
 
         :param user_id: key: id of user.
         :type user_id: str
-        :param body: New navigation property.
-        :type body: ~cross_device_experiences.models.MicrosoftGraphDevice
+        :param id: Read-only.
+        :type id: str
+        :param deleted_date_time:
+        :type deleted_date_time: ~datetime.datetime
+        :param account_enabled: true if the account is enabled; otherwise, false. Required.
+        :type account_enabled: bool
+        :param alternative_security_ids: For internal use only. Not nullable.
+        :type alternative_security_ids: list[~cross_device_experiences.models.MicrosoftGraphAlternativeSecurityId]
+        :param approximate_last_sign_in_date_time: The timestamp type represents date and time
+         information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan
+         1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+        :type approximate_last_sign_in_date_time: ~datetime.datetime
+        :param compliance_expiration_date_time: The timestamp when the device is no longer deemed
+         compliant. The timestamp type represents date and time information using ISO 8601 format and is
+         always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
+         '2014-01-01T00:00:00Z'. Read-only.
+        :type compliance_expiration_date_time: ~datetime.datetime
+        :param device_category:
+        :type device_category: str
+        :param device_id: Unique identifier set by Azure Device Registration Service at the time of
+         registration.
+        :type device_id: str
+        :param device_metadata: For internal use only. Set to null.
+        :type device_metadata: str
+        :param device_ownership:
+        :type device_ownership: str
+        :param device_version: For internal use only.
+        :type device_version: int
+        :param display_name: The display name for the device. Required.
+        :type display_name: str
+        :param domain_name:
+        :type domain_name: str
+        :param enrollment_profile_name:
+        :type enrollment_profile_name: str
+        :param enrollment_type:
+        :type enrollment_type: str
+        :param extension_attributes: onPremisesExtensionAttributes.
+        :type extension_attributes: ~cross_device_experiences.models.MicrosoftGraphOnPremisesExtensionAttributes
+        :param is_compliant: true if the device complies with Mobile Device Management (MDM) policies;
+         otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an
+         approved MDM app for Windows OS devices.
+        :type is_compliant: bool
+        :param is_managed: true if the device is managed by a Mobile Device Management (MDM) app;
+         otherwise, false. This can only be updated by Intune for any device OS type or by an approved
+         MDM app for Windows OS devices.
+        :type is_managed: bool
+        :param is_rooted:
+        :type is_rooted: bool
+        :param management_type:
+        :type management_type: str
+        :param on_premises_last_sync_date_time: The last time at which the object was synced with the
+         on-premises directory. The Timestamp type represents date and time information using ISO 8601
+         format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z' Read-only.
+        :type on_premises_last_sync_date_time: ~datetime.datetime
+        :param on_premises_sync_enabled: true if this object is synced from an on-premises directory;
+         false if this object was originally synced from an on-premises directory but is no longer
+         synced; null if this object has never been synced from an on-premises directory (default).
+         Read-only.
+        :type on_premises_sync_enabled: bool
+        :param operating_system: The type of operating system on the device. Required.
+        :type operating_system: str
+        :param operating_system_version: The version of the operating system on the device. Required.
+        :type operating_system_version: str
+        :param physical_ids: For internal use only. Not nullable.
+        :type physical_ids: list[str]
+        :param profile_type: The profile type of the device. Possible values:RegisteredDevice
+         (default)SecureVMPrinterSharedIoT.
+        :type profile_type: str
+        :param registration_date_time:
+        :type registration_date_time: ~datetime.datetime
+        :param system_labels: List of labels applied to the device by the system.
+        :type system_labels: list[str]
+        :param trust_type: Type of trust for the joined device. Read-only. Possible values: Workplace -
+         indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - on-
+         premises domain joined devices joined to Azure AD. For more details, see Introduction to device
+         management in Azure Active Directory.
+        :type trust_type: str
+        :param kind:
+        :type kind: str
+        :param manufacturer: Manufacturer of the device. Read-only.
+        :type manufacturer: str
+        :param model: Model of the device. Read-only.
+        :type model: str
+        :param name:
+        :type name: str
+        :param platform:
+        :type platform: str
+        :param status:
+        :type status: str
+        :param member_of: Groups that this group is a member of. HTTP Methods: GET (supported for all
+         groups). Read-only. Nullable.
+        :type member_of: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param registered_owners: The user that cloud joined the device or registered their personal
+         device. The registered owner is set at the time of registration. Currently, there can be only
+         one owner. Read-only. Nullable.
+        :type registered_owners: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param registered_users: Collection of registered users of the device. For cloud joined devices
+         and registered personal devices, registered users are set to the same value as registered
+         owners at the time of registration. Read-only. Nullable.
+        :type registered_users: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param transitive_member_of:
+        :type transitive_member_of: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param extensions: The collection of open extensions defined for the device. Read-only.
+         Nullable.
+        :type extensions: list[~cross_device_experiences.models.MicrosoftGraphExtension]
+        :param commands:
+        :type commands: list[~cross_device_experiences.models.MicrosoftGraphCommand]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDevice, or the result of cls(response)
         :rtype: ~cross_device_experiences.models.MicrosoftGraphDevice
@@ -666,6 +812,8 @@ class UserOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDevice"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDevice(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, alternative_security_ids=alternative_security_ids, approximate_last_sign_in_date_time=approximate_last_sign_in_date_time, compliance_expiration_date_time=compliance_expiration_date_time, device_category=device_category, device_id=device_id, device_metadata=device_metadata, device_ownership=device_ownership, device_version=device_version, display_name=display_name, domain_name=domain_name, enrollment_profile_name=enrollment_profile_name, enrollment_type=enrollment_type, extension_attributes=extension_attributes, is_compliant=is_compliant, is_managed=is_managed, is_rooted=is_rooted, management_type=management_type, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, operating_system=operating_system, operating_system_version=operating_system_version, physical_ids=physical_ids, profile_type=profile_type, registration_date_time=registration_date_time, system_labels=system_labels, trust_type=trust_type, kind=kind, manufacturer=manufacturer, model=model, name=name, platform=platform, status=status, member_of=member_of, registered_owners=registered_owners, registered_users=registered_users, transitive_member_of=transitive_member_of, extensions=extensions, commands=commands)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -686,7 +834,7 @@ class UserOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphDevice')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -778,7 +926,47 @@ class UserOperations(object):
         self,
         user_id,  # type: str
         device_id,  # type: str
-        body,  # type: "models.MicrosoftGraphDevice"
+        id=None,  # type: Optional[str]
+        deleted_date_time=None,  # type: Optional[datetime.datetime]
+        account_enabled=None,  # type: Optional[bool]
+        alternative_security_ids=None,  # type: Optional[List["models.MicrosoftGraphAlternativeSecurityId"]]
+        approximate_last_sign_in_date_time=None,  # type: Optional[datetime.datetime]
+        compliance_expiration_date_time=None,  # type: Optional[datetime.datetime]
+        device_category=None,  # type: Optional[str]
+        microsoft_graph_device_id=None,  # type: Optional[str]
+        device_metadata=None,  # type: Optional[str]
+        device_ownership=None,  # type: Optional[str]
+        device_version=None,  # type: Optional[int]
+        display_name=None,  # type: Optional[str]
+        domain_name=None,  # type: Optional[str]
+        enrollment_profile_name=None,  # type: Optional[str]
+        enrollment_type=None,  # type: Optional[str]
+        extension_attributes=None,  # type: Optional["models.MicrosoftGraphOnPremisesExtensionAttributes"]
+        is_compliant=None,  # type: Optional[bool]
+        is_managed=None,  # type: Optional[bool]
+        is_rooted=None,  # type: Optional[bool]
+        management_type=None,  # type: Optional[str]
+        on_premises_last_sync_date_time=None,  # type: Optional[datetime.datetime]
+        on_premises_sync_enabled=None,  # type: Optional[bool]
+        operating_system=None,  # type: Optional[str]
+        operating_system_version=None,  # type: Optional[str]
+        physical_ids=None,  # type: Optional[List[str]]
+        profile_type=None,  # type: Optional[str]
+        registration_date_time=None,  # type: Optional[datetime.datetime]
+        system_labels=None,  # type: Optional[List[str]]
+        trust_type=None,  # type: Optional[str]
+        kind=None,  # type: Optional[str]
+        manufacturer=None,  # type: Optional[str]
+        model=None,  # type: Optional[str]
+        name=None,  # type: Optional[str]
+        platform=None,  # type: Optional[str]
+        status=None,  # type: Optional[str]
+        member_of=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        registered_owners=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        registered_users=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        transitive_member_of=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        extensions=None,  # type: Optional[List["models.MicrosoftGraphExtension"]]
+        commands=None,  # type: Optional[List["models.MicrosoftGraphCommand"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -790,8 +978,114 @@ class UserOperations(object):
         :type user_id: str
         :param device_id: key: id of device.
         :type device_id: str
-        :param body: New navigation property values.
-        :type body: ~cross_device_experiences.models.MicrosoftGraphDevice
+        :param id: Read-only.
+        :type id: str
+        :param deleted_date_time:
+        :type deleted_date_time: ~datetime.datetime
+        :param account_enabled: true if the account is enabled; otherwise, false. Required.
+        :type account_enabled: bool
+        :param alternative_security_ids: For internal use only. Not nullable.
+        :type alternative_security_ids: list[~cross_device_experiences.models.MicrosoftGraphAlternativeSecurityId]
+        :param approximate_last_sign_in_date_time: The timestamp type represents date and time
+         information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan
+         1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+        :type approximate_last_sign_in_date_time: ~datetime.datetime
+        :param compliance_expiration_date_time: The timestamp when the device is no longer deemed
+         compliant. The timestamp type represents date and time information using ISO 8601 format and is
+         always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
+         '2014-01-01T00:00:00Z'. Read-only.
+        :type compliance_expiration_date_time: ~datetime.datetime
+        :param device_category:
+        :type device_category: str
+        :param microsoft_graph_device_id: Unique identifier set by Azure Device Registration Service at
+         the time of registration.
+        :type microsoft_graph_device_id: str
+        :param device_metadata: For internal use only. Set to null.
+        :type device_metadata: str
+        :param device_ownership:
+        :type device_ownership: str
+        :param device_version: For internal use only.
+        :type device_version: int
+        :param display_name: The display name for the device. Required.
+        :type display_name: str
+        :param domain_name:
+        :type domain_name: str
+        :param enrollment_profile_name:
+        :type enrollment_profile_name: str
+        :param enrollment_type:
+        :type enrollment_type: str
+        :param extension_attributes: onPremisesExtensionAttributes.
+        :type extension_attributes: ~cross_device_experiences.models.MicrosoftGraphOnPremisesExtensionAttributes
+        :param is_compliant: true if the device complies with Mobile Device Management (MDM) policies;
+         otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an
+         approved MDM app for Windows OS devices.
+        :type is_compliant: bool
+        :param is_managed: true if the device is managed by a Mobile Device Management (MDM) app;
+         otherwise, false. This can only be updated by Intune for any device OS type or by an approved
+         MDM app for Windows OS devices.
+        :type is_managed: bool
+        :param is_rooted:
+        :type is_rooted: bool
+        :param management_type:
+        :type management_type: str
+        :param on_premises_last_sync_date_time: The last time at which the object was synced with the
+         on-premises directory. The Timestamp type represents date and time information using ISO 8601
+         format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z' Read-only.
+        :type on_premises_last_sync_date_time: ~datetime.datetime
+        :param on_premises_sync_enabled: true if this object is synced from an on-premises directory;
+         false if this object was originally synced from an on-premises directory but is no longer
+         synced; null if this object has never been synced from an on-premises directory (default).
+         Read-only.
+        :type on_premises_sync_enabled: bool
+        :param operating_system: The type of operating system on the device. Required.
+        :type operating_system: str
+        :param operating_system_version: The version of the operating system on the device. Required.
+        :type operating_system_version: str
+        :param physical_ids: For internal use only. Not nullable.
+        :type physical_ids: list[str]
+        :param profile_type: The profile type of the device. Possible values:RegisteredDevice
+         (default)SecureVMPrinterSharedIoT.
+        :type profile_type: str
+        :param registration_date_time:
+        :type registration_date_time: ~datetime.datetime
+        :param system_labels: List of labels applied to the device by the system.
+        :type system_labels: list[str]
+        :param trust_type: Type of trust for the joined device. Read-only. Possible values: Workplace -
+         indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - on-
+         premises domain joined devices joined to Azure AD. For more details, see Introduction to device
+         management in Azure Active Directory.
+        :type trust_type: str
+        :param kind:
+        :type kind: str
+        :param manufacturer: Manufacturer of the device. Read-only.
+        :type manufacturer: str
+        :param model: Model of the device. Read-only.
+        :type model: str
+        :param name:
+        :type name: str
+        :param platform:
+        :type platform: str
+        :param status:
+        :type status: str
+        :param member_of: Groups that this group is a member of. HTTP Methods: GET (supported for all
+         groups). Read-only. Nullable.
+        :type member_of: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param registered_owners: The user that cloud joined the device or registered their personal
+         device. The registered owner is set at the time of registration. Currently, there can be only
+         one owner. Read-only. Nullable.
+        :type registered_owners: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param registered_users: Collection of registered users of the device. For cloud joined devices
+         and registered personal devices, registered users are set to the same value as registered
+         owners at the time of registration. Read-only. Nullable.
+        :type registered_users: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param transitive_member_of:
+        :type transitive_member_of: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+        :param extensions: The collection of open extensions defined for the device. Read-only.
+         Nullable.
+        :type extensions: list[~cross_device_experiences.models.MicrosoftGraphExtension]
+        :param commands:
+        :type commands: list[~cross_device_experiences.models.MicrosoftGraphCommand]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -800,6 +1094,8 @@ class UserOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDevice(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, alternative_security_ids=alternative_security_ids, approximate_last_sign_in_date_time=approximate_last_sign_in_date_time, compliance_expiration_date_time=compliance_expiration_date_time, device_category=device_category, device_id=microsoft_graph_device_id, device_metadata=device_metadata, device_ownership=device_ownership, device_version=device_version, display_name=display_name, domain_name=domain_name, enrollment_profile_name=enrollment_profile_name, enrollment_type=enrollment_type, extension_attributes=extension_attributes, is_compliant=is_compliant, is_managed=is_managed, is_rooted=is_rooted, management_type=management_type, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, operating_system=operating_system, operating_system_version=operating_system_version, physical_ids=physical_ids, profile_type=profile_type, registration_date_time=registration_date_time, system_labels=system_labels, trust_type=trust_type, kind=kind, manufacturer=manufacturer, model=model, name=name, platform=platform, status=status, member_of=member_of, registered_owners=registered_owners, registered_users=registered_users, transitive_member_of=transitive_member_of, extensions=extensions, commands=commands)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -820,7 +1116,7 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphDevice')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

@@ -19,68 +19,71 @@ def load_command_table(self, _):
     people_v1_0_user = CliCommandType(
         operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
-    with self.command_group('people', people_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'people_delete', confirmation=True)
-        g.custom_command('create-person', 'people_create_person')
-        g.custom_command('get-insight', 'people_get_insight')
-        g.custom_command('get-person', 'people_get_person')
-        g.custom_command('list-person', 'people_list_person')
-        g.custom_command('update-insight', 'people_update_insight')
-        g.custom_command('update-person', 'people_update_person')
+    with self.command_group('people user', people_v1_0_user, client_factory=cf_user, is_experimental=True) as g:
+        g.custom_command('delete', 'people_user_delete', confirmation=True)
+        g.custom_command('create-person', 'people_user_create_person')
+        g.custom_command('get-insight', 'people_user_get_insight')
+        g.custom_command('get-person', 'people_user_get_person')
+        g.custom_command('list-person', 'people_user_list_person')
+        g.custom_command('update-insight', 'people_user_update_insight')
+        g.custom_command('update-person', 'people_user_update_person')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight
     people_v1_0_user_insight = CliCommandType(
         operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_insight_operations#UserInsightOperatio'
         'ns.{}',
         client_factory=cf_user_insight)
-    with self.command_group('people', people_v1_0_user_insight, client_factory=cf_user_insight) as g:
-        g.custom_command('delete', 'people_delete', confirmation=True)
-        g.custom_command('create-shared', 'people_create_shared')
-        g.custom_command('create-trending', 'people_create_trending')
-        g.custom_command('create-used', 'people_create_used')
-        g.custom_command('get-shared', 'people_get_shared')
-        g.custom_command('get-trending', 'people_get_trending')
-        g.custom_command('get-used', 'people_get_used')
-        g.custom_command('list-shared', 'people_list_shared')
-        g.custom_command('list-trending', 'people_list_trending')
-        g.custom_command('list-used', 'people_list_used')
-        g.custom_command('update-shared', 'people_update_shared')
-        g.custom_command('update-trending', 'people_update_trending')
-        g.custom_command('update-used', 'people_update_used')
+    with self.command_group('people user-insight', people_v1_0_user_insight, client_factory=cf_user_insight,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'people_user_insight_delete', confirmation=True)
+        g.custom_command('create-shared', 'people_user_insight_create_shared')
+        g.custom_command('create-trending', 'people_user_insight_create_trending')
+        g.custom_command('create-used', 'people_user_insight_create_used')
+        g.custom_command('get-shared', 'people_user_insight_get_shared')
+        g.custom_command('get-trending', 'people_user_insight_get_trending')
+        g.custom_command('get-used', 'people_user_insight_get_used')
+        g.custom_command('list-shared', 'people_user_insight_list_shared')
+        g.custom_command('list-trending', 'people_user_insight_list_trending')
+        g.custom_command('list-used', 'people_user_insight_list_used')
+        g.custom_command('update-shared', 'people_user_insight_update_shared')
+        g.custom_command('update-trending', 'people_user_insight_update_trending')
+        g.custom_command('update-used', 'people_user_insight_update_used')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight_shared
     people_v1_0_user_insight_shared = CliCommandType(
         operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_insight_shared_operations#UserInsightS'
         'haredOperations.{}',
         client_factory=cf_user_insight_shared)
-    with self.command_group('people', people_v1_0_user_insight_shared, client_factory=cf_user_insight_shared) as g:
-        g.custom_command('delete', 'people_delete', confirmation=True)
-        g.custom_command('get-last-shared-method', 'people_get_last_shared_method')
-        g.custom_command('get-ref-last-shared-method', 'people_get_ref_last_shared_method')
-        g.custom_command('get-ref-resource', 'people_get_ref_resource')
-        g.custom_command('get-resource', 'people_get_resource')
-        g.custom_command('set-ref-last-shared-method', 'people_set_ref_last_shared_method')
-        g.custom_command('set-ref-resource', 'people_set_ref_resource')
+    with self.command_group('people user-insight-shared', people_v1_0_user_insight_shared,
+                            client_factory=cf_user_insight_shared, is_experimental=True) as g:
+        g.custom_command('delete', 'people_user_insight_shared_delete', confirmation=True)
+        g.custom_command('get-last-shared-method', 'people_user_insight_shared_get_last_shared_method')
+        g.custom_command('get-ref-last-shared-method', 'people_user_insight_shared_get_ref_last_shared_method')
+        g.custom_command('get-ref-resource', 'people_user_insight_shared_get_ref_resource')
+        g.custom_command('get-resource', 'people_user_insight_shared_get_resource')
+        g.custom_command('set-ref-last-shared-method', 'people_user_insight_shared_set_ref_last_shared_method')
+        g.custom_command('set-ref-resource', 'people_user_insight_shared_set_ref_resource')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight_trending
     people_v1_0_user_insight_trending = CliCommandType(
         operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_insight_trending_operations#UserInsigh'
         'tTrendingOperations.{}',
         client_factory=cf_user_insight_trending)
-    with self.command_group('people', people_v1_0_user_insight_trending,
-                            client_factory=cf_user_insight_trending) as g:
-        g.custom_command('delete', 'people_delete', confirmation=True)
-        g.custom_command('get-ref-resource', 'people_get_ref_resource')
-        g.custom_command('get-resource', 'people_get_resource')
-        g.custom_command('set-ref-resource', 'people_set_ref_resource')
+    with self.command_group('people user-insight-trending', people_v1_0_user_insight_trending,
+                            client_factory=cf_user_insight_trending, is_experimental=True) as g:
+        g.custom_command('delete', 'people_user_insight_trending_delete', confirmation=True)
+        g.custom_command('get-ref-resource', 'people_user_insight_trending_get_ref_resource')
+        g.custom_command('get-resource', 'people_user_insight_trending_get_resource')
+        g.custom_command('set-ref-resource', 'people_user_insight_trending_set_ref_resource')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight_used
     people_v1_0_user_insight_used = CliCommandType(
         operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_insight_used_operations#UserInsightUse'
         'dOperations.{}',
         client_factory=cf_user_insight_used)
-    with self.command_group('people', people_v1_0_user_insight_used, client_factory=cf_user_insight_used) as g:
-        g.custom_command('delete', 'people_delete', confirmation=True)
-        g.custom_command('get-ref-resource', 'people_get_ref_resource')
-        g.custom_command('get-resource', 'people_get_resource')
-        g.custom_command('set-ref-resource', 'people_set_ref_resource')
+    with self.command_group('people user-insight-used', people_v1_0_user_insight_used,
+                            client_factory=cf_user_insight_used, is_experimental=True) as g:
+        g.custom_command('delete', 'people_user_insight_used_delete', confirmation=True)
+        g.custom_command('get-ref-resource', 'people_user_insight_used_get_ref_resource')
+        g.custom_command('get-resource', 'people_user_insight_used_get_resource')
+        g.custom_command('set-ref-resource', 'people_user_insight_used_set_ref_resource')

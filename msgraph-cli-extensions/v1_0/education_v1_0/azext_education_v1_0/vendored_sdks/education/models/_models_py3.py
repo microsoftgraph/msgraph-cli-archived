@@ -4902,8 +4902,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :param business_phones: The telephone numbers for the user. Note: Although this is a string
      collection, only one number can be set for this property.
     :type business_phones: list[str]
-    :param created_by: identitySet.
-    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param department: The name for the department in which the user works. Supports $filter.
     :type department: str
     :param display_name: The name displayed in the address book for the user. This is usually the
@@ -4976,6 +4974,12 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type schools: list[~education.models.MicrosoftGraphEducationSchool]
     :param user: Represents an Azure Active Directory user object.
     :type user: ~education.models.MicrosoftGraphUser
+    :param application: identity.
+    :type application: ~education.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~education.models.MicrosoftGraphIdentity
+    :param user_created_by_user: identity.
+    :type user_created_by_user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -4985,7 +4989,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
         'assigned_plans': {'key': 'assignedPlans', 'type': '[MicrosoftGraphAssignedPlan]'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
-        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_source': {'key': 'externalSource', 'type': 'str'},
@@ -5013,6 +5016,9 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'classes': {'key': 'classes', 'type': '[MicrosoftGraphEducationClass]'},
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'user': {'key': 'user', 'type': 'MicrosoftGraphUser'},
+        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -5024,7 +5030,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         assigned_licenses: Optional[List["MicrosoftGraphAssignedLicense"]] = None,
         assigned_plans: Optional[List["MicrosoftGraphAssignedPlan"]] = None,
         business_phones: Optional[List[str]] = None,
-        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         department: Optional[str] = None,
         display_name: Optional[str] = None,
         external_source: Optional[Union[str, "MicrosoftGraphEducationExternalSource"]] = None,
@@ -5052,6 +5057,9 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         classes: Optional[List["MicrosoftGraphEducationClass"]] = None,
         schools: Optional[List["MicrosoftGraphEducationSchool"]] = None,
         user: Optional["MicrosoftGraphUser"] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationUser, self).__init__(id=id, **kwargs)
@@ -5060,7 +5068,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.assigned_licenses = assigned_licenses
         self.assigned_plans = assigned_plans
         self.business_phones = business_phones
-        self.created_by = created_by
         self.department = department
         self.display_name = display_name
         self.external_source = external_source
@@ -5088,6 +5095,9 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.classes = classes
         self.schools = schools
         self.user = user
+        self.application = application
+        self.device = device
+        self.user_created_by_user = user_created_by_user
 
 
 class MicrosoftGraphEmailAddress(msrest.serialization.Model):

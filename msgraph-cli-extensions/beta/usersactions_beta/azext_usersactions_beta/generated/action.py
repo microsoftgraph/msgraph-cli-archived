@@ -770,10 +770,10 @@ class AddUsersEventsToRecipients(argparse._AppendAction):
         return d
 
 
-class AddUsersactionsCreateForwardToRecipients(argparse._AppendAction):
+class AddUsersactionsUserMailFolderMessageCreateForwardToRecipients(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersactionsCreateForwardToRecipients, self).__call__(parser, namespace, action, option_string)
+        super(AddUsersactionsUserMailFolderMessageCreateForwardToRecipients, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1086,10 +1086,80 @@ class AddMessageSingleValueExtendedProperties(argparse._AppendAction):
         return d
 
 
-class AddUsersactionsForwardToRecipients(argparse._AppendAction):
+class AddUsersactionsUserMailFolderMessageForwardToRecipients(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersactionsForwardToRecipients, self).__call__(parser, namespace, action, option_string)
+        super(AddUsersactionsUserMailFolderMessageForwardToRecipients, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+        return d
+
+
+class AddUpdateWindowsDeviceAccountActionParameterDeviceAccount(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.update_windows_device_account_action_parameter_device_account = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'password':
+                d['password'] = v[0]
+        return d
+
+
+class AddUsersactionsUserMessageCreateForwardToRecipients(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddUsersactionsUserMessageCreateForwardToRecipients, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+        return d
+
+
+class AddUsersactionsUserMessageForwardToRecipients(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddUsersactionsUserMessageForwardToRecipients, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

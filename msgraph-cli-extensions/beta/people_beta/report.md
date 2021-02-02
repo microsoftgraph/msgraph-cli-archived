@@ -1,13 +1,380 @@
 # Azure CLI Module Creation Report
 
-### people create-account
+### people user create-person
 
-create-account a people.
+create-person a people user.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-person|CreatePeople|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--birthday**|string|The person's birthday.|birthday|birthday|
+|**--company-name**|string|The name of the person's company.|company_name|companyName|
+|**--department**|string|The person's department.|department|department|
+|**--display-name**|string|The person's display name.|display_name|displayName|
+|**--email-addresses**|array||email_addresses|emailAddresses|
+|**--given-name**|string|The person's given name.|given_name|givenName|
+|**--is-favorite**|boolean|true if the user has flagged this person as a favorite.|is_favorite|isFavorite|
+|**--mailbox-type**|string||mailbox_type|mailboxType|
+|**--office-location**|string|The location of the person's office.|office_location|officeLocation|
+|**--person-notes**|string|Free-form notes that the user has taken about this person.|person_notes|personNotes|
+|**--person-type**|string|The type of person.|person_type|personType|
+|**--phones**|array|The person's phone numbers.|phones|phones|
+|**--postal-addresses**|array|The person's addresses.|postal_addresses|postalAddresses|
+|**--profession**|string|The person's profession.|profession|profession|
+|**--sources**|array||sources|sources|
+|**--surname**|string|The person's surname.|surname|surname|
+|**--title**|string||title|title|
+|**--user-principal-name**|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.|user_principal_name|userPrincipalName|
+|**--websites**|array|The person's websites.|websites|websites|
+|**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
+
+### people user delete
+
+delete a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|delete|DeletePeople|
+|delete|DeleteAnalytics|
+|delete|DeleteProfile|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+### people user get-analytic
+
+get-analytic a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-analytic|GetAnalytics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### people user get-person
+
+get-person a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-person|GetPeople|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### people user get-profile
+
+get-profile a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-profile|GetProfile|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### people user list-person
+
+list-person a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-person|ListPeople|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### people user update-analytic
+
+update-analytic a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-analytic|UpdateAnalytics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--settings**|object|settings|settings|settings|
+|**--activity-statistics**|array||activity_statistics|activityStatistics|
+
+### people user update-person
+
+update-person a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-person|UpdatePeople|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--id**|string|Read-only.|id|id|
+|**--birthday**|string|The person's birthday.|birthday|birthday|
+|**--company-name**|string|The name of the person's company.|company_name|companyName|
+|**--department**|string|The person's department.|department|department|
+|**--display-name**|string|The person's display name.|display_name|displayName|
+|**--email-addresses**|array||email_addresses|emailAddresses|
+|**--given-name**|string|The person's given name.|given_name|givenName|
+|**--is-favorite**|boolean|true if the user has flagged this person as a favorite.|is_favorite|isFavorite|
+|**--mailbox-type**|string||mailbox_type|mailboxType|
+|**--office-location**|string|The location of the person's office.|office_location|officeLocation|
+|**--person-notes**|string|Free-form notes that the user has taken about this person.|person_notes|personNotes|
+|**--person-type**|string|The type of person.|person_type|personType|
+|**--phones**|array|The person's phone numbers.|phones|phones|
+|**--postal-addresses**|array|The person's addresses.|postal_addresses|postalAddresses|
+|**--profession**|string|The person's profession.|profession|profession|
+|**--sources**|array||sources|sources|
+|**--surname**|string|The person's surname.|surname|surname|
+|**--title**|string||title|title|
+|**--user-principal-name**|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.|user_principal_name|userPrincipalName|
+|**--websites**|array|The person's websites.|websites|websites|
+|**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
+
+### people user update-profile
+
+update-profile a people user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-profile|UpdateProfile|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--account**|array||account|account|
+|**--addresses**|array||addresses|addresses|
+|**--anniversaries**|array||anniversaries|anniversaries|
+|**--awards**|array||awards|awards|
+|**--certifications**|array||certifications|certifications|
+|**--educational-activities**|array||educational_activities|educationalActivities|
+|**--emails**|array||emails|emails|
+|**--interests**|array||interests|interests|
+|**--languages**|array||languages|languages|
+|**--names**|array||names|names|
+|**--notes**|array||notes|notes|
+|**--patents**|array||patents|patents|
+|**--phones**|array||phones|phones|
+|**--positions**|array||positions|positions|
+|**--projects**|array||projects|projects|
+|**--publications**|array||publications|publications|
+|**--skills**|array||skills|skills|
+|**--web-accounts**|array||web_accounts|webAccounts|
+|**--websites**|array||websites|websites|
+
+### people user-analytic create-activity-statistics
+
+create-activity-statistics a people user-analytic.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user-analytic|users.analytics|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-activity-statistics|CreateActivityStatistics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--activity**|choice||activity|activity|
+|**--duration**|duration||duration|duration|
+|**--end-date**|date||end_date|endDate|
+|**--start-date**|date||start_date|startDate|
+|**--time-zone-used**|string||time_zone_used|timeZoneUsed|
+
+### people user-analytic delete
+
+delete a people user-analytic.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user-analytic|users.analytics|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|delete|DeleteActivityStatistics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+### people user-analytic get-activity-statistics
+
+get-activity-statistics a people user-analytic.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user-analytic|users.analytics|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-activity-statistics|GetActivityStatistics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### people user-analytic list-activity-statistics
+
+list-activity-statistics a people user-analytic.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user-analytic|users.analytics|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-activity-statistics|ListActivityStatistics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### people user-analytic update-activity-statistics
+
+update-activity-statistics a people user-analytic.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user-analytic|users.analytics|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-activity-statistics|UpdateActivityStatistics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
+|**--id**|string|Read-only.|id|id|
+|**--activity**|choice||activity|activity|
+|**--duration**|duration||duration|duration|
+|**--end-date**|date||end_date|endDate|
+|**--start-date**|date||start_date|startDate|
+|**--time-zone-used**|string||time_zone_used|timeZoneUsed|
+
+### people user-profile create-account
+
+create-account a people user-profile.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -35,39 +402,14 @@ create-account a people.
 |**--preferred-language-tag**|object|localeInfo|preferred_language_tag|preferredLanguageTag|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### people create-activity-statistics
+### people user-profile create-address
 
-create-activity-statistics a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-activity-statistics|CreateActivityStatistics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--id**|string|Read-only.|id|id|
-|**--activity**|choice||activity|activity|
-|**--duration**|duration||duration|duration|
-|**--end-date**|date||end_date|endDate|
-|**--start-date**|date||start_date|startDate|
-|**--time-zone-used**|string||time_zone_used|timeZoneUsed|
-
-### people create-address
-
-create-address a people.
+create-address a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -94,14 +436,14 @@ create-address a people.
 |**--display-name**|string||display_name|displayName|
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 
-### people create-anniversary
+### people user-profile create-anniversary
 
-create-anniversary a people.
+create-anniversary a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -127,14 +469,14 @@ create-anniversary a people.
 |**--date**|date||date|date|
 |**--type**|choice||type|type|
 
-### people create-award
+### people user-profile create-award
 
-create-award a people.
+create-award a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -164,14 +506,14 @@ create-award a people.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-certification
+### people user-profile create-certification
 
-create-certification a people.
+create-certification a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -205,14 +547,14 @@ create-certification a people.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-educational-activity
+### people user-profile create-educational-activity
 
-create-educational-activity a people.
+create-educational-activity a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -225,14 +567,14 @@ create-educational-activity a people.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|object|New navigation property|body|body|
 
-### people create-email
+### people user-profile create-email
 
-create-email a people.
+create-email a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -259,14 +601,14 @@ create-email a people.
 |**--display-name**|string||display_name|displayName|
 |**--type**|choice||type|type|
 
-### people create-interest
+### people user-profile create-interest
 
-create-interest a people.
+create-interest a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -295,14 +637,14 @@ create-interest a people.
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-language
+### people user-profile create-language
 
-create-language a people.
+create-language a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -332,14 +674,14 @@ create-language a people.
 |**--tag**|string||tag|tag|
 |**--written**|choice||written|written|
 
-### people create-name
+### people user-profile create-name
 
-create-name a people.
+create-name a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -374,14 +716,14 @@ create-name a people.
 |**--suffix**|string||suffix|suffix|
 |**--title**|string||title|title|
 
-### people create-note
+### people user-profile create-note
 
-create-note a people.
+create-note a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -407,14 +749,14 @@ create-note a people.
 |**--detail**|object|itemBody|detail|detail|
 |**--display-name**|string||display_name|displayName|
 
-### people create-patent
+### people user-profile create-patent
 
-create-patent a people.
+create-patent a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -445,54 +787,14 @@ create-patent a people.
 |**--number**|string||number|number|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-person
+### people user-profile create-phone
 
-create-person a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-person|CreatePeople|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--id**|string|Read-only.|id|id|
-|**--birthday**|string|The person's birthday.|birthday|birthday|
-|**--company-name**|string|The name of the person's company.|company_name|companyName|
-|**--department**|string|The person's department.|department|department|
-|**--display-name**|string|The person's display name.|display_name|displayName|
-|**--email-addresses**|array||email_addresses|emailAddresses|
-|**--given-name**|string|The person's given name.|given_name|givenName|
-|**--is-favorite**|boolean|true if the user has flagged this person as a favorite.|is_favorite|isFavorite|
-|**--mailbox-type**|string||mailbox_type|mailboxType|
-|**--office-location**|string|The location of the person's office.|office_location|officeLocation|
-|**--person-notes**|string|Free-form notes that the user has taken about this person.|person_notes|personNotes|
-|**--person-type**|string|The type of person.|person_type|personType|
-|**--phones**|array|The person's phone numbers.|phones|phones|
-|**--postal-addresses**|array|The person's addresses.|postal_addresses|postalAddresses|
-|**--profession**|string|The person's profession.|profession|profession|
-|**--sources**|array||sources|sources|
-|**--surname**|string|The person's surname.|surname|surname|
-|**--title**|string||title|title|
-|**--user-principal-name**|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.|user_principal_name|userPrincipalName|
-|**--websites**|array|The person's websites.|websites|websites|
-|**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
-
-### people create-phone
-
-create-phone a people.
+create-phone a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -519,14 +821,14 @@ create-phone a people.
 |**--number**|string||number|number|
 |**--type**|choice||type|type|
 
-### people create-position
+### people user-profile create-position
 
-create-position a people.
+create-position a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -561,14 +863,14 @@ create-position a people.
 |**--detail-start-month-year**|date||start_month_year|startMonthYear|
 |**--detail-summary**|string||summary|summary|
 
-### people create-project
+### people user-profile create-project
 
-create-project a people.
+create-project a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -610,14 +912,14 @@ create-project a people.
 |**--client-pronunciation**|string||pronunciation|pronunciation|
 |**--client-web-url**|string||web_url|webUrl|
 
-### people create-publication
+### people user-profile create-publication
 
-create-publication a people.
+create-publication a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -647,14 +949,14 @@ create-publication a people.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-skill
+### people user-profile create-skill
 
-create-skill a people.
+create-skill a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -683,14 +985,14 @@ create-skill a people.
 |**--proficiency**|choice||proficiency|proficiency|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-web-account
+### people user-profile create-web-account
 
-create-web-account a people.
+create-web-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -719,14 +1021,14 @@ create-web-account a people.
 |**--microsoft-graph-web-account-user-id**|string||microsoft_graph_web_account_user_id|userId|
 |**--web-url**|string||web_url|webUrl|
 
-### people create-website
+### people user-profile create-website
 
-create-website a people.
+create-website a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -754,14 +1056,14 @@ create-website a people.
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
 
-### people delete
+### people user-profile delete
 
-delete a people.
+delete a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -811,14 +1113,14 @@ delete a people.
 |**--person-website-id**|string|key: id of personWebsite|person_website_id|personWebsite-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people get-account
+### people user-profile get-account
 
-get-account a people.
+get-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -833,36 +1135,14 @@ get-account a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-activity-statistics
+### people user-profile get-address
 
-get-activity-statistics a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-activity-statistics|GetActivityStatistics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people get-address
-
-get-address a people.
+get-address a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -877,35 +1157,14 @@ get-address a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-analytic
+### people user-profile get-anniversary
 
-get-analytic a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-analytic|GetAnalytics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people get-anniversary
-
-get-anniversary a people.
+get-anniversary a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -920,14 +1179,14 @@ get-anniversary a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-award
+### people user-profile get-award
 
-get-award a people.
+get-award a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -942,14 +1201,14 @@ get-award a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-certification
+### people user-profile get-certification
 
-get-certification a people.
+get-certification a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -964,14 +1223,14 @@ get-certification a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-educational-activity
+### people user-profile get-educational-activity
 
-get-educational-activity a people.
+get-educational-activity a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -986,14 +1245,14 @@ get-educational-activity a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-email
+### people user-profile get-email
 
-get-email a people.
+get-email a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1008,14 +1267,14 @@ get-email a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-interest
+### people user-profile get-interest
 
-get-interest a people.
+get-interest a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1030,14 +1289,14 @@ get-interest a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-language
+### people user-profile get-language
 
-get-language a people.
+get-language a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1052,14 +1311,14 @@ get-language a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-name
+### people user-profile get-name
 
-get-name a people.
+get-name a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1074,14 +1333,14 @@ get-name a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-note
+### people user-profile get-note
 
-get-note a people.
+get-note a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1096,14 +1355,14 @@ get-note a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-patent
+### people user-profile get-patent
 
-get-patent a people.
+get-patent a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1118,36 +1377,14 @@ get-patent a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-person
+### people user-profile get-phone
 
-get-person a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-person|GetPeople|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people get-phone
-
-get-phone a people.
+get-phone a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1162,14 +1399,14 @@ get-phone a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-position
+### people user-profile get-position
 
-get-position a people.
+get-position a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1184,35 +1421,14 @@ get-position a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-profile
+### people user-profile get-project
 
-get-profile a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-profile|GetProfile|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people get-project
-
-get-project a people.
+get-project a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1227,14 +1443,14 @@ get-project a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-publication
+### people user-profile get-publication
 
-get-publication a people.
+get-publication a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1249,14 +1465,14 @@ get-publication a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-skill
+### people user-profile get-skill
 
-get-skill a people.
+get-skill a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1271,14 +1487,14 @@ get-skill a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-web-account
+### people user-profile get-web-account
 
-get-web-account a people.
+get-web-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1293,14 +1509,14 @@ get-web-account a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people get-website
+### people user-profile get-website
 
-get-website a people.
+get-website a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1315,14 +1531,14 @@ get-website a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-account
+### people user-profile list-account
 
-list-account a people.
+list-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1337,36 +1553,14 @@ list-account a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-activity-statistics
+### people user-profile list-address
 
-list-activity-statistics a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-activity-statistics|ListActivityStatistics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people list-address
-
-list-address a people.
+list-address a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1381,14 +1575,14 @@ list-address a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-anniversary
+### people user-profile list-anniversary
 
-list-anniversary a people.
+list-anniversary a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1403,14 +1597,14 @@ list-anniversary a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-award
+### people user-profile list-award
 
-list-award a people.
+list-award a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1425,14 +1619,14 @@ list-award a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-certification
+### people user-profile list-certification
 
-list-certification a people.
+list-certification a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1447,14 +1641,14 @@ list-certification a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-educational-activity
+### people user-profile list-educational-activity
 
-list-educational-activity a people.
+list-educational-activity a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1469,14 +1663,14 @@ list-educational-activity a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-email
+### people user-profile list-email
 
-list-email a people.
+list-email a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1491,14 +1685,14 @@ list-email a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-interest
+### people user-profile list-interest
 
-list-interest a people.
+list-interest a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1513,14 +1707,14 @@ list-interest a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-language
+### people user-profile list-language
 
-list-language a people.
+list-language a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1535,14 +1729,14 @@ list-language a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-name
+### people user-profile list-name
 
-list-name a people.
+list-name a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1557,14 +1751,14 @@ list-name a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-note
+### people user-profile list-note
 
-list-note a people.
+list-note a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1579,14 +1773,14 @@ list-note a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-patent
+### people user-profile list-patent
 
-list-patent a people.
+list-patent a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1601,36 +1795,14 @@ list-patent a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-person
+### people user-profile list-phone
 
-list-person a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-person|ListPeople|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people list-phone
-
-list-phone a people.
+list-phone a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1645,14 +1817,14 @@ list-phone a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-position
+### people user-profile list-position
 
-list-position a people.
+list-position a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1667,14 +1839,14 @@ list-position a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-project
+### people user-profile list-project
 
-list-project a people.
+list-project a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1689,14 +1861,14 @@ list-project a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-publication
+### people user-profile list-publication
 
-list-publication a people.
+list-publication a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1711,14 +1883,14 @@ list-publication a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-skill
+### people user-profile list-skill
 
-list-skill a people.
+list-skill a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1733,14 +1905,14 @@ list-skill a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-web-account
+### people user-profile list-web-account
 
-list-web-account a people.
+list-web-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1755,14 +1927,14 @@ list-web-account a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people list-website
+### people user-profile list-website
 
-list-website a people.
+list-website a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1777,14 +1949,14 @@ list-website a people.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people update-account
+### people user-profile update-account
 
-update-account a people.
+update-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1813,40 +1985,14 @@ update-account a people.
 |**--preferred-language-tag**|object|localeInfo|preferred_language_tag|preferredLanguageTag|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### people update-activity-statistics
+### people user-profile update-address
 
-update-activity-statistics a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-activity-statistics|UpdateActivityStatistics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
-|**--id**|string|Read-only.|id|id|
-|**--activity**|choice||activity|activity|
-|**--duration**|duration||duration|duration|
-|**--end-date**|date||end_date|endDate|
-|**--start-date**|date||start_date|startDate|
-|**--time-zone-used**|string||time_zone_used|timeZoneUsed|
-
-### people update-address
-
-update-address a people.
+update-address a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1874,36 +2020,14 @@ update-address a people.
 |**--display-name**|string||display_name|displayName|
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 
-### people update-analytic
+### people user-profile update-anniversary
 
-update-analytic a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-analytic|UpdateAnalytics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--id**|string|Read-only.|id|id|
-|**--settings**|object|settings|settings|settings|
-|**--activity-statistics**|array||activity_statistics|activityStatistics|
-
-### people update-anniversary
-
-update-anniversary a people.
+update-anniversary a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1930,14 +2054,14 @@ update-anniversary a people.
 |**--date**|date||date|date|
 |**--type**|choice||type|type|
 
-### people update-award
+### people user-profile update-award
 
-update-award a people.
+update-award a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1968,14 +2092,14 @@ update-award a people.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-certification
+### people user-profile update-certification
 
-update-certification a people.
+update-certification a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2010,14 +2134,14 @@ update-certification a people.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-educational-activity
+### people user-profile update-educational-activity
 
-update-educational-activity a people.
+update-educational-activity a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2031,14 +2155,14 @@ update-educational-activity a people.
 |**--educational-activity-id**|string|key: id of educationalActivity|educational_activity_id|educationalActivity-id|
 |**--body**|object|New navigation property values|body|body|
 
-### people update-email
+### people user-profile update-email
 
-update-email a people.
+update-email a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2066,14 +2190,14 @@ update-email a people.
 |**--display-name**|string||display_name|displayName|
 |**--type**|choice||type|type|
 
-### people update-interest
+### people user-profile update-interest
 
-update-interest a people.
+update-interest a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2103,14 +2227,14 @@ update-interest a people.
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-language
+### people user-profile update-language
 
-update-language a people.
+update-language a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2141,14 +2265,14 @@ update-language a people.
 |**--tag**|string||tag|tag|
 |**--written**|choice||written|written|
 
-### people update-name
+### people user-profile update-name
 
-update-name a people.
+update-name a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2184,14 +2308,14 @@ update-name a people.
 |**--suffix**|string||suffix|suffix|
 |**--title**|string||title|title|
 
-### people update-note
+### people user-profile update-note
 
-update-note a people.
+update-note a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2218,14 +2342,14 @@ update-note a people.
 |**--detail**|object|itemBody|detail|detail|
 |**--display-name**|string||display_name|displayName|
 
-### people update-patent
+### people user-profile update-patent
 
-update-patent a people.
+update-patent a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2257,55 +2381,14 @@ update-patent a people.
 |**--number**|string||number|number|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-person
+### people user-profile update-phone
 
-update-person a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-person|UpdatePeople|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--id**|string|Read-only.|id|id|
-|**--birthday**|string|The person's birthday.|birthday|birthday|
-|**--company-name**|string|The name of the person's company.|company_name|companyName|
-|**--department**|string|The person's department.|department|department|
-|**--display-name**|string|The person's display name.|display_name|displayName|
-|**--email-addresses**|array||email_addresses|emailAddresses|
-|**--given-name**|string|The person's given name.|given_name|givenName|
-|**--is-favorite**|boolean|true if the user has flagged this person as a favorite.|is_favorite|isFavorite|
-|**--mailbox-type**|string||mailbox_type|mailboxType|
-|**--office-location**|string|The location of the person's office.|office_location|officeLocation|
-|**--person-notes**|string|Free-form notes that the user has taken about this person.|person_notes|personNotes|
-|**--person-type**|string|The type of person.|person_type|personType|
-|**--phones**|array|The person's phone numbers.|phones|phones|
-|**--postal-addresses**|array|The person's addresses.|postal_addresses|postalAddresses|
-|**--profession**|string|The person's profession.|profession|profession|
-|**--sources**|array||sources|sources|
-|**--surname**|string|The person's surname.|surname|surname|
-|**--title**|string||title|title|
-|**--user-principal-name**|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.|user_principal_name|userPrincipalName|
-|**--websites**|array|The person's websites.|websites|websites|
-|**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
-
-### people update-phone
-
-update-phone a people.
+update-phone a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2333,14 +2416,14 @@ update-phone a people.
 |**--number**|string||number|number|
 |**--type**|choice||type|type|
 
-### people update-position
+### people user-profile update-position
 
-update-position a people.
+update-position a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2376,53 +2459,14 @@ update-position a people.
 |**--detail-start-month-year**|date||start_month_year|startMonthYear|
 |**--detail-summary**|string||summary|summary|
 
-### people update-profile
+### people user-profile update-project
 
-update-profile a people.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-profile|UpdateProfile|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--id**|string|Read-only.|id|id|
-|**--account**|array||account|account|
-|**--addresses**|array||addresses|addresses|
-|**--anniversaries**|array||anniversaries|anniversaries|
-|**--awards**|array||awards|awards|
-|**--certifications**|array||certifications|certifications|
-|**--educational-activities**|array||educational_activities|educationalActivities|
-|**--emails**|array||emails|emails|
-|**--interests**|array||interests|interests|
-|**--languages**|array||languages|languages|
-|**--names**|array||names|names|
-|**--notes**|array||notes|notes|
-|**--patents**|array||patents|patents|
-|**--phones**|array||phones|phones|
-|**--positions**|array||positions|positions|
-|**--projects**|array||projects|projects|
-|**--publications**|array||publications|publications|
-|**--skills**|array||skills|skills|
-|**--web-accounts**|array||web_accounts|webAccounts|
-|**--websites**|array||websites|websites|
-
-### people update-project
-
-update-project a people.
+update-project a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2465,14 +2509,14 @@ update-project a people.
 |**--client-pronunciation**|string||pronunciation|pronunciation|
 |**--client-web-url**|string||web_url|webUrl|
 
-### people update-publication
+### people user-profile update-publication
 
-update-publication a people.
+update-publication a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2503,14 +2547,14 @@ update-publication a people.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-skill
+### people user-profile update-skill
 
-update-skill a people.
+update-skill a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2540,14 +2584,14 @@ update-skill a people.
 |**--proficiency**|choice||proficiency|proficiency|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-web-account
+### people user-profile update-web-account
 
-update-web-account a people.
+update-web-account a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2577,14 +2621,14 @@ update-web-account a people.
 |**--microsoft-graph-web-account-user-id**|string||microsoft_graph_web_account_user_id|userId|
 |**--web-url**|string||web_url|webUrl|
 
-### people update-website
+### people user-profile update-website
 
-update-website a people.
+update-website a people user-profile.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|people|users.profile|
+|people user-profile|users.profile|
 
 #### Methods
 |Name (az)|Swagger name|

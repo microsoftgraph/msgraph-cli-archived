@@ -300,10 +300,10 @@ class AddAttachments(argparse._AppendAction):
         return d
 
 
-class AddUsersCreateTaskMultiValueExtendedProperties(argparse._AppendAction):
+class AddUsersUserOutlookCreateTaskMultiValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersCreateTaskMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddUsersUserOutlookCreateTaskMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -324,10 +324,10 @@ class AddUsersCreateTaskMultiValueExtendedProperties(argparse._AppendAction):
         return d
 
 
-class AddUsersCreateTaskSingleValueExtendedProperties(argparse._AppendAction):
+class AddUsersUserOutlookCreateTaskSingleValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersCreateTaskSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -412,10 +412,10 @@ class AddRecurrenceRange(argparse.Action):
         return d
 
 
-class AddUsersCreateTaskFolderMultiValueExtendedProperties(argparse._AppendAction):
+class AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersCreateTaskFolderMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -436,10 +436,10 @@ class AddUsersCreateTaskFolderMultiValueExtendedProperties(argparse._AppendActio
         return d
 
 
-class AddUsersCreateTaskFolderSingleValueExtendedProperties(argparse._AppendAction):
+class AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersCreateTaskFolderSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

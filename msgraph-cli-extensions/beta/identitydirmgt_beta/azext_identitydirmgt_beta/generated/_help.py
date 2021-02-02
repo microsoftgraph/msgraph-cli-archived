@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt administrative-unit-administrative-unit'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt administrative-unit-administrative-unit
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt administrative-unit-administrative-unit delete'] = """
     type: command
     short-summary: "Delete entity from administrativeUnits"
 """
 
-helps['identitydirmgt create-administrative-unit'] = """
+helps['identitydirmgt administrative-unit-administrative-unit create-administrative-unit'] = """
     type: command
     short-summary: "Add new entity to administrativeUnits"
     parameters:
@@ -60,17 +60,17 @@ associated with the user won't show up as having changed when using delta.
             Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['identitydirmgt get-administrative-unit'] = """
+helps['identitydirmgt administrative-unit-administrative-unit get-administrative-unit'] = """
     type: command
     short-summary: "Get entity from administrativeUnits by key"
 """
 
-helps['identitydirmgt list-administrative-unit'] = """
+helps['identitydirmgt administrative-unit-administrative-unit list-administrative-unit'] = """
     type: command
     short-summary: "Get entities from administrativeUnits"
 """
 
-helps['identitydirmgt update-administrative-unit'] = """
+helps['identitydirmgt administrative-unit-administrative-unit update-administrative-unit'] = """
     type: command
     short-summary: "Update entity in administrativeUnits"
     parameters:
@@ -108,127 +108,127 @@ associated with the user won't show up as having changed when using delta.
             Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt administrative-unit'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt administrative-unit
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt administrative-unit delete'] = """
     type: command
     short-summary: "Delete navigation property scopedRoleMembers for administrativeUnits"
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt administrative-unit check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt administrative-unit check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt create-extension'] = """
+helps['identitydirmgt administrative-unit create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for administrativeUnits"
 """
 
-helps['identitydirmgt create-ref-member'] = """
+helps['identitydirmgt administrative-unit create-ref-member'] = """
     type: command
     short-summary: "Create new navigation property ref to members for administrativeUnits"
 """
 
-helps['identitydirmgt create-scoped-role-member'] = """
+helps['identitydirmgt administrative-unit create-scoped-role-member'] = """
     type: command
     short-summary: "Create new navigation property to scopedRoleMembers for administrativeUnits"
 """
 
-helps['identitydirmgt delta'] = """
+helps['identitydirmgt administrative-unit delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt administrative-unit get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-extension'] = """
+helps['identitydirmgt administrative-unit get-extension'] = """
     type: command
     short-summary: "Get extensions from administrativeUnits"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt administrative-unit get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt administrative-unit get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-scoped-role-member'] = """
+helps['identitydirmgt administrative-unit get-scoped-role-member'] = """
     type: command
     short-summary: "Get scopedRoleMembers from administrativeUnits"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt administrative-unit get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt list-extension'] = """
+helps['identitydirmgt administrative-unit list-extension'] = """
     type: command
     short-summary: "Get extensions from administrativeUnits"
 """
 
-helps['identitydirmgt list-member'] = """
+helps['identitydirmgt administrative-unit list-member'] = """
     type: command
     short-summary: "Get members from administrativeUnits"
 """
 
-helps['identitydirmgt list-ref-member'] = """
+helps['identitydirmgt administrative-unit list-ref-member'] = """
     type: command
     short-summary: "Get ref of members from administrativeUnits"
 """
 
-helps['identitydirmgt list-scoped-role-member'] = """
+helps['identitydirmgt administrative-unit list-scoped-role-member'] = """
     type: command
     short-summary: "Get scopedRoleMembers from administrativeUnits"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt administrative-unit restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt update-extension'] = """
+helps['identitydirmgt administrative-unit update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in administrativeUnits"
 """
 
-helps['identitydirmgt update-scoped-role-member'] = """
+helps['identitydirmgt administrative-unit update-scoped-role-member'] = """
     type: command
     short-summary: "Update the navigation property scopedRoleMembers in administrativeUnits"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt administrative-unit validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt contact-org-contact'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt contact-org-contact
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt contact-org-contact delete'] = """
     type: command
     short-summary: "Delete entity from contacts"
 """
 
-helps['identitydirmgt create-org-contact'] = """
+helps['identitydirmgt contact-org-contact create-org-contact'] = """
     type: command
     short-summary: "Add new entity to contacts"
     parameters:
@@ -295,17 +295,17 @@ many other directory entity types."
             Multiple actions can be specified by using more than one --transitive-member-of argument.
 """
 
-helps['identitydirmgt get-org-contact'] = """
+helps['identitydirmgt contact-org-contact get-org-contact'] = """
     type: command
     short-summary: "Get entity from contacts by key"
 """
 
-helps['identitydirmgt list-org-contact'] = """
+helps['identitydirmgt contact-org-contact list-org-contact'] = """
     type: command
     short-summary: "Get entities from contacts"
 """
 
-helps['identitydirmgt update-org-contact'] = """
+helps['identitydirmgt contact-org-contact update-org-contact'] = """
     type: command
     short-summary: "Update entity in contacts"
     parameters:
@@ -372,387 +372,541 @@ many other directory entity types."
             Multiple actions can be specified by using more than one --transitive-member-of argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt contact'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt contact
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt contact delete'] = """
     type: command
     short-summary: "Delete ref of navigation property manager for contacts"
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt contact check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt contact check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt create-ref-direct-report'] = """
+helps['identitydirmgt contact create-ref-direct-report'] = """
     type: command
     short-summary: "Create new navigation property ref to directReports for contacts"
 """
 
-helps['identitydirmgt create-ref-member-of'] = """
+helps['identitydirmgt contact create-ref-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to memberOf for contacts"
 """
 
-helps['identitydirmgt create-ref-transitive-member-of'] = """
+helps['identitydirmgt contact create-ref-transitive-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to transitiveMemberOf for contacts"
 """
 
-helps['identitydirmgt delta'] = """
+helps['identitydirmgt contact delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt contact get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-manager'] = """
+helps['identitydirmgt contact get-manager'] = """
     type: command
     short-summary: "Get manager from contacts"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt contact get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt contact get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-ref-manager'] = """
+helps['identitydirmgt contact get-ref-manager'] = """
     type: command
     short-summary: "Get ref of manager from contacts"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt contact get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt list-direct-report'] = """
+helps['identitydirmgt contact list-direct-report'] = """
     type: command
     short-summary: "Get directReports from contacts"
 """
 
-helps['identitydirmgt list-member-of'] = """
+helps['identitydirmgt contact list-member-of'] = """
     type: command
     short-summary: "Get memberOf from contacts"
 """
 
-helps['identitydirmgt list-ref-direct-report'] = """
+helps['identitydirmgt contact list-ref-direct-report'] = """
     type: command
     short-summary: "Get ref of directReports from contacts"
 """
 
-helps['identitydirmgt list-ref-member-of'] = """
+helps['identitydirmgt contact list-ref-member-of'] = """
     type: command
     short-summary: "Get ref of memberOf from contacts"
 """
 
-helps['identitydirmgt list-ref-transitive-member-of'] = """
+helps['identitydirmgt contact list-ref-transitive-member-of'] = """
     type: command
     short-summary: "Get ref of transitiveMemberOf from contacts"
 """
 
-helps['identitydirmgt list-transitive-member-of'] = """
+helps['identitydirmgt contact list-transitive-member-of'] = """
     type: command
     short-summary: "Get transitiveMemberOf from contacts"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt contact restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt set-ref-manager'] = """
+helps['identitydirmgt contact set-ref-manager'] = """
     type: command
     short-summary: "Update the ref of navigation property manager in contacts"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt contact validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt contract-contract'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt contract-contract
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt contract-contract delete'] = """
     type: command
     short-summary: "Delete entity from contracts"
 """
 
-helps['identitydirmgt create-contract'] = """
+helps['identitydirmgt contract-contract create-contract'] = """
     type: command
     short-summary: "Add new entity to contracts"
 """
 
-helps['identitydirmgt get-contract'] = """
+helps['identitydirmgt contract-contract get-contract'] = """
     type: command
     short-summary: "Get entity from contracts by key"
 """
 
-helps['identitydirmgt list-contract'] = """
+helps['identitydirmgt contract-contract list-contract'] = """
     type: command
     short-summary: "Get entities from contracts"
 """
 
-helps['identitydirmgt update-contract'] = """
+helps['identitydirmgt contract-contract update-contract'] = """
     type: command
     short-summary: "Update entity in contracts"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt contract'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt contract
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt contract check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt contract check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt contract get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt contract get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt contract get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt contract get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt contract restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt contract validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt device-device'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt device-device
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt device-device delete'] = """
     type: command
     short-summary: "Delete entity from devices"
 """
 
-helps['identitydirmgt create-device'] = """
+helps['identitydirmgt device-device create-device'] = """
     type: command
     short-summary: "Add new entity to devices"
+    parameters:
+      - name: --alternative-security-ids
+        short-summary: "For internal use only. Not nullable."
+        long-summary: |
+            Usage: --alternative-security-ids identity-provider=XX key=XX type=XX
+
+            identity-provider: For internal use only
+            key: For internal use only
+            type: For internal use only
+
+            Multiple actions can be specified by using more than one --alternative-security-ids argument.
+      - name: --extension-attributes
+        short-summary: "onPremisesExtensionAttributes"
+        long-summary: |
+            Usage: --extension-attributes extension-attribute1=XX extension-attribute10=XX extension-attribute11=XX \
+extension-attribute12=XX extension-attribute13=XX extension-attribute14=XX extension-attribute15=XX \
+extension-attribute2=XX extension-attribute3=XX extension-attribute4=XX extension-attribute5=XX \
+extension-attribute6=XX extension-attribute7=XX extension-attribute8=XX extension-attribute9=XX
+
+            extension-attribute1: First customizable extension attribute.
+            extension-attribute10: Tenth customizable extension attribute.
+            extension-attribute11: Eleventh customizable extension attribute.
+            extension-attribute12: Twelfth customizable extension attribute.
+            extension-attribute13: Thirteenth customizable extension attribute.
+            extension-attribute14: Fourteenth customizable extension attribute.
+            extension-attribute15: Fifteenth customizable extension attribute.
+            extension-attribute2: Second customizable extension attribute.
+            extension-attribute3: Third customizable extension attribute.
+            extension-attribute4: Fourth customizable extension attribute.
+            extension-attribute5: Fifth customizable extension attribute.
+            extension-attribute6: Sixth customizable extension attribute.
+            extension-attribute7: Seventh customizable extension attribute.
+            extension-attribute8: Eighth customizable extension attribute.
+            extension-attribute9: Ninth customizable extension attribute.
+      - name: --member-of
+        short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --registered-owners
+        short-summary: "The user that cloud joined the device or registered their personal device. The registered \
+owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable."
+        long-summary: |
+            Usage: --registered-owners deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --registered-owners argument.
+      - name: --registered-users
+        short-summary: "Collection of registered users of the device. For cloud joined devices and registered personal \
+devices, registered users are set to the same value as registered owners at the time of registration. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --registered-users deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --registered-users argument.
+      - name: --transitive-member-of
+        long-summary: |
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the device. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['identitydirmgt get-device'] = """
+helps['identitydirmgt device-device get-device'] = """
     type: command
     short-summary: "Get entity from devices by key"
 """
 
-helps['identitydirmgt list-device'] = """
+helps['identitydirmgt device-device list-device'] = """
     type: command
     short-summary: "Get entities from devices"
 """
 
-helps['identitydirmgt update-device'] = """
+helps['identitydirmgt device-device update-device'] = """
     type: command
     short-summary: "Update entity in devices"
+    parameters:
+      - name: --alternative-security-ids
+        short-summary: "For internal use only. Not nullable."
+        long-summary: |
+            Usage: --alternative-security-ids identity-provider=XX key=XX type=XX
+
+            identity-provider: For internal use only
+            key: For internal use only
+            type: For internal use only
+
+            Multiple actions can be specified by using more than one --alternative-security-ids argument.
+      - name: --extension-attributes
+        short-summary: "onPremisesExtensionAttributes"
+        long-summary: |
+            Usage: --extension-attributes extension-attribute1=XX extension-attribute10=XX extension-attribute11=XX \
+extension-attribute12=XX extension-attribute13=XX extension-attribute14=XX extension-attribute15=XX \
+extension-attribute2=XX extension-attribute3=XX extension-attribute4=XX extension-attribute5=XX \
+extension-attribute6=XX extension-attribute7=XX extension-attribute8=XX extension-attribute9=XX
+
+            extension-attribute1: First customizable extension attribute.
+            extension-attribute10: Tenth customizable extension attribute.
+            extension-attribute11: Eleventh customizable extension attribute.
+            extension-attribute12: Twelfth customizable extension attribute.
+            extension-attribute13: Thirteenth customizable extension attribute.
+            extension-attribute14: Fourteenth customizable extension attribute.
+            extension-attribute15: Fifteenth customizable extension attribute.
+            extension-attribute2: Second customizable extension attribute.
+            extension-attribute3: Third customizable extension attribute.
+            extension-attribute4: Fourth customizable extension attribute.
+            extension-attribute5: Fifth customizable extension attribute.
+            extension-attribute6: Sixth customizable extension attribute.
+            extension-attribute7: Seventh customizable extension attribute.
+            extension-attribute8: Eighth customizable extension attribute.
+            extension-attribute9: Ninth customizable extension attribute.
+      - name: --member-of
+        short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --registered-owners
+        short-summary: "The user that cloud joined the device or registered their personal device. The registered \
+owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable."
+        long-summary: |
+            Usage: --registered-owners deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --registered-owners argument.
+      - name: --registered-users
+        short-summary: "Collection of registered users of the device. For cloud joined devices and registered personal \
+devices, registered users are set to the same value as registered owners at the time of registration. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --registered-users deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --registered-users argument.
+      - name: --transitive-member-of
+        long-summary: |
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the device. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt device'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt device
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt device delete'] = """
     type: command
     short-summary: "Delete navigation property extensions for devices"
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt device check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt device check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt create-command'] = """
+helps['identitydirmgt device create-command'] = """
     type: command
     short-summary: "Create new navigation property to commands for devices"
 """
 
-helps['identitydirmgt create-extension'] = """
+helps['identitydirmgt device create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for devices"
 """
 
-helps['identitydirmgt create-ref-member-of'] = """
+helps['identitydirmgt device create-ref-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to memberOf for devices"
 """
 
-helps['identitydirmgt create-ref-registered-owner'] = """
+helps['identitydirmgt device create-ref-registered-owner'] = """
     type: command
     short-summary: "Create new navigation property ref to registeredOwners for devices"
 """
 
-helps['identitydirmgt create-ref-registered-user'] = """
+helps['identitydirmgt device create-ref-registered-user'] = """
     type: command
     short-summary: "Create new navigation property ref to registeredUsers for devices"
 """
 
-helps['identitydirmgt create-ref-transitive-member-of'] = """
+helps['identitydirmgt device create-ref-transitive-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to transitiveMemberOf for devices"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt device get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-command'] = """
+helps['identitydirmgt device get-command'] = """
     type: command
     short-summary: "Get commands from devices"
 """
 
-helps['identitydirmgt get-extension'] = """
+helps['identitydirmgt device get-extension'] = """
     type: command
     short-summary: "Get extensions from devices"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt device get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt device get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt device get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt list-command'] = """
+helps['identitydirmgt device list-command'] = """
     type: command
     short-summary: "Get commands from devices"
 """
 
-helps['identitydirmgt list-extension'] = """
+helps['identitydirmgt device list-extension'] = """
     type: command
     short-summary: "Get extensions from devices"
 """
 
-helps['identitydirmgt list-member-of'] = """
+helps['identitydirmgt device list-member-of'] = """
     type: command
     short-summary: "Get memberOf from devices"
 """
 
-helps['identitydirmgt list-ref-member-of'] = """
+helps['identitydirmgt device list-ref-member-of'] = """
     type: command
     short-summary: "Get ref of memberOf from devices"
 """
 
-helps['identitydirmgt list-ref-registered-owner'] = """
+helps['identitydirmgt device list-ref-registered-owner'] = """
     type: command
     short-summary: "Get ref of registeredOwners from devices"
 """
 
-helps['identitydirmgt list-ref-registered-user'] = """
+helps['identitydirmgt device list-ref-registered-user'] = """
     type: command
     short-summary: "Get ref of registeredUsers from devices"
 """
 
-helps['identitydirmgt list-ref-transitive-member-of'] = """
+helps['identitydirmgt device list-ref-transitive-member-of'] = """
     type: command
     short-summary: "Get ref of transitiveMemberOf from devices"
 """
 
-helps['identitydirmgt list-registered-owner'] = """
+helps['identitydirmgt device list-registered-owner'] = """
     type: command
     short-summary: "Get registeredOwners from devices"
 """
 
-helps['identitydirmgt list-registered-user'] = """
+helps['identitydirmgt device list-registered-user'] = """
     type: command
     short-summary: "Get registeredUsers from devices"
 """
 
-helps['identitydirmgt list-transitive-member-of'] = """
+helps['identitydirmgt device list-transitive-member-of'] = """
     type: command
     short-summary: "Get transitiveMemberOf from devices"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt device restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt update-command'] = """
+helps['identitydirmgt device update-command'] = """
     type: command
     short-summary: "Update the navigation property commands in devices"
 """
 
-helps['identitydirmgt update-extension'] = """
+helps['identitydirmgt device update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in devices"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt device validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-directory'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-directory
 """
 
-helps['identitydirmgt get-directory'] = """
+helps['identitydirmgt directory-directory get-directory'] = """
     type: command
     short-summary: "Get directory"
 """
 
-helps['identitydirmgt update-directory'] = """
+helps['identitydirmgt directory-directory update-directory'] = """
     type: command
     short-summary: "Update directory"
     parameters:
@@ -791,17 +945,17 @@ is-enabled=XX applies-to=XX id=XX
             Multiple actions can be specified by using more than one --feature-rollout-policies argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt directory delete'] = """
     type: command
     short-summary: "Delete navigation property featureRolloutPolicies for directory"
 """
 
-helps['identitydirmgt create-administrative-unit'] = """
+helps['identitydirmgt directory create-administrative-unit'] = """
     type: command
     short-summary: "Create new navigation property to administrativeUnits for directory"
     parameters:
@@ -839,12 +993,12 @@ associated with the user won't show up as having changed when using delta.
             Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['identitydirmgt create-deleted-item'] = """
+helps['identitydirmgt directory create-deleted-item'] = """
     type: command
     short-summary: "Create new navigation property to deletedItems for directory"
 """
 
-helps['identitydirmgt create-feature-rollout-policy'] = """
+helps['identitydirmgt directory create-feature-rollout-policy'] = """
     type: command
     short-summary: "Create new navigation property to featureRolloutPolicies for directory"
     parameters:
@@ -857,37 +1011,37 @@ helps['identitydirmgt create-feature-rollout-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitydirmgt get-administrative-unit'] = """
+helps['identitydirmgt directory get-administrative-unit'] = """
     type: command
     short-summary: "Get administrativeUnits from directory"
 """
 
-helps['identitydirmgt get-deleted-item'] = """
+helps['identitydirmgt directory get-deleted-item'] = """
     type: command
     short-summary: "Get deletedItems from directory"
 """
 
-helps['identitydirmgt get-feature-rollout-policy'] = """
+helps['identitydirmgt directory get-feature-rollout-policy'] = """
     type: command
     short-summary: "Get featureRolloutPolicies from directory"
 """
 
-helps['identitydirmgt list-administrative-unit'] = """
+helps['identitydirmgt directory list-administrative-unit'] = """
     type: command
     short-summary: "Get administrativeUnits from directory"
 """
 
-helps['identitydirmgt list-deleted-item'] = """
+helps['identitydirmgt directory list-deleted-item'] = """
     type: command
     short-summary: "Get deletedItems from directory"
 """
 
-helps['identitydirmgt list-feature-rollout-policy'] = """
+helps['identitydirmgt directory list-feature-rollout-policy'] = """
     type: command
     short-summary: "Get featureRolloutPolicies from directory"
 """
 
-helps['identitydirmgt update-administrative-unit'] = """
+helps['identitydirmgt directory update-administrative-unit'] = """
     type: command
     short-summary: "Update the navigation property administrativeUnits in directory"
     parameters:
@@ -925,12 +1079,12 @@ associated with the user won't show up as having changed when using delta.
             Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['identitydirmgt update-deleted-item'] = """
+helps['identitydirmgt directory update-deleted-item'] = """
     type: command
     short-summary: "Update the navigation property deletedItems in directory"
 """
 
-helps['identitydirmgt update-feature-rollout-policy'] = """
+helps['identitydirmgt directory update-feature-rollout-policy'] = """
     type: command
     short-summary: "Update the navigation property featureRolloutPolicies in directory"
     parameters:
@@ -943,47 +1097,47 @@ helps['identitydirmgt update-feature-rollout-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-feature-rollout-policy'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-feature-rollout-policy
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt directory-feature-rollout-policy delete'] = """
     type: command
     short-summary: "Delete navigation property appliesTo for directory"
 """
 
-helps['identitydirmgt create-apply-to'] = """
+helps['identitydirmgt directory-feature-rollout-policy create-apply-to'] = """
     type: command
     short-summary: "Create new navigation property to appliesTo for directory"
 """
 
-helps['identitydirmgt get-apply-to'] = """
+helps['identitydirmgt directory-feature-rollout-policy get-apply-to'] = """
     type: command
     short-summary: "Get appliesTo from directory"
 """
 
-helps['identitydirmgt list-apply-to'] = """
+helps['identitydirmgt directory-feature-rollout-policy list-apply-to'] = """
     type: command
     short-summary: "Get appliesTo from directory"
 """
 
-helps['identitydirmgt update-apply-to'] = """
+helps['identitydirmgt directory-feature-rollout-policy update-apply-to'] = """
     type: command
     short-summary: "Update the navigation property appliesTo in directory"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-role-directory-role'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-role-directory-role
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt directory-role-directory-role delete'] = """
     type: command
     short-summary: "Delete entity from directoryRoles"
 """
 
-helps['identitydirmgt create-directory-role'] = """
+helps['identitydirmgt directory-role-directory-role create-directory-role'] = """
     type: command
     short-summary: "Add new entity to directoryRoles"
     parameters:
@@ -1012,17 +1166,17 @@ associated with the user won't show up as having changed when using delta.
             Multiple actions can be specified by using more than one --scoped-members argument.
 """
 
-helps['identitydirmgt get-directory-role'] = """
+helps['identitydirmgt directory-role-directory-role get-directory-role'] = """
     type: command
     short-summary: "Get entity from directoryRoles by key"
 """
 
-helps['identitydirmgt list-directory-role'] = """
+helps['identitydirmgt directory-role-directory-role list-directory-role'] = """
     type: command
     short-summary: "Get entities from directoryRoles"
 """
 
-helps['identitydirmgt update-directory-role'] = """
+helps['identitydirmgt directory-role-directory-role update-directory-role'] = """
     type: command
     short-summary: "Update entity in directoryRoles"
     parameters:
@@ -1051,182 +1205,182 @@ associated with the user won't show up as having changed when using delta.
             Multiple actions can be specified by using more than one --scoped-members argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-role'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-role
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt directory-role delete'] = """
     type: command
     short-summary: "Delete navigation property scopedMembers for directoryRoles"
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt directory-role check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt directory-role check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt create-ref-member'] = """
+helps['identitydirmgt directory-role create-ref-member'] = """
     type: command
     short-summary: "Create new navigation property ref to members for directoryRoles"
 """
 
-helps['identitydirmgt create-scoped-member'] = """
+helps['identitydirmgt directory-role create-scoped-member'] = """
     type: command
     short-summary: "Create new navigation property to scopedMembers for directoryRoles"
 """
 
-helps['identitydirmgt delta'] = """
+helps['identitydirmgt directory-role delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt directory-role get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt directory-role get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt directory-role get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-scoped-member'] = """
+helps['identitydirmgt directory-role get-scoped-member'] = """
     type: command
     short-summary: "Get scopedMembers from directoryRoles"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt directory-role get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt list-member'] = """
+helps['identitydirmgt directory-role list-member'] = """
     type: command
     short-summary: "Get members from directoryRoles"
 """
 
-helps['identitydirmgt list-ref-member'] = """
+helps['identitydirmgt directory-role list-ref-member'] = """
     type: command
     short-summary: "Get ref of members from directoryRoles"
 """
 
-helps['identitydirmgt list-scoped-member'] = """
+helps['identitydirmgt directory-role list-scoped-member'] = """
     type: command
     short-summary: "Get scopedMembers from directoryRoles"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt directory-role restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt update-scoped-member'] = """
+helps['identitydirmgt directory-role update-scoped-member'] = """
     type: command
     short-summary: "Update the navigation property scopedMembers in directoryRoles"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt directory-role validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-role-template-directory-role-template'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-role-template-directory-role-template
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt directory-role-template-directory-role-template delete'] = """
     type: command
     short-summary: "Delete entity from directoryRoleTemplates"
 """
 
-helps['identitydirmgt create-directory-role-template'] = """
+helps['identitydirmgt directory-role-template-directory-role-template create-directory-role-template'] = """
     type: command
     short-summary: "Add new entity to directoryRoleTemplates"
 """
 
-helps['identitydirmgt get-directory-role-template'] = """
+helps['identitydirmgt directory-role-template-directory-role-template get-directory-role-template'] = """
     type: command
     short-summary: "Get entity from directoryRoleTemplates by key"
 """
 
-helps['identitydirmgt list-directory-role-template'] = """
+helps['identitydirmgt directory-role-template-directory-role-template list-directory-role-template'] = """
     type: command
     short-summary: "Get entities from directoryRoleTemplates"
 """
 
-helps['identitydirmgt update-directory-role-template'] = """
+helps['identitydirmgt directory-role-template-directory-role-template update-directory-role-template'] = """
     type: command
     short-summary: "Update entity in directoryRoleTemplates"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-role-template'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-role-template
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt directory-role-template check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt directory-role-template check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt directory-role-template get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt directory-role-template get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt directory-role-template get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt directory-role-template get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt directory-role-template restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt directory-role-template validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-setting-template-directory-setting-template'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-setting-template-directory-setting-template
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt directory-setting-template-directory-setting-template delete'] = """
     type: command
     short-summary: "Delete entity from directorySettingTemplates"
 """
 
-helps['identitydirmgt create-directory-setting-template'] = """
+helps['identitydirmgt directory-setting-template-directory-setting-template create-directory-setting-template'] = """
     type: command
     short-summary: "Add new entity to directorySettingTemplates"
     parameters:
@@ -1242,17 +1396,17 @@ helps['identitydirmgt create-directory-setting-template'] = """
             Multiple actions can be specified by using more than one --values argument.
 """
 
-helps['identitydirmgt get-directory-setting-template'] = """
+helps['identitydirmgt directory-setting-template-directory-setting-template get-directory-setting-template'] = """
     type: command
     short-summary: "Get entity from directorySettingTemplates by key"
 """
 
-helps['identitydirmgt list-directory-setting-template'] = """
+helps['identitydirmgt directory-setting-template-directory-setting-template list-directory-setting-template'] = """
     type: command
     short-summary: "Get entities from directorySettingTemplates"
 """
 
-helps['identitydirmgt update-directory-setting-template'] = """
+helps['identitydirmgt directory-setting-template-directory-setting-template update-directory-setting-template'] = """
     type: command
     short-summary: "Update entity in directorySettingTemplates"
     parameters:
@@ -1268,62 +1422,62 @@ helps['identitydirmgt update-directory-setting-template'] = """
             Multiple actions can be specified by using more than one --values argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt directory-setting-template'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt directory-setting-template
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt directory-setting-template check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt directory-setting-template check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt directory-setting-template get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt directory-setting-template get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt directory-setting-template get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt directory-setting-template get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt directory-setting-template restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt directory-setting-template validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt domain-domain'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt domain-domain
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt domain-domain delete'] = """
     type: command
     short-summary: "Delete entity from domains"
 """
 
-helps['identitydirmgt create-domain'] = """
+helps['identitydirmgt domain-domain create-domain'] = """
     type: command
     short-summary: "Add new entity to domains"
     parameters:
@@ -1386,17 +1540,17 @@ nullable
             Multiple actions can be specified by using more than one --verification-dns-records argument.
 """
 
-helps['identitydirmgt get-domain'] = """
+helps['identitydirmgt domain-domain get-domain'] = """
     type: command
     short-summary: "Get entity from domains by key"
 """
 
-helps['identitydirmgt list-domain'] = """
+helps['identitydirmgt domain-domain list-domain'] = """
     type: command
     short-summary: "Get entities from domains"
 """
 
-helps['identitydirmgt update-domain'] = """
+helps['identitydirmgt domain-domain update-domain'] = """
     type: command
     short-summary: "Update entity in domains"
     parameters:
@@ -1459,92 +1613,92 @@ nullable
             Multiple actions can be specified by using more than one --verification-dns-records argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt domain'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt domain
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt domain delete'] = """
     type: command
     short-summary: "Delete navigation property verificationDnsRecords for domains"
 """
 
-helps['identitydirmgt create-ref-domain-name-reference'] = """
+helps['identitydirmgt domain create-ref-domain-name-reference'] = """
     type: command
     short-summary: "Create new navigation property ref to domainNameReferences for domains"
 """
 
-helps['identitydirmgt create-service-configuration-record'] = """
+helps['identitydirmgt domain create-service-configuration-record'] = """
     type: command
     short-summary: "Create new navigation property to serviceConfigurationRecords for domains"
 """
 
-helps['identitydirmgt create-verification-dns-record'] = """
+helps['identitydirmgt domain create-verification-dns-record'] = """
     type: command
     short-summary: "Create new navigation property to verificationDnsRecords for domains"
 """
 
-helps['identitydirmgt force-delete'] = """
+helps['identitydirmgt domain force-delete'] = """
     type: command
     short-summary: "Invoke action forceDelete"
 """
 
-helps['identitydirmgt get-service-configuration-record'] = """
+helps['identitydirmgt domain get-service-configuration-record'] = """
     type: command
     short-summary: "Get serviceConfigurationRecords from domains"
 """
 
-helps['identitydirmgt get-verification-dns-record'] = """
+helps['identitydirmgt domain get-verification-dns-record'] = """
     type: command
     short-summary: "Get verificationDnsRecords from domains"
 """
 
-helps['identitydirmgt list-domain-name-reference'] = """
+helps['identitydirmgt domain list-domain-name-reference'] = """
     type: command
     short-summary: "Get domainNameReferences from domains"
 """
 
-helps['identitydirmgt list-ref-domain-name-reference'] = """
+helps['identitydirmgt domain list-ref-domain-name-reference'] = """
     type: command
     short-summary: "Get ref of domainNameReferences from domains"
 """
 
-helps['identitydirmgt list-service-configuration-record'] = """
+helps['identitydirmgt domain list-service-configuration-record'] = """
     type: command
     short-summary: "Get serviceConfigurationRecords from domains"
 """
 
-helps['identitydirmgt list-verification-dns-record'] = """
+helps['identitydirmgt domain list-verification-dns-record'] = """
     type: command
     short-summary: "Get verificationDnsRecords from domains"
 """
 
-helps['identitydirmgt update-service-configuration-record'] = """
+helps['identitydirmgt domain update-service-configuration-record'] = """
     type: command
     short-summary: "Update the navigation property serviceConfigurationRecords in domains"
 """
 
-helps['identitydirmgt update-verification-dns-record'] = """
+helps['identitydirmgt domain update-verification-dns-record'] = """
     type: command
     short-summary: "Update the navigation property verificationDnsRecords in domains"
 """
 
-helps['identitydirmgt verify'] = """
+helps['identitydirmgt domain verify'] = """
     type: command
     short-summary: "Invoke action verify"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt organization-organization'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt organization-organization
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt organization-organization delete'] = """
     type: command
     short-summary: "Delete entity from organization"
 """
 
-helps['identitydirmgt create-organization'] = """
+helps['identitydirmgt organization-organization create-organization'] = """
     type: command
     short-summary: "Add new entity to organization"
     parameters:
@@ -1642,17 +1796,17 @@ sign-in-page-text=XX square-logo=XX username-hint-text=XX id=XX
             Multiple actions can be specified by using more than one --branding-localizations argument.
 """
 
-helps['identitydirmgt get-organization'] = """
+helps['identitydirmgt organization-organization get-organization'] = """
     type: command
     short-summary: "Get entity from organization by key"
 """
 
-helps['identitydirmgt list-organization'] = """
+helps['identitydirmgt organization-organization list-organization'] = """
     type: command
     short-summary: "Get entities from organization"
 """
 
-helps['identitydirmgt update-organization'] = """
+helps['identitydirmgt organization-organization update-organization'] = """
     type: command
     short-summary: "Update entity in organization"
     parameters:
@@ -1750,82 +1904,82 @@ sign-in-page-text=XX square-logo=XX username-hint-text=XX id=XX
             Multiple actions can be specified by using more than one --branding-localizations argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt organization'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt organization
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt organization delete'] = """
     type: command
     short-summary: "Delete navigation property settings for organization"
 """
 
-helps['identitydirmgt check-member-group'] = """
+helps['identitydirmgt organization check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['identitydirmgt check-member-object'] = """
+helps['identitydirmgt organization check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['identitydirmgt create-extension'] = """
+helps['identitydirmgt organization create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for organization"
 """
 
-helps['identitydirmgt get-branding'] = """
+helps['identitydirmgt organization get-branding'] = """
     type: command
     short-summary: "Get branding from organization"
 """
 
-helps['identitydirmgt get-by-id'] = """
+helps['identitydirmgt organization get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['identitydirmgt get-extension'] = """
+helps['identitydirmgt organization get-extension'] = """
     type: command
     short-summary: "Get extensions from organization"
 """
 
-helps['identitydirmgt get-member-group'] = """
+helps['identitydirmgt organization get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['identitydirmgt get-member-object'] = """
+helps['identitydirmgt organization get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['identitydirmgt get-setting'] = """
+helps['identitydirmgt organization get-setting'] = """
     type: command
     short-summary: "Get settings from organization"
 """
 
-helps['identitydirmgt get-user-owned-object'] = """
+helps['identitydirmgt organization get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects"
 """
 
-helps['identitydirmgt list-extension'] = """
+helps['identitydirmgt organization list-extension'] = """
     type: command
     short-summary: "Get extensions from organization"
 """
 
-helps['identitydirmgt restore'] = """
+helps['identitydirmgt organization restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['identitydirmgt set-mobile-device-management-authority'] = """
+helps['identitydirmgt organization set-mobile-device-management-authority'] = """
     type: command
     short-summary: "Invoke action setMobileDeviceManagementAuthority"
 """
 
-helps['identitydirmgt update-branding'] = """
+helps['identitydirmgt organization update-branding'] = """
     type: command
     short-summary: "Update the navigation property branding in organization"
     parameters:
@@ -1839,12 +1993,12 @@ square-logo=XX username-hint-text=XX id=XX
             Multiple actions can be specified by using more than one --localizations argument.
 """
 
-helps['identitydirmgt update-extension'] = """
+helps['identitydirmgt organization update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in organization"
 """
 
-helps['identitydirmgt update-setting'] = """
+helps['identitydirmgt organization update-setting'] = """
     type: command
     short-summary: "Update the navigation property settings in organization"
     parameters:
@@ -1856,22 +2010,22 @@ helps['identitydirmgt update-setting'] = """
             id: Read-only.
 """
 
-helps['identitydirmgt validate-property'] = """
+helps['identitydirmgt organization validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt organization-setting'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt organization-setting
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt organization-setting delete'] = """
     type: command
     short-summary: "Delete navigation property itemInsights for organization"
 """
 
-helps['identitydirmgt create-profile-card-property'] = """
+helps['identitydirmgt organization-setting create-profile-card-property'] = """
     type: command
     short-summary: "Create new navigation property to profileCardProperties for organization"
     parameters:
@@ -1883,27 +2037,27 @@ helps['identitydirmgt create-profile-card-property'] = """
             Multiple actions can be specified by using more than one --annotations argument.
 """
 
-helps['identitydirmgt get-item-insight'] = """
+helps['identitydirmgt organization-setting get-item-insight'] = """
     type: command
     short-summary: "Get itemInsights from organization"
 """
 
-helps['identitydirmgt get-profile-card-property'] = """
+helps['identitydirmgt organization-setting get-profile-card-property'] = """
     type: command
     short-summary: "Get profileCardProperties from organization"
 """
 
-helps['identitydirmgt list-profile-card-property'] = """
+helps['identitydirmgt organization-setting list-profile-card-property'] = """
     type: command
     short-summary: "Get profileCardProperties from organization"
 """
 
-helps['identitydirmgt update-item-insight'] = """
+helps['identitydirmgt organization-setting update-item-insight'] = """
     type: command
     short-summary: "Update the navigation property itemInsights in organization"
 """
 
-helps['identitydirmgt update-profile-card-property'] = """
+helps['identitydirmgt organization-setting update-profile-card-property'] = """
     type: command
     short-summary: "Update the navigation property profileCardProperties in organization"
     parameters:
@@ -1915,17 +2069,17 @@ helps['identitydirmgt update-profile-card-property'] = """
             Multiple actions can be specified by using more than one --annotations argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt setting-directory-setting'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt setting-directory-setting
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt setting-directory-setting delete'] = """
     type: command
     short-summary: "Delete entity from settings"
 """
 
-helps['identitydirmgt create-directory-setting'] = """
+helps['identitydirmgt setting-directory-setting create-directory-setting'] = """
     type: command
     short-summary: "Add new entity to settings"
     parameters:
@@ -1939,17 +2093,17 @@ helps['identitydirmgt create-directory-setting'] = """
             Multiple actions can be specified by using more than one --values argument.
 """
 
-helps['identitydirmgt get-directory-setting'] = """
+helps['identitydirmgt setting-directory-setting get-directory-setting'] = """
     type: command
     short-summary: "Get entity from settings by key"
 """
 
-helps['identitydirmgt list-directory-setting'] = """
+helps['identitydirmgt setting-directory-setting list-directory-setting'] = """
     type: command
     short-summary: "Get entities from settings"
 """
 
-helps['identitydirmgt update-directory-setting'] = """
+helps['identitydirmgt setting-directory-setting update-directory-setting'] = """
     type: command
     short-summary: "Update entity in settings"
     parameters:
@@ -1963,17 +2117,17 @@ helps['identitydirmgt update-directory-setting'] = """
             Multiple actions can be specified by using more than one --values argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt subscribed-sku-subscribed-sku'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt subscribed-sku-subscribed-sku
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt subscribed-sku-subscribed-sku delete'] = """
     type: command
     short-summary: "Delete entity from subscribedSkus"
 """
 
-helps['identitydirmgt create-subscribed-sku'] = """
+helps['identitydirmgt subscribed-sku-subscribed-sku create-subscribed-sku'] = """
     type: command
     short-summary: "Add new entity to subscribedSkus"
     parameters:
@@ -2003,17 +2157,17 @@ and it has not been activated in the tenant, yet.
             Multiple actions can be specified by using more than one --service-plans argument.
 """
 
-helps['identitydirmgt get-subscribed-sku'] = """
+helps['identitydirmgt subscribed-sku-subscribed-sku get-subscribed-sku'] = """
     type: command
     short-summary: "Get entity from subscribedSkus by key"
 """
 
-helps['identitydirmgt list-subscribed-sku'] = """
+helps['identitydirmgt subscribed-sku-subscribed-sku list-subscribed-sku'] = """
     type: command
     short-summary: "Get entities from subscribedSkus"
 """
 
-helps['identitydirmgt update-subscribed-sku'] = """
+helps['identitydirmgt subscribed-sku-subscribed-sku update-subscribed-sku'] = """
     type: command
     short-summary: "Update entity in subscribedSkus"
     parameters:
@@ -2043,32 +2197,32 @@ and it has not been activated in the tenant, yet.
             Multiple actions can be specified by using more than one --service-plans argument.
 """
 
-helps['identitydirmgt'] = """
+helps['identitydirmgt user'] = """
     type: group
-    short-summary: identitydirmgt
+    short-summary: identitydirmgt user
 """
 
-helps['identitydirmgt delete'] = """
+helps['identitydirmgt user delete'] = """
     type: command
     short-summary: "Delete navigation property scopedRoleMemberOf for users"
 """
 
-helps['identitydirmgt create-scoped-role-member-of'] = """
+helps['identitydirmgt user create-scoped-role-member-of'] = """
     type: command
     short-summary: "Create new navigation property to scopedRoleMemberOf for users"
 """
 
-helps['identitydirmgt get-scoped-role-member-of'] = """
+helps['identitydirmgt user get-scoped-role-member-of'] = """
     type: command
     short-summary: "Get scopedRoleMemberOf from users"
 """
 
-helps['identitydirmgt list-scoped-role-member-of'] = """
+helps['identitydirmgt user list-scoped-role-member-of'] = """
     type: command
     short-summary: "Get scopedRoleMemberOf from users"
 """
 
-helps['identitydirmgt update-scoped-role-member-of'] = """
+helps['identitydirmgt user update-scoped-role-member-of'] = """
     type: command
     short-summary: "Update the navigation property scopedRoleMemberOf in users"
 """

@@ -12,22 +12,22 @@
 from knack.help_files import helps
 
 
-helps['notes'] = """
+helps['notes group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group
 """
 
-helps['notes delete'] = """
+helps['notes group delete'] = """
     type: command
     short-summary: "Delete navigation property onenote for groups"
 """
 
-helps['notes get-onenote'] = """
+helps['notes group get-onenote'] = """
     type: command
     short-summary: "Get onenote from groups"
 """
 
-helps['notes update-onenote'] = """
+helps['notes group update-onenote'] = """
     type: command
     short-summary: "Update the navigation property onenote in groups"
     parameters:
@@ -45,17 +45,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['notes'] = """
+helps['notes group-onenote'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-notebook'] = """
+helps['notes group-onenote create-notebook'] = """
     type: command
     short-summary: "Create new navigation property to notebooks for groups"
     parameters:
@@ -127,7 +127,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes create-operation'] = """
+helps['notes group-onenote create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for groups"
     parameters:
@@ -140,22 +140,22 @@ helps['notes create-operation'] = """
             message: The error message.
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes create-resource'] = """
+helps['notes group-onenote create-resource'] = """
     type: command
     short-summary: "Create new navigation property to resources for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -215,87 +215,87 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-notebook'] = """
+helps['notes group-onenote get-notebook'] = """
     type: command
     short-summary: "Get notebooks from groups"
 """
 
-helps['notes get-operation'] = """
+helps['notes group-onenote get-operation'] = """
     type: command
     short-summary: "Get operations from groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes get-resource'] = """
+helps['notes group-onenote get-resource'] = """
     type: command
     short-summary: "Get resources from groups"
 """
 
-helps['notes get-resource-content'] = """
+helps['notes group-onenote get-resource-content'] = """
     type: command
     short-summary: "Get media content for the navigation property resources from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-notebook'] = """
+helps['notes group-onenote list-notebook'] = """
     type: command
     short-summary: "Get notebooks from groups"
 """
 
-helps['notes list-operation'] = """
+helps['notes group-onenote list-operation'] = """
     type: command
     short-summary: "Get operations from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes list-resource'] = """
+helps['notes group-onenote list-resource'] = """
     type: command
     short-summary: "Get resources from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes set-resource-content'] = """
+helps['notes group-onenote set-resource-content'] = """
     type: command
     short-summary: "Update media content for the navigation property resources in groups"
 """
 
-helps['notes update-notebook'] = """
+helps['notes group-onenote update-notebook'] = """
     type: command
     short-summary: "Update the navigation property notebooks in groups"
     parameters:
@@ -367,7 +367,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-operation'] = """
+helps['notes group-onenote update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in groups"
     parameters:
@@ -380,22 +380,22 @@ helps['notes update-operation'] = """
             message: The error message.
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-resource'] = """
+helps['notes group-onenote update-resource'] = """
     type: command
     short-summary: "Update the navigation property resources in groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -455,22 +455,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -530,32 +530,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -615,22 +615,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -690,37 +690,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -792,7 +792,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -852,12 +852,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -917,57 +917,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-notebook-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-notebook-section-group-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-notebook-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-notebook-section-group-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -1039,7 +1039,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -1099,27 +1099,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook-section-group-section-page
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook-section-group-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-group-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes group-onenote-notebook-section-group-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -1191,62 +1191,62 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes group-onenote-notebook-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-notebook-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-notebook-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -1318,7 +1318,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -1378,27 +1378,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook-section-page
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes group-onenote-notebook-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -1470,27 +1470,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes group-onenote-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-notebook-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-notebook-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -1550,37 +1550,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-notebook-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-notebook-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-notebook-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -1652,7 +1652,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -1712,12 +1712,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -1777,27 +1777,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes group-onenote-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -1869,27 +1869,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes group-onenote-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -1949,32 +1949,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -2034,22 +2034,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -2109,37 +2109,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -2211,7 +2211,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -2271,12 +2271,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -2336,47 +2336,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-notebook-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -2448,7 +2448,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -2508,62 +2508,62 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-parent-notebook-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-parent-notebook-section-group-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-parent-notebook-section-group-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-parent-notebook-section-group-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-page-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-page-parent-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-page-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-page-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -2635,7 +2635,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -2695,37 +2695,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-parent-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-parent-notebook-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-parent-notebook-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-parent-notebook-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-notebook-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -2785,37 +2785,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -2887,7 +2887,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -2947,12 +2947,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -3012,47 +3012,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-page-parent-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-page-parent-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-page-parent-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-page-parent-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -3124,7 +3124,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -3184,37 +3184,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-parent-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-parent-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-parent-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-parent-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -3274,32 +3274,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -3359,22 +3359,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-section-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -3434,37 +3434,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -3536,7 +3536,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -3596,12 +3596,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -3661,22 +3661,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -3736,37 +3736,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -3838,7 +3838,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -3898,12 +3898,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -3963,22 +3963,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-page-parent-section-parent-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -4038,32 +4038,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -4123,22 +4123,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -4198,37 +4198,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -4300,7 +4300,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -4360,12 +4360,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -4425,22 +4425,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -4500,32 +4500,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -4585,57 +4585,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-parent-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-parent-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-section-group-parent-notebook-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-section-group-parent-notebook-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -4707,7 +4707,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -4767,27 +4767,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-parent-notebook-section-page
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -4859,62 +4859,62 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-section-group-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-section-group-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -4986,7 +4986,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -5046,27 +5046,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-section-page
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-group-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes group-onenote-section-group-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -5138,27 +5138,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes group-onenote-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-section-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -5218,32 +5218,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -5303,22 +5303,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-group-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-group-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -5378,32 +5378,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -5463,57 +5463,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-page'] = """
+helps['notes group-onenote-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups"
 """
 
-helps['notes get-page'] = """
+helps['notes group-onenote-section get-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes get-page-content'] = """
+helps['notes group-onenote-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes list-page'] = """
+helps['notes group-onenote-section list-page'] = """
     type: command
     short-summary: "Get pages from groups"
 """
 
-helps['notes set-page-content'] = """
+helps['notes group-onenote-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in groups"
 """
 
-helps['notes update-page'] = """
+helps['notes group-onenote-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -5585,7 +5585,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -5645,27 +5645,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-page
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes group-onenote-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -5737,27 +5737,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes group-onenote-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups"
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -5817,32 +5817,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -5902,22 +5902,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-page-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -5977,37 +5977,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -6079,7 +6079,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -6139,12 +6139,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -6204,22 +6204,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -6279,32 +6279,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -6364,22 +6364,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -6439,37 +6439,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -6541,7 +6541,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -6601,12 +6601,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -6666,22 +6666,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -6741,37 +6741,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes group-onenote-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes group-onenote-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups"
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes group-onenote-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups"
     parameters:
@@ -6843,7 +6843,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes group-onenote-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups"
     parameters:
@@ -6903,12 +6903,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -6968,22 +6968,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes group-onenote-section-parent-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for groups"
 """
 
-helps['notes create-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups"
 """
 
-helps['notes create-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups"
     parameters:
@@ -7043,32 +7043,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes get-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes list-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups"
 """
 
-helps['notes list-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups"
 """
 
-helps['notes update-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups"
 """
 
-helps['notes update-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups"
     parameters:
@@ -7128,22 +7128,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site
 """
 
-helps['notes delete'] = """
+helps['notes site delete'] = """
     type: command
     short-summary: "Delete navigation property onenote for sites"
 """
 
-helps['notes get-onenote'] = """
+helps['notes site get-onenote'] = """
     type: command
     short-summary: "Get onenote from sites"
 """
 
-helps['notes update-onenote'] = """
+helps['notes site update-onenote'] = """
     type: command
     short-summary: "Update the navigation property onenote in sites"
     parameters:
@@ -7161,17 +7161,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['notes'] = """
+helps['notes site-onenote'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-notebook'] = """
+helps['notes site-onenote create-notebook'] = """
     type: command
     short-summary: "Create new navigation property to notebooks for sites"
     parameters:
@@ -7243,7 +7243,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes create-operation'] = """
+helps['notes site-onenote create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for sites"
     parameters:
@@ -7256,22 +7256,22 @@ helps['notes create-operation'] = """
             message: The error message.
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes create-resource'] = """
+helps['notes site-onenote create-resource'] = """
     type: command
     short-summary: "Create new navigation property to resources for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -7331,87 +7331,87 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-notebook'] = """
+helps['notes site-onenote get-notebook'] = """
     type: command
     short-summary: "Get notebooks from sites"
 """
 
-helps['notes get-operation'] = """
+helps['notes site-onenote get-operation'] = """
     type: command
     short-summary: "Get operations from sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes get-resource'] = """
+helps['notes site-onenote get-resource'] = """
     type: command
     short-summary: "Get resources from sites"
 """
 
-helps['notes get-resource-content'] = """
+helps['notes site-onenote get-resource-content'] = """
     type: command
     short-summary: "Get media content for the navigation property resources from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-notebook'] = """
+helps['notes site-onenote list-notebook'] = """
     type: command
     short-summary: "Get notebooks from sites"
 """
 
-helps['notes list-operation'] = """
+helps['notes site-onenote list-operation'] = """
     type: command
     short-summary: "Get operations from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes list-resource'] = """
+helps['notes site-onenote list-resource'] = """
     type: command
     short-summary: "Get resources from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes set-resource-content'] = """
+helps['notes site-onenote set-resource-content'] = """
     type: command
     short-summary: "Update media content for the navigation property resources in sites"
 """
 
-helps['notes update-notebook'] = """
+helps['notes site-onenote update-notebook'] = """
     type: command
     short-summary: "Update the navigation property notebooks in sites"
     parameters:
@@ -7483,7 +7483,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-operation'] = """
+helps['notes site-onenote update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in sites"
     parameters:
@@ -7496,22 +7496,22 @@ helps['notes update-operation'] = """
             message: The error message.
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-resource'] = """
+helps['notes site-onenote update-resource'] = """
     type: command
     short-summary: "Update the navigation property resources in sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -7571,22 +7571,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -7646,32 +7646,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -7731,22 +7731,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -7806,37 +7806,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -7908,7 +7908,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -7968,12 +7968,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -8033,57 +8033,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-notebook-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-notebook-section-group-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-notebook-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-notebook-section-group-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -8155,7 +8155,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -8215,27 +8215,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook-section-group-section-page
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook-section-group-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-group-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes site-onenote-notebook-section-group-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -8307,62 +8307,62 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes site-onenote-notebook-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-notebook-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-notebook-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -8434,7 +8434,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -8494,27 +8494,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook-section-page
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes site-onenote-notebook-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -8586,27 +8586,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes site-onenote-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-notebook-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-notebook-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -8666,37 +8666,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-notebook-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-notebook-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-notebook-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -8768,7 +8768,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -8828,12 +8828,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -8893,27 +8893,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes site-onenote-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -8985,27 +8985,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes site-onenote-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -9065,32 +9065,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -9150,22 +9150,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -9225,37 +9225,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -9327,7 +9327,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -9387,12 +9387,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -9452,47 +9452,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-notebook-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -9564,7 +9564,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -9624,62 +9624,62 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-parent-notebook-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-parent-notebook-section-group-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-parent-notebook-section-group-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-parent-notebook-section-group-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-page-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-page-parent-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-page-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-page-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -9751,7 +9751,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -9811,37 +9811,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-parent-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-parent-notebook-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-parent-notebook-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-parent-notebook-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-notebook-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -9901,37 +9901,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -10003,7 +10003,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -10063,12 +10063,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -10128,47 +10128,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-page-parent-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-page-parent-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-page-parent-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-page-parent-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -10240,7 +10240,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -10300,37 +10300,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-parent-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-parent-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-parent-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-parent-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -10390,32 +10390,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -10475,22 +10475,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-section-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -10550,37 +10550,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -10652,7 +10652,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -10712,12 +10712,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -10777,22 +10777,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -10852,37 +10852,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -10954,7 +10954,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -11014,12 +11014,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -11079,22 +11079,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-page-parent-section-parent-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -11154,32 +11154,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -11239,22 +11239,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -11314,37 +11314,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -11416,7 +11416,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -11476,12 +11476,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -11541,22 +11541,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -11616,32 +11616,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -11701,57 +11701,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-parent-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-parent-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-section-group-parent-notebook-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-section-group-parent-notebook-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -11823,7 +11823,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -11883,27 +11883,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-parent-notebook-section-page
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -11975,62 +11975,62 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-section-group-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-section-group-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -12102,7 +12102,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -12162,27 +12162,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-section-page
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-group-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes site-onenote-section-group-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -12254,27 +12254,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes site-onenote-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-section-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -12334,32 +12334,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -12419,22 +12419,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-group-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-group-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -12494,32 +12494,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -12579,57 +12579,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-page'] = """
+helps['notes site-onenote-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
 """
 
-helps['notes get-page'] = """
+helps['notes site-onenote-section get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes get-page-content'] = """
+helps['notes site-onenote-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes list-page'] = """
+helps['notes site-onenote-section list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['notes set-page-content'] = """
+helps['notes site-onenote-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in sites"
 """
 
-helps['notes update-page'] = """
+helps['notes site-onenote-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -12701,7 +12701,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -12761,27 +12761,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-page
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes site-onenote-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -12853,27 +12853,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes site-onenote-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites"
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -12933,32 +12933,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -13018,22 +13018,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-page-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -13093,37 +13093,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -13195,7 +13195,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -13255,12 +13255,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -13320,22 +13320,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -13395,32 +13395,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -13480,22 +13480,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -13555,37 +13555,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -13657,7 +13657,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -13717,12 +13717,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -13782,22 +13782,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -13857,37 +13857,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes site-onenote-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes site-onenote-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites"
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes site-onenote-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
@@ -13959,7 +13959,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes site-onenote-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
@@ -14019,12 +14019,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -14084,22 +14084,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes site-onenote-section-parent-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for sites"
 """
 
-helps['notes create-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites"
 """
 
-helps['notes create-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
@@ -14159,32 +14159,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes get-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes list-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites"
 """
 
-helps['notes list-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites"
 """
 
-helps['notes update-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites"
 """
 
-helps['notes update-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
@@ -14244,22 +14244,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user
 """
 
-helps['notes delete'] = """
+helps['notes user delete'] = """
     type: command
     short-summary: "Delete navigation property onenote for users"
 """
 
-helps['notes get-onenote'] = """
+helps['notes user get-onenote'] = """
     type: command
     short-summary: "Get onenote from users"
 """
 
-helps['notes update-onenote'] = """
+helps['notes user update-onenote'] = """
     type: command
     short-summary: "Update the navigation property onenote in users"
     parameters:
@@ -14277,17 +14277,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['notes'] = """
+helps['notes user-onenote'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-notebook'] = """
+helps['notes user-onenote create-notebook'] = """
     type: command
     short-summary: "Create new navigation property to notebooks for users"
     parameters:
@@ -14359,7 +14359,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes create-operation'] = """
+helps['notes user-onenote create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for users"
     parameters:
@@ -14372,22 +14372,22 @@ helps['notes create-operation'] = """
             message: The error message.
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes create-resource'] = """
+helps['notes user-onenote create-resource'] = """
     type: command
     short-summary: "Create new navigation property to resources for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -14447,87 +14447,87 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-notebook'] = """
+helps['notes user-onenote get-notebook'] = """
     type: command
     short-summary: "Get notebooks from users"
 """
 
-helps['notes get-operation'] = """
+helps['notes user-onenote get-operation'] = """
     type: command
     short-summary: "Get operations from users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes get-resource'] = """
+helps['notes user-onenote get-resource'] = """
     type: command
     short-summary: "Get resources from users"
 """
 
-helps['notes get-resource-content'] = """
+helps['notes user-onenote get-resource-content'] = """
     type: command
     short-summary: "Get media content for the navigation property resources from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-notebook'] = """
+helps['notes user-onenote list-notebook'] = """
     type: command
     short-summary: "Get notebooks from users"
 """
 
-helps['notes list-operation'] = """
+helps['notes user-onenote list-operation'] = """
     type: command
     short-summary: "Get operations from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes list-resource'] = """
+helps['notes user-onenote list-resource'] = """
     type: command
     short-summary: "Get resources from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes set-resource-content'] = """
+helps['notes user-onenote set-resource-content'] = """
     type: command
     short-summary: "Update media content for the navigation property resources in users"
 """
 
-helps['notes update-notebook'] = """
+helps['notes user-onenote update-notebook'] = """
     type: command
     short-summary: "Update the navigation property notebooks in users"
     parameters:
@@ -14599,7 +14599,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-operation'] = """
+helps['notes user-onenote update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in users"
     parameters:
@@ -14612,22 +14612,22 @@ helps['notes update-operation'] = """
             message: The error message.
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-resource'] = """
+helps['notes user-onenote update-resource'] = """
     type: command
     short-summary: "Update the navigation property resources in users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -14687,22 +14687,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -14762,32 +14762,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -14847,22 +14847,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -14922,37 +14922,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -15024,7 +15024,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -15084,12 +15084,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -15149,57 +15149,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-notebook-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-notebook-section-group-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-notebook-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-notebook-section-group-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -15271,7 +15271,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -15331,27 +15331,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook-section-group-section-page
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook-section-group-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-group-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes user-onenote-notebook-section-group-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -15423,62 +15423,62 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes user-onenote-notebook-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-notebook-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-notebook-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -15550,7 +15550,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -15610,27 +15610,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook-section-page
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes user-onenote-notebook-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -15702,27 +15702,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes user-onenote-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-notebook-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-notebook-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -15782,37 +15782,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-notebook-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-notebook-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-notebook-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -15884,7 +15884,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -15944,12 +15944,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -16009,27 +16009,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes user-onenote-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -16101,27 +16101,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes user-onenote-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -16181,32 +16181,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -16266,22 +16266,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -16341,37 +16341,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -16443,7 +16443,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -16503,12 +16503,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -16568,47 +16568,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-notebook-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -16680,7 +16680,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -16740,62 +16740,62 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-parent-notebook-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-parent-notebook-section-group-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-parent-notebook-section-group-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-parent-notebook-section-group-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-page-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-page-parent-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-page-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-page-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -16867,7 +16867,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -16927,37 +16927,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-parent-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-parent-notebook-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-parent-notebook-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-parent-notebook-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-notebook-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -17017,37 +17017,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -17119,7 +17119,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -17179,12 +17179,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -17244,47 +17244,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-page-parent-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-page-parent-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-page-parent-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-page-parent-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -17356,7 +17356,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -17416,37 +17416,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-parent-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-parent-section-page
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-parent-section-page get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-parent-section-page set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -17506,32 +17506,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -17591,22 +17591,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-section-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -17666,37 +17666,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -17768,7 +17768,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -17828,12 +17828,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -17893,22 +17893,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -17968,37 +17968,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -18070,7 +18070,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -18130,12 +18130,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -18195,22 +18195,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-page-parent-section-parent-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -18270,32 +18270,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -18355,22 +18355,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -18430,37 +18430,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -18532,7 +18532,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -18592,12 +18592,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -18657,22 +18657,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -18732,32 +18732,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -18817,57 +18817,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-parent-notebook-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-parent-notebook-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-section-group-parent-notebook-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-section-group-parent-notebook-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -18939,7 +18939,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -18999,27 +18999,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-parent-notebook-section-page
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -19091,62 +19091,62 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-section-group-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-section-group-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-group-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section-group-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-section-group-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -19218,7 +19218,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -19278,27 +19278,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-section-page
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-group-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes user-onenote-section-group-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -19370,27 +19370,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes user-onenote-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-section-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -19450,32 +19450,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -19535,22 +19535,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-group-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-group-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -19610,32 +19610,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -19695,57 +19695,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-page'] = """
+helps['notes user-onenote-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users"
 """
 
-helps['notes get-page'] = """
+helps['notes user-onenote-section get-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes get-page-content'] = """
+helps['notes user-onenote-section get-page-content'] = """
     type: command
     short-summary: "Get media content for the navigation property pages from users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes list-page'] = """
+helps['notes user-onenote-section list-page'] = """
     type: command
     short-summary: "Get pages from users"
 """
 
-helps['notes set-page-content'] = """
+helps['notes user-onenote-section set-page-content'] = """
     type: command
     short-summary: "Update media content for the navigation property pages in users"
 """
 
-helps['notes update-page'] = """
+helps['notes user-onenote-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -19817,7 +19817,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -19877,27 +19877,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-page'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-page
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-page delete'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users"
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-page get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section'] = """
+helps['notes user-onenote-section-page get-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -19969,27 +19969,27 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section'] = """
+helps['notes user-onenote-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users"
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-page-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-page-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -20049,32 +20049,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-page-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -20134,22 +20134,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-page-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -20209,37 +20209,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -20311,7 +20311,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -20371,12 +20371,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -20436,22 +20436,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -20511,32 +20511,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -20596,22 +20596,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-parent-notebook-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-parent-notebook-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -20671,37 +20671,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-parent-notebook-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -20773,7 +20773,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -20833,12 +20833,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -20898,22 +20898,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-parent-section-group'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-parent-section-group
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-parent-section-group delete'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -20973,37 +20973,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-parent-notebook'] = """
+helps['notes user-onenote-section-parent-section-group get-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users"
 """
 
-helps['notes get-parent-section-group'] = """
+helps['notes user-onenote-section-parent-section-group get-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users"
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-parent-section-group get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-parent-section-group get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-parent-notebook'] = """
+helps['notes user-onenote-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users"
     parameters:
@@ -21075,7 +21075,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes update-parent-section-group'] = """
+helps['notes user-onenote-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users"
     parameters:
@@ -21135,12 +21135,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:
@@ -21200,22 +21200,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: notes
+    short-summary: notes user-onenote-section-parent-section-group-parent-notebook
 """
 
-helps['notes delete'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook delete'] = """
     type: command
     short-summary: "Delete navigation property sections for users"
 """
 
-helps['notes create-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users"
 """
 
-helps['notes create-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users"
     parameters:
@@ -21275,32 +21275,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes get-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook get-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes get-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook get-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes list-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users"
 """
 
-helps['notes list-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users"
 """
 
-helps['notes update-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users"
 """
 
-helps['notes update-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users"
     parameters:

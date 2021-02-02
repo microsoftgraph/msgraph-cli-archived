@@ -12,52 +12,52 @@
 from knack.help_files import helps
 
 
-helps['users'] = """
+helps['users user-user'] = """
     type: group
-    short-summary: users
+    short-summary: users user-user
 """
 
-helps['users delete'] = """
+helps['users user-user delete'] = """
     type: command
     short-summary: "Delete entity from users"
 """
 
-helps['users create-user'] = """
+helps['users user-user create-user'] = """
     type: command
     short-summary: "Add new entity to users"
 """
 
-helps['users get-user'] = """
+helps['users user-user get-user'] = """
     type: command
     short-summary: "Get entity from users by key"
 """
 
-helps['users list-user'] = """
+helps['users user-user list-user'] = """
     type: command
     short-summary: "Get entities from users"
 """
 
-helps['users update-user'] = """
+helps['users user-user update-user'] = """
     type: command
     short-summary: "Update entity in users"
 """
 
-helps['users'] = """
+helps['users user'] = """
     type: group
-    short-summary: users
+    short-summary: users user
 """
 
-helps['users delete'] = """
+helps['users user delete'] = """
     type: command
     short-summary: "Delete navigation property todo for users"
 """
 
-helps['users create-extension'] = """
+helps['users user create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users"
 """
 
-helps['users create-license-detail'] = """
+helps['users user create-license-detail'] = """
     type: command
     short-summary: "Create new navigation property to licenseDetails for users"
     parameters:
@@ -79,7 +79,7 @@ and it has not been activated in the tenant, yet.
             Multiple actions can be specified by using more than one --service-plans argument.
 """
 
-helps['users create-notification'] = """
+helps['users user create-notification'] = """
     type: command
     short-summary: "Create new navigation property to notifications for users"
     parameters:
@@ -95,202 +95,202 @@ helps['users create-notification'] = """
 
 """
 
-helps['users create-photo'] = """
+helps['users user create-photo'] = """
     type: command
     short-summary: "Create new navigation property to photos for users"
 """
 
-helps['users create-ref-created-object'] = """
+helps['users user create-ref-created-object'] = """
     type: command
     short-summary: "Create new navigation property ref to createdObjects for users"
 """
 
-helps['users create-ref-direct-report'] = """
+helps['users user create-ref-direct-report'] = """
     type: command
     short-summary: "Create new navigation property ref to directReports for users"
 """
 
-helps['users create-ref-member-of'] = """
+helps['users user create-ref-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to memberOf for users"
 """
 
-helps['users create-ref-owned-device'] = """
+helps['users user create-ref-owned-device'] = """
     type: command
     short-summary: "Create new navigation property ref to ownedDevices for users"
 """
 
-helps['users create-ref-owned-object'] = """
+helps['users user create-ref-owned-object'] = """
     type: command
     short-summary: "Create new navigation property ref to ownedObjects for users"
 """
 
-helps['users create-ref-registered-device'] = """
+helps['users user create-ref-registered-device'] = """
     type: command
     short-summary: "Create new navigation property ref to registeredDevices for users"
 """
 
-helps['users create-ref-transitive-member-of'] = """
+helps['users user create-ref-transitive-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to transitiveMemberOf for users"
 """
 
-helps['users get-extension'] = """
+helps['users user get-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['users get-license-detail'] = """
+helps['users user get-license-detail'] = """
     type: command
     short-summary: "Get licenseDetails from users"
 """
 
-helps['users get-manager'] = """
+helps['users user get-manager'] = """
     type: command
     short-summary: "Get manager from users"
 """
 
-helps['users get-notification'] = """
+helps['users user get-notification'] = """
     type: command
     short-summary: "Get notifications from users"
 """
 
-helps['users get-outlook'] = """
+helps['users user get-outlook'] = """
     type: command
     short-summary: "Get outlook from users"
 """
 
-helps['users get-photo'] = """
+helps['users user get-photo'] = """
     type: command
     short-summary: "Get photo from users"
 """
 
-helps['users get-photo-content'] = """
+helps['users user get-photo-content'] = """
     type: command
     short-summary: "Get media content for the navigation property photo from users"
 """
 
-helps['users get-ref-manager'] = """
+helps['users user get-ref-manager'] = """
     type: command
     short-summary: "Get ref of manager from users"
 """
 
-helps['users get-setting'] = """
+helps['users user get-setting'] = """
     type: command
     short-summary: "Get settings from users"
 """
 
-helps['users get-todo'] = """
+helps['users user get-todo'] = """
     type: command
     short-summary: "Get todo from users"
 """
 
-helps['users list-created-object'] = """
+helps['users user list-created-object'] = """
     type: command
     short-summary: "Get createdObjects from users"
 """
 
-helps['users list-direct-report'] = """
+helps['users user list-direct-report'] = """
     type: command
     short-summary: "Get directReports from users"
 """
 
-helps['users list-extension'] = """
+helps['users user list-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['users list-license-detail'] = """
+helps['users user list-license-detail'] = """
     type: command
     short-summary: "Get licenseDetails from users"
 """
 
-helps['users list-member-of'] = """
+helps['users user list-member-of'] = """
     type: command
     short-summary: "Get memberOf from users"
 """
 
-helps['users list-notification'] = """
+helps['users user list-notification'] = """
     type: command
     short-summary: "Get notifications from users"
 """
 
-helps['users list-owned-device'] = """
+helps['users user list-owned-device'] = """
     type: command
     short-summary: "Get ownedDevices from users"
 """
 
-helps['users list-owned-object'] = """
+helps['users user list-owned-object'] = """
     type: command
     short-summary: "Get ownedObjects from users"
 """
 
-helps['users list-photo'] = """
+helps['users user list-photo'] = """
     type: command
     short-summary: "Get photos from users"
 """
 
-helps['users list-ref-created-object'] = """
+helps['users user list-ref-created-object'] = """
     type: command
     short-summary: "Get ref of createdObjects from users"
 """
 
-helps['users list-ref-direct-report'] = """
+helps['users user list-ref-direct-report'] = """
     type: command
     short-summary: "Get ref of directReports from users"
 """
 
-helps['users list-ref-member-of'] = """
+helps['users user list-ref-member-of'] = """
     type: command
     short-summary: "Get ref of memberOf from users"
 """
 
-helps['users list-ref-owned-device'] = """
+helps['users user list-ref-owned-device'] = """
     type: command
     short-summary: "Get ref of ownedDevices from users"
 """
 
-helps['users list-ref-owned-object'] = """
+helps['users user list-ref-owned-object'] = """
     type: command
     short-summary: "Get ref of ownedObjects from users"
 """
 
-helps['users list-ref-registered-device'] = """
+helps['users user list-ref-registered-device'] = """
     type: command
     short-summary: "Get ref of registeredDevices from users"
 """
 
-helps['users list-ref-transitive-member-of'] = """
+helps['users user list-ref-transitive-member-of'] = """
     type: command
     short-summary: "Get ref of transitiveMemberOf from users"
 """
 
-helps['users list-registered-device'] = """
+helps['users user list-registered-device'] = """
     type: command
     short-summary: "Get registeredDevices from users"
 """
 
-helps['users list-transitive-member-of'] = """
+helps['users user list-transitive-member-of'] = """
     type: command
     short-summary: "Get transitiveMemberOf from users"
 """
 
-helps['users set-photo-content'] = """
+helps['users user set-photo-content'] = """
     type: command
     short-summary: "Update media content for the navigation property photo in users"
 """
 
-helps['users set-ref-manager'] = """
+helps['users user set-ref-manager'] = """
     type: command
     short-summary: "Update the ref of navigation property manager in users"
 """
 
-helps['users update-extension'] = """
+helps['users user update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users"
 """
 
-helps['users update-license-detail'] = """
+helps['users user update-license-detail'] = """
     type: command
     short-summary: "Update the navigation property licenseDetails in users"
     parameters:
@@ -312,7 +312,7 @@ and it has not been activated in the tenant, yet.
             Multiple actions can be specified by using more than one --service-plans argument.
 """
 
-helps['users update-notification'] = """
+helps['users user update-notification'] = """
     type: command
     short-summary: "Update the navigation property notifications in users"
     parameters:
@@ -328,7 +328,7 @@ helps['users update-notification'] = """
 
 """
 
-helps['users update-outlook'] = """
+helps['users user update-outlook'] = """
     type: command
     short-summary: "Update the navigation property outlook in users"
     parameters:
@@ -344,12 +344,12 @@ the name cannot be changed. Read-only.
             Multiple actions can be specified by using more than one --master-categories argument.
 """
 
-helps['users update-photo'] = """
+helps['users user update-photo'] = """
     type: command
     short-summary: "Update the navigation property photo in users"
 """
 
-helps['users update-setting'] = """
+helps['users user update-setting'] = """
     type: command
     short-summary: "Update the navigation property settings in users"
     parameters:
@@ -467,27 +467,27 @@ long-date-format=XX long-time-format=XX short-date-format=XX short-time-format=X
 
 """
 
-helps['users update-todo'] = """
+helps['users user update-todo'] = """
     type: command
     short-summary: "Update the navigation property todo in users"
 """
 
-helps['users'] = """
+helps['users user-outlook'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook
 """
 
-helps['users delete'] = """
+helps['users user-outlook delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for users"
 """
 
-helps['users create-master-category'] = """
+helps['users user-outlook create-master-category'] = """
     type: command
     short-summary: "Create new navigation property to masterCategories for users"
 """
 
-helps['users create-task'] = """
+helps['users user-outlook create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
     parameters:
@@ -594,7 +594,7 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users create-task-folder'] = """
+helps['users user-outlook create-task-folder'] = """
     type: command
     short-summary: "Create new navigation property to taskFolders for users"
     parameters:
@@ -616,57 +616,57 @@ helps['users create-task-folder'] = """
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['users create-task-group'] = """
+helps['users user-outlook create-task-group'] = """
     type: command
     short-summary: "Create new navigation property to taskGroups for users"
 """
 
-helps['users get-master-category'] = """
+helps['users user-outlook get-master-category'] = """
     type: command
     short-summary: "Get masterCategories from users"
 """
 
-helps['users get-task'] = """
+helps['users user-outlook get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users get-task-folder'] = """
+helps['users user-outlook get-task-folder'] = """
     type: command
     short-summary: "Get taskFolders from users"
 """
 
-helps['users get-task-group'] = """
+helps['users user-outlook get-task-group'] = """
     type: command
     short-summary: "Get taskGroups from users"
 """
 
-helps['users list-master-category'] = """
+helps['users user-outlook list-master-category'] = """
     type: command
     short-summary: "Get masterCategories from users"
 """
 
-helps['users list-task'] = """
+helps['users user-outlook list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users list-task-folder'] = """
+helps['users user-outlook list-task-folder'] = """
     type: command
     short-summary: "Get taskFolders from users"
 """
 
-helps['users list-task-group'] = """
+helps['users user-outlook list-task-group'] = """
     type: command
     short-summary: "Get taskGroups from users"
 """
 
-helps['users update-master-category'] = """
+helps['users user-outlook update-master-category'] = """
     type: command
     short-summary: "Update the navigation property masterCategories in users"
 """
 
-helps['users update-task'] = """
+helps['users user-outlook update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
     parameters:
@@ -773,7 +773,7 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users update-task-folder'] = """
+helps['users user-outlook update-task-folder'] = """
     type: command
     short-summary: "Update the navigation property taskFolders in users"
     parameters:
@@ -795,32 +795,32 @@ helps['users update-task-folder'] = """
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['users update-task-group'] = """
+helps['users user-outlook update-task-group'] = """
     type: command
     short-summary: "Update the navigation property taskGroups in users"
 """
 
-helps['users'] = """
+helps['users user-outlook-task-folder'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook-task-folder
 """
 
-helps['users delete'] = """
+helps['users user-outlook-task-folder delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for users"
 """
 
-helps['users create-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['users create-single-value-extended-property'] = """
+helps['users user-outlook-task-folder create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['users create-task'] = """
+helps['users user-outlook-task-folder create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
     parameters:
@@ -927,47 +927,47 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users get-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users get-single-value-extended-property'] = """
+helps['users user-outlook-task-folder get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users get-task'] = """
+helps['users user-outlook-task-folder get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users list-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users list-single-value-extended-property'] = """
+helps['users user-outlook-task-folder list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users list-task'] = """
+helps['users user-outlook-task-folder list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users update-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['users update-single-value-extended-property'] = """
+helps['users user-outlook-task-folder update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['users update-task'] = """
+helps['users user-outlook-task-folder update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
     parameters:
@@ -1074,87 +1074,87 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users'] = """
+helps['users user-outlook-task-folder-task'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook-task-folder-task
 """
 
-helps['users delete'] = """
+helps['users user-outlook-task-folder-task delete'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users"
 """
 
-helps['users create-attachment'] = """
+helps['users user-outlook-task-folder-task create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users"
 """
 
-helps['users create-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder-task create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['users create-single-value-extended-property'] = """
+helps['users user-outlook-task-folder-task create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['users get-attachment'] = """
+helps['users user-outlook-task-folder-task get-attachment'] = """
     type: command
     short-summary: "Get attachments from users"
 """
 
-helps['users get-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder-task get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users get-single-value-extended-property'] = """
+helps['users user-outlook-task-folder-task get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users list-attachment'] = """
+helps['users user-outlook-task-folder-task list-attachment'] = """
     type: command
     short-summary: "Get attachments from users"
 """
 
-helps['users list-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder-task list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users list-single-value-extended-property'] = """
+helps['users user-outlook-task-folder-task list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users update-attachment'] = """
+helps['users user-outlook-task-folder-task update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users"
 """
 
-helps['users update-multi-value-extended-property'] = """
+helps['users user-outlook-task-folder-task update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['users update-single-value-extended-property'] = """
+helps['users user-outlook-task-folder-task update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['users'] = """
+helps['users user-outlook-task-group'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook-task-group
 """
 
-helps['users delete'] = """
+helps['users user-outlook-task-group delete'] = """
     type: command
     short-summary: "Delete navigation property taskFolders for users"
 """
 
-helps['users create-task-folder'] = """
+helps['users user-outlook-task-group create-task-folder'] = """
     type: command
     short-summary: "Create new navigation property to taskFolders for users"
     parameters:
@@ -1176,17 +1176,17 @@ helps['users create-task-folder'] = """
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['users get-task-folder'] = """
+helps['users user-outlook-task-group get-task-folder'] = """
     type: command
     short-summary: "Get taskFolders from users"
 """
 
-helps['users list-task-folder'] = """
+helps['users user-outlook-task-group list-task-folder'] = """
     type: command
     short-summary: "Get taskFolders from users"
 """
 
-helps['users update-task-folder'] = """
+helps['users user-outlook-task-group update-task-folder'] = """
     type: command
     short-summary: "Update the navigation property taskFolders in users"
     parameters:
@@ -1208,27 +1208,27 @@ helps['users update-task-folder'] = """
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['users'] = """
+helps['users user-outlook-task-group-task-folder'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook-task-group-task-folder
 """
 
-helps['users delete'] = """
+helps['users user-outlook-task-group-task-folder delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for users"
 """
 
-helps['users create-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['users create-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['users create-task'] = """
+helps['users user-outlook-task-group-task-folder create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
     parameters:
@@ -1335,47 +1335,47 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users get-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users get-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users get-task'] = """
+helps['users user-outlook-task-group-task-folder get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users list-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users list-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users list-task'] = """
+helps['users user-outlook-task-group-task-folder list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users update-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['users update-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['users update-task'] = """
+helps['users user-outlook-task-group-task-folder update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
     parameters:
@@ -1482,167 +1482,167 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users'] = """
+helps['users user-outlook-task-group-task-folder-task'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook-task-group-task-folder-task
 """
 
-helps['users delete'] = """
+helps['users user-outlook-task-group-task-folder-task delete'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users"
 """
 
-helps['users create-attachment'] = """
+helps['users user-outlook-task-group-task-folder-task create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users"
 """
 
-helps['users create-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['users create-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['users get-attachment'] = """
+helps['users user-outlook-task-group-task-folder-task get-attachment'] = """
     type: command
     short-summary: "Get attachments from users"
 """
 
-helps['users get-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users get-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users list-attachment'] = """
+helps['users user-outlook-task-group-task-folder-task list-attachment'] = """
     type: command
     short-summary: "Get attachments from users"
 """
 
-helps['users list-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users list-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users update-attachment'] = """
+helps['users user-outlook-task-group-task-folder-task update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users"
 """
 
-helps['users update-multi-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['users update-single-value-extended-property'] = """
+helps['users user-outlook-task-group-task-folder-task update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['users'] = """
+helps['users user-outlook-task'] = """
     type: group
-    short-summary: users
+    short-summary: users user-outlook-task
 """
 
-helps['users delete'] = """
+helps['users user-outlook-task delete'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users"
 """
 
-helps['users create-attachment'] = """
+helps['users user-outlook-task create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users"
 """
 
-helps['users create-multi-value-extended-property'] = """
+helps['users user-outlook-task create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['users create-single-value-extended-property'] = """
+helps['users user-outlook-task create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['users get-attachment'] = """
+helps['users user-outlook-task get-attachment'] = """
     type: command
     short-summary: "Get attachments from users"
 """
 
-helps['users get-multi-value-extended-property'] = """
+helps['users user-outlook-task get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users get-single-value-extended-property'] = """
+helps['users user-outlook-task get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users list-attachment'] = """
+helps['users user-outlook-task list-attachment'] = """
     type: command
     short-summary: "Get attachments from users"
 """
 
-helps['users list-multi-value-extended-property'] = """
+helps['users user-outlook-task list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['users list-single-value-extended-property'] = """
+helps['users user-outlook-task list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['users update-attachment'] = """
+helps['users user-outlook-task update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users"
 """
 
-helps['users update-multi-value-extended-property'] = """
+helps['users user-outlook-task update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['users update-single-value-extended-property'] = """
+helps['users user-outlook-task update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['users'] = """
+helps['users user-setting'] = """
     type: group
-    short-summary: users
+    short-summary: users user-setting
 """
 
-helps['users delete'] = """
+helps['users user-setting delete'] = """
     type: command
     short-summary: "Delete navigation property shiftPreferences for users"
 """
 
-helps['users get-regional-and-language-setting'] = """
+helps['users user-setting get-regional-and-language-setting'] = """
     type: command
     short-summary: "Get regionalAndLanguageSettings from users"
 """
 
-helps['users get-shift-preference'] = """
+helps['users user-setting get-shift-preference'] = """
     type: command
     short-summary: "Get shiftPreferences from users"
 """
 
-helps['users update-regional-and-language-setting'] = """
+helps['users user-setting update-regional-and-language-setting'] = """
     type: command
     short-summary: "Update the navigation property regionalAndLanguageSettings in users"
     parameters:
@@ -1705,7 +1705,7 @@ long-time-format=XX short-date-format=XX short-time-format=XX time-zone=XX
 
 """
 
-helps['users update-shift-preference'] = """
+helps['users user-setting update-shift-preference'] = """
     type: command
     short-summary: "Update the navigation property shiftPreferences in users"
     parameters:
@@ -1765,17 +1765,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['users'] = """
+helps['users user-todo'] = """
     type: group
-    short-summary: users
+    short-summary: users user-todo
 """
 
-helps['users delete'] = """
+helps['users user-todo delete'] = """
     type: command
     short-summary: "Delete navigation property lists for users"
 """
 
-helps['users create-list'] = """
+helps['users user-todo create-list'] = """
     type: command
     short-summary: "Create new navigation property to lists for users"
     parameters:
@@ -1788,17 +1788,17 @@ helps['users create-list'] = """
             Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['users get-list'] = """
+helps['users user-todo get-list'] = """
     type: command
     short-summary: "Get lists from users"
 """
 
-helps['users list-list'] = """
+helps['users user-todo list-list'] = """
     type: command
     short-summary: "Get lists from users"
 """
 
-helps['users update-list'] = """
+helps['users user-todo update-list'] = """
     type: command
     short-summary: "Update the navigation property lists in users"
     parameters:
@@ -1811,22 +1811,22 @@ helps['users update-list'] = """
             Multiple actions can be specified by using more than one --extensions argument.
 """
 
-helps['users'] = """
+helps['users user-todo-list'] = """
     type: group
-    short-summary: users
+    short-summary: users user-todo-list
 """
 
-helps['users delete'] = """
+helps['users user-todo-list delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for users"
 """
 
-helps['users create-extension'] = """
+helps['users user-todo-list create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users"
 """
 
-helps['users create-task'] = """
+helps['users user-todo-list create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
     parameters:
@@ -1909,32 +1909,32 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users get-extension'] = """
+helps['users user-todo-list get-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['users get-task'] = """
+helps['users user-todo-list get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users list-extension'] = """
+helps['users user-todo-list list-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['users list-task'] = """
+helps['users user-todo-list list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['users update-extension'] = """
+helps['users user-todo-list update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users"
 """
 
-helps['users update-task'] = """
+helps['users user-todo-list update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
     parameters:
@@ -2017,52 +2017,52 @@ this date or later, depending on the recurrence pattern of the event. Must be th
 the recurring event. Required.
 """
 
-helps['users'] = """
+helps['users user-todo-list-task'] = """
     type: group
-    short-summary: users
+    short-summary: users user-todo-list-task
 """
 
-helps['users delete'] = """
+helps['users user-todo-list-task delete'] = """
     type: command
     short-summary: "Delete navigation property linkedResources for users"
 """
 
-helps['users create-extension'] = """
+helps['users user-todo-list-task create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users"
 """
 
-helps['users create-linked-resource'] = """
+helps['users user-todo-list-task create-linked-resource'] = """
     type: command
     short-summary: "Create new navigation property to linkedResources for users"
 """
 
-helps['users get-extension'] = """
+helps['users user-todo-list-task get-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['users get-linked-resource'] = """
+helps['users user-todo-list-task get-linked-resource'] = """
     type: command
     short-summary: "Get linkedResources from users"
 """
 
-helps['users list-extension'] = """
+helps['users user-todo-list-task list-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['users list-linked-resource'] = """
+helps['users user-todo-list-task list-linked-resource'] = """
     type: command
     short-summary: "Get linkedResources from users"
 """
 
-helps['users update-extension'] = """
+helps['users user-todo-list-task update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users"
 """
 
-helps['users update-linked-resource'] = """
+helps['users user-todo-list-task update-linked-resource'] = """
     type: command
     short-summary: "Update the navigation property linkedResources in users"
 """

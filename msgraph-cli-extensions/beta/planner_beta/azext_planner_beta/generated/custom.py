@@ -11,56 +11,56 @@
 # pylint: disable=too-many-lines
 
 
-def planner_delete(client,
-                   group_id,
-                   if_match=None):
+def planner_group_delete(client,
+                         group_id,
+                         if_match=None):
     return client.delete_planner(group_id=group_id,
                                  if_match=if_match)
 
 
-def planner_get_planner(client,
-                        group_id,
-                        select=None,
-                        expand=None):
+def planner_group_get_planner(client,
+                              group_id,
+                              select=None,
+                              expand=None):
     return client.get_planner(group_id=group_id,
                               select=select,
                               expand=expand)
 
 
-def planner_update_planner(client,
-                           group_id,
-                           id_=None,
-                           plans=None):
+def planner_group_update_planner(client,
+                                 group_id,
+                                 id_=None,
+                                 plans=None):
     return client.update_planner(group_id=group_id,
                                  id=id_,
                                  plans=plans)
 
 
-def planner_delete(client,
-                   group_id,
-                   planner_plan_id,
-                   if_match=None):
+def planner_group_planner_delete(client,
+                                 group_id,
+                                 planner_plan_id,
+                                 if_match=None):
     return client.delete_plan(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               if_match=if_match)
 
 
-def planner_create_plan(client,
-                        group_id,
-                        id_=None,
-                        contexts=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        buckets=None,
-                        tasks=None,
-                        details_id=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        details_shared_with=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None):
+def planner_group_planner_create_plan(client,
+                                      group_id,
+                                      id_=None,
+                                      contexts=None,
+                                      created_date_time=None,
+                                      owner=None,
+                                      title=None,
+                                      buckets=None,
+                                      tasks=None,
+                                      details_id=None,
+                                      details_category_descriptions=None,
+                                      details_context_details=None,
+                                      details_shared_with=None,
+                                      created_by_application=None,
+                                      created_by_device=None,
+                                      created_by_user=None):
     return client.create_plan(group_id=group_id,
                               id=id_,
                               contexts=contexts,
@@ -78,45 +78,45 @@ def planner_create_plan(client,
                               user=created_by_user)
 
 
-def planner_get_plan(client,
-                     group_id,
-                     planner_plan_id,
-                     select=None,
-                     expand=None):
+def planner_group_planner_get_plan(client,
+                                   group_id,
+                                   planner_plan_id,
+                                   select=None,
+                                   expand=None):
     return client.get_plan(group_id=group_id,
                            planner_plan_id=planner_plan_id,
                            select=select,
                            expand=expand)
 
 
-def planner_list_plan(client,
-                      group_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_group_planner_list_plan(client,
+                                    group_id,
+                                    orderby=None,
+                                    select=None,
+                                    expand=None):
     return client.list_plan(group_id=group_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_update_plan(client,
-                        group_id,
-                        planner_plan_id,
-                        id_=None,
-                        contexts=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        buckets=None,
-                        tasks=None,
-                        details_id=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        details_shared_with=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None):
+def planner_group_planner_update_plan(client,
+                                      group_id,
+                                      planner_plan_id,
+                                      id_=None,
+                                      contexts=None,
+                                      created_date_time=None,
+                                      owner=None,
+                                      title=None,
+                                      buckets=None,
+                                      tasks=None,
+                                      details_id=None,
+                                      details_category_descriptions=None,
+                                      details_context_details=None,
+                                      details_shared_with=None,
+                                      created_by_application=None,
+                                      created_by_device=None,
+                                      created_by_user=None):
     return client.update_plan(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               id=id_,
@@ -135,12 +135,12 @@ def planner_update_plan(client,
                               user=created_by_user)
 
 
-def planner_delete(client,
-                   group_id,
-                   planner_plan_id,
-                   planner_bucket_id=None,
-                   if_match=None,
-                   planner_task_id=None):
+def planner_group_planner_plan_delete(client,
+                                      group_id,
+                                      planner_plan_id,
+                                      planner_bucket_id=None,
+                                      if_match=None,
+                                      planner_task_id=None):
     if group_id is not None and planner_plan_id is not None and planner_bucket_id is not None:
         return client.delete_bucket(group_id=group_id,
                                     planner_plan_id=planner_plan_id,
@@ -156,14 +156,14 @@ def planner_delete(client,
                                 if_match=if_match)
 
 
-def planner_create_bucket(client,
-                          group_id,
-                          planner_plan_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_group_planner_plan_create_bucket(client,
+                                             group_id,
+                                             planner_plan_id,
+                                             id_=None,
+                                             name=None,
+                                             order_hint=None,
+                                             plan_id=None,
+                                             tasks=None):
     return client.create_bucket(group_id=group_id,
                                 planner_plan_id=planner_plan_id,
                                 id=id_,
@@ -173,21 +173,21 @@ def planner_create_bucket(client,
                                 tasks=tasks)
 
 
-def planner_create_task(client,
-                        group_id,
-                        planner_plan_id,
-                        body):
+def planner_group_planner_plan_create_task(client,
+                                           group_id,
+                                           planner_plan_id,
+                                           body):
     return client.create_task(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               body=body)
 
 
-def planner_get_bucket(client,
-                       group_id,
-                       planner_plan_id,
-                       planner_bucket_id,
-                       select=None,
-                       expand=None):
+def planner_group_planner_plan_get_bucket(client,
+                                          group_id,
+                                          planner_plan_id,
+                                          planner_bucket_id,
+                                          select=None,
+                                          expand=None):
     return client.get_bucket(group_id=group_id,
                              planner_plan_id=planner_plan_id,
                              planner_bucket_id=planner_bucket_id,
@@ -195,23 +195,23 @@ def planner_get_bucket(client,
                              expand=expand)
 
 
-def planner_get_detail(client,
-                       group_id,
-                       planner_plan_id,
-                       select=None,
-                       expand=None):
+def planner_group_planner_plan_get_detail(client,
+                                          group_id,
+                                          planner_plan_id,
+                                          select=None,
+                                          expand=None):
     return client.get_detail(group_id=group_id,
                              planner_plan_id=planner_plan_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_task(client,
-                     group_id,
-                     planner_plan_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_group_planner_plan_get_task(client,
+                                        group_id,
+                                        planner_plan_id,
+                                        planner_task_id,
+                                        select=None,
+                                        expand=None):
     return client.get_task(group_id=group_id,
                            planner_plan_id=planner_plan_id,
                            planner_task_id=planner_task_id,
@@ -219,12 +219,12 @@ def planner_get_task(client,
                            expand=expand)
 
 
-def planner_list_bucket(client,
-                        group_id,
-                        planner_plan_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
+def planner_group_planner_plan_list_bucket(client,
+                                           group_id,
+                                           planner_plan_id,
+                                           orderby=None,
+                                           select=None,
+                                           expand=None):
     return client.list_bucket(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               orderby=orderby,
@@ -232,12 +232,12 @@ def planner_list_bucket(client,
                               expand=expand)
 
 
-def planner_list_task(client,
-                      group_id,
-                      planner_plan_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_group_planner_plan_list_task(client,
+                                         group_id,
+                                         planner_plan_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
     return client.list_task(group_id=group_id,
                             planner_plan_id=planner_plan_id,
                             orderby=orderby,
@@ -245,15 +245,15 @@ def planner_list_task(client,
                             expand=expand)
 
 
-def planner_update_bucket(client,
-                          group_id,
-                          planner_plan_id,
-                          planner_bucket_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_group_planner_plan_update_bucket(client,
+                                             group_id,
+                                             planner_plan_id,
+                                             planner_bucket_id,
+                                             id_=None,
+                                             name=None,
+                                             order_hint=None,
+                                             plan_id=None,
+                                             tasks=None):
     return client.update_bucket(group_id=group_id,
                                 planner_plan_id=planner_plan_id,
                                 planner_bucket_id=planner_bucket_id,
@@ -264,13 +264,13 @@ def planner_update_bucket(client,
                                 tasks=tasks)
 
 
-def planner_update_detail(client,
-                          group_id,
-                          planner_plan_id,
-                          id_=None,
-                          category_descriptions=None,
-                          context_details=None,
-                          shared_with=None):
+def planner_group_planner_plan_update_detail(client,
+                                             group_id,
+                                             planner_plan_id,
+                                             id_=None,
+                                             category_descriptions=None,
+                                             context_details=None,
+                                             shared_with=None):
     return client.update_detail(group_id=group_id,
                                 planner_plan_id=planner_plan_id,
                                 id=id_,
@@ -279,23 +279,23 @@ def planner_update_detail(client,
                                 shared_with=shared_with)
 
 
-def planner_update_task(client,
-                        group_id,
-                        planner_plan_id,
-                        planner_task_id,
-                        body):
+def planner_group_planner_plan_update_task(client,
+                                           group_id,
+                                           planner_plan_id,
+                                           planner_task_id,
+                                           body):
     return client.update_task(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   group_id,
-                   planner_plan_id,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_group_planner_plan_bucket_delete(client,
+                                             group_id,
+                                             planner_plan_id,
+                                             planner_bucket_id,
+                                             planner_task_id,
+                                             if_match=None):
     return client.delete_task(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
@@ -303,24 +303,24 @@ def planner_delete(client,
                               if_match=if_match)
 
 
-def planner_create_task(client,
-                        group_id,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        body):
+def planner_group_planner_plan_bucket_create_task(client,
+                                                  group_id,
+                                                  planner_plan_id,
+                                                  planner_bucket_id,
+                                                  body):
     return client.create_task(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
                               body=body)
 
 
-def planner_get_task(client,
-                     group_id,
-                     planner_plan_id,
-                     planner_bucket_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_group_planner_plan_bucket_get_task(client,
+                                               group_id,
+                                               planner_plan_id,
+                                               planner_bucket_id,
+                                               planner_task_id,
+                                               select=None,
+                                               expand=None):
     return client.get_task(group_id=group_id,
                            planner_plan_id=planner_plan_id,
                            planner_bucket_id=planner_bucket_id,
@@ -329,13 +329,13 @@ def planner_get_task(client,
                            expand=expand)
 
 
-def planner_list_task(client,
-                      group_id,
-                      planner_plan_id,
-                      planner_bucket_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_group_planner_plan_bucket_list_task(client,
+                                                group_id,
+                                                planner_plan_id,
+                                                planner_bucket_id,
+                                                orderby=None,
+                                                select=None,
+                                                expand=None):
     return client.list_task(group_id=group_id,
                             planner_plan_id=planner_plan_id,
                             planner_bucket_id=planner_bucket_id,
@@ -344,12 +344,12 @@ def planner_list_task(client,
                             expand=expand)
 
 
-def planner_update_task(client,
-                        group_id,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        planner_task_id,
-                        body):
+def planner_group_planner_plan_bucket_update_task(client,
+                                                  group_id,
+                                                  planner_plan_id,
+                                                  planner_bucket_id,
+                                                  planner_task_id,
+                                                  body):
     return client.update_task(group_id=group_id,
                               planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
@@ -357,12 +357,12 @@ def planner_update_task(client,
                               body=body)
 
 
-def planner_delete(client,
-                   group_id,
-                   planner_plan_id,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_group_planner_plan_bucket_task_delete(client,
+                                                  group_id,
+                                                  planner_plan_id,
+                                                  planner_bucket_id,
+                                                  planner_task_id,
+                                                  if_match=None):
     if group_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(group_id=group_id,
                                                            planner_plan_id=planner_plan_id,
@@ -388,13 +388,13 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              group_id,
-                                              planner_plan_id,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_group_planner_plan_bucket_task_get_assigned_to_task_board_format(client,
+                                                                             group_id,
+                                                                             planner_plan_id,
+                                                                             planner_bucket_id,
+                                                                             planner_task_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_assigned_to_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
@@ -403,13 +403,13 @@ def planner_get_assigned_to_task_board_format(client,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         group_id,
-                                         planner_plan_id,
-                                         planner_bucket_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_group_planner_plan_bucket_task_get_bucket_task_board_format(client,
+                                                                        group_id,
+                                                                        planner_plan_id,
+                                                                        planner_bucket_id,
+                                                                        planner_task_id,
+                                                                        select=None,
+                                                                        expand=None):
     return client.get_bucket_task_board_format(group_id=group_id,
                                                planner_plan_id=planner_plan_id,
                                                planner_bucket_id=planner_bucket_id,
@@ -418,13 +418,13 @@ def planner_get_bucket_task_board_format(client,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       group_id,
-                       planner_plan_id,
-                       planner_bucket_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_group_planner_plan_bucket_task_get_detail(client,
+                                                      group_id,
+                                                      planner_plan_id,
+                                                      planner_bucket_id,
+                                                      planner_task_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_detail(group_id=group_id,
                              planner_plan_id=planner_plan_id,
                              planner_bucket_id=planner_bucket_id,
@@ -433,13 +433,13 @@ def planner_get_detail(client,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           group_id,
-                                           planner_plan_id,
-                                           planner_bucket_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_group_planner_plan_bucket_task_get_progress_task_board_format(client,
+                                                                          group_id,
+                                                                          planner_plan_id,
+                                                                          planner_bucket_id,
+                                                                          planner_task_id,
+                                                                          select=None,
+                                                                          expand=None):
     return client.get_progress_task_board_format(group_id=group_id,
                                                  planner_plan_id=planner_plan_id,
                                                  planner_bucket_id=planner_bucket_id,
@@ -448,14 +448,14 @@ def planner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 group_id,
-                                                 planner_plan_id,
-                                                 planner_bucket_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_group_planner_plan_bucket_task_update_assigned_to_task_board_format(client,
+                                                                                group_id,
+                                                                                planner_plan_id,
+                                                                                planner_bucket_id,
+                                                                                planner_task_id,
+                                                                                id_=None,
+                                                                                order_hints_by_assignee=None,
+                                                                                unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(group_id=group_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_bucket_id=planner_bucket_id,
@@ -465,13 +465,13 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            group_id,
-                                            planner_plan_id,
-                                            planner_bucket_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_group_planner_plan_bucket_task_update_bucket_task_board_format(client,
+                                                                           group_id,
+                                                                           planner_plan_id,
+                                                                           planner_bucket_id,
+                                                                           planner_task_id,
+                                                                           id_=None,
+                                                                           order_hint=None):
     return client.update_bucket_task_board_format(group_id=group_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_bucket_id=planner_bucket_id,
@@ -480,16 +480,16 @@ def planner_update_bucket_task_board_format(client,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          group_id,
-                          planner_plan_id,
-                          planner_bucket_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_group_planner_plan_bucket_task_update_detail(client,
+                                                         group_id,
+                                                         planner_plan_id,
+                                                         planner_bucket_id,
+                                                         planner_task_id,
+                                                         id_=None,
+                                                         checklist=None,
+                                                         description=None,
+                                                         preview_type=None,
+                                                         references=None):
     return client.update_detail(group_id=group_id,
                                 planner_plan_id=planner_plan_id,
                                 planner_bucket_id=planner_bucket_id,
@@ -501,13 +501,13 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              group_id,
-                                              planner_plan_id,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_group_planner_plan_bucket_task_update_progress_task_board_format(client,
+                                                                             group_id,
+                                                                             planner_plan_id,
+                                                                             planner_bucket_id,
+                                                                             planner_task_id,
+                                                                             id_=None,
+                                                                             order_hint=None):
     return client.update_progress_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
@@ -516,11 +516,11 @@ def planner_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   group_id,
-                   planner_plan_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_group_planner_plan_task_delete(client,
+                                           group_id,
+                                           planner_plan_id,
+                                           planner_task_id,
+                                           if_match=None):
     if group_id is not None and planner_plan_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(group_id=group_id,
                                                            planner_plan_id=planner_plan_id,
@@ -542,12 +542,12 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              group_id,
-                                              planner_plan_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_group_planner_plan_task_get_assigned_to_task_board_format(client,
+                                                                      group_id,
+                                                                      planner_plan_id,
+                                                                      planner_task_id,
+                                                                      select=None,
+                                                                      expand=None):
     return client.get_assigned_to_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
@@ -555,12 +555,12 @@ def planner_get_assigned_to_task_board_format(client,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         group_id,
-                                         planner_plan_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_group_planner_plan_task_get_bucket_task_board_format(client,
+                                                                 group_id,
+                                                                 planner_plan_id,
+                                                                 planner_task_id,
+                                                                 select=None,
+                                                                 expand=None):
     return client.get_bucket_task_board_format(group_id=group_id,
                                                planner_plan_id=planner_plan_id,
                                                planner_task_id=planner_task_id,
@@ -568,12 +568,12 @@ def planner_get_bucket_task_board_format(client,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       group_id,
-                       planner_plan_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_group_planner_plan_task_get_detail(client,
+                                               group_id,
+                                               planner_plan_id,
+                                               planner_task_id,
+                                               select=None,
+                                               expand=None):
     return client.get_detail(group_id=group_id,
                              planner_plan_id=planner_plan_id,
                              planner_task_id=planner_task_id,
@@ -581,12 +581,12 @@ def planner_get_detail(client,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           group_id,
-                                           planner_plan_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_group_planner_plan_task_get_progress_task_board_format(client,
+                                                                   group_id,
+                                                                   planner_plan_id,
+                                                                   planner_task_id,
+                                                                   select=None,
+                                                                   expand=None):
     return client.get_progress_task_board_format(group_id=group_id,
                                                  planner_plan_id=planner_plan_id,
                                                  planner_task_id=planner_task_id,
@@ -594,13 +594,13 @@ def planner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 group_id,
-                                                 planner_plan_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_group_planner_plan_task_update_assigned_to_task_board_format(client,
+                                                                         group_id,
+                                                                         planner_plan_id,
+                                                                         planner_task_id,
+                                                                         id_=None,
+                                                                         order_hints_by_assignee=None,
+                                                                         unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(group_id=group_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_task_id=planner_task_id,
@@ -609,12 +609,12 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            group_id,
-                                            planner_plan_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_group_planner_plan_task_update_bucket_task_board_format(client,
+                                                                    group_id,
+                                                                    planner_plan_id,
+                                                                    planner_task_id,
+                                                                    id_=None,
+                                                                    order_hint=None):
     return client.update_bucket_task_board_format(group_id=group_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_task_id=planner_task_id,
@@ -622,15 +622,15 @@ def planner_update_bucket_task_board_format(client,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          group_id,
-                          planner_plan_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_group_planner_plan_task_update_detail(client,
+                                                  group_id,
+                                                  planner_plan_id,
+                                                  planner_task_id,
+                                                  id_=None,
+                                                  checklist=None,
+                                                  description=None,
+                                                  preview_type=None,
+                                                  references=None):
     return client.update_detail(group_id=group_id,
                                 planner_plan_id=planner_plan_id,
                                 planner_task_id=planner_task_id,
@@ -641,12 +641,12 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              group_id,
-                                              planner_plan_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_group_planner_plan_task_update_progress_task_board_format(client,
+                                                                      group_id,
+                                                                      planner_plan_id,
+                                                                      planner_task_id,
+                                                                      id_=None,
+                                                                      order_hint=None):
     return client.update_progress_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
@@ -654,29 +654,29 @@ def planner_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_get_planner(client,
-                        select=None,
-                        expand=None):
+def planner_planner_planner_get_planner(client,
+                                        select=None,
+                                        expand=None):
     return client.get_planner(select=select,
                               expand=expand)
 
 
-def planner_update_planner(client,
-                           id_=None,
-                           buckets=None,
-                           plans=None,
-                           tasks=None):
+def planner_planner_planner_update_planner(client,
+                                           id_=None,
+                                           buckets=None,
+                                           plans=None,
+                                           tasks=None):
     return client.update_planner(id=id_,
                                  buckets=buckets,
                                  plans=plans,
                                  tasks=tasks)
 
 
-def planner_delete(client,
-                   planner_bucket_id=None,
-                   if_match=None,
-                   planner_plan_id=None,
-                   planner_task_id=None):
+def planner_planner_delete(client,
+                           planner_bucket_id=None,
+                           if_match=None,
+                           planner_plan_id=None,
+                           planner_task_id=None):
     if planner_bucket_id is not None:
         return client.delete_bucket(planner_bucket_id=planner_bucket_id,
                                     if_match=if_match)
@@ -687,12 +687,12 @@ def planner_delete(client,
                               if_match=if_match)
 
 
-def planner_create_bucket(client,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_planner_create_bucket(client,
+                                  id_=None,
+                                  name=None,
+                                  order_hint=None,
+                                  plan_id=None,
+                                  tasks=None):
     return client.create_bucket(id=id_,
                                 name=name,
                                 order_hint=order_hint,
@@ -700,21 +700,21 @@ def planner_create_bucket(client,
                                 tasks=tasks)
 
 
-def planner_create_plan(client,
-                        id_=None,
-                        contexts=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        buckets=None,
-                        tasks=None,
-                        details_id=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        details_shared_with=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None):
+def planner_planner_create_plan(client,
+                                id_=None,
+                                contexts=None,
+                                created_date_time=None,
+                                owner=None,
+                                title=None,
+                                buckets=None,
+                                tasks=None,
+                                details_id=None,
+                                details_category_descriptions=None,
+                                details_context_details=None,
+                                details_shared_with=None,
+                                created_by_application=None,
+                                created_by_device=None,
+                                created_by_user=None):
     return client.create_plan(id=id_,
                               contexts=contexts,
                               created_date_time=created_date_time,
@@ -731,72 +731,72 @@ def planner_create_plan(client,
                               user=created_by_user)
 
 
-def planner_create_task(client,
-                        body):
+def planner_planner_create_task(client,
+                                body):
     return client.create_task(body=body)
 
 
-def planner_get_bucket(client,
-                       planner_bucket_id,
-                       select=None,
-                       expand=None):
+def planner_planner_get_bucket(client,
+                               planner_bucket_id,
+                               select=None,
+                               expand=None):
     return client.get_bucket(planner_bucket_id=planner_bucket_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_plan(client,
-                     planner_plan_id,
-                     select=None,
-                     expand=None):
+def planner_planner_get_plan(client,
+                             planner_plan_id,
+                             select=None,
+                             expand=None):
     return client.get_plan(planner_plan_id=planner_plan_id,
                            select=select,
                            expand=expand)
 
 
-def planner_get_task(client,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_planner_get_task(client,
+                             planner_task_id,
+                             select=None,
+                             expand=None):
     return client.get_task(planner_task_id=planner_task_id,
                            select=select,
                            expand=expand)
 
 
-def planner_list_bucket(client,
-                        orderby=None,
-                        select=None,
-                        expand=None):
+def planner_planner_list_bucket(client,
+                                orderby=None,
+                                select=None,
+                                expand=None):
     return client.list_bucket(orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def planner_list_plan(client,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_planner_list_plan(client,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_plan(orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_list_task(client,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_planner_list_task(client,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_task(orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_update_bucket(client,
-                          planner_bucket_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_planner_update_bucket(client,
+                                  planner_bucket_id,
+                                  id_=None,
+                                  name=None,
+                                  order_hint=None,
+                                  plan_id=None,
+                                  tasks=None):
     return client.update_bucket(planner_bucket_id=planner_bucket_id,
                                 id=id_,
                                 name=name,
@@ -805,22 +805,22 @@ def planner_update_bucket(client,
                                 tasks=tasks)
 
 
-def planner_update_plan(client,
-                        planner_plan_id,
-                        id_=None,
-                        contexts=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        buckets=None,
-                        tasks=None,
-                        details_id=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        details_shared_with=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None):
+def planner_planner_update_plan(client,
+                                planner_plan_id,
+                                id_=None,
+                                contexts=None,
+                                created_date_time=None,
+                                owner=None,
+                                title=None,
+                                buckets=None,
+                                tasks=None,
+                                details_id=None,
+                                details_category_descriptions=None,
+                                details_context_details=None,
+                                details_shared_with=None,
+                                created_by_application=None,
+                                created_by_device=None,
+                                created_by_user=None):
     return client.update_plan(planner_plan_id=planner_plan_id,
                               id=id_,
                               contexts=contexts,
@@ -838,64 +838,64 @@ def planner_update_plan(client,
                               user=created_by_user)
 
 
-def planner_update_task(client,
-                        planner_task_id,
-                        body):
+def planner_planner_update_task(client,
+                                planner_task_id,
+                                body):
     return client.update_task(planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_planner_bucket_delete(client,
+                                  planner_bucket_id,
+                                  planner_task_id,
+                                  if_match=None):
     return client.delete_task(planner_bucket_id=planner_bucket_id,
                               planner_task_id=planner_task_id,
                               if_match=if_match)
 
 
-def planner_create_task(client,
-                        planner_bucket_id,
-                        body):
+def planner_planner_bucket_create_task(client,
+                                       planner_bucket_id,
+                                       body):
     return client.create_task(planner_bucket_id=planner_bucket_id,
                               body=body)
 
 
-def planner_get_task(client,
-                     planner_bucket_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_planner_bucket_get_task(client,
+                                    planner_bucket_id,
+                                    planner_task_id,
+                                    select=None,
+                                    expand=None):
     return client.get_task(planner_bucket_id=planner_bucket_id,
                            planner_task_id=planner_task_id,
                            select=select,
                            expand=expand)
 
 
-def planner_list_task(client,
-                      planner_bucket_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_planner_bucket_list_task(client,
+                                     planner_bucket_id,
+                                     orderby=None,
+                                     select=None,
+                                     expand=None):
     return client.list_task(planner_bucket_id=planner_bucket_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_update_task(client,
-                        planner_bucket_id,
-                        planner_task_id,
-                        body):
+def planner_planner_bucket_update_task(client,
+                                       planner_bucket_id,
+                                       planner_task_id,
+                                       body):
     return client.update_task(planner_bucket_id=planner_bucket_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_planner_bucket_task_delete(client,
+                                       planner_bucket_id,
+                                       planner_task_id,
+                                       if_match=None):
     if planner_bucket_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(planner_bucket_id=planner_bucket_id,
                                                            planner_task_id=planner_task_id,
@@ -913,56 +913,56 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_planner_bucket_task_get_assigned_to_task_board_format(client,
+                                                                  planner_bucket_id,
+                                                                  planner_task_id,
+                                                                  select=None,
+                                                                  expand=None):
     return client.get_assigned_to_task_board_format(planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
                                                     select=select,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         planner_bucket_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_planner_bucket_task_get_bucket_task_board_format(client,
+                                                             planner_bucket_id,
+                                                             planner_task_id,
+                                                             select=None,
+                                                             expand=None):
     return client.get_bucket_task_board_format(planner_bucket_id=planner_bucket_id,
                                                planner_task_id=planner_task_id,
                                                select=select,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       planner_bucket_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_planner_bucket_task_get_detail(client,
+                                           planner_bucket_id,
+                                           planner_task_id,
+                                           select=None,
+                                           expand=None):
     return client.get_detail(planner_bucket_id=planner_bucket_id,
                              planner_task_id=planner_task_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           planner_bucket_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_planner_bucket_task_get_progress_task_board_format(client,
+                                                               planner_bucket_id,
+                                                               planner_task_id,
+                                                               select=None,
+                                                               expand=None):
     return client.get_progress_task_board_format(planner_bucket_id=planner_bucket_id,
                                                  planner_task_id=planner_task_id,
                                                  select=select,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 planner_bucket_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_planner_bucket_task_update_assigned_to_task_board_format(client,
+                                                                     planner_bucket_id,
+                                                                     planner_task_id,
+                                                                     id_=None,
+                                                                     order_hints_by_assignee=None,
+                                                                     unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(planner_bucket_id=planner_bucket_id,
                                                        planner_task_id=planner_task_id,
                                                        id=id_,
@@ -970,25 +970,25 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            planner_bucket_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_planner_bucket_task_update_bucket_task_board_format(client,
+                                                                planner_bucket_id,
+                                                                planner_task_id,
+                                                                id_=None,
+                                                                order_hint=None):
     return client.update_bucket_task_board_format(planner_bucket_id=planner_bucket_id,
                                                   planner_task_id=planner_task_id,
                                                   id=id_,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          planner_bucket_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_planner_bucket_task_update_detail(client,
+                                              planner_bucket_id,
+                                              planner_task_id,
+                                              id_=None,
+                                              checklist=None,
+                                              description=None,
+                                              preview_type=None,
+                                              references=None):
     return client.update_detail(planner_bucket_id=planner_bucket_id,
                                 planner_task_id=planner_task_id,
                                 id=id_,
@@ -998,22 +998,22 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_planner_bucket_task_update_progress_task_board_format(client,
+                                                                  planner_bucket_id,
+                                                                  planner_task_id,
+                                                                  id_=None,
+                                                                  order_hint=None):
     return client.update_progress_task_board_format(planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
                                                     id=id_,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   planner_plan_id,
-                   planner_bucket_id=None,
-                   if_match=None,
-                   planner_task_id=None):
+def planner_planner_plan_delete(client,
+                                planner_plan_id,
+                                planner_bucket_id=None,
+                                if_match=None,
+                                planner_task_id=None):
     if planner_plan_id is not None and planner_bucket_id is not None:
         return client.delete_bucket(planner_plan_id=planner_plan_id,
                                     planner_bucket_id=planner_bucket_id,
@@ -1026,13 +1026,13 @@ def planner_delete(client,
                                 if_match=if_match)
 
 
-def planner_create_bucket(client,
-                          planner_plan_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_planner_plan_create_bucket(client,
+                                       planner_plan_id,
+                                       id_=None,
+                                       name=None,
+                                       order_hint=None,
+                                       plan_id=None,
+                                       tasks=None):
     return client.create_bucket(planner_plan_id=planner_plan_id,
                                 id=id_,
                                 name=name,
@@ -1041,74 +1041,74 @@ def planner_create_bucket(client,
                                 tasks=tasks)
 
 
-def planner_create_task(client,
-                        planner_plan_id,
-                        body):
+def planner_planner_plan_create_task(client,
+                                     planner_plan_id,
+                                     body):
     return client.create_task(planner_plan_id=planner_plan_id,
                               body=body)
 
 
-def planner_get_bucket(client,
-                       planner_plan_id,
-                       planner_bucket_id,
-                       select=None,
-                       expand=None):
+def planner_planner_plan_get_bucket(client,
+                                    planner_plan_id,
+                                    planner_bucket_id,
+                                    select=None,
+                                    expand=None):
     return client.get_bucket(planner_plan_id=planner_plan_id,
                              planner_bucket_id=planner_bucket_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_detail(client,
-                       planner_plan_id,
-                       select=None,
-                       expand=None):
+def planner_planner_plan_get_detail(client,
+                                    planner_plan_id,
+                                    select=None,
+                                    expand=None):
     return client.get_detail(planner_plan_id=planner_plan_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_task(client,
-                     planner_plan_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_planner_plan_get_task(client,
+                                  planner_plan_id,
+                                  planner_task_id,
+                                  select=None,
+                                  expand=None):
     return client.get_task(planner_plan_id=planner_plan_id,
                            planner_task_id=planner_task_id,
                            select=select,
                            expand=expand)
 
 
-def planner_list_bucket(client,
-                        planner_plan_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
+def planner_planner_plan_list_bucket(client,
+                                     planner_plan_id,
+                                     orderby=None,
+                                     select=None,
+                                     expand=None):
     return client.list_bucket(planner_plan_id=planner_plan_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def planner_list_task(client,
-                      planner_plan_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_planner_plan_list_task(client,
+                                   planner_plan_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_task(planner_plan_id=planner_plan_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_update_bucket(client,
-                          planner_plan_id,
-                          planner_bucket_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_planner_plan_update_bucket(client,
+                                       planner_plan_id,
+                                       planner_bucket_id,
+                                       id_=None,
+                                       name=None,
+                                       order_hint=None,
+                                       plan_id=None,
+                                       tasks=None):
     return client.update_bucket(planner_plan_id=planner_plan_id,
                                 planner_bucket_id=planner_bucket_id,
                                 id=id_,
@@ -1118,12 +1118,12 @@ def planner_update_bucket(client,
                                 tasks=tasks)
 
 
-def planner_update_detail(client,
-                          planner_plan_id,
-                          id_=None,
-                          category_descriptions=None,
-                          context_details=None,
-                          shared_with=None):
+def planner_planner_plan_update_detail(client,
+                                       planner_plan_id,
+                                       id_=None,
+                                       category_descriptions=None,
+                                       context_details=None,
+                                       shared_with=None):
     return client.update_detail(planner_plan_id=planner_plan_id,
                                 id=id_,
                                 category_descriptions=category_descriptions,
@@ -1131,41 +1131,41 @@ def planner_update_detail(client,
                                 shared_with=shared_with)
 
 
-def planner_update_task(client,
-                        planner_plan_id,
-                        planner_task_id,
-                        body):
+def planner_planner_plan_update_task(client,
+                                     planner_plan_id,
+                                     planner_task_id,
+                                     body):
     return client.update_task(planner_plan_id=planner_plan_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   planner_plan_id,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_planner_plan_bucket_delete(client,
+                                       planner_plan_id,
+                                       planner_bucket_id,
+                                       planner_task_id,
+                                       if_match=None):
     return client.delete_task(planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
                               planner_task_id=planner_task_id,
                               if_match=if_match)
 
 
-def planner_create_task(client,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        body):
+def planner_planner_plan_bucket_create_task(client,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            body):
     return client.create_task(planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
                               body=body)
 
 
-def planner_get_task(client,
-                     planner_plan_id,
-                     planner_bucket_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_planner_plan_bucket_get_task(client,
+                                         planner_plan_id,
+                                         planner_bucket_id,
+                                         planner_task_id,
+                                         select=None,
+                                         expand=None):
     return client.get_task(planner_plan_id=planner_plan_id,
                            planner_bucket_id=planner_bucket_id,
                            planner_task_id=planner_task_id,
@@ -1173,12 +1173,12 @@ def planner_get_task(client,
                            expand=expand)
 
 
-def planner_list_task(client,
-                      planner_plan_id,
-                      planner_bucket_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_planner_plan_bucket_list_task(client,
+                                          planner_plan_id,
+                                          planner_bucket_id,
+                                          orderby=None,
+                                          select=None,
+                                          expand=None):
     return client.list_task(planner_plan_id=planner_plan_id,
                             planner_bucket_id=planner_bucket_id,
                             orderby=orderby,
@@ -1186,22 +1186,22 @@ def planner_list_task(client,
                             expand=expand)
 
 
-def planner_update_task(client,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        planner_task_id,
-                        body):
+def planner_planner_plan_bucket_update_task(client,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            planner_task_id,
+                                            body):
     return client.update_task(planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   planner_plan_id,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_planner_plan_bucket_task_delete(client,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            planner_task_id,
+                                            if_match=None):
     if planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                            planner_bucket_id=planner_bucket_id,
@@ -1223,12 +1223,12 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              planner_plan_id,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_planner_plan_bucket_task_get_assigned_to_task_board_format(client,
+                                                                       planner_plan_id,
+                                                                       planner_bucket_id,
+                                                                       planner_task_id,
+                                                                       select=None,
+                                                                       expand=None):
     return client.get_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
@@ -1236,12 +1236,12 @@ def planner_get_assigned_to_task_board_format(client,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         planner_plan_id,
-                                         planner_bucket_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_planner_plan_bucket_task_get_bucket_task_board_format(client,
+                                                                  planner_plan_id,
+                                                                  planner_bucket_id,
+                                                                  planner_task_id,
+                                                                  select=None,
+                                                                  expand=None):
     return client.get_bucket_task_board_format(planner_plan_id=planner_plan_id,
                                                planner_bucket_id=planner_bucket_id,
                                                planner_task_id=planner_task_id,
@@ -1249,12 +1249,12 @@ def planner_get_bucket_task_board_format(client,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       planner_plan_id,
-                       planner_bucket_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_planner_plan_bucket_task_get_detail(client,
+                                                planner_plan_id,
+                                                planner_bucket_id,
+                                                planner_task_id,
+                                                select=None,
+                                                expand=None):
     return client.get_detail(planner_plan_id=planner_plan_id,
                              planner_bucket_id=planner_bucket_id,
                              planner_task_id=planner_task_id,
@@ -1262,12 +1262,12 @@ def planner_get_detail(client,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           planner_plan_id,
-                                           planner_bucket_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_planner_plan_bucket_task_get_progress_task_board_format(client,
+                                                                    planner_plan_id,
+                                                                    planner_bucket_id,
+                                                                    planner_task_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                  planner_bucket_id=planner_bucket_id,
                                                  planner_task_id=planner_task_id,
@@ -1275,13 +1275,13 @@ def planner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 planner_plan_id,
-                                                 planner_bucket_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_planner_plan_bucket_task_update_assigned_to_task_board_format(client,
+                                                                          planner_plan_id,
+                                                                          planner_bucket_id,
+                                                                          planner_task_id,
+                                                                          id_=None,
+                                                                          order_hints_by_assignee=None,
+                                                                          unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                        planner_bucket_id=planner_bucket_id,
                                                        planner_task_id=planner_task_id,
@@ -1290,12 +1290,12 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            planner_plan_id,
-                                            planner_bucket_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_planner_plan_bucket_task_update_bucket_task_board_format(client,
+                                                                     planner_plan_id,
+                                                                     planner_bucket_id,
+                                                                     planner_task_id,
+                                                                     id_=None,
+                                                                     order_hint=None):
     return client.update_bucket_task_board_format(planner_plan_id=planner_plan_id,
                                                   planner_bucket_id=planner_bucket_id,
                                                   planner_task_id=planner_task_id,
@@ -1303,15 +1303,15 @@ def planner_update_bucket_task_board_format(client,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          planner_plan_id,
-                          planner_bucket_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_planner_plan_bucket_task_update_detail(client,
+                                                   planner_plan_id,
+                                                   planner_bucket_id,
+                                                   planner_task_id,
+                                                   id_=None,
+                                                   checklist=None,
+                                                   description=None,
+                                                   preview_type=None,
+                                                   references=None):
     return client.update_detail(planner_plan_id=planner_plan_id,
                                 planner_bucket_id=planner_bucket_id,
                                 planner_task_id=planner_task_id,
@@ -1322,12 +1322,12 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              planner_plan_id,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_planner_plan_bucket_task_update_progress_task_board_format(client,
+                                                                       planner_plan_id,
+                                                                       planner_bucket_id,
+                                                                       planner_task_id,
+                                                                       id_=None,
+                                                                       order_hint=None):
     return client.update_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
@@ -1335,10 +1335,10 @@ def planner_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   planner_plan_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_planner_plan_task_delete(client,
+                                     planner_plan_id,
+                                     planner_task_id,
+                                     if_match=None):
     if planner_plan_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                            planner_task_id=planner_task_id,
@@ -1356,56 +1356,56 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              planner_plan_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_planner_plan_task_get_assigned_to_task_board_format(client,
+                                                                planner_plan_id,
+                                                                planner_task_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
                                                     select=select,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         planner_plan_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_planner_plan_task_get_bucket_task_board_format(client,
+                                                           planner_plan_id,
+                                                           planner_task_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_bucket_task_board_format(planner_plan_id=planner_plan_id,
                                                planner_task_id=planner_task_id,
                                                select=select,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       planner_plan_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_planner_plan_task_get_detail(client,
+                                         planner_plan_id,
+                                         planner_task_id,
+                                         select=None,
+                                         expand=None):
     return client.get_detail(planner_plan_id=planner_plan_id,
                              planner_task_id=planner_task_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           planner_plan_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_planner_plan_task_get_progress_task_board_format(client,
+                                                             planner_plan_id,
+                                                             planner_task_id,
+                                                             select=None,
+                                                             expand=None):
     return client.get_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                  planner_task_id=planner_task_id,
                                                  select=select,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 planner_plan_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_planner_plan_task_update_assigned_to_task_board_format(client,
+                                                                   planner_plan_id,
+                                                                   planner_task_id,
+                                                                   id_=None,
+                                                                   order_hints_by_assignee=None,
+                                                                   unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                        planner_task_id=planner_task_id,
                                                        id=id_,
@@ -1413,25 +1413,25 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            planner_plan_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_planner_plan_task_update_bucket_task_board_format(client,
+                                                              planner_plan_id,
+                                                              planner_task_id,
+                                                              id_=None,
+                                                              order_hint=None):
     return client.update_bucket_task_board_format(planner_plan_id=planner_plan_id,
                                                   planner_task_id=planner_task_id,
                                                   id=id_,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          planner_plan_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_planner_plan_task_update_detail(client,
+                                            planner_plan_id,
+                                            planner_task_id,
+                                            id_=None,
+                                            checklist=None,
+                                            description=None,
+                                            preview_type=None,
+                                            references=None):
     return client.update_detail(planner_plan_id=planner_plan_id,
                                 planner_task_id=planner_task_id,
                                 id=id_,
@@ -1441,20 +1441,20 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              planner_plan_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_planner_plan_task_update_progress_task_board_format(client,
+                                                                planner_plan_id,
+                                                                planner_task_id,
+                                                                id_=None,
+                                                                order_hint=None):
     return client.update_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
                                                     id=id_,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   planner_task_id,
-                   if_match=None):
+def planner_planner_task_delete(client,
+                                planner_task_id,
+                                if_match=None):
     if planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(planner_task_id=planner_task_id,
                                                            if_match=if_match)
@@ -1468,69 +1468,69 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_planner_task_get_assigned_to_task_board_format(client,
+                                                           planner_task_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_assigned_to_task_board_format(planner_task_id=planner_task_id,
                                                     select=select,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_planner_task_get_bucket_task_board_format(client,
+                                                      planner_task_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_bucket_task_board_format(planner_task_id=planner_task_id,
                                                select=select,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_planner_task_get_detail(client,
+                                    planner_task_id,
+                                    select=None,
+                                    expand=None):
     return client.get_detail(planner_task_id=planner_task_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_planner_task_get_progress_task_board_format(client,
+                                                        planner_task_id,
+                                                        select=None,
+                                                        expand=None):
     return client.get_progress_task_board_format(planner_task_id=planner_task_id,
                                                  select=select,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_planner_task_update_assigned_to_task_board_format(client,
+                                                              planner_task_id,
+                                                              id_=None,
+                                                              order_hints_by_assignee=None,
+                                                              unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(planner_task_id=planner_task_id,
                                                        id=id_,
                                                        order_hints_by_assignee=order_hints_by_assignee,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_planner_task_update_bucket_task_board_format(client,
+                                                         planner_task_id,
+                                                         id_=None,
+                                                         order_hint=None):
     return client.update_bucket_task_board_format(planner_task_id=planner_task_id,
                                                   id=id_,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_planner_task_update_detail(client,
+                                       planner_task_id,
+                                       id_=None,
+                                       checklist=None,
+                                       description=None,
+                                       preview_type=None,
+                                       references=None):
     return client.update_detail(planner_task_id=planner_task_id,
                                 id=id_,
                                 checklist=checklist,
@@ -1539,41 +1539,41 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_planner_task_update_progress_task_board_format(client,
+                                                           planner_task_id,
+                                                           id_=None,
+                                                           order_hint=None):
     return client.update_progress_task_board_format(planner_task_id=planner_task_id,
                                                     id=id_,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   user_id,
-                   if_match=None):
+def planner_user_delete(client,
+                        user_id,
+                        if_match=None):
     return client.delete_planner(user_id=user_id,
                                  if_match=if_match)
 
 
-def planner_get_planner(client,
-                        user_id,
-                        select=None,
-                        expand=None):
+def planner_user_get_planner(client,
+                             user_id,
+                             select=None,
+                             expand=None):
     return client.get_planner(user_id=user_id,
                               select=select,
                               expand=expand)
 
 
-def planner_update_planner(client,
-                           user_id,
-                           id_=None,
-                           favorite_plan_references=None,
-                           recent_plan_references=None,
-                           all_=None,
-                           favorite_plans=None,
-                           plans=None,
-                           recent_plans=None,
-                           tasks=None):
+def planner_user_update_planner(client,
+                                user_id,
+                                id_=None,
+                                favorite_plan_references=None,
+                                recent_plan_references=None,
+                                all_=None,
+                                favorite_plans=None,
+                                plans=None,
+                                recent_plans=None,
+                                tasks=None):
     return client.update_planner(user_id=user_id,
                                  id=id_,
                                  favorite_plan_references=favorite_plan_references,
@@ -1585,12 +1585,12 @@ def planner_update_planner(client,
                                  tasks=tasks)
 
 
-def planner_delete(client,
-                   user_id,
-                   planner_delta_id=None,
-                   if_match=None,
-                   planner_plan_id=None,
-                   planner_task_id=None):
+def planner_user_planner_delete(client,
+                                user_id,
+                                planner_delta_id=None,
+                                if_match=None,
+                                planner_plan_id=None,
+                                planner_task_id=None):
     if user_id is not None and planner_delta_id is not None:
         return client.delete_all(user_id=user_id,
                                  planner_delta_id=planner_delta_id,
@@ -1604,29 +1604,29 @@ def planner_delete(client,
                               if_match=if_match)
 
 
-def planner_create_all(client,
-                       user_id,
-                       id_=None):
+def planner_user_planner_create_all(client,
+                                    user_id,
+                                    id_=None):
     return client.create_all(user_id=user_id,
                              id=id_)
 
 
-def planner_create_plan(client,
-                        user_id,
-                        id_=None,
-                        contexts=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        buckets=None,
-                        tasks=None,
-                        details_id=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        details_shared_with=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None):
+def planner_user_planner_create_plan(client,
+                                     user_id,
+                                     id_=None,
+                                     contexts=None,
+                                     created_date_time=None,
+                                     owner=None,
+                                     title=None,
+                                     buckets=None,
+                                     tasks=None,
+                                     details_id=None,
+                                     details_category_descriptions=None,
+                                     details_context_details=None,
+                                     details_shared_with=None,
+                                     created_by_application=None,
+                                     created_by_device=None,
+                                     created_by_user=None):
     return client.create_plan(user_id=user_id,
                               id=id_,
                               contexts=contexts,
@@ -1644,155 +1644,155 @@ def planner_create_plan(client,
                               user=created_by_user)
 
 
-def planner_create_ref_favorite_plan(client,
-                                     user_id,
-                                     body):
+def planner_user_planner_create_ref_favorite_plan(client,
+                                                  user_id,
+                                                  body):
     return client.create_ref_favorite_plan(user_id=user_id,
                                            body=body)
 
 
-def planner_create_ref_recent_plan(client,
-                                   user_id,
-                                   body):
+def planner_user_planner_create_ref_recent_plan(client,
+                                                user_id,
+                                                body):
     return client.create_ref_recent_plan(user_id=user_id,
                                          body=body)
 
 
-def planner_create_task(client,
-                        user_id,
-                        body):
+def planner_user_planner_create_task(client,
+                                     user_id,
+                                     body):
     return client.create_task(user_id=user_id,
                               body=body)
 
 
-def planner_get_all(client,
-                    user_id,
-                    planner_delta_id,
-                    select=None,
-                    expand=None):
+def planner_user_planner_get_all(client,
+                                 user_id,
+                                 planner_delta_id,
+                                 select=None,
+                                 expand=None):
     return client.get_all(user_id=user_id,
                           planner_delta_id=planner_delta_id,
                           select=select,
                           expand=expand)
 
 
-def planner_get_plan(client,
-                     user_id,
-                     planner_plan_id,
-                     select=None,
-                     expand=None):
+def planner_user_planner_get_plan(client,
+                                  user_id,
+                                  planner_plan_id,
+                                  select=None,
+                                  expand=None):
     return client.get_plan(user_id=user_id,
                            planner_plan_id=planner_plan_id,
                            select=select,
                            expand=expand)
 
 
-def planner_get_task(client,
-                     user_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_user_planner_get_task(client,
+                                  user_id,
+                                  planner_task_id,
+                                  select=None,
+                                  expand=None):
     return client.get_task(user_id=user_id,
                            planner_task_id=planner_task_id,
                            select=select,
                            expand=expand)
 
 
-def planner_list_all(client,
-                     user_id,
-                     orderby=None,
-                     select=None,
-                     expand=None):
+def planner_user_planner_list_all(client,
+                                  user_id,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
     return client.list_all(user_id=user_id,
                            orderby=orderby,
                            select=select,
                            expand=expand)
 
 
-def planner_list_favorite_plan(client,
-                               user_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def planner_user_planner_list_favorite_plan(client,
+                                            user_id,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
     return client.list_favorite_plan(user_id=user_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def planner_list_plan(client,
-                      user_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_user_planner_list_plan(client,
+                                   user_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_plan(user_id=user_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_list_recent_plan(client,
-                             user_id,
-                             orderby=None,
-                             select=None,
-                             expand=None):
+def planner_user_planner_list_recent_plan(client,
+                                          user_id,
+                                          orderby=None,
+                                          select=None,
+                                          expand=None):
     return client.list_recent_plan(user_id=user_id,
                                    orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def planner_list_ref_favorite_plan(client,
-                                   user_id,
-                                   orderby=None):
+def planner_user_planner_list_ref_favorite_plan(client,
+                                                user_id,
+                                                orderby=None):
     return client.list_ref_favorite_plan(user_id=user_id,
                                          orderby=orderby)
 
 
-def planner_list_ref_recent_plan(client,
-                                 user_id,
-                                 orderby=None):
+def planner_user_planner_list_ref_recent_plan(client,
+                                              user_id,
+                                              orderby=None):
     return client.list_ref_recent_plan(user_id=user_id,
                                        orderby=orderby)
 
 
-def planner_list_task(client,
-                      user_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_user_planner_list_task(client,
+                                   user_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_task(user_id=user_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def planner_update_all(client,
-                       user_id,
-                       planner_delta_id,
-                       id_=None):
+def planner_user_planner_update_all(client,
+                                    user_id,
+                                    planner_delta_id,
+                                    id_=None):
     return client.update_all(user_id=user_id,
                              planner_delta_id=planner_delta_id,
                              id=id_)
 
 
-def planner_update_plan(client,
-                        user_id,
-                        planner_plan_id,
-                        id_=None,
-                        contexts=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        buckets=None,
-                        tasks=None,
-                        details_id=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        details_shared_with=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None):
+def planner_user_planner_update_plan(client,
+                                     user_id,
+                                     planner_plan_id,
+                                     id_=None,
+                                     contexts=None,
+                                     created_date_time=None,
+                                     owner=None,
+                                     title=None,
+                                     buckets=None,
+                                     tasks=None,
+                                     details_id=None,
+                                     details_category_descriptions=None,
+                                     details_context_details=None,
+                                     details_shared_with=None,
+                                     created_by_application=None,
+                                     created_by_device=None,
+                                     created_by_user=None):
     return client.update_plan(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               id=id_,
@@ -1811,21 +1811,21 @@ def planner_update_plan(client,
                               user=created_by_user)
 
 
-def planner_update_task(client,
-                        user_id,
-                        planner_task_id,
-                        body):
+def planner_user_planner_update_task(client,
+                                     user_id,
+                                     planner_task_id,
+                                     body):
     return client.update_task(user_id=user_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   user_id,
-                   planner_plan_id,
-                   planner_bucket_id=None,
-                   if_match=None,
-                   planner_task_id=None):
+def planner_user_planner_plan_delete(client,
+                                     user_id,
+                                     planner_plan_id,
+                                     planner_bucket_id=None,
+                                     if_match=None,
+                                     planner_task_id=None):
     if user_id is not None and planner_plan_id is not None and planner_bucket_id is not None:
         return client.delete_bucket(user_id=user_id,
                                     planner_plan_id=planner_plan_id,
@@ -1841,14 +1841,14 @@ def planner_delete(client,
                                 if_match=if_match)
 
 
-def planner_create_bucket(client,
-                          user_id,
-                          planner_plan_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_user_planner_plan_create_bucket(client,
+                                            user_id,
+                                            planner_plan_id,
+                                            id_=None,
+                                            name=None,
+                                            order_hint=None,
+                                            plan_id=None,
+                                            tasks=None):
     return client.create_bucket(user_id=user_id,
                                 planner_plan_id=planner_plan_id,
                                 id=id_,
@@ -1858,21 +1858,21 @@ def planner_create_bucket(client,
                                 tasks=tasks)
 
 
-def planner_create_task(client,
-                        user_id,
-                        planner_plan_id,
-                        body):
+def planner_user_planner_plan_create_task(client,
+                                          user_id,
+                                          planner_plan_id,
+                                          body):
     return client.create_task(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               body=body)
 
 
-def planner_get_bucket(client,
-                       user_id,
-                       planner_plan_id,
-                       planner_bucket_id,
-                       select=None,
-                       expand=None):
+def planner_user_planner_plan_get_bucket(client,
+                                         user_id,
+                                         planner_plan_id,
+                                         planner_bucket_id,
+                                         select=None,
+                                         expand=None):
     return client.get_bucket(user_id=user_id,
                              planner_plan_id=planner_plan_id,
                              planner_bucket_id=planner_bucket_id,
@@ -1880,23 +1880,23 @@ def planner_get_bucket(client,
                              expand=expand)
 
 
-def planner_get_detail(client,
-                       user_id,
-                       planner_plan_id,
-                       select=None,
-                       expand=None):
+def planner_user_planner_plan_get_detail(client,
+                                         user_id,
+                                         planner_plan_id,
+                                         select=None,
+                                         expand=None):
     return client.get_detail(user_id=user_id,
                              planner_plan_id=planner_plan_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_task(client,
-                     user_id,
-                     planner_plan_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_user_planner_plan_get_task(client,
+                                       user_id,
+                                       planner_plan_id,
+                                       planner_task_id,
+                                       select=None,
+                                       expand=None):
     return client.get_task(user_id=user_id,
                            planner_plan_id=planner_plan_id,
                            planner_task_id=planner_task_id,
@@ -1904,12 +1904,12 @@ def planner_get_task(client,
                            expand=expand)
 
 
-def planner_list_bucket(client,
-                        user_id,
-                        planner_plan_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
+def planner_user_planner_plan_list_bucket(client,
+                                          user_id,
+                                          planner_plan_id,
+                                          orderby=None,
+                                          select=None,
+                                          expand=None):
     return client.list_bucket(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               orderby=orderby,
@@ -1917,12 +1917,12 @@ def planner_list_bucket(client,
                               expand=expand)
 
 
-def planner_list_task(client,
-                      user_id,
-                      planner_plan_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_user_planner_plan_list_task(client,
+                                        user_id,
+                                        planner_plan_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
     return client.list_task(user_id=user_id,
                             planner_plan_id=planner_plan_id,
                             orderby=orderby,
@@ -1930,15 +1930,15 @@ def planner_list_task(client,
                             expand=expand)
 
 
-def planner_update_bucket(client,
-                          user_id,
-                          planner_plan_id,
-                          planner_bucket_id,
-                          id_=None,
-                          name=None,
-                          order_hint=None,
-                          plan_id=None,
-                          tasks=None):
+def planner_user_planner_plan_update_bucket(client,
+                                            user_id,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            id_=None,
+                                            name=None,
+                                            order_hint=None,
+                                            plan_id=None,
+                                            tasks=None):
     return client.update_bucket(user_id=user_id,
                                 planner_plan_id=planner_plan_id,
                                 planner_bucket_id=planner_bucket_id,
@@ -1949,13 +1949,13 @@ def planner_update_bucket(client,
                                 tasks=tasks)
 
 
-def planner_update_detail(client,
-                          user_id,
-                          planner_plan_id,
-                          id_=None,
-                          category_descriptions=None,
-                          context_details=None,
-                          shared_with=None):
+def planner_user_planner_plan_update_detail(client,
+                                            user_id,
+                                            planner_plan_id,
+                                            id_=None,
+                                            category_descriptions=None,
+                                            context_details=None,
+                                            shared_with=None):
     return client.update_detail(user_id=user_id,
                                 planner_plan_id=planner_plan_id,
                                 id=id_,
@@ -1964,23 +1964,23 @@ def planner_update_detail(client,
                                 shared_with=shared_with)
 
 
-def planner_update_task(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_task_id,
-                        body):
+def planner_user_planner_plan_update_task(client,
+                                          user_id,
+                                          planner_plan_id,
+                                          planner_task_id,
+                                          body):
     return client.update_task(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
 
-def planner_delete(client,
-                   user_id,
-                   planner_plan_id,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_user_planner_plan_bucket_delete(client,
+                                            user_id,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            planner_task_id,
+                                            if_match=None):
     return client.delete_task(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
@@ -1988,24 +1988,24 @@ def planner_delete(client,
                               if_match=if_match)
 
 
-def planner_create_task(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        body):
+def planner_user_planner_plan_bucket_create_task(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_bucket_id,
+                                                 body):
     return client.create_task(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
                               body=body)
 
 
-def planner_get_task(client,
-                     user_id,
-                     planner_plan_id,
-                     planner_bucket_id,
-                     planner_task_id,
-                     select=None,
-                     expand=None):
+def planner_user_planner_plan_bucket_get_task(client,
+                                              user_id,
+                                              planner_plan_id,
+                                              planner_bucket_id,
+                                              planner_task_id,
+                                              select=None,
+                                              expand=None):
     return client.get_task(user_id=user_id,
                            planner_plan_id=planner_plan_id,
                            planner_bucket_id=planner_bucket_id,
@@ -2014,13 +2014,13 @@ def planner_get_task(client,
                            expand=expand)
 
 
-def planner_list_task(client,
-                      user_id,
-                      planner_plan_id,
-                      planner_bucket_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
+def planner_user_planner_plan_bucket_list_task(client,
+                                               user_id,
+                                               planner_plan_id,
+                                               planner_bucket_id,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
     return client.list_task(user_id=user_id,
                             planner_plan_id=planner_plan_id,
                             planner_bucket_id=planner_bucket_id,
@@ -2029,12 +2029,12 @@ def planner_list_task(client,
                             expand=expand)
 
 
-def planner_update_task(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        planner_task_id,
-                        body):
+def planner_user_planner_plan_bucket_update_task(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_bucket_id,
+                                                 planner_task_id,
+                                                 body):
     return client.update_task(user_id=user_id,
                               planner_plan_id=planner_plan_id,
                               planner_bucket_id=planner_bucket_id,
@@ -2042,12 +2042,12 @@ def planner_update_task(client,
                               body=body)
 
 
-def planner_delete(client,
-                   user_id,
-                   planner_plan_id,
-                   planner_bucket_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_user_planner_plan_bucket_task_delete(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_bucket_id,
+                                                 planner_task_id,
+                                                 if_match=None):
     if user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(user_id=user_id,
                                                            planner_plan_id=planner_plan_id,
@@ -2073,13 +2073,13 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              user_id,
-                                              planner_plan_id,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_user_planner_plan_bucket_task_get_assigned_to_task_board_format(client,
+                                                                            user_id,
+                                                                            planner_plan_id,
+                                                                            planner_bucket_id,
+                                                                            planner_task_id,
+                                                                            select=None,
+                                                                            expand=None):
     return client.get_assigned_to_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
@@ -2088,13 +2088,13 @@ def planner_get_assigned_to_task_board_format(client,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         user_id,
-                                         planner_plan_id,
-                                         planner_bucket_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_user_planner_plan_bucket_task_get_bucket_task_board_format(client,
+                                                                       user_id,
+                                                                       planner_plan_id,
+                                                                       planner_bucket_id,
+                                                                       planner_task_id,
+                                                                       select=None,
+                                                                       expand=None):
     return client.get_bucket_task_board_format(user_id=user_id,
                                                planner_plan_id=planner_plan_id,
                                                planner_bucket_id=planner_bucket_id,
@@ -2103,13 +2103,13 @@ def planner_get_bucket_task_board_format(client,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       user_id,
-                       planner_plan_id,
-                       planner_bucket_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_user_planner_plan_bucket_task_get_detail(client,
+                                                     user_id,
+                                                     planner_plan_id,
+                                                     planner_bucket_id,
+                                                     planner_task_id,
+                                                     select=None,
+                                                     expand=None):
     return client.get_detail(user_id=user_id,
                              planner_plan_id=planner_plan_id,
                              planner_bucket_id=planner_bucket_id,
@@ -2118,13 +2118,13 @@ def planner_get_detail(client,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           user_id,
-                                           planner_plan_id,
-                                           planner_bucket_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_user_planner_plan_bucket_task_get_progress_task_board_format(client,
+                                                                         user_id,
+                                                                         planner_plan_id,
+                                                                         planner_bucket_id,
+                                                                         planner_task_id,
+                                                                         select=None,
+                                                                         expand=None):
     return client.get_progress_task_board_format(user_id=user_id,
                                                  planner_plan_id=planner_plan_id,
                                                  planner_bucket_id=planner_bucket_id,
@@ -2133,14 +2133,14 @@ def planner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 user_id,
-                                                 planner_plan_id,
-                                                 planner_bucket_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_user_planner_plan_bucket_task_update_assigned_to_task_board_format(client,
+                                                                               user_id,
+                                                                               planner_plan_id,
+                                                                               planner_bucket_id,
+                                                                               planner_task_id,
+                                                                               id_=None,
+                                                                               order_hints_by_assignee=None,
+                                                                               unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(user_id=user_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_bucket_id=planner_bucket_id,
@@ -2150,13 +2150,13 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            user_id,
-                                            planner_plan_id,
-                                            planner_bucket_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_user_planner_plan_bucket_task_update_bucket_task_board_format(client,
+                                                                          user_id,
+                                                                          planner_plan_id,
+                                                                          planner_bucket_id,
+                                                                          planner_task_id,
+                                                                          id_=None,
+                                                                          order_hint=None):
     return client.update_bucket_task_board_format(user_id=user_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_bucket_id=planner_bucket_id,
@@ -2165,16 +2165,16 @@ def planner_update_bucket_task_board_format(client,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          user_id,
-                          planner_plan_id,
-                          planner_bucket_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_user_planner_plan_bucket_task_update_detail(client,
+                                                        user_id,
+                                                        planner_plan_id,
+                                                        planner_bucket_id,
+                                                        planner_task_id,
+                                                        id_=None,
+                                                        checklist=None,
+                                                        description=None,
+                                                        preview_type=None,
+                                                        references=None):
     return client.update_detail(user_id=user_id,
                                 planner_plan_id=planner_plan_id,
                                 planner_bucket_id=planner_bucket_id,
@@ -2186,13 +2186,13 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              user_id,
-                                              planner_plan_id,
-                                              planner_bucket_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_user_planner_plan_bucket_task_update_progress_task_board_format(client,
+                                                                            user_id,
+                                                                            planner_plan_id,
+                                                                            planner_bucket_id,
+                                                                            planner_task_id,
+                                                                            id_=None,
+                                                                            order_hint=None):
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
@@ -2201,11 +2201,11 @@ def planner_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   user_id,
-                   planner_plan_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_user_planner_plan_task_delete(client,
+                                          user_id,
+                                          planner_plan_id,
+                                          planner_task_id,
+                                          if_match=None):
     if user_id is not None and planner_plan_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(user_id=user_id,
                                                            planner_plan_id=planner_plan_id,
@@ -2227,12 +2227,12 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              user_id,
-                                              planner_plan_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_user_planner_plan_task_get_assigned_to_task_board_format(client,
+                                                                     user_id,
+                                                                     planner_plan_id,
+                                                                     planner_task_id,
+                                                                     select=None,
+                                                                     expand=None):
     return client.get_assigned_to_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
@@ -2240,12 +2240,12 @@ def planner_get_assigned_to_task_board_format(client,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         user_id,
-                                         planner_plan_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_user_planner_plan_task_get_bucket_task_board_format(client,
+                                                                user_id,
+                                                                planner_plan_id,
+                                                                planner_task_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_bucket_task_board_format(user_id=user_id,
                                                planner_plan_id=planner_plan_id,
                                                planner_task_id=planner_task_id,
@@ -2253,12 +2253,12 @@ def planner_get_bucket_task_board_format(client,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       user_id,
-                       planner_plan_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_user_planner_plan_task_get_detail(client,
+                                              user_id,
+                                              planner_plan_id,
+                                              planner_task_id,
+                                              select=None,
+                                              expand=None):
     return client.get_detail(user_id=user_id,
                              planner_plan_id=planner_plan_id,
                              planner_task_id=planner_task_id,
@@ -2266,12 +2266,12 @@ def planner_get_detail(client,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           user_id,
-                                           planner_plan_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_user_planner_plan_task_get_progress_task_board_format(client,
+                                                                  user_id,
+                                                                  planner_plan_id,
+                                                                  planner_task_id,
+                                                                  select=None,
+                                                                  expand=None):
     return client.get_progress_task_board_format(user_id=user_id,
                                                  planner_plan_id=planner_plan_id,
                                                  planner_task_id=planner_task_id,
@@ -2279,13 +2279,13 @@ def planner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 user_id,
-                                                 planner_plan_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_user_planner_plan_task_update_assigned_to_task_board_format(client,
+                                                                        user_id,
+                                                                        planner_plan_id,
+                                                                        planner_task_id,
+                                                                        id_=None,
+                                                                        order_hints_by_assignee=None,
+                                                                        unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(user_id=user_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_task_id=planner_task_id,
@@ -2294,12 +2294,12 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            user_id,
-                                            planner_plan_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_user_planner_plan_task_update_bucket_task_board_format(client,
+                                                                   user_id,
+                                                                   planner_plan_id,
+                                                                   planner_task_id,
+                                                                   id_=None,
+                                                                   order_hint=None):
     return client.update_bucket_task_board_format(user_id=user_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_task_id=planner_task_id,
@@ -2307,15 +2307,15 @@ def planner_update_bucket_task_board_format(client,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          user_id,
-                          planner_plan_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_user_planner_plan_task_update_detail(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_task_id,
+                                                 id_=None,
+                                                 checklist=None,
+                                                 description=None,
+                                                 preview_type=None,
+                                                 references=None):
     return client.update_detail(user_id=user_id,
                                 planner_plan_id=planner_plan_id,
                                 planner_task_id=planner_task_id,
@@ -2326,12 +2326,12 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              user_id,
-                                              planner_plan_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_user_planner_plan_task_update_progress_task_board_format(client,
+                                                                     user_id,
+                                                                     planner_plan_id,
+                                                                     planner_task_id,
+                                                                     id_=None,
+                                                                     order_hint=None):
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
@@ -2339,10 +2339,10 @@ def planner_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_delete(client,
-                   user_id,
-                   planner_task_id,
-                   if_match=None):
+def planner_user_planner_task_delete(client,
+                                     user_id,
+                                     planner_task_id,
+                                     if_match=None):
     if user_id is not None and planner_task_id is not None:
         return client.delete_assigned_to_task_board_format(user_id=user_id,
                                                            planner_task_id=planner_task_id,
@@ -2360,56 +2360,56 @@ def planner_delete(client,
                                                     if_match=if_match)
 
 
-def planner_get_assigned_to_task_board_format(client,
-                                              user_id,
-                                              planner_task_id,
-                                              select=None,
-                                              expand=None):
+def planner_user_planner_task_get_assigned_to_task_board_format(client,
+                                                                user_id,
+                                                                planner_task_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_assigned_to_task_board_format(user_id=user_id,
                                                     planner_task_id=planner_task_id,
                                                     select=select,
                                                     expand=expand)
 
 
-def planner_get_bucket_task_board_format(client,
-                                         user_id,
-                                         planner_task_id,
-                                         select=None,
-                                         expand=None):
+def planner_user_planner_task_get_bucket_task_board_format(client,
+                                                           user_id,
+                                                           planner_task_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_bucket_task_board_format(user_id=user_id,
                                                planner_task_id=planner_task_id,
                                                select=select,
                                                expand=expand)
 
 
-def planner_get_detail(client,
-                       user_id,
-                       planner_task_id,
-                       select=None,
-                       expand=None):
+def planner_user_planner_task_get_detail(client,
+                                         user_id,
+                                         planner_task_id,
+                                         select=None,
+                                         expand=None):
     return client.get_detail(user_id=user_id,
                              planner_task_id=planner_task_id,
                              select=select,
                              expand=expand)
 
 
-def planner_get_progress_task_board_format(client,
-                                           user_id,
-                                           planner_task_id,
-                                           select=None,
-                                           expand=None):
+def planner_user_planner_task_get_progress_task_board_format(client,
+                                                             user_id,
+                                                             planner_task_id,
+                                                             select=None,
+                                                             expand=None):
     return client.get_progress_task_board_format(user_id=user_id,
                                                  planner_task_id=planner_task_id,
                                                  select=select,
                                                  expand=expand)
 
 
-def planner_update_assigned_to_task_board_format(client,
-                                                 user_id,
-                                                 planner_task_id,
-                                                 id_=None,
-                                                 order_hints_by_assignee=None,
-                                                 unassigned_order_hint=None):
+def planner_user_planner_task_update_assigned_to_task_board_format(client,
+                                                                   user_id,
+                                                                   planner_task_id,
+                                                                   id_=None,
+                                                                   order_hints_by_assignee=None,
+                                                                   unassigned_order_hint=None):
     return client.update_assigned_to_task_board_format(user_id=user_id,
                                                        planner_task_id=planner_task_id,
                                                        id=id_,
@@ -2417,25 +2417,25 @@ def planner_update_assigned_to_task_board_format(client,
                                                        unassigned_order_hint=unassigned_order_hint)
 
 
-def planner_update_bucket_task_board_format(client,
-                                            user_id,
-                                            planner_task_id,
-                                            id_=None,
-                                            order_hint=None):
+def planner_user_planner_task_update_bucket_task_board_format(client,
+                                                              user_id,
+                                                              planner_task_id,
+                                                              id_=None,
+                                                              order_hint=None):
     return client.update_bucket_task_board_format(user_id=user_id,
                                                   planner_task_id=planner_task_id,
                                                   id=id_,
                                                   order_hint=order_hint)
 
 
-def planner_update_detail(client,
-                          user_id,
-                          planner_task_id,
-                          id_=None,
-                          checklist=None,
-                          description=None,
-                          preview_type=None,
-                          references=None):
+def planner_user_planner_task_update_detail(client,
+                                            user_id,
+                                            planner_task_id,
+                                            id_=None,
+                                            checklist=None,
+                                            description=None,
+                                            preview_type=None,
+                                            references=None):
     return client.update_detail(user_id=user_id,
                                 planner_task_id=planner_task_id,
                                 id=id_,
@@ -2445,11 +2445,11 @@ def planner_update_detail(client,
                                 references=references)
 
 
-def planner_update_progress_task_board_format(client,
-                                              user_id,
-                                              planner_task_id,
-                                              id_=None,
-                                              order_hint=None):
+def planner_user_planner_task_update_progress_task_board_format(client,
+                                                                user_id,
+                                                                planner_task_id,
+                                                                id_=None,
+                                                                order_hint=None):
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_task_id=planner_task_id,
                                                     id=id_,

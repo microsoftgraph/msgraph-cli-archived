@@ -20,320 +20,353 @@ def load_command_table(self, _):
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_org_contact_operati'
         'ons#ContactOrgContactOperations.{}',
         client_factory=cf_contact_org_contact)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_contact_org_contact,
-                            client_factory=cf_contact_org_contact) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-org-contact', 'identitydirmgt_create_org_contact')
-        g.custom_command('get-org-contact', 'identitydirmgt_get_org_contact')
-        g.custom_command('list-org-contact', 'identitydirmgt_list_org_contact')
-        g.custom_command('update-org-contact', 'identitydirmgt_update_org_contact')
+    with self.command_group('identitydirmgt contact-org-contact', identitydirmgt_v1_0_contact_org_contact,
+                            client_factory=cf_contact_org_contact, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_contact_org_contact_delete', confirmation=True)
+        g.custom_command('create-org-contact', 'identitydirmgt_contact_org_contact_create_org_contact')
+        g.custom_command('get-org-contact', 'identitydirmgt_contact_org_contact_get_org_contact')
+        g.custom_command('list-org-contact', 'identitydirmgt_contact_org_contact_list_org_contact')
+        g.custom_command('update-org-contact', 'identitydirmgt_contact_org_contact_update_org_contact')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_contact
     identitydirmgt_v1_0_contact = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_operations#ContactO'
         'perations.{}',
         client_factory=cf_contact)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_contact, client_factory=cf_contact) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('check-member-group', 'identitydirmgt_check_member_group')
-        g.custom_command('check-member-object', 'identitydirmgt_check_member_object')
-        g.custom_command('create-ref-direct-report', 'identitydirmgt_create_ref_direct_report')
-        g.custom_command('create-ref-member-of', 'identitydirmgt_create_ref_member_of')
-        g.custom_command('create-ref-transitive-member-of', 'identitydirmgt_create_ref_transitive_member_of')
-        g.custom_command('delta', 'identitydirmgt_delta')
-        g.custom_command('get-available-extension-property', 'identitydirmgt_get_available_extension_property')
-        g.custom_command('get-by-id', 'identitydirmgt_get_by_id')
-        g.custom_command('get-manager', 'identitydirmgt_get_manager')
-        g.custom_command('get-member-group', 'identitydirmgt_get_member_group')
-        g.custom_command('get-member-object', 'identitydirmgt_get_member_object')
-        g.custom_command('get-ref-manager', 'identitydirmgt_get_ref_manager')
-        g.custom_command('list-direct-report', 'identitydirmgt_list_direct_report')
-        g.custom_command('list-member-of', 'identitydirmgt_list_member_of')
-        g.custom_command('list-ref-direct-report', 'identitydirmgt_list_ref_direct_report')
-        g.custom_command('list-ref-member-of', 'identitydirmgt_list_ref_member_of')
-        g.custom_command('list-ref-transitive-member-of', 'identitydirmgt_list_ref_transitive_member_of')
-        g.custom_command('list-transitive-member-of', 'identitydirmgt_list_transitive_member_of')
-        g.custom_command('restore', 'identitydirmgt_restore')
-        g.custom_command('set-ref-manager', 'identitydirmgt_set_ref_manager')
-        g.custom_command('validate-property', 'identitydirmgt_validate_property')
+    with self.command_group('identitydirmgt contact', identitydirmgt_v1_0_contact, client_factory=cf_contact,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_contact_delete', confirmation=True)
+        g.custom_command('check-member-group', 'identitydirmgt_contact_check_member_group')
+        g.custom_command('check-member-object', 'identitydirmgt_contact_check_member_object')
+        g.custom_command('create-ref-direct-report', 'identitydirmgt_contact_create_ref_direct_report')
+        g.custom_command('create-ref-member-of', 'identitydirmgt_contact_create_ref_member_of')
+        g.custom_command('create-ref-transitive-member-of', 'identitydirmgt_contact_create_ref_transitive_member_of')
+        g.custom_command('delta', 'identitydirmgt_contact_delta')
+        g.custom_command('get-available-extension-property',
+                         'identitydirmgt_contact_get_available_extension_property')
+        g.custom_command('get-by-id', 'identitydirmgt_contact_get_by_id')
+        g.custom_command('get-manager', 'identitydirmgt_contact_get_manager')
+        g.custom_command('get-member-group', 'identitydirmgt_contact_get_member_group')
+        g.custom_command('get-member-object', 'identitydirmgt_contact_get_member_object')
+        g.custom_command('get-ref-manager', 'identitydirmgt_contact_get_ref_manager')
+        g.custom_command('list-direct-report', 'identitydirmgt_contact_list_direct_report')
+        g.custom_command('list-member-of', 'identitydirmgt_contact_list_member_of')
+        g.custom_command('list-ref-direct-report', 'identitydirmgt_contact_list_ref_direct_report')
+        g.custom_command('list-ref-member-of', 'identitydirmgt_contact_list_ref_member_of')
+        g.custom_command('list-ref-transitive-member-of', 'identitydirmgt_contact_list_ref_transitive_member_of')
+        g.custom_command('list-transitive-member-of', 'identitydirmgt_contact_list_transitive_member_of')
+        g.custom_command('restore', 'identitydirmgt_contact_restore')
+        g.custom_command('set-ref-manager', 'identitydirmgt_contact_set_ref_manager')
+        g.custom_command('validate-property', 'identitydirmgt_contact_validate_property')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_contract_contract
     identitydirmgt_v1_0_contract_contract = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_contract_operation'
         's#ContractContractOperations.{}',
         client_factory=cf_contract_contract)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_contract_contract,
-                            client_factory=cf_contract_contract) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-contract', 'identitydirmgt_create_contract')
-        g.custom_command('get-contract', 'identitydirmgt_get_contract')
-        g.custom_command('list-contract', 'identitydirmgt_list_contract')
-        g.custom_command('update-contract', 'identitydirmgt_update_contract')
+    with self.command_group('identitydirmgt contract-contract', identitydirmgt_v1_0_contract_contract,
+                            client_factory=cf_contract_contract, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_contract_contract_delete', confirmation=True)
+        g.custom_command('create-contract', 'identitydirmgt_contract_contract_create_contract')
+        g.custom_command('get-contract', 'identitydirmgt_contract_contract_get_contract')
+        g.custom_command('list-contract', 'identitydirmgt_contract_contract_list_contract')
+        g.custom_command('update-contract', 'identitydirmgt_contract_contract_update_contract')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_contract
     identitydirmgt_v1_0_contract = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_operations#Contrac'
         'tOperations.{}',
         client_factory=cf_contract)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_contract, client_factory=cf_contract) as g:
-        g.custom_command('check-member-group', 'identitydirmgt_check_member_group')
-        g.custom_command('check-member-object', 'identitydirmgt_check_member_object')
-        g.custom_command('get-available-extension-property', 'identitydirmgt_get_available_extension_property')
-        g.custom_command('get-by-id', 'identitydirmgt_get_by_id')
-        g.custom_command('get-member-group', 'identitydirmgt_get_member_group')
-        g.custom_command('get-member-object', 'identitydirmgt_get_member_object')
-        g.custom_command('restore', 'identitydirmgt_restore')
-        g.custom_command('validate-property', 'identitydirmgt_validate_property')
+    with self.command_group('identitydirmgt contract', identitydirmgt_v1_0_contract, client_factory=cf_contract,
+                            is_experimental=True) as g:
+        g.custom_command('check-member-group', 'identitydirmgt_contract_check_member_group')
+        g.custom_command('check-member-object', 'identitydirmgt_contract_check_member_object')
+        g.custom_command('get-available-extension-property',
+                         'identitydirmgt_contract_get_available_extension_property')
+        g.custom_command('get-by-id', 'identitydirmgt_contract_get_by_id')
+        g.custom_command('get-member-group', 'identitydirmgt_contract_get_member_group')
+        g.custom_command('get-member-object', 'identitydirmgt_contract_get_member_object')
+        g.custom_command('restore', 'identitydirmgt_contract_restore')
+        g.custom_command('validate-property', 'identitydirmgt_contract_validate_property')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_device_device
     identitydirmgt_v1_0_device_device = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_device_operations#De'
         'viceDeviceOperations.{}',
         client_factory=cf_device_device)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_device_device,
-                            client_factory=cf_device_device) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-device', 'identitydirmgt_create_device')
-        g.custom_command('get-device', 'identitydirmgt_get_device')
-        g.custom_command('list-device', 'identitydirmgt_list_device')
-        g.custom_command('update-device', 'identitydirmgt_update_device')
+    with self.command_group('identitydirmgt device-device', identitydirmgt_v1_0_device_device,
+                            client_factory=cf_device_device, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_device_device_delete', confirmation=True)
+        g.custom_command('create-device', 'identitydirmgt_device_device_create_device')
+        g.custom_command('get-device', 'identitydirmgt_device_device_get_device')
+        g.custom_command('list-device', 'identitydirmgt_device_device_list_device')
+        g.custom_command('update-device', 'identitydirmgt_device_device_update_device')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_device
     identitydirmgt_v1_0_device = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_operations#DeviceOpe'
         'rations.{}',
         client_factory=cf_device)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_device, client_factory=cf_device) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('check-member-group', 'identitydirmgt_check_member_group')
-        g.custom_command('check-member-object', 'identitydirmgt_check_member_object')
-        g.custom_command('create-extension', 'identitydirmgt_create_extension')
-        g.custom_command('create-ref-member-of', 'identitydirmgt_create_ref_member_of')
-        g.custom_command('create-ref-registered-owner', 'identitydirmgt_create_ref_registered_owner')
-        g.custom_command('create-ref-registered-user', 'identitydirmgt_create_ref_registered_user')
-        g.custom_command('create-ref-transitive-member-of', 'identitydirmgt_create_ref_transitive_member_of')
-        g.custom_command('get-available-extension-property', 'identitydirmgt_get_available_extension_property')
-        g.custom_command('get-by-id', 'identitydirmgt_get_by_id')
-        g.custom_command('get-extension', 'identitydirmgt_get_extension')
-        g.custom_command('get-member-group', 'identitydirmgt_get_member_group')
-        g.custom_command('get-member-object', 'identitydirmgt_get_member_object')
-        g.custom_command('list-extension', 'identitydirmgt_list_extension')
-        g.custom_command('list-member-of', 'identitydirmgt_list_member_of')
-        g.custom_command('list-ref-member-of', 'identitydirmgt_list_ref_member_of')
-        g.custom_command('list-ref-registered-owner', 'identitydirmgt_list_ref_registered_owner')
-        g.custom_command('list-ref-registered-user', 'identitydirmgt_list_ref_registered_user')
-        g.custom_command('list-ref-transitive-member-of', 'identitydirmgt_list_ref_transitive_member_of')
-        g.custom_command('list-registered-owner', 'identitydirmgt_list_registered_owner')
-        g.custom_command('list-registered-user', 'identitydirmgt_list_registered_user')
-        g.custom_command('list-transitive-member-of', 'identitydirmgt_list_transitive_member_of')
-        g.custom_command('restore', 'identitydirmgt_restore')
-        g.custom_command('update-extension', 'identitydirmgt_update_extension')
-        g.custom_command('validate-property', 'identitydirmgt_validate_property')
+    with self.command_group('identitydirmgt device', identitydirmgt_v1_0_device, client_factory=cf_device,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_device_delete', confirmation=True)
+        g.custom_command('check-member-group', 'identitydirmgt_device_check_member_group')
+        g.custom_command('check-member-object', 'identitydirmgt_device_check_member_object')
+        g.custom_command('create-extension', 'identitydirmgt_device_create_extension')
+        g.custom_command('create-ref-member-of', 'identitydirmgt_device_create_ref_member_of')
+        g.custom_command('create-ref-registered-owner', 'identitydirmgt_device_create_ref_registered_owner')
+        g.custom_command('create-ref-registered-user', 'identitydirmgt_device_create_ref_registered_user')
+        g.custom_command('create-ref-transitive-member-of', 'identitydirmgt_device_create_ref_transitive_member_of')
+        g.custom_command('get-available-extension-property', 'identitydirmgt_device_get_available_extension_property')
+        g.custom_command('get-by-id', 'identitydirmgt_device_get_by_id')
+        g.custom_command('get-extension', 'identitydirmgt_device_get_extension')
+        g.custom_command('get-member-group', 'identitydirmgt_device_get_member_group')
+        g.custom_command('get-member-object', 'identitydirmgt_device_get_member_object')
+        g.custom_command('list-extension', 'identitydirmgt_device_list_extension')
+        g.custom_command('list-member-of', 'identitydirmgt_device_list_member_of')
+        g.custom_command('list-ref-member-of', 'identitydirmgt_device_list_ref_member_of')
+        g.custom_command('list-ref-registered-owner', 'identitydirmgt_device_list_ref_registered_owner')
+        g.custom_command('list-ref-registered-user', 'identitydirmgt_device_list_ref_registered_user')
+        g.custom_command('list-ref-transitive-member-of', 'identitydirmgt_device_list_ref_transitive_member_of')
+        g.custom_command('list-registered-owner', 'identitydirmgt_device_list_registered_owner')
+        g.custom_command('list-registered-user', 'identitydirmgt_device_list_registered_user')
+        g.custom_command('list-transitive-member-of', 'identitydirmgt_device_list_transitive_member_of')
+        g.custom_command('restore', 'identitydirmgt_device_restore')
+        g.custom_command('update-extension', 'identitydirmgt_device_update_extension')
+        g.custom_command('validate-property', 'identitydirmgt_device_validate_property')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_directory
     identitydirmgt_v1_0_directory_directory = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_directory_operati'
         'ons#DirectoryDirectoryOperations.{}',
         client_factory=cf_directory_directory)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory_directory,
-                            client_factory=cf_directory_directory) as g:
-        g.custom_command('get-directory', 'identitydirmgt_get_directory')
-        g.custom_command('update-directory', 'identitydirmgt_update_directory')
+    with self.command_group('identitydirmgt directory-directory', identitydirmgt_v1_0_directory_directory,
+                            client_factory=cf_directory_directory, is_experimental=True) as g:
+        g.custom_command('get-directory', 'identitydirmgt_directory_directory_get_directory')
+        g.custom_command('update-directory', 'identitydirmgt_directory_directory_update_directory')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory
     identitydirmgt_v1_0_directory = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_operations#Direct'
         'oryOperations.{}',
         client_factory=cf_directory)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory, client_factory=cf_directory) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-administrative-unit', 'identitydirmgt_create_administrative_unit')
-        g.custom_command('create-deleted-item', 'identitydirmgt_create_deleted_item')
-        g.custom_command('get-administrative-unit', 'identitydirmgt_get_administrative_unit')
-        g.custom_command('get-deleted-item', 'identitydirmgt_get_deleted_item')
-        g.custom_command('list-administrative-unit', 'identitydirmgt_list_administrative_unit')
-        g.custom_command('list-deleted-item', 'identitydirmgt_list_deleted_item')
-        g.custom_command('update-administrative-unit', 'identitydirmgt_update_administrative_unit')
-        g.custom_command('update-deleted-item', 'identitydirmgt_update_deleted_item')
+    with self.command_group('identitydirmgt directory', identitydirmgt_v1_0_directory, client_factory=cf_directory,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_directory_delete', confirmation=True)
+        g.custom_command('create-administrative-unit', 'identitydirmgt_directory_create_administrative_unit')
+        g.custom_command('create-deleted-item', 'identitydirmgt_directory_create_deleted_item')
+        g.custom_command('get-administrative-unit', 'identitydirmgt_directory_get_administrative_unit')
+        g.custom_command('get-deleted-item', 'identitydirmgt_directory_get_deleted_item')
+        g.custom_command('list-administrative-unit', 'identitydirmgt_directory_list_administrative_unit')
+        g.custom_command('list-deleted-item', 'identitydirmgt_directory_list_deleted_item')
+        g.custom_command('update-administrative-unit', 'identitydirmgt_directory_update_administrative_unit')
+        g.custom_command('update-deleted-item', 'identitydirmgt_directory_update_deleted_item')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_administrative_unit
     identitydirmgt_v1_0_directory_administrative_unit = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_administrative_un'
         'it_operations#DirectoryAdministrativeUnitOperations.{}',
         client_factory=cf_directory_administrative_unit)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory_administrative_unit,
-                            client_factory=cf_directory_administrative_unit) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-extension', 'identitydirmgt_create_extension')
-        g.custom_command('create-ref-member', 'identitydirmgt_create_ref_member')
-        g.custom_command('create-scoped-role-member', 'identitydirmgt_create_scoped_role_member')
-        g.custom_command('delta', 'identitydirmgt_delta')
-        g.custom_command('get-extension', 'identitydirmgt_get_extension')
-        g.custom_command('get-scoped-role-member', 'identitydirmgt_get_scoped_role_member')
-        g.custom_command('list-extension', 'identitydirmgt_list_extension')
-        g.custom_command('list-member', 'identitydirmgt_list_member')
-        g.custom_command('list-ref-member', 'identitydirmgt_list_ref_member')
-        g.custom_command('list-scoped-role-member', 'identitydirmgt_list_scoped_role_member')
-        g.custom_command('update-extension', 'identitydirmgt_update_extension')
-        g.custom_command('update-scoped-role-member', 'identitydirmgt_update_scoped_role_member')
+    with self.command_group('identitydirmgt directory-administrative-unit',
+                            identitydirmgt_v1_0_directory_administrative_unit,
+                            client_factory=cf_directory_administrative_unit, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_directory_administrative_unit_delete', confirmation=True)
+        g.custom_command('create-extension', 'identitydirmgt_directory_administrative_unit_create_extension')
+        g.custom_command('create-ref-member', 'identitydirmgt_directory_administrative_unit_create_ref_member')
+        g.custom_command('create-scoped-role-member', 'identitydirmgt_directory_administrative_unit_create_scoped_role_'
+                         'member')
+        g.custom_command('delta', 'identitydirmgt_directory_administrative_unit_delta')
+        g.custom_command('get-extension', 'identitydirmgt_directory_administrative_unit_get_extension')
+        g.custom_command('get-scoped-role-member', 'identitydirmgt_directory_administrative_unit_get_scoped_role_member'
+                         '')
+        g.custom_command('list-extension', 'identitydirmgt_directory_administrative_unit_list_extension')
+        g.custom_command('list-member', 'identitydirmgt_directory_administrative_unit_list_member')
+        g.custom_command('list-ref-member', 'identitydirmgt_directory_administrative_unit_list_ref_member')
+        g.custom_command('list-scoped-role-member', 'identitydirmgt_directory_administrative_unit_list_scoped_role_memb'
+                         'er')
+        g.custom_command('update-extension', 'identitydirmgt_directory_administrative_unit_update_extension')
+        g.custom_command('update-scoped-role-member', 'identitydirmgt_directory_administrative_unit_update_scoped_role_'
+                         'member')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role_directory_role
     identitydirmgt_v1_0_directory_role_directory_role = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_directory_ro'
         'le_operations#DirectoryRoleDirectoryRoleOperations.{}',
         client_factory=cf_directory_role_directory_role)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory_role_directory_role,
-                            client_factory=cf_directory_role_directory_role) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-directory-role', 'identitydirmgt_create_directory_role')
-        g.custom_command('get-directory-role', 'identitydirmgt_get_directory_role')
-        g.custom_command('list-directory-role', 'identitydirmgt_list_directory_role')
-        g.custom_command('update-directory-role', 'identitydirmgt_update_directory_role')
+    with self.command_group('identitydirmgt directory-role-directory-role',
+                            identitydirmgt_v1_0_directory_role_directory_role,
+                            client_factory=cf_directory_role_directory_role, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_directory_role_directory_role_delete', confirmation=True)
+        g.custom_command('create-directory-role',
+                         'identitydirmgt_directory_role_directory_role_create_directory_role')
+        g.custom_command('get-directory-role', 'identitydirmgt_directory_role_directory_role_get_directory_role')
+        g.custom_command('list-directory-role', 'identitydirmgt_directory_role_directory_role_list_directory_role')
+        g.custom_command('update-directory-role',
+                         'identitydirmgt_directory_role_directory_role_update_directory_role')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role
     identitydirmgt_v1_0_directory_role = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_operations#D'
         'irectoryRoleOperations.{}',
         client_factory=cf_directory_role)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory_role,
-                            client_factory=cf_directory_role) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('check-member-group', 'identitydirmgt_check_member_group')
-        g.custom_command('check-member-object', 'identitydirmgt_check_member_object')
-        g.custom_command('create-ref-member', 'identitydirmgt_create_ref_member')
-        g.custom_command('create-scoped-member', 'identitydirmgt_create_scoped_member')
-        g.custom_command('delta', 'identitydirmgt_delta')
-        g.custom_command('get-available-extension-property', 'identitydirmgt_get_available_extension_property')
-        g.custom_command('get-by-id', 'identitydirmgt_get_by_id')
-        g.custom_command('get-member-group', 'identitydirmgt_get_member_group')
-        g.custom_command('get-member-object', 'identitydirmgt_get_member_object')
-        g.custom_command('get-scoped-member', 'identitydirmgt_get_scoped_member')
-        g.custom_command('list-member', 'identitydirmgt_list_member')
-        g.custom_command('list-ref-member', 'identitydirmgt_list_ref_member')
-        g.custom_command('list-scoped-member', 'identitydirmgt_list_scoped_member')
-        g.custom_command('restore', 'identitydirmgt_restore')
-        g.custom_command('update-scoped-member', 'identitydirmgt_update_scoped_member')
-        g.custom_command('validate-property', 'identitydirmgt_validate_property')
+    with self.command_group('identitydirmgt directory-role', identitydirmgt_v1_0_directory_role,
+                            client_factory=cf_directory_role, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_directory_role_delete', confirmation=True)
+        g.custom_command('check-member-group', 'identitydirmgt_directory_role_check_member_group')
+        g.custom_command('check-member-object', 'identitydirmgt_directory_role_check_member_object')
+        g.custom_command('create-ref-member', 'identitydirmgt_directory_role_create_ref_member')
+        g.custom_command('create-scoped-member', 'identitydirmgt_directory_role_create_scoped_member')
+        g.custom_command('delta', 'identitydirmgt_directory_role_delta')
+        g.custom_command('get-available-extension-property', 'identitydirmgt_directory_role_get_available_extension_pro'
+                         'perty')
+        g.custom_command('get-by-id', 'identitydirmgt_directory_role_get_by_id')
+        g.custom_command('get-member-group', 'identitydirmgt_directory_role_get_member_group')
+        g.custom_command('get-member-object', 'identitydirmgt_directory_role_get_member_object')
+        g.custom_command('get-scoped-member', 'identitydirmgt_directory_role_get_scoped_member')
+        g.custom_command('list-member', 'identitydirmgt_directory_role_list_member')
+        g.custom_command('list-ref-member', 'identitydirmgt_directory_role_list_ref_member')
+        g.custom_command('list-scoped-member', 'identitydirmgt_directory_role_list_scoped_member')
+        g.custom_command('restore', 'identitydirmgt_directory_role_restore')
+        g.custom_command('update-scoped-member', 'identitydirmgt_directory_role_update_scoped_member')
+        g.custom_command('validate-property', 'identitydirmgt_directory_role_validate_property')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role_template_directory_role_template
     identitydirmgt_v1_0_directory_role_template_directory_role_template = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_dir'
         'ectory_role_template_operations#DirectoryRoleTemplateDirectoryRoleTemplateOperations.{}',
         client_factory=cf_directory_role_template_directory_role_template)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory_role_template_directory_role_template,
-                            client_factory=cf_directory_role_template_directory_role_template) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-directory-role-template', 'identitydirmgt_create_directory_role_template')
-        g.custom_command('get-directory-role-template', 'identitydirmgt_get_directory_role_template')
-        g.custom_command('list-directory-role-template', 'identitydirmgt_list_directory_role_template')
-        g.custom_command('update-directory-role-template', 'identitydirmgt_update_directory_role_template')
+    with self.command_group('identitydirmgt directory-role-template-directory-role-template',
+                            identitydirmgt_v1_0_directory_role_template_directory_role_template,
+                            client_factory=cf_directory_role_template_directory_role_template,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_directory_role_template_directory_role_template_delete',
+                         confirmation=True)
+        g.custom_command('create-directory-role-template', 'identitydirmgt_directory_role_template_directory_role_templ'
+                         'ate_create_directory_role_template')
+        g.custom_command('get-directory-role-template', 'identitydirmgt_directory_role_template_directory_role_template'
+                         '_get_directory_role_template')
+        g.custom_command('list-directory-role-template', 'identitydirmgt_directory_role_template_directory_role_templat'
+                         'e_list_directory_role_template')
+        g.custom_command('update-directory-role-template', 'identitydirmgt_directory_role_template_directory_role_templ'
+                         'ate_update_directory_role_template')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role_template
     identitydirmgt_v1_0_directory_role_template = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_ope'
         'rations#DirectoryRoleTemplateOperations.{}',
         client_factory=cf_directory_role_template)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_directory_role_template,
-                            client_factory=cf_directory_role_template) as g:
-        g.custom_command('check-member-group', 'identitydirmgt_check_member_group')
-        g.custom_command('check-member-object', 'identitydirmgt_check_member_object')
-        g.custom_command('get-available-extension-property', 'identitydirmgt_get_available_extension_property')
-        g.custom_command('get-by-id', 'identitydirmgt_get_by_id')
-        g.custom_command('get-member-group', 'identitydirmgt_get_member_group')
-        g.custom_command('get-member-object', 'identitydirmgt_get_member_object')
-        g.custom_command('restore', 'identitydirmgt_restore')
-        g.custom_command('validate-property', 'identitydirmgt_validate_property')
+    with self.command_group('identitydirmgt directory-role-template', identitydirmgt_v1_0_directory_role_template,
+                            client_factory=cf_directory_role_template, is_experimental=True) as g:
+        g.custom_command('check-member-group', 'identitydirmgt_directory_role_template_check_member_group')
+        g.custom_command('check-member-object', 'identitydirmgt_directory_role_template_check_member_object')
+        g.custom_command('get-available-extension-property', 'identitydirmgt_directory_role_template_get_available_exte'
+                         'nsion_property')
+        g.custom_command('get-by-id', 'identitydirmgt_directory_role_template_get_by_id')
+        g.custom_command('get-member-group', 'identitydirmgt_directory_role_template_get_member_group')
+        g.custom_command('get-member-object', 'identitydirmgt_directory_role_template_get_member_object')
+        g.custom_command('restore', 'identitydirmgt_directory_role_template_restore')
+        g.custom_command('validate-property', 'identitydirmgt_directory_role_template_validate_property')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_domain_domain
     identitydirmgt_v1_0_domain_domain = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_domain_operations#Do'
         'mainDomainOperations.{}',
         client_factory=cf_domain_domain)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_domain_domain,
-                            client_factory=cf_domain_domain) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-domain', 'identitydirmgt_create_domain')
-        g.custom_command('get-domain', 'identitydirmgt_get_domain')
-        g.custom_command('list-domain', 'identitydirmgt_list_domain')
-        g.custom_command('update-domain', 'identitydirmgt_update_domain')
+    with self.command_group('identitydirmgt domain-domain', identitydirmgt_v1_0_domain_domain,
+                            client_factory=cf_domain_domain, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_domain_domain_delete', confirmation=True)
+        g.custom_command('create-domain', 'identitydirmgt_domain_domain_create_domain')
+        g.custom_command('get-domain', 'identitydirmgt_domain_domain_get_domain')
+        g.custom_command('list-domain', 'identitydirmgt_domain_domain_list_domain')
+        g.custom_command('update-domain', 'identitydirmgt_domain_domain_update_domain')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_domain
     identitydirmgt_v1_0_domain = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_operations#DomainOpe'
         'rations.{}',
         client_factory=cf_domain)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_domain, client_factory=cf_domain) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-ref-domain-name-reference', 'identitydirmgt_create_ref_domain_name_reference')
-        g.custom_command('create-service-configuration-record', 'identitydirmgt_create_service_configuration_record')
-        g.custom_command('create-verification-dns-record', 'identitydirmgt_create_verification_dns_record')
-        g.custom_command('force-delete', 'identitydirmgt_force_delete')
-        g.custom_command('get-service-configuration-record', 'identitydirmgt_get_service_configuration_record')
-        g.custom_command('get-verification-dns-record', 'identitydirmgt_get_verification_dns_record')
-        g.custom_command('list-domain-name-reference', 'identitydirmgt_list_domain_name_reference')
-        g.custom_command('list-ref-domain-name-reference', 'identitydirmgt_list_ref_domain_name_reference')
-        g.custom_command('list-service-configuration-record', 'identitydirmgt_list_service_configuration_record')
-        g.custom_command('list-verification-dns-record', 'identitydirmgt_list_verification_dns_record')
-        g.custom_command('update-service-configuration-record', 'identitydirmgt_update_service_configuration_record')
-        g.custom_command('update-verification-dns-record', 'identitydirmgt_update_verification_dns_record')
-        g.custom_command('verify', 'identitydirmgt_verify')
+    with self.command_group('identitydirmgt domain', identitydirmgt_v1_0_domain, client_factory=cf_domain,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_domain_delete', confirmation=True)
+        g.custom_command('create-ref-domain-name-reference', 'identitydirmgt_domain_create_ref_domain_name_reference')
+        g.custom_command('create-service-configuration-record', 'identitydirmgt_domain_create_service_configuration_rec'
+                         'ord')
+        g.custom_command('create-verification-dns-record', 'identitydirmgt_domain_create_verification_dns_record')
+        g.custom_command('force-delete', 'identitydirmgt_domain_force_delete')
+        g.custom_command('get-service-configuration-record', 'identitydirmgt_domain_get_service_configuration_record')
+        g.custom_command('get-verification-dns-record', 'identitydirmgt_domain_get_verification_dns_record')
+        g.custom_command('list-domain-name-reference', 'identitydirmgt_domain_list_domain_name_reference')
+        g.custom_command('list-ref-domain-name-reference', 'identitydirmgt_domain_list_ref_domain_name_reference')
+        g.custom_command('list-service-configuration-record',
+                         'identitydirmgt_domain_list_service_configuration_record')
+        g.custom_command('list-verification-dns-record', 'identitydirmgt_domain_list_verification_dns_record')
+        g.custom_command('update-service-configuration-record', 'identitydirmgt_domain_update_service_configuration_rec'
+                         'ord')
+        g.custom_command('update-verification-dns-record', 'identitydirmgt_domain_update_verification_dns_record')
+        g.custom_command('verify', 'identitydirmgt_domain_verify')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_organization_organization
     identitydirmgt_v1_0_organization_organization = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._organization_organization_o'
         'perations#OrganizationOrganizationOperations.{}',
         client_factory=cf_organization_organization)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_organization_organization,
-                            client_factory=cf_organization_organization) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-organization', 'identitydirmgt_create_organization')
-        g.custom_command('get-organization', 'identitydirmgt_get_organization')
-        g.custom_command('list-organization', 'identitydirmgt_list_organization')
-        g.custom_command('update-organization', 'identitydirmgt_update_organization')
+    with self.command_group('identitydirmgt organization-organization', identitydirmgt_v1_0_organization_organization,
+                            client_factory=cf_organization_organization, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_organization_organization_delete', confirmation=True)
+        g.custom_command('create-organization', 'identitydirmgt_organization_organization_create_organization')
+        g.custom_command('get-organization', 'identitydirmgt_organization_organization_get_organization')
+        g.custom_command('list-organization', 'identitydirmgt_organization_organization_list_organization')
+        g.custom_command('update-organization', 'identitydirmgt_organization_organization_update_organization')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_organization
     identitydirmgt_v1_0_organization = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._organization_operations#Org'
         'anizationOperations.{}',
         client_factory=cf_organization)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_organization, client_factory=cf_organization) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('check-member-group', 'identitydirmgt_check_member_group')
-        g.custom_command('check-member-object', 'identitydirmgt_check_member_object')
-        g.custom_command('create-extension', 'identitydirmgt_create_extension')
-        g.custom_command('get-available-extension-property', 'identitydirmgt_get_available_extension_property')
-        g.custom_command('get-by-id', 'identitydirmgt_get_by_id')
-        g.custom_command('get-extension', 'identitydirmgt_get_extension')
-        g.custom_command('get-member-group', 'identitydirmgt_get_member_group')
-        g.custom_command('get-member-object', 'identitydirmgt_get_member_object')
-        g.custom_command('list-extension', 'identitydirmgt_list_extension')
-        g.custom_command('restore', 'identitydirmgt_restore')
-        g.custom_command('set-mobile-device-management-authority', 'identitydirmgt_set_mobile_device_management_authori'
-                         'ty')
-        g.custom_command('update-extension', 'identitydirmgt_update_extension')
-        g.custom_command('validate-property', 'identitydirmgt_validate_property')
+    with self.command_group('identitydirmgt organization', identitydirmgt_v1_0_organization,
+                            client_factory=cf_organization, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_organization_delete', confirmation=True)
+        g.custom_command('check-member-group', 'identitydirmgt_organization_check_member_group')
+        g.custom_command('check-member-object', 'identitydirmgt_organization_check_member_object')
+        g.custom_command('create-extension', 'identitydirmgt_organization_create_extension')
+        g.custom_command('get-available-extension-property', 'identitydirmgt_organization_get_available_extension_prope'
+                         'rty')
+        g.custom_command('get-by-id', 'identitydirmgt_organization_get_by_id')
+        g.custom_command('get-extension', 'identitydirmgt_organization_get_extension')
+        g.custom_command('get-member-group', 'identitydirmgt_organization_get_member_group')
+        g.custom_command('get-member-object', 'identitydirmgt_organization_get_member_object')
+        g.custom_command('list-extension', 'identitydirmgt_organization_list_extension')
+        g.custom_command('restore', 'identitydirmgt_organization_restore')
+        g.custom_command('set-mobile-device-management-authority', 'identitydirmgt_organization_set_mobile_device_manag'
+                         'ement_authority')
+        g.custom_command('update-extension', 'identitydirmgt_organization_update_extension')
+        g.custom_command('validate-property', 'identitydirmgt_organization_validate_property')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_subscribed_sku_subscribed_sku
     identitydirmgt_v1_0_subscribed_sku_subscribed_sku = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._subscribed_sku_subscribed_s'
         'ku_operations#SubscribedSkuSubscribedSkuOperations.{}',
         client_factory=cf_subscribed_sku_subscribed_sku)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_subscribed_sku_subscribed_sku,
-                            client_factory=cf_subscribed_sku_subscribed_sku) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-subscribed-sku', 'identitydirmgt_create_subscribed_sku')
-        g.custom_command('get-subscribed-sku', 'identitydirmgt_get_subscribed_sku')
-        g.custom_command('list-subscribed-sku', 'identitydirmgt_list_subscribed_sku')
-        g.custom_command('update-subscribed-sku', 'identitydirmgt_update_subscribed_sku')
+    with self.command_group('identitydirmgt subscribed-sku-subscribed-sku',
+                            identitydirmgt_v1_0_subscribed_sku_subscribed_sku,
+                            client_factory=cf_subscribed_sku_subscribed_sku, is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_subscribed_sku_subscribed_sku_delete', confirmation=True)
+        g.custom_command('create-subscribed-sku',
+                         'identitydirmgt_subscribed_sku_subscribed_sku_create_subscribed_sku')
+        g.custom_command('get-subscribed-sku', 'identitydirmgt_subscribed_sku_subscribed_sku_get_subscribed_sku')
+        g.custom_command('list-subscribed-sku', 'identitydirmgt_subscribed_sku_subscribed_sku_list_subscribed_sku')
+        g.custom_command('update-subscribed-sku',
+                         'identitydirmgt_subscribed_sku_subscribed_sku_update_subscribed_sku')
 
     from azext_identitydirmgt_v1_0.generated._client_factory import cf_user
     identitydirmgt_v1_0_user = CliCommandType(
         operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._user_operations#UserOperati'
         'ons.{}',
         client_factory=cf_user)
-    with self.command_group('identitydirmgt', identitydirmgt_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'identitydirmgt_delete', confirmation=True)
-        g.custom_command('create-scoped-role-member-of', 'identitydirmgt_create_scoped_role_member_of')
-        g.custom_command('get-scoped-role-member-of', 'identitydirmgt_get_scoped_role_member_of')
-        g.custom_command('list-scoped-role-member-of', 'identitydirmgt_list_scoped_role_member_of')
-        g.custom_command('update-scoped-role-member-of', 'identitydirmgt_update_scoped_role_member_of')
+    with self.command_group('identitydirmgt user', identitydirmgt_v1_0_user, client_factory=cf_user,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'identitydirmgt_user_delete', confirmation=True)
+        g.custom_command('create-scoped-role-member-of', 'identitydirmgt_user_create_scoped_role_member_of')
+        g.custom_command('get-scoped-role-member-of', 'identitydirmgt_user_get_scoped_role_member_of')
+        g.custom_command('list-scoped-role-member-of', 'identitydirmgt_user_list_scoped_role_member_of')
+        g.custom_command('update-scoped-role-member-of', 'identitydirmgt_user_update_scoped_role_member_of')

@@ -20039,6 +20039,8 @@ class MicrosoftGraphUpdateWindowsDeviceAccountActionParameter(msrest.serializati
     :type additional_properties: dict[str, object]
     :param calendar_sync_enabled: Not yet documented.
     :type calendar_sync_enabled: bool
+    :param device_account: windowsDeviceAccount.
+    :type device_account: ~users_actions.models.MicrosoftGraphWindowsDeviceAccount
     :param device_account_email: Not yet documented.
     :type device_account_email: str
     :param exchange_server: Not yet documented.
@@ -20047,18 +20049,16 @@ class MicrosoftGraphUpdateWindowsDeviceAccountActionParameter(msrest.serializati
     :type password_rotation_enabled: bool
     :param session_initiation_protocal_address: Not yet documented.
     :type session_initiation_protocal_address: str
-    :param password: Not yet documented.
-    :type password: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'calendar_sync_enabled': {'key': 'calendarSyncEnabled', 'type': 'bool'},
+        'device_account': {'key': 'deviceAccount', 'type': 'MicrosoftGraphWindowsDeviceAccount'},
         'device_account_email': {'key': 'deviceAccountEmail', 'type': 'str'},
         'exchange_server': {'key': 'exchangeServer', 'type': 'str'},
         'password_rotation_enabled': {'key': 'passwordRotationEnabled', 'type': 'bool'},
         'session_initiation_protocal_address': {'key': 'sessionInitiationProtocalAddress', 'type': 'str'},
-        'password': {'key': 'deviceAccount.password', 'type': 'str'},
     }
 
     def __init__(
@@ -20068,11 +20068,11 @@ class MicrosoftGraphUpdateWindowsDeviceAccountActionParameter(msrest.serializati
         super(MicrosoftGraphUpdateWindowsDeviceAccountActionParameter, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.calendar_sync_enabled = kwargs.get('calendar_sync_enabled', None)
+        self.device_account = kwargs.get('device_account', None)
         self.device_account_email = kwargs.get('device_account_email', None)
         self.exchange_server = kwargs.get('exchange_server', None)
         self.password_rotation_enabled = kwargs.get('password_rotation_enabled', None)
         self.session_initiation_protocal_address = kwargs.get('session_initiation_protocal_address', None)
-        self.password = kwargs.get('password', None)
 
 
 class MicrosoftGraphUploadSession(msrest.serialization.Model):
@@ -28777,6 +28777,8 @@ class Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewi
     :type additional_properties: dict[str, object]
     :param calendar_sync_enabled: Not yet documented.
     :type calendar_sync_enabled: bool
+    :param device_account: windowsDeviceAccount.
+    :type device_account: ~users_actions.models.MicrosoftGraphWindowsDeviceAccount
     :param device_account_email: Not yet documented.
     :type device_account_email: str
     :param exchange_server: Not yet documented.
@@ -28785,18 +28787,16 @@ class Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewi
     :type password_rotation_enabled: bool
     :param session_initiation_protocal_address: Not yet documented.
     :type session_initiation_protocal_address: str
-    :param password: Not yet documented.
-    :type password: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'calendar_sync_enabled': {'key': 'updateWindowsDeviceAccountActionParameter.calendarSyncEnabled', 'type': 'bool'},
+        'device_account': {'key': 'updateWindowsDeviceAccountActionParameter.deviceAccount', 'type': 'MicrosoftGraphWindowsDeviceAccount'},
         'device_account_email': {'key': 'updateWindowsDeviceAccountActionParameter.deviceAccountEmail', 'type': 'str'},
         'exchange_server': {'key': 'updateWindowsDeviceAccountActionParameter.exchangeServer', 'type': 'str'},
         'password_rotation_enabled': {'key': 'updateWindowsDeviceAccountActionParameter.passwordRotationEnabled', 'type': 'bool'},
         'session_initiation_protocal_address': {'key': 'updateWindowsDeviceAccountActionParameter.sessionInitiationProtocalAddress', 'type': 'str'},
-        'password': {'key': 'updateWindowsDeviceAccountActionParameter.deviceAccount.password', 'type': 'str'},
     }
 
     def __init__(
@@ -28806,11 +28806,11 @@ class Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewi
         super(Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.calendar_sync_enabled = kwargs.get('calendar_sync_enabled', None)
+        self.device_account = kwargs.get('device_account', None)
         self.device_account_email = kwargs.get('device_account_email', None)
         self.exchange_server = kwargs.get('exchange_server', None)
         self.password_rotation_enabled = kwargs.get('password_rotation_enabled', None)
         self.session_initiation_protocal_address = kwargs.get('session_initiation_protocal_address', None)
-        self.password = kwargs.get('password', None)
 
 
 class Paths1QrxrllUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):

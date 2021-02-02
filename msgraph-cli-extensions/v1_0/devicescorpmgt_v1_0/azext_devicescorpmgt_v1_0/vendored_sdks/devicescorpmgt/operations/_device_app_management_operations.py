@@ -136,7 +136,56 @@ class DeviceAppManagementOperations(object):
 
     def create_android_managed_app_protection(
         self,
-        body,  # type: "models.MicrosoftGraphAndroidManagedAppProtection"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        version=None,  # type: Optional[str]
+        allowed_data_storage_locations=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphManagedAppDataStorageLocation"]]]
+        allowed_inbound_data_transfer_sources=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        allowed_outbound_clipboard_sharing_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppClipboardSharingLevel"]]
+        allowed_outbound_data_transfer_destinations=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        contact_sync_blocked=None,  # type: Optional[bool]
+        data_backup_blocked=None,  # type: Optional[bool]
+        device_compliance_required=None,  # type: Optional[bool]
+        disable_app_pin_if_device_pin_is_set=None,  # type: Optional[bool]
+        fingerprint_blocked=None,  # type: Optional[bool]
+        managed_browser=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedBrowserType"]]
+        managed_browser_to_open_links_required=None,  # type: Optional[bool]
+        maximum_pin_retries=None,  # type: Optional[int]
+        minimum_pin_length=None,  # type: Optional[int]
+        minimum_required_app_version=None,  # type: Optional[str]
+        minimum_required_os_version=None,  # type: Optional[str]
+        minimum_warning_app_version=None,  # type: Optional[str]
+        minimum_warning_os_version=None,  # type: Optional[str]
+        organizational_credentials_required=None,  # type: Optional[bool]
+        period_before_pin_reset=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_access_check=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_wipe_is_enforced=None,  # type: Optional[datetime.timedelta]
+        period_online_before_access_check=None,  # type: Optional[datetime.timedelta]
+        pin_character_set=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppPinCharacterSet"]]
+        pin_required=None,  # type: Optional[bool]
+        print_blocked=None,  # type: Optional[bool]
+        save_as_blocked=None,  # type: Optional[bool]
+        simple_pin_blocked=None,  # type: Optional[bool]
+        is_assigned=None,  # type: Optional[bool]
+        assignments=None,  # type: Optional[List["models.MicrosoftGraphTargetedManagedAppPolicyAssignment"]]
+        custom_browser_display_name=None,  # type: Optional[str]
+        custom_browser_package_id=None,  # type: Optional[str]
+        deployed_app_count=None,  # type: Optional[int]
+        disable_app_encryption_if_device_encryption_is_enabled=None,  # type: Optional[bool]
+        encrypt_app_data=None,  # type: Optional[bool]
+        minimum_required_patch_version=None,  # type: Optional[str]
+        minimum_warning_patch_version=None,  # type: Optional[str]
+        screen_capture_blocked=None,  # type: Optional[bool]
+        apps=None,  # type: Optional[List["models.MicrosoftGraphManagedMobileApp"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        configuration_deployed_user_count=None,  # type: Optional[int]
+        configuration_deployment_summary_per_app=None,  # type: Optional[List["models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]]
+        microsoft_graph_managed_app_policy_deployment_summary_display_name=None,  # type: Optional[str]
+        last_refresh_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_managed_app_policy_deployment_summary_version=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphAndroidManagedAppProtection"
@@ -144,8 +193,133 @@ class DeviceAppManagementOperations(object):
 
         Create new navigation property to androidManagedAppProtections for deviceAppManagement.
 
-        :param body: New navigation property.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphAndroidManagedAppProtection
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The date and time the policy was created.
+        :type created_date_time: ~datetime.datetime
+        :param description: The policy's description.
+        :type description: str
+        :param display_name: Policy display name.
+        :type display_name: str
+        :param last_modified_date_time: Last time the policy was modified.
+        :type last_modified_date_time: ~datetime.datetime
+        :param version: Version of the entity.
+        :type version: str
+        :param allowed_data_storage_locations: Data storage locations where a user may store managed
+         data.
+        :type allowed_data_storage_locations: list[str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+        :param allowed_inbound_data_transfer_sources:
+        :type allowed_inbound_data_transfer_sources: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param allowed_outbound_clipboard_sharing_level:
+        :type allowed_outbound_clipboard_sharing_level: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+        :param allowed_outbound_data_transfer_destinations:
+        :type allowed_outbound_data_transfer_destinations: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
+        :type contact_sync_blocked: bool
+        :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
+        :type data_backup_blocked: bool
+        :param device_compliance_required: Indicates whether device compliance is required.
+        :type device_compliance_required: bool
+        :param disable_app_pin_if_device_pin_is_set: Indicates whether use of the app pin is required
+         if the device pin is set.
+        :type disable_app_pin_if_device_pin_is_set: bool
+        :param fingerprint_blocked: Indicates whether use of the fingerprint reader is allowed in place
+         of a pin if PinRequired is set to True.
+        :type fingerprint_blocked: bool
+        :param managed_browser:
+        :type managed_browser: str or ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+        :param managed_browser_to_open_links_required: Indicates whether internet links should be
+         opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
+         (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
+        :type managed_browser_to_open_links_required: bool
+        :param maximum_pin_retries: Maximum number of incorrect pin retry attempts before the managed
+         app is either blocked or wiped.
+        :type maximum_pin_retries: int
+        :param minimum_pin_length: Minimum pin length required for an app-level pin if PinRequired is
+         set to True.
+        :type minimum_pin_length: int
+        :param minimum_required_app_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_app_version: str
+        :param minimum_required_os_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_os_version: str
+        :param minimum_warning_app_version: Versions less than the specified version will result in
+         warning message on the managed app.
+        :type minimum_warning_app_version: str
+        :param minimum_warning_os_version: Versions less than the specified version will result in
+         warning message on the managed app from accessing company data.
+        :type minimum_warning_os_version: str
+        :param organizational_credentials_required: Indicates whether organizational credentials are
+         required for app use.
+        :type organizational_credentials_required: bool
+        :param period_before_pin_reset: TimePeriod before the all-level pin must be reset if
+         PinRequired is set to True.
+        :type period_before_pin_reset: ~datetime.timedelta
+        :param period_offline_before_access_check: The period after which access is checked when the
+         device is not connected to the internet.
+        :type period_offline_before_access_check: ~datetime.timedelta
+        :param period_offline_before_wipe_is_enforced: The amount of time an app is allowed to remain
+         disconnected from the internet before all managed data it is wiped.
+        :type period_offline_before_wipe_is_enforced: ~datetime.timedelta
+        :param period_online_before_access_check: The period after which access is checked when the
+         device is connected to the internet.
+        :type period_online_before_access_check: ~datetime.timedelta
+        :param pin_character_set:
+        :type pin_character_set: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+        :param pin_required: Indicates whether an app-level pin is required.
+        :type pin_required: bool
+        :param print_blocked: Indicates whether printing is allowed from managed apps.
+        :type print_blocked: bool
+        :param save_as_blocked: Indicates whether users may use the 'Save As' menu item to save a copy
+         of protected files.
+        :type save_as_blocked: bool
+        :param simple_pin_blocked: Indicates whether simplePin is blocked.
+        :type simple_pin_blocked: bool
+        :param is_assigned: Indicates if the policy is deployed to any inclusion groups or not.
+        :type is_assigned: bool
+        :param assignments: Navigation property to list of inclusion and exclusion groups to which the
+         policy is deployed.
+        :type assignments: list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+        :param custom_browser_display_name: Friendly name of the preferred custom browser to open
+         weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should
+         be true.
+        :type custom_browser_display_name: str
+        :param custom_browser_package_id: Unique identifier of the preferred custom browser to open
+         weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should
+         be true.
+        :type custom_browser_package_id: str
+        :param deployed_app_count: Count of apps to which the current policy is deployed.
+        :type deployed_app_count: int
+        :param disable_app_encryption_if_device_encryption_is_enabled: When this setting is enabled,
+         app level encryption is disabled if device level encryption is enabled.
+        :type disable_app_encryption_if_device_encryption_is_enabled: bool
+        :param encrypt_app_data: Indicates whether application data for managed apps should be
+         encrypted.
+        :type encrypt_app_data: bool
+        :param minimum_required_patch_version: Define the oldest required Android security patch level
+         a user can have to gain secure access to the app.
+        :type minimum_required_patch_version: str
+        :param minimum_warning_patch_version: Define the oldest recommended Android security patch
+         level a user can have for secure access to the app.
+        :type minimum_warning_patch_version: str
+        :param screen_capture_blocked: Indicates whether a managed user can take screen captures of
+         managed apps.
+        :type screen_capture_blocked: bool
+        :param apps: List of apps to which the policy is deployed.
+        :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param configuration_deployed_user_count: Not yet documented.
+        :type configuration_deployed_user_count: int
+        :param configuration_deployment_summary_per_app: Not yet documented.
+        :type configuration_deployment_summary_per_app: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+        :param microsoft_graph_managed_app_policy_deployment_summary_display_name: Not yet documented.
+        :type microsoft_graph_managed_app_policy_deployment_summary_display_name: str
+        :param last_refresh_time: Not yet documented.
+        :type last_refresh_time: ~datetime.datetime
+        :param microsoft_graph_managed_app_policy_deployment_summary_version: Version of the entity.
+        :type microsoft_graph_managed_app_policy_deployment_summary_version: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphAndroidManagedAppProtection, or the result of cls(response)
         :rtype: ~devices_corporate_management.models.MicrosoftGraphAndroidManagedAppProtection
@@ -154,6 +328,8 @@ class DeviceAppManagementOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAndroidManagedAppProtection"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphAndroidManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, custom_browser_display_name=custom_browser_display_name, custom_browser_package_id=custom_browser_package_id, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, minimum_required_patch_version=minimum_required_patch_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -170,7 +346,7 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphAndroidManagedAppProtection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphAndroidManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -257,7 +433,56 @@ class DeviceAppManagementOperations(object):
     def update_android_managed_app_protection(
         self,
         android_managed_app_protection_id,  # type: str
-        body,  # type: "models.MicrosoftGraphAndroidManagedAppProtection"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        version=None,  # type: Optional[str]
+        allowed_data_storage_locations=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphManagedAppDataStorageLocation"]]]
+        allowed_inbound_data_transfer_sources=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        allowed_outbound_clipboard_sharing_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppClipboardSharingLevel"]]
+        allowed_outbound_data_transfer_destinations=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        contact_sync_blocked=None,  # type: Optional[bool]
+        data_backup_blocked=None,  # type: Optional[bool]
+        device_compliance_required=None,  # type: Optional[bool]
+        disable_app_pin_if_device_pin_is_set=None,  # type: Optional[bool]
+        fingerprint_blocked=None,  # type: Optional[bool]
+        managed_browser=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedBrowserType"]]
+        managed_browser_to_open_links_required=None,  # type: Optional[bool]
+        maximum_pin_retries=None,  # type: Optional[int]
+        minimum_pin_length=None,  # type: Optional[int]
+        minimum_required_app_version=None,  # type: Optional[str]
+        minimum_required_os_version=None,  # type: Optional[str]
+        minimum_warning_app_version=None,  # type: Optional[str]
+        minimum_warning_os_version=None,  # type: Optional[str]
+        organizational_credentials_required=None,  # type: Optional[bool]
+        period_before_pin_reset=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_access_check=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_wipe_is_enforced=None,  # type: Optional[datetime.timedelta]
+        period_online_before_access_check=None,  # type: Optional[datetime.timedelta]
+        pin_character_set=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppPinCharacterSet"]]
+        pin_required=None,  # type: Optional[bool]
+        print_blocked=None,  # type: Optional[bool]
+        save_as_blocked=None,  # type: Optional[bool]
+        simple_pin_blocked=None,  # type: Optional[bool]
+        is_assigned=None,  # type: Optional[bool]
+        assignments=None,  # type: Optional[List["models.MicrosoftGraphTargetedManagedAppPolicyAssignment"]]
+        custom_browser_display_name=None,  # type: Optional[str]
+        custom_browser_package_id=None,  # type: Optional[str]
+        deployed_app_count=None,  # type: Optional[int]
+        disable_app_encryption_if_device_encryption_is_enabled=None,  # type: Optional[bool]
+        encrypt_app_data=None,  # type: Optional[bool]
+        minimum_required_patch_version=None,  # type: Optional[str]
+        minimum_warning_patch_version=None,  # type: Optional[str]
+        screen_capture_blocked=None,  # type: Optional[bool]
+        apps=None,  # type: Optional[List["models.MicrosoftGraphManagedMobileApp"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        configuration_deployed_user_count=None,  # type: Optional[int]
+        configuration_deployment_summary_per_app=None,  # type: Optional[List["models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]]
+        microsoft_graph_managed_app_policy_deployment_summary_display_name=None,  # type: Optional[str]
+        last_refresh_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_managed_app_policy_deployment_summary_version=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -267,8 +492,133 @@ class DeviceAppManagementOperations(object):
 
         :param android_managed_app_protection_id: key: id of androidManagedAppProtection.
         :type android_managed_app_protection_id: str
-        :param body: New navigation property values.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphAndroidManagedAppProtection
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The date and time the policy was created.
+        :type created_date_time: ~datetime.datetime
+        :param description: The policy's description.
+        :type description: str
+        :param display_name: Policy display name.
+        :type display_name: str
+        :param last_modified_date_time: Last time the policy was modified.
+        :type last_modified_date_time: ~datetime.datetime
+        :param version: Version of the entity.
+        :type version: str
+        :param allowed_data_storage_locations: Data storage locations where a user may store managed
+         data.
+        :type allowed_data_storage_locations: list[str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+        :param allowed_inbound_data_transfer_sources:
+        :type allowed_inbound_data_transfer_sources: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param allowed_outbound_clipboard_sharing_level:
+        :type allowed_outbound_clipboard_sharing_level: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+        :param allowed_outbound_data_transfer_destinations:
+        :type allowed_outbound_data_transfer_destinations: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
+        :type contact_sync_blocked: bool
+        :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
+        :type data_backup_blocked: bool
+        :param device_compliance_required: Indicates whether device compliance is required.
+        :type device_compliance_required: bool
+        :param disable_app_pin_if_device_pin_is_set: Indicates whether use of the app pin is required
+         if the device pin is set.
+        :type disable_app_pin_if_device_pin_is_set: bool
+        :param fingerprint_blocked: Indicates whether use of the fingerprint reader is allowed in place
+         of a pin if PinRequired is set to True.
+        :type fingerprint_blocked: bool
+        :param managed_browser:
+        :type managed_browser: str or ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+        :param managed_browser_to_open_links_required: Indicates whether internet links should be
+         opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
+         (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
+        :type managed_browser_to_open_links_required: bool
+        :param maximum_pin_retries: Maximum number of incorrect pin retry attempts before the managed
+         app is either blocked or wiped.
+        :type maximum_pin_retries: int
+        :param minimum_pin_length: Minimum pin length required for an app-level pin if PinRequired is
+         set to True.
+        :type minimum_pin_length: int
+        :param minimum_required_app_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_app_version: str
+        :param minimum_required_os_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_os_version: str
+        :param minimum_warning_app_version: Versions less than the specified version will result in
+         warning message on the managed app.
+        :type minimum_warning_app_version: str
+        :param minimum_warning_os_version: Versions less than the specified version will result in
+         warning message on the managed app from accessing company data.
+        :type minimum_warning_os_version: str
+        :param organizational_credentials_required: Indicates whether organizational credentials are
+         required for app use.
+        :type organizational_credentials_required: bool
+        :param period_before_pin_reset: TimePeriod before the all-level pin must be reset if
+         PinRequired is set to True.
+        :type period_before_pin_reset: ~datetime.timedelta
+        :param period_offline_before_access_check: The period after which access is checked when the
+         device is not connected to the internet.
+        :type period_offline_before_access_check: ~datetime.timedelta
+        :param period_offline_before_wipe_is_enforced: The amount of time an app is allowed to remain
+         disconnected from the internet before all managed data it is wiped.
+        :type period_offline_before_wipe_is_enforced: ~datetime.timedelta
+        :param period_online_before_access_check: The period after which access is checked when the
+         device is connected to the internet.
+        :type period_online_before_access_check: ~datetime.timedelta
+        :param pin_character_set:
+        :type pin_character_set: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+        :param pin_required: Indicates whether an app-level pin is required.
+        :type pin_required: bool
+        :param print_blocked: Indicates whether printing is allowed from managed apps.
+        :type print_blocked: bool
+        :param save_as_blocked: Indicates whether users may use the 'Save As' menu item to save a copy
+         of protected files.
+        :type save_as_blocked: bool
+        :param simple_pin_blocked: Indicates whether simplePin is blocked.
+        :type simple_pin_blocked: bool
+        :param is_assigned: Indicates if the policy is deployed to any inclusion groups or not.
+        :type is_assigned: bool
+        :param assignments: Navigation property to list of inclusion and exclusion groups to which the
+         policy is deployed.
+        :type assignments: list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+        :param custom_browser_display_name: Friendly name of the preferred custom browser to open
+         weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should
+         be true.
+        :type custom_browser_display_name: str
+        :param custom_browser_package_id: Unique identifier of the preferred custom browser to open
+         weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should
+         be true.
+        :type custom_browser_package_id: str
+        :param deployed_app_count: Count of apps to which the current policy is deployed.
+        :type deployed_app_count: int
+        :param disable_app_encryption_if_device_encryption_is_enabled: When this setting is enabled,
+         app level encryption is disabled if device level encryption is enabled.
+        :type disable_app_encryption_if_device_encryption_is_enabled: bool
+        :param encrypt_app_data: Indicates whether application data for managed apps should be
+         encrypted.
+        :type encrypt_app_data: bool
+        :param minimum_required_patch_version: Define the oldest required Android security patch level
+         a user can have to gain secure access to the app.
+        :type minimum_required_patch_version: str
+        :param minimum_warning_patch_version: Define the oldest recommended Android security patch
+         level a user can have for secure access to the app.
+        :type minimum_warning_patch_version: str
+        :param screen_capture_blocked: Indicates whether a managed user can take screen captures of
+         managed apps.
+        :type screen_capture_blocked: bool
+        :param apps: List of apps to which the policy is deployed.
+        :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param configuration_deployed_user_count: Not yet documented.
+        :type configuration_deployed_user_count: int
+        :param configuration_deployment_summary_per_app: Not yet documented.
+        :type configuration_deployment_summary_per_app: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+        :param microsoft_graph_managed_app_policy_deployment_summary_display_name: Not yet documented.
+        :type microsoft_graph_managed_app_policy_deployment_summary_display_name: str
+        :param last_refresh_time: Not yet documented.
+        :type last_refresh_time: ~datetime.datetime
+        :param microsoft_graph_managed_app_policy_deployment_summary_version: Version of the entity.
+        :type microsoft_graph_managed_app_policy_deployment_summary_version: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -277,6 +627,8 @@ class DeviceAppManagementOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphAndroidManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, custom_browser_display_name=custom_browser_display_name, custom_browser_package_id=custom_browser_package_id, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, minimum_required_patch_version=minimum_required_patch_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -296,7 +648,7 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphAndroidManagedAppProtection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphAndroidManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -458,7 +810,56 @@ class DeviceAppManagementOperations(object):
 
     def create_default_managed_app_protection(
         self,
-        body,  # type: "models.MicrosoftGraphDefaultManagedAppProtection"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        version=None,  # type: Optional[str]
+        allowed_data_storage_locations=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphManagedAppDataStorageLocation"]]]
+        allowed_inbound_data_transfer_sources=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        allowed_outbound_clipboard_sharing_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppClipboardSharingLevel"]]
+        allowed_outbound_data_transfer_destinations=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        contact_sync_blocked=None,  # type: Optional[bool]
+        data_backup_blocked=None,  # type: Optional[bool]
+        device_compliance_required=None,  # type: Optional[bool]
+        disable_app_pin_if_device_pin_is_set=None,  # type: Optional[bool]
+        fingerprint_blocked=None,  # type: Optional[bool]
+        managed_browser=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedBrowserType"]]
+        managed_browser_to_open_links_required=None,  # type: Optional[bool]
+        maximum_pin_retries=None,  # type: Optional[int]
+        minimum_pin_length=None,  # type: Optional[int]
+        minimum_required_app_version=None,  # type: Optional[str]
+        minimum_required_os_version=None,  # type: Optional[str]
+        minimum_warning_app_version=None,  # type: Optional[str]
+        minimum_warning_os_version=None,  # type: Optional[str]
+        organizational_credentials_required=None,  # type: Optional[bool]
+        period_before_pin_reset=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_access_check=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_wipe_is_enforced=None,  # type: Optional[datetime.timedelta]
+        period_online_before_access_check=None,  # type: Optional[datetime.timedelta]
+        pin_character_set=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppPinCharacterSet"]]
+        pin_required=None,  # type: Optional[bool]
+        print_blocked=None,  # type: Optional[bool]
+        save_as_blocked=None,  # type: Optional[bool]
+        simple_pin_blocked=None,  # type: Optional[bool]
+        app_data_encryption_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataEncryptionType"]]
+        custom_settings=None,  # type: Optional[List["models.MicrosoftGraphKeyValuePair"]]
+        deployed_app_count=None,  # type: Optional[int]
+        disable_app_encryption_if_device_encryption_is_enabled=None,  # type: Optional[bool]
+        encrypt_app_data=None,  # type: Optional[bool]
+        face_id_blocked=None,  # type: Optional[bool]
+        minimum_required_patch_version=None,  # type: Optional[str]
+        minimum_required_sdk_version=None,  # type: Optional[str]
+        minimum_warning_patch_version=None,  # type: Optional[str]
+        screen_capture_blocked=None,  # type: Optional[bool]
+        apps=None,  # type: Optional[List["models.MicrosoftGraphManagedMobileApp"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        configuration_deployed_user_count=None,  # type: Optional[int]
+        configuration_deployment_summary_per_app=None,  # type: Optional[List["models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]]
+        microsoft_graph_managed_app_policy_deployment_summary_display_name=None,  # type: Optional[str]
+        last_refresh_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_managed_app_policy_deployment_summary_version=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDefaultManagedAppProtection"
@@ -466,8 +867,130 @@ class DeviceAppManagementOperations(object):
 
         Create new navigation property to defaultManagedAppProtections for deviceAppManagement.
 
-        :param body: New navigation property.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphDefaultManagedAppProtection
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The date and time the policy was created.
+        :type created_date_time: ~datetime.datetime
+        :param description: The policy's description.
+        :type description: str
+        :param display_name: Policy display name.
+        :type display_name: str
+        :param last_modified_date_time: Last time the policy was modified.
+        :type last_modified_date_time: ~datetime.datetime
+        :param version: Version of the entity.
+        :type version: str
+        :param allowed_data_storage_locations: Data storage locations where a user may store managed
+         data.
+        :type allowed_data_storage_locations: list[str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+        :param allowed_inbound_data_transfer_sources:
+        :type allowed_inbound_data_transfer_sources: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param allowed_outbound_clipboard_sharing_level:
+        :type allowed_outbound_clipboard_sharing_level: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+        :param allowed_outbound_data_transfer_destinations:
+        :type allowed_outbound_data_transfer_destinations: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
+        :type contact_sync_blocked: bool
+        :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
+        :type data_backup_blocked: bool
+        :param device_compliance_required: Indicates whether device compliance is required.
+        :type device_compliance_required: bool
+        :param disable_app_pin_if_device_pin_is_set: Indicates whether use of the app pin is required
+         if the device pin is set.
+        :type disable_app_pin_if_device_pin_is_set: bool
+        :param fingerprint_blocked: Indicates whether use of the fingerprint reader is allowed in place
+         of a pin if PinRequired is set to True.
+        :type fingerprint_blocked: bool
+        :param managed_browser:
+        :type managed_browser: str or ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+        :param managed_browser_to_open_links_required: Indicates whether internet links should be
+         opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
+         (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
+        :type managed_browser_to_open_links_required: bool
+        :param maximum_pin_retries: Maximum number of incorrect pin retry attempts before the managed
+         app is either blocked or wiped.
+        :type maximum_pin_retries: int
+        :param minimum_pin_length: Minimum pin length required for an app-level pin if PinRequired is
+         set to True.
+        :type minimum_pin_length: int
+        :param minimum_required_app_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_app_version: str
+        :param minimum_required_os_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_os_version: str
+        :param minimum_warning_app_version: Versions less than the specified version will result in
+         warning message on the managed app.
+        :type minimum_warning_app_version: str
+        :param minimum_warning_os_version: Versions less than the specified version will result in
+         warning message on the managed app from accessing company data.
+        :type minimum_warning_os_version: str
+        :param organizational_credentials_required: Indicates whether organizational credentials are
+         required for app use.
+        :type organizational_credentials_required: bool
+        :param period_before_pin_reset: TimePeriod before the all-level pin must be reset if
+         PinRequired is set to True.
+        :type period_before_pin_reset: ~datetime.timedelta
+        :param period_offline_before_access_check: The period after which access is checked when the
+         device is not connected to the internet.
+        :type period_offline_before_access_check: ~datetime.timedelta
+        :param period_offline_before_wipe_is_enforced: The amount of time an app is allowed to remain
+         disconnected from the internet before all managed data it is wiped.
+        :type period_offline_before_wipe_is_enforced: ~datetime.timedelta
+        :param period_online_before_access_check: The period after which access is checked when the
+         device is connected to the internet.
+        :type period_online_before_access_check: ~datetime.timedelta
+        :param pin_character_set:
+        :type pin_character_set: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+        :param pin_required: Indicates whether an app-level pin is required.
+        :type pin_required: bool
+        :param print_blocked: Indicates whether printing is allowed from managed apps.
+        :type print_blocked: bool
+        :param save_as_blocked: Indicates whether users may use the 'Save As' menu item to save a copy
+         of protected files.
+        :type save_as_blocked: bool
+        :param simple_pin_blocked: Indicates whether simplePin is blocked.
+        :type simple_pin_blocked: bool
+        :param app_data_encryption_type:
+        :type app_data_encryption_type: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataEncryptionType
+        :param custom_settings: A set of string key and string value pairs to be sent to the affected
+         users, unalterned by this service.
+        :type custom_settings: list[~devices_corporate_management.models.MicrosoftGraphKeyValuePair]
+        :param deployed_app_count: Count of apps to which the current policy is deployed.
+        :type deployed_app_count: int
+        :param disable_app_encryption_if_device_encryption_is_enabled: When this setting is enabled,
+         app level encryption is disabled if device level encryption is enabled. (Android only).
+        :type disable_app_encryption_if_device_encryption_is_enabled: bool
+        :param encrypt_app_data: Indicates whether managed-app data should be encrypted. (Android
+         only).
+        :type encrypt_app_data: bool
+        :param face_id_blocked: Indicates whether use of the FaceID is allowed in place of a pin if
+         PinRequired is set to True. (iOS Only).
+        :type face_id_blocked: bool
+        :param minimum_required_patch_version: Define the oldest required Android security patch level
+         a user can have to gain secure access to the app. (Android only).
+        :type minimum_required_patch_version: str
+        :param minimum_required_sdk_version: Versions less than the specified version will block the
+         managed app from accessing company data. (iOS Only).
+        :type minimum_required_sdk_version: str
+        :param minimum_warning_patch_version: Define the oldest recommended Android security patch
+         level a user can have for secure access to the app. (Android only).
+        :type minimum_warning_patch_version: str
+        :param screen_capture_blocked: Indicates whether screen capture is blocked. (Android only).
+        :type screen_capture_blocked: bool
+        :param apps: List of apps to which the policy is deployed.
+        :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param configuration_deployed_user_count: Not yet documented.
+        :type configuration_deployed_user_count: int
+        :param configuration_deployment_summary_per_app: Not yet documented.
+        :type configuration_deployment_summary_per_app: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+        :param microsoft_graph_managed_app_policy_deployment_summary_display_name: Not yet documented.
+        :type microsoft_graph_managed_app_policy_deployment_summary_display_name: str
+        :param last_refresh_time: Not yet documented.
+        :type last_refresh_time: ~datetime.datetime
+        :param microsoft_graph_managed_app_policy_deployment_summary_version: Version of the entity.
+        :type microsoft_graph_managed_app_policy_deployment_summary_version: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDefaultManagedAppProtection, or the result of cls(response)
         :rtype: ~devices_corporate_management.models.MicrosoftGraphDefaultManagedAppProtection
@@ -476,6 +999,8 @@ class DeviceAppManagementOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDefaultManagedAppProtection"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDefaultManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, app_data_encryption_type=app_data_encryption_type, custom_settings=custom_settings, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, face_id_blocked=face_id_blocked, minimum_required_patch_version=minimum_required_patch_version, minimum_required_sdk_version=minimum_required_sdk_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -492,7 +1017,7 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphDefaultManagedAppProtection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDefaultManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -579,7 +1104,56 @@ class DeviceAppManagementOperations(object):
     def update_default_managed_app_protection(
         self,
         default_managed_app_protection_id,  # type: str
-        body,  # type: "models.MicrosoftGraphDefaultManagedAppProtection"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        version=None,  # type: Optional[str]
+        allowed_data_storage_locations=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphManagedAppDataStorageLocation"]]]
+        allowed_inbound_data_transfer_sources=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        allowed_outbound_clipboard_sharing_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppClipboardSharingLevel"]]
+        allowed_outbound_data_transfer_destinations=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        contact_sync_blocked=None,  # type: Optional[bool]
+        data_backup_blocked=None,  # type: Optional[bool]
+        device_compliance_required=None,  # type: Optional[bool]
+        disable_app_pin_if_device_pin_is_set=None,  # type: Optional[bool]
+        fingerprint_blocked=None,  # type: Optional[bool]
+        managed_browser=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedBrowserType"]]
+        managed_browser_to_open_links_required=None,  # type: Optional[bool]
+        maximum_pin_retries=None,  # type: Optional[int]
+        minimum_pin_length=None,  # type: Optional[int]
+        minimum_required_app_version=None,  # type: Optional[str]
+        minimum_required_os_version=None,  # type: Optional[str]
+        minimum_warning_app_version=None,  # type: Optional[str]
+        minimum_warning_os_version=None,  # type: Optional[str]
+        organizational_credentials_required=None,  # type: Optional[bool]
+        period_before_pin_reset=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_access_check=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_wipe_is_enforced=None,  # type: Optional[datetime.timedelta]
+        period_online_before_access_check=None,  # type: Optional[datetime.timedelta]
+        pin_character_set=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppPinCharacterSet"]]
+        pin_required=None,  # type: Optional[bool]
+        print_blocked=None,  # type: Optional[bool]
+        save_as_blocked=None,  # type: Optional[bool]
+        simple_pin_blocked=None,  # type: Optional[bool]
+        app_data_encryption_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataEncryptionType"]]
+        custom_settings=None,  # type: Optional[List["models.MicrosoftGraphKeyValuePair"]]
+        deployed_app_count=None,  # type: Optional[int]
+        disable_app_encryption_if_device_encryption_is_enabled=None,  # type: Optional[bool]
+        encrypt_app_data=None,  # type: Optional[bool]
+        face_id_blocked=None,  # type: Optional[bool]
+        minimum_required_patch_version=None,  # type: Optional[str]
+        minimum_required_sdk_version=None,  # type: Optional[str]
+        minimum_warning_patch_version=None,  # type: Optional[str]
+        screen_capture_blocked=None,  # type: Optional[bool]
+        apps=None,  # type: Optional[List["models.MicrosoftGraphManagedMobileApp"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        configuration_deployed_user_count=None,  # type: Optional[int]
+        configuration_deployment_summary_per_app=None,  # type: Optional[List["models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]]
+        microsoft_graph_managed_app_policy_deployment_summary_display_name=None,  # type: Optional[str]
+        last_refresh_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_managed_app_policy_deployment_summary_version=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -589,8 +1163,130 @@ class DeviceAppManagementOperations(object):
 
         :param default_managed_app_protection_id: key: id of defaultManagedAppProtection.
         :type default_managed_app_protection_id: str
-        :param body: New navigation property values.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphDefaultManagedAppProtection
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The date and time the policy was created.
+        :type created_date_time: ~datetime.datetime
+        :param description: The policy's description.
+        :type description: str
+        :param display_name: Policy display name.
+        :type display_name: str
+        :param last_modified_date_time: Last time the policy was modified.
+        :type last_modified_date_time: ~datetime.datetime
+        :param version: Version of the entity.
+        :type version: str
+        :param allowed_data_storage_locations: Data storage locations where a user may store managed
+         data.
+        :type allowed_data_storage_locations: list[str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+        :param allowed_inbound_data_transfer_sources:
+        :type allowed_inbound_data_transfer_sources: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param allowed_outbound_clipboard_sharing_level:
+        :type allowed_outbound_clipboard_sharing_level: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+        :param allowed_outbound_data_transfer_destinations:
+        :type allowed_outbound_data_transfer_destinations: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
+        :type contact_sync_blocked: bool
+        :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
+        :type data_backup_blocked: bool
+        :param device_compliance_required: Indicates whether device compliance is required.
+        :type device_compliance_required: bool
+        :param disable_app_pin_if_device_pin_is_set: Indicates whether use of the app pin is required
+         if the device pin is set.
+        :type disable_app_pin_if_device_pin_is_set: bool
+        :param fingerprint_blocked: Indicates whether use of the fingerprint reader is allowed in place
+         of a pin if PinRequired is set to True.
+        :type fingerprint_blocked: bool
+        :param managed_browser:
+        :type managed_browser: str or ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+        :param managed_browser_to_open_links_required: Indicates whether internet links should be
+         opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
+         (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
+        :type managed_browser_to_open_links_required: bool
+        :param maximum_pin_retries: Maximum number of incorrect pin retry attempts before the managed
+         app is either blocked or wiped.
+        :type maximum_pin_retries: int
+        :param minimum_pin_length: Minimum pin length required for an app-level pin if PinRequired is
+         set to True.
+        :type minimum_pin_length: int
+        :param minimum_required_app_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_app_version: str
+        :param minimum_required_os_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_os_version: str
+        :param minimum_warning_app_version: Versions less than the specified version will result in
+         warning message on the managed app.
+        :type minimum_warning_app_version: str
+        :param minimum_warning_os_version: Versions less than the specified version will result in
+         warning message on the managed app from accessing company data.
+        :type minimum_warning_os_version: str
+        :param organizational_credentials_required: Indicates whether organizational credentials are
+         required for app use.
+        :type organizational_credentials_required: bool
+        :param period_before_pin_reset: TimePeriod before the all-level pin must be reset if
+         PinRequired is set to True.
+        :type period_before_pin_reset: ~datetime.timedelta
+        :param period_offline_before_access_check: The period after which access is checked when the
+         device is not connected to the internet.
+        :type period_offline_before_access_check: ~datetime.timedelta
+        :param period_offline_before_wipe_is_enforced: The amount of time an app is allowed to remain
+         disconnected from the internet before all managed data it is wiped.
+        :type period_offline_before_wipe_is_enforced: ~datetime.timedelta
+        :param period_online_before_access_check: The period after which access is checked when the
+         device is connected to the internet.
+        :type period_online_before_access_check: ~datetime.timedelta
+        :param pin_character_set:
+        :type pin_character_set: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+        :param pin_required: Indicates whether an app-level pin is required.
+        :type pin_required: bool
+        :param print_blocked: Indicates whether printing is allowed from managed apps.
+        :type print_blocked: bool
+        :param save_as_blocked: Indicates whether users may use the 'Save As' menu item to save a copy
+         of protected files.
+        :type save_as_blocked: bool
+        :param simple_pin_blocked: Indicates whether simplePin is blocked.
+        :type simple_pin_blocked: bool
+        :param app_data_encryption_type:
+        :type app_data_encryption_type: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataEncryptionType
+        :param custom_settings: A set of string key and string value pairs to be sent to the affected
+         users, unalterned by this service.
+        :type custom_settings: list[~devices_corporate_management.models.MicrosoftGraphKeyValuePair]
+        :param deployed_app_count: Count of apps to which the current policy is deployed.
+        :type deployed_app_count: int
+        :param disable_app_encryption_if_device_encryption_is_enabled: When this setting is enabled,
+         app level encryption is disabled if device level encryption is enabled. (Android only).
+        :type disable_app_encryption_if_device_encryption_is_enabled: bool
+        :param encrypt_app_data: Indicates whether managed-app data should be encrypted. (Android
+         only).
+        :type encrypt_app_data: bool
+        :param face_id_blocked: Indicates whether use of the FaceID is allowed in place of a pin if
+         PinRequired is set to True. (iOS Only).
+        :type face_id_blocked: bool
+        :param minimum_required_patch_version: Define the oldest required Android security patch level
+         a user can have to gain secure access to the app. (Android only).
+        :type minimum_required_patch_version: str
+        :param minimum_required_sdk_version: Versions less than the specified version will block the
+         managed app from accessing company data. (iOS Only).
+        :type minimum_required_sdk_version: str
+        :param minimum_warning_patch_version: Define the oldest recommended Android security patch
+         level a user can have for secure access to the app. (Android only).
+        :type minimum_warning_patch_version: str
+        :param screen_capture_blocked: Indicates whether screen capture is blocked. (Android only).
+        :type screen_capture_blocked: bool
+        :param apps: List of apps to which the policy is deployed.
+        :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param configuration_deployed_user_count: Not yet documented.
+        :type configuration_deployed_user_count: int
+        :param configuration_deployment_summary_per_app: Not yet documented.
+        :type configuration_deployment_summary_per_app: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+        :param microsoft_graph_managed_app_policy_deployment_summary_display_name: Not yet documented.
+        :type microsoft_graph_managed_app_policy_deployment_summary_display_name: str
+        :param last_refresh_time: Not yet documented.
+        :type last_refresh_time: ~datetime.datetime
+        :param microsoft_graph_managed_app_policy_deployment_summary_version: Version of the entity.
+        :type microsoft_graph_managed_app_policy_deployment_summary_version: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -599,6 +1295,8 @@ class DeviceAppManagementOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDefaultManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, app_data_encryption_type=app_data_encryption_type, custom_settings=custom_settings, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, face_id_blocked=face_id_blocked, minimum_required_patch_version=minimum_required_patch_version, minimum_required_sdk_version=minimum_required_sdk_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -618,7 +1316,7 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphDefaultManagedAppProtection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDefaultManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -780,7 +1478,53 @@ class DeviceAppManagementOperations(object):
 
     def create_io_managed_app_protection(
         self,
-        body,  # type: "models.MicrosoftGraphIosManagedAppProtection"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        version=None,  # type: Optional[str]
+        allowed_data_storage_locations=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphManagedAppDataStorageLocation"]]]
+        allowed_inbound_data_transfer_sources=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        allowed_outbound_clipboard_sharing_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppClipboardSharingLevel"]]
+        allowed_outbound_data_transfer_destinations=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        contact_sync_blocked=None,  # type: Optional[bool]
+        data_backup_blocked=None,  # type: Optional[bool]
+        device_compliance_required=None,  # type: Optional[bool]
+        disable_app_pin_if_device_pin_is_set=None,  # type: Optional[bool]
+        fingerprint_blocked=None,  # type: Optional[bool]
+        managed_browser=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedBrowserType"]]
+        managed_browser_to_open_links_required=None,  # type: Optional[bool]
+        maximum_pin_retries=None,  # type: Optional[int]
+        minimum_pin_length=None,  # type: Optional[int]
+        minimum_required_app_version=None,  # type: Optional[str]
+        minimum_required_os_version=None,  # type: Optional[str]
+        minimum_warning_app_version=None,  # type: Optional[str]
+        minimum_warning_os_version=None,  # type: Optional[str]
+        organizational_credentials_required=None,  # type: Optional[bool]
+        period_before_pin_reset=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_access_check=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_wipe_is_enforced=None,  # type: Optional[datetime.timedelta]
+        period_online_before_access_check=None,  # type: Optional[datetime.timedelta]
+        pin_character_set=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppPinCharacterSet"]]
+        pin_required=None,  # type: Optional[bool]
+        print_blocked=None,  # type: Optional[bool]
+        save_as_blocked=None,  # type: Optional[bool]
+        simple_pin_blocked=None,  # type: Optional[bool]
+        is_assigned=None,  # type: Optional[bool]
+        assignments=None,  # type: Optional[List["models.MicrosoftGraphTargetedManagedAppPolicyAssignment"]]
+        app_data_encryption_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataEncryptionType"]]
+        custom_browser_protocol=None,  # type: Optional[str]
+        deployed_app_count=None,  # type: Optional[int]
+        face_id_blocked=None,  # type: Optional[bool]
+        minimum_required_sdk_version=None,  # type: Optional[str]
+        apps=None,  # type: Optional[List["models.MicrosoftGraphManagedMobileApp"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        configuration_deployed_user_count=None,  # type: Optional[int]
+        configuration_deployment_summary_per_app=None,  # type: Optional[List["models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]]
+        microsoft_graph_managed_app_policy_deployment_summary_display_name=None,  # type: Optional[str]
+        last_refresh_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_managed_app_policy_deployment_summary_version=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphIosManagedAppProtection"
@@ -788,8 +1532,121 @@ class DeviceAppManagementOperations(object):
 
         Create new navigation property to iosManagedAppProtections for deviceAppManagement.
 
-        :param body: New navigation property.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphIosManagedAppProtection
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The date and time the policy was created.
+        :type created_date_time: ~datetime.datetime
+        :param description: The policy's description.
+        :type description: str
+        :param display_name: Policy display name.
+        :type display_name: str
+        :param last_modified_date_time: Last time the policy was modified.
+        :type last_modified_date_time: ~datetime.datetime
+        :param version: Version of the entity.
+        :type version: str
+        :param allowed_data_storage_locations: Data storage locations where a user may store managed
+         data.
+        :type allowed_data_storage_locations: list[str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+        :param allowed_inbound_data_transfer_sources:
+        :type allowed_inbound_data_transfer_sources: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param allowed_outbound_clipboard_sharing_level:
+        :type allowed_outbound_clipboard_sharing_level: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+        :param allowed_outbound_data_transfer_destinations:
+        :type allowed_outbound_data_transfer_destinations: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
+        :type contact_sync_blocked: bool
+        :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
+        :type data_backup_blocked: bool
+        :param device_compliance_required: Indicates whether device compliance is required.
+        :type device_compliance_required: bool
+        :param disable_app_pin_if_device_pin_is_set: Indicates whether use of the app pin is required
+         if the device pin is set.
+        :type disable_app_pin_if_device_pin_is_set: bool
+        :param fingerprint_blocked: Indicates whether use of the fingerprint reader is allowed in place
+         of a pin if PinRequired is set to True.
+        :type fingerprint_blocked: bool
+        :param managed_browser:
+        :type managed_browser: str or ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+        :param managed_browser_to_open_links_required: Indicates whether internet links should be
+         opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
+         (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
+        :type managed_browser_to_open_links_required: bool
+        :param maximum_pin_retries: Maximum number of incorrect pin retry attempts before the managed
+         app is either blocked or wiped.
+        :type maximum_pin_retries: int
+        :param minimum_pin_length: Minimum pin length required for an app-level pin if PinRequired is
+         set to True.
+        :type minimum_pin_length: int
+        :param minimum_required_app_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_app_version: str
+        :param minimum_required_os_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_os_version: str
+        :param minimum_warning_app_version: Versions less than the specified version will result in
+         warning message on the managed app.
+        :type minimum_warning_app_version: str
+        :param minimum_warning_os_version: Versions less than the specified version will result in
+         warning message on the managed app from accessing company data.
+        :type minimum_warning_os_version: str
+        :param organizational_credentials_required: Indicates whether organizational credentials are
+         required for app use.
+        :type organizational_credentials_required: bool
+        :param period_before_pin_reset: TimePeriod before the all-level pin must be reset if
+         PinRequired is set to True.
+        :type period_before_pin_reset: ~datetime.timedelta
+        :param period_offline_before_access_check: The period after which access is checked when the
+         device is not connected to the internet.
+        :type period_offline_before_access_check: ~datetime.timedelta
+        :param period_offline_before_wipe_is_enforced: The amount of time an app is allowed to remain
+         disconnected from the internet before all managed data it is wiped.
+        :type period_offline_before_wipe_is_enforced: ~datetime.timedelta
+        :param period_online_before_access_check: The period after which access is checked when the
+         device is connected to the internet.
+        :type period_online_before_access_check: ~datetime.timedelta
+        :param pin_character_set:
+        :type pin_character_set: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+        :param pin_required: Indicates whether an app-level pin is required.
+        :type pin_required: bool
+        :param print_blocked: Indicates whether printing is allowed from managed apps.
+        :type print_blocked: bool
+        :param save_as_blocked: Indicates whether users may use the 'Save As' menu item to save a copy
+         of protected files.
+        :type save_as_blocked: bool
+        :param simple_pin_blocked: Indicates whether simplePin is blocked.
+        :type simple_pin_blocked: bool
+        :param is_assigned: Indicates if the policy is deployed to any inclusion groups or not.
+        :type is_assigned: bool
+        :param assignments: Navigation property to list of inclusion and exclusion groups to which the
+         policy is deployed.
+        :type assignments: list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+        :param app_data_encryption_type:
+        :type app_data_encryption_type: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataEncryptionType
+        :param custom_browser_protocol: A custom browser protocol to open weblink on iOS. When this
+         property is configured, ManagedBrowserToOpenLinksRequired should be true.
+        :type custom_browser_protocol: str
+        :param deployed_app_count: Count of apps to which the current policy is deployed.
+        :type deployed_app_count: int
+        :param face_id_blocked: Indicates whether use of the FaceID is allowed in place of a pin if
+         PinRequired is set to True.
+        :type face_id_blocked: bool
+        :param minimum_required_sdk_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_sdk_version: str
+        :param apps: List of apps to which the policy is deployed.
+        :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param configuration_deployed_user_count: Not yet documented.
+        :type configuration_deployed_user_count: int
+        :param configuration_deployment_summary_per_app: Not yet documented.
+        :type configuration_deployment_summary_per_app: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+        :param microsoft_graph_managed_app_policy_deployment_summary_display_name: Not yet documented.
+        :type microsoft_graph_managed_app_policy_deployment_summary_display_name: str
+        :param last_refresh_time: Not yet documented.
+        :type last_refresh_time: ~datetime.datetime
+        :param microsoft_graph_managed_app_policy_deployment_summary_version: Version of the entity.
+        :type microsoft_graph_managed_app_policy_deployment_summary_version: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphIosManagedAppProtection, or the result of cls(response)
         :rtype: ~devices_corporate_management.models.MicrosoftGraphIosManagedAppProtection
@@ -798,6 +1655,8 @@ class DeviceAppManagementOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIosManagedAppProtection"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphIosManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, app_data_encryption_type=app_data_encryption_type, custom_browser_protocol=custom_browser_protocol, deployed_app_count=deployed_app_count, face_id_blocked=face_id_blocked, minimum_required_sdk_version=minimum_required_sdk_version, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -814,7 +1673,7 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphIosManagedAppProtection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphIosManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -901,7 +1760,53 @@ class DeviceAppManagementOperations(object):
     def update_io_managed_app_protection(
         self,
         ios_managed_app_protection_id,  # type: str
-        body,  # type: "models.MicrosoftGraphIosManagedAppProtection"
+        id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        version=None,  # type: Optional[str]
+        allowed_data_storage_locations=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphManagedAppDataStorageLocation"]]]
+        allowed_inbound_data_transfer_sources=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        allowed_outbound_clipboard_sharing_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppClipboardSharingLevel"]]
+        allowed_outbound_data_transfer_destinations=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataTransferLevel"]]
+        contact_sync_blocked=None,  # type: Optional[bool]
+        data_backup_blocked=None,  # type: Optional[bool]
+        device_compliance_required=None,  # type: Optional[bool]
+        disable_app_pin_if_device_pin_is_set=None,  # type: Optional[bool]
+        fingerprint_blocked=None,  # type: Optional[bool]
+        managed_browser=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedBrowserType"]]
+        managed_browser_to_open_links_required=None,  # type: Optional[bool]
+        maximum_pin_retries=None,  # type: Optional[int]
+        minimum_pin_length=None,  # type: Optional[int]
+        minimum_required_app_version=None,  # type: Optional[str]
+        minimum_required_os_version=None,  # type: Optional[str]
+        minimum_warning_app_version=None,  # type: Optional[str]
+        minimum_warning_os_version=None,  # type: Optional[str]
+        organizational_credentials_required=None,  # type: Optional[bool]
+        period_before_pin_reset=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_access_check=None,  # type: Optional[datetime.timedelta]
+        period_offline_before_wipe_is_enforced=None,  # type: Optional[datetime.timedelta]
+        period_online_before_access_check=None,  # type: Optional[datetime.timedelta]
+        pin_character_set=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppPinCharacterSet"]]
+        pin_required=None,  # type: Optional[bool]
+        print_blocked=None,  # type: Optional[bool]
+        save_as_blocked=None,  # type: Optional[bool]
+        simple_pin_blocked=None,  # type: Optional[bool]
+        is_assigned=None,  # type: Optional[bool]
+        assignments=None,  # type: Optional[List["models.MicrosoftGraphTargetedManagedAppPolicyAssignment"]]
+        app_data_encryption_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphManagedAppDataEncryptionType"]]
+        custom_browser_protocol=None,  # type: Optional[str]
+        deployed_app_count=None,  # type: Optional[int]
+        face_id_blocked=None,  # type: Optional[bool]
+        minimum_required_sdk_version=None,  # type: Optional[str]
+        apps=None,  # type: Optional[List["models.MicrosoftGraphManagedMobileApp"]]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        configuration_deployed_user_count=None,  # type: Optional[int]
+        configuration_deployment_summary_per_app=None,  # type: Optional[List["models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]]
+        microsoft_graph_managed_app_policy_deployment_summary_display_name=None,  # type: Optional[str]
+        last_refresh_time=None,  # type: Optional[datetime.datetime]
+        microsoft_graph_managed_app_policy_deployment_summary_version=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -911,8 +1816,121 @@ class DeviceAppManagementOperations(object):
 
         :param ios_managed_app_protection_id: key: id of iosManagedAppProtection.
         :type ios_managed_app_protection_id: str
-        :param body: New navigation property values.
-        :type body: ~devices_corporate_management.models.MicrosoftGraphIosManagedAppProtection
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The date and time the policy was created.
+        :type created_date_time: ~datetime.datetime
+        :param description: The policy's description.
+        :type description: str
+        :param display_name: Policy display name.
+        :type display_name: str
+        :param last_modified_date_time: Last time the policy was modified.
+        :type last_modified_date_time: ~datetime.datetime
+        :param version: Version of the entity.
+        :type version: str
+        :param allowed_data_storage_locations: Data storage locations where a user may store managed
+         data.
+        :type allowed_data_storage_locations: list[str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+        :param allowed_inbound_data_transfer_sources:
+        :type allowed_inbound_data_transfer_sources: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param allowed_outbound_clipboard_sharing_level:
+        :type allowed_outbound_clipboard_sharing_level: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+        :param allowed_outbound_data_transfer_destinations:
+        :type allowed_outbound_data_transfer_destinations: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+        :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
+        :type contact_sync_blocked: bool
+        :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
+        :type data_backup_blocked: bool
+        :param device_compliance_required: Indicates whether device compliance is required.
+        :type device_compliance_required: bool
+        :param disable_app_pin_if_device_pin_is_set: Indicates whether use of the app pin is required
+         if the device pin is set.
+        :type disable_app_pin_if_device_pin_is_set: bool
+        :param fingerprint_blocked: Indicates whether use of the fingerprint reader is allowed in place
+         of a pin if PinRequired is set to True.
+        :type fingerprint_blocked: bool
+        :param managed_browser:
+        :type managed_browser: str or ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+        :param managed_browser_to_open_links_required: Indicates whether internet links should be
+         opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
+         (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
+        :type managed_browser_to_open_links_required: bool
+        :param maximum_pin_retries: Maximum number of incorrect pin retry attempts before the managed
+         app is either blocked or wiped.
+        :type maximum_pin_retries: int
+        :param minimum_pin_length: Minimum pin length required for an app-level pin if PinRequired is
+         set to True.
+        :type minimum_pin_length: int
+        :param minimum_required_app_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_app_version: str
+        :param minimum_required_os_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_os_version: str
+        :param minimum_warning_app_version: Versions less than the specified version will result in
+         warning message on the managed app.
+        :type minimum_warning_app_version: str
+        :param minimum_warning_os_version: Versions less than the specified version will result in
+         warning message on the managed app from accessing company data.
+        :type minimum_warning_os_version: str
+        :param organizational_credentials_required: Indicates whether organizational credentials are
+         required for app use.
+        :type organizational_credentials_required: bool
+        :param period_before_pin_reset: TimePeriod before the all-level pin must be reset if
+         PinRequired is set to True.
+        :type period_before_pin_reset: ~datetime.timedelta
+        :param period_offline_before_access_check: The period after which access is checked when the
+         device is not connected to the internet.
+        :type period_offline_before_access_check: ~datetime.timedelta
+        :param period_offline_before_wipe_is_enforced: The amount of time an app is allowed to remain
+         disconnected from the internet before all managed data it is wiped.
+        :type period_offline_before_wipe_is_enforced: ~datetime.timedelta
+        :param period_online_before_access_check: The period after which access is checked when the
+         device is connected to the internet.
+        :type period_online_before_access_check: ~datetime.timedelta
+        :param pin_character_set:
+        :type pin_character_set: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+        :param pin_required: Indicates whether an app-level pin is required.
+        :type pin_required: bool
+        :param print_blocked: Indicates whether printing is allowed from managed apps.
+        :type print_blocked: bool
+        :param save_as_blocked: Indicates whether users may use the 'Save As' menu item to save a copy
+         of protected files.
+        :type save_as_blocked: bool
+        :param simple_pin_blocked: Indicates whether simplePin is blocked.
+        :type simple_pin_blocked: bool
+        :param is_assigned: Indicates if the policy is deployed to any inclusion groups or not.
+        :type is_assigned: bool
+        :param assignments: Navigation property to list of inclusion and exclusion groups to which the
+         policy is deployed.
+        :type assignments: list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+        :param app_data_encryption_type:
+        :type app_data_encryption_type: str or ~devices_corporate_management.models.MicrosoftGraphManagedAppDataEncryptionType
+        :param custom_browser_protocol: A custom browser protocol to open weblink on iOS. When this
+         property is configured, ManagedBrowserToOpenLinksRequired should be true.
+        :type custom_browser_protocol: str
+        :param deployed_app_count: Count of apps to which the current policy is deployed.
+        :type deployed_app_count: int
+        :param face_id_blocked: Indicates whether use of the FaceID is allowed in place of a pin if
+         PinRequired is set to True.
+        :type face_id_blocked: bool
+        :param minimum_required_sdk_version: Versions less than the specified version will block the
+         managed app from accessing company data.
+        :type minimum_required_sdk_version: str
+        :param apps: List of apps to which the policy is deployed.
+        :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param configuration_deployed_user_count: Not yet documented.
+        :type configuration_deployed_user_count: int
+        :param configuration_deployment_summary_per_app: Not yet documented.
+        :type configuration_deployment_summary_per_app: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+        :param microsoft_graph_managed_app_policy_deployment_summary_display_name: Not yet documented.
+        :type microsoft_graph_managed_app_policy_deployment_summary_display_name: str
+        :param last_refresh_time: Not yet documented.
+        :type last_refresh_time: ~datetime.datetime
+        :param microsoft_graph_managed_app_policy_deployment_summary_version: Version of the entity.
+        :type microsoft_graph_managed_app_policy_deployment_summary_version: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -921,6 +1939,8 @@ class DeviceAppManagementOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphIosManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, app_data_encryption_type=app_data_encryption_type, custom_browser_protocol=custom_browser_protocol, deployed_app_count=deployed_app_count, face_id_blocked=face_id_blocked, minimum_required_sdk_version=minimum_required_sdk_version, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -940,7 +1960,7 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphIosManagedAppProtection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphIosManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

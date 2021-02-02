@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -27,12 +28,12 @@ from azext_users_beta.action import (
     AddBody,
     AddCompletedDateTime,
     AddAttachments,
-    AddUsersCreateTaskMultiValueExtendedProperties,
-    AddUsersCreateTaskSingleValueExtendedProperties,
+    AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+    AddUsersUserOutlookCreateTaskSingleValueExtendedProperties,
     AddRecurrencePattern,
     AddRecurrenceRange,
-    AddUsersCreateTaskFolderMultiValueExtendedProperties,
-    AddUsersCreateTaskFolderSingleValueExtendedProperties,
+    AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties,
+    AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties,
     AddUsersTodoExtensions,
     AddUsersTodoListsExtensions,
     AddLinkedResources
@@ -41,31 +42,31 @@ from azext_users_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users create-user') as c:
+    with self.argument_context('users user-user create-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
 
-    with self.argument_context('users get-user') as c:
+    with self.argument_context('users user-user get-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-user') as c:
+    with self.argument_context('users user-user list-user') as c:
         c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-user') as c:
+    with self.argument_context('users user-user update-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
@@ -73,11 +74,11 @@ def load_arguments(self, _):
         c.argument('notification_id', type=str, help='key: id of notification')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
 
-    with self.argument_context('users create-extension') as c:
+    with self.argument_context('users user create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users create-license-detail') as c:
+    with self.argument_context('users user create-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('service_plans', action=AddServicePlans, nargs='*', help='Information about the service plans '
@@ -87,7 +88,7 @@ def load_arguments(self, _):
         c.argument('sku_part_number', type=str, help='Unique SKU display name. Equal to the skuPartNumber on the '
                    'related SubscribedSku object; for example: \'AAD_Premium\'. Read-only')
 
-    with self.argument_context('users create-notification') as c:
+    with self.argument_context('users user create-notification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_time_to_live', type=int, help='')
@@ -99,208 +100,208 @@ def load_arguments(self, _):
         c.argument('payload_raw_content', type=str, help='')
         c.argument('payload_visual_content', action=AddPayloadVisualContent, nargs='*', help='visualProperties')
 
-    with self.argument_context('users create-photo') as c:
+    with self.argument_context('users user create-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('users create-ref-created-object') as c:
+    with self.argument_context('users user create-ref-created-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-direct-report') as c:
+    with self.argument_context('users user create-ref-direct-report') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-member-of') as c:
+    with self.argument_context('users user create-ref-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-owned-device') as c:
+    with self.argument_context('users user create-ref-owned-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-owned-object') as c:
+    with self.argument_context('users user create-ref-owned-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-registered-device') as c:
+    with self.argument_context('users user create-ref-registered-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-transitive-member-of') as c:
+    with self.argument_context('users user create-ref-transitive-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users get-extension') as c:
+    with self.argument_context('users user get-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-license-detail') as c:
+    with self.argument_context('users user get-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('license_details_id', type=str, help='key: id of licenseDetails')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-manager') as c:
+    with self.argument_context('users user get-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-notification') as c:
+    with self.argument_context('users user get-notification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notification_id', type=str, help='key: id of notification')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-outlook') as c:
+    with self.argument_context('users user get-outlook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-photo') as c:
+    with self.argument_context('users user get-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-photo-content') as c:
+    with self.argument_context('users user get-photo-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
 
-    with self.argument_context('users get-ref-manager') as c:
+    with self.argument_context('users user get-ref-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('users get-setting') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('users get-todo') as c:
+    with self.argument_context('users user get-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-created-object') as c:
+    with self.argument_context('users user get-todo') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-direct-report') as c:
+    with self.argument_context('users user list-created-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-extension') as c:
+    with self.argument_context('users user list-direct-report') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-license-detail') as c:
+    with self.argument_context('users user list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-member-of') as c:
+    with self.argument_context('users user list-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-notification') as c:
+    with self.argument_context('users user list-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-owned-device') as c:
+    with self.argument_context('users user list-notification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-owned-object') as c:
+    with self.argument_context('users user list-owned-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-photo') as c:
+    with self.argument_context('users user list-owned-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-ref-created-object') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-ref-direct-report') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-ref-member-of') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-ref-owned-device') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-ref-owned-object') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-ref-registered-device') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-ref-transitive-member-of') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('users list-registered-device') as c:
+    with self.argument_context('users user list-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-transitive-member-of') as c:
+    with self.argument_context('users user list-ref-created-object') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-ref-direct-report') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-ref-member-of') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-ref-owned-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-ref-owned-object') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-ref-registered-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-ref-transitive-member-of') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('users user list-registered-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users set-photo-content') as c:
+    with self.argument_context('users user list-transitive-member-of') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users user set-photo-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('users set-ref-manager') as c:
+    with self.argument_context('users user set-ref-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users update-extension') as c:
+    with self.argument_context('users user update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users update-license-detail') as c:
+    with self.argument_context('users user update-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('license_details_id', type=str, help='key: id of licenseDetails')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -311,7 +312,7 @@ def load_arguments(self, _):
         c.argument('sku_part_number', type=str, help='Unique SKU display name. Equal to the skuPartNumber on the '
                    'related SubscribedSku object; for example: \'AAD_Premium\'. Read-only')
 
-    with self.argument_context('users update-notification') as c:
+    with self.argument_context('users user update-notification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notification_id', type=str, help='key: id of notification')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -324,7 +325,7 @@ def load_arguments(self, _):
         c.argument('payload_raw_content', type=str, help='')
         c.argument('payload_visual_content', action=AddPayloadVisualContent, nargs='*', help='visualProperties')
 
-    with self.argument_context('users update-outlook') as c:
+    with self.argument_context('users user update-outlook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('master_categories', action=AddMasterCategories, nargs='*', help='A list of categories defined for '
@@ -333,14 +334,14 @@ def load_arguments(self, _):
         c.argument('task_groups', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users update-photo') as c:
+    with self.argument_context('users user update-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('users update-setting') as c:
+    with self.argument_context('users user update-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('contribution_to_content_discovery_as_organization_disabled', arg_type=get_three_state_flag(),
@@ -382,12 +383,12 @@ def load_arguments(self, _):
                    action=AddRegionalAndLanguageSettingsRegionalFormatOverrides, nargs='*', help=''
                    'regionalFormatOverrides')
 
-    with self.argument_context('users update-todo') as c:
+    with self.argument_context('users user update-todo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('lists', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
         c.argument('if_match', type=str, help='ETag')
@@ -395,7 +396,7 @@ def load_arguments(self, _):
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
 
-    with self.argument_context('users create-master-category') as c:
+    with self.argument_context('users user-outlook create-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('color', arg_type=get_enum_type(['preset0', 'preset1', 'none', 'preset2', 'preset3', 'preset4', ''
@@ -406,7 +407,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='A unique name that identifies a category in the user\'s mailbox. '
                    'After a category is created, the name cannot be changed. Read-only.')
 
-    with self.argument_context('users create-task') as c:
+    with self.argument_context('users user-outlook create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('categories', nargs='*', help='The categories associated with the item')
@@ -435,27 +436,27 @@ def load_arguments(self, _):
                                                      'deferred']), help='')
         c.argument('subject', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskMultiValueExtendedProperties, nargs='*',
-                   help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskSingleValueExtendedProperties, nargs=''
-                   '*', help='')
+        c.argument('multi_value_extended_properties', action=AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+                   nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, nargs='*', help='')
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users create-task-folder') as c:
+    with self.argument_context('users user-outlook create-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('change_key', type=str, help='')
         c.argument('is_default_folder', arg_type=get_three_state_flag(), help='')
         c.argument('name', type=str, help='')
         c.argument('parent_group_key', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskFolderMultiValueExtendedProperties,
-                   nargs='*', help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskFolderSingleValueExtendedProperties,
-                   nargs='*', help='')
+        c.argument('multi_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties, nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties, nargs='*', help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users create-task-group') as c:
+    with self.argument_context('users user-outlook create-task-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('change_key', type=str, help='')
@@ -464,55 +465,55 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('task_folders', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users get-master-category') as c:
+    with self.argument_context('users user-outlook get-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-task') as c:
+    with self.argument_context('users user-outlook get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-task-folder') as c:
+    with self.argument_context('users user-outlook get-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-task-group') as c:
+    with self.argument_context('users user-outlook get-task-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-master-category') as c:
+    with self.argument_context('users user-outlook list-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task') as c:
+    with self.argument_context('users user-outlook list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task-folder') as c:
+    with self.argument_context('users user-outlook list-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task-group') as c:
+    with self.argument_context('users user-outlook list-task-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-master-category') as c:
+    with self.argument_context('users user-outlook update-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -524,7 +525,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='A unique name that identifies a category in the user\'s mailbox. '
                    'After a category is created, the name cannot be changed. Read-only.')
 
-    with self.argument_context('users update-task') as c:
+    with self.argument_context('users user-outlook update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -554,14 +555,14 @@ def load_arguments(self, _):
                                                      'deferred']), help='')
         c.argument('subject', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskMultiValueExtendedProperties, nargs='*',
-                   help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskSingleValueExtendedProperties, nargs=''
-                   '*', help='')
+        c.argument('multi_value_extended_properties', action=AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+                   nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, nargs='*', help='')
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users update-task-folder') as c:
+    with self.argument_context('users user-outlook update-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -569,13 +570,13 @@ def load_arguments(self, _):
         c.argument('is_default_folder', arg_type=get_three_state_flag(), help='')
         c.argument('name', type=str, help='')
         c.argument('parent_group_key', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskFolderMultiValueExtendedProperties,
-                   nargs='*', help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskFolderSingleValueExtendedProperties,
-                   nargs='*', help='')
+        c.argument('multi_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties, nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties, nargs='*', help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users update-task-group') as c:
+    with self.argument_context('users user-outlook update-task-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -585,7 +586,7 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('task_folders', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook-task-folder delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -595,19 +596,19 @@ def load_arguments(self, _):
                    'singleValueLegacyExtendedProperty')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
 
-    with self.argument_context('users create-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users create-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users create-task') as c:
+    with self.argument_context('users user-outlook-task-folder create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -637,14 +638,14 @@ def load_arguments(self, _):
                                                      'deferred']), help='')
         c.argument('subject', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskMultiValueExtendedProperties, nargs='*',
-                   help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskSingleValueExtendedProperties, nargs=''
-                   '*', help='')
+        c.argument('multi_value_extended_properties', action=AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+                   nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, nargs='*', help='')
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users get-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder get-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -652,7 +653,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder get-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -660,35 +661,35 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-task') as c:
+    with self.argument_context('users user-outlook-task-folder get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task') as c:
+    with self.argument_context('users user-outlook-task-folder list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -696,7 +697,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users update-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -704,7 +705,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users update-task') as c:
+    with self.argument_context('users user-outlook-task-folder update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -735,14 +736,14 @@ def load_arguments(self, _):
                                                      'deferred']), help='')
         c.argument('subject', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskMultiValueExtendedProperties, nargs='*',
-                   help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskSingleValueExtendedProperties, nargs=''
-                   '*', help='')
+        c.argument('multi_value_extended_properties', action=AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+                   nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, nargs='*', help='')
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook-task-folder-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -753,7 +754,7 @@ def load_arguments(self, _):
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
 
-    with self.argument_context('users create-attachment') as c:
+    with self.argument_context('users user-outlook-task-folder-task create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -767,21 +768,21 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('users create-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users create-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users get-attachment') as c:
+    with self.argument_context('users user-outlook-task-folder-task get-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -789,7 +790,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task get-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -798,7 +799,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task get-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -807,7 +808,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-attachment') as c:
+    with self.argument_context('users user-outlook-task-folder-task list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -815,7 +816,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -823,7 +824,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -831,7 +832,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-attachment') as c:
+    with self.argument_context('users user-outlook-task-folder-task update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -846,7 +847,7 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('users update-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -855,7 +856,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users update-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-folder-task update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
@@ -864,13 +865,13 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook-task-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users create-task-folder') as c:
+    with self.argument_context('users user-outlook-task-group create-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -878,27 +879,27 @@ def load_arguments(self, _):
         c.argument('is_default_folder', arg_type=get_three_state_flag(), help='')
         c.argument('name', type=str, help='')
         c.argument('parent_group_key', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskFolderMultiValueExtendedProperties,
-                   nargs='*', help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskFolderSingleValueExtendedProperties,
-                   nargs='*', help='')
+        c.argument('multi_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties, nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties, nargs='*', help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users get-task-folder') as c:
+    with self.argument_context('users user-outlook-task-group get-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task-folder') as c:
+    with self.argument_context('users user-outlook-task-group list-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-task-folder') as c:
+    with self.argument_context('users user-outlook-task-group update-task-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -907,13 +908,13 @@ def load_arguments(self, _):
         c.argument('is_default_folder', arg_type=get_three_state_flag(), help='')
         c.argument('name', type=str, help='')
         c.argument('parent_group_key', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskFolderMultiValueExtendedProperties,
-                   nargs='*', help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskFolderSingleValueExtendedProperties,
-                   nargs='*', help='')
+        c.argument('multi_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderMultiValueExtendedProperties, nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskFolderSingleValueExtendedProperties, nargs='*', help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -924,21 +925,21 @@ def load_arguments(self, _):
                    'singleValueLegacyExtendedProperty')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
 
-    with self.argument_context('users create-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users create-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users create-task') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -969,14 +970,14 @@ def load_arguments(self, _):
                                                      'deferred']), help='')
         c.argument('subject', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskMultiValueExtendedProperties, nargs='*',
-                   help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskSingleValueExtendedProperties, nargs=''
-                   '*', help='')
+        c.argument('multi_value_extended_properties', action=AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+                   nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, nargs='*', help='')
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users get-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder get-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -985,7 +986,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder get-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -994,7 +995,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-task') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1002,7 +1003,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1010,7 +1011,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1018,7 +1019,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1026,7 +1027,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1035,7 +1036,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users update-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1044,7 +1045,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users update-task') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1076,14 +1077,14 @@ def load_arguments(self, _):
                                                      'deferred']), help='')
         c.argument('subject', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('multi_value_extended_properties', action=AddUsersCreateTaskMultiValueExtendedProperties, nargs='*',
-                   help='')
-        c.argument('single_value_extended_properties', action=AddUsersCreateTaskSingleValueExtendedProperties, nargs=''
-                   '*', help='')
+        c.argument('multi_value_extended_properties', action=AddUsersUserOutlookCreateTaskMultiValueExtendedProperties,
+                   nargs='*', help='')
+        c.argument('single_value_extended_properties',
+                   action=AddUsersUserOutlookCreateTaskSingleValueExtendedProperties, nargs='*', help='')
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1095,7 +1096,7 @@ def load_arguments(self, _):
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
 
-    with self.argument_context('users create-attachment') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1110,7 +1111,7 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('users create-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1118,7 +1119,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users create-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1126,7 +1127,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users get-attachment') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task get-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1135,7 +1136,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task get-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1145,7 +1146,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task get-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1155,7 +1156,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-attachment') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1164,7 +1165,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1173,7 +1174,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1182,7 +1183,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-attachment') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1198,7 +1199,7 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('users update-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1208,7 +1209,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users update-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task-group-task-folder-task update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_group_id', type=str, help='key: id of outlookTaskGroup')
         c.argument('outlook_task_folder_id', type=str, help='key: id of outlookTaskFolder')
@@ -1218,7 +1219,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-outlook-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -1228,7 +1229,7 @@ def load_arguments(self, _):
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
 
-    with self.argument_context('users create-attachment') as c:
+    with self.argument_context('users user-outlook-task create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1241,26 +1242,26 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('users create-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users create-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users get-attachment') as c:
+    with self.argument_context('users user-outlook-task get-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task get-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1268,7 +1269,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task get-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1276,28 +1277,28 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-attachment') as c:
+    with self.argument_context('users user-outlook-task list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-attachment') as c:
+    with self.argument_context('users user-outlook-task update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -1311,7 +1312,7 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('users update-multi-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1319,7 +1320,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
-    with self.argument_context('users update-single-value-extended-property') as c:
+    with self.argument_context('users user-outlook-task update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_task_id', type=str, help='key: id of outlookTask')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1327,21 +1328,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-setting delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-regional-and-language-setting') as c:
+    with self.argument_context('users user-setting get-regional-and-language-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-shift-preference') as c:
+    with self.argument_context('users user-setting get-shift-preference') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-regional-and-language-setting') as c:
+    with self.argument_context('users user-setting update-regional-and-language-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('authoring_languages', action=AddRegionalAndLanguageSettingsAuthoringLanguages, nargs='*', help='')
@@ -1356,7 +1357,7 @@ def load_arguments(self, _):
         c.argument('regional_format_overrides', action=AddRegionalAndLanguageSettingsRegionalFormatOverrides,
                    nargs='*', help='regionalFormatOverrides')
 
-    with self.argument_context('users update-shift-preference') as c:
+    with self.argument_context('users user-setting update-shift-preference') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -1379,12 +1380,12 @@ def load_arguments(self, _):
         c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
                    'and its recurrence pattern. Expected value: json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-todo delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users create-list') as c:
+    with self.argument_context('users user-todo create-list') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
@@ -1395,19 +1396,19 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddUsersTodoExtensions, nargs='*', help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users get-list') as c:
+    with self.argument_context('users user-todo get-list') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-list') as c:
+    with self.argument_context('users user-todo list-list') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-list') as c:
+    with self.argument_context('users user-todo update-list') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1419,19 +1420,19 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddUsersTodoExtensions, nargs='*', help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-todo-list delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
 
-    with self.argument_context('users create-extension') as c:
+    with self.argument_context('users user-todo-list create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users create-task') as c:
+    with self.argument_context('users user-todo-list create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1452,41 +1453,41 @@ def load_arguments(self, _):
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users get-extension') as c:
+    with self.argument_context('users user-todo-list get-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-task') as c:
+    with self.argument_context('users user-todo-list get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-extension') as c:
+    with self.argument_context('users user-todo-list list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-task') as c:
+    with self.argument_context('users user-todo-list list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-extension') as c:
+    with self.argument_context('users user-todo-list update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users update-task') as c:
+    with self.argument_context('users user-todo-list update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1508,7 +1509,7 @@ def load_arguments(self, _):
         c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
         c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users user-todo-list-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1516,13 +1517,13 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('linked_resource_id', type=str, help='key: id of linkedResource')
 
-    with self.argument_context('users create-extension') as c:
+    with self.argument_context('users user-todo-list-task create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users create-linked-resource') as c:
+    with self.argument_context('users user-todo-list-task create-linked-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1532,7 +1533,7 @@ def load_arguments(self, _):
         c.argument('external_id', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('users get-extension') as c:
+    with self.argument_context('users user-todo-list-task get-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1540,7 +1541,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users get-linked-resource') as c:
+    with self.argument_context('users user-todo-list-task get-linked-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1548,7 +1549,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-extension') as c:
+    with self.argument_context('users user-todo-list-task list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1556,7 +1557,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users list-linked-resource') as c:
+    with self.argument_context('users user-todo-list-task list-linked-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
@@ -1564,14 +1565,14 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('users update-extension') as c:
+    with self.argument_context('users user-todo-list-task update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users update-linked-resource') as c:
+    with self.argument_context('users user-todo-list-task update-linked-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
         c.argument('todo_task_id', type=str, help='key: id of todoTask')

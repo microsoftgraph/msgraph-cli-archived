@@ -55,6 +55,18 @@ These settings don't need to apply `--cli` on the command line.
 ``` yaml $(cli)
 cli:
   cli-name: {file_name}
+
+  flatten:
+    # enable flattening
+    cli-flatten-set-enabled: true
+    # flatten payloads
+    cli-flatten-payload: true
+    # max properties allowed for flattening. Don't flatten if properties exceed set count.
+    # Using 256 so that most of the payloads get flattened, payloads with more than 256 properties
+    # won't be flattened
+    cli-flatten-payload-max-prop: 256
+    # max depth of flatten
+    cli-flatten-payload-max-level: 1
 ```
     """
     write_to('readme.cli.md', config)
@@ -76,11 +88,11 @@ az:
 
 az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
-cli-core-lib: msgraph.cli.core
+cli-core-lib: msgraph.cli.core 
 
 directive:
     - where:
-          group: ^{file_name}(.*)
+          group: {file_name}_{version}
       set:
           group: {file_name}
 
@@ -88,7 +100,7 @@ modelerfour:
     lenient-model-deduplication: true
     group-parameters: true
     flatten-models: true
-    flatten-payloads: true 
+    flatten-payloads: true
 ```
   """
     write_to('readme.az.md', config)

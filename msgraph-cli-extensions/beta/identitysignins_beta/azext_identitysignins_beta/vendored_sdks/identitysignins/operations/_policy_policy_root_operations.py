@@ -123,9 +123,8 @@ class PolicyPolicyRootOperations(object):
         justification_required_on_approval=None,  # type: Optional[bool]
         mail_notifications_enabled=None,  # type: Optional[bool]
         recommendations_enabled=None,  # type: Optional[bool]
+        recurrence=None,  # type: Optional["models.MicrosoftGraphPatternedRecurrence"]
         reminder_notifications_enabled=None,  # type: Optional[bool]
-        pattern=None,  # type: Optional["models.MicrosoftGraphRecurrencePattern"]
-        range=None,  # type: Optional["models.MicrosoftGraphRecurrenceRange"]
         microsoft_graph_entity_id=None,  # type: Optional[str]
         is_enabled=None,  # type: Optional[bool]
         notify_reviewers=None,  # type: Optional[bool]
@@ -186,12 +185,10 @@ class PolicyPolicyRootOperations(object):
         :type mail_notifications_enabled: bool
         :param recommendations_enabled:
         :type recommendations_enabled: bool
+        :param recurrence: patternedRecurrence.
+        :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
         :param reminder_notifications_enabled:
         :type reminder_notifications_enabled: bool
-        :param pattern: recurrencePattern.
-        :type pattern: ~identity_sign_ins.models.MicrosoftGraphRecurrencePattern
-        :param range: recurrenceRange.
-        :type range: ~identity_sign_ins.models.MicrosoftGraphRecurrenceRange
         :param microsoft_graph_entity_id: Read-only.
         :type microsoft_graph_entity_id: str
         :param is_enabled:
@@ -225,7 +222,7 @@ class PolicyPolicyRootOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPolicyRoot(b2_c_authentication_methods_policy=b2_c_authentication_methods_policy, activity_based_timeout_policies=activity_based_timeout_policies, authorization_policy=authorization_policy, claims_mapping_policies=claims_mapping_policies, home_realm_discovery_policies=home_realm_discovery_policies, permission_grant_policies=permission_grant_policies, private_link_resource_policies=private_link_resource_policies, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, conditional_access_policies=conditional_access_policies, identity_security_defaults_enforcement_policy=identity_security_defaults_enforcement_policy, id_directory_role_access_review_policy_id=id, apply_actions=apply_actions, auto_apply_decisions_enabled=auto_apply_decisions_enabled, default_decision=default_decision, default_decision_enabled=default_decision_enabled, instance_duration_in_days=instance_duration_in_days, justification_required_on_approval=justification_required_on_approval, mail_notifications_enabled=mail_notifications_enabled, recommendations_enabled=recommendations_enabled, reminder_notifications_enabled=reminder_notifications_enabled, pattern=pattern, range=range, id_admin_consent_request_policy_id=microsoft_graph_entity_id, is_enabled_admin_consent_request_policy_is_enabled=is_enabled, notify_reviewers=notify_reviewers, reminders_enabled=reminders_enabled, request_duration_in_days=request_duration_in_days, reviewers=reviewers, version=version, id_device_registration_policy_id=id1, id_authentication_flows_policy_id=id2, description=description, display_name=display_name, is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled=is_enabled)
+        _body = models.MicrosoftGraphPolicyRoot(b2_c_authentication_methods_policy=b2_c_authentication_methods_policy, activity_based_timeout_policies=activity_based_timeout_policies, authorization_policy=authorization_policy, claims_mapping_policies=claims_mapping_policies, home_realm_discovery_policies=home_realm_discovery_policies, permission_grant_policies=permission_grant_policies, private_link_resource_policies=private_link_resource_policies, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, conditional_access_policies=conditional_access_policies, identity_security_defaults_enforcement_policy=identity_security_defaults_enforcement_policy, id_directory_role_access_review_policy_id=id, apply_actions=apply_actions, auto_apply_decisions_enabled=auto_apply_decisions_enabled, default_decision=default_decision, default_decision_enabled=default_decision_enabled, instance_duration_in_days=instance_duration_in_days, justification_required_on_approval=justification_required_on_approval, mail_notifications_enabled=mail_notifications_enabled, recommendations_enabled=recommendations_enabled, recurrence=recurrence, reminder_notifications_enabled=reminder_notifications_enabled, id_admin_consent_request_policy_id=microsoft_graph_entity_id, is_enabled_admin_consent_request_policy_is_enabled=is_enabled, notify_reviewers=notify_reviewers, reminders_enabled=reminders_enabled, request_duration_in_days=request_duration_in_days, reviewers=reviewers, version=version, id_device_registration_policy_id=id1, id_authentication_flows_policy_id=id2, description=description, display_name=display_name, is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled=is_enabled)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

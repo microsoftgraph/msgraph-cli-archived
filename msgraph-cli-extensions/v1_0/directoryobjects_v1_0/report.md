@@ -1,13 +1,13 @@
 # Azure CLI Module Creation Report
 
-### directoryobjects check-member-group
+### directoryobjects directory-object check-member-group
 
-check-member-group a directoryobjects.
+check-member-group a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -20,14 +20,14 @@ check-member-group a directoryobjects.
 |**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
 |**--group-ids**|array||group_ids|groupIds|
 
-### directoryobjects check-member-object
+### directoryobjects directory-object check-member-object
 
-check-member-object a directoryobjects.
+check-member-object a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -40,54 +40,14 @@ check-member-object a directoryobjects.
 |**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
 |**--ids**|array||ids|ids|
 
-### directoryobjects create-directory-object
+### directoryobjects directory-object get-available-extension-property
 
-create-directory-object a directoryobjects.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|directoryobjects|directoryObjects.directoryObject|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-directory-object|CreateDirectoryObject|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-
-### directoryobjects delete
-
-delete a directoryobjects.
+get-available-extension-property a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects.directoryObject|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteDirectoryObject|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### directoryobjects get-available-extension-property
-
-get-available-extension-property a directoryobjects.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -99,14 +59,14 @@ get-available-extension-property a directoryobjects.
 |------|----|-----------|----------|------------|
 |**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
 
-### directoryobjects get-by-id
+### directoryobjects directory-object get-by-id
 
-get-by-id a directoryobjects.
+get-by-id a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -119,35 +79,14 @@ get-by-id a directoryobjects.
 |**--ids**|array||ids|ids|
 |**--types**|array||types|types|
 
-### directoryobjects get-directory-object
+### directoryobjects directory-object get-member-group
 
-get-directory-object a directoryobjects.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|directoryobjects|directoryObjects.directoryObject|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-directory-object|GetDirectoryObject|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### directoryobjects get-member-group
-
-get-member-group a directoryobjects.
+get-member-group a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -160,14 +99,14 @@ get-member-group a directoryobjects.
 |**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
 |**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
 
-### directoryobjects get-member-object
+### directoryobjects directory-object get-member-object
 
-get-member-object a directoryobjects.
+get-member-object a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -180,35 +119,14 @@ get-member-object a directoryobjects.
 |**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
 |**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
 
-### directoryobjects list-directory-object
+### directoryobjects directory-object restore
 
-list-directory-object a directoryobjects.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|directoryobjects|directoryObjects.directoryObject|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-directory-object|ListDirectoryObject|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### directoryobjects restore
-
-restore a directoryobjects.
+restore a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -220,35 +138,14 @@ restore a directoryobjects.
 |------|----|-----------|----------|------------|
 |**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
 
-### directoryobjects update-directory-object
+### directoryobjects directory-object validate-property
 
-update-directory-object a directoryobjects.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|directoryobjects|directoryObjects.directoryObject|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-directory-object|UpdateDirectoryObject|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-
-### directoryobjects validate-property
-
-validate-property a directoryobjects.
+validate-property a directoryobjects directory-object.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|directoryobjects|directoryObjects|
+|directoryobjects directory-object|directoryObjects|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -262,3 +159,106 @@ validate-property a directoryobjects.
 |**--display-name**|string||display_name|displayName|
 |**--mail-nickname**|string||mail_nickname|mailNickname|
 |**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### directoryobjects directory-object-directory-object create-directory-object
+
+create-directory-object a directoryobjects directory-object-directory-object.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|directoryobjects directory-object-directory-object|directoryObjects.directoryObject|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-directory-object|CreateDirectoryObject|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+
+### directoryobjects directory-object-directory-object delete
+
+delete a directoryobjects directory-object-directory-object.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|directoryobjects directory-object-directory-object|directoryObjects.directoryObject|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|delete|DeleteDirectoryObject|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+### directoryobjects directory-object-directory-object get-directory-object
+
+get-directory-object a directoryobjects directory-object-directory-object.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|directoryobjects directory-object-directory-object|directoryObjects.directoryObject|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-directory-object|GetDirectoryObject|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### directoryobjects directory-object-directory-object list-directory-object
+
+list-directory-object a directoryobjects directory-object-directory-object.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|directoryobjects directory-object-directory-object|directoryObjects.directoryObject|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-directory-object|ListDirectoryObject|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### directoryobjects directory-object-directory-object update-directory-object
+
+update-directory-object a directoryobjects directory-object-directory-object.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|directoryobjects directory-object-directory-object|directoryObjects.directoryObject|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-directory-object|UpdateDirectoryObject|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|

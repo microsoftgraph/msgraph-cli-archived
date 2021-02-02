@@ -1785,15 +1785,156 @@ class AuditLogOperations:
 
     async def create_sign_in(
         self,
-        body: "models.MicrosoftGraphSignIn",
+        id: Optional[str] = None,
+        alternate_sign_in_name: Optional[str] = None,
+        app_display_name: Optional[str] = None,
+        app_id: Optional[str] = None,
+        applied_conditional_access_policies: Optional[List["models.MicrosoftGraphAppliedConditionalAccessPolicy"]] = None,
+        authentication_details: Optional[List["models.MicrosoftGraphAuthenticationDetail"]] = None,
+        authentication_methods_used: Optional[List[str]] = None,
+        authentication_processing_details: Optional[List["models.MicrosoftGraphKeyValue"]] = None,
+        authentication_requirement: Optional[str] = None,
+        authentication_requirement_policies: Optional[List["models.MicrosoftGraphAuthenticationRequirementPolicy"]] = None,
+        client_app_used: Optional[str] = None,
+        conditional_access_status: Optional[Union[str, "models.MicrosoftGraphConditionalAccessStatus"]] = None,
+        correlation_id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        device_detail: Optional["models.MicrosoftGraphDeviceDetail"] = None,
+        ip_address: Optional[str] = None,
+        is_interactive: Optional[bool] = None,
+        mfa_detail: Optional["models.MicrosoftGraphMfaDetail"] = None,
+        network_location_details: Optional[List["models.MicrosoftGraphNetworkLocationDetail"]] = None,
+        original_request_id: Optional[str] = None,
+        processing_time_in_milliseconds: Optional[int] = None,
+        resource_display_name: Optional[str] = None,
+        resource_id: Optional[str] = None,
+        resource_tenant_id: Optional[str] = None,
+        risk_detail: Optional[Union[str, "models.MicrosoftGraphRiskDetail"]] = None,
+        risk_event_types: Optional[List[Union[str, "models.MicrosoftGraphRiskEventType"]]] = None,
+        risk_event_types_v2: Optional[List[str]] = None,
+        risk_level_aggregated: Optional[Union[str, "models.MicrosoftGraphRiskLevel"]] = None,
+        risk_level_during_sign_in: Optional[Union[str, "models.MicrosoftGraphRiskLevel"]] = None,
+        risk_state: Optional[Union[str, "models.MicrosoftGraphRiskState"]] = None,
+        service_principal_id: Optional[str] = None,
+        service_principal_name: Optional[str] = None,
+        sign_in_event_types: Optional[List[str]] = None,
+        status: Optional["models.MicrosoftGraphSignInStatus"] = None,
+        token_issuer_name: Optional[str] = None,
+        token_issuer_type: Optional[Union[str, "models.MicrosoftGraphTokenIssuerType"]] = None,
+        user_agent_parameter: Optional[str] = None,
+        user_display_name: Optional[str] = None,
+        user_id: Optional[str] = None,
+        user_principal_name: Optional[str] = None,
+        city: Optional[str] = None,
+        country_or_region: Optional[str] = None,
+        geo_coordinates: Optional["models.MicrosoftGraphGeoCoordinates"] = None,
+        state: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSignIn":
         """Create new navigation property to signIns for auditLogs.
 
         Create new navigation property to signIns for auditLogs.
 
-        :param body: New navigation property.
-        :type body: ~reports.models.MicrosoftGraphSignIn
+        :param id: Read-only.
+        :type id: str
+        :param alternate_sign_in_name:
+        :type alternate_sign_in_name: str
+        :param app_display_name: App name displayed in the Azure Portal.
+        :type app_display_name: str
+        :param app_id: Unique GUID representing the app ID in the Azure Active Directory.
+        :type app_id: str
+        :param applied_conditional_access_policies:
+        :type applied_conditional_access_policies: list[~reports.models.MicrosoftGraphAppliedConditionalAccessPolicy]
+        :param authentication_details:
+        :type authentication_details: list[~reports.models.MicrosoftGraphAuthenticationDetail]
+        :param authentication_methods_used:
+        :type authentication_methods_used: list[str]
+        :param authentication_processing_details:
+        :type authentication_processing_details: list[~reports.models.MicrosoftGraphKeyValue]
+        :param authentication_requirement:
+        :type authentication_requirement: str
+        :param authentication_requirement_policies:
+        :type authentication_requirement_policies: list[~reports.models.MicrosoftGraphAuthenticationRequirementPolicy]
+        :param client_app_used: Identifies the legacy client used for sign-in activity.  Includes
+         Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.
+        :type client_app_used: str
+        :param conditional_access_status:
+        :type conditional_access_status: str or ~reports.models.MicrosoftGraphConditionalAccessStatus
+        :param correlation_id: The request ID sent from the client when the sign-in is initiated; used
+         to troubleshoot sign-in activity.
+        :type correlation_id: str
+        :param created_date_time: Date and time (UTC) the sign-in was initiated. Example: midnight on
+         Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param device_detail: deviceDetail.
+        :type device_detail: ~reports.models.MicrosoftGraphDeviceDetail
+        :param ip_address: IP address of the client used to sign in.
+        :type ip_address: str
+        :param is_interactive: Indicates if a sign-in is interactive or not.
+        :type is_interactive: bool
+        :param mfa_detail: mfaDetail.
+        :type mfa_detail: ~reports.models.MicrosoftGraphMfaDetail
+        :param network_location_details:
+        :type network_location_details: list[~reports.models.MicrosoftGraphNetworkLocationDetail]
+        :param original_request_id:
+        :type original_request_id: str
+        :param processing_time_in_milliseconds:
+        :type processing_time_in_milliseconds: int
+        :param resource_display_name: Name of the resource the user signed into.
+        :type resource_display_name: str
+        :param resource_id: ID of the resource that the user signed into.
+        :type resource_id: str
+        :param resource_tenant_id:
+        :type resource_tenant_id: str
+        :param risk_detail:
+        :type risk_detail: str or ~reports.models.MicrosoftGraphRiskDetail
+        :param risk_event_types: Risk event types associated with the sign-in. The possible values are:
+         unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+         malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+         investigationsThreatIntelligence,  generic, and unknownFutureValue.
+        :type risk_event_types: list[str or ~reports.models.MicrosoftGraphRiskEventType]
+        :param risk_event_types_v2: The list of risk event types associated with the sign-in. Possible
+         values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+         malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+         investigationsThreatIntelligence,  generic, or unknownFutureValue.
+        :type risk_event_types_v2: list[str]
+        :param risk_level_aggregated:
+        :type risk_level_aggregated: str or ~reports.models.MicrosoftGraphRiskLevel
+        :param risk_level_during_sign_in:
+        :type risk_level_during_sign_in: str or ~reports.models.MicrosoftGraphRiskLevel
+        :param risk_state:
+        :type risk_state: str or ~reports.models.MicrosoftGraphRiskState
+        :param service_principal_id:
+        :type service_principal_id: str
+        :param service_principal_name:
+        :type service_principal_name: str
+        :param sign_in_event_types:
+        :type sign_in_event_types: list[str]
+        :param status: signInStatus.
+        :type status: ~reports.models.MicrosoftGraphSignInStatus
+        :param token_issuer_name:
+        :type token_issuer_name: str
+        :param token_issuer_type:
+        :type token_issuer_type: str or ~reports.models.MicrosoftGraphTokenIssuerType
+        :param user_agent_parameter:
+        :type user_agent_parameter: str
+        :param user_display_name: Display name of the user that initiated the sign-in.
+        :type user_display_name: str
+        :param user_id: ID of the user that initiated the sign-in.
+        :type user_id: str
+        :param user_principal_name: User principal name of the user that initiated the sign-in.
+        :type user_principal_name: str
+        :param city: Provides the city where the sign-in originated. This is calculated using
+         latitude/longitude information from the sign-in activity.
+        :type city: str
+        :param country_or_region: Provides the country code info (2 letter code) where the sign-in
+         originated.  This is calculated using latitude/longitude information from the sign-in activity.
+        :type country_or_region: str
+        :param geo_coordinates: geoCoordinates.
+        :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
+        :param state: Provides the State where the sign-in originated. This is calculated using
+         latitude/longitude information from the sign-in activity.
+        :type state: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSignIn, or the result of cls(response)
         :rtype: ~reports.models.MicrosoftGraphSignIn
@@ -1802,6 +1943,8 @@ class AuditLogOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSignIn"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSignIn(id=id, alternate_sign_in_name=alternate_sign_in_name, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, authentication_details=authentication_details, authentication_methods_used=authentication_methods_used, authentication_processing_details=authentication_processing_details, authentication_requirement=authentication_requirement, authentication_requirement_policies=authentication_requirement_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, mfa_detail=mfa_detail, network_location_details=network_location_details, original_request_id=original_request_id, processing_time_in_milliseconds=processing_time_in_milliseconds, resource_display_name=resource_display_name, resource_id=resource_id, resource_tenant_id=resource_tenant_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, service_principal_id=service_principal_id, service_principal_name=service_principal_name, sign_in_event_types=sign_in_event_types, status=status, token_issuer_name=token_issuer_name, token_issuer_type=token_issuer_type, user_agent=user_agent_parameter, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1818,7 +1961,7 @@ class AuditLogOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSignIn')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSignIn')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1904,7 +2047,50 @@ class AuditLogOperations:
     async def update_sign_in(
         self,
         sign_in_id: str,
-        body: "models.MicrosoftGraphSignIn",
+        id: Optional[str] = None,
+        alternate_sign_in_name: Optional[str] = None,
+        app_display_name: Optional[str] = None,
+        app_id: Optional[str] = None,
+        applied_conditional_access_policies: Optional[List["models.MicrosoftGraphAppliedConditionalAccessPolicy"]] = None,
+        authentication_details: Optional[List["models.MicrosoftGraphAuthenticationDetail"]] = None,
+        authentication_methods_used: Optional[List[str]] = None,
+        authentication_processing_details: Optional[List["models.MicrosoftGraphKeyValue"]] = None,
+        authentication_requirement: Optional[str] = None,
+        authentication_requirement_policies: Optional[List["models.MicrosoftGraphAuthenticationRequirementPolicy"]] = None,
+        client_app_used: Optional[str] = None,
+        conditional_access_status: Optional[Union[str, "models.MicrosoftGraphConditionalAccessStatus"]] = None,
+        correlation_id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        device_detail: Optional["models.MicrosoftGraphDeviceDetail"] = None,
+        ip_address: Optional[str] = None,
+        is_interactive: Optional[bool] = None,
+        mfa_detail: Optional["models.MicrosoftGraphMfaDetail"] = None,
+        network_location_details: Optional[List["models.MicrosoftGraphNetworkLocationDetail"]] = None,
+        original_request_id: Optional[str] = None,
+        processing_time_in_milliseconds: Optional[int] = None,
+        resource_display_name: Optional[str] = None,
+        resource_id: Optional[str] = None,
+        resource_tenant_id: Optional[str] = None,
+        risk_detail: Optional[Union[str, "models.MicrosoftGraphRiskDetail"]] = None,
+        risk_event_types: Optional[List[Union[str, "models.MicrosoftGraphRiskEventType"]]] = None,
+        risk_event_types_v2: Optional[List[str]] = None,
+        risk_level_aggregated: Optional[Union[str, "models.MicrosoftGraphRiskLevel"]] = None,
+        risk_level_during_sign_in: Optional[Union[str, "models.MicrosoftGraphRiskLevel"]] = None,
+        risk_state: Optional[Union[str, "models.MicrosoftGraphRiskState"]] = None,
+        service_principal_id: Optional[str] = None,
+        service_principal_name: Optional[str] = None,
+        sign_in_event_types: Optional[List[str]] = None,
+        status: Optional["models.MicrosoftGraphSignInStatus"] = None,
+        token_issuer_name: Optional[str] = None,
+        token_issuer_type: Optional[Union[str, "models.MicrosoftGraphTokenIssuerType"]] = None,
+        user_agent_parameter: Optional[str] = None,
+        user_display_name: Optional[str] = None,
+        user_id: Optional[str] = None,
+        user_principal_name: Optional[str] = None,
+        city: Optional[str] = None,
+        country_or_region: Optional[str] = None,
+        geo_coordinates: Optional["models.MicrosoftGraphGeoCoordinates"] = None,
+        state: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property signIns in auditLogs.
@@ -1913,8 +2099,106 @@ class AuditLogOperations:
 
         :param sign_in_id: key: id of signIn.
         :type sign_in_id: str
-        :param body: New navigation property values.
-        :type body: ~reports.models.MicrosoftGraphSignIn
+        :param id: Read-only.
+        :type id: str
+        :param alternate_sign_in_name:
+        :type alternate_sign_in_name: str
+        :param app_display_name: App name displayed in the Azure Portal.
+        :type app_display_name: str
+        :param app_id: Unique GUID representing the app ID in the Azure Active Directory.
+        :type app_id: str
+        :param applied_conditional_access_policies:
+        :type applied_conditional_access_policies: list[~reports.models.MicrosoftGraphAppliedConditionalAccessPolicy]
+        :param authentication_details:
+        :type authentication_details: list[~reports.models.MicrosoftGraphAuthenticationDetail]
+        :param authentication_methods_used:
+        :type authentication_methods_used: list[str]
+        :param authentication_processing_details:
+        :type authentication_processing_details: list[~reports.models.MicrosoftGraphKeyValue]
+        :param authentication_requirement:
+        :type authentication_requirement: str
+        :param authentication_requirement_policies:
+        :type authentication_requirement_policies: list[~reports.models.MicrosoftGraphAuthenticationRequirementPolicy]
+        :param client_app_used: Identifies the legacy client used for sign-in activity.  Includes
+         Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.
+        :type client_app_used: str
+        :param conditional_access_status:
+        :type conditional_access_status: str or ~reports.models.MicrosoftGraphConditionalAccessStatus
+        :param correlation_id: The request ID sent from the client when the sign-in is initiated; used
+         to troubleshoot sign-in activity.
+        :type correlation_id: str
+        :param created_date_time: Date and time (UTC) the sign-in was initiated. Example: midnight on
+         Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param device_detail: deviceDetail.
+        :type device_detail: ~reports.models.MicrosoftGraphDeviceDetail
+        :param ip_address: IP address of the client used to sign in.
+        :type ip_address: str
+        :param is_interactive: Indicates if a sign-in is interactive or not.
+        :type is_interactive: bool
+        :param mfa_detail: mfaDetail.
+        :type mfa_detail: ~reports.models.MicrosoftGraphMfaDetail
+        :param network_location_details:
+        :type network_location_details: list[~reports.models.MicrosoftGraphNetworkLocationDetail]
+        :param original_request_id:
+        :type original_request_id: str
+        :param processing_time_in_milliseconds:
+        :type processing_time_in_milliseconds: int
+        :param resource_display_name: Name of the resource the user signed into.
+        :type resource_display_name: str
+        :param resource_id: ID of the resource that the user signed into.
+        :type resource_id: str
+        :param resource_tenant_id:
+        :type resource_tenant_id: str
+        :param risk_detail:
+        :type risk_detail: str or ~reports.models.MicrosoftGraphRiskDetail
+        :param risk_event_types: Risk event types associated with the sign-in. The possible values are:
+         unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+         malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+         investigationsThreatIntelligence,  generic, and unknownFutureValue.
+        :type risk_event_types: list[str or ~reports.models.MicrosoftGraphRiskEventType]
+        :param risk_event_types_v2: The list of risk event types associated with the sign-in. Possible
+         values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+         malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+         investigationsThreatIntelligence,  generic, or unknownFutureValue.
+        :type risk_event_types_v2: list[str]
+        :param risk_level_aggregated:
+        :type risk_level_aggregated: str or ~reports.models.MicrosoftGraphRiskLevel
+        :param risk_level_during_sign_in:
+        :type risk_level_during_sign_in: str or ~reports.models.MicrosoftGraphRiskLevel
+        :param risk_state:
+        :type risk_state: str or ~reports.models.MicrosoftGraphRiskState
+        :param service_principal_id:
+        :type service_principal_id: str
+        :param service_principal_name:
+        :type service_principal_name: str
+        :param sign_in_event_types:
+        :type sign_in_event_types: list[str]
+        :param status: signInStatus.
+        :type status: ~reports.models.MicrosoftGraphSignInStatus
+        :param token_issuer_name:
+        :type token_issuer_name: str
+        :param token_issuer_type:
+        :type token_issuer_type: str or ~reports.models.MicrosoftGraphTokenIssuerType
+        :param user_agent_parameter:
+        :type user_agent_parameter: str
+        :param user_display_name: Display name of the user that initiated the sign-in.
+        :type user_display_name: str
+        :param user_id: ID of the user that initiated the sign-in.
+        :type user_id: str
+        :param user_principal_name: User principal name of the user that initiated the sign-in.
+        :type user_principal_name: str
+        :param city: Provides the city where the sign-in originated. This is calculated using
+         latitude/longitude information from the sign-in activity.
+        :type city: str
+        :param country_or_region: Provides the country code info (2 letter code) where the sign-in
+         originated.  This is calculated using latitude/longitude information from the sign-in activity.
+        :type country_or_region: str
+        :param geo_coordinates: geoCoordinates.
+        :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
+        :param state: Provides the State where the sign-in originated. This is calculated using
+         latitude/longitude information from the sign-in activity.
+        :type state: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1923,6 +2207,8 @@ class AuditLogOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSignIn(id=id, alternate_sign_in_name=alternate_sign_in_name, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, authentication_details=authentication_details, authentication_methods_used=authentication_methods_used, authentication_processing_details=authentication_processing_details, authentication_requirement=authentication_requirement, authentication_requirement_policies=authentication_requirement_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, mfa_detail=mfa_detail, network_location_details=network_location_details, original_request_id=original_request_id, processing_time_in_milliseconds=processing_time_in_milliseconds, resource_display_name=resource_display_name, resource_id=resource_id, resource_tenant_id=resource_tenant_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, service_principal_id=service_principal_id, service_principal_name=service_principal_name, sign_in_event_types=sign_in_event_types, status=status, token_issuer_name=token_issuer_name, token_issuer_type=token_issuer_type, user_agent=user_agent_parameter, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1942,7 +2228,7 @@ class AuditLogOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSignIn')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSignIn')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

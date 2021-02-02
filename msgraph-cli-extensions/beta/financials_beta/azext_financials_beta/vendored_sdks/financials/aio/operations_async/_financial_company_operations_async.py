@@ -10354,7 +10354,62 @@ class FinancialCompanyOperations:
     async def create_sale_credit_memo(
         self,
         company_id: str,
-        body: "models.MicrosoftGraphSalesCreditMemo",
+        id: Optional[str] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        credit_memo_date: Optional[datetime.date] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        discount_applied_before_tax: Optional[bool] = None,
+        due_date: Optional[datetime.date] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        invoice_id: Optional[str] = None,
+        invoice_number: Optional[str] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        prices_include_tax: Optional[bool] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_credit_memo_lines: Optional[List["models.MicrosoftGraphSalesCreditMemoLine"]] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSalesCreditMemo":
         """Create new navigation property to salesCreditMemos for financials.
@@ -10363,8 +10418,118 @@ class FinancialCompanyOperations:
 
         :param company_id: key: id of company.
         :type company_id: str
-        :param body: New navigation property.
-        :type body: ~financials.models.MicrosoftGraphSalesCreditMemo
+        :param id: Read-only.
+        :type id: str
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param credit_memo_date:
+        :type credit_memo_date: ~datetime.date
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param discount_applied_before_tax:
+        :type discount_applied_before_tax: bool
+        :param due_date:
+        :type due_date: ~datetime.date
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param invoice_id:
+        :type invoice_id: str
+        :param invoice_number:
+        :type invoice_number: str
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param prices_include_tax:
+        :type prices_include_tax: bool
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_credit_memo_lines:
+        :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSalesCreditMemo, or the result of cls(response)
         :rtype: ~financials.models.MicrosoftGraphSalesCreditMemo
@@ -10373,6 +10538,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesCreditMemo"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesCreditMemo(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, credit_memo_date=credit_memo_date, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_id=invoice_id, invoice_number=invoice_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_credit_memo_lines=sales_credit_memo_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -10393,7 +10560,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesCreditMemo')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesCreditMemo')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -10484,7 +10651,62 @@ class FinancialCompanyOperations:
         self,
         company_id: str,
         sales_credit_memo_id: str,
-        body: "models.MicrosoftGraphSalesCreditMemo",
+        id: Optional[str] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        credit_memo_date: Optional[datetime.date] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        discount_applied_before_tax: Optional[bool] = None,
+        due_date: Optional[datetime.date] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        invoice_id: Optional[str] = None,
+        invoice_number: Optional[str] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        prices_include_tax: Optional[bool] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_credit_memo_lines: Optional[List["models.MicrosoftGraphSalesCreditMemoLine"]] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> None:
         """Update the navigation property salesCreditMemos in financials.
@@ -10495,8 +10717,118 @@ class FinancialCompanyOperations:
         :type company_id: str
         :param sales_credit_memo_id: key: id of salesCreditMemo.
         :type sales_credit_memo_id: str
-        :param body: New navigation property values.
-        :type body: ~financials.models.MicrosoftGraphSalesCreditMemo
+        :param id: Read-only.
+        :type id: str
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param credit_memo_date:
+        :type credit_memo_date: ~datetime.date
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param discount_applied_before_tax:
+        :type discount_applied_before_tax: bool
+        :param due_date:
+        :type due_date: ~datetime.date
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param invoice_id:
+        :type invoice_id: str
+        :param invoice_number:
+        :type invoice_number: str
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param prices_include_tax:
+        :type prices_include_tax: bool
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_credit_memo_lines:
+        :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -10505,6 +10837,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesCreditMemo(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, credit_memo_date=credit_memo_date, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_id=invoice_id, invoice_number=invoice_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_credit_memo_lines=sales_credit_memo_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -10525,7 +10859,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesCreditMemo')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesCreditMemo')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -11290,7 +11624,68 @@ class FinancialCompanyOperations:
     async def create_sale_invoice(
         self,
         company_id: str,
-        body: "models.MicrosoftGraphSalesInvoice",
+        id: Optional[str] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        customer_purchase_order_reference: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        discount_applied_before_tax: Optional[bool] = None,
+        due_date: Optional[datetime.date] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        invoice_date: Optional[datetime.date] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        order_id: Optional[str] = None,
+        order_number: Optional[str] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        prices_include_tax: Optional[bool] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        shipment_method_id: Optional[str] = None,
+        shipping_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        ship_to_contact: Optional[str] = None,
+        ship_to_name: Optional[str] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_invoice_lines: Optional[List["models.MicrosoftGraphSalesInvoiceLine"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        microsoft_graph_customer_shipment_method_id_shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        microsoft_graph_shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSalesInvoice":
         """Create new navigation property to salesInvoices for financials.
@@ -11299,8 +11694,130 @@ class FinancialCompanyOperations:
 
         :param company_id: key: id of company.
         :type company_id: str
-        :param body: New navigation property.
-        :type body: ~financials.models.MicrosoftGraphSalesInvoice
+        :param id: Read-only.
+        :type id: str
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param customer_purchase_order_reference:
+        :type customer_purchase_order_reference: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param discount_applied_before_tax:
+        :type discount_applied_before_tax: bool
+        :param due_date:
+        :type due_date: ~datetime.date
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param invoice_date:
+        :type invoice_date: ~datetime.date
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param order_id:
+        :type order_id: str
+        :param order_number:
+        :type order_number: str
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param prices_include_tax:
+        :type prices_include_tax: bool
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param shipping_postal_address: postalAddressType.
+        :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param ship_to_contact:
+        :type ship_to_contact: str
+        :param ship_to_name:
+        :type ship_to_name: str
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_invoice_lines:
+        :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param microsoft_graph_customer_shipment_method_id_shipment_method_id:
+        :type microsoft_graph_customer_shipment_method_id_shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param microsoft_graph_shipment_method: shipmentMethod.
+        :type microsoft_graph_shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSalesInvoice, or the result of cls(response)
         :rtype: ~financials.models.MicrosoftGraphSalesInvoice
@@ -11309,6 +11826,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesInvoice"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesInvoice(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, customer_purchase_order_reference=customer_purchase_order_reference, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, order_id=order_id, order_number=order_number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_invoice_lines=sales_invoice_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -11329,7 +11848,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesInvoice')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesInvoice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -11420,7 +11939,68 @@ class FinancialCompanyOperations:
         self,
         company_id: str,
         sales_invoice_id: str,
-        body: "models.MicrosoftGraphSalesInvoice",
+        id: Optional[str] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        customer_purchase_order_reference: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        discount_applied_before_tax: Optional[bool] = None,
+        due_date: Optional[datetime.date] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        invoice_date: Optional[datetime.date] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        order_id: Optional[str] = None,
+        order_number: Optional[str] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        prices_include_tax: Optional[bool] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        shipment_method_id: Optional[str] = None,
+        shipping_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        ship_to_contact: Optional[str] = None,
+        ship_to_name: Optional[str] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_invoice_lines: Optional[List["models.MicrosoftGraphSalesInvoiceLine"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        microsoft_graph_customer_shipment_method_id_shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        microsoft_graph_shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> None:
         """Update the navigation property salesInvoices in financials.
@@ -11431,8 +12011,130 @@ class FinancialCompanyOperations:
         :type company_id: str
         :param sales_invoice_id: key: id of salesInvoice.
         :type sales_invoice_id: str
-        :param body: New navigation property values.
-        :type body: ~financials.models.MicrosoftGraphSalesInvoice
+        :param id: Read-only.
+        :type id: str
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param customer_purchase_order_reference:
+        :type customer_purchase_order_reference: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param discount_applied_before_tax:
+        :type discount_applied_before_tax: bool
+        :param due_date:
+        :type due_date: ~datetime.date
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param invoice_date:
+        :type invoice_date: ~datetime.date
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param order_id:
+        :type order_id: str
+        :param order_number:
+        :type order_number: str
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param prices_include_tax:
+        :type prices_include_tax: bool
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param shipping_postal_address: postalAddressType.
+        :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param ship_to_contact:
+        :type ship_to_contact: str
+        :param ship_to_name:
+        :type ship_to_name: str
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_invoice_lines:
+        :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param microsoft_graph_customer_shipment_method_id_shipment_method_id:
+        :type microsoft_graph_customer_shipment_method_id_shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param microsoft_graph_shipment_method: shipmentMethod.
+        :type microsoft_graph_shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -11441,6 +12143,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesInvoice(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, customer_purchase_order_reference=customer_purchase_order_reference, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, order_id=order_id, order_number=order_number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_invoice_lines=sales_invoice_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -11461,7 +12165,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesInvoice')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesInvoice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -12250,7 +12954,65 @@ class FinancialCompanyOperations:
     async def create_sale_order(
         self,
         company_id: str,
-        body: "models.MicrosoftGraphSalesOrder",
+        id: Optional[str] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        discount_applied_before_tax: Optional[bool] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        fully_shipped: Optional[bool] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        order_date: Optional[datetime.date] = None,
+        partial_shipping: Optional[bool] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        prices_include_tax: Optional[bool] = None,
+        requested_delivery_date: Optional[datetime.date] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        shipping_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        ship_to_contact: Optional[str] = None,
+        ship_to_name: Optional[str] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_order_lines: Optional[List["models.MicrosoftGraphSalesOrderLine"]] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSalesOrder":
         """Create new navigation property to salesOrders for financials.
@@ -12259,8 +13021,124 @@ class FinancialCompanyOperations:
 
         :param company_id: key: id of company.
         :type company_id: str
-        :param body: New navigation property.
-        :type body: ~financials.models.MicrosoftGraphSalesOrder
+        :param id: Read-only.
+        :type id: str
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param discount_applied_before_tax:
+        :type discount_applied_before_tax: bool
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param fully_shipped:
+        :type fully_shipped: bool
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param order_date:
+        :type order_date: ~datetime.date
+        :param partial_shipping:
+        :type partial_shipping: bool
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param prices_include_tax:
+        :type prices_include_tax: bool
+        :param requested_delivery_date:
+        :type requested_delivery_date: ~datetime.date
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param shipping_postal_address: postalAddressType.
+        :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param ship_to_contact:
+        :type ship_to_contact: str
+        :param ship_to_name:
+        :type ship_to_name: str
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_order_lines:
+        :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSalesOrder, or the result of cls(response)
         :rtype: ~financials.models.MicrosoftGraphSalesOrder
@@ -12269,6 +13147,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesOrder"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesOrder(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, email=email, external_document_number=external_document_number, fully_shipped=fully_shipped, last_modified_date_time=last_modified_date_time, number=number, order_date=order_date, partial_shipping=partial_shipping, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, requested_delivery_date=requested_delivery_date, salesperson=salesperson, selling_postal_address=selling_postal_address, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_order_lines=sales_order_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -12289,7 +13169,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesOrder')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesOrder')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -12380,7 +13260,65 @@ class FinancialCompanyOperations:
         self,
         company_id: str,
         sales_order_id: str,
-        body: "models.MicrosoftGraphSalesOrder",
+        id: Optional[str] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        discount_applied_before_tax: Optional[bool] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        fully_shipped: Optional[bool] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        order_date: Optional[datetime.date] = None,
+        partial_shipping: Optional[bool] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        prices_include_tax: Optional[bool] = None,
+        requested_delivery_date: Optional[datetime.date] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        shipping_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        ship_to_contact: Optional[str] = None,
+        ship_to_name: Optional[str] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_order_lines: Optional[List["models.MicrosoftGraphSalesOrderLine"]] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> None:
         """Update the navigation property salesOrders in financials.
@@ -12391,8 +13329,124 @@ class FinancialCompanyOperations:
         :type company_id: str
         :param sales_order_id: key: id of salesOrder.
         :type sales_order_id: str
-        :param body: New navigation property values.
-        :type body: ~financials.models.MicrosoftGraphSalesOrder
+        :param id: Read-only.
+        :type id: str
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param discount_applied_before_tax:
+        :type discount_applied_before_tax: bool
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param fully_shipped:
+        :type fully_shipped: bool
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param order_date:
+        :type order_date: ~datetime.date
+        :param partial_shipping:
+        :type partial_shipping: bool
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param prices_include_tax:
+        :type prices_include_tax: bool
+        :param requested_delivery_date:
+        :type requested_delivery_date: ~datetime.date
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param shipping_postal_address: postalAddressType.
+        :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param ship_to_contact:
+        :type ship_to_contact: str
+        :param ship_to_name:
+        :type ship_to_name: str
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_order_lines:
+        :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -12401,6 +13455,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesOrder(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, email=email, external_document_number=external_document_number, fully_shipped=fully_shipped, last_modified_date_time=last_modified_date_time, number=number, order_date=order_date, partial_shipping=partial_shipping, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, requested_delivery_date=requested_delivery_date, salesperson=salesperson, selling_postal_address=selling_postal_address, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_order_lines=sales_order_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -12421,7 +13477,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesOrder')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesOrder')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -13174,7 +14230,66 @@ class FinancialCompanyOperations:
     async def create_sale_quote(
         self,
         company_id: str,
-        body: "models.MicrosoftGraphSalesQuote",
+        id: Optional[str] = None,
+        accepted_date: Optional[datetime.date] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        document_date: Optional[datetime.date] = None,
+        due_date: Optional[datetime.date] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        sent_date: Optional[datetime.datetime] = None,
+        shipment_method_id: Optional[str] = None,
+        shipping_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        ship_to_contact: Optional[str] = None,
+        ship_to_name: Optional[str] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        valid_until_date: Optional[datetime.date] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_quote_lines: Optional[List["models.MicrosoftGraphSalesQuoteLine"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        microsoft_graph_customer_shipment_method_id_shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        microsoft_graph_shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSalesQuote":
         """Create new navigation property to salesQuotes for financials.
@@ -13183,8 +14298,126 @@ class FinancialCompanyOperations:
 
         :param company_id: key: id of company.
         :type company_id: str
-        :param body: New navigation property.
-        :type body: ~financials.models.MicrosoftGraphSalesQuote
+        :param id: Read-only.
+        :type id: str
+        :param accepted_date:
+        :type accepted_date: ~datetime.date
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param document_date:
+        :type document_date: ~datetime.date
+        :param due_date:
+        :type due_date: ~datetime.date
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param sent_date:
+        :type sent_date: ~datetime.datetime
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param shipping_postal_address: postalAddressType.
+        :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param ship_to_contact:
+        :type ship_to_contact: str
+        :param ship_to_name:
+        :type ship_to_name: str
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param valid_until_date:
+        :type valid_until_date: ~datetime.date
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_quote_lines:
+        :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param microsoft_graph_customer_shipment_method_id_shipment_method_id:
+        :type microsoft_graph_customer_shipment_method_id_shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param microsoft_graph_shipment_method: shipmentMethod.
+        :type microsoft_graph_shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSalesQuote, or the result of cls(response)
         :rtype: ~financials.models.MicrosoftGraphSalesQuote
@@ -13193,6 +14426,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesQuote"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesQuote(id=id, accepted_date=accepted_date, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, document_date=document_date, due_date=due_date, email=email, external_document_number=external_document_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, salesperson=salesperson, selling_postal_address=selling_postal_address, sent_date=sent_date, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, valid_until_date=valid_until_date, currency=currency, payment_term=payment_term, sales_quote_lines=sales_quote_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -13213,7 +14448,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesQuote')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesQuote')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -13304,7 +14539,66 @@ class FinancialCompanyOperations:
         self,
         company_id: str,
         sales_quote_id: str,
-        body: "models.MicrosoftGraphSalesQuote",
+        id: Optional[str] = None,
+        accepted_date: Optional[datetime.date] = None,
+        billing_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        bill_to_customer_id: Optional[str] = None,
+        bill_to_customer_number: Optional[str] = None,
+        bill_to_name: Optional[str] = None,
+        currency_code: Optional[str] = None,
+        currency_id: Optional[str] = None,
+        customer_id: Optional[str] = None,
+        customer_name: Optional[str] = None,
+        customer_number: Optional[str] = None,
+        discount_amount: Optional[float] = None,
+        document_date: Optional[datetime.date] = None,
+        due_date: Optional[datetime.date] = None,
+        email: Optional[str] = None,
+        external_document_number: Optional[str] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        number: Optional[str] = None,
+        payment_terms_id: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        salesperson: Optional[str] = None,
+        selling_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        sent_date: Optional[datetime.datetime] = None,
+        shipment_method_id: Optional[str] = None,
+        shipping_postal_address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        ship_to_contact: Optional[str] = None,
+        ship_to_name: Optional[str] = None,
+        status: Optional[str] = None,
+        total_amount_excluding_tax: Optional[float] = None,
+        total_amount_including_tax: Optional[float] = None,
+        total_tax_amount: Optional[float] = None,
+        valid_until_date: Optional[datetime.date] = None,
+        currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        sales_quote_lines: Optional[List["models.MicrosoftGraphSalesQuoteLine"]] = None,
+        shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
+        microsoft_graph_entity_id: Optional[str] = None,
+        address: Optional["models.MicrosoftGraphPostalAddressType"] = None,
+        blocked: Optional[str] = None,
+        microsoft_graph_customer_currency_code: Optional[str] = None,
+        microsoft_graph_customer_currency_id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_customer_email: Optional[str] = None,
+        microsoft_graph_customer_last_modified_date_time_last_modified_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_customer_number: Optional[str] = None,
+        payment_method_id: Optional[str] = None,
+        microsoft_graph_customer_payment_terms_id_payment_terms_id: Optional[str] = None,
+        microsoft_graph_customer_phone_number: Optional[str] = None,
+        microsoft_graph_customer_shipment_method_id_shipment_method_id: Optional[str] = None,
+        tax_area_display_name: Optional[str] = None,
+        tax_area_id: Optional[str] = None,
+        tax_liable: Optional[bool] = None,
+        tax_registration_number: Optional[str] = None,
+        type: Optional[str] = None,
+        website: Optional[str] = None,
+        microsoft_graph_currency: Optional["models.MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["models.MicrosoftGraphPaymentMethod"] = None,
+        microsoft_graph_payment_term: Optional["models.MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["models.MicrosoftGraphPicture"]] = None,
+        microsoft_graph_shipment_method: Optional["models.MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ) -> None:
         """Update the navigation property salesQuotes in financials.
@@ -13315,8 +14609,126 @@ class FinancialCompanyOperations:
         :type company_id: str
         :param sales_quote_id: key: id of salesQuote.
         :type sales_quote_id: str
-        :param body: New navigation property values.
-        :type body: ~financials.models.MicrosoftGraphSalesQuote
+        :param id: Read-only.
+        :type id: str
+        :param accepted_date:
+        :type accepted_date: ~datetime.date
+        :param billing_postal_address: postalAddressType.
+        :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param bill_to_customer_id:
+        :type bill_to_customer_id: str
+        :param bill_to_customer_number:
+        :type bill_to_customer_number: str
+        :param bill_to_name:
+        :type bill_to_name: str
+        :param currency_code:
+        :type currency_code: str
+        :param currency_id:
+        :type currency_id: str
+        :param customer_id:
+        :type customer_id: str
+        :param customer_name:
+        :type customer_name: str
+        :param customer_number:
+        :type customer_number: str
+        :param discount_amount:
+        :type discount_amount: float
+        :param document_date:
+        :type document_date: ~datetime.date
+        :param due_date:
+        :type due_date: ~datetime.date
+        :param email:
+        :type email: str
+        :param external_document_number:
+        :type external_document_number: str
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param number:
+        :type number: str
+        :param payment_terms_id:
+        :type payment_terms_id: str
+        :param phone_number:
+        :type phone_number: str
+        :param salesperson:
+        :type salesperson: str
+        :param selling_postal_address: postalAddressType.
+        :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param sent_date:
+        :type sent_date: ~datetime.datetime
+        :param shipment_method_id:
+        :type shipment_method_id: str
+        :param shipping_postal_address: postalAddressType.
+        :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param ship_to_contact:
+        :type ship_to_contact: str
+        :param ship_to_name:
+        :type ship_to_name: str
+        :param status:
+        :type status: str
+        :param total_amount_excluding_tax:
+        :type total_amount_excluding_tax: float
+        :param total_amount_including_tax:
+        :type total_amount_including_tax: float
+        :param total_tax_amount:
+        :type total_tax_amount: float
+        :param valid_until_date:
+        :type valid_until_date: ~datetime.date
+        :param currency: currency.
+        :type currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_term: paymentTerm.
+        :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param sales_quote_lines:
+        :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
+        :param shipment_method: shipmentMethod.
+        :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param address: postalAddressType.
+        :type address: ~financials.models.MicrosoftGraphPostalAddressType
+        :param blocked:
+        :type blocked: str
+        :param microsoft_graph_customer_currency_code:
+        :type microsoft_graph_customer_currency_code: str
+        :param microsoft_graph_customer_currency_id:
+        :type microsoft_graph_customer_currency_id: str
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_customer_email:
+        :type microsoft_graph_customer_email: str
+        :param microsoft_graph_customer_last_modified_date_time_last_modified_date_time:
+        :type microsoft_graph_customer_last_modified_date_time_last_modified_date_time: ~datetime.datetime
+        :param microsoft_graph_customer_number:
+        :type microsoft_graph_customer_number: str
+        :param payment_method_id:
+        :type payment_method_id: str
+        :param microsoft_graph_customer_payment_terms_id_payment_terms_id:
+        :type microsoft_graph_customer_payment_terms_id_payment_terms_id: str
+        :param microsoft_graph_customer_phone_number:
+        :type microsoft_graph_customer_phone_number: str
+        :param microsoft_graph_customer_shipment_method_id_shipment_method_id:
+        :type microsoft_graph_customer_shipment_method_id_shipment_method_id: str
+        :param tax_area_display_name:
+        :type tax_area_display_name: str
+        :param tax_area_id:
+        :type tax_area_id: str
+        :param tax_liable:
+        :type tax_liable: bool
+        :param tax_registration_number:
+        :type tax_registration_number: str
+        :param type:
+        :type type: str
+        :param website:
+        :type website: str
+        :param microsoft_graph_currency: currency.
+        :type microsoft_graph_currency: ~financials.models.MicrosoftGraphCurrency
+        :param payment_method: paymentMethod.
+        :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
+        :param microsoft_graph_payment_term: paymentTerm.
+        :type microsoft_graph_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param microsoft_graph_shipment_method: shipmentMethod.
+        :type microsoft_graph_shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -13325,6 +14737,8 @@ class FinancialCompanyOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphSalesQuote(id=id, accepted_date=accepted_date, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, document_date=document_date, due_date=due_date, email=email, external_document_number=external_document_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, salesperson=salesperson, selling_postal_address=selling_postal_address, sent_date=sent_date, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, valid_until_date=valid_until_date, currency=currency, payment_term=payment_term, sales_quote_lines=sales_quote_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -13345,7 +14759,7 @@ class FinancialCompanyOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphSalesQuote')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesQuote')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

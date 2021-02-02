@@ -12,32 +12,32 @@
 from knack.help_files import helps
 
 
-helps['search'] = """
+helps['search external-external'] = """
     type: group
-    short-summary: search
+    short-summary: search external-external
 """
 
-helps['search get-external'] = """
+helps['search external-external get-external'] = """
     type: command
     short-summary: "Get external"
 """
 
-helps['search update-external'] = """
+helps['search external-external update-external'] = """
     type: command
     short-summary: "Update external"
 """
 
-helps['search'] = """
+helps['search external'] = """
     type: group
-    short-summary: search
+    short-summary: search external
 """
 
-helps['search delete'] = """
+helps['search external delete'] = """
     type: command
     short-summary: "Delete navigation property connections for external"
 """
 
-helps['search create-connection'] = """
+helps['search external create-connection'] = """
     type: command
     short-summary: "Create new navigation property to connections for external"
     parameters:
@@ -62,17 +62,17 @@ is-searchable=XX labels=XX name=XX type=XX
             Multiple actions can be specified by using more than one --schema-properties argument.
 """
 
-helps['search get-connection'] = """
+helps['search external get-connection'] = """
     type: command
     short-summary: "Get connections from external"
 """
 
-helps['search list-connection'] = """
+helps['search external list-connection'] = """
     type: command
     short-summary: "Get connections from external"
 """
 
-helps['search update-connection'] = """
+helps['search external update-connection'] = """
     type: command
     short-summary: "Update the navigation property connections in external"
     parameters:
@@ -97,27 +97,27 @@ is-searchable=XX labels=XX name=XX type=XX
             Multiple actions can be specified by using more than one --schema-properties argument.
 """
 
-helps['search'] = """
+helps['search search-search-entity'] = """
     type: group
-    short-summary: search
+    short-summary: search search-search-entity
 """
 
-helps['search get-search-entity'] = """
+helps['search search-search-entity get-search-entity'] = """
     type: command
     short-summary: "Get search"
 """
 
-helps['search update-search-entity'] = """
+helps['search search-search-entity update-search-entity'] = """
     type: command
     short-summary: "Update search"
 """
 
-helps['search'] = """
+helps['search search'] = """
     type: group
-    short-summary: search
+    short-summary: search search
 """
 
-helps['search query'] = """
+helps['search search query'] = """
     type: command
     short-summary: "Invoke action query"
 """

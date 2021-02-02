@@ -1256,10 +1256,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :type conversation_id: str
     :param conversation_index: Indicates the position of the message within the conversation.
     :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~mail.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~mail.models.MicrosoftGraphRecipient
     :param has_attachments: Indicates whether the message has attachments. This property doesn't
      include inline attachments, so if a message contains only inline attachments, this property is
      false. To verify the existence of inline attachments, parse the body property to look for a src
@@ -1287,16 +1283,12 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
      message.
     :type is_read_receipt_requested: bool
-    :param mentions_preview: mentionsPreview.
-    :type mentions_preview: ~mail.models.MicrosoftGraphMentionsPreview
     :param parent_folder_id: The unique identifier for the message's parent mailFolder.
     :type parent_folder_id: str
     :param received_date_time: The date and time the message was received.
     :type received_date_time: ~datetime.datetime
     :param reply_to: The email addresses to use when replying.
     :type reply_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~mail.models.MicrosoftGraphRecipient
     :param sent_date_time: The date and time the message was sent.
     :type sent_date_time: ~datetime.datetime
     :param subject: The subject of the message.
@@ -1331,6 +1323,24 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
      defined for the message. Nullable.
     :type single_value_extended_properties:
      list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+    :param address_sender_email_address: The email address of the person or entity.
+    :type address_sender_email_address: str
+    :param name_sender_email_address_name: The display name of the person or entity.
+    :type name_sender_email_address_name: str
+    :param is_mentioned:
+    :type is_mentioned: bool
+    :param address_from_email_address: The email address of the person or entity.
+    :type address_from_email_address: str
+    :param name_from_email_address_name: The display name of the person or entity.
+    :type name_from_email_address_name: str
+    :param completed_date_time: dateTimeTimeZone.
+    :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
+    :param due_date_time: dateTimeTimeZone.
+    :type due_date_time: ~mail.models.MicrosoftGraphDateTimeZone
+    :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
+    :type flag_status: str or ~mail.models.MicrosoftGraphFollowupFlagStatus
+    :param start_date_time: dateTimeTimeZone.
+    :type start_date_time: ~mail.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
@@ -1347,8 +1357,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'cc_recipients': {'key': 'ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
         'conversation_id': {'key': 'conversationId', 'type': 'str'},
         'conversation_index': {'key': 'conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'from', 'type': 'MicrosoftGraphRecipient'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'importance': {'key': 'importance', 'type': 'str'},
         'inference_classification': {'key': 'inferenceClassification', 'type': 'str'},
@@ -1358,11 +1366,9 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'is_draft': {'key': 'isDraft', 'type': 'bool'},
         'is_read': {'key': 'isRead', 'type': 'bool'},
         'is_read_receipt_requested': {'key': 'isReadReceiptRequested', 'type': 'bool'},
-        'mentions_preview': {'key': 'mentionsPreview', 'type': 'MicrosoftGraphMentionsPreview'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'received_date_time': {'key': 'receivedDateTime', 'type': 'iso-8601'},
         'reply_to': {'key': 'replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'sender', 'type': 'MicrosoftGraphRecipient'},
         'sent_date_time': {'key': 'sentDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'to_recipients': {'key': 'toRecipients', 'type': '[MicrosoftGraphRecipient]'},
@@ -1375,6 +1381,15 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'mentions': {'key': 'mentions', 'type': '[MicrosoftGraphMention]'},
         'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
+        'address_sender_email_address': {'key': 'sender.emailAddress.address', 'type': 'str'},
+        'name_sender_email_address_name': {'key': 'sender.emailAddress.name', 'type': 'str'},
+        'is_mentioned': {'key': 'mentionsPreview.isMentioned', 'type': 'bool'},
+        'address_from_email_address': {'key': 'from.emailAddress.address', 'type': 'str'},
+        'name_from_email_address_name': {'key': 'from.emailAddress.name', 'type': 'str'},
+        'completed_date_time': {'key': 'flag.completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'due_date_time': {'key': 'flag.dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'flag_status': {'key': 'flag.flagStatus', 'type': 'str'},
+        'start_date_time': {'key': 'flag.startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
@@ -1393,8 +1408,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         cc_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
         conversation_id: Optional[str] = None,
         conversation_index: Optional[bytes] = None,
-        flag: Optional["MicrosoftGraphFollowupFlag"] = None,
-        from_property: Optional["MicrosoftGraphRecipient"] = None,
         has_attachments: Optional[bool] = None,
         importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
         inference_classification: Optional[Union[str, "MicrosoftGraphInferenceClassificationType"]] = None,
@@ -1404,11 +1417,9 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         is_draft: Optional[bool] = None,
         is_read: Optional[bool] = None,
         is_read_receipt_requested: Optional[bool] = None,
-        mentions_preview: Optional["MicrosoftGraphMentionsPreview"] = None,
         parent_folder_id: Optional[str] = None,
         received_date_time: Optional[datetime.datetime] = None,
         reply_to: Optional[List["MicrosoftGraphRecipient"]] = None,
-        sender: Optional["MicrosoftGraphRecipient"] = None,
         sent_date_time: Optional[datetime.datetime] = None,
         subject: Optional[str] = None,
         to_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
@@ -1421,6 +1432,15 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         mentions: Optional[List["MicrosoftGraphMention"]] = None,
         multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
+        address_sender_email_address: Optional[str] = None,
+        name_sender_email_address_name: Optional[str] = None,
+        is_mentioned: Optional[bool] = None,
+        address_from_email_address: Optional[str] = None,
+        name_from_email_address_name: Optional[str] = None,
+        completed_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        due_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        flag_status: Optional[Union[str, "MicrosoftGraphFollowupFlagStatus"]] = None,
+        start_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
         **kwargs
     ):
         super(MicrosoftGraphMessage, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
@@ -1432,8 +1452,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.cc_recipients = cc_recipients
         self.conversation_id = conversation_id
         self.conversation_index = conversation_index
-        self.flag = flag
-        self.from_property = from_property
         self.has_attachments = has_attachments
         self.importance = importance
         self.inference_classification = inference_classification
@@ -1443,11 +1461,9 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.is_draft = is_draft
         self.is_read = is_read
         self.is_read_receipt_requested = is_read_receipt_requested
-        self.mentions_preview = mentions_preview
         self.parent_folder_id = parent_folder_id
         self.received_date_time = received_date_time
         self.reply_to = reply_to
-        self.sender = sender
         self.sent_date_time = sent_date_time
         self.subject = subject
         self.to_recipients = to_recipients
@@ -1460,6 +1476,15 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.mentions = mentions
         self.multi_value_extended_properties = multi_value_extended_properties
         self.single_value_extended_properties = single_value_extended_properties
+        self.address_sender_email_address = address_sender_email_address
+        self.name_sender_email_address_name = name_sender_email_address_name
+        self.is_mentioned = is_mentioned
+        self.address_from_email_address = address_from_email_address
+        self.name_from_email_address_name = name_from_email_address_name
+        self.completed_date_time = completed_date_time
+        self.due_date_time = due_date_time
+        self.flag_status = flag_status
+        self.start_date_time = start_date_time
 
 
 class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
@@ -1851,25 +1876,30 @@ class MicrosoftGraphRecipient(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param email_address: emailAddress.
-    :type email_address: ~mail.models.MicrosoftGraphEmailAddress
+    :param address: The email address of the person or entity.
+    :type address: str
+    :param name: The display name of the person or entity.
+    :type name: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
+        'address': {'key': 'emailAddress.address', 'type': 'str'},
+        'name': {'key': 'emailAddress.name', 'type': 'str'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
+        address: Optional[str] = None,
+        name: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphRecipient, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.email_address = email_address
+        self.address = address
+        self.name = name
 
 
 class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):

@@ -1696,12 +1696,10 @@ class MicrosoftGraphAccessReviewScheduleSettings(msrest.serialization.Model):
     :type mail_notifications_enabled: bool
     :param recommendations_enabled:
     :type recommendations_enabled: bool
+    :param recurrence: patternedRecurrence.
+    :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
     :param reminder_notifications_enabled:
     :type reminder_notifications_enabled: bool
-    :param pattern: recurrencePattern.
-    :type pattern: ~identity_sign_ins.models.MicrosoftGraphRecurrencePattern
-    :param range: recurrenceRange.
-    :type range: ~identity_sign_ins.models.MicrosoftGraphRecurrenceRange
     """
 
     _validation = {
@@ -1718,9 +1716,8 @@ class MicrosoftGraphAccessReviewScheduleSettings(msrest.serialization.Model):
         'justification_required_on_approval': {'key': 'justificationRequiredOnApproval', 'type': 'bool'},
         'mail_notifications_enabled': {'key': 'mailNotificationsEnabled', 'type': 'bool'},
         'recommendations_enabled': {'key': 'recommendationsEnabled', 'type': 'bool'},
+        'recurrence': {'key': 'recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
         'reminder_notifications_enabled': {'key': 'reminderNotificationsEnabled', 'type': 'bool'},
-        'pattern': {'key': 'recurrence.pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
-        'range': {'key': 'recurrence.range', 'type': 'MicrosoftGraphRecurrenceRange'},
     }
 
     def __init__(
@@ -1735,9 +1732,8 @@ class MicrosoftGraphAccessReviewScheduleSettings(msrest.serialization.Model):
         justification_required_on_approval: Optional[bool] = None,
         mail_notifications_enabled: Optional[bool] = None,
         recommendations_enabled: Optional[bool] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
         reminder_notifications_enabled: Optional[bool] = None,
-        pattern: Optional["MicrosoftGraphRecurrencePattern"] = None,
-        range: Optional["MicrosoftGraphRecurrenceRange"] = None,
         **kwargs
     ):
         super(MicrosoftGraphAccessReviewScheduleSettings, self).__init__(**kwargs)
@@ -1750,9 +1746,8 @@ class MicrosoftGraphAccessReviewScheduleSettings(msrest.serialization.Model):
         self.justification_required_on_approval = justification_required_on_approval
         self.mail_notifications_enabled = mail_notifications_enabled
         self.recommendations_enabled = recommendations_enabled
+        self.recurrence = recurrence
         self.reminder_notifications_enabled = reminder_notifications_enabled
-        self.pattern = pattern
-        self.range = range
 
 
 class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
@@ -8693,12 +8688,10 @@ class MicrosoftGraphDirectoryRoleAccessReviewPolicy(MicrosoftGraphEntity):
     :type mail_notifications_enabled: bool
     :param recommendations_enabled:
     :type recommendations_enabled: bool
+    :param recurrence: patternedRecurrence.
+    :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
     :param reminder_notifications_enabled:
     :type reminder_notifications_enabled: bool
-    :param pattern: recurrencePattern.
-    :type pattern: ~identity_sign_ins.models.MicrosoftGraphRecurrencePattern
-    :param range: recurrenceRange.
-    :type range: ~identity_sign_ins.models.MicrosoftGraphRecurrenceRange
     """
 
     _validation = {
@@ -8716,9 +8709,8 @@ class MicrosoftGraphDirectoryRoleAccessReviewPolicy(MicrosoftGraphEntity):
         'justification_required_on_approval': {'key': 'settings.justificationRequiredOnApproval', 'type': 'bool'},
         'mail_notifications_enabled': {'key': 'settings.mailNotificationsEnabled', 'type': 'bool'},
         'recommendations_enabled': {'key': 'settings.recommendationsEnabled', 'type': 'bool'},
+        'recurrence': {'key': 'settings.recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
         'reminder_notifications_enabled': {'key': 'settings.reminderNotificationsEnabled', 'type': 'bool'},
-        'pattern': {'key': 'settings.recurrence.pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
-        'range': {'key': 'settings.recurrence.range', 'type': 'MicrosoftGraphRecurrenceRange'},
     }
 
     def __init__(
@@ -8734,9 +8726,8 @@ class MicrosoftGraphDirectoryRoleAccessReviewPolicy(MicrosoftGraphEntity):
         justification_required_on_approval: Optional[bool] = None,
         mail_notifications_enabled: Optional[bool] = None,
         recommendations_enabled: Optional[bool] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
         reminder_notifications_enabled: Optional[bool] = None,
-        pattern: Optional["MicrosoftGraphRecurrencePattern"] = None,
-        range: Optional["MicrosoftGraphRecurrenceRange"] = None,
         **kwargs
     ):
         super(MicrosoftGraphDirectoryRoleAccessReviewPolicy, self).__init__(id=id, **kwargs)
@@ -8749,9 +8740,8 @@ class MicrosoftGraphDirectoryRoleAccessReviewPolicy(MicrosoftGraphEntity):
         self.justification_required_on_approval = justification_required_on_approval
         self.mail_notifications_enabled = mail_notifications_enabled
         self.recommendations_enabled = recommendations_enabled
+        self.recurrence = recurrence
         self.reminder_notifications_enabled = reminder_notifications_enabled
-        self.pattern = pattern
-        self.range = range
 
 
 class MicrosoftGraphDirectorySetting(MicrosoftGraphEntity):
@@ -21790,12 +21780,10 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
     :type mail_notifications_enabled: bool
     :param recommendations_enabled:
     :type recommendations_enabled: bool
+    :param recurrence: patternedRecurrence.
+    :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
     :param reminder_notifications_enabled:
     :type reminder_notifications_enabled: bool
-    :param pattern: recurrencePattern.
-    :type pattern: ~identity_sign_ins.models.MicrosoftGraphRecurrencePattern
-    :param range: recurrenceRange.
-    :type range: ~identity_sign_ins.models.MicrosoftGraphRecurrenceRange
     :param id_admin_consent_request_policy_id: Read-only.
     :type id_admin_consent_request_policy_id: str
     :param is_enabled_admin_consent_request_policy_is_enabled:
@@ -21850,9 +21838,8 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
         'justification_required_on_approval': {'key': 'directoryRoleAccessReviewPolicy.settings.justificationRequiredOnApproval', 'type': 'bool'},
         'mail_notifications_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.mailNotificationsEnabled', 'type': 'bool'},
         'recommendations_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.recommendationsEnabled', 'type': 'bool'},
+        'recurrence': {'key': 'directoryRoleAccessReviewPolicy.settings.recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
         'reminder_notifications_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.reminderNotificationsEnabled', 'type': 'bool'},
-        'pattern': {'key': 'directoryRoleAccessReviewPolicy.settings.recurrence.pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
-        'range': {'key': 'directoryRoleAccessReviewPolicy.settings.recurrence.range', 'type': 'MicrosoftGraphRecurrenceRange'},
         'id_admin_consent_request_policy_id': {'key': 'adminConsentRequestPolicy.id', 'type': 'str'},
         'is_enabled_admin_consent_request_policy_is_enabled': {'key': 'adminConsentRequestPolicy.isEnabled', 'type': 'bool'},
         'notify_reviewers': {'key': 'adminConsentRequestPolicy.notifyReviewers', 'type': 'bool'},
@@ -21891,9 +21878,8 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
         justification_required_on_approval: Optional[bool] = None,
         mail_notifications_enabled: Optional[bool] = None,
         recommendations_enabled: Optional[bool] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
         reminder_notifications_enabled: Optional[bool] = None,
-        pattern: Optional["MicrosoftGraphRecurrencePattern"] = None,
-        range: Optional["MicrosoftGraphRecurrenceRange"] = None,
         id_admin_consent_request_policy_id: Optional[str] = None,
         is_enabled_admin_consent_request_policy_is_enabled: Optional[bool] = None,
         notify_reviewers: Optional[bool] = None,
@@ -21930,9 +21916,8 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
         self.justification_required_on_approval = justification_required_on_approval
         self.mail_notifications_enabled = mail_notifications_enabled
         self.recommendations_enabled = recommendations_enabled
+        self.recurrence = recurrence
         self.reminder_notifications_enabled = reminder_notifications_enabled
-        self.pattern = pattern
-        self.range = range
         self.id_admin_consent_request_policy_id = id_admin_consent_request_policy_id
         self.is_enabled_admin_consent_request_policy_is_enabled = is_enabled_admin_consent_request_policy_is_enabled
         self.notify_reviewers = notify_reviewers

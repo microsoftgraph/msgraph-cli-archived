@@ -12,77 +12,77 @@
 from knack.help_files import helps
 
 
-helps['directoryobjects'] = """
+helps['directoryobjects directory-object-directory-object'] = """
     type: group
-    short-summary: directoryobjects
+    short-summary: directoryobjects directory-object-directory-object
 """
 
-helps['directoryobjects delete'] = """
+helps['directoryobjects directory-object-directory-object delete'] = """
     type: command
     short-summary: "Delete entity from directoryObjects"
 """
 
-helps['directoryobjects create-directory-object'] = """
+helps['directoryobjects directory-object-directory-object create-directory-object'] = """
     type: command
     short-summary: "Add new entity to directoryObjects"
 """
 
-helps['directoryobjects get-directory-object'] = """
+helps['directoryobjects directory-object-directory-object get-directory-object'] = """
     type: command
     short-summary: "Get entity from directoryObjects by key"
 """
 
-helps['directoryobjects list-directory-object'] = """
+helps['directoryobjects directory-object-directory-object list-directory-object'] = """
     type: command
     short-summary: "Get entities from directoryObjects"
 """
 
-helps['directoryobjects update-directory-object'] = """
+helps['directoryobjects directory-object-directory-object update-directory-object'] = """
     type: command
     short-summary: "Update entity in directoryObjects"
 """
 
-helps['directoryobjects'] = """
+helps['directoryobjects directory-object'] = """
     type: group
-    short-summary: directoryobjects
+    short-summary: directoryobjects directory-object
 """
 
-helps['directoryobjects check-member-group'] = """
+helps['directoryobjects directory-object check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['directoryobjects check-member-object'] = """
+helps['directoryobjects directory-object check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['directoryobjects get-available-extension-property'] = """
+helps['directoryobjects directory-object get-available-extension-property'] = """
     type: command
     short-summary: "Invoke action getAvailableExtensionProperties"
 """
 
-helps['directoryobjects get-by-id'] = """
+helps['directoryobjects directory-object get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['directoryobjects get-member-group'] = """
+helps['directoryobjects directory-object get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['directoryobjects get-member-object'] = """
+helps['directoryobjects directory-object get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['directoryobjects restore'] = """
+helps['directoryobjects directory-object restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['directoryobjects validate-property'] = """
+helps['directoryobjects directory-object validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """

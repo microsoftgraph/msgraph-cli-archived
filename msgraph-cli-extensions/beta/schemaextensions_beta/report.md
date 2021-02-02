@@ -1,13 +1,13 @@
 # Azure CLI Module Creation Report
 
-### schemaextensions create-schema-extension
+### schemaextensions schema-extension-schema-extension create-schema-extension
 
-create-schema-extension a schemaextensions.
+create-schema-extension a schemaextensions schema-extension-schema-extension.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|schemaextensions|schemaExtensions.schemaExtension|
+|schemaextensions schema-extension-schema-extension|schemaExtensions.schemaExtension|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -24,14 +24,14 @@ create-schema-extension a schemaextensions.
 |**--status**|string|The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors.|status|status|
 |**--target-types**|array|Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.|target_types|targetTypes|
 
-### schemaextensions delete
+### schemaextensions schema-extension-schema-extension delete
 
-delete a schemaextensions.
+delete a schemaextensions schema-extension-schema-extension.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|schemaextensions|schemaExtensions.schemaExtension|
+|schemaextensions schema-extension-schema-extension|schemaExtensions.schemaExtension|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -44,14 +44,14 @@ delete a schemaextensions.
 |**--schema-extension-id**|string|key: id of schemaExtension|schema_extension_id|schemaExtension-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### schemaextensions get-schema-extension
+### schemaextensions schema-extension-schema-extension get-schema-extension
 
-get-schema-extension a schemaextensions.
+get-schema-extension a schemaextensions schema-extension-schema-extension.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|schemaextensions|schemaExtensions.schemaExtension|
+|schemaextensions schema-extension-schema-extension|schemaExtensions.schemaExtension|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -65,14 +65,14 @@ get-schema-extension a schemaextensions.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### schemaextensions list-schema-extension
+### schemaextensions schema-extension-schema-extension list-schema-extension
 
-list-schema-extension a schemaextensions.
+list-schema-extension a schemaextensions schema-extension-schema-extension.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|schemaextensions|schemaExtensions.schemaExtension|
+|schemaextensions schema-extension-schema-extension|schemaExtensions.schemaExtension|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -86,14 +86,14 @@ list-schema-extension a schemaextensions.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### schemaextensions update-schema-extension
+### schemaextensions schema-extension-schema-extension update-schema-extension
 
-update-schema-extension a schemaextensions.
+update-schema-extension a schemaextensions schema-extension-schema-extension.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|schemaextensions|schemaExtensions.schemaExtension|
+|schemaextensions schema-extension-schema-extension|schemaExtensions.schemaExtension|
 
 #### Methods
 |Name (az)|Swagger name|

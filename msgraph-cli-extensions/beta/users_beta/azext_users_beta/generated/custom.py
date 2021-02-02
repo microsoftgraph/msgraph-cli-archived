@@ -11,54 +11,54 @@
 # pylint: disable=too-many-lines
 
 
-def users_delete(client,
-                 user_id,
-                 if_match=None):
+def users_user_user_delete(client,
+                           user_id,
+                           if_match=None):
     return client.delete_user(user_id=user_id,
                               if_match=if_match)
 
 
-def users_create_user(client,
-                      body):
+def users_user_user_create_user(client,
+                                body):
     return client.create_user(body=body)
 
 
-def users_get_user(client,
-                   user_id,
-                   consistency_level=None,
-                   select=None,
-                   expand=None):
+def users_user_user_get_user(client,
+                             user_id,
+                             consistency_level=None,
+                             select=None,
+                             expand=None):
     return client.get_user(user_id=user_id,
                            consistency_level=consistency_level,
                            select=select,
                            expand=expand)
 
 
-def users_list_user(client,
-                    consistency_level=None,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_user_user_list_user(client,
+                              consistency_level=None,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_user(consistency_level=consistency_level,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def users_update_user(client,
-                      user_id,
-                      body):
+def users_user_user_update_user(client,
+                                user_id,
+                                body):
     return client.update_user(user_id=user_id,
                               body=body)
 
 
-def users_delete(client,
-                 user_id,
-                 extension_id=None,
-                 if_match=None,
-                 license_details_id=None,
-                 notification_id=None,
-                 profile_photo_id=None):
+def users_user_delete(client,
+                      user_id,
+                      extension_id=None,
+                      if_match=None,
+                      license_details_id=None,
+                      notification_id=None,
+                      profile_photo_id=None):
     if user_id is not None and extension_id is not None:
         return client.delete_extension(user_id=user_id,
                                        extension_id=extension_id,
@@ -91,19 +91,19 @@ def users_delete(client,
                               if_match=if_match)
 
 
-def users_create_extension(client,
-                           user_id,
-                           id_=None):
+def users_user_create_extension(client,
+                                user_id,
+                                id_=None):
     return client.create_extension(user_id=user_id,
                                    id=id_)
 
 
-def users_create_license_detail(client,
-                                user_id,
-                                id_=None,
-                                service_plans=None,
-                                sku_id=None,
-                                sku_part_number=None):
+def users_user_create_license_detail(client,
+                                     user_id,
+                                     id_=None,
+                                     service_plans=None,
+                                     sku_id=None,
+                                     sku_part_number=None):
     return client.create_license_detail(user_id=user_id,
                                         id=id_,
                                         service_plans=service_plans,
@@ -111,17 +111,17 @@ def users_create_license_detail(client,
                                         sku_part_number=sku_part_number)
 
 
-def users_create_notification(client,
-                              user_id,
-                              id_=None,
-                              display_time_to_live=None,
-                              expiration_date_time=None,
-                              group_name=None,
-                              priority=None,
-                              target_host_name=None,
-                              target_policy=None,
-                              payload_raw_content=None,
-                              payload_visual_content=None):
+def users_user_create_notification(client,
+                                   user_id,
+                                   id_=None,
+                                   display_time_to_live=None,
+                                   expiration_date_time=None,
+                                   group_name=None,
+                                   priority=None,
+                                   target_host_name=None,
+                                   target_policy=None,
+                                   payload_raw_content=None,
+                                   payload_visual_content=None):
     return client.create_notification(user_id=user_id,
                                       id=id_,
                                       display_time_to_live=display_time_to_live,
@@ -134,122 +134,122 @@ def users_create_notification(client,
                                       visual_content=payload_visual_content)
 
 
-def users_create_photo(client,
-                       user_id,
-                       id_=None,
-                       height=None,
-                       width=None):
+def users_user_create_photo(client,
+                            user_id,
+                            id_=None,
+                            height=None,
+                            width=None):
     return client.create_photo(user_id=user_id,
                                id=id_,
                                height=height,
                                width=width)
 
 
-def users_create_ref_created_object(client,
-                                    user_id,
-                                    body):
+def users_user_create_ref_created_object(client,
+                                         user_id,
+                                         body):
     return client.create_ref_created_object(user_id=user_id,
                                             body=body)
 
 
-def users_create_ref_direct_report(client,
-                                   user_id,
-                                   body):
+def users_user_create_ref_direct_report(client,
+                                        user_id,
+                                        body):
     return client.create_ref_direct_report(user_id=user_id,
                                            body=body)
 
 
-def users_create_ref_member_of(client,
-                               user_id,
-                               body):
+def users_user_create_ref_member_of(client,
+                                    user_id,
+                                    body):
     return client.create_ref_member_of(user_id=user_id,
                                        body=body)
 
 
-def users_create_ref_owned_device(client,
-                                  user_id,
-                                  body):
+def users_user_create_ref_owned_device(client,
+                                       user_id,
+                                       body):
     return client.create_ref_owned_device(user_id=user_id,
                                           body=body)
 
 
-def users_create_ref_owned_object(client,
-                                  user_id,
-                                  body):
+def users_user_create_ref_owned_object(client,
+                                       user_id,
+                                       body):
     return client.create_ref_owned_object(user_id=user_id,
                                           body=body)
 
 
-def users_create_ref_registered_device(client,
-                                       user_id,
-                                       body):
+def users_user_create_ref_registered_device(client,
+                                            user_id,
+                                            body):
     return client.create_ref_registered_device(user_id=user_id,
                                                body=body)
 
 
-def users_create_ref_transitive_member_of(client,
-                                          user_id,
-                                          body):
+def users_user_create_ref_transitive_member_of(client,
+                                               user_id,
+                                               body):
     return client.create_ref_transitive_member_of(user_id=user_id,
                                                   body=body)
 
 
-def users_get_extension(client,
-                        user_id,
-                        extension_id,
-                        select=None,
-                        expand=None):
+def users_user_get_extension(client,
+                             user_id,
+                             extension_id,
+                             select=None,
+                             expand=None):
     return client.get_extension(user_id=user_id,
                                 extension_id=extension_id,
                                 select=select,
                                 expand=expand)
 
 
-def users_get_license_detail(client,
-                             user_id,
-                             license_details_id,
-                             select=None,
-                             expand=None):
+def users_user_get_license_detail(client,
+                                  user_id,
+                                  license_details_id,
+                                  select=None,
+                                  expand=None):
     return client.get_license_detail(user_id=user_id,
                                      license_details_id=license_details_id,
                                      select=select,
                                      expand=expand)
 
 
-def users_get_manager(client,
-                      user_id,
-                      select=None,
-                      expand=None):
+def users_user_get_manager(client,
+                           user_id,
+                           select=None,
+                           expand=None):
     return client.get_manager(user_id=user_id,
                               select=select,
                               expand=expand)
 
 
-def users_get_notification(client,
-                           user_id,
-                           notification_id,
-                           select=None,
-                           expand=None):
+def users_user_get_notification(client,
+                                user_id,
+                                notification_id,
+                                select=None,
+                                expand=None):
     return client.get_notification(user_id=user_id,
                                    notification_id=notification_id,
                                    select=select,
                                    expand=expand)
 
 
-def users_get_outlook(client,
-                      user_id,
-                      select=None,
-                      expand=None):
+def users_user_get_outlook(client,
+                           user_id,
+                           select=None,
+                           expand=None):
     return client.get_outlook(user_id=user_id,
                               select=select,
                               expand=expand)
 
 
-def users_get_photo(client,
-                    user_id,
-                    profile_photo_id=None,
-                    select=None,
-                    expand=None):
+def users_user_get_photo(client,
+                         user_id,
+                         profile_photo_id=None,
+                         select=None,
+                         expand=None):
     if user_id is not None and profile_photo_id is not None:
         return client.get_photo(user_id=user_id,
                                 profile_photo_id=profile_photo_id,
@@ -260,212 +260,212 @@ def users_get_photo(client,
                             expand=expand)
 
 
-def users_get_photo_content(client,
-                            user_id,
-                            profile_photo_id=None):
+def users_user_get_photo_content(client,
+                                 user_id,
+                                 profile_photo_id=None):
     if user_id is not None and profile_photo_id is not None:
         return client.get_photo_content(user_id=user_id,
                                         profile_photo_id=profile_photo_id)
     return client.get_photo_content(user_id=user_id)
 
 
-def users_get_ref_manager(client,
-                          user_id):
+def users_user_get_ref_manager(client,
+                               user_id):
     return client.get_ref_manager(user_id=user_id)
 
 
-def users_get_setting(client,
-                      user_id,
-                      select=None,
-                      expand=None):
+def users_user_get_setting(client,
+                           user_id,
+                           select=None,
+                           expand=None):
     return client.get_setting(user_id=user_id,
                               select=select,
                               expand=expand)
 
 
-def users_get_todo(client,
-                   user_id,
-                   select=None,
-                   expand=None):
+def users_user_get_todo(client,
+                        user_id,
+                        select=None,
+                        expand=None):
     return client.get_todo(user_id=user_id,
                            select=select,
                            expand=expand)
 
 
-def users_list_created_object(client,
-                              user_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
+def users_user_list_created_object(client,
+                                   user_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_created_object(user_id=user_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def users_list_direct_report(client,
-                             user_id,
-                             orderby=None,
-                             select=None,
-                             expand=None):
+def users_user_list_direct_report(client,
+                                  user_id,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
     return client.list_direct_report(user_id=user_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def users_list_extension(client,
-                         user_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def users_user_list_extension(client,
+                              user_id,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_extension(user_id=user_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def users_list_license_detail(client,
-                              user_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
+def users_user_list_license_detail(client,
+                                   user_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_license_detail(user_id=user_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def users_list_member_of(client,
-                         user_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def users_user_list_member_of(client,
+                              user_id,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_member_of(user_id=user_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def users_list_notification(client,
-                            user_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
+def users_user_list_notification(client,
+                                 user_id,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
     return client.list_notification(user_id=user_id,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def users_list_owned_device(client,
-                            user_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
+def users_user_list_owned_device(client,
+                                 user_id,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
     return client.list_owned_device(user_id=user_id,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def users_list_owned_object(client,
-                            user_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
+def users_user_list_owned_object(client,
+                                 user_id,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
     return client.list_owned_object(user_id=user_id,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def users_list_photo(client,
-                     user_id,
-                     orderby=None,
-                     select=None,
-                     expand=None):
+def users_user_list_photo(client,
+                          user_id,
+                          orderby=None,
+                          select=None,
+                          expand=None):
     return client.list_photo(user_id=user_id,
                              orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def users_list_ref_created_object(client,
-                                  user_id,
-                                  orderby=None):
+def users_user_list_ref_created_object(client,
+                                       user_id,
+                                       orderby=None):
     return client.list_ref_created_object(user_id=user_id,
                                           orderby=orderby)
 
 
-def users_list_ref_direct_report(client,
-                                 user_id,
-                                 orderby=None):
+def users_user_list_ref_direct_report(client,
+                                      user_id,
+                                      orderby=None):
     return client.list_ref_direct_report(user_id=user_id,
                                          orderby=orderby)
 
 
-def users_list_ref_member_of(client,
-                             user_id,
-                             orderby=None):
+def users_user_list_ref_member_of(client,
+                                  user_id,
+                                  orderby=None):
     return client.list_ref_member_of(user_id=user_id,
                                      orderby=orderby)
 
 
-def users_list_ref_owned_device(client,
-                                user_id,
-                                orderby=None):
+def users_user_list_ref_owned_device(client,
+                                     user_id,
+                                     orderby=None):
     return client.list_ref_owned_device(user_id=user_id,
                                         orderby=orderby)
 
 
-def users_list_ref_owned_object(client,
-                                user_id,
-                                orderby=None):
+def users_user_list_ref_owned_object(client,
+                                     user_id,
+                                     orderby=None):
     return client.list_ref_owned_object(user_id=user_id,
                                         orderby=orderby)
 
 
-def users_list_ref_registered_device(client,
-                                     user_id,
-                                     orderby=None):
+def users_user_list_ref_registered_device(client,
+                                          user_id,
+                                          orderby=None):
     return client.list_ref_registered_device(user_id=user_id,
                                              orderby=orderby)
 
 
-def users_list_ref_transitive_member_of(client,
-                                        user_id,
-                                        orderby=None):
+def users_user_list_ref_transitive_member_of(client,
+                                             user_id,
+                                             orderby=None):
     return client.list_ref_transitive_member_of(user_id=user_id,
                                                 orderby=orderby)
 
 
-def users_list_registered_device(client,
-                                 user_id,
-                                 orderby=None,
-                                 select=None,
-                                 expand=None):
+def users_user_list_registered_device(client,
+                                      user_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
     return client.list_registered_device(user_id=user_id,
                                          orderby=orderby,
                                          select=select,
                                          expand=expand)
 
 
-def users_list_transitive_member_of(client,
-                                    user_id,
-                                    orderby=None,
-                                    select=None,
-                                    expand=None):
+def users_user_list_transitive_member_of(client,
+                                         user_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
     return client.list_transitive_member_of(user_id=user_id,
                                             orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def users_set_photo_content(client,
-                            user_id,
-                            data,
-                            profile_photo_id=None):
+def users_user_set_photo_content(client,
+                                 user_id,
+                                 data,
+                                 profile_photo_id=None):
     if user_id is not None and profile_photo_id is not None and data is not None:
         return client.set_photo_content(user_id=user_id,
                                         profile_photo_id=profile_photo_id,
@@ -474,29 +474,29 @@ def users_set_photo_content(client,
                                     data=data)
 
 
-def users_set_ref_manager(client,
-                          user_id,
-                          body):
+def users_user_set_ref_manager(client,
+                               user_id,
+                               body):
     return client.set_ref_manager(user_id=user_id,
                                   body=body)
 
 
-def users_update_extension(client,
-                           user_id,
-                           extension_id,
-                           id_=None):
+def users_user_update_extension(client,
+                                user_id,
+                                extension_id,
+                                id_=None):
     return client.update_extension(user_id=user_id,
                                    extension_id=extension_id,
                                    id=id_)
 
 
-def users_update_license_detail(client,
-                                user_id,
-                                license_details_id,
-                                id_=None,
-                                service_plans=None,
-                                sku_id=None,
-                                sku_part_number=None):
+def users_user_update_license_detail(client,
+                                     user_id,
+                                     license_details_id,
+                                     id_=None,
+                                     service_plans=None,
+                                     sku_id=None,
+                                     sku_part_number=None):
     return client.update_license_detail(user_id=user_id,
                                         license_details_id=license_details_id,
                                         id=id_,
@@ -505,18 +505,18 @@ def users_update_license_detail(client,
                                         sku_part_number=sku_part_number)
 
 
-def users_update_notification(client,
-                              user_id,
-                              notification_id,
-                              id_=None,
-                              display_time_to_live=None,
-                              expiration_date_time=None,
-                              group_name=None,
-                              priority=None,
-                              target_host_name=None,
-                              target_policy=None,
-                              payload_raw_content=None,
-                              payload_visual_content=None):
+def users_user_update_notification(client,
+                                   user_id,
+                                   notification_id,
+                                   id_=None,
+                                   display_time_to_live=None,
+                                   expiration_date_time=None,
+                                   group_name=None,
+                                   priority=None,
+                                   target_host_name=None,
+                                   target_policy=None,
+                                   payload_raw_content=None,
+                                   payload_visual_content=None):
     return client.update_notification(user_id=user_id,
                                       notification_id=notification_id,
                                       id=id_,
@@ -530,13 +530,13 @@ def users_update_notification(client,
                                       visual_content=payload_visual_content)
 
 
-def users_update_outlook(client,
-                         user_id,
-                         id_=None,
-                         master_categories=None,
-                         task_folders=None,
-                         task_groups=None,
-                         tasks=None):
+def users_user_update_outlook(client,
+                              user_id,
+                              id_=None,
+                              master_categories=None,
+                              task_folders=None,
+                              task_groups=None,
+                              tasks=None):
     return client.update_outlook(user_id=user_id,
                                  id=id_,
                                  master_categories=master_categories,
@@ -545,12 +545,12 @@ def users_update_outlook(client,
                                  tasks=tasks)
 
 
-def users_update_photo(client,
-                       user_id,
-                       profile_photo_id=None,
-                       id_=None,
-                       height=None,
-                       width=None):
+def users_user_update_photo(client,
+                            user_id,
+                            profile_photo_id=None,
+                            id_=None,
+                            height=None,
+                            width=None):
     if user_id is not None and profile_photo_id is not None:
         return client.update_photo(user_id=user_id,
                                    profile_photo_id=profile_photo_id,
@@ -563,28 +563,28 @@ def users_update_photo(client,
                                width=width)
 
 
-def users_update_setting(client,
-                         user_id,
-                         id_=None,
-                         contribution_to_content_discovery_as_organization_disabled=None,
-                         contribution_to_content_discovery_disabled=None,
-                         shift_preferences_id=None,
-                         shift_preferences_created_date_time=None,
-                         shift_preferences_last_modified_date_time=None,
-                         shift_preferences_last_modified_by_application=None,
-                         shift_preferences_last_modified_by_device=None,
-                         shift_preferences_last_modified_by_user=None,
-                         shift_preferences_created_by_application=None,
-                         shift_preferences_created_by_device=None,
-                         shift_preferences_created_by_user=None,
-                         shift_preferences_availability=None,
-                         regional_and_language_settings_id=None,
-                         regional_and_language_settings_authoring_languages=None,
-                         regional_and_language_settings_default_display_language=None,
-                         regional_and_language_settings_default_regional_format=None,
-                         regional_and_language_settings_default_speech_input_language=None,
-                         regional_and_language_settings_default_translation_language=None,
-                         regional_and_language_settings_regional_format_overrides=None):
+def users_user_update_setting(client,
+                              user_id,
+                              id_=None,
+                              contribution_to_content_discovery_as_organization_disabled=None,
+                              contribution_to_content_discovery_disabled=None,
+                              shift_preferences_id=None,
+                              shift_preferences_created_date_time=None,
+                              shift_preferences_last_modified_date_time=None,
+                              shift_preferences_last_modified_by_application=None,
+                              shift_preferences_last_modified_by_device=None,
+                              shift_preferences_last_modified_by_user=None,
+                              shift_preferences_created_by_application=None,
+                              shift_preferences_created_by_device=None,
+                              shift_preferences_created_by_user=None,
+                              shift_preferences_availability=None,
+                              regional_and_language_settings_id=None,
+                              regional_and_language_settings_authoring_languages=None,
+                              regional_and_language_settings_default_display_language=None,
+                              regional_and_language_settings_default_regional_format=None,
+                              regional_and_language_settings_default_speech_input_language=None,
+                              regional_and_language_settings_default_translation_language=None,
+                              regional_and_language_settings_regional_format_overrides=None):
     return client.update_setting(user_id=user_id,
                                  id=id_,
                                  contribution_to_content_discovery_as_organization_disabled=contribution_to_content_discovery_as_organization_disabled,
@@ -608,22 +608,22 @@ def users_update_setting(client,
                                  regional_format_overrides=regional_and_language_settings_regional_format_overrides)
 
 
-def users_update_todo(client,
-                      user_id,
-                      id_=None,
-                      lists=None):
+def users_user_update_todo(client,
+                           user_id,
+                           id_=None,
+                           lists=None):
     return client.update_todo(user_id=user_id,
                               id=id_,
                               lists=lists)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_category_id=None,
-                 if_match=None,
-                 outlook_task_folder_id=None,
-                 outlook_task_group_id=None,
-                 outlook_task_id=None):
+def users_user_outlook_delete(client,
+                              user_id,
+                              outlook_category_id=None,
+                              if_match=None,
+                              outlook_task_folder_id=None,
+                              outlook_task_group_id=None,
+                              outlook_task_id=None):
     if user_id is not None and outlook_category_id is not None:
         return client.delete_master_category(user_id=user_id,
                                              outlook_category_id=outlook_category_id,
@@ -641,43 +641,43 @@ def users_delete(client,
                               if_match=if_match)
 
 
-def users_create_master_category(client,
-                                 user_id,
-                                 id_=None,
-                                 color=None,
-                                 display_name=None):
+def users_user_outlook_create_master_category(client,
+                                              user_id,
+                                              id_=None,
+                                              color=None,
+                                              display_name=None):
     return client.create_master_category(user_id=user_id,
                                          id=id_,
                                          color=color,
                                          display_name=display_name)
 
 
-def users_create_task(client,
-                      user_id,
-                      id_=None,
-                      categories=None,
-                      change_key=None,
-                      created_date_time=None,
-                      last_modified_date_time=None,
-                      assigned_to=None,
-                      body=None,
-                      completed_date_time=None,
-                      due_date_time=None,
-                      has_attachments=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      owner=None,
-                      parent_folder_id=None,
-                      reminder_date_time=None,
-                      sensitivity=None,
-                      start_date_time=None,
-                      status=None,
-                      subject=None,
-                      attachments=None,
-                      multi_value_extended_properties=None,
-                      single_value_extended_properties=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_outlook_create_task(client,
+                                   user_id,
+                                   id_=None,
+                                   categories=None,
+                                   change_key=None,
+                                   created_date_time=None,
+                                   last_modified_date_time=None,
+                                   assigned_to=None,
+                                   body=None,
+                                   completed_date_time=None,
+                                   due_date_time=None,
+                                   has_attachments=None,
+                                   importance=None,
+                                   is_reminder_on=None,
+                                   owner=None,
+                                   parent_folder_id=None,
+                                   reminder_date_time=None,
+                                   sensitivity=None,
+                                   start_date_time=None,
+                                   status=None,
+                                   subject=None,
+                                   attachments=None,
+                                   multi_value_extended_properties=None,
+                                   single_value_extended_properties=None,
+                                   recurrence_pattern=None,
+                                   recurrence_range=None):
     return client.create_task(user_id=user_id,
                               id=id_,
                               categories=categories,
@@ -705,16 +705,16 @@ def users_create_task(client,
                               range=recurrence_range)
 
 
-def users_create_task_folder(client,
-                             user_id,
-                             id_=None,
-                             change_key=None,
-                             is_default_folder=None,
-                             name=None,
-                             parent_group_key=None,
-                             multi_value_extended_properties=None,
-                             single_value_extended_properties=None,
-                             tasks=None):
+def users_user_outlook_create_task_folder(client,
+                                          user_id,
+                                          id_=None,
+                                          change_key=None,
+                                          is_default_folder=None,
+                                          name=None,
+                                          parent_group_key=None,
+                                          multi_value_extended_properties=None,
+                                          single_value_extended_properties=None,
+                                          tasks=None):
     return client.create_task_folder(user_id=user_id,
                                      id=id_,
                                      change_key=change_key,
@@ -726,14 +726,14 @@ def users_create_task_folder(client,
                                      tasks=tasks)
 
 
-def users_create_task_group(client,
-                            user_id,
-                            id_=None,
-                            change_key=None,
-                            group_key=None,
-                            is_default_group=None,
-                            name=None,
-                            task_folders=None):
+def users_user_outlook_create_task_group(client,
+                                         user_id,
+                                         id_=None,
+                                         change_key=None,
+                                         group_key=None,
+                                         is_default_group=None,
+                                         name=None,
+                                         task_folders=None):
     return client.create_task_group(user_id=user_id,
                                     id=id_,
                                     change_key=change_key,
@@ -743,100 +743,100 @@ def users_create_task_group(client,
                                     task_folders=task_folders)
 
 
-def users_get_master_category(client,
-                              user_id,
-                              outlook_category_id,
-                              select=None,
-                              expand=None):
+def users_user_outlook_get_master_category(client,
+                                           user_id,
+                                           outlook_category_id,
+                                           select=None,
+                                           expand=None):
     return client.get_master_category(user_id=user_id,
                                       outlook_category_id=outlook_category_id,
                                       select=select,
                                       expand=expand)
 
 
-def users_get_task(client,
-                   user_id,
-                   outlook_task_id,
-                   select=None,
-                   expand=None):
+def users_user_outlook_get_task(client,
+                                user_id,
+                                outlook_task_id,
+                                select=None,
+                                expand=None):
     return client.get_task(user_id=user_id,
                            outlook_task_id=outlook_task_id,
                            select=select,
                            expand=expand)
 
 
-def users_get_task_folder(client,
-                          user_id,
-                          outlook_task_folder_id,
-                          select=None,
-                          expand=None):
+def users_user_outlook_get_task_folder(client,
+                                       user_id,
+                                       outlook_task_folder_id,
+                                       select=None,
+                                       expand=None):
     return client.get_task_folder(user_id=user_id,
                                   outlook_task_folder_id=outlook_task_folder_id,
                                   select=select,
                                   expand=expand)
 
 
-def users_get_task_group(client,
-                         user_id,
-                         outlook_task_group_id,
-                         select=None,
-                         expand=None):
+def users_user_outlook_get_task_group(client,
+                                      user_id,
+                                      outlook_task_group_id,
+                                      select=None,
+                                      expand=None):
     return client.get_task_group(user_id=user_id,
                                  outlook_task_group_id=outlook_task_group_id,
                                  select=select,
                                  expand=expand)
 
 
-def users_list_master_category(client,
-                               user_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def users_user_outlook_list_master_category(client,
+                                            user_id,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
     return client.list_master_category(user_id=user_id,
                                        orderby=orderby,
                                        select=select,
                                        expand=expand)
 
 
-def users_list_task(client,
-                    user_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_user_outlook_list_task(client,
+                                 user_id,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
     return client.list_task(user_id=user_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def users_list_task_folder(client,
-                           user_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
+def users_user_outlook_list_task_folder(client,
+                                        user_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
     return client.list_task_folder(user_id=user_id,
                                    orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def users_list_task_group(client,
-                          user_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
+def users_user_outlook_list_task_group(client,
+                                       user_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
     return client.list_task_group(user_id=user_id,
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def users_update_master_category(client,
-                                 user_id,
-                                 outlook_category_id,
-                                 id_=None,
-                                 color=None,
-                                 display_name=None):
+def users_user_outlook_update_master_category(client,
+                                              user_id,
+                                              outlook_category_id,
+                                              id_=None,
+                                              color=None,
+                                              display_name=None):
     return client.update_master_category(user_id=user_id,
                                          outlook_category_id=outlook_category_id,
                                          id=id_,
@@ -844,33 +844,33 @@ def users_update_master_category(client,
                                          display_name=display_name)
 
 
-def users_update_task(client,
-                      user_id,
-                      outlook_task_id,
-                      id_=None,
-                      categories=None,
-                      change_key=None,
-                      created_date_time=None,
-                      last_modified_date_time=None,
-                      assigned_to=None,
-                      body=None,
-                      completed_date_time=None,
-                      due_date_time=None,
-                      has_attachments=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      owner=None,
-                      parent_folder_id=None,
-                      reminder_date_time=None,
-                      sensitivity=None,
-                      start_date_time=None,
-                      status=None,
-                      subject=None,
-                      attachments=None,
-                      multi_value_extended_properties=None,
-                      single_value_extended_properties=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_outlook_update_task(client,
+                                   user_id,
+                                   outlook_task_id,
+                                   id_=None,
+                                   categories=None,
+                                   change_key=None,
+                                   created_date_time=None,
+                                   last_modified_date_time=None,
+                                   assigned_to=None,
+                                   body=None,
+                                   completed_date_time=None,
+                                   due_date_time=None,
+                                   has_attachments=None,
+                                   importance=None,
+                                   is_reminder_on=None,
+                                   owner=None,
+                                   parent_folder_id=None,
+                                   reminder_date_time=None,
+                                   sensitivity=None,
+                                   start_date_time=None,
+                                   status=None,
+                                   subject=None,
+                                   attachments=None,
+                                   multi_value_extended_properties=None,
+                                   single_value_extended_properties=None,
+                                   recurrence_pattern=None,
+                                   recurrence_range=None):
     return client.update_task(user_id=user_id,
                               outlook_task_id=outlook_task_id,
                               id=id_,
@@ -899,17 +899,17 @@ def users_update_task(client,
                               range=recurrence_range)
 
 
-def users_update_task_folder(client,
-                             user_id,
-                             outlook_task_folder_id,
-                             id_=None,
-                             change_key=None,
-                             is_default_folder=None,
-                             name=None,
-                             parent_group_key=None,
-                             multi_value_extended_properties=None,
-                             single_value_extended_properties=None,
-                             tasks=None):
+def users_user_outlook_update_task_folder(client,
+                                          user_id,
+                                          outlook_task_folder_id,
+                                          id_=None,
+                                          change_key=None,
+                                          is_default_folder=None,
+                                          name=None,
+                                          parent_group_key=None,
+                                          multi_value_extended_properties=None,
+                                          single_value_extended_properties=None,
+                                          tasks=None):
     return client.update_task_folder(user_id=user_id,
                                      outlook_task_folder_id=outlook_task_folder_id,
                                      id=id_,
@@ -922,15 +922,15 @@ def users_update_task_folder(client,
                                      tasks=tasks)
 
 
-def users_update_task_group(client,
-                            user_id,
-                            outlook_task_group_id,
-                            id_=None,
-                            change_key=None,
-                            group_key=None,
-                            is_default_group=None,
-                            name=None,
-                            task_folders=None):
+def users_user_outlook_update_task_group(client,
+                                         user_id,
+                                         outlook_task_group_id,
+                                         id_=None,
+                                         change_key=None,
+                                         group_key=None,
+                                         is_default_group=None,
+                                         name=None,
+                                         task_folders=None):
     return client.update_task_group(user_id=user_id,
                                     outlook_task_group_id=outlook_task_group_id,
                                     id=id_,
@@ -941,13 +941,13 @@ def users_update_task_group(client,
                                     task_folders=task_folders)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_task_folder_id,
-                 multi_value_legacy_extended_property_id=None,
-                 if_match=None,
-                 single_value_legacy_extended_property_id=None,
-                 outlook_task_id=None):
+def users_user_outlook_task_folder_delete(client,
+                                          user_id,
+                                          outlook_task_folder_id,
+                                          multi_value_legacy_extended_property_id=None,
+                                          if_match=None,
+                                          single_value_legacy_extended_property_id=None,
+                                          outlook_task_id=None):
     if user_id is not None and outlook_task_folder_id is not None and multi_value_legacy_extended_property_id is not None:
         return client.delete_multi_value_extended_property(user_id=user_id,
                                                            outlook_task_folder_id=outlook_task_folder_id,
@@ -964,55 +964,55 @@ def users_delete(client,
                               if_match=if_match)
 
 
-def users_create_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_folder_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_folder_create_multi_value_extended_property(client,
+                                                                        user_id,
+                                                                        outlook_task_folder_id,
+                                                                        id_=None,
+                                                                        value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
                                                        id=id_,
                                                        value=value)
 
 
-def users_create_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_folder_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_folder_create_single_value_extended_property(client,
+                                                                         user_id,
+                                                                         outlook_task_folder_id,
+                                                                         id_=None,
+                                                                         value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
                                                         id=id_,
                                                         value=value)
 
 
-def users_create_task(client,
-                      user_id,
-                      outlook_task_folder_id,
-                      id_=None,
-                      categories=None,
-                      change_key=None,
-                      created_date_time=None,
-                      last_modified_date_time=None,
-                      assigned_to=None,
-                      body=None,
-                      completed_date_time=None,
-                      due_date_time=None,
-                      has_attachments=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      owner=None,
-                      parent_folder_id=None,
-                      reminder_date_time=None,
-                      sensitivity=None,
-                      start_date_time=None,
-                      status=None,
-                      subject=None,
-                      attachments=None,
-                      multi_value_extended_properties=None,
-                      single_value_extended_properties=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_outlook_task_folder_create_task(client,
+                                               user_id,
+                                               outlook_task_folder_id,
+                                               id_=None,
+                                               categories=None,
+                                               change_key=None,
+                                               created_date_time=None,
+                                               last_modified_date_time=None,
+                                               assigned_to=None,
+                                               body=None,
+                                               completed_date_time=None,
+                                               due_date_time=None,
+                                               has_attachments=None,
+                                               importance=None,
+                                               is_reminder_on=None,
+                                               owner=None,
+                                               parent_folder_id=None,
+                                               reminder_date_time=None,
+                                               sensitivity=None,
+                                               start_date_time=None,
+                                               status=None,
+                                               subject=None,
+                                               attachments=None,
+                                               multi_value_extended_properties=None,
+                                               single_value_extended_properties=None,
+                                               recurrence_pattern=None,
+                                               recurrence_range=None):
     return client.create_task(user_id=user_id,
                               outlook_task_folder_id=outlook_task_folder_id,
                               id=id_,
@@ -1041,12 +1041,12 @@ def users_create_task(client,
                               range=recurrence_range)
 
 
-def users_get_multi_value_extended_property(client,
-                                            user_id,
-                                            outlook_task_folder_id,
-                                            multi_value_legacy_extended_property_id,
-                                            select=None,
-                                            expand=None):
+def users_user_outlook_task_folder_get_multi_value_extended_property(client,
+                                                                     user_id,
+                                                                     outlook_task_folder_id,
+                                                                     multi_value_legacy_extended_property_id,
+                                                                     select=None,
+                                                                     expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     outlook_task_folder_id=outlook_task_folder_id,
                                                     multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -1054,12 +1054,12 @@ def users_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def users_get_single_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_folder_id,
-                                             single_value_legacy_extended_property_id,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_folder_get_single_value_extended_property(client,
+                                                                      user_id,
+                                                                      outlook_task_folder_id,
+                                                                      single_value_legacy_extended_property_id,
+                                                                      select=None,
+                                                                      expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
                                                      single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -1067,12 +1067,12 @@ def users_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_get_task(client,
-                   user_id,
-                   outlook_task_folder_id,
-                   outlook_task_id,
-                   select=None,
-                   expand=None):
+def users_user_outlook_task_folder_get_task(client,
+                                            user_id,
+                                            outlook_task_folder_id,
+                                            outlook_task_id,
+                                            select=None,
+                                            expand=None):
     return client.get_task(user_id=user_id,
                            outlook_task_folder_id=outlook_task_folder_id,
                            outlook_task_id=outlook_task_id,
@@ -1080,12 +1080,12 @@ def users_get_task(client,
                            expand=expand)
 
 
-def users_list_multi_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_folder_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_folder_list_multi_value_extended_property(client,
+                                                                      user_id,
+                                                                      outlook_task_folder_id,
+                                                                      orderby=None,
+                                                                      select=None,
+                                                                      expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
                                                      orderby=orderby,
@@ -1093,12 +1093,12 @@ def users_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_single_value_extended_property(client,
-                                              user_id,
-                                              outlook_task_folder_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def users_user_outlook_task_folder_list_single_value_extended_property(client,
+                                                                       user_id,
+                                                                       outlook_task_folder_id,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       outlook_task_folder_id=outlook_task_folder_id,
                                                       orderby=orderby,
@@ -1106,12 +1106,12 @@ def users_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def users_list_task(client,
-                    user_id,
-                    outlook_task_folder_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_user_outlook_task_folder_list_task(client,
+                                             user_id,
+                                             outlook_task_folder_id,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
     return client.list_task(user_id=user_id,
                             outlook_task_folder_id=outlook_task_folder_id,
                             orderby=orderby,
@@ -1119,12 +1119,12 @@ def users_list_task(client,
                             expand=expand)
 
 
-def users_update_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_folder_id,
-                                               multi_value_legacy_extended_property_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_folder_update_multi_value_extended_property(client,
+                                                                        user_id,
+                                                                        outlook_task_folder_id,
+                                                                        multi_value_legacy_extended_property_id,
+                                                                        id_=None,
+                                                                        value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
                                                        multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -1132,12 +1132,12 @@ def users_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_update_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_folder_id,
-                                                single_value_legacy_extended_property_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_folder_update_single_value_extended_property(client,
+                                                                         user_id,
+                                                                         outlook_task_folder_id,
+                                                                         single_value_legacy_extended_property_id,
+                                                                         id_=None,
+                                                                         value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
                                                         single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -1145,34 +1145,34 @@ def users_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_update_task(client,
-                      user_id,
-                      outlook_task_folder_id,
-                      outlook_task_id,
-                      id_=None,
-                      categories=None,
-                      change_key=None,
-                      created_date_time=None,
-                      last_modified_date_time=None,
-                      assigned_to=None,
-                      body=None,
-                      completed_date_time=None,
-                      due_date_time=None,
-                      has_attachments=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      owner=None,
-                      parent_folder_id=None,
-                      reminder_date_time=None,
-                      sensitivity=None,
-                      start_date_time=None,
-                      status=None,
-                      subject=None,
-                      attachments=None,
-                      multi_value_extended_properties=None,
-                      single_value_extended_properties=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_outlook_task_folder_update_task(client,
+                                               user_id,
+                                               outlook_task_folder_id,
+                                               outlook_task_id,
+                                               id_=None,
+                                               categories=None,
+                                               change_key=None,
+                                               created_date_time=None,
+                                               last_modified_date_time=None,
+                                               assigned_to=None,
+                                               body=None,
+                                               completed_date_time=None,
+                                               due_date_time=None,
+                                               has_attachments=None,
+                                               importance=None,
+                                               is_reminder_on=None,
+                                               owner=None,
+                                               parent_folder_id=None,
+                                               reminder_date_time=None,
+                                               sensitivity=None,
+                                               start_date_time=None,
+                                               status=None,
+                                               subject=None,
+                                               attachments=None,
+                                               multi_value_extended_properties=None,
+                                               single_value_extended_properties=None,
+                                               recurrence_pattern=None,
+                                               recurrence_range=None):
     return client.update_task(user_id=user_id,
                               outlook_task_folder_id=outlook_task_folder_id,
                               outlook_task_id=outlook_task_id,
@@ -1202,14 +1202,14 @@ def users_update_task(client,
                               range=recurrence_range)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_task_folder_id,
-                 outlook_task_id,
-                 attachment_id=None,
-                 if_match=None,
-                 multi_value_legacy_extended_property_id=None,
-                 single_value_legacy_extended_property_id=None):
+def users_user_outlook_task_folder_task_delete(client,
+                                               user_id,
+                                               outlook_task_folder_id,
+                                               outlook_task_id,
+                                               attachment_id=None,
+                                               if_match=None,
+                                               multi_value_legacy_extended_property_id=None,
+                                               single_value_legacy_extended_property_id=None):
     if user_id is not None and outlook_task_folder_id is not None and outlook_task_id is not None and attachment_id is not None:
         return client.delete_attachment(user_id=user_id,
                                         outlook_task_folder_id=outlook_task_folder_id,
@@ -1229,16 +1229,16 @@ def users_delete(client,
                                                         if_match=if_match)
 
 
-def users_create_attachment(client,
-                            user_id,
-                            outlook_task_folder_id,
-                            outlook_task_id,
-                            content_type,
-                            id_=None,
-                            is_inline=None,
-                            last_modified_date_time=None,
-                            name=None,
-                            size=None):
+def users_user_outlook_task_folder_task_create_attachment(client,
+                                                          user_id,
+                                                          outlook_task_folder_id,
+                                                          outlook_task_id,
+                                                          content_type,
+                                                          id_=None,
+                                                          is_inline=None,
+                                                          last_modified_date_time=None,
+                                                          name=None,
+                                                          size=None):
     return client.create_attachment(user_id=user_id,
                                     outlook_task_folder_id=outlook_task_folder_id,
                                     outlook_task_id=outlook_task_id,
@@ -1250,12 +1250,12 @@ def users_create_attachment(client,
                                     size=size)
 
 
-def users_create_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_folder_id,
-                                               outlook_task_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_folder_task_create_multi_value_extended_property(client,
+                                                                             user_id,
+                                                                             outlook_task_folder_id,
+                                                                             outlook_task_id,
+                                                                             id_=None,
+                                                                             value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
                                                        outlook_task_id=outlook_task_id,
@@ -1263,12 +1263,12 @@ def users_create_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_create_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_folder_id,
-                                                outlook_task_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_folder_task_create_single_value_extended_property(client,
+                                                                              user_id,
+                                                                              outlook_task_folder_id,
+                                                                              outlook_task_id,
+                                                                              id_=None,
+                                                                              value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
                                                         outlook_task_id=outlook_task_id,
@@ -1276,13 +1276,13 @@ def users_create_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_get_attachment(client,
-                         user_id,
-                         outlook_task_folder_id,
-                         outlook_task_id,
-                         attachment_id,
-                         select=None,
-                         expand=None):
+def users_user_outlook_task_folder_task_get_attachment(client,
+                                                       user_id,
+                                                       outlook_task_folder_id,
+                                                       outlook_task_id,
+                                                       attachment_id,
+                                                       select=None,
+                                                       expand=None):
     return client.get_attachment(user_id=user_id,
                                  outlook_task_folder_id=outlook_task_folder_id,
                                  outlook_task_id=outlook_task_id,
@@ -1291,13 +1291,13 @@ def users_get_attachment(client,
                                  expand=expand)
 
 
-def users_get_multi_value_extended_property(client,
-                                            user_id,
-                                            outlook_task_folder_id,
-                                            outlook_task_id,
-                                            multi_value_legacy_extended_property_id,
-                                            select=None,
-                                            expand=None):
+def users_user_outlook_task_folder_task_get_multi_value_extended_property(client,
+                                                                          user_id,
+                                                                          outlook_task_folder_id,
+                                                                          outlook_task_id,
+                                                                          multi_value_legacy_extended_property_id,
+                                                                          select=None,
+                                                                          expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     outlook_task_folder_id=outlook_task_folder_id,
                                                     outlook_task_id=outlook_task_id,
@@ -1306,13 +1306,13 @@ def users_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def users_get_single_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_folder_id,
-                                             outlook_task_id,
-                                             single_value_legacy_extended_property_id,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_folder_task_get_single_value_extended_property(client,
+                                                                           user_id,
+                                                                           outlook_task_folder_id,
+                                                                           outlook_task_id,
+                                                                           single_value_legacy_extended_property_id,
+                                                                           select=None,
+                                                                           expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
                                                      outlook_task_id=outlook_task_id,
@@ -1321,13 +1321,13 @@ def users_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_attachment(client,
-                          user_id,
-                          outlook_task_folder_id,
-                          outlook_task_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
+def users_user_outlook_task_folder_task_list_attachment(client,
+                                                        user_id,
+                                                        outlook_task_folder_id,
+                                                        outlook_task_id,
+                                                        orderby=None,
+                                                        select=None,
+                                                        expand=None):
     return client.list_attachment(user_id=user_id,
                                   outlook_task_folder_id=outlook_task_folder_id,
                                   outlook_task_id=outlook_task_id,
@@ -1336,13 +1336,13 @@ def users_list_attachment(client,
                                   expand=expand)
 
 
-def users_list_multi_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_folder_id,
-                                             outlook_task_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_folder_task_list_multi_value_extended_property(client,
+                                                                           user_id,
+                                                                           outlook_task_folder_id,
+                                                                           outlook_task_id,
+                                                                           orderby=None,
+                                                                           select=None,
+                                                                           expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
                                                      outlook_task_id=outlook_task_id,
@@ -1351,13 +1351,13 @@ def users_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_single_value_extended_property(client,
-                                              user_id,
-                                              outlook_task_folder_id,
-                                              outlook_task_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def users_user_outlook_task_folder_task_list_single_value_extended_property(client,
+                                                                            user_id,
+                                                                            outlook_task_folder_id,
+                                                                            outlook_task_id,
+                                                                            orderby=None,
+                                                                            select=None,
+                                                                            expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       outlook_task_folder_id=outlook_task_folder_id,
                                                       outlook_task_id=outlook_task_id,
@@ -1366,17 +1366,17 @@ def users_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def users_update_attachment(client,
-                            user_id,
-                            outlook_task_folder_id,
-                            outlook_task_id,
-                            attachment_id,
-                            content_type,
-                            id_=None,
-                            is_inline=None,
-                            last_modified_date_time=None,
-                            name=None,
-                            size=None):
+def users_user_outlook_task_folder_task_update_attachment(client,
+                                                          user_id,
+                                                          outlook_task_folder_id,
+                                                          outlook_task_id,
+                                                          attachment_id,
+                                                          content_type,
+                                                          id_=None,
+                                                          is_inline=None,
+                                                          last_modified_date_time=None,
+                                                          name=None,
+                                                          size=None):
     return client.update_attachment(user_id=user_id,
                                     outlook_task_folder_id=outlook_task_folder_id,
                                     outlook_task_id=outlook_task_id,
@@ -1389,13 +1389,13 @@ def users_update_attachment(client,
                                     size=size)
 
 
-def users_update_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_folder_id,
-                                               outlook_task_id,
-                                               multi_value_legacy_extended_property_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_folder_task_update_multi_value_extended_property(client,
+                                                                             user_id,
+                                                                             outlook_task_folder_id,
+                                                                             outlook_task_id,
+                                                                             multi_value_legacy_extended_property_id,
+                                                                             id_=None,
+                                                                             value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
                                                        outlook_task_id=outlook_task_id,
@@ -1404,13 +1404,13 @@ def users_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_update_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_folder_id,
-                                                outlook_task_id,
-                                                single_value_legacy_extended_property_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_folder_task_update_single_value_extended_property(client,
+                                                                              user_id,
+                                                                              outlook_task_folder_id,
+                                                                              outlook_task_id,
+                                                                              single_value_legacy_extended_property_id,
+                                                                              id_=None,
+                                                                              value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
                                                         outlook_task_id=outlook_task_id,
@@ -1419,28 +1419,28 @@ def users_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_task_group_id,
-                 outlook_task_folder_id,
-                 if_match=None):
+def users_user_outlook_task_group_delete(client,
+                                         user_id,
+                                         outlook_task_group_id,
+                                         outlook_task_folder_id,
+                                         if_match=None):
     return client.delete_task_folder(user_id=user_id,
                                      outlook_task_group_id=outlook_task_group_id,
                                      outlook_task_folder_id=outlook_task_folder_id,
                                      if_match=if_match)
 
 
-def users_create_task_folder(client,
-                             user_id,
-                             outlook_task_group_id,
-                             id_=None,
-                             change_key=None,
-                             is_default_folder=None,
-                             name=None,
-                             parent_group_key=None,
-                             multi_value_extended_properties=None,
-                             single_value_extended_properties=None,
-                             tasks=None):
+def users_user_outlook_task_group_create_task_folder(client,
+                                                     user_id,
+                                                     outlook_task_group_id,
+                                                     id_=None,
+                                                     change_key=None,
+                                                     is_default_folder=None,
+                                                     name=None,
+                                                     parent_group_key=None,
+                                                     multi_value_extended_properties=None,
+                                                     single_value_extended_properties=None,
+                                                     tasks=None):
     return client.create_task_folder(user_id=user_id,
                                      outlook_task_group_id=outlook_task_group_id,
                                      id=id_,
@@ -1453,12 +1453,12 @@ def users_create_task_folder(client,
                                      tasks=tasks)
 
 
-def users_get_task_folder(client,
-                          user_id,
-                          outlook_task_group_id,
-                          outlook_task_folder_id,
-                          select=None,
-                          expand=None):
+def users_user_outlook_task_group_get_task_folder(client,
+                                                  user_id,
+                                                  outlook_task_group_id,
+                                                  outlook_task_folder_id,
+                                                  select=None,
+                                                  expand=None):
     return client.get_task_folder(user_id=user_id,
                                   outlook_task_group_id=outlook_task_group_id,
                                   outlook_task_folder_id=outlook_task_folder_id,
@@ -1466,12 +1466,12 @@ def users_get_task_folder(client,
                                   expand=expand)
 
 
-def users_list_task_folder(client,
-                           user_id,
-                           outlook_task_group_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
+def users_user_outlook_task_group_list_task_folder(client,
+                                                   user_id,
+                                                   outlook_task_group_id,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_task_folder(user_id=user_id,
                                    outlook_task_group_id=outlook_task_group_id,
                                    orderby=orderby,
@@ -1479,18 +1479,18 @@ def users_list_task_folder(client,
                                    expand=expand)
 
 
-def users_update_task_folder(client,
-                             user_id,
-                             outlook_task_group_id,
-                             outlook_task_folder_id,
-                             id_=None,
-                             change_key=None,
-                             is_default_folder=None,
-                             name=None,
-                             parent_group_key=None,
-                             multi_value_extended_properties=None,
-                             single_value_extended_properties=None,
-                             tasks=None):
+def users_user_outlook_task_group_update_task_folder(client,
+                                                     user_id,
+                                                     outlook_task_group_id,
+                                                     outlook_task_folder_id,
+                                                     id_=None,
+                                                     change_key=None,
+                                                     is_default_folder=None,
+                                                     name=None,
+                                                     parent_group_key=None,
+                                                     multi_value_extended_properties=None,
+                                                     single_value_extended_properties=None,
+                                                     tasks=None):
     return client.update_task_folder(user_id=user_id,
                                      outlook_task_group_id=outlook_task_group_id,
                                      outlook_task_folder_id=outlook_task_folder_id,
@@ -1504,14 +1504,14 @@ def users_update_task_folder(client,
                                      tasks=tasks)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_task_group_id,
-                 outlook_task_folder_id,
-                 multi_value_legacy_extended_property_id=None,
-                 if_match=None,
-                 single_value_legacy_extended_property_id=None,
-                 outlook_task_id=None):
+def users_user_outlook_task_group_task_folder_delete(client,
+                                                     user_id,
+                                                     outlook_task_group_id,
+                                                     outlook_task_folder_id,
+                                                     multi_value_legacy_extended_property_id=None,
+                                                     if_match=None,
+                                                     single_value_legacy_extended_property_id=None,
+                                                     outlook_task_id=None):
     if user_id is not None and outlook_task_group_id is not None and outlook_task_folder_id is not None and multi_value_legacy_extended_property_id is not None:
         return client.delete_multi_value_extended_property(user_id=user_id,
                                                            outlook_task_group_id=outlook_task_group_id,
@@ -1531,12 +1531,12 @@ def users_delete(client,
                               if_match=if_match)
 
 
-def users_create_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_group_id,
-                                               outlook_task_folder_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_group_task_folder_create_multi_value_extended_property(client,
+                                                                                   user_id,
+                                                                                   outlook_task_group_id,
+                                                                                   outlook_task_folder_id,
+                                                                                   id_=None,
+                                                                                   value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_group_id=outlook_task_group_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
@@ -1544,12 +1544,12 @@ def users_create_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_create_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_group_id,
-                                                outlook_task_folder_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_group_task_folder_create_single_value_extended_property(client,
+                                                                                    user_id,
+                                                                                    outlook_task_group_id,
+                                                                                    outlook_task_folder_id,
+                                                                                    id_=None,
+                                                                                    value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         outlook_task_group_id=outlook_task_group_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
@@ -1557,34 +1557,34 @@ def users_create_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_create_task(client,
-                      user_id,
-                      outlook_task_group_id,
-                      outlook_task_folder_id,
-                      id_=None,
-                      categories=None,
-                      change_key=None,
-                      created_date_time=None,
-                      last_modified_date_time=None,
-                      assigned_to=None,
-                      body=None,
-                      completed_date_time=None,
-                      due_date_time=None,
-                      has_attachments=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      owner=None,
-                      parent_folder_id=None,
-                      reminder_date_time=None,
-                      sensitivity=None,
-                      start_date_time=None,
-                      status=None,
-                      subject=None,
-                      attachments=None,
-                      multi_value_extended_properties=None,
-                      single_value_extended_properties=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_outlook_task_group_task_folder_create_task(client,
+                                                          user_id,
+                                                          outlook_task_group_id,
+                                                          outlook_task_folder_id,
+                                                          id_=None,
+                                                          categories=None,
+                                                          change_key=None,
+                                                          created_date_time=None,
+                                                          last_modified_date_time=None,
+                                                          assigned_to=None,
+                                                          body=None,
+                                                          completed_date_time=None,
+                                                          due_date_time=None,
+                                                          has_attachments=None,
+                                                          importance=None,
+                                                          is_reminder_on=None,
+                                                          owner=None,
+                                                          parent_folder_id=None,
+                                                          reminder_date_time=None,
+                                                          sensitivity=None,
+                                                          start_date_time=None,
+                                                          status=None,
+                                                          subject=None,
+                                                          attachments=None,
+                                                          multi_value_extended_properties=None,
+                                                          single_value_extended_properties=None,
+                                                          recurrence_pattern=None,
+                                                          recurrence_range=None):
     return client.create_task(user_id=user_id,
                               outlook_task_group_id=outlook_task_group_id,
                               outlook_task_folder_id=outlook_task_folder_id,
@@ -1614,13 +1614,13 @@ def users_create_task(client,
                               range=recurrence_range)
 
 
-def users_get_multi_value_extended_property(client,
-                                            user_id,
-                                            outlook_task_group_id,
-                                            outlook_task_folder_id,
-                                            multi_value_legacy_extended_property_id,
-                                            select=None,
-                                            expand=None):
+def users_user_outlook_task_group_task_folder_get_multi_value_extended_property(client,
+                                                                                user_id,
+                                                                                outlook_task_group_id,
+                                                                                outlook_task_folder_id,
+                                                                                multi_value_legacy_extended_property_id,
+                                                                                select=None,
+                                                                                expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     outlook_task_group_id=outlook_task_group_id,
                                                     outlook_task_folder_id=outlook_task_folder_id,
@@ -1629,13 +1629,13 @@ def users_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def users_get_single_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_group_id,
-                                             outlook_task_folder_id,
-                                             single_value_legacy_extended_property_id,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_group_task_folder_get_single_value_extended_property(client,
+                                                                                 user_id,
+                                                                                 outlook_task_group_id,
+                                                                                 outlook_task_folder_id,
+                                                                                 single_value_legacy_extended_property_id,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      outlook_task_group_id=outlook_task_group_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
@@ -1644,13 +1644,13 @@ def users_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_get_task(client,
-                   user_id,
-                   outlook_task_group_id,
-                   outlook_task_folder_id,
-                   outlook_task_id,
-                   select=None,
-                   expand=None):
+def users_user_outlook_task_group_task_folder_get_task(client,
+                                                       user_id,
+                                                       outlook_task_group_id,
+                                                       outlook_task_folder_id,
+                                                       outlook_task_id,
+                                                       select=None,
+                                                       expand=None):
     return client.get_task(user_id=user_id,
                            outlook_task_group_id=outlook_task_group_id,
                            outlook_task_folder_id=outlook_task_folder_id,
@@ -1659,13 +1659,13 @@ def users_get_task(client,
                            expand=expand)
 
 
-def users_list_multi_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_group_id,
-                                             outlook_task_folder_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_group_task_folder_list_multi_value_extended_property(client,
+                                                                                 user_id,
+                                                                                 outlook_task_group_id,
+                                                                                 outlook_task_folder_id,
+                                                                                 orderby=None,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      outlook_task_group_id=outlook_task_group_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
@@ -1674,13 +1674,13 @@ def users_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_single_value_extended_property(client,
-                                              user_id,
-                                              outlook_task_group_id,
-                                              outlook_task_folder_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def users_user_outlook_task_group_task_folder_list_single_value_extended_property(client,
+                                                                                  user_id,
+                                                                                  outlook_task_group_id,
+                                                                                  outlook_task_folder_id,
+                                                                                  orderby=None,
+                                                                                  select=None,
+                                                                                  expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       outlook_task_group_id=outlook_task_group_id,
                                                       outlook_task_folder_id=outlook_task_folder_id,
@@ -1689,13 +1689,13 @@ def users_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def users_list_task(client,
-                    user_id,
-                    outlook_task_group_id,
-                    outlook_task_folder_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_user_outlook_task_group_task_folder_list_task(client,
+                                                        user_id,
+                                                        outlook_task_group_id,
+                                                        outlook_task_folder_id,
+                                                        orderby=None,
+                                                        select=None,
+                                                        expand=None):
     return client.list_task(user_id=user_id,
                             outlook_task_group_id=outlook_task_group_id,
                             outlook_task_folder_id=outlook_task_folder_id,
@@ -1704,13 +1704,13 @@ def users_list_task(client,
                             expand=expand)
 
 
-def users_update_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_group_id,
-                                               outlook_task_folder_id,
-                                               multi_value_legacy_extended_property_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_group_task_folder_update_multi_value_extended_property(client,
+                                                                                   user_id,
+                                                                                   outlook_task_group_id,
+                                                                                   outlook_task_folder_id,
+                                                                                   multi_value_legacy_extended_property_id,
+                                                                                   id_=None,
+                                                                                   value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_group_id=outlook_task_group_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
@@ -1719,13 +1719,13 @@ def users_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_update_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_group_id,
-                                                outlook_task_folder_id,
-                                                single_value_legacy_extended_property_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_group_task_folder_update_single_value_extended_property(client,
+                                                                                    user_id,
+                                                                                    outlook_task_group_id,
+                                                                                    outlook_task_folder_id,
+                                                                                    single_value_legacy_extended_property_id,
+                                                                                    id_=None,
+                                                                                    value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         outlook_task_group_id=outlook_task_group_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
@@ -1734,35 +1734,35 @@ def users_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_update_task(client,
-                      user_id,
-                      outlook_task_group_id,
-                      outlook_task_folder_id,
-                      outlook_task_id,
-                      id_=None,
-                      categories=None,
-                      change_key=None,
-                      created_date_time=None,
-                      last_modified_date_time=None,
-                      assigned_to=None,
-                      body=None,
-                      completed_date_time=None,
-                      due_date_time=None,
-                      has_attachments=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      owner=None,
-                      parent_folder_id=None,
-                      reminder_date_time=None,
-                      sensitivity=None,
-                      start_date_time=None,
-                      status=None,
-                      subject=None,
-                      attachments=None,
-                      multi_value_extended_properties=None,
-                      single_value_extended_properties=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_outlook_task_group_task_folder_update_task(client,
+                                                          user_id,
+                                                          outlook_task_group_id,
+                                                          outlook_task_folder_id,
+                                                          outlook_task_id,
+                                                          id_=None,
+                                                          categories=None,
+                                                          change_key=None,
+                                                          created_date_time=None,
+                                                          last_modified_date_time=None,
+                                                          assigned_to=None,
+                                                          body=None,
+                                                          completed_date_time=None,
+                                                          due_date_time=None,
+                                                          has_attachments=None,
+                                                          importance=None,
+                                                          is_reminder_on=None,
+                                                          owner=None,
+                                                          parent_folder_id=None,
+                                                          reminder_date_time=None,
+                                                          sensitivity=None,
+                                                          start_date_time=None,
+                                                          status=None,
+                                                          subject=None,
+                                                          attachments=None,
+                                                          multi_value_extended_properties=None,
+                                                          single_value_extended_properties=None,
+                                                          recurrence_pattern=None,
+                                                          recurrence_range=None):
     return client.update_task(user_id=user_id,
                               outlook_task_group_id=outlook_task_group_id,
                               outlook_task_folder_id=outlook_task_folder_id,
@@ -1793,15 +1793,15 @@ def users_update_task(client,
                               range=recurrence_range)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_task_group_id,
-                 outlook_task_folder_id,
-                 outlook_task_id,
-                 attachment_id=None,
-                 if_match=None,
-                 multi_value_legacy_extended_property_id=None,
-                 single_value_legacy_extended_property_id=None):
+def users_user_outlook_task_group_task_folder_task_delete(client,
+                                                          user_id,
+                                                          outlook_task_group_id,
+                                                          outlook_task_folder_id,
+                                                          outlook_task_id,
+                                                          attachment_id=None,
+                                                          if_match=None,
+                                                          multi_value_legacy_extended_property_id=None,
+                                                          single_value_legacy_extended_property_id=None):
     if user_id is not None and outlook_task_group_id is not None and outlook_task_folder_id is not None and outlook_task_id is not None and attachment_id is not None:
         return client.delete_attachment(user_id=user_id,
                                         outlook_task_group_id=outlook_task_group_id,
@@ -1824,17 +1824,17 @@ def users_delete(client,
                                                         if_match=if_match)
 
 
-def users_create_attachment(client,
-                            user_id,
-                            outlook_task_group_id,
-                            outlook_task_folder_id,
-                            outlook_task_id,
-                            content_type,
-                            id_=None,
-                            is_inline=None,
-                            last_modified_date_time=None,
-                            name=None,
-                            size=None):
+def users_user_outlook_task_group_task_folder_task_create_attachment(client,
+                                                                     user_id,
+                                                                     outlook_task_group_id,
+                                                                     outlook_task_folder_id,
+                                                                     outlook_task_id,
+                                                                     content_type,
+                                                                     id_=None,
+                                                                     is_inline=None,
+                                                                     last_modified_date_time=None,
+                                                                     name=None,
+                                                                     size=None):
     return client.create_attachment(user_id=user_id,
                                     outlook_task_group_id=outlook_task_group_id,
                                     outlook_task_folder_id=outlook_task_folder_id,
@@ -1847,13 +1847,13 @@ def users_create_attachment(client,
                                     size=size)
 
 
-def users_create_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_group_id,
-                                               outlook_task_folder_id,
-                                               outlook_task_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_group_task_folder_task_create_multi_value_extended_property(client,
+                                                                                        user_id,
+                                                                                        outlook_task_group_id,
+                                                                                        outlook_task_folder_id,
+                                                                                        outlook_task_id,
+                                                                                        id_=None,
+                                                                                        value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_group_id=outlook_task_group_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
@@ -1862,13 +1862,13 @@ def users_create_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_create_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_group_id,
-                                                outlook_task_folder_id,
-                                                outlook_task_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_group_task_folder_task_create_single_value_extended_property(client,
+                                                                                         user_id,
+                                                                                         outlook_task_group_id,
+                                                                                         outlook_task_folder_id,
+                                                                                         outlook_task_id,
+                                                                                         id_=None,
+                                                                                         value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         outlook_task_group_id=outlook_task_group_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
@@ -1877,14 +1877,14 @@ def users_create_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_get_attachment(client,
-                         user_id,
-                         outlook_task_group_id,
-                         outlook_task_folder_id,
-                         outlook_task_id,
-                         attachment_id,
-                         select=None,
-                         expand=None):
+def users_user_outlook_task_group_task_folder_task_get_attachment(client,
+                                                                  user_id,
+                                                                  outlook_task_group_id,
+                                                                  outlook_task_folder_id,
+                                                                  outlook_task_id,
+                                                                  attachment_id,
+                                                                  select=None,
+                                                                  expand=None):
     return client.get_attachment(user_id=user_id,
                                  outlook_task_group_id=outlook_task_group_id,
                                  outlook_task_folder_id=outlook_task_folder_id,
@@ -1894,14 +1894,14 @@ def users_get_attachment(client,
                                  expand=expand)
 
 
-def users_get_multi_value_extended_property(client,
-                                            user_id,
-                                            outlook_task_group_id,
-                                            outlook_task_folder_id,
-                                            outlook_task_id,
-                                            multi_value_legacy_extended_property_id,
-                                            select=None,
-                                            expand=None):
+def users_user_outlook_task_group_task_folder_task_get_multi_value_extended_property(client,
+                                                                                     user_id,
+                                                                                     outlook_task_group_id,
+                                                                                     outlook_task_folder_id,
+                                                                                     outlook_task_id,
+                                                                                     multi_value_legacy_extended_property_id,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     outlook_task_group_id=outlook_task_group_id,
                                                     outlook_task_folder_id=outlook_task_folder_id,
@@ -1911,14 +1911,14 @@ def users_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def users_get_single_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_group_id,
-                                             outlook_task_folder_id,
-                                             outlook_task_id,
-                                             single_value_legacy_extended_property_id,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_group_task_folder_task_get_single_value_extended_property(client,
+                                                                                      user_id,
+                                                                                      outlook_task_group_id,
+                                                                                      outlook_task_folder_id,
+                                                                                      outlook_task_id,
+                                                                                      single_value_legacy_extended_property_id,
+                                                                                      select=None,
+                                                                                      expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      outlook_task_group_id=outlook_task_group_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
@@ -1928,14 +1928,14 @@ def users_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_attachment(client,
-                          user_id,
-                          outlook_task_group_id,
-                          outlook_task_folder_id,
-                          outlook_task_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
+def users_user_outlook_task_group_task_folder_task_list_attachment(client,
+                                                                   user_id,
+                                                                   outlook_task_group_id,
+                                                                   outlook_task_folder_id,
+                                                                   outlook_task_id,
+                                                                   orderby=None,
+                                                                   select=None,
+                                                                   expand=None):
     return client.list_attachment(user_id=user_id,
                                   outlook_task_group_id=outlook_task_group_id,
                                   outlook_task_folder_id=outlook_task_folder_id,
@@ -1945,14 +1945,14 @@ def users_list_attachment(client,
                                   expand=expand)
 
 
-def users_list_multi_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_group_id,
-                                             outlook_task_folder_id,
-                                             outlook_task_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_group_task_folder_task_list_multi_value_extended_property(client,
+                                                                                      user_id,
+                                                                                      outlook_task_group_id,
+                                                                                      outlook_task_folder_id,
+                                                                                      outlook_task_id,
+                                                                                      orderby=None,
+                                                                                      select=None,
+                                                                                      expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      outlook_task_group_id=outlook_task_group_id,
                                                      outlook_task_folder_id=outlook_task_folder_id,
@@ -1962,14 +1962,14 @@ def users_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_single_value_extended_property(client,
-                                              user_id,
-                                              outlook_task_group_id,
-                                              outlook_task_folder_id,
-                                              outlook_task_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def users_user_outlook_task_group_task_folder_task_list_single_value_extended_property(client,
+                                                                                       user_id,
+                                                                                       outlook_task_group_id,
+                                                                                       outlook_task_folder_id,
+                                                                                       outlook_task_id,
+                                                                                       orderby=None,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       outlook_task_group_id=outlook_task_group_id,
                                                       outlook_task_folder_id=outlook_task_folder_id,
@@ -1979,18 +1979,18 @@ def users_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def users_update_attachment(client,
-                            user_id,
-                            outlook_task_group_id,
-                            outlook_task_folder_id,
-                            outlook_task_id,
-                            attachment_id,
-                            content_type,
-                            id_=None,
-                            is_inline=None,
-                            last_modified_date_time=None,
-                            name=None,
-                            size=None):
+def users_user_outlook_task_group_task_folder_task_update_attachment(client,
+                                                                     user_id,
+                                                                     outlook_task_group_id,
+                                                                     outlook_task_folder_id,
+                                                                     outlook_task_id,
+                                                                     attachment_id,
+                                                                     content_type,
+                                                                     id_=None,
+                                                                     is_inline=None,
+                                                                     last_modified_date_time=None,
+                                                                     name=None,
+                                                                     size=None):
     return client.update_attachment(user_id=user_id,
                                     outlook_task_group_id=outlook_task_group_id,
                                     outlook_task_folder_id=outlook_task_folder_id,
@@ -2004,14 +2004,14 @@ def users_update_attachment(client,
                                     size=size)
 
 
-def users_update_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_group_id,
-                                               outlook_task_folder_id,
-                                               outlook_task_id,
-                                               multi_value_legacy_extended_property_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_group_task_folder_task_update_multi_value_extended_property(client,
+                                                                                        user_id,
+                                                                                        outlook_task_group_id,
+                                                                                        outlook_task_folder_id,
+                                                                                        outlook_task_id,
+                                                                                        multi_value_legacy_extended_property_id,
+                                                                                        id_=None,
+                                                                                        value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_group_id=outlook_task_group_id,
                                                        outlook_task_folder_id=outlook_task_folder_id,
@@ -2021,14 +2021,14 @@ def users_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_update_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_group_id,
-                                                outlook_task_folder_id,
-                                                outlook_task_id,
-                                                single_value_legacy_extended_property_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_group_task_folder_task_update_single_value_extended_property(client,
+                                                                                         user_id,
+                                                                                         outlook_task_group_id,
+                                                                                         outlook_task_folder_id,
+                                                                                         outlook_task_id,
+                                                                                         single_value_legacy_extended_property_id,
+                                                                                         id_=None,
+                                                                                         value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         outlook_task_group_id=outlook_task_group_id,
                                                         outlook_task_folder_id=outlook_task_folder_id,
@@ -2038,13 +2038,13 @@ def users_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_delete(client,
-                 user_id,
-                 outlook_task_id,
-                 attachment_id=None,
-                 if_match=None,
-                 multi_value_legacy_extended_property_id=None,
-                 single_value_legacy_extended_property_id=None):
+def users_user_outlook_task_delete(client,
+                                   user_id,
+                                   outlook_task_id,
+                                   attachment_id=None,
+                                   if_match=None,
+                                   multi_value_legacy_extended_property_id=None,
+                                   single_value_legacy_extended_property_id=None):
     if user_id is not None and outlook_task_id is not None and attachment_id is not None:
         return client.delete_attachment(user_id=user_id,
                                         outlook_task_id=outlook_task_id,
@@ -2061,15 +2061,15 @@ def users_delete(client,
                                                         if_match=if_match)
 
 
-def users_create_attachment(client,
-                            user_id,
-                            outlook_task_id,
-                            content_type,
-                            id_=None,
-                            is_inline=None,
-                            last_modified_date_time=None,
-                            name=None,
-                            size=None):
+def users_user_outlook_task_create_attachment(client,
+                                              user_id,
+                                              outlook_task_id,
+                                              content_type,
+                                              id_=None,
+                                              is_inline=None,
+                                              last_modified_date_time=None,
+                                              name=None,
+                                              size=None):
     return client.create_attachment(user_id=user_id,
                                     outlook_task_id=outlook_task_id,
                                     id=id_,
@@ -2080,34 +2080,34 @@ def users_create_attachment(client,
                                     size=size)
 
 
-def users_create_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_create_multi_value_extended_property(client,
+                                                                 user_id,
+                                                                 outlook_task_id,
+                                                                 id_=None,
+                                                                 value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_id=outlook_task_id,
                                                        id=id_,
                                                        value=value)
 
 
-def users_create_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_create_single_value_extended_property(client,
+                                                                  user_id,
+                                                                  outlook_task_id,
+                                                                  id_=None,
+                                                                  value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         outlook_task_id=outlook_task_id,
                                                         id=id_,
                                                         value=value)
 
 
-def users_get_attachment(client,
-                         user_id,
-                         outlook_task_id,
-                         attachment_id,
-                         select=None,
-                         expand=None):
+def users_user_outlook_task_get_attachment(client,
+                                           user_id,
+                                           outlook_task_id,
+                                           attachment_id,
+                                           select=None,
+                                           expand=None):
     return client.get_attachment(user_id=user_id,
                                  outlook_task_id=outlook_task_id,
                                  attachment_id=attachment_id,
@@ -2115,12 +2115,12 @@ def users_get_attachment(client,
                                  expand=expand)
 
 
-def users_get_multi_value_extended_property(client,
-                                            user_id,
-                                            outlook_task_id,
-                                            multi_value_legacy_extended_property_id,
-                                            select=None,
-                                            expand=None):
+def users_user_outlook_task_get_multi_value_extended_property(client,
+                                                              user_id,
+                                                              outlook_task_id,
+                                                              multi_value_legacy_extended_property_id,
+                                                              select=None,
+                                                              expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     outlook_task_id=outlook_task_id,
                                                     multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -2128,12 +2128,12 @@ def users_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def users_get_single_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_id,
-                                             single_value_legacy_extended_property_id,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_get_single_value_extended_property(client,
+                                                               user_id,
+                                                               outlook_task_id,
+                                                               single_value_legacy_extended_property_id,
+                                                               select=None,
+                                                               expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      outlook_task_id=outlook_task_id,
                                                      single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -2141,12 +2141,12 @@ def users_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_attachment(client,
-                          user_id,
-                          outlook_task_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
+def users_user_outlook_task_list_attachment(client,
+                                            user_id,
+                                            outlook_task_id,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
     return client.list_attachment(user_id=user_id,
                                   outlook_task_id=outlook_task_id,
                                   orderby=orderby,
@@ -2154,12 +2154,12 @@ def users_list_attachment(client,
                                   expand=expand)
 
 
-def users_list_multi_value_extended_property(client,
-                                             user_id,
-                                             outlook_task_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def users_user_outlook_task_list_multi_value_extended_property(client,
+                                                               user_id,
+                                                               outlook_task_id,
+                                                               orderby=None,
+                                                               select=None,
+                                                               expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      outlook_task_id=outlook_task_id,
                                                      orderby=orderby,
@@ -2167,12 +2167,12 @@ def users_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def users_list_single_value_extended_property(client,
-                                              user_id,
-                                              outlook_task_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def users_user_outlook_task_list_single_value_extended_property(client,
+                                                                user_id,
+                                                                outlook_task_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       outlook_task_id=outlook_task_id,
                                                       orderby=orderby,
@@ -2180,16 +2180,16 @@ def users_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def users_update_attachment(client,
-                            user_id,
-                            outlook_task_id,
-                            attachment_id,
-                            content_type,
-                            id_=None,
-                            is_inline=None,
-                            last_modified_date_time=None,
-                            name=None,
-                            size=None):
+def users_user_outlook_task_update_attachment(client,
+                                              user_id,
+                                              outlook_task_id,
+                                              attachment_id,
+                                              content_type,
+                                              id_=None,
+                                              is_inline=None,
+                                              last_modified_date_time=None,
+                                              name=None,
+                                              size=None):
     return client.update_attachment(user_id=user_id,
                                     outlook_task_id=outlook_task_id,
                                     attachment_id=attachment_id,
@@ -2201,12 +2201,12 @@ def users_update_attachment(client,
                                     size=size)
 
 
-def users_update_multi_value_extended_property(client,
-                                               user_id,
-                                               outlook_task_id,
-                                               multi_value_legacy_extended_property_id,
-                                               id_=None,
-                                               value=None):
+def users_user_outlook_task_update_multi_value_extended_property(client,
+                                                                 user_id,
+                                                                 outlook_task_id,
+                                                                 multi_value_legacy_extended_property_id,
+                                                                 id_=None,
+                                                                 value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        outlook_task_id=outlook_task_id,
                                                        multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -2214,12 +2214,12 @@ def users_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def users_update_single_value_extended_property(client,
-                                                user_id,
-                                                outlook_task_id,
-                                                single_value_legacy_extended_property_id,
-                                                id_=None,
-                                                value=None):
+def users_user_outlook_task_update_single_value_extended_property(client,
+                                                                  user_id,
+                                                                  outlook_task_id,
+                                                                  single_value_legacy_extended_property_id,
+                                                                  id_=None,
+                                                                  value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         outlook_task_id=outlook_task_id,
                                                         single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -2227,9 +2227,9 @@ def users_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def users_delete(client,
-                 user_id,
-                 if_match=None):
+def users_user_setting_delete(client,
+                              user_id,
+                              if_match=None):
     if user_id is not None:
         return client.delete_regional_and_language_setting(user_id=user_id,
                                                            if_match=if_match)
@@ -2237,33 +2237,33 @@ def users_delete(client,
                                           if_match=if_match)
 
 
-def users_get_regional_and_language_setting(client,
-                                            user_id,
-                                            select=None,
-                                            expand=None):
+def users_user_setting_get_regional_and_language_setting(client,
+                                                         user_id,
+                                                         select=None,
+                                                         expand=None):
     return client.get_regional_and_language_setting(user_id=user_id,
                                                     select=select,
                                                     expand=expand)
 
 
-def users_get_shift_preference(client,
-                               user_id,
-                               select=None,
-                               expand=None):
+def users_user_setting_get_shift_preference(client,
+                                            user_id,
+                                            select=None,
+                                            expand=None):
     return client.get_shift_preference(user_id=user_id,
                                        select=select,
                                        expand=expand)
 
 
-def users_update_regional_and_language_setting(client,
-                                               user_id,
-                                               id_=None,
-                                               authoring_languages=None,
-                                               default_display_language=None,
-                                               default_regional_format=None,
-                                               default_speech_input_language=None,
-                                               default_translation_language=None,
-                                               regional_format_overrides=None):
+def users_user_setting_update_regional_and_language_setting(client,
+                                                            user_id,
+                                                            id_=None,
+                                                            authoring_languages=None,
+                                                            default_display_language=None,
+                                                            default_regional_format=None,
+                                                            default_speech_input_language=None,
+                                                            default_translation_language=None,
+                                                            regional_format_overrides=None):
     return client.update_regional_and_language_setting(user_id=user_id,
                                                        id=id_,
                                                        authoring_languages=authoring_languages,
@@ -2274,18 +2274,18 @@ def users_update_regional_and_language_setting(client,
                                                        regional_format_overrides=regional_format_overrides)
 
 
-def users_update_shift_preference(client,
-                                  user_id,
-                                  id_=None,
-                                  created_date_time=None,
-                                  last_modified_date_time=None,
-                                  last_modified_by_application=None,
-                                  last_modified_by_device=None,
-                                  last_modified_by_user=None,
-                                  created_by_application=None,
-                                  created_by_device=None,
-                                  created_by_user=None,
-                                  availability=None):
+def users_user_setting_update_shift_preference(client,
+                                               user_id,
+                                               id_=None,
+                                               created_date_time=None,
+                                               last_modified_date_time=None,
+                                               last_modified_by_application=None,
+                                               last_modified_by_device=None,
+                                               last_modified_by_user=None,
+                                               created_by_application=None,
+                                               created_by_device=None,
+                                               created_by_user=None,
+                                               availability=None):
     return client.update_shift_preference(user_id=user_id,
                                           id=id_,
                                           created_date_time=created_date_time,
@@ -2299,24 +2299,24 @@ def users_update_shift_preference(client,
                                           availability=availability)
 
 
-def users_delete(client,
-                 user_id,
-                 todo_task_list_id,
-                 if_match=None):
+def users_user_todo_delete(client,
+                           user_id,
+                           todo_task_list_id,
+                           if_match=None):
     return client.delete_list(user_id=user_id,
                               todo_task_list_id=todo_task_list_id,
                               if_match=if_match)
 
 
-def users_create_list(client,
-                      user_id,
-                      id_=None,
-                      display_name=None,
-                      is_owner=None,
-                      is_shared=None,
-                      wellknown_list_name=None,
-                      extensions=None,
-                      tasks=None):
+def users_user_todo_create_list(client,
+                                user_id,
+                                id_=None,
+                                display_name=None,
+                                is_owner=None,
+                                is_shared=None,
+                                wellknown_list_name=None,
+                                extensions=None,
+                                tasks=None):
     return client.create_list(user_id=user_id,
                               id=id_,
                               display_name=display_name,
@@ -2327,38 +2327,38 @@ def users_create_list(client,
                               tasks=tasks)
 
 
-def users_get_list(client,
-                   user_id,
-                   todo_task_list_id,
-                   select=None,
-                   expand=None):
+def users_user_todo_get_list(client,
+                             user_id,
+                             todo_task_list_id,
+                             select=None,
+                             expand=None):
     return client.get_list(user_id=user_id,
                            todo_task_list_id=todo_task_list_id,
                            select=select,
                            expand=expand)
 
 
-def users_list_list(client,
-                    user_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_user_todo_list_list(client,
+                              user_id,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_list(user_id=user_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def users_update_list(client,
-                      user_id,
-                      todo_task_list_id,
-                      id_=None,
-                      display_name=None,
-                      is_owner=None,
-                      is_shared=None,
-                      wellknown_list_name=None,
-                      extensions=None,
-                      tasks=None):
+def users_user_todo_update_list(client,
+                                user_id,
+                                todo_task_list_id,
+                                id_=None,
+                                display_name=None,
+                                is_owner=None,
+                                is_shared=None,
+                                wellknown_list_name=None,
+                                extensions=None,
+                                tasks=None):
     return client.update_list(user_id=user_id,
                               todo_task_list_id=todo_task_list_id,
                               id=id_,
@@ -2370,12 +2370,12 @@ def users_update_list(client,
                               tasks=tasks)
 
 
-def users_delete(client,
-                 user_id,
-                 todo_task_list_id,
-                 extension_id=None,
-                 if_match=None,
-                 todo_task_id=None):
+def users_user_todo_list_delete(client,
+                                user_id,
+                                todo_task_list_id,
+                                extension_id=None,
+                                if_match=None,
+                                todo_task_id=None):
     if user_id is not None and todo_task_list_id is not None and extension_id is not None:
         return client.delete_extension(user_id=user_id,
                                        todo_task_list_id=todo_task_list_id,
@@ -2387,34 +2387,34 @@ def users_delete(client,
                               if_match=if_match)
 
 
-def users_create_extension(client,
-                           user_id,
-                           todo_task_list_id,
-                           id_=None):
+def users_user_todo_list_create_extension(client,
+                                          user_id,
+                                          todo_task_list_id,
+                                          id_=None):
     return client.create_extension(user_id=user_id,
                                    todo_task_list_id=todo_task_list_id,
                                    id=id_)
 
 
-def users_create_task(client,
-                      user_id,
-                      todo_task_list_id,
-                      id_=None,
-                      body=None,
-                      body_last_modified_date_time=None,
-                      completed_date_time=None,
-                      created_date_time=None,
-                      due_date_time=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      last_modified_date_time=None,
-                      reminder_date_time=None,
-                      status=None,
-                      title=None,
-                      extensions=None,
-                      linked_resources=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_todo_list_create_task(client,
+                                     user_id,
+                                     todo_task_list_id,
+                                     id_=None,
+                                     body=None,
+                                     body_last_modified_date_time=None,
+                                     completed_date_time=None,
+                                     created_date_time=None,
+                                     due_date_time=None,
+                                     importance=None,
+                                     is_reminder_on=None,
+                                     last_modified_date_time=None,
+                                     reminder_date_time=None,
+                                     status=None,
+                                     title=None,
+                                     extensions=None,
+                                     linked_resources=None,
+                                     recurrence_pattern=None,
+                                     recurrence_range=None):
     return client.create_task(user_id=user_id,
                               todo_task_list_id=todo_task_list_id,
                               id=id_,
@@ -2435,12 +2435,12 @@ def users_create_task(client,
                               range=recurrence_range)
 
 
-def users_get_extension(client,
-                        user_id,
-                        todo_task_list_id,
-                        extension_id,
-                        select=None,
-                        expand=None):
+def users_user_todo_list_get_extension(client,
+                                       user_id,
+                                       todo_task_list_id,
+                                       extension_id,
+                                       select=None,
+                                       expand=None):
     return client.get_extension(user_id=user_id,
                                 todo_task_list_id=todo_task_list_id,
                                 extension_id=extension_id,
@@ -2448,12 +2448,12 @@ def users_get_extension(client,
                                 expand=expand)
 
 
-def users_get_task(client,
-                   user_id,
-                   todo_task_list_id,
-                   todo_task_id,
-                   select=None,
-                   expand=None):
+def users_user_todo_list_get_task(client,
+                                  user_id,
+                                  todo_task_list_id,
+                                  todo_task_id,
+                                  select=None,
+                                  expand=None):
     return client.get_task(user_id=user_id,
                            todo_task_list_id=todo_task_list_id,
                            todo_task_id=todo_task_id,
@@ -2461,12 +2461,12 @@ def users_get_task(client,
                            expand=expand)
 
 
-def users_list_extension(client,
-                         user_id,
-                         todo_task_list_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def users_user_todo_list_list_extension(client,
+                                        user_id,
+                                        todo_task_list_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
     return client.list_extension(user_id=user_id,
                                  todo_task_list_id=todo_task_list_id,
                                  orderby=orderby,
@@ -2474,12 +2474,12 @@ def users_list_extension(client,
                                  expand=expand)
 
 
-def users_list_task(client,
-                    user_id,
-                    todo_task_list_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_user_todo_list_list_task(client,
+                                   user_id,
+                                   todo_task_list_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_task(user_id=user_id,
                             todo_task_list_id=todo_task_list_id,
                             orderby=orderby,
@@ -2487,37 +2487,37 @@ def users_list_task(client,
                             expand=expand)
 
 
-def users_update_extension(client,
-                           user_id,
-                           todo_task_list_id,
-                           extension_id,
-                           id_=None):
+def users_user_todo_list_update_extension(client,
+                                          user_id,
+                                          todo_task_list_id,
+                                          extension_id,
+                                          id_=None):
     return client.update_extension(user_id=user_id,
                                    todo_task_list_id=todo_task_list_id,
                                    extension_id=extension_id,
                                    id=id_)
 
 
-def users_update_task(client,
-                      user_id,
-                      todo_task_list_id,
-                      todo_task_id,
-                      id_=None,
-                      body=None,
-                      body_last_modified_date_time=None,
-                      completed_date_time=None,
-                      created_date_time=None,
-                      due_date_time=None,
-                      importance=None,
-                      is_reminder_on=None,
-                      last_modified_date_time=None,
-                      reminder_date_time=None,
-                      status=None,
-                      title=None,
-                      extensions=None,
-                      linked_resources=None,
-                      recurrence_pattern=None,
-                      recurrence_range=None):
+def users_user_todo_list_update_task(client,
+                                     user_id,
+                                     todo_task_list_id,
+                                     todo_task_id,
+                                     id_=None,
+                                     body=None,
+                                     body_last_modified_date_time=None,
+                                     completed_date_time=None,
+                                     created_date_time=None,
+                                     due_date_time=None,
+                                     importance=None,
+                                     is_reminder_on=None,
+                                     last_modified_date_time=None,
+                                     reminder_date_time=None,
+                                     status=None,
+                                     title=None,
+                                     extensions=None,
+                                     linked_resources=None,
+                                     recurrence_pattern=None,
+                                     recurrence_range=None):
     return client.update_task(user_id=user_id,
                               todo_task_list_id=todo_task_list_id,
                               todo_task_id=todo_task_id,
@@ -2539,13 +2539,13 @@ def users_update_task(client,
                               range=recurrence_range)
 
 
-def users_delete(client,
-                 user_id,
-                 todo_task_list_id,
-                 todo_task_id,
-                 extension_id=None,
-                 if_match=None,
-                 linked_resource_id=None):
+def users_user_todo_list_task_delete(client,
+                                     user_id,
+                                     todo_task_list_id,
+                                     todo_task_id,
+                                     extension_id=None,
+                                     if_match=None,
+                                     linked_resource_id=None):
     if user_id is not None and todo_task_list_id is not None and todo_task_id is not None and extension_id is not None:
         return client.delete_extension(user_id=user_id,
                                        todo_task_list_id=todo_task_list_id,
@@ -2559,26 +2559,26 @@ def users_delete(client,
                                          if_match=if_match)
 
 
-def users_create_extension(client,
-                           user_id,
-                           todo_task_list_id,
-                           todo_task_id,
-                           id_=None):
+def users_user_todo_list_task_create_extension(client,
+                                               user_id,
+                                               todo_task_list_id,
+                                               todo_task_id,
+                                               id_=None):
     return client.create_extension(user_id=user_id,
                                    todo_task_list_id=todo_task_list_id,
                                    todo_task_id=todo_task_id,
                                    id=id_)
 
 
-def users_create_linked_resource(client,
-                                 user_id,
-                                 todo_task_list_id,
-                                 todo_task_id,
-                                 id_=None,
-                                 application_name=None,
-                                 display_name=None,
-                                 external_id=None,
-                                 web_url=None):
+def users_user_todo_list_task_create_linked_resource(client,
+                                                     user_id,
+                                                     todo_task_list_id,
+                                                     todo_task_id,
+                                                     id_=None,
+                                                     application_name=None,
+                                                     display_name=None,
+                                                     external_id=None,
+                                                     web_url=None):
     return client.create_linked_resource(user_id=user_id,
                                          todo_task_list_id=todo_task_list_id,
                                          todo_task_id=todo_task_id,
@@ -2589,13 +2589,13 @@ def users_create_linked_resource(client,
                                          web_url=web_url)
 
 
-def users_get_extension(client,
-                        user_id,
-                        todo_task_list_id,
-                        todo_task_id,
-                        extension_id,
-                        select=None,
-                        expand=None):
+def users_user_todo_list_task_get_extension(client,
+                                            user_id,
+                                            todo_task_list_id,
+                                            todo_task_id,
+                                            extension_id,
+                                            select=None,
+                                            expand=None):
     return client.get_extension(user_id=user_id,
                                 todo_task_list_id=todo_task_list_id,
                                 todo_task_id=todo_task_id,
@@ -2604,13 +2604,13 @@ def users_get_extension(client,
                                 expand=expand)
 
 
-def users_get_linked_resource(client,
-                              user_id,
-                              todo_task_list_id,
-                              todo_task_id,
-                              linked_resource_id,
-                              select=None,
-                              expand=None):
+def users_user_todo_list_task_get_linked_resource(client,
+                                                  user_id,
+                                                  todo_task_list_id,
+                                                  todo_task_id,
+                                                  linked_resource_id,
+                                                  select=None,
+                                                  expand=None):
     return client.get_linked_resource(user_id=user_id,
                                       todo_task_list_id=todo_task_list_id,
                                       todo_task_id=todo_task_id,
@@ -2619,13 +2619,13 @@ def users_get_linked_resource(client,
                                       expand=expand)
 
 
-def users_list_extension(client,
-                         user_id,
-                         todo_task_list_id,
-                         todo_task_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def users_user_todo_list_task_list_extension(client,
+                                             user_id,
+                                             todo_task_list_id,
+                                             todo_task_id,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
     return client.list_extension(user_id=user_id,
                                  todo_task_list_id=todo_task_list_id,
                                  todo_task_id=todo_task_id,
@@ -2634,13 +2634,13 @@ def users_list_extension(client,
                                  expand=expand)
 
 
-def users_list_linked_resource(client,
-                               user_id,
-                               todo_task_list_id,
-                               todo_task_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def users_user_todo_list_task_list_linked_resource(client,
+                                                   user_id,
+                                                   todo_task_list_id,
+                                                   todo_task_id,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_linked_resource(user_id=user_id,
                                        todo_task_list_id=todo_task_list_id,
                                        todo_task_id=todo_task_id,
@@ -2649,12 +2649,12 @@ def users_list_linked_resource(client,
                                        expand=expand)
 
 
-def users_update_extension(client,
-                           user_id,
-                           todo_task_list_id,
-                           todo_task_id,
-                           extension_id,
-                           id_=None):
+def users_user_todo_list_task_update_extension(client,
+                                               user_id,
+                                               todo_task_list_id,
+                                               todo_task_id,
+                                               extension_id,
+                                               id_=None):
     return client.update_extension(user_id=user_id,
                                    todo_task_list_id=todo_task_list_id,
                                    todo_task_id=todo_task_id,
@@ -2662,16 +2662,16 @@ def users_update_extension(client,
                                    id=id_)
 
 
-def users_update_linked_resource(client,
-                                 user_id,
-                                 todo_task_list_id,
-                                 todo_task_id,
-                                 linked_resource_id,
-                                 id_=None,
-                                 application_name=None,
-                                 display_name=None,
-                                 external_id=None,
-                                 web_url=None):
+def users_user_todo_list_task_update_linked_resource(client,
+                                                     user_id,
+                                                     todo_task_list_id,
+                                                     todo_task_id,
+                                                     linked_resource_id,
+                                                     id_=None,
+                                                     application_name=None,
+                                                     display_name=None,
+                                                     external_id=None,
+                                                     web_url=None):
     return client.update_linked_resource(user_id=user_id,
                                          todo_task_list_id=todo_task_list_id,
                                          todo_task_id=todo_task_id,

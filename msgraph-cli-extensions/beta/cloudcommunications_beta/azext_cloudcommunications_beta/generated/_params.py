@@ -34,8 +34,8 @@ from azext_cloudcommunications_beta.action import (
     AddCallerUserAgent,
     AddMediaStreams,
     AddQualityMediaQualityList,
-    AddCloudcommunicationsPlayPromptPrompts,
-    AddCloudcommunicationsRecordPrompts,
+    AddCloudcommunicationsCommunicationCallPlayPromptPrompts,
+    AddCloudcommunicationsCommunicationCallRecordPrompts,
     AddPrompts,
     AddCommunicationsCallsTargets,
     AddCommunicationsCallsParticipantsParticipants
@@ -44,25 +44,25 @@ from azext_cloudcommunications_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('cloudcommunications get-cloud-communication') as c:
+    with self.argument_context('cloudcommunications communication-cloud-communication get-cloud-communication') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications update-cloud-communication') as c:
+    with self.argument_context('cloudcommunications communication-cloud-communication update-cloud-communication') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('calls', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('call_records', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('online_meetings', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('presences', action=AddPresences, nargs='*', help='')
 
-    with self.argument_context('cloudcommunications delete') as c:
+    with self.argument_context('cloudcommunications communication delete') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('if_match', type=str, help='ETag')
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('presence_id', type=str, help='key: id of presence')
 
-    with self.argument_context('cloudcommunications create-call') as c:
+    with self.argument_context('cloudcommunications communication create-call') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('active_modalities', nargs='*', help='')
         c.argument('callback_uri', type=str, help='The callback URL on which callbacks will be delivered. Must be '
@@ -125,7 +125,7 @@ def load_arguments(self, _):
                    'continent, or a larger geographic region. This does not change based on the participant\'s current '
                    'physical location. Read-only.')
 
-    with self.argument_context('cloudcommunications create-call-record') as c:
+    with self.argument_context('cloudcommunications communication create-call-record') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('end_date_time', help='UTC time when the last user left the call. The DateTimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
@@ -165,7 +165,7 @@ def load_arguments(self, _):
                    'show up as having changed when using delta.')
         c.argument('organizer_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('cloudcommunications create-online-meeting') as c:
+    with self.argument_context('cloudcommunications communication create-online-meeting') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
                                                            'sameEnterpriseAndFederated']), help='')
@@ -198,55 +198,55 @@ def load_arguments(self, _):
         c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('cloudcommunications create-presence') as c:
+    with self.argument_context('cloudcommunications communication create-presence') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', type=str, help='')
         c.argument('availability', type=str, help='')
 
-    with self.argument_context('cloudcommunications get-call') as c:
+    with self.argument_context('cloudcommunications communication get-call') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-call-record') as c:
+    with self.argument_context('cloudcommunications communication get-call-record') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-online-meeting') as c:
+    with self.argument_context('cloudcommunications communication get-online-meeting') as c:
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-presence') as c:
+    with self.argument_context('cloudcommunications communication get-presence') as c:
         c.argument('presence_id', type=str, help='key: id of presence')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-presence-by-user-id') as c:
+    with self.argument_context('cloudcommunications communication get-presence-by-user-id') as c:
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('cloudcommunications list-call') as c:
+    with self.argument_context('cloudcommunications communication list-call') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-call-record') as c:
+    with self.argument_context('cloudcommunications communication list-call-record') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-online-meeting') as c:
+    with self.argument_context('cloudcommunications communication list-online-meeting') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-presence') as c:
+    with self.argument_context('cloudcommunications communication list-presence') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications update-call') as c:
+    with self.argument_context('cloudcommunications communication update-call') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('active_modalities', nargs='*', help='')
@@ -310,7 +310,7 @@ def load_arguments(self, _):
                    'continent, or a larger geographic region. This does not change based on the participant\'s current '
                    'physical location. Read-only.')
 
-    with self.argument_context('cloudcommunications update-call-record') as c:
+    with self.argument_context('cloudcommunications communication update-call-record') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('end_date_time', help='UTC time when the last user left the call. The DateTimeOffset type '
@@ -351,7 +351,7 @@ def load_arguments(self, _):
                    'show up as having changed when using delta.')
         c.argument('organizer_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('cloudcommunications update-online-meeting') as c:
+    with self.argument_context('cloudcommunications communication update-online-meeting') as c:
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
@@ -385,18 +385,18 @@ def load_arguments(self, _):
         c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('cloudcommunications update-presence') as c:
+    with self.argument_context('cloudcommunications communication update-presence') as c:
         c.argument('presence_id', type=str, help='key: id of presence')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', type=str, help='')
         c.argument('availability', type=str, help='')
 
-    with self.argument_context('cloudcommunications delete') as c:
+    with self.argument_context('cloudcommunications communication-call-record delete') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications create-session') as c:
+    with self.argument_context('cloudcommunications communication-call-record create-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('end_date_time', help='UTC time when the last user left the session. The DateTimeOffset type '
@@ -413,19 +413,19 @@ def load_arguments(self, _):
         c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
         c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
 
-    with self.argument_context('cloudcommunications get-session') as c:
+    with self.argument_context('cloudcommunications communication-call-record get-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-session') as c:
+    with self.argument_context('cloudcommunications communication-call-record list-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications update-session') as c:
+    with self.argument_context('cloudcommunications communication-call-record update-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -443,13 +443,13 @@ def load_arguments(self, _):
         c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
         c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
 
-    with self.argument_context('cloudcommunications delete') as c:
+    with self.argument_context('cloudcommunications communication-call-record-session delete') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('segment_id', type=str, help='key: id of segment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications create-segment') as c:
+    with self.argument_context('cloudcommunications communication-call-record-session create-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -465,21 +465,21 @@ def load_arguments(self, _):
         c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
         c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
 
-    with self.argument_context('cloudcommunications get-segment') as c:
+    with self.argument_context('cloudcommunications communication-call-record-session get-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('segment_id', type=str, help='key: id of segment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-segment') as c:
+    with self.argument_context('cloudcommunications communication-call-record-session list-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications update-segment') as c:
+    with self.argument_context('cloudcommunications communication-call-record-session update-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('segment_id', type=str, help='key: id of segment')
@@ -496,35 +496,35 @@ def load_arguments(self, _):
         c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
         c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
 
-    with self.argument_context('cloudcommunications delete') as c:
+    with self.argument_context('cloudcommunications communication-call delete') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
         c.argument('participant_id', type=str, help='key: id of participant')
 
-    with self.argument_context('cloudcommunications answer') as c:
+    with self.argument_context('cloudcommunications communication-call answer') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('callback_uri', type=str, help='')
         c.argument('accepted_modalities', nargs='*', help='')
         c.argument('media_config_remove_from_default_audio_group', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('cloudcommunications cancel-media-processing') as c:
+    with self.argument_context('cloudcommunications communication-call cancel-media-processing') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications change-screen-sharing-role') as c:
+    with self.argument_context('cloudcommunications communication-call change-screen-sharing-role') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('role', arg_type=get_enum_type(['viewer', 'sharer']), help='')
 
-    with self.argument_context('cloudcommunications create-audio-routing-group') as c:
+    with self.argument_context('cloudcommunications communication-call create-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('receivers', nargs='*', help='')
         c.argument('routing_mode', arg_type=get_enum_type(['oneToOne', 'multicast']), help='')
         c.argument('sources', nargs='*', help='')
 
-    with self.argument_context('cloudcommunications create-operation') as c:
+    with self.argument_context('cloudcommunications communication-call create-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_context', type=str, help='Unique Client Context string. Max limit is 256 chars.')
@@ -533,7 +533,7 @@ def load_arguments(self, _):
         c.argument('result_info_message', type=str, help='')
         c.argument('result_info_subcode', type=int, help='')
 
-    with self.argument_context('cloudcommunications create-participant') as c:
+    with self.argument_context('cloudcommunications communication-call create-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_in_lobby', arg_type=get_three_state_flag(), help='true if the participant is in lobby.')
@@ -558,46 +558,46 @@ def load_arguments(self, _):
                    'continent, or a larger geographic region. This does not change based on the participant\'s current '
                    'physical location. Read-only.')
 
-    with self.argument_context('cloudcommunications get-audio-routing-group') as c:
+    with self.argument_context('cloudcommunications communication-call get-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-operation') as c:
+    with self.argument_context('cloudcommunications communication-call get-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-participant') as c:
+    with self.argument_context('cloudcommunications communication-call get-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('participant_id', type=str, help='key: id of participant')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications keep-alive') as c:
+    with self.argument_context('cloudcommunications communication-call keep-alive') as c:
         c.argument('call_id', type=str, help='key: id of call')
 
-    with self.argument_context('cloudcommunications list-audio-routing-group') as c:
-        c.argument('call_id', type=str, help='key: id of call')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('cloudcommunications list-operation') as c:
+    with self.argument_context('cloudcommunications communication-call list-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-participant') as c:
+    with self.argument_context('cloudcommunications communication-call list-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications log-teleconference-device-quality') as c:
+    with self.argument_context('cloudcommunications communication-call list-participant') as c:
+        c.argument('call_id', type=str, help='key: id of call')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication-call log-teleconference-device-quality') as c:
         c.argument('quality_call_chain_id', help='A unique identifier for all  the participant calls in a conference '
                    'or a unique identifier for two participant calls in P2P call. This needs to be copied over from '
                    'Microsoft.Graph.Call.CallChainId.')
@@ -620,21 +620,21 @@ def load_arguments(self, _):
         c.argument('quality_participant_id', help='A unique identifier for a specific participant in a conference. The '
                    'CVI partner needs to copy over Call.MyParticipantId to this property.')
 
-    with self.argument_context('cloudcommunications mute') as c:
+    with self.argument_context('cloudcommunications communication-call mute') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications play-prompt') as c:
+    with self.argument_context('cloudcommunications communication-call play-prompt') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('prompts', action=AddCloudcommunicationsPlayPromptPrompts, nargs='*', help=' Expect value: '
-                   'KEY1=VALUE1 KEY2=VALUE2 ...')
+        c.argument('prompts', action=AddCloudcommunicationsCommunicationCallPlayPromptPrompts, nargs='*', help=' '
+                   'Expect value: KEY1=VALUE1 KEY2=VALUE2 ...')
         c.argument('loop', arg_type=get_three_state_flag(), help='')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications record') as c:
+    with self.argument_context('cloudcommunications communication-call record') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('prompts', action=AddCloudcommunicationsRecordPrompts, nargs='*', help=' Expect value: KEY1=VALUE1 '
-                   'KEY2=VALUE2 ...')
+        c.argument('prompts', action=AddCloudcommunicationsCommunicationCallRecordPrompts, nargs='*', help=' Expect '
+                   'value: KEY1=VALUE1 KEY2=VALUE2 ...')
         c.argument('barge_in_allowed', arg_type=get_three_state_flag(), help='')
         c.argument('initial_silence_timeout_in_seconds', type=int, help='')
         c.argument('max_silence_timeout_in_seconds', type=int, help='')
@@ -644,7 +644,7 @@ def load_arguments(self, _):
         c.argument('stop_tones', nargs='*', help='')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications record-response') as c:
+    with self.argument_context('cloudcommunications communication-call record-response') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('prompts', action=AddPrompts, nargs='*', help=' Expect value: KEY1=VALUE1 KEY2=VALUE2 ...')
         c.argument('barge_in_allowed', arg_type=get_three_state_flag(), help='')
@@ -656,7 +656,7 @@ def load_arguments(self, _):
         c.argument('stop_tones', nargs='*', help='')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications redirect') as c:
+    with self.argument_context('cloudcommunications communication-call redirect') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('targets', action=AddCommunicationsCallsTargets, nargs='*', help='')
         c.argument('target_disposition', arg_type=get_enum_type(['default', 'simultaneousRing', 'forward']), help='')
@@ -665,16 +665,16 @@ def load_arguments(self, _):
         c.argument('mask_caller', arg_type=get_three_state_flag(), help='')
         c.argument('callback_uri', type=str, help='')
 
-    with self.argument_context('cloudcommunications reject') as c:
+    with self.argument_context('cloudcommunications communication-call reject') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('reason', arg_type=get_enum_type(['none', 'busy', 'forbidden', 'unknownFutureValue']), help='')
         c.argument('callback_uri', type=str, help='')
 
-    with self.argument_context('cloudcommunications subscribe-to-tone') as c:
+    with self.argument_context('cloudcommunications communication-call subscribe-to-tone') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications transfer') as c:
+    with self.argument_context('cloudcommunications communication-call transfer') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('transfer_target_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
                                                                             'skypeForBusinessVoipPhone', ''
@@ -697,11 +697,11 @@ def load_arguments(self, _):
                    'the user won\'t show up as having changed when using delta.')
         c.argument('transfer_target_identity_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('cloudcommunications unmute') as c:
+    with self.argument_context('cloudcommunications communication-call unmute') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications update-audio-routing-group') as c:
+    with self.argument_context('cloudcommunications communication-call update-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -709,7 +709,7 @@ def load_arguments(self, _):
         c.argument('routing_mode', arg_type=get_enum_type(['oneToOne', 'multicast']), help='')
         c.argument('sources', nargs='*', help='')
 
-    with self.argument_context('cloudcommunications update-operation') as c:
+    with self.argument_context('cloudcommunications communication-call update-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -719,7 +719,7 @@ def load_arguments(self, _):
         c.argument('result_info_message', type=str, help='')
         c.argument('result_info_subcode', type=int, help='')
 
-    with self.argument_context('cloudcommunications update-participant') as c:
+    with self.argument_context('cloudcommunications communication-call update-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('participant_id', type=str, help='key: id of participant')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -745,28 +745,28 @@ def load_arguments(self, _):
                    'continent, or a larger geographic region. This does not change based on the participant\'s current '
                    'physical location. Read-only.')
 
-    with self.argument_context('cloudcommunications update-recording-status') as c:
+    with self.argument_context('cloudcommunications communication-call update-recording-status') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', 'failed', ''
                                                      'unknownFutureValue']), help='')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications invite') as c:
+    with self.argument_context('cloudcommunications communication-call-participant invite') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('participants', action=AddCommunicationsCallsParticipantsParticipants, nargs='*', help='')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications mute') as c:
+    with self.argument_context('cloudcommunications communication-call-participant mute') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('participant_id', type=str, help='key: id of participant')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications mute-all') as c:
+    with self.argument_context('cloudcommunications communication-call-participant mute-all') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('participants', nargs='*', help='')
         c.argument('client_context', type=str, help='')
 
-    with self.argument_context('cloudcommunications create-or-get') as c:
+    with self.argument_context('cloudcommunications communication-online-meeting create-or-get') as c:
         c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
         c.argument('end_date_time', help='')
         c.argument('external_id', type=str, help='')
@@ -781,12 +781,12 @@ def load_arguments(self, _):
         c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('cloudcommunications delete') as c:
+    with self.argument_context('cloudcommunications user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications create-online-meeting') as c:
+    with self.argument_context('cloudcommunications user create-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
@@ -820,24 +820,24 @@ def load_arguments(self, _):
         c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('cloudcommunications get-online-meeting') as c:
+    with self.argument_context('cloudcommunications user get-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications get-presence') as c:
+    with self.argument_context('cloudcommunications user get-presence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications list-online-meeting') as c:
+    with self.argument_context('cloudcommunications user list-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('cloudcommunications update-online-meeting') as c:
+    with self.argument_context('cloudcommunications user update-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -872,7 +872,7 @@ def load_arguments(self, _):
         c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('cloudcommunications update-presence') as c:
+    with self.argument_context('cloudcommunications user update-presence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', type=str, help='')

@@ -11,11 +11,11 @@
 # pylint: disable=too-many-lines
 
 
-def personalcontacts_delete(client,
-                            user_id,
-                            contact_folder_id=None,
-                            if_match=None,
-                            contact_id=None):
+def personalcontacts_user_delete(client,
+                                 user_id,
+                                 contact_folder_id=None,
+                                 if_match=None,
+                                 contact_id=None):
     if user_id is not None and contact_folder_id is not None:
         return client.delete_contact_folder(user_id=user_id,
                                             contact_folder_id=contact_folder_id,
@@ -25,23 +25,111 @@ def personalcontacts_delete(client,
                                  if_match=if_match)
 
 
-def personalcontacts_create_contact(client,
-                                    user_id,
-                                    body):
+def personalcontacts_user_create_contact(client,
+                                         user_id,
+                                         id_=None,
+                                         categories=None,
+                                         change_key=None,
+                                         created_date_time=None,
+                                         last_modified_date_time=None,
+                                         assistant_name=None,
+                                         birthday=None,
+                                         children=None,
+                                         company_name=None,
+                                         department=None,
+                                         display_name=None,
+                                         email_addresses=None,
+                                         file_as=None,
+                                         gender=None,
+                                         generation=None,
+                                         given_name=None,
+                                         im_addresses=None,
+                                         initials=None,
+                                         is_favorite=None,
+                                         job_title=None,
+                                         manager=None,
+                                         middle_name=None,
+                                         nick_name=None,
+                                         office_location=None,
+                                         parent_folder_id=None,
+                                         personal_notes=None,
+                                         phones=None,
+                                         postal_addresses=None,
+                                         profession=None,
+                                         spouse_name=None,
+                                         surname=None,
+                                         title=None,
+                                         websites=None,
+                                         wedding_anniversary=None,
+                                         yomi_company_name=None,
+                                         yomi_given_name=None,
+                                         yomi_surname=None,
+                                         extensions=None,
+                                         multi_value_extended_properties=None,
+                                         photo=None,
+                                         single_value_extended_properties=None,
+                                         flag_completed_date_time=None,
+                                         flag_due_date_time=None,
+                                         flag_flag_status=None,
+                                         flag_start_date_time=None):
     return client.create_contact(user_id=user_id,
-                                 body=body)
+                                 id=id_,
+                                 categories=categories,
+                                 change_key=change_key,
+                                 created_date_time=created_date_time,
+                                 last_modified_date_time=last_modified_date_time,
+                                 assistant_name=assistant_name,
+                                 birthday=birthday,
+                                 children=children,
+                                 company_name=company_name,
+                                 department=department,
+                                 display_name=display_name,
+                                 email_addresses=email_addresses,
+                                 file_as=file_as,
+                                 gender=gender,
+                                 generation=generation,
+                                 given_name=given_name,
+                                 im_addresses=im_addresses,
+                                 initials=initials,
+                                 is_favorite=is_favorite,
+                                 job_title=job_title,
+                                 manager=manager,
+                                 middle_name=middle_name,
+                                 nick_name=nick_name,
+                                 office_location=office_location,
+                                 parent_folder_id=parent_folder_id,
+                                 personal_notes=personal_notes,
+                                 phones=phones,
+                                 postal_addresses=postal_addresses,
+                                 profession=profession,
+                                 spouse_name=spouse_name,
+                                 surname=surname,
+                                 title=title,
+                                 websites=websites,
+                                 wedding_anniversary=wedding_anniversary,
+                                 yomi_company_name=yomi_company_name,
+                                 yomi_given_name=yomi_given_name,
+                                 yomi_surname=yomi_surname,
+                                 extensions=extensions,
+                                 multi_value_extended_properties=multi_value_extended_properties,
+                                 photo=photo,
+                                 single_value_extended_properties=single_value_extended_properties,
+                                 completed_date_time=flag_completed_date_time,
+                                 due_date_time=flag_due_date_time,
+                                 flag_status=flag_flag_status,
+                                 start_date_time=flag_start_date_time)
 
 
-def personalcontacts_create_contact_folder(client,
-                                           user_id,
-                                           id_=None,
-                                           display_name=None,
-                                           parent_folder_id=None,
-                                           well_known_name=None,
-                                           child_folders=None,
-                                           contacts=None,
-                                           multi_value_extended_properties=None,
-                                           single_value_extended_properties=None):
+def personalcontacts_user_create_contact_folder(client,
+                                                user_id,
+                                                id_=None,
+                                                display_name=None,
+                                                parent_folder_id=None,
+                                                well_known_name=None,
+                                                child_folders=None,
+                                                contacts=None,
+                                                multi_value_extended_properties=None,
+                                                single_value_extended_properties=None):
     return client.create_contact_folder(user_id=user_id,
                                         id=id_,
                                         display_name=display_name,
@@ -53,70 +141,158 @@ def personalcontacts_create_contact_folder(client,
                                         single_value_extended_properties=single_value_extended_properties)
 
 
-def personalcontacts_get_contact(client,
-                                 user_id,
-                                 contact_id,
-                                 select=None,
-                                 expand=None):
+def personalcontacts_user_get_contact(client,
+                                      user_id,
+                                      contact_id,
+                                      select=None,
+                                      expand=None):
     return client.get_contact(user_id=user_id,
                               contact_id=contact_id,
                               select=select,
                               expand=expand)
 
 
-def personalcontacts_get_contact_folder(client,
-                                        user_id,
-                                        contact_folder_id,
-                                        select=None,
-                                        expand=None):
+def personalcontacts_user_get_contact_folder(client,
+                                             user_id,
+                                             contact_folder_id,
+                                             select=None,
+                                             expand=None):
     return client.get_contact_folder(user_id=user_id,
                                      contact_folder_id=contact_folder_id,
                                      select=select,
                                      expand=expand)
 
 
-def personalcontacts_list_contact(client,
-                                  user_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def personalcontacts_user_list_contact(client,
+                                       user_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
     return client.list_contact(user_id=user_id,
                                orderby=orderby,
                                select=select,
                                expand=expand)
 
 
-def personalcontacts_list_contact_folder(client,
-                                         user_id,
-                                         orderby=None,
-                                         select=None,
-                                         expand=None):
+def personalcontacts_user_list_contact_folder(client,
+                                              user_id,
+                                              orderby=None,
+                                              select=None,
+                                              expand=None):
     return client.list_contact_folder(user_id=user_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def personalcontacts_update_contact(client,
-                                    user_id,
-                                    contact_id,
-                                    body):
+def personalcontacts_user_update_contact(client,
+                                         user_id,
+                                         contact_id,
+                                         id_=None,
+                                         categories=None,
+                                         change_key=None,
+                                         created_date_time=None,
+                                         last_modified_date_time=None,
+                                         assistant_name=None,
+                                         birthday=None,
+                                         children=None,
+                                         company_name=None,
+                                         department=None,
+                                         display_name=None,
+                                         email_addresses=None,
+                                         file_as=None,
+                                         gender=None,
+                                         generation=None,
+                                         given_name=None,
+                                         im_addresses=None,
+                                         initials=None,
+                                         is_favorite=None,
+                                         job_title=None,
+                                         manager=None,
+                                         middle_name=None,
+                                         nick_name=None,
+                                         office_location=None,
+                                         parent_folder_id=None,
+                                         personal_notes=None,
+                                         phones=None,
+                                         postal_addresses=None,
+                                         profession=None,
+                                         spouse_name=None,
+                                         surname=None,
+                                         title=None,
+                                         websites=None,
+                                         wedding_anniversary=None,
+                                         yomi_company_name=None,
+                                         yomi_given_name=None,
+                                         yomi_surname=None,
+                                         extensions=None,
+                                         multi_value_extended_properties=None,
+                                         photo=None,
+                                         single_value_extended_properties=None,
+                                         flag_completed_date_time=None,
+                                         flag_due_date_time=None,
+                                         flag_flag_status=None,
+                                         flag_start_date_time=None):
     return client.update_contact(user_id=user_id,
                                  contact_id=contact_id,
-                                 body=body)
+                                 id=id_,
+                                 categories=categories,
+                                 change_key=change_key,
+                                 created_date_time=created_date_time,
+                                 last_modified_date_time=last_modified_date_time,
+                                 assistant_name=assistant_name,
+                                 birthday=birthday,
+                                 children=children,
+                                 company_name=company_name,
+                                 department=department,
+                                 display_name=display_name,
+                                 email_addresses=email_addresses,
+                                 file_as=file_as,
+                                 gender=gender,
+                                 generation=generation,
+                                 given_name=given_name,
+                                 im_addresses=im_addresses,
+                                 initials=initials,
+                                 is_favorite=is_favorite,
+                                 job_title=job_title,
+                                 manager=manager,
+                                 middle_name=middle_name,
+                                 nick_name=nick_name,
+                                 office_location=office_location,
+                                 parent_folder_id=parent_folder_id,
+                                 personal_notes=personal_notes,
+                                 phones=phones,
+                                 postal_addresses=postal_addresses,
+                                 profession=profession,
+                                 spouse_name=spouse_name,
+                                 surname=surname,
+                                 title=title,
+                                 websites=websites,
+                                 wedding_anniversary=wedding_anniversary,
+                                 yomi_company_name=yomi_company_name,
+                                 yomi_given_name=yomi_given_name,
+                                 yomi_surname=yomi_surname,
+                                 extensions=extensions,
+                                 multi_value_extended_properties=multi_value_extended_properties,
+                                 photo=photo,
+                                 single_value_extended_properties=single_value_extended_properties,
+                                 completed_date_time=flag_completed_date_time,
+                                 due_date_time=flag_due_date_time,
+                                 flag_status=flag_flag_status,
+                                 start_date_time=flag_start_date_time)
 
 
-def personalcontacts_update_contact_folder(client,
-                                           user_id,
-                                           contact_folder_id,
-                                           id_=None,
-                                           display_name=None,
-                                           parent_folder_id=None,
-                                           well_known_name=None,
-                                           child_folders=None,
-                                           contacts=None,
-                                           multi_value_extended_properties=None,
-                                           single_value_extended_properties=None):
+def personalcontacts_user_update_contact_folder(client,
+                                                user_id,
+                                                contact_folder_id,
+                                                id_=None,
+                                                display_name=None,
+                                                parent_folder_id=None,
+                                                well_known_name=None,
+                                                child_folders=None,
+                                                contacts=None,
+                                                multi_value_extended_properties=None,
+                                                single_value_extended_properties=None):
     return client.update_contact_folder(user_id=user_id,
                                         contact_folder_id=contact_folder_id,
                                         id=id_,
@@ -129,14 +305,14 @@ def personalcontacts_update_contact_folder(client,
                                         single_value_extended_properties=single_value_extended_properties)
 
 
-def personalcontacts_delete(client,
-                            user_id,
-                            contact_folder_id,
-                            contact_folder_id1=None,
-                            if_match=None,
-                            contact_id=None,
-                            multi_value_legacy_extended_property_id=None,
-                            single_value_legacy_extended_property_id=None):
+def personalcontacts_user_contact_folder_delete(client,
+                                                user_id,
+                                                contact_folder_id,
+                                                contact_folder_id1=None,
+                                                if_match=None,
+                                                contact_id=None,
+                                                multi_value_legacy_extended_property_id=None,
+                                                single_value_legacy_extended_property_id=None):
     if user_id is not None and contact_folder_id is not None and contact_folder_id1 is not None:
         return client.delete_child_folder(user_id=user_id,
                                           contact_folder_id=contact_folder_id,
@@ -158,17 +334,17 @@ def personalcontacts_delete(client,
                                                         if_match=if_match)
 
 
-def personalcontacts_create_child_folder(client,
-                                         user_id,
-                                         contact_folder_id,
-                                         id_=None,
-                                         display_name=None,
-                                         parent_folder_id=None,
-                                         well_known_name=None,
-                                         child_folders=None,
-                                         contacts=None,
-                                         multi_value_extended_properties=None,
-                                         single_value_extended_properties=None):
+def personalcontacts_user_contact_folder_create_child_folder(client,
+                                                             user_id,
+                                                             contact_folder_id,
+                                                             id_=None,
+                                                             display_name=None,
+                                                             parent_folder_id=None,
+                                                             well_known_name=None,
+                                                             child_folders=None,
+                                                             contacts=None,
+                                                             multi_value_extended_properties=None,
+                                                             single_value_extended_properties=None):
     return client.create_child_folder(user_id=user_id,
                                       contact_folder_id=contact_folder_id,
                                       id=id_,
@@ -181,43 +357,131 @@ def personalcontacts_create_child_folder(client,
                                       single_value_extended_properties=single_value_extended_properties)
 
 
-def personalcontacts_create_contact(client,
-                                    user_id,
-                                    contact_folder_id,
-                                    body):
+def personalcontacts_user_contact_folder_create_contact(client,
+                                                        user_id,
+                                                        contact_folder_id,
+                                                        id_=None,
+                                                        categories=None,
+                                                        change_key=None,
+                                                        created_date_time=None,
+                                                        last_modified_date_time=None,
+                                                        assistant_name=None,
+                                                        birthday=None,
+                                                        children=None,
+                                                        company_name=None,
+                                                        department=None,
+                                                        display_name=None,
+                                                        email_addresses=None,
+                                                        file_as=None,
+                                                        gender=None,
+                                                        generation=None,
+                                                        given_name=None,
+                                                        im_addresses=None,
+                                                        initials=None,
+                                                        is_favorite=None,
+                                                        job_title=None,
+                                                        manager=None,
+                                                        middle_name=None,
+                                                        nick_name=None,
+                                                        office_location=None,
+                                                        parent_folder_id=None,
+                                                        personal_notes=None,
+                                                        phones=None,
+                                                        postal_addresses=None,
+                                                        profession=None,
+                                                        spouse_name=None,
+                                                        surname=None,
+                                                        title=None,
+                                                        websites=None,
+                                                        wedding_anniversary=None,
+                                                        yomi_company_name=None,
+                                                        yomi_given_name=None,
+                                                        yomi_surname=None,
+                                                        extensions=None,
+                                                        multi_value_extended_properties=None,
+                                                        photo=None,
+                                                        single_value_extended_properties=None,
+                                                        flag_completed_date_time=None,
+                                                        flag_due_date_time=None,
+                                                        flag_flag_status=None,
+                                                        flag_start_date_time=None):
     return client.create_contact(user_id=user_id,
                                  contact_folder_id=contact_folder_id,
-                                 body=body)
+                                 id=id_,
+                                 categories=categories,
+                                 change_key=change_key,
+                                 created_date_time=created_date_time,
+                                 last_modified_date_time=last_modified_date_time,
+                                 assistant_name=assistant_name,
+                                 birthday=birthday,
+                                 children=children,
+                                 company_name=company_name,
+                                 department=department,
+                                 display_name=display_name,
+                                 email_addresses=email_addresses,
+                                 file_as=file_as,
+                                 gender=gender,
+                                 generation=generation,
+                                 given_name=given_name,
+                                 im_addresses=im_addresses,
+                                 initials=initials,
+                                 is_favorite=is_favorite,
+                                 job_title=job_title,
+                                 manager=manager,
+                                 middle_name=middle_name,
+                                 nick_name=nick_name,
+                                 office_location=office_location,
+                                 parent_folder_id=parent_folder_id,
+                                 personal_notes=personal_notes,
+                                 phones=phones,
+                                 postal_addresses=postal_addresses,
+                                 profession=profession,
+                                 spouse_name=spouse_name,
+                                 surname=surname,
+                                 title=title,
+                                 websites=websites,
+                                 wedding_anniversary=wedding_anniversary,
+                                 yomi_company_name=yomi_company_name,
+                                 yomi_given_name=yomi_given_name,
+                                 yomi_surname=yomi_surname,
+                                 extensions=extensions,
+                                 multi_value_extended_properties=multi_value_extended_properties,
+                                 photo=photo,
+                                 single_value_extended_properties=single_value_extended_properties,
+                                 completed_date_time=flag_completed_date_time,
+                                 due_date_time=flag_due_date_time,
+                                 flag_status=flag_flag_status,
+                                 start_date_time=flag_start_date_time)
 
 
-def personalcontacts_create_multi_value_extended_property(client,
-                                                          user_id,
-                                                          contact_folder_id,
-                                                          id_=None,
-                                                          value=None):
+def personalcontacts_user_contact_folder_create_multi_value_extended_property(client,
+                                                                              user_id,
+                                                                              contact_folder_id,
+                                                                              id_=None,
+                                                                              value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        contact_folder_id=contact_folder_id,
                                                        id=id_,
                                                        value=value)
 
 
-def personalcontacts_create_single_value_extended_property(client,
-                                                           user_id,
-                                                           contact_folder_id,
-                                                           id_=None,
-                                                           value=None):
+def personalcontacts_user_contact_folder_create_single_value_extended_property(client,
+                                                                               user_id,
+                                                                               contact_folder_id,
+                                                                               id_=None,
+                                                                               value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         contact_folder_id=contact_folder_id,
                                                         id=id_,
                                                         value=value)
 
 
-def personalcontacts_get_child_folder(client,
-                                      user_id,
-                                      contact_folder_id,
-                                      contact_folder_id1,
-                                      select=None,
-                                      expand=None):
+def personalcontacts_user_contact_folder_get_child_folder(client,
+                                                          user_id,
+                                                          contact_folder_id,
+                                                          contact_folder_id1,
+                                                          select=None,
+                                                          expand=None):
     return client.get_child_folder(user_id=user_id,
                                    contact_folder_id=contact_folder_id,
                                    contact_folder_id1=contact_folder_id1,
@@ -225,12 +489,12 @@ def personalcontacts_get_child_folder(client,
                                    expand=expand)
 
 
-def personalcontacts_get_contact(client,
-                                 user_id,
-                                 contact_folder_id,
-                                 contact_id,
-                                 select=None,
-                                 expand=None):
+def personalcontacts_user_contact_folder_get_contact(client,
+                                                     user_id,
+                                                     contact_folder_id,
+                                                     contact_id,
+                                                     select=None,
+                                                     expand=None):
     return client.get_contact(user_id=user_id,
                               contact_folder_id=contact_folder_id,
                               contact_id=contact_id,
@@ -238,12 +502,12 @@ def personalcontacts_get_contact(client,
                               expand=expand)
 
 
-def personalcontacts_get_multi_value_extended_property(client,
-                                                       user_id,
-                                                       contact_folder_id,
-                                                       multi_value_legacy_extended_property_id,
-                                                       select=None,
-                                                       expand=None):
+def personalcontacts_user_contact_folder_get_multi_value_extended_property(client,
+                                                                           user_id,
+                                                                           contact_folder_id,
+                                                                           multi_value_legacy_extended_property_id,
+                                                                           select=None,
+                                                                           expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     contact_folder_id=contact_folder_id,
                                                     multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -251,12 +515,12 @@ def personalcontacts_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def personalcontacts_get_single_value_extended_property(client,
-                                                        user_id,
-                                                        contact_folder_id,
-                                                        single_value_legacy_extended_property_id,
-                                                        select=None,
-                                                        expand=None):
+def personalcontacts_user_contact_folder_get_single_value_extended_property(client,
+                                                                            user_id,
+                                                                            contact_folder_id,
+                                                                            single_value_legacy_extended_property_id,
+                                                                            select=None,
+                                                                            expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      contact_folder_id=contact_folder_id,
                                                      single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -264,12 +528,12 @@ def personalcontacts_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def personalcontacts_list_child_folder(client,
-                                       user_id,
-                                       contact_folder_id,
-                                       orderby=None,
-                                       select=None,
-                                       expand=None):
+def personalcontacts_user_contact_folder_list_child_folder(client,
+                                                           user_id,
+                                                           contact_folder_id,
+                                                           orderby=None,
+                                                           select=None,
+                                                           expand=None):
     return client.list_child_folder(user_id=user_id,
                                     contact_folder_id=contact_folder_id,
                                     orderby=orderby,
@@ -277,12 +541,12 @@ def personalcontacts_list_child_folder(client,
                                     expand=expand)
 
 
-def personalcontacts_list_contact(client,
-                                  user_id,
-                                  contact_folder_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def personalcontacts_user_contact_folder_list_contact(client,
+                                                      user_id,
+                                                      contact_folder_id,
+                                                      orderby=None,
+                                                      select=None,
+                                                      expand=None):
     return client.list_contact(user_id=user_id,
                                contact_folder_id=contact_folder_id,
                                orderby=orderby,
@@ -290,12 +554,12 @@ def personalcontacts_list_contact(client,
                                expand=expand)
 
 
-def personalcontacts_list_multi_value_extended_property(client,
-                                                        user_id,
-                                                        contact_folder_id,
-                                                        orderby=None,
-                                                        select=None,
-                                                        expand=None):
+def personalcontacts_user_contact_folder_list_multi_value_extended_property(client,
+                                                                            user_id,
+                                                                            contact_folder_id,
+                                                                            orderby=None,
+                                                                            select=None,
+                                                                            expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      contact_folder_id=contact_folder_id,
                                                      orderby=orderby,
@@ -303,12 +567,12 @@ def personalcontacts_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def personalcontacts_list_single_value_extended_property(client,
-                                                         user_id,
-                                                         contact_folder_id,
-                                                         orderby=None,
-                                                         select=None,
-                                                         expand=None):
+def personalcontacts_user_contact_folder_list_single_value_extended_property(client,
+                                                                             user_id,
+                                                                             contact_folder_id,
+                                                                             orderby=None,
+                                                                             select=None,
+                                                                             expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       contact_folder_id=contact_folder_id,
                                                       orderby=orderby,
@@ -316,18 +580,18 @@ def personalcontacts_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def personalcontacts_update_child_folder(client,
-                                         user_id,
-                                         contact_folder_id,
-                                         contact_folder_id1,
-                                         id_=None,
-                                         display_name=None,
-                                         parent_folder_id=None,
-                                         well_known_name=None,
-                                         child_folders=None,
-                                         contacts=None,
-                                         multi_value_extended_properties=None,
-                                         single_value_extended_properties=None):
+def personalcontacts_user_contact_folder_update_child_folder(client,
+                                                             user_id,
+                                                             contact_folder_id,
+                                                             contact_folder_id1,
+                                                             id_=None,
+                                                             display_name=None,
+                                                             parent_folder_id=None,
+                                                             well_known_name=None,
+                                                             child_folders=None,
+                                                             contacts=None,
+                                                             multi_value_extended_properties=None,
+                                                             single_value_extended_properties=None):
     return client.update_child_folder(user_id=user_id,
                                       contact_folder_id=contact_folder_id,
                                       contact_folder_id1=contact_folder_id1,
@@ -341,23 +605,111 @@ def personalcontacts_update_child_folder(client,
                                       single_value_extended_properties=single_value_extended_properties)
 
 
-def personalcontacts_update_contact(client,
-                                    user_id,
-                                    contact_folder_id,
-                                    contact_id,
-                                    body):
+def personalcontacts_user_contact_folder_update_contact(client,
+                                                        user_id,
+                                                        contact_folder_id,
+                                                        contact_id,
+                                                        id_=None,
+                                                        categories=None,
+                                                        change_key=None,
+                                                        created_date_time=None,
+                                                        last_modified_date_time=None,
+                                                        assistant_name=None,
+                                                        birthday=None,
+                                                        children=None,
+                                                        company_name=None,
+                                                        department=None,
+                                                        display_name=None,
+                                                        email_addresses=None,
+                                                        file_as=None,
+                                                        gender=None,
+                                                        generation=None,
+                                                        given_name=None,
+                                                        im_addresses=None,
+                                                        initials=None,
+                                                        is_favorite=None,
+                                                        job_title=None,
+                                                        manager=None,
+                                                        middle_name=None,
+                                                        nick_name=None,
+                                                        office_location=None,
+                                                        parent_folder_id=None,
+                                                        personal_notes=None,
+                                                        phones=None,
+                                                        postal_addresses=None,
+                                                        profession=None,
+                                                        spouse_name=None,
+                                                        surname=None,
+                                                        title=None,
+                                                        websites=None,
+                                                        wedding_anniversary=None,
+                                                        yomi_company_name=None,
+                                                        yomi_given_name=None,
+                                                        yomi_surname=None,
+                                                        extensions=None,
+                                                        multi_value_extended_properties=None,
+                                                        photo=None,
+                                                        single_value_extended_properties=None,
+                                                        flag_completed_date_time=None,
+                                                        flag_due_date_time=None,
+                                                        flag_flag_status=None,
+                                                        flag_start_date_time=None):
     return client.update_contact(user_id=user_id,
                                  contact_folder_id=contact_folder_id,
                                  contact_id=contact_id,
-                                 body=body)
+                                 id=id_,
+                                 categories=categories,
+                                 change_key=change_key,
+                                 created_date_time=created_date_time,
+                                 last_modified_date_time=last_modified_date_time,
+                                 assistant_name=assistant_name,
+                                 birthday=birthday,
+                                 children=children,
+                                 company_name=company_name,
+                                 department=department,
+                                 display_name=display_name,
+                                 email_addresses=email_addresses,
+                                 file_as=file_as,
+                                 gender=gender,
+                                 generation=generation,
+                                 given_name=given_name,
+                                 im_addresses=im_addresses,
+                                 initials=initials,
+                                 is_favorite=is_favorite,
+                                 job_title=job_title,
+                                 manager=manager,
+                                 middle_name=middle_name,
+                                 nick_name=nick_name,
+                                 office_location=office_location,
+                                 parent_folder_id=parent_folder_id,
+                                 personal_notes=personal_notes,
+                                 phones=phones,
+                                 postal_addresses=postal_addresses,
+                                 profession=profession,
+                                 spouse_name=spouse_name,
+                                 surname=surname,
+                                 title=title,
+                                 websites=websites,
+                                 wedding_anniversary=wedding_anniversary,
+                                 yomi_company_name=yomi_company_name,
+                                 yomi_given_name=yomi_given_name,
+                                 yomi_surname=yomi_surname,
+                                 extensions=extensions,
+                                 multi_value_extended_properties=multi_value_extended_properties,
+                                 photo=photo,
+                                 single_value_extended_properties=single_value_extended_properties,
+                                 completed_date_time=flag_completed_date_time,
+                                 due_date_time=flag_due_date_time,
+                                 flag_status=flag_flag_status,
+                                 start_date_time=flag_start_date_time)
 
 
-def personalcontacts_update_multi_value_extended_property(client,
-                                                          user_id,
-                                                          contact_folder_id,
-                                                          multi_value_legacy_extended_property_id,
-                                                          id_=None,
-                                                          value=None):
+def personalcontacts_user_contact_folder_update_multi_value_extended_property(client,
+                                                                              user_id,
+                                                                              contact_folder_id,
+                                                                              multi_value_legacy_extended_property_id,
+                                                                              id_=None,
+                                                                              value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        contact_folder_id=contact_folder_id,
                                                        multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -365,12 +717,12 @@ def personalcontacts_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def personalcontacts_update_single_value_extended_property(client,
-                                                           user_id,
-                                                           contact_folder_id,
-                                                           single_value_legacy_extended_property_id,
-                                                           id_=None,
-                                                           value=None):
+def personalcontacts_user_contact_folder_update_single_value_extended_property(client,
+                                                                               user_id,
+                                                                               contact_folder_id,
+                                                                               single_value_legacy_extended_property_id,
+                                                                               id_=None,
+                                                                               value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         contact_folder_id=contact_folder_id,
                                                         single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -378,14 +730,14 @@ def personalcontacts_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def personalcontacts_delete(client,
-                            user_id,
-                            contact_folder_id,
-                            contact_id,
-                            extension_id=None,
-                            if_match=None,
-                            multi_value_legacy_extended_property_id=None,
-                            single_value_legacy_extended_property_id=None):
+def personalcontacts_user_contact_folder_contact_delete(client,
+                                                        user_id,
+                                                        contact_folder_id,
+                                                        contact_id,
+                                                        extension_id=None,
+                                                        if_match=None,
+                                                        multi_value_legacy_extended_property_id=None,
+                                                        single_value_legacy_extended_property_id=None):
     if user_id is not None and contact_folder_id is not None and contact_id is not None and extension_id is not None:
         return client.delete_extension(user_id=user_id,
                                        contact_folder_id=contact_folder_id,
@@ -410,23 +762,23 @@ def personalcontacts_delete(client,
                                if_match=if_match)
 
 
-def personalcontacts_create_extension(client,
-                                      user_id,
-                                      contact_folder_id,
-                                      contact_id,
-                                      id_=None):
+def personalcontacts_user_contact_folder_contact_create_extension(client,
+                                                                  user_id,
+                                                                  contact_folder_id,
+                                                                  contact_id,
+                                                                  id_=None):
     return client.create_extension(user_id=user_id,
                                    contact_folder_id=contact_folder_id,
                                    contact_id=contact_id,
                                    id=id_)
 
 
-def personalcontacts_create_multi_value_extended_property(client,
-                                                          user_id,
-                                                          contact_folder_id,
-                                                          contact_id,
-                                                          id_=None,
-                                                          value=None):
+def personalcontacts_user_contact_folder_contact_create_multi_value_extended_property(client,
+                                                                                      user_id,
+                                                                                      contact_folder_id,
+                                                                                      contact_id,
+                                                                                      id_=None,
+                                                                                      value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        contact_folder_id=contact_folder_id,
                                                        contact_id=contact_id,
@@ -434,12 +786,12 @@ def personalcontacts_create_multi_value_extended_property(client,
                                                        value=value)
 
 
-def personalcontacts_create_single_value_extended_property(client,
-                                                           user_id,
-                                                           contact_folder_id,
-                                                           contact_id,
-                                                           id_=None,
-                                                           value=None):
+def personalcontacts_user_contact_folder_contact_create_single_value_extended_property(client,
+                                                                                       user_id,
+                                                                                       contact_folder_id,
+                                                                                       contact_id,
+                                                                                       id_=None,
+                                                                                       value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         contact_folder_id=contact_folder_id,
                                                         contact_id=contact_id,
@@ -447,13 +799,13 @@ def personalcontacts_create_single_value_extended_property(client,
                                                         value=value)
 
 
-def personalcontacts_get_extension(client,
-                                   user_id,
-                                   contact_folder_id,
-                                   contact_id,
-                                   extension_id,
-                                   select=None,
-                                   expand=None):
+def personalcontacts_user_contact_folder_contact_get_extension(client,
+                                                               user_id,
+                                                               contact_folder_id,
+                                                               contact_id,
+                                                               extension_id,
+                                                               select=None,
+                                                               expand=None):
     return client.get_extension(user_id=user_id,
                                 contact_folder_id=contact_folder_id,
                                 contact_id=contact_id,
@@ -462,13 +814,13 @@ def personalcontacts_get_extension(client,
                                 expand=expand)
 
 
-def personalcontacts_get_multi_value_extended_property(client,
-                                                       user_id,
-                                                       contact_folder_id,
-                                                       contact_id,
-                                                       multi_value_legacy_extended_property_id,
-                                                       select=None,
-                                                       expand=None):
+def personalcontacts_user_contact_folder_contact_get_multi_value_extended_property(client,
+                                                                                   user_id,
+                                                                                   contact_folder_id,
+                                                                                   contact_id,
+                                                                                   multi_value_legacy_extended_property_id,
+                                                                                   select=None,
+                                                                                   expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     contact_folder_id=contact_folder_id,
                                                     contact_id=contact_id,
@@ -477,12 +829,12 @@ def personalcontacts_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def personalcontacts_get_photo(client,
-                               user_id,
-                               contact_folder_id,
-                               contact_id,
-                               select=None,
-                               expand=None):
+def personalcontacts_user_contact_folder_contact_get_photo(client,
+                                                           user_id,
+                                                           contact_folder_id,
+                                                           contact_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_photo(user_id=user_id,
                             contact_folder_id=contact_folder_id,
                             contact_id=contact_id,
@@ -490,22 +842,22 @@ def personalcontacts_get_photo(client,
                             expand=expand)
 
 
-def personalcontacts_get_photo_content(client,
-                                       user_id,
-                                       contact_folder_id,
-                                       contact_id):
+def personalcontacts_user_contact_folder_contact_get_photo_content(client,
+                                                                   user_id,
+                                                                   contact_folder_id,
+                                                                   contact_id):
     return client.get_photo_content(user_id=user_id,
                                     contact_folder_id=contact_folder_id,
                                     contact_id=contact_id)
 
 
-def personalcontacts_get_single_value_extended_property(client,
-                                                        user_id,
-                                                        contact_folder_id,
-                                                        contact_id,
-                                                        single_value_legacy_extended_property_id,
-                                                        select=None,
-                                                        expand=None):
+def personalcontacts_user_contact_folder_contact_get_single_value_extended_property(client,
+                                                                                    user_id,
+                                                                                    contact_folder_id,
+                                                                                    contact_id,
+                                                                                    single_value_legacy_extended_property_id,
+                                                                                    select=None,
+                                                                                    expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      contact_folder_id=contact_folder_id,
                                                      contact_id=contact_id,
@@ -514,13 +866,13 @@ def personalcontacts_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def personalcontacts_list_extension(client,
-                                    user_id,
-                                    contact_folder_id,
-                                    contact_id,
-                                    orderby=None,
-                                    select=None,
-                                    expand=None):
+def personalcontacts_user_contact_folder_contact_list_extension(client,
+                                                                user_id,
+                                                                contact_folder_id,
+                                                                contact_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
     return client.list_extension(user_id=user_id,
                                  contact_folder_id=contact_folder_id,
                                  contact_id=contact_id,
@@ -529,13 +881,13 @@ def personalcontacts_list_extension(client,
                                  expand=expand)
 
 
-def personalcontacts_list_multi_value_extended_property(client,
-                                                        user_id,
-                                                        contact_folder_id,
-                                                        contact_id,
-                                                        orderby=None,
-                                                        select=None,
-                                                        expand=None):
+def personalcontacts_user_contact_folder_contact_list_multi_value_extended_property(client,
+                                                                                    user_id,
+                                                                                    contact_folder_id,
+                                                                                    contact_id,
+                                                                                    orderby=None,
+                                                                                    select=None,
+                                                                                    expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      contact_folder_id=contact_folder_id,
                                                      contact_id=contact_id,
@@ -544,13 +896,13 @@ def personalcontacts_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def personalcontacts_list_single_value_extended_property(client,
-                                                         user_id,
-                                                         contact_folder_id,
-                                                         contact_id,
-                                                         orderby=None,
-                                                         select=None,
-                                                         expand=None):
+def personalcontacts_user_contact_folder_contact_list_single_value_extended_property(client,
+                                                                                     user_id,
+                                                                                     contact_folder_id,
+                                                                                     contact_id,
+                                                                                     orderby=None,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       contact_folder_id=contact_folder_id,
                                                       contact_id=contact_id,
@@ -559,23 +911,23 @@ def personalcontacts_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def personalcontacts_set_photo_content(client,
-                                       user_id,
-                                       contact_folder_id,
-                                       contact_id,
-                                       data):
+def personalcontacts_user_contact_folder_contact_set_photo_content(client,
+                                                                   user_id,
+                                                                   contact_folder_id,
+                                                                   contact_id,
+                                                                   data):
     return client.set_photo_content(user_id=user_id,
                                     contact_folder_id=contact_folder_id,
                                     contact_id=contact_id,
                                     data=data)
 
 
-def personalcontacts_update_extension(client,
-                                      user_id,
-                                      contact_folder_id,
-                                      contact_id,
-                                      extension_id,
-                                      id_=None):
+def personalcontacts_user_contact_folder_contact_update_extension(client,
+                                                                  user_id,
+                                                                  contact_folder_id,
+                                                                  contact_id,
+                                                                  extension_id,
+                                                                  id_=None):
     return client.update_extension(user_id=user_id,
                                    contact_folder_id=contact_folder_id,
                                    contact_id=contact_id,
@@ -583,13 +935,13 @@ def personalcontacts_update_extension(client,
                                    id=id_)
 
 
-def personalcontacts_update_multi_value_extended_property(client,
-                                                          user_id,
-                                                          contact_folder_id,
-                                                          contact_id,
-                                                          multi_value_legacy_extended_property_id,
-                                                          id_=None,
-                                                          value=None):
+def personalcontacts_user_contact_folder_contact_update_multi_value_extended_property(client,
+                                                                                      user_id,
+                                                                                      contact_folder_id,
+                                                                                      contact_id,
+                                                                                      multi_value_legacy_extended_property_id,
+                                                                                      id_=None,
+                                                                                      value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        contact_folder_id=contact_folder_id,
                                                        contact_id=contact_id,
@@ -598,13 +950,13 @@ def personalcontacts_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def personalcontacts_update_photo(client,
-                                  user_id,
-                                  contact_folder_id,
-                                  contact_id,
-                                  id_=None,
-                                  height=None,
-                                  width=None):
+def personalcontacts_user_contact_folder_contact_update_photo(client,
+                                                              user_id,
+                                                              contact_folder_id,
+                                                              contact_id,
+                                                              id_=None,
+                                                              height=None,
+                                                              width=None):
     return client.update_photo(user_id=user_id,
                                contact_folder_id=contact_folder_id,
                                contact_id=contact_id,
@@ -613,13 +965,13 @@ def personalcontacts_update_photo(client,
                                width=width)
 
 
-def personalcontacts_update_single_value_extended_property(client,
-                                                           user_id,
-                                                           contact_folder_id,
-                                                           contact_id,
-                                                           single_value_legacy_extended_property_id,
-                                                           id_=None,
-                                                           value=None):
+def personalcontacts_user_contact_folder_contact_update_single_value_extended_property(client,
+                                                                                       user_id,
+                                                                                       contact_folder_id,
+                                                                                       contact_id,
+                                                                                       single_value_legacy_extended_property_id,
+                                                                                       id_=None,
+                                                                                       value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         contact_folder_id=contact_folder_id,
                                                         contact_id=contact_id,
@@ -628,13 +980,13 @@ def personalcontacts_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def personalcontacts_delete(client,
-                            user_id,
-                            contact_id,
-                            extension_id=None,
-                            if_match=None,
-                            multi_value_legacy_extended_property_id=None,
-                            single_value_legacy_extended_property_id=None):
+def personalcontacts_user_contact_delete(client,
+                                         user_id,
+                                         contact_id,
+                                         extension_id=None,
+                                         if_match=None,
+                                         multi_value_legacy_extended_property_id=None,
+                                         single_value_legacy_extended_property_id=None):
     if user_id is not None and contact_id is not None and extension_id is not None:
         return client.delete_extension(user_id=user_id,
                                        contact_id=contact_id,
@@ -655,43 +1007,43 @@ def personalcontacts_delete(client,
                                if_match=if_match)
 
 
-def personalcontacts_create_extension(client,
-                                      user_id,
-                                      contact_id,
-                                      id_=None):
+def personalcontacts_user_contact_create_extension(client,
+                                                   user_id,
+                                                   contact_id,
+                                                   id_=None):
     return client.create_extension(user_id=user_id,
                                    contact_id=contact_id,
                                    id=id_)
 
 
-def personalcontacts_create_multi_value_extended_property(client,
-                                                          user_id,
-                                                          contact_id,
-                                                          id_=None,
-                                                          value=None):
+def personalcontacts_user_contact_create_multi_value_extended_property(client,
+                                                                       user_id,
+                                                                       contact_id,
+                                                                       id_=None,
+                                                                       value=None):
     return client.create_multi_value_extended_property(user_id=user_id,
                                                        contact_id=contact_id,
                                                        id=id_,
                                                        value=value)
 
 
-def personalcontacts_create_single_value_extended_property(client,
-                                                           user_id,
-                                                           contact_id,
-                                                           id_=None,
-                                                           value=None):
+def personalcontacts_user_contact_create_single_value_extended_property(client,
+                                                                        user_id,
+                                                                        contact_id,
+                                                                        id_=None,
+                                                                        value=None):
     return client.create_single_value_extended_property(user_id=user_id,
                                                         contact_id=contact_id,
                                                         id=id_,
                                                         value=value)
 
 
-def personalcontacts_get_extension(client,
-                                   user_id,
-                                   contact_id,
-                                   extension_id,
-                                   select=None,
-                                   expand=None):
+def personalcontacts_user_contact_get_extension(client,
+                                                user_id,
+                                                contact_id,
+                                                extension_id,
+                                                select=None,
+                                                expand=None):
     return client.get_extension(user_id=user_id,
                                 contact_id=contact_id,
                                 extension_id=extension_id,
@@ -699,12 +1051,12 @@ def personalcontacts_get_extension(client,
                                 expand=expand)
 
 
-def personalcontacts_get_multi_value_extended_property(client,
-                                                       user_id,
-                                                       contact_id,
-                                                       multi_value_legacy_extended_property_id,
-                                                       select=None,
-                                                       expand=None):
+def personalcontacts_user_contact_get_multi_value_extended_property(client,
+                                                                    user_id,
+                                                                    contact_id,
+                                                                    multi_value_legacy_extended_property_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_multi_value_extended_property(user_id=user_id,
                                                     contact_id=contact_id,
                                                     multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -712,30 +1064,30 @@ def personalcontacts_get_multi_value_extended_property(client,
                                                     expand=expand)
 
 
-def personalcontacts_get_photo(client,
-                               user_id,
-                               contact_id,
-                               select=None,
-                               expand=None):
+def personalcontacts_user_contact_get_photo(client,
+                                            user_id,
+                                            contact_id,
+                                            select=None,
+                                            expand=None):
     return client.get_photo(user_id=user_id,
                             contact_id=contact_id,
                             select=select,
                             expand=expand)
 
 
-def personalcontacts_get_photo_content(client,
-                                       user_id,
-                                       contact_id):
+def personalcontacts_user_contact_get_photo_content(client,
+                                                    user_id,
+                                                    contact_id):
     return client.get_photo_content(user_id=user_id,
                                     contact_id=contact_id)
 
 
-def personalcontacts_get_single_value_extended_property(client,
-                                                        user_id,
-                                                        contact_id,
-                                                        single_value_legacy_extended_property_id,
-                                                        select=None,
-                                                        expand=None):
+def personalcontacts_user_contact_get_single_value_extended_property(client,
+                                                                     user_id,
+                                                                     contact_id,
+                                                                     single_value_legacy_extended_property_id,
+                                                                     select=None,
+                                                                     expand=None):
     return client.get_single_value_extended_property(user_id=user_id,
                                                      contact_id=contact_id,
                                                      single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
@@ -743,12 +1095,12 @@ def personalcontacts_get_single_value_extended_property(client,
                                                      expand=expand)
 
 
-def personalcontacts_list_extension(client,
-                                    user_id,
-                                    contact_id,
-                                    orderby=None,
-                                    select=None,
-                                    expand=None):
+def personalcontacts_user_contact_list_extension(client,
+                                                 user_id,
+                                                 contact_id,
+                                                 orderby=None,
+                                                 select=None,
+                                                 expand=None):
     return client.list_extension(user_id=user_id,
                                  contact_id=contact_id,
                                  orderby=orderby,
@@ -756,12 +1108,12 @@ def personalcontacts_list_extension(client,
                                  expand=expand)
 
 
-def personalcontacts_list_multi_value_extended_property(client,
-                                                        user_id,
-                                                        contact_id,
-                                                        orderby=None,
-                                                        select=None,
-                                                        expand=None):
+def personalcontacts_user_contact_list_multi_value_extended_property(client,
+                                                                     user_id,
+                                                                     contact_id,
+                                                                     orderby=None,
+                                                                     select=None,
+                                                                     expand=None):
     return client.list_multi_value_extended_property(user_id=user_id,
                                                      contact_id=contact_id,
                                                      orderby=orderby,
@@ -769,12 +1121,12 @@ def personalcontacts_list_multi_value_extended_property(client,
                                                      expand=expand)
 
 
-def personalcontacts_list_single_value_extended_property(client,
-                                                         user_id,
-                                                         contact_id,
-                                                         orderby=None,
-                                                         select=None,
-                                                         expand=None):
+def personalcontacts_user_contact_list_single_value_extended_property(client,
+                                                                      user_id,
+                                                                      contact_id,
+                                                                      orderby=None,
+                                                                      select=None,
+                                                                      expand=None):
     return client.list_single_value_extended_property(user_id=user_id,
                                                       contact_id=contact_id,
                                                       orderby=orderby,
@@ -782,32 +1134,32 @@ def personalcontacts_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def personalcontacts_set_photo_content(client,
-                                       user_id,
-                                       contact_id,
-                                       data):
+def personalcontacts_user_contact_set_photo_content(client,
+                                                    user_id,
+                                                    contact_id,
+                                                    data):
     return client.set_photo_content(user_id=user_id,
                                     contact_id=contact_id,
                                     data=data)
 
 
-def personalcontacts_update_extension(client,
-                                      user_id,
-                                      contact_id,
-                                      extension_id,
-                                      id_=None):
+def personalcontacts_user_contact_update_extension(client,
+                                                   user_id,
+                                                   contact_id,
+                                                   extension_id,
+                                                   id_=None):
     return client.update_extension(user_id=user_id,
                                    contact_id=contact_id,
                                    extension_id=extension_id,
                                    id=id_)
 
 
-def personalcontacts_update_multi_value_extended_property(client,
-                                                          user_id,
-                                                          contact_id,
-                                                          multi_value_legacy_extended_property_id,
-                                                          id_=None,
-                                                          value=None):
+def personalcontacts_user_contact_update_multi_value_extended_property(client,
+                                                                       user_id,
+                                                                       contact_id,
+                                                                       multi_value_legacy_extended_property_id,
+                                                                       id_=None,
+                                                                       value=None):
     return client.update_multi_value_extended_property(user_id=user_id,
                                                        contact_id=contact_id,
                                                        multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
@@ -815,12 +1167,12 @@ def personalcontacts_update_multi_value_extended_property(client,
                                                        value=value)
 
 
-def personalcontacts_update_photo(client,
-                                  user_id,
-                                  contact_id,
-                                  id_=None,
-                                  height=None,
-                                  width=None):
+def personalcontacts_user_contact_update_photo(client,
+                                               user_id,
+                                               contact_id,
+                                               id_=None,
+                                               height=None,
+                                               width=None):
     return client.update_photo(user_id=user_id,
                                contact_id=contact_id,
                                id=id_,
@@ -828,12 +1180,12 @@ def personalcontacts_update_photo(client,
                                width=width)
 
 
-def personalcontacts_update_single_value_extended_property(client,
-                                                           user_id,
-                                                           contact_id,
-                                                           single_value_legacy_extended_property_id,
-                                                           id_=None,
-                                                           value=None):
+def personalcontacts_user_contact_update_single_value_extended_property(client,
+                                                                        user_id,
+                                                                        contact_id,
+                                                                        single_value_legacy_extended_property_id,
+                                                                        id_=None,
+                                                                        value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         contact_id=contact_id,
                                                         single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,

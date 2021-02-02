@@ -1,13 +1,13 @@
 # Azure CLI Module Creation Report
 
-### cloudcommunications create-online-meeting
+### cloudcommunications user create-online-meeting
 
-create-online-meeting a cloudcommunications.
+create-online-meeting a cloudcommunications user.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|cloudcommunications|users|
+|cloudcommunications user|users|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -32,14 +32,14 @@ create-online-meeting a cloudcommunications.
 |**--participants-attendees**|array||attendees|attendees|
 |**--participants-organizer**|object|meetingParticipantInfo|organizer|organizer|
 
-### cloudcommunications delete
+### cloudcommunications user delete
 
-delete a cloudcommunications.
+delete a cloudcommunications user.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|cloudcommunications|users|
+|cloudcommunications user|users|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -53,14 +53,14 @@ delete a cloudcommunications.
 |**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### cloudcommunications get-online-meeting
+### cloudcommunications user get-online-meeting
 
-get-online-meeting a cloudcommunications.
+get-online-meeting a cloudcommunications user.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|cloudcommunications|users|
+|cloudcommunications user|users|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -75,14 +75,14 @@ get-online-meeting a cloudcommunications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### cloudcommunications list-online-meeting
+### cloudcommunications user list-online-meeting
 
-list-online-meeting a cloudcommunications.
+list-online-meeting a cloudcommunications user.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|cloudcommunications|users|
+|cloudcommunications user|users|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -97,14 +97,14 @@ list-online-meeting a cloudcommunications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### cloudcommunications update-online-meeting
+### cloudcommunications user update-online-meeting
 
-update-online-meeting a cloudcommunications.
+update-online-meeting a cloudcommunications user.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|cloudcommunications|users|
+|cloudcommunications user|users|
 
 #### Methods
 |Name (az)|Swagger name|

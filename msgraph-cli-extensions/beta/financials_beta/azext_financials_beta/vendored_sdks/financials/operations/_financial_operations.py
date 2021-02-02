@@ -135,7 +135,46 @@ class FinancialOperations(object):
 
     def create_company(
         self,
-        body,  # type: "models.MicrosoftGraphCompany"
+        id=None,  # type: Optional[str]
+        business_profile_id=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        name=None,  # type: Optional[str]
+        system_version=None,  # type: Optional[str]
+        accounts=None,  # type: Optional[List["models.MicrosoftGraphAccount"]]
+        aged_accounts_payable=None,  # type: Optional[List["models.MicrosoftGraphAgedAccountsPayable"]]
+        aged_accounts_receivable=None,  # type: Optional[List["models.MicrosoftGraphAgedAccountsReceivable"]]
+        company_information=None,  # type: Optional[List["models.MicrosoftGraphCompanyInformation"]]
+        countries_regions=None,  # type: Optional[List["models.MicrosoftGraphCountryRegion"]]
+        currencies=None,  # type: Optional[List["models.MicrosoftGraphCurrency"]]
+        customer_payment_journals=None,  # type: Optional[List["models.MicrosoftGraphCustomerPaymentJournal"]]
+        customer_payments=None,  # type: Optional[List["models.MicrosoftGraphCustomerPayment"]]
+        customers=None,  # type: Optional[List["models.MicrosoftGraphCustomer"]]
+        dimensions=None,  # type: Optional[List["models.MicrosoftGraphDimension"]]
+        dimension_values=None,  # type: Optional[List["models.MicrosoftGraphDimensionValue"]]
+        employees=None,  # type: Optional[List["models.MicrosoftGraphEmployee"]]
+        general_ledger_entries=None,  # type: Optional[List["models.MicrosoftGraphGeneralLedgerEntry"]]
+        item_categories=None,  # type: Optional[List["models.MicrosoftGraphItemCategory"]]
+        items=None,  # type: Optional[List["models.MicrosoftGraphItem"]]
+        journal_lines=None,  # type: Optional[List["models.MicrosoftGraphJournalLine"]]
+        journals=None,  # type: Optional[List["models.MicrosoftGraphJournal"]]
+        payment_methods=None,  # type: Optional[List["models.MicrosoftGraphPaymentMethod"]]
+        payment_terms=None,  # type: Optional[List["models.MicrosoftGraphPaymentTerm"]]
+        picture=None,  # type: Optional[List["models.MicrosoftGraphPicture"]]
+        purchase_invoice_lines=None,  # type: Optional[List["models.MicrosoftGraphPurchaseInvoiceLine"]]
+        purchase_invoices=None,  # type: Optional[List["models.MicrosoftGraphPurchaseInvoice"]]
+        sales_credit_memo_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesCreditMemoLine"]]
+        sales_credit_memos=None,  # type: Optional[List["models.MicrosoftGraphSalesCreditMemo"]]
+        sales_invoice_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesInvoiceLine"]]
+        sales_invoices=None,  # type: Optional[List["models.MicrosoftGraphSalesInvoice"]]
+        sales_order_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesOrderLine"]]
+        sales_orders=None,  # type: Optional[List["models.MicrosoftGraphSalesOrder"]]
+        sales_quote_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesQuoteLine"]]
+        sales_quotes=None,  # type: Optional[List["models.MicrosoftGraphSalesQuote"]]
+        shipment_methods=None,  # type: Optional[List["models.MicrosoftGraphShipmentMethod"]]
+        tax_areas=None,  # type: Optional[List["models.MicrosoftGraphTaxArea"]]
+        tax_groups=None,  # type: Optional[List["models.MicrosoftGraphTaxGroup"]]
+        units_of_measure=None,  # type: Optional[List["models.MicrosoftGraphUnitOfMeasure"]]
+        vendors=None,  # type: Optional[List["models.MicrosoftGraphVendor"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphCompany"
@@ -143,8 +182,86 @@ class FinancialOperations(object):
 
         Create new navigation property to companies for financials.
 
-        :param body: New navigation property.
-        :type body: ~financials.models.MicrosoftGraphCompany
+        :param id: Read-only.
+        :type id: str
+        :param business_profile_id:
+        :type business_profile_id: str
+        :param display_name:
+        :type display_name: str
+        :param name:
+        :type name: str
+        :param system_version:
+        :type system_version: str
+        :param accounts:
+        :type accounts: list[~financials.models.MicrosoftGraphAccount]
+        :param aged_accounts_payable:
+        :type aged_accounts_payable: list[~financials.models.MicrosoftGraphAgedAccountsPayable]
+        :param aged_accounts_receivable:
+        :type aged_accounts_receivable: list[~financials.models.MicrosoftGraphAgedAccountsReceivable]
+        :param company_information:
+        :type company_information: list[~financials.models.MicrosoftGraphCompanyInformation]
+        :param countries_regions:
+        :type countries_regions: list[~financials.models.MicrosoftGraphCountryRegion]
+        :param currencies:
+        :type currencies: list[~financials.models.MicrosoftGraphCurrency]
+        :param customer_payment_journals:
+        :type customer_payment_journals: list[~financials.models.MicrosoftGraphCustomerPaymentJournal]
+        :param customer_payments:
+        :type customer_payments: list[~financials.models.MicrosoftGraphCustomerPayment]
+        :param customers:
+        :type customers: list[~financials.models.MicrosoftGraphCustomer]
+        :param dimensions:
+        :type dimensions: list[~financials.models.MicrosoftGraphDimension]
+        :param dimension_values:
+        :type dimension_values: list[~financials.models.MicrosoftGraphDimensionValue]
+        :param employees:
+        :type employees: list[~financials.models.MicrosoftGraphEmployee]
+        :param general_ledger_entries:
+        :type general_ledger_entries: list[~financials.models.MicrosoftGraphGeneralLedgerEntry]
+        :param item_categories:
+        :type item_categories: list[~financials.models.MicrosoftGraphItemCategory]
+        :param items:
+        :type items: list[~financials.models.MicrosoftGraphItem]
+        :param journal_lines:
+        :type journal_lines: list[~financials.models.MicrosoftGraphJournalLine]
+        :param journals:
+        :type journals: list[~financials.models.MicrosoftGraphJournal]
+        :param payment_methods:
+        :type payment_methods: list[~financials.models.MicrosoftGraphPaymentMethod]
+        :param payment_terms:
+        :type payment_terms: list[~financials.models.MicrosoftGraphPaymentTerm]
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param purchase_invoice_lines:
+        :type purchase_invoice_lines: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
+        :param purchase_invoices:
+        :type purchase_invoices: list[~financials.models.MicrosoftGraphPurchaseInvoice]
+        :param sales_credit_memo_lines:
+        :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
+        :param sales_credit_memos:
+        :type sales_credit_memos: list[~financials.models.MicrosoftGraphSalesCreditMemo]
+        :param sales_invoice_lines:
+        :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
+        :param sales_invoices:
+        :type sales_invoices: list[~financials.models.MicrosoftGraphSalesInvoice]
+        :param sales_order_lines:
+        :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
+        :param sales_orders:
+        :type sales_orders: list[~financials.models.MicrosoftGraphSalesOrder]
+        :param sales_quote_lines:
+        :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
+        :param sales_quotes:
+        :type sales_quotes: list[~financials.models.MicrosoftGraphSalesQuote]
+        :param shipment_methods:
+        :type shipment_methods: list[~financials.models.MicrosoftGraphShipmentMethod]
+        :param tax_areas:
+        :type tax_areas: list[~financials.models.MicrosoftGraphTaxArea]
+        :param tax_groups:
+        :type tax_groups: list[~financials.models.MicrosoftGraphTaxGroup]
+        :param units_of_measure:
+        :type units_of_measure: list[~financials.models.MicrosoftGraphUnitOfMeasure]
+        :param vendors:
+        :type vendors: list[~financials.models.MicrosoftGraphVendor]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphCompany, or the result of cls(response)
         :rtype: ~financials.models.MicrosoftGraphCompany
@@ -153,6 +270,8 @@ class FinancialOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCompany"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphCompany(id=id, business_profile_id=business_profile_id, display_name=display_name, name=name, system_version=system_version, accounts=accounts, aged_accounts_payable=aged_accounts_payable, aged_accounts_receivable=aged_accounts_receivable, company_information=company_information, countries_regions=countries_regions, currencies=currencies, customer_payment_journals=customer_payment_journals, customer_payments=customer_payments, customers=customers, dimensions=dimensions, dimension_values=dimension_values, employees=employees, general_ledger_entries=general_ledger_entries, item_categories=item_categories, items=items, journal_lines=journal_lines, journals=journals, payment_methods=payment_methods, payment_terms=payment_terms, picture=picture, purchase_invoice_lines=purchase_invoice_lines, purchase_invoices=purchase_invoices, sales_credit_memo_lines=sales_credit_memo_lines, sales_credit_memos=sales_credit_memos, sales_invoice_lines=sales_invoice_lines, sales_invoices=sales_invoices, sales_order_lines=sales_order_lines, sales_orders=sales_orders, sales_quote_lines=sales_quote_lines, sales_quotes=sales_quotes, shipment_methods=shipment_methods, tax_areas=tax_areas, tax_groups=tax_groups, units_of_measure=units_of_measure, vendors=vendors)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -169,7 +288,7 @@ class FinancialOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphCompany')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphCompany')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -256,7 +375,46 @@ class FinancialOperations(object):
     def update_company(
         self,
         company_id,  # type: str
-        body,  # type: "models.MicrosoftGraphCompany"
+        id=None,  # type: Optional[str]
+        business_profile_id=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        name=None,  # type: Optional[str]
+        system_version=None,  # type: Optional[str]
+        accounts=None,  # type: Optional[List["models.MicrosoftGraphAccount"]]
+        aged_accounts_payable=None,  # type: Optional[List["models.MicrosoftGraphAgedAccountsPayable"]]
+        aged_accounts_receivable=None,  # type: Optional[List["models.MicrosoftGraphAgedAccountsReceivable"]]
+        company_information=None,  # type: Optional[List["models.MicrosoftGraphCompanyInformation"]]
+        countries_regions=None,  # type: Optional[List["models.MicrosoftGraphCountryRegion"]]
+        currencies=None,  # type: Optional[List["models.MicrosoftGraphCurrency"]]
+        customer_payment_journals=None,  # type: Optional[List["models.MicrosoftGraphCustomerPaymentJournal"]]
+        customer_payments=None,  # type: Optional[List["models.MicrosoftGraphCustomerPayment"]]
+        customers=None,  # type: Optional[List["models.MicrosoftGraphCustomer"]]
+        dimensions=None,  # type: Optional[List["models.MicrosoftGraphDimension"]]
+        dimension_values=None,  # type: Optional[List["models.MicrosoftGraphDimensionValue"]]
+        employees=None,  # type: Optional[List["models.MicrosoftGraphEmployee"]]
+        general_ledger_entries=None,  # type: Optional[List["models.MicrosoftGraphGeneralLedgerEntry"]]
+        item_categories=None,  # type: Optional[List["models.MicrosoftGraphItemCategory"]]
+        items=None,  # type: Optional[List["models.MicrosoftGraphItem"]]
+        journal_lines=None,  # type: Optional[List["models.MicrosoftGraphJournalLine"]]
+        journals=None,  # type: Optional[List["models.MicrosoftGraphJournal"]]
+        payment_methods=None,  # type: Optional[List["models.MicrosoftGraphPaymentMethod"]]
+        payment_terms=None,  # type: Optional[List["models.MicrosoftGraphPaymentTerm"]]
+        picture=None,  # type: Optional[List["models.MicrosoftGraphPicture"]]
+        purchase_invoice_lines=None,  # type: Optional[List["models.MicrosoftGraphPurchaseInvoiceLine"]]
+        purchase_invoices=None,  # type: Optional[List["models.MicrosoftGraphPurchaseInvoice"]]
+        sales_credit_memo_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesCreditMemoLine"]]
+        sales_credit_memos=None,  # type: Optional[List["models.MicrosoftGraphSalesCreditMemo"]]
+        sales_invoice_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesInvoiceLine"]]
+        sales_invoices=None,  # type: Optional[List["models.MicrosoftGraphSalesInvoice"]]
+        sales_order_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesOrderLine"]]
+        sales_orders=None,  # type: Optional[List["models.MicrosoftGraphSalesOrder"]]
+        sales_quote_lines=None,  # type: Optional[List["models.MicrosoftGraphSalesQuoteLine"]]
+        sales_quotes=None,  # type: Optional[List["models.MicrosoftGraphSalesQuote"]]
+        shipment_methods=None,  # type: Optional[List["models.MicrosoftGraphShipmentMethod"]]
+        tax_areas=None,  # type: Optional[List["models.MicrosoftGraphTaxArea"]]
+        tax_groups=None,  # type: Optional[List["models.MicrosoftGraphTaxGroup"]]
+        units_of_measure=None,  # type: Optional[List["models.MicrosoftGraphUnitOfMeasure"]]
+        vendors=None,  # type: Optional[List["models.MicrosoftGraphVendor"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -266,8 +424,86 @@ class FinancialOperations(object):
 
         :param company_id: key: id of company.
         :type company_id: str
-        :param body: New navigation property values.
-        :type body: ~financials.models.MicrosoftGraphCompany
+        :param id: Read-only.
+        :type id: str
+        :param business_profile_id:
+        :type business_profile_id: str
+        :param display_name:
+        :type display_name: str
+        :param name:
+        :type name: str
+        :param system_version:
+        :type system_version: str
+        :param accounts:
+        :type accounts: list[~financials.models.MicrosoftGraphAccount]
+        :param aged_accounts_payable:
+        :type aged_accounts_payable: list[~financials.models.MicrosoftGraphAgedAccountsPayable]
+        :param aged_accounts_receivable:
+        :type aged_accounts_receivable: list[~financials.models.MicrosoftGraphAgedAccountsReceivable]
+        :param company_information:
+        :type company_information: list[~financials.models.MicrosoftGraphCompanyInformation]
+        :param countries_regions:
+        :type countries_regions: list[~financials.models.MicrosoftGraphCountryRegion]
+        :param currencies:
+        :type currencies: list[~financials.models.MicrosoftGraphCurrency]
+        :param customer_payment_journals:
+        :type customer_payment_journals: list[~financials.models.MicrosoftGraphCustomerPaymentJournal]
+        :param customer_payments:
+        :type customer_payments: list[~financials.models.MicrosoftGraphCustomerPayment]
+        :param customers:
+        :type customers: list[~financials.models.MicrosoftGraphCustomer]
+        :param dimensions:
+        :type dimensions: list[~financials.models.MicrosoftGraphDimension]
+        :param dimension_values:
+        :type dimension_values: list[~financials.models.MicrosoftGraphDimensionValue]
+        :param employees:
+        :type employees: list[~financials.models.MicrosoftGraphEmployee]
+        :param general_ledger_entries:
+        :type general_ledger_entries: list[~financials.models.MicrosoftGraphGeneralLedgerEntry]
+        :param item_categories:
+        :type item_categories: list[~financials.models.MicrosoftGraphItemCategory]
+        :param items:
+        :type items: list[~financials.models.MicrosoftGraphItem]
+        :param journal_lines:
+        :type journal_lines: list[~financials.models.MicrosoftGraphJournalLine]
+        :param journals:
+        :type journals: list[~financials.models.MicrosoftGraphJournal]
+        :param payment_methods:
+        :type payment_methods: list[~financials.models.MicrosoftGraphPaymentMethod]
+        :param payment_terms:
+        :type payment_terms: list[~financials.models.MicrosoftGraphPaymentTerm]
+        :param picture:
+        :type picture: list[~financials.models.MicrosoftGraphPicture]
+        :param purchase_invoice_lines:
+        :type purchase_invoice_lines: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
+        :param purchase_invoices:
+        :type purchase_invoices: list[~financials.models.MicrosoftGraphPurchaseInvoice]
+        :param sales_credit_memo_lines:
+        :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
+        :param sales_credit_memos:
+        :type sales_credit_memos: list[~financials.models.MicrosoftGraphSalesCreditMemo]
+        :param sales_invoice_lines:
+        :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
+        :param sales_invoices:
+        :type sales_invoices: list[~financials.models.MicrosoftGraphSalesInvoice]
+        :param sales_order_lines:
+        :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
+        :param sales_orders:
+        :type sales_orders: list[~financials.models.MicrosoftGraphSalesOrder]
+        :param sales_quote_lines:
+        :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
+        :param sales_quotes:
+        :type sales_quotes: list[~financials.models.MicrosoftGraphSalesQuote]
+        :param shipment_methods:
+        :type shipment_methods: list[~financials.models.MicrosoftGraphShipmentMethod]
+        :param tax_areas:
+        :type tax_areas: list[~financials.models.MicrosoftGraphTaxArea]
+        :param tax_groups:
+        :type tax_groups: list[~financials.models.MicrosoftGraphTaxGroup]
+        :param units_of_measure:
+        :type units_of_measure: list[~financials.models.MicrosoftGraphUnitOfMeasure]
+        :param vendors:
+        :type vendors: list[~financials.models.MicrosoftGraphVendor]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -276,6 +512,8 @@ class FinancialOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphCompany(id=id, business_profile_id=business_profile_id, display_name=display_name, name=name, system_version=system_version, accounts=accounts, aged_accounts_payable=aged_accounts_payable, aged_accounts_receivable=aged_accounts_receivable, company_information=company_information, countries_regions=countries_regions, currencies=currencies, customer_payment_journals=customer_payment_journals, customer_payments=customer_payments, customers=customers, dimensions=dimensions, dimension_values=dimension_values, employees=employees, general_ledger_entries=general_ledger_entries, item_categories=item_categories, items=items, journal_lines=journal_lines, journals=journals, payment_methods=payment_methods, payment_terms=payment_terms, picture=picture, purchase_invoice_lines=purchase_invoice_lines, purchase_invoices=purchase_invoices, sales_credit_memo_lines=sales_credit_memo_lines, sales_credit_memos=sales_credit_memos, sales_invoice_lines=sales_invoice_lines, sales_invoices=sales_invoices, sales_order_lines=sales_order_lines, sales_orders=sales_orders, sales_quote_lines=sales_quote_lines, sales_quotes=sales_quotes, shipment_methods=shipment_methods, tax_areas=tax_areas, tax_groups=tax_groups, units_of_measure=units_of_measure, vendors=vendors)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -295,7 +533,7 @@ class FinancialOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphCompany')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphCompany')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

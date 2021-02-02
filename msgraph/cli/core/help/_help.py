@@ -1,3 +1,10 @@
+# ------------------------------------
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+# ------------------------------------
+
+# This file is extracted from azure-cli with changes made to make it work for msgraph-cli
+
 from __future__ import print_function
 import argparse
 
@@ -11,7 +18,46 @@ from knack.util import CLIError
 
 logger = get_logger(__name__)
 
-# TODO: Update https://aka.ms/microsoftgraph with a link to msgraph-cli commands
+FIRST_LINE_PREFIX = ' : '
+REQUIRED_TAG = '[Required]'
+LINE_FORMAT = u'{cli}{name}{separator}{summary}'
+
+
+def _get_line_len(name, tags_len):
+    return len(name) + tags_len + (2 if tags_len else 1)
+
+
+def _get_hanging_indent(max_length, indent):
+    return max_length + (indent * 4) + len(FIRST_LINE_PREFIX) - 1
+
+
+def _get_padding_len(max_len, layout):
+    if layout['tags']:
+        pad_len = max_len - layout['line_len'] + 1
+    else:
+        pad_len = max_len - layout['line_len']
+    return pad_len
+
+
+class ArgumentGroupRegistry(object):  # pylint: disable=too-few-public-methods
+    def __init__(self, group_list):
+
+        self.priorities = {
+            None: 0,
+            'Global Arguments': 1000,
+        }
+        priority = 2
+        # any groups not already in the static dictionary should be prioritized alphabetically
+        other_groups = [g for g in sorted(list(set(group_list))) if g not in self.priorities]
+        for group in other_groups:
+            self.priorities[group] = priority
+            priority += 1
+
+    def get_group_priority(self, group_name):
+        key = self.priorities.get(group_name, 0)
+        return "%06d" % key
+
+
 PRIVACY_STATEMENT = """
 Welcome to Microsoft Graph CLI!
 ---------------------
@@ -26,17 +72,17 @@ The data is collected by Microsoft.
 You can change your telemetry settings with `mg configure`.
 """
 
-WELCOME_MESSAGE = r'''                                              
+WELCOME_MESSAGE = r'''
 
-___  ____                           __ _     _____                 _     
-|  \/  (_)                         / _| |   |  __ \               | |    
-| .  . |_  ___ _ __ ___  ___  ___ | |_| |_  | |  \/_ __ __ _ _ __ | |__  
-| |\/| | |/ __| '__/ _ \/ __|/ _ \|  _| __| | | __| '__/ _` | '_ \| '_ \ 
+___  ____                           __ _     _____                 _
+|  \/  (_)                         / _| |   |  __ \               | |
+| .  . |_  ___ _ __ ___  ___  ___ | |_| |_  | |  \/_ __ __ _ _ __ | |__
+| |\/| | |/ __| '__/ _ \/ __|/ _ \|  _| __| | | __| '__/ _` | '_ \| '_ \
 | |  | | | (__| | | (_) \__ \ (_) | | | |_  | |_\ \ | | (_| | |_) | | | |
 \_|  |_/_|\___|_|  \___/|___/\___/|_|  \__|  \____/_|  \__,_| .__/|_| |_|
-                                                            | |          
-                                                            |_|          
-                                              
+                                                            | |
+                                                            |_|
+
 Welcome to the Microsoft Graph CLI!
 
 Use mg --version to display the current version
@@ -169,6 +215,7 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
             help_file.command = ''
         else:
             GraphCliHelp.update_examples(help_file)
+
         self._print_detailed_help(cli_name, help_file)
         # TODO: Show updates available
         show_link = self.cli_ctx.config.getboolean('output', 'show_survey_link', True)
@@ -218,6 +265,133 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
     @staticmethod
     def update_examples(help_file):
         pass
+
+    def _print_arguments(self, help_file):  # pylint: disable=too-many-statements
+
+        LINE_FORMAT = u'{name}{padding}{tags}{separator}{short_summary}'
+        indent = 1
+        self.max_line_len = 0
+
+        if not help_file.parameters:
+            _print_indent('None', indent)
+            _print_indent('')
+            return None
+
+        def _build_tags_string(item):
+
+            preview_info = getattr(item, 'preview_info', None)
+            preview = preview_info.tag if preview_info else ''
+
+            experimental_info = getattr(item, 'experimental_info', None)
+            experimental = experimental_info.tag if experimental_info else ''
+
+            deprecate_info = getattr(item, 'deprecate_info', None)
+            deprecated = deprecate_info.tag if deprecate_info else ''
+
+            required = REQUIRED_TAG if getattr(item, 'required', None) else ''
+            tags = ' '.join(
+                [x
+                 for x in [str(deprecated),
+                           str(preview), str(experimental), required] if x])
+            tags_len = sum(
+                [len(deprecated),
+                 len(preview),
+                 len(experimental),
+                 len(required),
+                 tags.count(' ')])
+            if not tags_len:
+                tags = ''
+            return tags, tags_len
+
+        def _layout_items(items):
+
+            layouts = []
+            for c in sorted(items, key=_get_parameter_key):
+
+                deprecate_info = getattr(c, 'deprecate_info', None)
+                if deprecate_info and not deprecate_info.show_in_help():
+                    continue
+
+                tags, tags_len = _build_tags_string(c)
+                short_summary = _build_short_summary(c)
+                long_summary = _build_long_summary(c)
+                line_len = _get_line_len(c.name, tags_len)
+                layout = {
+                    'name': c.name,
+                    'tags': tags,
+                    'separator': FIRST_LINE_PREFIX if short_summary else '',
+                    'short_summary': short_summary,
+                    'long_summary': long_summary,
+                    'group_name': c.group_name,
+                    'line_len': line_len
+                }
+                if line_len > self.max_line_len:
+                    self.max_line_len = line_len
+                layouts.append(layout)
+            return layouts
+
+        def _print_items(layouts):
+            last_group_name = ''
+
+            for layout in layouts:
+                indent = 1
+                if layout['group_name'] != last_group_name:
+                    if layout['group_name']:
+                        print('')
+                        print(layout['group_name'])
+                    last_group_name = layout['group_name']
+
+                layout['padding'] = ' ' * _get_padding_len(self.max_line_len, layout)
+                _print_indent(
+                    LINE_FORMAT.format(**layout),
+                    indent,
+                    _get_hanging_indent(self.max_line_len, indent),
+                    width=self.textwrap_width,
+                )
+
+                indent = 2
+                long_summary = layout.get('long_summary', None)
+                if long_summary:
+                    pass
+                    # _print_indent(long_summary, indent, width=self.textwrap_width)
+
+            _print_indent('')
+
+        def _build_short_summary(item):
+            short_summary = item.short_summary
+            possible_values_index = short_summary.find(' Possible values include')
+            short_summary = short_summary[
+                0:possible_values_index if possible_values_index >= 0 else len(short_summary)]
+            short_summary += self._get_choices_defaults_sources_str(item)
+            short_summary = short_summary.strip()
+            return short_summary
+
+        def _build_long_summary(item):
+            lines = []
+            if item.long_summary:
+                lines.append(item.long_summary)
+            deprecate_info = getattr(item, 'deprecate_info', None)
+            if deprecate_info:
+                lines.append(str(item.deprecate_info.message))
+            preview_info = getattr(item, 'preview_info', None)
+            if preview_info:
+                lines.append(str(item.preview_info.message))
+            experimental_info = getattr(item, 'experimental_info', None)
+            if experimental_info:
+                lines.append(str(item.experimental_info.message))
+            return ' '.join(lines)
+
+        group_registry = ArgumentGroupRegistry(
+            [p.group_name for p in help_file.parameters if p.group_name])
+
+        def _get_parameter_key(parameter):
+            return u'{}{}{}'.format(group_registry.get_group_priority(parameter.group_name),
+                                    str(not parameter.required), parameter.name)
+
+        parameter_layouts = _layout_items(help_file.parameters)
+        _print_items(parameter_layouts)
+
+        return indent
 
 
 class CliHelpFile(KnackHelpFile):

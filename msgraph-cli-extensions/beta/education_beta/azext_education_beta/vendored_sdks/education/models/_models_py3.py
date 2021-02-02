@@ -8214,75 +8214,27 @@ class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param distribute_for_student_work:
     :type distribute_for_student_work: bool
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
-    :param display_name_resource_display_name:
-    :type display_name_resource_display_name: str
+    :param display_name:
+    :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
-    :param display_name_resource_last_modified_by_user_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_last_modified_by_user_display_name: str
-    :param id_resource_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_resource_last_modified_by_user_id: str
-    :param display_name_resource_last_modified_by_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_last_modified_by_device_display_name: str
-    :param id_resource_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_resource_last_modified_by_device_id: str
-    :param display_name_resource_last_modified_by_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_resource_last_modified_by_application_display_name: str
-    :param id_resource_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_resource_last_modified_by_application_id: str
-    :param display_name_resource_created_by_user_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_created_by_user_display_name: str
-    :param id_resource_created_by_user_id: Unique identifier for the identity.
-    :type id_resource_created_by_user_id: str
-    :param display_name_resource_created_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_created_by_device_display_name: str
-    :param id_resource_created_by_device_id: Unique identifier for the identity.
-    :type id_resource_created_by_device_id: str
-    :param display_name_resource_created_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_created_by_application_display_name: str
-    :param id_resource_created_by_application_id: Unique identifier for the identity.
-    :type id_resource_created_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'distribute_for_student_work': {'key': 'distributeForStudentWork', 'type': 'bool'},
+        'created_by': {'key': 'resource.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'resource.createdDateTime', 'type': 'iso-8601'},
-        'display_name_resource_display_name': {'key': 'resource.displayName', 'type': 'str'},
+        'display_name': {'key': 'resource.displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'resource.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'resource.lastModifiedDateTime', 'type': 'iso-8601'},
-        'display_name_resource_last_modified_by_user_display_name': {'key': 'resource.lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_resource_last_modified_by_user_id': {'key': 'resource.lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_resource_last_modified_by_device_display_name': {'key': 'resource.lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_resource_last_modified_by_device_id': {'key': 'resource.lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_resource_last_modified_by_application_display_name': {'key': 'resource.lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_resource_last_modified_by_application_id': {'key': 'resource.lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_resource_created_by_user_display_name': {'key': 'resource.createdBy.user.displayName', 'type': 'str'},
-        'id_resource_created_by_user_id': {'key': 'resource.createdBy.user.id', 'type': 'str'},
-        'display_name_resource_created_by_device_display_name': {'key': 'resource.createdBy.device.displayName', 'type': 'str'},
-        'id_resource_created_by_device_id': {'key': 'resource.createdBy.device.id', 'type': 'str'},
-        'display_name_resource_created_by_application_display_name': {'key': 'resource.createdBy.application.displayName', 'type': 'str'},
-        'id_resource_created_by_application_id': {'key': 'resource.createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -8291,41 +8243,21 @@ class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         distribute_for_student_work: Optional[bool] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        display_name_resource_display_name: Optional[str] = None,
+        display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        display_name_resource_last_modified_by_user_display_name: Optional[str] = None,
-        id_resource_last_modified_by_user_id: Optional[str] = None,
-        display_name_resource_last_modified_by_device_display_name: Optional[str] = None,
-        id_resource_last_modified_by_device_id: Optional[str] = None,
-        display_name_resource_last_modified_by_application_display_name: Optional[str] = None,
-        id_resource_last_modified_by_application_id: Optional[str] = None,
-        display_name_resource_created_by_user_display_name: Optional[str] = None,
-        id_resource_created_by_user_id: Optional[str] = None,
-        display_name_resource_created_by_device_display_name: Optional[str] = None,
-        id_resource_created_by_device_id: Optional[str] = None,
-        display_name_resource_created_by_application_display_name: Optional[str] = None,
-        id_resource_created_by_application_id: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationAssignmentResource, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.distribute_for_student_work = distribute_for_student_work
+        self.created_by = created_by
         self.created_date_time = created_date_time
-        self.display_name_resource_display_name = display_name_resource_display_name
+        self.display_name = display_name
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
-        self.display_name_resource_last_modified_by_user_display_name = display_name_resource_last_modified_by_user_display_name
-        self.id_resource_last_modified_by_user_id = id_resource_last_modified_by_user_id
-        self.display_name_resource_last_modified_by_device_display_name = display_name_resource_last_modified_by_device_display_name
-        self.id_resource_last_modified_by_device_id = id_resource_last_modified_by_device_id
-        self.display_name_resource_last_modified_by_application_display_name = display_name_resource_last_modified_by_application_display_name
-        self.id_resource_last_modified_by_application_id = id_resource_last_modified_by_application_id
-        self.display_name_resource_created_by_user_display_name = display_name_resource_created_by_user_display_name
-        self.id_resource_created_by_user_id = id_resource_created_by_user_id
-        self.display_name_resource_created_by_device_display_name = display_name_resource_created_by_device_display_name
-        self.id_resource_created_by_device_id = id_resource_created_by_device_id
-        self.display_name_resource_created_by_application_display_name = display_name_resource_created_by_application_display_name
-        self.id_resource_created_by_application_id = id_resource_created_by_application_id
 
 
 class MicrosoftGraphEducationCategory(MicrosoftGraphEntity):
@@ -8775,113 +8707,45 @@ class MicrosoftGraphEducationResource(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        display_name_last_modified_by_user_display_name: Optional[str] = None,
-        id_last_modified_by_user_id: Optional[str] = None,
-        display_name_last_modified_by_device_display_name: Optional[str] = None,
-        id_last_modified_by_device_id: Optional[str] = None,
-        display_name_last_modified_by_application_display_name: Optional[str] = None,
-        id_last_modified_by_application_id: Optional[str] = None,
-        display_name_created_by_user_display_name: Optional[str] = None,
-        id_created_by_user_id: Optional[str] = None,
-        display_name_created_by_device_display_name: Optional[str] = None,
-        id_created_by_device_id: Optional[str] = None,
-        display_name_created_by_application_display_name: Optional[str] = None,
-        id_created_by_application_id: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationResource, self).__init__(**kwargs)
         self.additional_properties = additional_properties
+        self.created_by = created_by
         self.created_date_time = created_date_time
         self.display_name = display_name
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
-        self.display_name_last_modified_by_user_display_name = display_name_last_modified_by_user_display_name
-        self.id_last_modified_by_user_id = id_last_modified_by_user_id
-        self.display_name_last_modified_by_device_display_name = display_name_last_modified_by_device_display_name
-        self.id_last_modified_by_device_id = id_last_modified_by_device_id
-        self.display_name_last_modified_by_application_display_name = display_name_last_modified_by_application_display_name
-        self.id_last_modified_by_application_id = id_last_modified_by_application_id
-        self.display_name_created_by_user_display_name = display_name_created_by_user_display_name
-        self.id_created_by_user_id = id_created_by_user_id
-        self.display_name_created_by_device_display_name = display_name_created_by_device_display_name
-        self.id_created_by_device_id = id_created_by_device_id
-        self.display_name_created_by_application_display_name = display_name_created_by_application_display_name
-        self.id_created_by_application_id = id_created_by_application_id
 
 
 class MicrosoftGraphEducationRoot(MicrosoftGraphEntity):
@@ -9564,75 +9428,27 @@ class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param assignment_resource_url:
     :type assignment_resource_url: str
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
-    :param display_name_resource_display_name:
-    :type display_name_resource_display_name: str
+    :param display_name:
+    :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
-    :param display_name_resource_last_modified_by_user_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_last_modified_by_user_display_name: str
-    :param id_resource_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_resource_last_modified_by_user_id: str
-    :param display_name_resource_last_modified_by_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_last_modified_by_device_display_name: str
-    :param id_resource_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_resource_last_modified_by_device_id: str
-    :param display_name_resource_last_modified_by_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_resource_last_modified_by_application_display_name: str
-    :param id_resource_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_resource_last_modified_by_application_id: str
-    :param display_name_resource_created_by_user_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_created_by_user_display_name: str
-    :param id_resource_created_by_user_id: Unique identifier for the identity.
-    :type id_resource_created_by_user_id: str
-    :param display_name_resource_created_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_created_by_device_display_name: str
-    :param id_resource_created_by_device_id: Unique identifier for the identity.
-    :type id_resource_created_by_device_id: str
-    :param display_name_resource_created_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_resource_created_by_application_display_name: str
-    :param id_resource_created_by_application_id: Unique identifier for the identity.
-    :type id_resource_created_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'assignment_resource_url': {'key': 'assignmentResourceUrl', 'type': 'str'},
+        'created_by': {'key': 'resource.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'resource.createdDateTime', 'type': 'iso-8601'},
-        'display_name_resource_display_name': {'key': 'resource.displayName', 'type': 'str'},
+        'display_name': {'key': 'resource.displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'resource.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'resource.lastModifiedDateTime', 'type': 'iso-8601'},
-        'display_name_resource_last_modified_by_user_display_name': {'key': 'resource.lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_resource_last_modified_by_user_id': {'key': 'resource.lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_resource_last_modified_by_device_display_name': {'key': 'resource.lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_resource_last_modified_by_device_id': {'key': 'resource.lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_resource_last_modified_by_application_display_name': {'key': 'resource.lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_resource_last_modified_by_application_id': {'key': 'resource.lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_resource_created_by_user_display_name': {'key': 'resource.createdBy.user.displayName', 'type': 'str'},
-        'id_resource_created_by_user_id': {'key': 'resource.createdBy.user.id', 'type': 'str'},
-        'display_name_resource_created_by_device_display_name': {'key': 'resource.createdBy.device.displayName', 'type': 'str'},
-        'id_resource_created_by_device_id': {'key': 'resource.createdBy.device.id', 'type': 'str'},
-        'display_name_resource_created_by_application_display_name': {'key': 'resource.createdBy.application.displayName', 'type': 'str'},
-        'id_resource_created_by_application_id': {'key': 'resource.createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -9641,41 +9457,21 @@ class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         assignment_resource_url: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        display_name_resource_display_name: Optional[str] = None,
+        display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        display_name_resource_last_modified_by_user_display_name: Optional[str] = None,
-        id_resource_last_modified_by_user_id: Optional[str] = None,
-        display_name_resource_last_modified_by_device_display_name: Optional[str] = None,
-        id_resource_last_modified_by_device_id: Optional[str] = None,
-        display_name_resource_last_modified_by_application_display_name: Optional[str] = None,
-        id_resource_last_modified_by_application_id: Optional[str] = None,
-        display_name_resource_created_by_user_display_name: Optional[str] = None,
-        id_resource_created_by_user_id: Optional[str] = None,
-        display_name_resource_created_by_device_display_name: Optional[str] = None,
-        id_resource_created_by_device_id: Optional[str] = None,
-        display_name_resource_created_by_application_display_name: Optional[str] = None,
-        id_resource_created_by_application_id: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationSubmissionResource, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.assignment_resource_url = assignment_resource_url
+        self.created_by = created_by
         self.created_date_time = created_date_time
-        self.display_name_resource_display_name = display_name_resource_display_name
+        self.display_name = display_name
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
-        self.display_name_resource_last_modified_by_user_display_name = display_name_resource_last_modified_by_user_display_name
-        self.id_resource_last_modified_by_user_id = id_resource_last_modified_by_user_id
-        self.display_name_resource_last_modified_by_device_display_name = display_name_resource_last_modified_by_device_display_name
-        self.id_resource_last_modified_by_device_id = id_resource_last_modified_by_device_id
-        self.display_name_resource_last_modified_by_application_display_name = display_name_resource_last_modified_by_application_display_name
-        self.id_resource_last_modified_by_application_id = id_resource_last_modified_by_application_id
-        self.display_name_resource_created_by_user_display_name = display_name_resource_created_by_user_display_name
-        self.id_resource_created_by_user_id = id_resource_created_by_user_id
-        self.display_name_resource_created_by_device_display_name = display_name_resource_created_by_device_display_name
-        self.id_resource_created_by_device_id = id_resource_created_by_device_id
-        self.display_name_resource_created_by_application_display_name = display_name_resource_created_by_application_display_name
-        self.id_resource_created_by_application_id = id_resource_created_by_application_id
 
 
 class MicrosoftGraphEducationSynchronizationError(MicrosoftGraphEntity):
@@ -9972,8 +9768,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :param business_phones: The telephone numbers for the user. Note: Although this is a string
      collection, only one number can be set for this property.
     :type business_phones: list[str]
-    :param created_by: identitySet.
-    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param department: The name for the department in which the user works. Supports $filter.
     :type department: str
     :param display_name: The name displayed in the address book for the user. This is usually the
@@ -10000,8 +9794,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type mobile_phone: str
     :param office_location:
     :type office_location: str
-    :param on_premises_info: educationOnPremisesInfo.
-    :type on_premises_info: ~education.models.MicrosoftGraphEducationOnPremisesInfo
     :param password_policies: Specifies password policies for the user. This value is an
      enumeration with one possible value being 'DisableStrongPassword', which allows weaker
      passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be
@@ -10056,6 +9848,29 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type taught_classes: list[~education.models.MicrosoftGraphEducationClass]
     :param user: Represents an Azure Active Directory user object.
     :type user: ~education.models.MicrosoftGraphUser
+    :param immutable_id:
+    :type immutable_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
@@ -10066,7 +9881,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
         'assigned_plans': {'key': 'assignedPlans', 'type': '[MicrosoftGraphAssignedPlan]'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
-        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_source': {'key': 'externalSource', 'type': 'str'},
@@ -10078,7 +9892,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'middle_name': {'key': 'middleName', 'type': 'str'},
         'mobile_phone': {'key': 'mobilePhone', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
-        'on_premises_info': {'key': 'onPremisesInfo', 'type': 'MicrosoftGraphEducationOnPremisesInfo'},
         'password_policies': {'key': 'passwordPolicies', 'type': 'str'},
         'password_profile': {'key': 'passwordProfile', 'type': 'MicrosoftGraphPasswordProfile'},
         'preferred_language': {'key': 'preferredLanguage', 'type': 'str'},
@@ -10099,6 +9912,13 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'taught_classes': {'key': 'taughtClasses', 'type': '[MicrosoftGraphEducationClass]'},
         'user': {'key': 'user', 'type': 'MicrosoftGraphUser'},
+        'immutable_id': {'key': 'onPremisesInfo.immutableId', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -10111,7 +9931,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         assigned_licenses: Optional[List["MicrosoftGraphAssignedLicense"]] = None,
         assigned_plans: Optional[List["MicrosoftGraphAssignedPlan"]] = None,
         business_phones: Optional[List[str]] = None,
-        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         department: Optional[str] = None,
         display_name: Optional[str] = None,
         external_source: Optional[Union[str, "MicrosoftGraphEducationExternalSource"]] = None,
@@ -10123,7 +9942,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         middle_name: Optional[str] = None,
         mobile_phone: Optional[str] = None,
         office_location: Optional[str] = None,
-        on_premises_info: Optional["MicrosoftGraphEducationOnPremisesInfo"] = None,
         password_policies: Optional[str] = None,
         password_profile: Optional["MicrosoftGraphPasswordProfile"] = None,
         preferred_language: Optional[str] = None,
@@ -10144,6 +9962,13 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         schools: Optional[List["MicrosoftGraphEducationSchool"]] = None,
         taught_classes: Optional[List["MicrosoftGraphEducationClass"]] = None,
         user: Optional["MicrosoftGraphUser"] = None,
+        immutable_id: Optional[str] = None,
+        display_name_created_by_user_display_name: Optional[str] = None,
+        id_created_by_user_id: Optional[str] = None,
+        display_name_created_by_device_display_name: Optional[str] = None,
+        id_created_by_device_id: Optional[str] = None,
+        display_name_created_by_application_display_name: Optional[str] = None,
+        id_created_by_application_id: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationUser, self).__init__(id=id, **kwargs)
@@ -10153,7 +9978,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.assigned_licenses = assigned_licenses
         self.assigned_plans = assigned_plans
         self.business_phones = business_phones
-        self.created_by = created_by
         self.department = department
         self.display_name = display_name
         self.external_source = external_source
@@ -10165,7 +9989,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.middle_name = middle_name
         self.mobile_phone = mobile_phone
         self.office_location = office_location
-        self.on_premises_info = on_premises_info
         self.password_policies = password_policies
         self.password_profile = password_profile
         self.preferred_language = preferred_language
@@ -10186,6 +10009,13 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.schools = schools
         self.taught_classes = taught_classes
         self.user = user
+        self.immutable_id = immutable_id
+        self.display_name_created_by_user_display_name = display_name_created_by_user_display_name
+        self.id_created_by_user_id = id_created_by_user_id
+        self.display_name_created_by_device_display_name = display_name_created_by_device_display_name
+        self.id_created_by_device_id = id_created_by_device_id
+        self.display_name_created_by_application_display_name = display_name_created_by_application_display_name
+        self.id_created_by_application_id = id_created_by_application_id
 
 
 class MicrosoftGraphEmailAddress(msrest.serialization.Model):

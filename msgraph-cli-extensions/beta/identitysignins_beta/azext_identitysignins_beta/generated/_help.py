@@ -12,67 +12,67 @@
 from knack.help_files import helps
 
 
-helps['identitysignins'] = """
+helps['identitysignins data-policy-operation-data-policy-operation'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins data-policy-operation-data-policy-operation
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins data-policy-operation-data-policy-operation delete'] = """
     type: command
     short-summary: "Delete entity from dataPolicyOperations"
 """
 
-helps['identitysignins create-data-policy-operation'] = """
+helps['identitysignins data-policy-operation-data-policy-operation create-data-policy-operation'] = """
     type: command
     short-summary: "Add new entity to dataPolicyOperations"
 """
 
-helps['identitysignins get-data-policy-operation'] = """
+helps['identitysignins data-policy-operation-data-policy-operation get-data-policy-operation'] = """
     type: command
     short-summary: "Get entity from dataPolicyOperations by key"
 """
 
-helps['identitysignins list-data-policy-operation'] = """
+helps['identitysignins data-policy-operation-data-policy-operation list-data-policy-operation'] = """
     type: command
     short-summary: "Get entities from dataPolicyOperations"
 """
 
-helps['identitysignins update-data-policy-operation'] = """
+helps['identitysignins data-policy-operation-data-policy-operation update-data-policy-operation'] = """
     type: command
     short-summary: "Update entity in dataPolicyOperations"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins identity'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins identity
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins identity delete'] = """
     type: command
     short-summary: "Delete navigation property conditionalAccess for identity"
 """
 
-helps['identitysignins create-user-flow'] = """
+helps['identitysignins identity create-user-flow'] = """
     type: command
     short-summary: "Create new navigation property to userFlows for identity"
 """
 
-helps['identitysignins get-conditional-access'] = """
+helps['identitysignins identity get-conditional-access'] = """
     type: command
     short-summary: "Get conditionalAccess from identity"
 """
 
-helps['identitysignins get-user-flow'] = """
+helps['identitysignins identity get-user-flow'] = """
     type: command
     short-summary: "Get userFlows from identity"
 """
 
-helps['identitysignins list-user-flow'] = """
+helps['identitysignins identity list-user-flow'] = """
     type: command
     short-summary: "Get userFlows from identity"
 """
 
-helps['identitysignins update-conditional-access'] = """
+helps['identitysignins identity update-conditional-access'] = """
     type: command
     short-summary: "Update the navigation property conditionalAccess in identity"
     parameters:
@@ -92,27 +92,27 @@ format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would
             Multiple actions can be specified by using more than one --named-locations argument.
 """
 
-helps['identitysignins update-user-flow'] = """
+helps['identitysignins identity update-user-flow'] = """
     type: command
     short-summary: "Update the navigation property userFlows in identity"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins identity-conditional-access'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins identity-conditional-access
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins identity-conditional-access delete'] = """
     type: command
     short-summary: "Delete navigation property policies for identity"
 """
 
-helps['identitysignins create-named-location'] = """
+helps['identitysignins identity-conditional-access create-named-location'] = """
     type: command
     short-summary: "Create new navigation property to namedLocations for identity"
 """
 
-helps['identitysignins create-policy'] = """
+helps['identitysignins identity-conditional-access create-policy'] = """
     type: command
     short-summary: "Create new navigation property to policies for identity"
     parameters:
@@ -206,32 +206,32 @@ include-roles=XX include-users=XX
 GuestsOrExternalUsers.
 """
 
-helps['identitysignins get-named-location'] = """
+helps['identitysignins identity-conditional-access get-named-location'] = """
     type: command
     short-summary: "Get namedLocations from identity"
 """
 
-helps['identitysignins get-policy'] = """
+helps['identitysignins identity-conditional-access get-policy'] = """
     type: command
     short-summary: "Get policies from identity"
 """
 
-helps['identitysignins list-named-location'] = """
+helps['identitysignins identity-conditional-access list-named-location'] = """
     type: command
     short-summary: "Get namedLocations from identity"
 """
 
-helps['identitysignins list-policy'] = """
+helps['identitysignins identity-conditional-access list-policy'] = """
     type: command
     short-summary: "Get policies from identity"
 """
 
-helps['identitysignins update-named-location'] = """
+helps['identitysignins identity-conditional-access update-named-location'] = """
     type: command
     short-summary: "Update the navigation property namedLocations in identity"
 """
 
-helps['identitysignins update-policy'] = """
+helps['identitysignins identity-conditional-access update-policy'] = """
     type: command
     short-summary: "Update the navigation property policies in identity"
     parameters:
@@ -325,57 +325,57 @@ include-roles=XX include-users=XX
 GuestsOrExternalUsers.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins identity-provider-identity-provider'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins identity-provider-identity-provider
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins identity-provider-identity-provider delete'] = """
     type: command
     short-summary: "Delete entity from identityProviders"
 """
 
-helps['identitysignins create-identity-provider'] = """
+helps['identitysignins identity-provider-identity-provider create-identity-provider'] = """
     type: command
     short-summary: "Add new entity to identityProviders"
 """
 
-helps['identitysignins get-identity-provider'] = """
+helps['identitysignins identity-provider-identity-provider get-identity-provider'] = """
     type: command
     short-summary: "Get entity from identityProviders by key"
 """
 
-helps['identitysignins list-identity-provider'] = """
+helps['identitysignins identity-provider-identity-provider list-identity-provider'] = """
     type: command
     short-summary: "Get entities from identityProviders"
 """
 
-helps['identitysignins update-identity-provider'] = """
+helps['identitysignins identity-provider-identity-provider update-identity-provider'] = """
     type: command
     short-summary: "Update entity in identityProviders"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins identity-provider'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins identity-provider
 """
 
-helps['identitysignins available-provider-type'] = """
+helps['identitysignins identity-provider available-provider-type'] = """
     type: command
     short-summary: "Invoke function availableProviderTypes"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-information-protection'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-information-protection
 """
 
-helps['identitysignins get-information-protection'] = """
+helps['identitysignins information-protection-information-protection get-information-protection'] = """
     type: command
     short-summary: "Get informationProtection"
 """
 
-helps['identitysignins update-information-protection'] = """
+helps['identitysignins information-protection-information-protection update-information-protection'] = """
     type: command
     short-summary: "Update informationProtection"
     parameters:
@@ -395,22 +395,22 @@ help-web-url=XX is-mandatory=XX id=XX
             id: Read-only.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins information-protection delete'] = """
     type: command
     short-summary: "Delete navigation property sensitivityPolicySettings for informationProtection"
 """
 
-helps['identitysignins create-data-loss-prevention-policy'] = """
+helps['identitysignins information-protection create-data-loss-prevention-policy'] = """
     type: command
     short-summary: "Create new navigation property to dataLossPreventionPolicies for informationProtection"
 """
 
-helps['identitysignins create-sensitivity-label'] = """
+helps['identitysignins information-protection create-sensitivity-label'] = """
     type: command
     short-summary: "Create new navigation property to sensitivityLabels for informationProtection"
     parameters:
@@ -433,7 +433,7 @@ helps['identitysignins create-sensitivity-label'] = """
             Multiple actions can be specified by using more than one --label-actions argument.
 """
 
-helps['identitysignins create-threat-assessment-request'] = """
+helps['identitysignins information-protection create-threat-assessment-request'] = """
     type: command
     short-summary: "Create new navigation property to threatAssessmentRequests for informationProtection"
     parameters:
@@ -478,7 +478,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['identitysignins evaluate-label-and-policy'] = """
+helps['identitysignins information-protection evaluate-label-and-policy'] = """
     type: command
     short-summary: "Invoke action evaluateLabelsAndPolicies"
     parameters:
@@ -509,57 +509,57 @@ count=XX id=XX
 -types argument.
 """
 
-helps['identitysignins get-data-loss-prevention-policy'] = """
+helps['identitysignins information-protection get-data-loss-prevention-policy'] = """
     type: command
     short-summary: "Get dataLossPreventionPolicies from informationProtection"
 """
 
-helps['identitysignins get-policy'] = """
+helps['identitysignins information-protection get-policy'] = """
     type: command
     short-summary: "Get policy from informationProtection"
 """
 
-helps['identitysignins get-sensitivity-label'] = """
+helps['identitysignins information-protection get-sensitivity-label'] = """
     type: command
     short-summary: "Get sensitivityLabels from informationProtection"
 """
 
-helps['identitysignins get-sensitivity-policy-setting'] = """
+helps['identitysignins information-protection get-sensitivity-policy-setting'] = """
     type: command
     short-summary: "Get sensitivityPolicySettings from informationProtection"
 """
 
-helps['identitysignins get-threat-assessment-request'] = """
+helps['identitysignins information-protection get-threat-assessment-request'] = """
     type: command
     short-summary: "Get threatAssessmentRequests from informationProtection"
 """
 
-helps['identitysignins list-data-loss-prevention-policy'] = """
+helps['identitysignins information-protection list-data-loss-prevention-policy'] = """
     type: command
     short-summary: "Get dataLossPreventionPolicies from informationProtection"
 """
 
-helps['identitysignins list-sensitivity-label'] = """
+helps['identitysignins information-protection list-sensitivity-label'] = """
     type: command
     short-summary: "Get sensitivityLabels from informationProtection"
 """
 
-helps['identitysignins list-threat-assessment-request'] = """
+helps['identitysignins information-protection list-threat-assessment-request'] = """
     type: command
     short-summary: "Get threatAssessmentRequests from informationProtection"
 """
 
-helps['identitysignins update-data-loss-prevention-policy'] = """
+helps['identitysignins information-protection update-data-loss-prevention-policy'] = """
     type: command
     short-summary: "Update the navigation property dataLossPreventionPolicies in informationProtection"
 """
 
-helps['identitysignins update-policy'] = """
+helps['identitysignins information-protection update-policy'] = """
     type: command
     short-summary: "Update the navigation property policy in informationProtection"
 """
 
-helps['identitysignins update-sensitivity-label'] = """
+helps['identitysignins information-protection update-sensitivity-label'] = """
     type: command
     short-summary: "Update the navigation property sensitivityLabels in informationProtection"
     parameters:
@@ -582,12 +582,12 @@ helps['identitysignins update-sensitivity-label'] = """
             Multiple actions can be specified by using more than one --label-actions argument.
 """
 
-helps['identitysignins update-sensitivity-policy-setting'] = """
+helps['identitysignins information-protection update-sensitivity-policy-setting'] = """
     type: command
     short-summary: "Update the navigation property sensitivityPolicySettings in informationProtection"
 """
 
-helps['identitysignins update-threat-assessment-request'] = """
+helps['identitysignins information-protection update-threat-assessment-request'] = """
     type: command
     short-summary: "Update the navigation property threatAssessmentRequests in informationProtection"
     parameters:
@@ -632,12 +632,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-data-loss-prevention-policy'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-data-loss-prevention-policy
 """
 
-helps['identitysignins evaluate'] = """
+helps['identitysignins information-protection-data-loss-prevention-policy evaluate'] = """
     type: command
     short-summary: "Invoke action evaluate"
     parameters:
@@ -656,42 +656,42 @@ id=XX
 argument.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-policy'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-policy
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins information-protection-policy delete'] = """
     type: command
     short-summary: "Delete navigation property labels for informationProtection"
 """
 
-helps['identitysignins create-label'] = """
+helps['identitysignins information-protection-policy create-label'] = """
     type: command
     short-summary: "Create new navigation property to labels for informationProtection"
 """
 
-helps['identitysignins get-label'] = """
+helps['identitysignins information-protection-policy get-label'] = """
     type: command
     short-summary: "Get labels from informationProtection"
 """
 
-helps['identitysignins list-label'] = """
+helps['identitysignins information-protection-policy list-label'] = """
     type: command
     short-summary: "Get labels from informationProtection"
 """
 
-helps['identitysignins update-label'] = """
+helps['identitysignins information-protection-policy update-label'] = """
     type: command
     short-summary: "Update the navigation property labels in informationProtection"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-policy-label'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-policy-label
 """
 
-helps['identitysignins evaluate-application'] = """
+helps['identitysignins information-protection-policy-label evaluate-application'] = """
     type: command
     short-summary: "Invoke action evaluateApplication"
     parameters:
@@ -718,7 +718,7 @@ helps['identitysignins evaluate-application'] = """
             Multiple actions can be specified by using more than one --content-info-metadata argument.
 """
 
-helps['identitysignins evaluate-classification-result'] = """
+helps['identitysignins information-protection-policy-label evaluate-classification-result'] = """
     type: command
     short-summary: "Invoke action evaluateClassificationResults"
     parameters:
@@ -738,7 +738,7 @@ helps['identitysignins evaluate-classification-result'] = """
             Multiple actions can be specified by using more than one --content-info-metadata argument.
 """
 
-helps['identitysignins evaluate-removal'] = """
+helps['identitysignins information-protection-policy-label evaluate-removal'] = """
     type: command
     short-summary: "Invoke action evaluateRemoval"
     parameters:
@@ -757,7 +757,7 @@ helps['identitysignins evaluate-removal'] = """
             Multiple actions can be specified by using more than one --content-info-metadata argument.
 """
 
-helps['identitysignins extract-label'] = """
+helps['identitysignins information-protection-policy-label extract-label'] = """
     type: command
     short-summary: "Invoke action extractLabel"
     parameters:
@@ -771,17 +771,17 @@ helps['identitysignins extract-label'] = """
             Multiple actions can be specified by using more than one --content-info-metadata argument.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-sensitivity-label'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-sensitivity-label
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins information-protection-sensitivity-label delete'] = """
     type: command
     short-summary: "Delete navigation property sublabels for informationProtection"
 """
 
-helps['identitysignins create-sublabel'] = """
+helps['identitysignins information-protection-sensitivity-label create-sublabel'] = """
     type: command
     short-summary: "Create new navigation property to sublabels for informationProtection"
     parameters:
@@ -804,7 +804,7 @@ helps['identitysignins create-sublabel'] = """
             Multiple actions can be specified by using more than one --label-actions argument.
 """
 
-helps['identitysignins evaluate'] = """
+helps['identitysignins information-protection-sensitivity-label evaluate'] = """
     type: command
     short-summary: "Invoke action evaluate"
     parameters:
@@ -821,17 +821,17 @@ helps['identitysignins evaluate'] = """
 
 """
 
-helps['identitysignins get-sublabel'] = """
+helps['identitysignins information-protection-sensitivity-label get-sublabel'] = """
     type: command
     short-summary: "Get sublabels from informationProtection"
 """
 
-helps['identitysignins list-sublabel'] = """
+helps['identitysignins information-protection-sensitivity-label list-sublabel'] = """
     type: command
     short-summary: "Get sublabels from informationProtection"
 """
 
-helps['identitysignins update-sublabel'] = """
+helps['identitysignins information-protection-sensitivity-label update-sublabel'] = """
     type: command
     short-summary: "Update the navigation property sublabels in informationProtection"
     parameters:
@@ -854,12 +854,12 @@ helps['identitysignins update-sublabel'] = """
             Multiple actions can be specified by using more than one --label-actions argument.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-sensitivity-label-sublabel'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-sensitivity-label-sublabel
 """
 
-helps['identitysignins evaluate'] = """
+helps['identitysignins information-protection-sensitivity-label-sublabel evaluate'] = """
     type: command
     short-summary: "Invoke action evaluate"
     parameters:
@@ -876,162 +876,162 @@ helps['identitysignins evaluate'] = """
 
 """
 
-helps['identitysignins'] = """
+helps['identitysignins information-protection-threat-assessment-request'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins information-protection-threat-assessment-request
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins information-protection-threat-assessment-request delete'] = """
     type: command
     short-summary: "Delete navigation property results for informationProtection"
 """
 
-helps['identitysignins create-result'] = """
+helps['identitysignins information-protection-threat-assessment-request create-result'] = """
     type: command
     short-summary: "Create new navigation property to results for informationProtection"
 """
 
-helps['identitysignins get-result'] = """
+helps['identitysignins information-protection-threat-assessment-request get-result'] = """
     type: command
     short-summary: "Get results from informationProtection"
 """
 
-helps['identitysignins list-result'] = """
+helps['identitysignins information-protection-threat-assessment-request list-result'] = """
     type: command
     short-summary: "Get results from informationProtection"
 """
 
-helps['identitysignins update-result'] = """
+helps['identitysignins information-protection-threat-assessment-request update-result'] = """
     type: command
     short-summary: "Update the navigation property results in informationProtection"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins invitation-invitation'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins invitation-invitation
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins invitation-invitation delete'] = """
     type: command
     short-summary: "Delete entity from invitations"
 """
 
-helps['identitysignins create-invitation'] = """
+helps['identitysignins invitation-invitation create-invitation'] = """
     type: command
     short-summary: "Add new entity to invitations"
 """
 
-helps['identitysignins get-invitation'] = """
+helps['identitysignins invitation-invitation get-invitation'] = """
     type: command
     short-summary: "Get entity from invitations by key"
 """
 
-helps['identitysignins list-invitation'] = """
+helps['identitysignins invitation-invitation list-invitation'] = """
     type: command
     short-summary: "Get entities from invitations"
 """
 
-helps['identitysignins update-invitation'] = """
+helps['identitysignins invitation-invitation update-invitation'] = """
     type: command
     short-summary: "Update entity in invitations"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins invitation'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins invitation
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins invitation delete'] = """
     type: command
     short-summary: "Delete ref of navigation property invitedUser for invitations"
 """
 
-helps['identitysignins get-invited-user'] = """
+helps['identitysignins invitation get-invited-user'] = """
     type: command
     short-summary: "Get invitedUser from invitations"
 """
 
-helps['identitysignins get-ref-invited-user'] = """
+helps['identitysignins invitation get-ref-invited-user'] = """
     type: command
     short-summary: "Get ref of invitedUser from invitations"
 """
 
-helps['identitysignins set-ref-invited-user'] = """
+helps['identitysignins invitation set-ref-invited-user'] = """
     type: command
     short-summary: "Update the ref of navigation property invitedUser in invitations"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins oauth2-permission-grant-o-auth2-permission-grant
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant delete'] = """
     type: command
     short-summary: "Delete entity from oauth2PermissionGrants"
 """
 
-helps['identitysignins create-o-auth2-permission-grant'] = """
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant create-o-auth2-permission-grant'] = """
     type: command
     short-summary: "Add new entity to oauth2PermissionGrants"
 """
 
-helps['identitysignins get-o-auth2-permission-grant'] = """
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant get-o-auth2-permission-grant'] = """
     type: command
     short-summary: "Get entity from oauth2PermissionGrants by key"
 """
 
-helps['identitysignins list-o-auth2-permission-grant'] = """
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant list-o-auth2-permission-grant'] = """
     type: command
     short-summary: "Get entities from oauth2PermissionGrants"
 """
 
-helps['identitysignins update-o-auth2-permission-grant'] = """
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant update-o-auth2-permission-grant'] = """
     type: command
     short-summary: "Update entity in oauth2PermissionGrants"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins oauth2-permission-grant'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins oauth2-permission-grant
 """
 
-helps['identitysignins delta'] = """
+helps['identitysignins oauth2-permission-grant delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins organization'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins organization
 """
 
-helps['identitysignins create-ref-certificate-based-auth-configuration'] = """
+helps['identitysignins organization create-ref-certificate-based-auth-configuration'] = """
     type: command
     short-summary: "Create new navigation property ref to certificateBasedAuthConfiguration for organization"
 """
 
-helps['identitysignins list-certificate-based-auth-configuration'] = """
+helps['identitysignins organization list-certificate-based-auth-configuration'] = """
     type: command
     short-summary: "Get certificateBasedAuthConfiguration from organization"
 """
 
-helps['identitysignins list-ref-certificate-based-auth-configuration'] = """
+helps['identitysignins organization list-ref-certificate-based-auth-configuration'] = """
     type: command
     short-summary: "Get ref of certificateBasedAuthConfiguration from organization"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins policy-policy-root'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins policy-policy-root
 """
 
-helps['identitysignins get-policy-root'] = """
+helps['identitysignins policy-policy-root get-policy-root'] = """
     type: command
     short-summary: "Get policies"
 """
 
-helps['identitysignins update-policy-root'] = """
+helps['identitysignins policy-policy-root update-policy-root'] = """
     type: command
     short-summary: "Update policies"
     parameters:
@@ -1130,36 +1130,6 @@ deleted-date-time=XX id=XX
             description: Description for this policy.
             display-name: Display name for this policy.
             id: Read-only.
-      - name: --directory-role-access-review-policy-settings-recurrence-pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --directory-role-access-review-policy-settings-recurrence-pattern day-of-month=XX days-of-week=XX \
-first-day-of-week=XX index=XX interval=XX month=XX type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --directory-role-access-review-policy-settings-recurrence-range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --directory-role-access-review-policy-settings-recurrence-range end-date=XX \
-number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
       - name: --admin-consent-request-policy-reviewers
         long-summary: |
             Usage: --admin-consent-request-policy-reviewers query=XX query-type=XX
@@ -1169,17 +1139,17 @@ the recurring event. Required.
 argument.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins policy'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins policy
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins policy delete'] = """
     type: command
     short-summary: "Delete navigation property identitySecurityDefaultsEnforcementPolicy for policies"
 """
 
-helps['identitysignins create-activity-based-timeout-policy'] = """
+helps['identitysignins policy create-activity-based-timeout-policy'] = """
     type: command
     short-summary: "Create new navigation property to activityBasedTimeoutPolicies for policies"
     parameters:
@@ -1192,7 +1162,7 @@ helps['identitysignins create-activity-based-timeout-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins create-authorization-policy'] = """
+helps['identitysignins policy create-authorization-policy'] = """
     type: command
     short-summary: "Create new navigation property to authorizationPolicy for policies"
     parameters:
@@ -1204,7 +1174,7 @@ allowed-to-read-other-users=XX
 
 """
 
-helps['identitysignins create-claim-mapping-policy'] = """
+helps['identitysignins policy create-claim-mapping-policy'] = """
     type: command
     short-summary: "Create new navigation property to claimsMappingPolicies for policies"
     parameters:
@@ -1217,7 +1187,7 @@ helps['identitysignins create-claim-mapping-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins create-conditional-access-policy'] = """
+helps['identitysignins policy create-conditional-access-policy'] = """
     type: command
     short-summary: "Create new navigation property to conditionalAccessPolicies for policies"
     parameters:
@@ -1311,7 +1281,7 @@ include-roles=XX include-users=XX
 GuestsOrExternalUsers.
 """
 
-helps['identitysignins create-home-realm-discovery-policy'] = """
+helps['identitysignins policy create-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Create new navigation property to homeRealmDiscoveryPolicies for policies"
     parameters:
@@ -1324,7 +1294,7 @@ helps['identitysignins create-home-realm-discovery-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins create-permission-grant-policy'] = """
+helps['identitysignins policy create-permission-grant-policy'] = """
     type: command
     short-summary: "Create new navigation property to permissionGrantPolicies for policies"
     parameters:
@@ -1348,12 +1318,12 @@ permissions=XX permission-type=XX resource-application=XX id=XX
             Multiple actions can be specified by using more than one --includes argument.
 """
 
-helps['identitysignins create-private-link-resource-policy'] = """
+helps['identitysignins policy create-private-link-resource-policy'] = """
     type: command
     short-summary: "Create new navigation property to privateLinkResourcePolicies for policies"
 """
 
-helps['identitysignins create-token-issuance-policy'] = """
+helps['identitysignins policy create-token-issuance-policy'] = """
     type: command
     short-summary: "Create new navigation property to tokenIssuancePolicies for policies"
     parameters:
@@ -1366,7 +1336,7 @@ helps['identitysignins create-token-issuance-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins create-token-lifetime-policy'] = """
+helps['identitysignins policy create-token-lifetime-policy'] = """
     type: command
     short-summary: "Create new navigation property to tokenLifetimePolicies for policies"
     parameters:
@@ -1379,127 +1349,127 @@ helps['identitysignins create-token-lifetime-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins get-activity-based-timeout-policy'] = """
+helps['identitysignins policy get-activity-based-timeout-policy'] = """
     type: command
     short-summary: "Get activityBasedTimeoutPolicies from policies"
 """
 
-helps['identitysignins get-admin-consent-request-policy'] = """
+helps['identitysignins policy get-admin-consent-request-policy'] = """
     type: command
     short-summary: "Get adminConsentRequestPolicy from policies"
 """
 
-helps['identitysignins get-authentication-flow-policy'] = """
+helps['identitysignins policy get-authentication-flow-policy'] = """
     type: command
     short-summary: "Get authenticationFlowsPolicy from policies"
 """
 
-helps['identitysignins get-authorization-policy'] = """
+helps['identitysignins policy get-authorization-policy'] = """
     type: command
     short-summary: "Get authorizationPolicy from policies"
 """
 
-helps['identitysignins get-b2-c-authentication-method-policy'] = """
+helps['identitysignins policy get-b2-c-authentication-method-policy'] = """
     type: command
     short-summary: "Get b2cAuthenticationMethodsPolicy from policies"
 """
 
-helps['identitysignins get-claim-mapping-policy'] = """
+helps['identitysignins policy get-claim-mapping-policy'] = """
     type: command
     short-summary: "Get claimsMappingPolicies from policies"
 """
 
-helps['identitysignins get-conditional-access-policy'] = """
+helps['identitysignins policy get-conditional-access-policy'] = """
     type: command
     short-summary: "Get conditionalAccessPolicies from policies"
 """
 
-helps['identitysignins get-device-registration-policy'] = """
+helps['identitysignins policy get-device-registration-policy'] = """
     type: command
     short-summary: "Get deviceRegistrationPolicy from policies"
 """
 
-helps['identitysignins get-directory-role-access-review-policy'] = """
+helps['identitysignins policy get-directory-role-access-review-policy'] = """
     type: command
     short-summary: "Get directoryRoleAccessReviewPolicy from policies"
 """
 
-helps['identitysignins get-home-realm-discovery-policy'] = """
+helps['identitysignins policy get-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Get homeRealmDiscoveryPolicies from policies"
 """
 
-helps['identitysignins get-identity-security-default-enforcement-policy'] = """
+helps['identitysignins policy get-identity-security-default-enforcement-policy'] = """
     type: command
     short-summary: "Get identitySecurityDefaultsEnforcementPolicy from policies"
 """
 
-helps['identitysignins get-permission-grant-policy'] = """
+helps['identitysignins policy get-permission-grant-policy'] = """
     type: command
     short-summary: "Get permissionGrantPolicies from policies"
 """
 
-helps['identitysignins get-private-link-resource-policy'] = """
+helps['identitysignins policy get-private-link-resource-policy'] = """
     type: command
     short-summary: "Get privateLinkResourcePolicies from policies"
 """
 
-helps['identitysignins get-token-issuance-policy'] = """
+helps['identitysignins policy get-token-issuance-policy'] = """
     type: command
     short-summary: "Get tokenIssuancePolicies from policies"
 """
 
-helps['identitysignins get-token-lifetime-policy'] = """
+helps['identitysignins policy get-token-lifetime-policy'] = """
     type: command
     short-summary: "Get tokenLifetimePolicies from policies"
 """
 
-helps['identitysignins list-activity-based-timeout-policy'] = """
+helps['identitysignins policy list-activity-based-timeout-policy'] = """
     type: command
     short-summary: "Get activityBasedTimeoutPolicies from policies"
 """
 
-helps['identitysignins list-authorization-policy'] = """
+helps['identitysignins policy list-authorization-policy'] = """
     type: command
     short-summary: "Get authorizationPolicy from policies"
 """
 
-helps['identitysignins list-claim-mapping-policy'] = """
+helps['identitysignins policy list-claim-mapping-policy'] = """
     type: command
     short-summary: "Get claimsMappingPolicies from policies"
 """
 
-helps['identitysignins list-conditional-access-policy'] = """
+helps['identitysignins policy list-conditional-access-policy'] = """
     type: command
     short-summary: "Get conditionalAccessPolicies from policies"
 """
 
-helps['identitysignins list-home-realm-discovery-policy'] = """
+helps['identitysignins policy list-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Get homeRealmDiscoveryPolicies from policies"
 """
 
-helps['identitysignins list-permission-grant-policy'] = """
+helps['identitysignins policy list-permission-grant-policy'] = """
     type: command
     short-summary: "Get permissionGrantPolicies from policies"
 """
 
-helps['identitysignins list-private-link-resource-policy'] = """
+helps['identitysignins policy list-private-link-resource-policy'] = """
     type: command
     short-summary: "Get privateLinkResourcePolicies from policies"
 """
 
-helps['identitysignins list-token-issuance-policy'] = """
+helps['identitysignins policy list-token-issuance-policy'] = """
     type: command
     short-summary: "Get tokenIssuancePolicies from policies"
 """
 
-helps['identitysignins list-token-lifetime-policy'] = """
+helps['identitysignins policy list-token-lifetime-policy'] = """
     type: command
     short-summary: "Get tokenLifetimePolicies from policies"
 """
 
-helps['identitysignins update-activity-based-timeout-policy'] = """
+helps['identitysignins policy update-activity-based-timeout-policy'] = """
     type: command
     short-summary: "Update the navigation property activityBasedTimeoutPolicies in policies"
     parameters:
@@ -1512,7 +1482,7 @@ helps['identitysignins update-activity-based-timeout-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins update-admin-consent-request-policy'] = """
+helps['identitysignins policy update-admin-consent-request-policy'] = """
     type: command
     short-summary: "Update the navigation property adminConsentRequestPolicy in policies"
     parameters:
@@ -1524,12 +1494,12 @@ helps['identitysignins update-admin-consent-request-policy'] = """
             Multiple actions can be specified by using more than one --reviewers argument.
 """
 
-helps['identitysignins update-authentication-flow-policy'] = """
+helps['identitysignins policy update-authentication-flow-policy'] = """
     type: command
     short-summary: "Update the navigation property authenticationFlowsPolicy in policies"
 """
 
-helps['identitysignins update-authorization-policy'] = """
+helps['identitysignins policy update-authorization-policy'] = """
     type: command
     short-summary: "Update the navigation property authorizationPolicy in policies"
     parameters:
@@ -1541,12 +1511,12 @@ allowed-to-read-other-users=XX
 
 """
 
-helps['identitysignins update-b2-c-authentication-method-policy'] = """
+helps['identitysignins policy update-b2-c-authentication-method-policy'] = """
     type: command
     short-summary: "Update the navigation property b2cAuthenticationMethodsPolicy in policies"
 """
 
-helps['identitysignins update-claim-mapping-policy'] = """
+helps['identitysignins policy update-claim-mapping-policy'] = """
     type: command
     short-summary: "Update the navigation property claimsMappingPolicies in policies"
     parameters:
@@ -1559,7 +1529,7 @@ helps['identitysignins update-claim-mapping-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins update-conditional-access-policy'] = """
+helps['identitysignins policy update-conditional-access-policy'] = """
     type: command
     short-summary: "Update the navigation property conditionalAccessPolicies in policies"
     parameters:
@@ -1653,48 +1623,17 @@ include-roles=XX include-users=XX
 GuestsOrExternalUsers.
 """
 
-helps['identitysignins update-device-registration-policy'] = """
+helps['identitysignins policy update-device-registration-policy'] = """
     type: command
     short-summary: "Update the navigation property deviceRegistrationPolicy in policies"
 """
 
-helps['identitysignins update-directory-role-access-review-policy'] = """
+helps['identitysignins policy update-directory-role-access-review-policy'] = """
     type: command
     short-summary: "Update the navigation property directoryRoleAccessReviewPolicy in policies"
-    parameters:
-      - name: --settings-recurrence-pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --settings-recurrence-pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX \
-interval=XX month=XX type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --settings-recurrence-range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --settings-recurrence-range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX \
-start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
 """
 
-helps['identitysignins update-home-realm-discovery-policy'] = """
+helps['identitysignins policy update-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Update the navigation property homeRealmDiscoveryPolicies in policies"
     parameters:
@@ -1707,12 +1646,12 @@ helps['identitysignins update-home-realm-discovery-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins update-identity-security-default-enforcement-policy'] = """
+helps['identitysignins policy update-identity-security-default-enforcement-policy'] = """
     type: command
     short-summary: "Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies"
 """
 
-helps['identitysignins update-permission-grant-policy'] = """
+helps['identitysignins policy update-permission-grant-policy'] = """
     type: command
     short-summary: "Update the navigation property permissionGrantPolicies in policies"
     parameters:
@@ -1736,12 +1675,12 @@ permissions=XX permission-type=XX resource-application=XX id=XX
             Multiple actions can be specified by using more than one --includes argument.
 """
 
-helps['identitysignins update-private-link-resource-policy'] = """
+helps['identitysignins policy update-private-link-resource-policy'] = """
     type: command
     short-summary: "Update the navigation property privateLinkResourcePolicies in policies"
 """
 
-helps['identitysignins update-token-issuance-policy'] = """
+helps['identitysignins policy update-token-issuance-policy'] = """
     type: command
     short-summary: "Update the navigation property tokenIssuancePolicies in policies"
     parameters:
@@ -1754,7 +1693,7 @@ helps['identitysignins update-token-issuance-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins update-token-lifetime-policy'] = """
+helps['identitysignins policy update-token-lifetime-policy'] = """
     type: command
     short-summary: "Update the navigation property tokenLifetimePolicies in policies"
     parameters:
@@ -1767,67 +1706,67 @@ helps['identitysignins update-token-lifetime-policy'] = """
             Multiple actions can be specified by using more than one --applies-to argument.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins policy-permission-grant-policy'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins policy-permission-grant-policy
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins policy-permission-grant-policy delete'] = """
     type: command
     short-summary: "Delete navigation property includes for policies"
 """
 
-helps['identitysignins create-exclude'] = """
+helps['identitysignins policy-permission-grant-policy create-exclude'] = """
     type: command
     short-summary: "Create new navigation property to excludes for policies"
 """
 
-helps['identitysignins create-include'] = """
+helps['identitysignins policy-permission-grant-policy create-include'] = """
     type: command
     short-summary: "Create new navigation property to includes for policies"
 """
 
-helps['identitysignins get-exclude'] = """
+helps['identitysignins policy-permission-grant-policy get-exclude'] = """
     type: command
     short-summary: "Get excludes from policies"
 """
 
-helps['identitysignins get-include'] = """
+helps['identitysignins policy-permission-grant-policy get-include'] = """
     type: command
     short-summary: "Get includes from policies"
 """
 
-helps['identitysignins list-exclude'] = """
+helps['identitysignins policy-permission-grant-policy list-exclude'] = """
     type: command
     short-summary: "Get excludes from policies"
 """
 
-helps['identitysignins list-include'] = """
+helps['identitysignins policy-permission-grant-policy list-include'] = """
     type: command
     short-summary: "Get includes from policies"
 """
 
-helps['identitysignins update-exclude'] = """
+helps['identitysignins policy-permission-grant-policy update-exclude'] = """
     type: command
     short-summary: "Update the navigation property excludes in policies"
 """
 
-helps['identitysignins update-include'] = """
+helps['identitysignins policy-permission-grant-policy update-include'] = """
     type: command
     short-summary: "Update the navigation property includes in policies"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins risk-detection-risk-detection'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins risk-detection-risk-detection
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins risk-detection-risk-detection delete'] = """
     type: command
     short-summary: "Delete entity from riskDetections"
 """
 
-helps['identitysignins create-risk-detection'] = """
+helps['identitysignins risk-detection-risk-detection create-risk-detection'] = """
     type: command
     short-summary: "Add new entity to riskDetections"
     parameters:
@@ -1841,17 +1780,17 @@ helps['identitysignins create-risk-detection'] = """
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['identitysignins get-risk-detection'] = """
+helps['identitysignins risk-detection-risk-detection get-risk-detection'] = """
     type: command
     short-summary: "Get entity from riskDetections by key"
 """
 
-helps['identitysignins list-risk-detection'] = """
+helps['identitysignins risk-detection-risk-detection list-risk-detection'] = """
     type: command
     short-summary: "Get entities from riskDetections"
 """
 
-helps['identitysignins update-risk-detection'] = """
+helps['identitysignins risk-detection-risk-detection update-risk-detection'] = """
     type: command
     short-summary: "Update entity in riskDetections"
     parameters:
@@ -1865,52 +1804,52 @@ helps['identitysignins update-risk-detection'] = """
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins risky-user-risky-user'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins risky-user-risky-user
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins risky-user-risky-user delete'] = """
     type: command
     short-summary: "Delete entity from riskyUsers"
 """
 
-helps['identitysignins create-risky-user'] = """
+helps['identitysignins risky-user-risky-user create-risky-user'] = """
     type: command
     short-summary: "Add new entity to riskyUsers"
 """
 
-helps['identitysignins get-risky-user'] = """
+helps['identitysignins risky-user-risky-user get-risky-user'] = """
     type: command
     short-summary: "Get entity from riskyUsers by key"
 """
 
-helps['identitysignins list-risky-user'] = """
+helps['identitysignins risky-user-risky-user list-risky-user'] = """
     type: command
     short-summary: "Get entities from riskyUsers"
 """
 
-helps['identitysignins update-risky-user'] = """
+helps['identitysignins risky-user-risky-user update-risky-user'] = """
     type: command
     short-summary: "Update entity in riskyUsers"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins risky-user'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins risky-user
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins risky-user delete'] = """
     type: command
     short-summary: "Delete navigation property history for riskyUsers"
 """
 
-helps['identitysignins confirm-compromised'] = """
+helps['identitysignins risky-user confirm-compromised'] = """
     type: command
     short-summary: "Invoke action confirmCompromised"
 """
 
-helps['identitysignins create-history'] = """
+helps['identitysignins risky-user create-history'] = """
     type: command
     short-summary: "Create new navigation property to history for riskyUsers"
     parameters:
@@ -1922,22 +1861,22 @@ helps['identitysignins create-history'] = """
             risk-event-types: The type of risk event detected.
 """
 
-helps['identitysignins dismiss'] = """
+helps['identitysignins risky-user dismiss'] = """
     type: command
     short-summary: "Invoke action dismiss"
 """
 
-helps['identitysignins get-history'] = """
+helps['identitysignins risky-user get-history'] = """
     type: command
     short-summary: "Get history from riskyUsers"
 """
 
-helps['identitysignins list-history'] = """
+helps['identitysignins risky-user list-history'] = """
     type: command
     short-summary: "Get history from riskyUsers"
 """
 
-helps['identitysignins update-history'] = """
+helps['identitysignins risky-user update-history'] = """
     type: command
     short-summary: "Update the navigation property history in riskyUsers"
     parameters:
@@ -1949,17 +1888,17 @@ helps['identitysignins update-history'] = """
             risk-event-types: The type of risk event detected.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins trust-framework-trust-framework'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins trust-framework-trust-framework
 """
 
-helps['identitysignins get-trust-framework'] = """
+helps['identitysignins trust-framework-trust-framework get-trust-framework'] = """
     type: command
     short-summary: "Get trustFramework"
 """
 
-helps['identitysignins update-trust-framework'] = """
+helps['identitysignins trust-framework-trust-framework update-trust-framework'] = """
     type: command
     short-summary: "Update trustFramework"
     parameters:
@@ -1972,17 +1911,17 @@ helps['identitysignins update-trust-framework'] = """
             Multiple actions can be specified by using more than one --policies argument.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins trust-framework'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins trust-framework
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins trust-framework delete'] = """
     type: command
     short-summary: "Delete navigation property policies for trustFramework"
 """
 
-helps['identitysignins create-key-set'] = """
+helps['identitysignins trust-framework create-key-set'] = """
     type: command
     short-summary: "Create new navigation property to keySets for trustFramework"
     parameters:
@@ -1995,42 +1934,42 @@ x5-t=XX
             Multiple actions can be specified by using more than one --keys argument.
 """
 
-helps['identitysignins create-policy'] = """
+helps['identitysignins trust-framework create-policy'] = """
     type: command
     short-summary: "Create new navigation property to policies for trustFramework"
 """
 
-helps['identitysignins get-key-set'] = """
+helps['identitysignins trust-framework get-key-set'] = """
     type: command
     short-summary: "Get keySets from trustFramework"
 """
 
-helps['identitysignins get-policy'] = """
+helps['identitysignins trust-framework get-policy'] = """
     type: command
     short-summary: "Get policies from trustFramework"
 """
 
-helps['identitysignins get-policy-content'] = """
+helps['identitysignins trust-framework get-policy-content'] = """
     type: command
     short-summary: "Get media content for the navigation property policies from trustFramework"
 """
 
-helps['identitysignins list-key-set'] = """
+helps['identitysignins trust-framework list-key-set'] = """
     type: command
     short-summary: "Get keySets from trustFramework"
 """
 
-helps['identitysignins list-policy'] = """
+helps['identitysignins trust-framework list-policy'] = """
     type: command
     short-summary: "Get policies from trustFramework"
 """
 
-helps['identitysignins set-policy-content'] = """
+helps['identitysignins trust-framework set-policy-content'] = """
     type: command
     short-summary: "Update media content for the navigation property policies in trustFramework"
 """
 
-helps['identitysignins update-key-set'] = """
+helps['identitysignins trust-framework update-key-set'] = """
     type: command
     short-summary: "Update the navigation property keySets in trustFramework"
     parameters:
@@ -2043,62 +1982,62 @@ x5-t=XX
             Multiple actions can be specified by using more than one --keys argument.
 """
 
-helps['identitysignins update-policy'] = """
+helps['identitysignins trust-framework update-policy'] = """
     type: command
     short-summary: "Update the navigation property policies in trustFramework"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins trust-framework-key-set'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins trust-framework-key-set
 """
 
-helps['identitysignins generate-key'] = """
+helps['identitysignins trust-framework-key-set generate-key'] = """
     type: command
     short-summary: "Invoke action generateKey"
 """
 
-helps['identitysignins get-active-key'] = """
+helps['identitysignins trust-framework-key-set get-active-key'] = """
     type: command
     short-summary: "Invoke function getActiveKey"
 """
 
-helps['identitysignins upload-certificate'] = """
+helps['identitysignins trust-framework-key-set upload-certificate'] = """
     type: command
     short-summary: "Invoke action uploadCertificate"
 """
 
-helps['identitysignins upload-pkcs12'] = """
+helps['identitysignins trust-framework-key-set upload-pkcs12'] = """
     type: command
     short-summary: "Invoke action uploadPkcs12"
 """
 
-helps['identitysignins upload-secret'] = """
+helps['identitysignins trust-framework-key-set upload-secret'] = """
     type: command
     short-summary: "Invoke action uploadSecret"
 """
 
-helps['identitysignins'] = """
+helps['identitysignins user'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins user
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins user delete'] = """
     type: command
     short-summary: "Delete navigation property informationProtection for users"
 """
 
-helps['identitysignins get-authentication'] = """
+helps['identitysignins user get-authentication'] = """
     type: command
     short-summary: "Get authentication from users"
 """
 
-helps['identitysignins get-information-protection'] = """
+helps['identitysignins user get-information-protection'] = """
     type: command
     short-summary: "Get informationProtection from users"
 """
 
-helps['identitysignins update-authentication'] = """
+helps['identitysignins user update-authentication'] = """
     type: command
     short-summary: "Update the navigation property authentication in users"
     parameters:
@@ -2183,7 +2122,7 @@ argument.
             Multiple actions can be specified by using more than one --temporary-access-pass-methods argument.
 """
 
-helps['identitysignins update-information-protection'] = """
+helps['identitysignins user update-information-protection'] = """
     type: command
     short-summary: "Update the navigation property informationProtection in users"
     parameters:
@@ -2203,232 +2142,232 @@ help-web-url=XX is-mandatory=XX id=XX
             id: Read-only.
 """
 
-helps['identitysignins'] = """
+helps['identitysignins user-authentication'] = """
     type: group
-    short-summary: identitysignins
+    short-summary: identitysignins user-authentication
 """
 
-helps['identitysignins delete'] = """
+helps['identitysignins user-authentication delete'] = """
     type: command
     short-summary: "Delete navigation property temporaryAccessPassMethods for users"
 """
 
-helps['identitysignins create-email-method'] = """
+helps['identitysignins user-authentication create-email-method'] = """
     type: command
     short-summary: "Create new navigation property to emailMethods for users"
 """
 
-helps['identitysignins create-fido2-method'] = """
+helps['identitysignins user-authentication create-fido2-method'] = """
     type: command
     short-summary: "Create new navigation property to fido2Methods for users"
 """
 
-helps['identitysignins create-method'] = """
+helps['identitysignins user-authentication create-method'] = """
     type: command
     short-summary: "Create new navigation property to methods for users"
 """
 
-helps['identitysignins create-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication create-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Create new navigation property to microsoftAuthenticatorMethods for users"
 """
 
-helps['identitysignins create-oath-method'] = """
+helps['identitysignins user-authentication create-oath-method'] = """
     type: command
     short-summary: "Create new navigation property to oathMethods for users"
 """
 
-helps['identitysignins create-operation'] = """
+helps['identitysignins user-authentication create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for users"
 """
 
-helps['identitysignins create-password-method'] = """
+helps['identitysignins user-authentication create-password-method'] = """
     type: command
     short-summary: "Create new navigation property to passwordMethods for users"
 """
 
-helps['identitysignins create-passwordless-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication create-passwordless-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Create new navigation property to passwordlessMicrosoftAuthenticatorMethods for users"
 """
 
-helps['identitysignins create-phone-method'] = """
+helps['identitysignins user-authentication create-phone-method'] = """
     type: command
     short-summary: "Create new navigation property to phoneMethods for users"
 """
 
-helps['identitysignins create-security-question-method'] = """
+helps['identitysignins user-authentication create-security-question-method'] = """
     type: command
     short-summary: "Create new navigation property to securityQuestionMethods for users"
 """
 
-helps['identitysignins create-temporary-access-pass-method'] = """
+helps['identitysignins user-authentication create-temporary-access-pass-method'] = """
     type: command
     short-summary: "Create new navigation property to temporaryAccessPassMethods for users"
 """
 
-helps['identitysignins get-email-method'] = """
+helps['identitysignins user-authentication get-email-method'] = """
     type: command
     short-summary: "Get emailMethods from users"
 """
 
-helps['identitysignins get-fido2-method'] = """
+helps['identitysignins user-authentication get-fido2-method'] = """
     type: command
     short-summary: "Get fido2Methods from users"
 """
 
-helps['identitysignins get-method'] = """
+helps['identitysignins user-authentication get-method'] = """
     type: command
     short-summary: "Get methods from users"
 """
 
-helps['identitysignins get-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication get-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Get microsoftAuthenticatorMethods from users"
 """
 
-helps['identitysignins get-oath-method'] = """
+helps['identitysignins user-authentication get-oath-method'] = """
     type: command
     short-summary: "Get oathMethods from users"
 """
 
-helps['identitysignins get-operation'] = """
+helps['identitysignins user-authentication get-operation'] = """
     type: command
     short-summary: "Get operations from users"
 """
 
-helps['identitysignins get-password-method'] = """
+helps['identitysignins user-authentication get-password-method'] = """
     type: command
     short-summary: "Get passwordMethods from users"
 """
 
-helps['identitysignins get-passwordless-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication get-passwordless-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Get passwordlessMicrosoftAuthenticatorMethods from users"
 """
 
-helps['identitysignins get-phone-method'] = """
+helps['identitysignins user-authentication get-phone-method'] = """
     type: command
     short-summary: "Get phoneMethods from users"
 """
 
-helps['identitysignins get-security-question-method'] = """
+helps['identitysignins user-authentication get-security-question-method'] = """
     type: command
     short-summary: "Get securityQuestionMethods from users"
 """
 
-helps['identitysignins get-temporary-access-pass-method'] = """
+helps['identitysignins user-authentication get-temporary-access-pass-method'] = """
     type: command
     short-summary: "Get temporaryAccessPassMethods from users"
 """
 
-helps['identitysignins list-email-method'] = """
+helps['identitysignins user-authentication list-email-method'] = """
     type: command
     short-summary: "Get emailMethods from users"
 """
 
-helps['identitysignins list-fido2-method'] = """
+helps['identitysignins user-authentication list-fido2-method'] = """
     type: command
     short-summary: "Get fido2Methods from users"
 """
 
-helps['identitysignins list-method'] = """
+helps['identitysignins user-authentication list-method'] = """
     type: command
     short-summary: "Get methods from users"
 """
 
-helps['identitysignins list-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication list-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Get microsoftAuthenticatorMethods from users"
 """
 
-helps['identitysignins list-oath-method'] = """
+helps['identitysignins user-authentication list-oath-method'] = """
     type: command
     short-summary: "Get oathMethods from users"
 """
 
-helps['identitysignins list-operation'] = """
+helps['identitysignins user-authentication list-operation'] = """
     type: command
     short-summary: "Get operations from users"
 """
 
-helps['identitysignins list-password-method'] = """
+helps['identitysignins user-authentication list-password-method'] = """
     type: command
     short-summary: "Get passwordMethods from users"
 """
 
-helps['identitysignins list-passwordless-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication list-passwordless-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Get passwordlessMicrosoftAuthenticatorMethods from users"
 """
 
-helps['identitysignins list-phone-method'] = """
+helps['identitysignins user-authentication list-phone-method'] = """
     type: command
     short-summary: "Get phoneMethods from users"
 """
 
-helps['identitysignins list-security-question-method'] = """
+helps['identitysignins user-authentication list-security-question-method'] = """
     type: command
     short-summary: "Get securityQuestionMethods from users"
 """
 
-helps['identitysignins list-temporary-access-pass-method'] = """
+helps['identitysignins user-authentication list-temporary-access-pass-method'] = """
     type: command
     short-summary: "Get temporaryAccessPassMethods from users"
 """
 
-helps['identitysignins update-email-method'] = """
+helps['identitysignins user-authentication update-email-method'] = """
     type: command
     short-summary: "Update the navigation property emailMethods in users"
 """
 
-helps['identitysignins update-fido2-method'] = """
+helps['identitysignins user-authentication update-fido2-method'] = """
     type: command
     short-summary: "Update the navigation property fido2Methods in users"
 """
 
-helps['identitysignins update-method'] = """
+helps['identitysignins user-authentication update-method'] = """
     type: command
     short-summary: "Update the navigation property methods in users"
 """
 
-helps['identitysignins update-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication update-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Update the navigation property microsoftAuthenticatorMethods in users"
 """
 
-helps['identitysignins update-oath-method'] = """
+helps['identitysignins user-authentication update-oath-method'] = """
     type: command
     short-summary: "Update the navigation property oathMethods in users"
 """
 
-helps['identitysignins update-operation'] = """
+helps['identitysignins user-authentication update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in users"
 """
 
-helps['identitysignins update-password-method'] = """
+helps['identitysignins user-authentication update-password-method'] = """
     type: command
     short-summary: "Update the navigation property passwordMethods in users"
 """
 
-helps['identitysignins update-passwordless-microsoft-authenticator-method'] = """
+helps['identitysignins user-authentication update-passwordless-microsoft-authenticator-method'] = """
     type: command
     short-summary: "Update the navigation property passwordlessMicrosoftAuthenticatorMethods in users"
 """
 
-helps['identitysignins update-phone-method'] = """
+helps['identitysignins user-authentication update-phone-method'] = """
     type: command
     short-summary: "Update the navigation property phoneMethods in users"
 """
 
-helps['identitysignins update-security-question-method'] = """
+helps['identitysignins user-authentication update-security-question-method'] = """
     type: command
     short-summary: "Update the navigation property securityQuestionMethods in users"
 """
 
-helps['identitysignins update-temporary-access-pass-method'] = """
+helps['identitysignins user-authentication update-temporary-access-pass-method'] = """
     type: command
     short-summary: "Update the navigation property temporaryAccessPassMethods in users"
 """

@@ -22,10 +22,10 @@ from azext_devicescloudprint_beta.action import (
     AddDefaults,
     AddPrintStatus,
     AddCapabilitiesCopiesPerJob,
-    AddDevicescloudprintCreatePrinterAllowedGroups,
-    AddDevicescloudprintCreatePrinterAllowedUsers,
-    AddDevicescloudprintCreatePrinterShareAllowedGroups,
-    AddDevicescloudprintCreatePrinterShareAllowedUsers,
+    AddDevicescloudprintPrintCreatePrinterAllowedGroups,
+    AddDevicescloudprintPrintCreatePrinterAllowedUsers,
+    AddDevicescloudprintPrintCreatePrinterShareAllowedGroups,
+    AddDevicescloudprintPrintCreatePrinterShareAllowedUsers,
     AddApplicationSignInDetailedSummary,
     AddCredentialUserRegistrationDetails,
     AddUserCredentialUsageDetails,
@@ -42,11 +42,11 @@ from azext_devicescloudprint_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('devicescloudprint get-print') as c:
+    with self.argument_context('devicescloudprint print-print get-print') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint update-print') as c:
+    with self.argument_context('devicescloudprint print-print update-print') as c:
         c.argument('connectors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('operations', action=AddOperations, nargs='*', help='')
         c.argument('printers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -57,7 +57,7 @@ def load_arguments(self, _):
         c.argument('task_definitions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('settings_document_conversion_enabled', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print delete') as c:
         c.argument('print_connector_id', type=str, help='key: id of printConnector')
         c.argument('if_match', type=str, help='ETag')
         c.argument('print_operation_id', type=str, help='key: id of printOperation')
@@ -67,7 +67,7 @@ def load_arguments(self, _):
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
 
-    with self.argument_context('devicescloudprint create-connector') as c:
+    with self.argument_context('devicescloudprint print create-connector') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_version', type=str, help='')
         c.argument('display_name', type=str, help='')
@@ -78,14 +78,14 @@ def load_arguments(self, _):
         c.argument('registered_date_time', help='')
         c.argument('device_health_last_connection_time', help='')
 
-    with self.argument_context('devicescloudprint create-operation') as c:
+    with self.argument_context('devicescloudprint print create-operation') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('status_description', type=str, help='')
         c.argument('status_state', arg_type=get_enum_type(['notStarted', 'running', 'succeeded', 'failed', ''
                                                            'unknownFutureValue']), help='')
 
-    with self.argument_context('devicescloudprint create-printer') as c:
+    with self.argument_context('devicescloudprint print create-printer') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
         c.argument('display_name', type=str, help='')
@@ -140,14 +140,14 @@ def load_arguments(self, _):
         c.argument('accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('is_shared', arg_type=get_three_state_flag(), help='')
         c.argument('registered_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintCreatePrinterAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintCreatePrinterAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterAllowedGroups, nargs='*', help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterAllowedUsers, nargs='*', help='')
         c.argument('connectors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('share', type=validate_file_or_dict, help='printerShare Expected value: json-string/@json-file.')
         c.argument('shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('task_triggers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint create-printer-share') as c:
+    with self.argument_context('devicescloudprint print create-printer-share') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
         c.argument('display_name', type=str, help='')
@@ -201,11 +201,13 @@ def load_arguments(self, _):
         c.argument('capabilities_top_margins', nargs='*', help='')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintCreatePrinterShareAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintCreatePrinterShareAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
+                   '')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+                   help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint create-report') as c:
+    with self.argument_context('devicescloudprint print create-report') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_sign_in_detailed_summary', action=AddApplicationSignInDetailedSummary, nargs='*',
                    help='')
@@ -221,11 +223,11 @@ def load_arguments(self, _):
         c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='*',
                    help='')
 
-    with self.argument_context('devicescloudprint create-service') as c:
+    with self.argument_context('devicescloudprint print create-service') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('endpoints', action=AddEndpoints, nargs='*', help='')
 
-    with self.argument_context('devicescloudprint create-share') as c:
+    with self.argument_context('devicescloudprint print create-share') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
         c.argument('display_name', type=str, help='')
@@ -279,97 +281,99 @@ def load_arguments(self, _):
         c.argument('capabilities_top_margins', nargs='*', help='')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintCreatePrinterShareAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintCreatePrinterShareAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
+                   '')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+                   help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint create-task-definition') as c:
+    with self.argument_context('devicescloudprint print create-task-definition') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_by', action=AddCreatedBy, nargs='*', help='appIdentity')
         c.argument('display_name', type=str, help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint get-connector') as c:
+    with self.argument_context('devicescloudprint print get-connector') as c:
         c.argument('print_connector_id', type=str, help='key: id of printConnector')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-operation') as c:
+    with self.argument_context('devicescloudprint print get-operation') as c:
         c.argument('print_operation_id', type=str, help='key: id of printOperation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-printer') as c:
+    with self.argument_context('devicescloudprint print get-printer') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-printer-share') as c:
+    with self.argument_context('devicescloudprint print get-printer-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-report') as c:
+    with self.argument_context('devicescloudprint print get-report') as c:
         c.argument('report_root_id', type=str, help='key: id of reportRoot')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-service') as c:
+    with self.argument_context('devicescloudprint print get-service') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-share') as c:
+    with self.argument_context('devicescloudprint print get-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-task-definition') as c:
+    with self.argument_context('devicescloudprint print get-task-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-connector') as c:
+    with self.argument_context('devicescloudprint print list-connector') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-operation') as c:
+    with self.argument_context('devicescloudprint print list-operation') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-printer') as c:
+    with self.argument_context('devicescloudprint print list-printer') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-printer-share') as c:
+    with self.argument_context('devicescloudprint print list-printer-share') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-report') as c:
+    with self.argument_context('devicescloudprint print list-report') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-service') as c:
+    with self.argument_context('devicescloudprint print list-service') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-share') as c:
+    with self.argument_context('devicescloudprint print list-share') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-task-definition') as c:
+    with self.argument_context('devicescloudprint print list-task-definition') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint update-connector') as c:
+    with self.argument_context('devicescloudprint print update-connector') as c:
         c.argument('print_connector_id', type=str, help='key: id of printConnector')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_version', type=str, help='')
@@ -381,7 +385,7 @@ def load_arguments(self, _):
         c.argument('registered_date_time', help='')
         c.argument('device_health_last_connection_time', help='')
 
-    with self.argument_context('devicescloudprint update-operation') as c:
+    with self.argument_context('devicescloudprint print update-operation') as c:
         c.argument('print_operation_id', type=str, help='key: id of printOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -389,7 +393,7 @@ def load_arguments(self, _):
         c.argument('status_state', arg_type=get_enum_type(['notStarted', 'running', 'succeeded', 'failed', ''
                                                            'unknownFutureValue']), help='')
 
-    with self.argument_context('devicescloudprint update-printer') as c:
+    with self.argument_context('devicescloudprint print update-printer') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
@@ -445,14 +449,14 @@ def load_arguments(self, _):
         c.argument('accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('is_shared', arg_type=get_three_state_flag(), help='')
         c.argument('registered_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintCreatePrinterAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintCreatePrinterAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterAllowedGroups, nargs='*', help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterAllowedUsers, nargs='*', help='')
         c.argument('connectors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('share', type=validate_file_or_dict, help='printerShare Expected value: json-string/@json-file.')
         c.argument('shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('task_triggers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint update-printer-share') as c:
+    with self.argument_context('devicescloudprint print update-printer-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
@@ -507,11 +511,13 @@ def load_arguments(self, _):
         c.argument('capabilities_top_margins', nargs='*', help='')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintCreatePrinterShareAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintCreatePrinterShareAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
+                   '')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+                   help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint update-report') as c:
+    with self.argument_context('devicescloudprint print update-report') as c:
         c.argument('report_root_id', type=str, help='key: id of reportRoot')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_sign_in_detailed_summary', action=AddApplicationSignInDetailedSummary, nargs='*',
@@ -528,12 +534,12 @@ def load_arguments(self, _):
         c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='*',
                    help='')
 
-    with self.argument_context('devicescloudprint update-service') as c:
+    with self.argument_context('devicescloudprint print update-service') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('endpoints', action=AddEndpoints, nargs='*', help='')
 
-    with self.argument_context('devicescloudprint update-share') as c:
+    with self.argument_context('devicescloudprint print update-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
@@ -588,18 +594,20 @@ def load_arguments(self, _):
         c.argument('capabilities_top_margins', nargs='*', help='')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintCreatePrinterShareAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintCreatePrinterShareAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
+                   '')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+                   help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint update-task-definition') as c:
+    with self.argument_context('devicescloudprint print update-task-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_by', action=AddCreatedBy, nargs='*', help='appIdentity')
         c.argument('display_name', type=str, help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint create') as c:
+    with self.argument_context('devicescloudprint print-printer create') as c:
         c.argument('display_name', type=str, help='')
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
@@ -609,127 +617,127 @@ def load_arguments(self, _):
                    'printCertificateSigningRequest')
         c.argument('connector_id', type=str, help='')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-printer delete') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('if_match', type=str, help='ETag')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
 
-    with self.argument_context('devicescloudprint create-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer create-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint create-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer create-allowed-user') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint create-ref-connector') as c:
+    with self.argument_context('devicescloudprint print-printer create-ref-connector') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint create-ref-share') as c:
+    with self.argument_context('devicescloudprint print-printer create-ref-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint create-task-trigger') as c:
+    with self.argument_context('devicescloudprint print-printer create-task-trigger') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('event', arg_type=get_enum_type(['jobStarted', 'unknownFutureValue']), help='')
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint get-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer get-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer get-allowed-user') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-capability') as c:
+    with self.argument_context('devicescloudprint print-printer get-capability') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
 
-    with self.argument_context('devicescloudprint get-ref-share') as c:
+    with self.argument_context('devicescloudprint print-printer get-ref-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
 
-    with self.argument_context('devicescloudprint get-share') as c:
+    with self.argument_context('devicescloudprint print-printer get-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-task-trigger') as c:
+    with self.argument_context('devicescloudprint print-printer get-task-trigger') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer list-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer list-allowed-user') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-connector') as c:
+    with self.argument_context('devicescloudprint print-printer list-connector') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-ref-connector') as c:
+    with self.argument_context('devicescloudprint print-printer list-ref-connector') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('devicescloudprint list-ref-share') as c:
+    with self.argument_context('devicescloudprint print-printer list-ref-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('devicescloudprint list-share') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('devicescloudprint list-task-trigger') as c:
+    with self.argument_context('devicescloudprint print-printer list-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint reset-default') as c:
+    with self.argument_context('devicescloudprint print-printer list-task-trigger') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer reset-default') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
 
-    with self.argument_context('devicescloudprint restore-factory-default') as c:
+    with self.argument_context('devicescloudprint print-printer restore-factory-default') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
 
-    with self.argument_context('devicescloudprint set-ref-share') as c:
+    with self.argument_context('devicescloudprint print-printer set-ref-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint update-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer update-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint update-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer update-allowed-user') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -737,7 +745,7 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint update-task-trigger') as c:
+    with self.argument_context('devicescloudprint print-printer update-task-trigger') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -745,89 +753,89 @@ def load_arguments(self, _):
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-printer-task-trigger delete') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint get-definition') as c:
+    with self.argument_context('devicescloudprint print-printer-task-trigger get-definition') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-ref-definition') as c:
+    with self.argument_context('devicescloudprint print-printer-task-trigger get-ref-definition') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
 
-    with self.argument_context('devicescloudprint set-ref-definition') as c:
+    with self.argument_context('devicescloudprint print-printer-task-trigger set-ref-definition') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-printer-share delete') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('if_match', type=str, help='ETag')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
 
-    with self.argument_context('devicescloudprint create-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer-share create-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint create-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer-share create-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint get-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer-share get-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer-share get-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-printer') as c:
+    with self.argument_context('devicescloudprint print-printer-share get-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-ref-printer') as c:
+    with self.argument_context('devicescloudprint print-printer-share get-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint list-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer-share list-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer-share list-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint set-ref-printer') as c:
+    with self.argument_context('devicescloudprint print-printer-share set-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint update-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer-share update-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint update-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer-share update-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -835,159 +843,159 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint get-capability') as c:
+    with self.argument_context('devicescloudprint print-printer-share-printer get-capability') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint reset-default') as c:
+    with self.argument_context('devicescloudprint print-printer-share-printer reset-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint restore-factory-default') as c:
+    with self.argument_context('devicescloudprint print-printer-share-printer restore-factory-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint get-group-archived-print-job') as c:
+    with self.argument_context('devicescloudprint print-report get-group-archived-print-job') as c:
         c.argument('group_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-group-print-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report get-group-print-usage-summary') as c:
         c.argument('group_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-overall-print-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report get-overall-print-usage-summary') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
         c.argument('top_lists_size', type=int, help='')
 
-    with self.argument_context('devicescloudprint get-print-usage-summary-by-group') as c:
+    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-group') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-print-usage-summary-by-printer') as c:
+    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-printer') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-print-usage-summary-by-time-span') as c:
+    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-time-span') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
         c.argument('time_span_in_minutes', type=int, help='')
 
-    with self.argument_context('devicescloudprint get-print-usage-summary-by-user') as c:
+    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-user') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-printer-archived-print-job') as c:
+    with self.argument_context('devicescloudprint print-report get-printer-archived-print-job') as c:
         c.argument('printer_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-printer-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report get-printer-usage-summary') as c:
         c.argument('printer_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-user-archived-print-job') as c:
+    with self.argument_context('devicescloudprint print-report get-user-archived-print-job') as c:
         c.argument('user_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint get-user-print-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report get-user-print-usage-summary') as c:
         c.argument('user_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-service delete') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint create-endpoint') as c:
+    with self.argument_context('devicescloudprint print-service create-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('uri', type=str, help='')
 
-    with self.argument_context('devicescloudprint get-endpoint') as c:
+    with self.argument_context('devicescloudprint print-service get-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-endpoint') as c:
+    with self.argument_context('devicescloudprint print-service list-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint update-endpoint') as c:
+    with self.argument_context('devicescloudprint print-service update-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('uri', type=str, help='')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-share delete') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('if_match', type=str, help='ETag')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
 
-    with self.argument_context('devicescloudprint create-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-share create-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint create-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-share create-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint get-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-share get-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-share get-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-printer') as c:
+    with self.argument_context('devicescloudprint print-share get-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-ref-printer') as c:
+    with self.argument_context('devicescloudprint print-share get-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint list-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-share list-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-share list-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint set-ref-printer') as c:
+    with self.argument_context('devicescloudprint print-share set-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint update-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-share update-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint update-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-share update-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -995,21 +1003,21 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint get-capability') as c:
+    with self.argument_context('devicescloudprint print-share-printer get-capability') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint reset-default') as c:
+    with self.argument_context('devicescloudprint print-share-printer reset-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint restore-factory-default') as c:
+    with self.argument_context('devicescloudprint print-share-printer restore-factory-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-task-definition delete') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint create-task') as c:
+    with self.argument_context('devicescloudprint print-task-definition create-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('parent_url', type=str, help='')
@@ -1021,19 +1029,19 @@ def load_arguments(self, _):
         c.argument('trigger_definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint get-task') as c:
+    with self.argument_context('devicescloudprint print-task-definition get-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint list-task') as c:
+    with self.argument_context('devicescloudprint print-task-definition list-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint update-task') as c:
+    with self.argument_context('devicescloudprint print-task-definition update-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1046,38 +1054,38 @@ def load_arguments(self, _):
         c.argument('trigger_definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint delete') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task delete') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint get-definition') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task get-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint get-ref-definition') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task get-ref-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
 
-    with self.argument_context('devicescloudprint get-ref-trigger') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task get-ref-trigger') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
 
-    with self.argument_context('devicescloudprint get-trigger') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task get-trigger') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('devicescloudprint set-ref-definition') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task set-ref-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint set-ref-trigger') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task set-ref-trigger') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '

@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['reports'] = """
+helps['reports audit-log-audit-log-root'] = """
     type: group
-    short-summary: reports
+    short-summary: reports audit-log-audit-log-root
 """
 
-helps['reports get-audit-log-root'] = """
+helps['reports audit-log-audit-log-root get-audit-log-root'] = """
     type: command
     short-summary: "Get auditLogs"
 """
 
-helps['reports update-audit-log-root'] = """
+helps['reports audit-log-audit-log-root update-audit-log-root'] = """
     type: command
     short-summary: "Update auditLogs"
     parameters:
@@ -74,17 +74,17 @@ information from the sign-in activity.
             Multiple actions can be specified by using more than one --restricted-sign-ins argument.
 """
 
-helps['reports'] = """
+helps['reports audit-log'] = """
     type: group
-    short-summary: reports
+    short-summary: reports audit-log
 """
 
-helps['reports delete'] = """
+helps['reports audit-log delete'] = """
     type: command
     short-summary: "Delete navigation property signIns for auditLogs"
 """
 
-helps['reports create-directory-audit'] = """
+helps['reports audit-log create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs"
     parameters:
@@ -137,17 +137,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['reports create-directory-provisioning'] = """
+helps['reports audit-log create-directory-provisioning'] = """
     type: command
     short-summary: "Create new navigation property to directoryProvisioning for auditLogs"
 """
 
-helps['reports create-provisioning'] = """
+helps['reports audit-log create-provisioning'] = """
     type: command
     short-summary: "Create new navigation property to provisioning for auditLogs"
 """
 
-helps['reports create-restricted-sign-in'] = """
+helps['reports audit-log create-restricted-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to restrictedSignIns for auditLogs"
     parameters:
@@ -230,62 +230,140 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports create-sign-in'] = """
+helps['reports audit-log create-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to signIns for auditLogs"
+    parameters:
+      - name: --applied-conditional-access-policies
+        long-summary: |
+            Usage: --applied-conditional-access-policies conditions-not-satisfied=XX conditions-satisfied=XX \
+display-name=XX enforced-grant-controls=XX enforced-session-controls=XX id=XX result=XX
+
+            display-name: Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
+            enforced-grant-controls: Refers to the grant controls enforced by the conditional access policy (example: \
+'Require multi-factor authentication').
+            enforced-session-controls: Refers to the session controls enforced by the conditional access policy \
+(example: 'Require app enforced controls').
+            id: Unique GUID of the conditional access policy.
+
+            Multiple actions can be specified by using more than one --applied-conditional-access-policies argument.
+      - name: --authentication-details
+        long-summary: |
+            Usage: --authentication-details authentication-method=XX authentication-method-detail=XX \
+authentication-step-date-time=XX authentication-step-requirement=XX authentication-step-result-detail=XX succeeded=XX
+
+
+            Multiple actions can be specified by using more than one --authentication-details argument.
+      - name: --authentication-processing-details
+        long-summary: |
+            Usage: --authentication-processing-details key=XX value=XX
+
+            key: Key for the key-value pair.
+            value: Value for the key-value pair.
+
+            Multiple actions can be specified by using more than one --authentication-processing-details argument.
+      - name: --authentication-requirement-policies
+        long-summary: |
+            Usage: --authentication-requirement-policies detail=XX requirement-provider=XX
+
+
+            Multiple actions can be specified by using more than one --authentication-requirement-policies argument.
+      - name: --device-detail
+        short-summary: "deviceDetail"
+        long-summary: |
+            Usage: --device-detail browser=XX browser-id=XX device-id=XX display-name=XX is-compliant=XX is-managed=XX \
+operating-system=XX trust-type=XX
+
+            browser: Indicates the browser information of the used for signing in.
+            device-id: Refers to the UniqueID of the device used for signing in.
+            display-name: Refers to the name of the device used for signing in.
+            is-compliant: Indicates whether the device is compliant.
+            is-managed: Indicates whether the device is managed.
+            operating-system: Indicates the operating system name and version used for signing in.
+            trust-type: Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, \
+Domain Joined.
+      - name: --mfa-detail
+        short-summary: "mfaDetail"
+        long-summary: |
+            Usage: --mfa-detail auth-detail=XX auth-method=XX
+
+      - name: --network-location-details
+        long-summary: |
+            Usage: --network-location-details network-names=XX network-type=XX
+
+
+            Multiple actions can be specified by using more than one --network-location-details argument.
+      - name: --status
+        short-summary: "signInStatus"
+        long-summary: |
+            Usage: --status additional-details=XX error-code=XX failure-reason=XX
+
+            additional-details: Provides additional details on the sign-in activity
+            error-code: Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list \
+of error codes and messages.
+            failure-reason: Provides the error message or the reason for failure for the corresponding sign-in \
+activity. Check out the list of error codes and messages.
+      - name: --location-geo-coordinates
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location-geo-coordinates altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports get-directory-audit'] = """
+helps['reports audit-log get-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs"
 """
 
-helps['reports get-directory-provisioning'] = """
+helps['reports audit-log get-directory-provisioning'] = """
     type: command
     short-summary: "Get directoryProvisioning from auditLogs"
 """
 
-helps['reports get-provisioning'] = """
+helps['reports audit-log get-provisioning'] = """
     type: command
     short-summary: "Get provisioning from auditLogs"
 """
 
-helps['reports get-restricted-sign-in'] = """
+helps['reports audit-log get-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs"
 """
 
-helps['reports get-sign-in'] = """
+helps['reports audit-log get-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs"
 """
 
-helps['reports list-directory-audit'] = """
+helps['reports audit-log list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs"
 """
 
-helps['reports list-directory-provisioning'] = """
+helps['reports audit-log list-directory-provisioning'] = """
     type: command
     short-summary: "Get directoryProvisioning from auditLogs"
 """
 
-helps['reports list-provisioning'] = """
+helps['reports audit-log list-provisioning'] = """
     type: command
     short-summary: "Get provisioning from auditLogs"
 """
 
-helps['reports list-restricted-sign-in'] = """
+helps['reports audit-log list-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs"
 """
 
-helps['reports list-sign-in'] = """
+helps['reports audit-log list-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs"
 """
 
-helps['reports update-directory-audit'] = """
+helps['reports audit-log update-directory-audit'] = """
     type: command
     short-summary: "Update the navigation property directoryAudits in auditLogs"
     parameters:
@@ -338,17 +416,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['reports update-directory-provisioning'] = """
+helps['reports audit-log update-directory-provisioning'] = """
     type: command
     short-summary: "Update the navigation property directoryProvisioning in auditLogs"
 """
 
-helps['reports update-provisioning'] = """
+helps['reports audit-log update-provisioning'] = """
     type: command
     short-summary: "Update the navigation property provisioning in auditLogs"
 """
 
-helps['reports update-restricted-sign-in'] = """
+helps['reports audit-log update-restricted-sign-in'] = """
     type: command
     short-summary: "Update the navigation property restrictedSignIns in auditLogs"
     parameters:
@@ -431,22 +509,100 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports update-sign-in'] = """
+helps['reports audit-log update-sign-in'] = """
     type: command
     short-summary: "Update the navigation property signIns in auditLogs"
+    parameters:
+      - name: --applied-conditional-access-policies
+        long-summary: |
+            Usage: --applied-conditional-access-policies conditions-not-satisfied=XX conditions-satisfied=XX \
+display-name=XX enforced-grant-controls=XX enforced-session-controls=XX id=XX result=XX
+
+            display-name: Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
+            enforced-grant-controls: Refers to the grant controls enforced by the conditional access policy (example: \
+'Require multi-factor authentication').
+            enforced-session-controls: Refers to the session controls enforced by the conditional access policy \
+(example: 'Require app enforced controls').
+            id: Unique GUID of the conditional access policy.
+
+            Multiple actions can be specified by using more than one --applied-conditional-access-policies argument.
+      - name: --authentication-details
+        long-summary: |
+            Usage: --authentication-details authentication-method=XX authentication-method-detail=XX \
+authentication-step-date-time=XX authentication-step-requirement=XX authentication-step-result-detail=XX succeeded=XX
+
+
+            Multiple actions can be specified by using more than one --authentication-details argument.
+      - name: --authentication-processing-details
+        long-summary: |
+            Usage: --authentication-processing-details key=XX value=XX
+
+            key: Key for the key-value pair.
+            value: Value for the key-value pair.
+
+            Multiple actions can be specified by using more than one --authentication-processing-details argument.
+      - name: --authentication-requirement-policies
+        long-summary: |
+            Usage: --authentication-requirement-policies detail=XX requirement-provider=XX
+
+
+            Multiple actions can be specified by using more than one --authentication-requirement-policies argument.
+      - name: --device-detail
+        short-summary: "deviceDetail"
+        long-summary: |
+            Usage: --device-detail browser=XX browser-id=XX device-id=XX display-name=XX is-compliant=XX is-managed=XX \
+operating-system=XX trust-type=XX
+
+            browser: Indicates the browser information of the used for signing in.
+            device-id: Refers to the UniqueID of the device used for signing in.
+            display-name: Refers to the name of the device used for signing in.
+            is-compliant: Indicates whether the device is compliant.
+            is-managed: Indicates whether the device is managed.
+            operating-system: Indicates the operating system name and version used for signing in.
+            trust-type: Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, \
+Domain Joined.
+      - name: --mfa-detail
+        short-summary: "mfaDetail"
+        long-summary: |
+            Usage: --mfa-detail auth-detail=XX auth-method=XX
+
+      - name: --network-location-details
+        long-summary: |
+            Usage: --network-location-details network-names=XX network-type=XX
+
+
+            Multiple actions can be specified by using more than one --network-location-details argument.
+      - name: --status
+        short-summary: "signInStatus"
+        long-summary: |
+            Usage: --status additional-details=XX error-code=XX failure-reason=XX
+
+            additional-details: Provides additional details on the sign-in activity
+            error-code: Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list \
+of error codes and messages.
+            failure-reason: Provides the error message or the reason for failure for the corresponding sign-in \
+activity. Check out the list of error codes and messages.
+      - name: --location-geo-coordinates
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location-geo-coordinates altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports'] = """
+helps['reports report-report-root'] = """
     type: group
-    short-summary: reports
+    short-summary: reports report-report-root
 """
 
-helps['reports get-report-root'] = """
+helps['reports report-report-root get-report-root'] = """
     type: command
     short-summary: "Get reports"
 """
 
-helps['reports update-report-root'] = """
+helps['reports report-report-root update-report-root'] = """
     type: command
     short-summary: "Update reports"
     parameters:
@@ -515,662 +671,662 @@ completed-color-job-count=XX incomplete-job-count=XX usage-date=XX user-principa
             Multiple actions can be specified by using more than one --monthly-print-usage-summaries-by-user argument.
 """
 
-helps['reports'] = """
+helps['reports report'] = """
     type: group
-    short-summary: reports
+    short-summary: reports report
 """
 
-helps['reports delete'] = """
+helps['reports report delete'] = """
     type: command
     short-summary: "Delete navigation property userCredentialUsageDetails for reports"
 """
 
-helps['reports create-application-sign-in-detailed-summary'] = """
+helps['reports report create-application-sign-in-detailed-summary'] = """
     type: command
     short-summary: "Create new navigation property to applicationSignInDetailedSummary for reports"
 """
 
-helps['reports create-credential-user-registration-detail'] = """
+helps['reports report create-credential-user-registration-detail'] = """
     type: command
     short-summary: "Create new navigation property to credentialUserRegistrationDetails for reports"
 """
 
-helps['reports create-daily-print-usage-summary-by-printer'] = """
+helps['reports report create-daily-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Create new navigation property to dailyPrintUsageSummariesByPrinter for reports"
 """
 
-helps['reports create-daily-print-usage-summary-by-user'] = """
+helps['reports report create-daily-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Create new navigation property to dailyPrintUsageSummariesByUser for reports"
 """
 
-helps['reports create-monthly-print-usage-summary-by-printer'] = """
+helps['reports report create-monthly-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Create new navigation property to monthlyPrintUsageSummariesByPrinter for reports"
 """
 
-helps['reports create-monthly-print-usage-summary-by-user'] = """
+helps['reports report create-monthly-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Create new navigation property to monthlyPrintUsageSummariesByUser for reports"
 """
 
-helps['reports create-user-credential-usage-detail'] = """
+helps['reports report create-user-credential-usage-detail'] = """
     type: command
     short-summary: "Create new navigation property to userCredentialUsageDetails for reports"
 """
 
-helps['reports device-configuration-device-activity'] = """
+helps['reports report device-configuration-device-activity'] = """
     type: command
     short-summary: "Invoke function deviceConfigurationDeviceActivity"
 """
 
-helps['reports device-configuration-user-activity'] = """
+helps['reports report device-configuration-user-activity'] = """
     type: command
     short-summary: "Invoke function deviceConfigurationUserActivity"
 """
 
-helps['reports get-application-sign-in-detailed-summary'] = """
+helps['reports report get-application-sign-in-detailed-summary'] = """
     type: command
     short-summary: "Get applicationSignInDetailedSummary from reports"
 """
 
-helps['reports get-azure-ad-application-sign-in-summary'] = """
+helps['reports report get-azure-ad-application-sign-in-summary'] = """
     type: command
     short-summary: "Invoke function getAzureADApplicationSignInSummary"
 """
 
-helps['reports get-azure-ad-feature-usage'] = """
+helps['reports report get-azure-ad-feature-usage'] = """
     type: command
     short-summary: "Invoke function getAzureADFeatureUsage"
 """
 
-helps['reports get-azure-ad-license-usage'] = """
+helps['reports report get-azure-ad-license-usage'] = """
     type: command
     short-summary: "Invoke function getAzureADLicenseUsage"
 """
 
-helps['reports get-azure-ad-user-feature-usage'] = """
+helps['reports report get-azure-ad-user-feature-usage'] = """
     type: command
     short-summary: "Invoke function getAzureADUserFeatureUsage"
 """
 
-helps['reports get-credential-usage-summary'] = """
+helps['reports report get-credential-usage-summary'] = """
     type: command
     short-summary: "Invoke function getCredentialUsageSummary"
 """
 
-helps['reports get-credential-user-registration-count'] = """
+helps['reports report get-credential-user-registration-count'] = """
     type: command
     short-summary: "Invoke function getCredentialUserRegistrationCount"
 """
 
-helps['reports get-credential-user-registration-detail'] = """
+helps['reports report get-credential-user-registration-detail'] = """
     type: command
     short-summary: "Get credentialUserRegistrationDetails from reports"
 """
 
-helps['reports get-daily-print-usage-summary-by-printer'] = """
+helps['reports report get-daily-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Get dailyPrintUsageSummariesByPrinter from reports"
 """
 
-helps['reports get-daily-print-usage-summary-by-user'] = """
+helps['reports report get-daily-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Get dailyPrintUsageSummariesByUser from reports"
 """
 
-helps['reports get-email-activity-count'] = """
+helps['reports report get-email-activity-count'] = """
     type: command
     short-summary: "Invoke function getEmailActivityCounts"
 """
 
-helps['reports get-email-activity-user-count'] = """
+helps['reports report get-email-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailActivityUserCounts"
 """
 
-helps['reports get-email-activity-user-detail-ddb2'] = """
+helps['reports report get-email-activity-user-detail-ddb2'] = """
     type: command
     short-summary: "Invoke function getEmailActivityUserDetail"
 """
 
-helps['reports get-email-activity-user-detail-fe32'] = """
+helps['reports report get-email-activity-user-detail-fe32'] = """
     type: command
     short-summary: "Invoke function getEmailActivityUserDetail"
 """
 
-helps['reports get-email-app-usage-app-user-count'] = """
+helps['reports report get-email-app-usage-app-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageAppsUserCounts"
 """
 
-helps['reports get-email-app-usage-user-count'] = """
+helps['reports report get-email-app-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageUserCounts"
 """
 
-helps['reports get-email-app-usage-user-detail546-b'] = """
+helps['reports report get-email-app-usage-user-detail546-b'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageUserDetail"
 """
 
-helps['reports get-email-app-usage-user-detail62-ec'] = """
+helps['reports report get-email-app-usage-user-detail62-ec'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageUserDetail"
 """
 
-helps['reports get-email-app-usage-version-user-count'] = """
+helps['reports report get-email-app-usage-version-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageVersionsUserCounts"
 """
 
-helps['reports get-m365-app-platform-user-count'] = """
+helps['reports report get-m365-app-platform-user-count'] = """
     type: command
     short-summary: "Invoke function getM365AppPlatformUserCounts"
 """
 
-helps['reports get-m365-app-user-count'] = """
+helps['reports report get-m365-app-user-count'] = """
     type: command
     short-summary: "Invoke function getM365AppUserCounts"
 """
 
-helps['reports get-m365-app-user-detail-c8-df'] = """
+helps['reports report get-m365-app-user-detail-c8-df'] = """
     type: command
     short-summary: "Invoke function getM365AppUserDetail"
 """
 
-helps['reports get-m365-app-user-detail2-b20'] = """
+helps['reports report get-m365-app-user-detail2-b20'] = """
     type: command
     short-summary: "Invoke function getM365AppUserDetail"
 """
 
-helps['reports get-mailbox-usage-detail'] = """
+helps['reports report get-mailbox-usage-detail'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageDetail"
 """
 
-helps['reports get-mailbox-usage-mailbox-count'] = """
+helps['reports report get-mailbox-usage-mailbox-count'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageMailboxCounts"
 """
 
-helps['reports get-mailbox-usage-quota-status-mailbox-count'] = """
+helps['reports report get-mailbox-usage-quota-status-mailbox-count'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageQuotaStatusMailboxCounts"
 """
 
-helps['reports get-mailbox-usage-storage'] = """
+helps['reports report get-mailbox-usage-storage'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageStorage"
 """
 
-helps['reports get-monthly-print-usage-summary-by-printer'] = """
+helps['reports report get-monthly-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Get monthlyPrintUsageSummariesByPrinter from reports"
 """
 
-helps['reports get-monthly-print-usage-summary-by-user'] = """
+helps['reports report get-monthly-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Get monthlyPrintUsageSummariesByUser from reports"
 """
 
-helps['reports get-office365-activation-count'] = """
+helps['reports report get-office365-activation-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ActivationCounts"
 """
 
-helps['reports get-office365-activation-user-count'] = """
+helps['reports report get-office365-activation-user-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ActivationsUserCounts"
 """
 
-helps['reports get-office365-activation-user-detail'] = """
+helps['reports report get-office365-activation-user-detail'] = """
     type: command
     short-summary: "Invoke function getOffice365ActivationsUserDetail"
 """
 
-helps['reports get-office365-active-user-count'] = """
+helps['reports report get-office365-active-user-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ActiveUserCounts"
 """
 
-helps['reports get-office365-active-user-detail-d389'] = """
+helps['reports report get-office365-active-user-detail-d389'] = """
     type: command
     short-summary: "Invoke function getOffice365ActiveUserDetail"
 """
 
-helps['reports get-office365-active-user-detail68-ad'] = """
+helps['reports report get-office365-active-user-detail68-ad'] = """
     type: command
     short-summary: "Invoke function getOffice365ActiveUserDetail"
 """
 
-helps['reports get-office365-group-activity-count'] = """
+helps['reports report get-office365-group-activity-count'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityCounts"
 """
 
-helps['reports get-office365-group-activity-detail38-f6'] = """
+helps['reports report get-office365-group-activity-detail38-f6'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityDetail"
 """
 
-helps['reports get-office365-group-activity-detail81-cc'] = """
+helps['reports report get-office365-group-activity-detail81-cc'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityDetail"
 """
 
-helps['reports get-office365-group-activity-file-count'] = """
+helps['reports report get-office365-group-activity-file-count'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityFileCounts"
 """
 
-helps['reports get-office365-group-activity-group-count'] = """
+helps['reports report get-office365-group-activity-group-count'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityGroupCounts"
 """
 
-helps['reports get-office365-group-activity-storage'] = """
+helps['reports report get-office365-group-activity-storage'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityStorage"
 """
 
-helps['reports get-office365-service-user-count'] = """
+helps['reports report get-office365-service-user-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ServicesUserCounts"
 """
 
-helps['reports get-one-drive-activity-file-count'] = """
+helps['reports report get-one-drive-activity-file-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityFileCounts"
 """
 
-helps['reports get-one-drive-activity-user-count'] = """
+helps['reports report get-one-drive-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityUserCounts"
 """
 
-helps['reports get-one-drive-activity-user-detail-c424'] = """
+helps['reports report get-one-drive-activity-user-detail-c424'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityUserDetail"
 """
 
-helps['reports get-one-drive-activity-user-detail05-f1'] = """
+helps['reports report get-one-drive-activity-user-detail05-f1'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityUserDetail"
 """
 
-helps['reports get-one-drive-usage-account-count'] = """
+helps['reports report get-one-drive-usage-account-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageAccountCounts"
 """
 
-helps['reports get-one-drive-usage-account-detail-dd7-f'] = """
+helps['reports report get-one-drive-usage-account-detail-dd7-f'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageAccountDetail"
 """
 
-helps['reports get-one-drive-usage-account-detail-e827'] = """
+helps['reports report get-one-drive-usage-account-detail-e827'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageAccountDetail"
 """
 
-helps['reports get-one-drive-usage-file-count'] = """
+helps['reports report get-one-drive-usage-file-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageFileCounts"
 """
 
-helps['reports get-one-drive-usage-storage'] = """
+helps['reports report get-one-drive-usage-storage'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageStorage"
 """
 
-helps['reports get-relying-party-detailed-summary'] = """
+helps['reports report get-relying-party-detailed-summary'] = """
     type: command
     short-summary: "Invoke function getRelyingPartyDetailedSummary"
 """
 
-helps['reports get-share-point-activity-file-count'] = """
+helps['reports report get-share-point-activity-file-count'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityFileCounts"
 """
 
-helps['reports get-share-point-activity-page'] = """
+helps['reports report get-share-point-activity-page'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityPages"
 """
 
-helps['reports get-share-point-activity-user-count'] = """
+helps['reports report get-share-point-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityUserCounts"
 """
 
-helps['reports get-share-point-activity-user-detail-b778'] = """
+helps['reports report get-share-point-activity-user-detail-b778'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityUserDetail"
 """
 
-helps['reports get-share-point-activity-user-detail-f3-be'] = """
+helps['reports report get-share-point-activity-user-detail-f3-be'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityUserDetail"
 """
 
-helps['reports get-share-point-site-usage-detail-d27-a'] = """
+helps['reports report get-share-point-site-usage-detail-d27-a'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageDetail"
 """
 
-helps['reports get-share-point-site-usage-detail204-b'] = """
+helps['reports report get-share-point-site-usage-detail204-b'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageDetail"
 """
 
-helps['reports get-share-point-site-usage-file-count'] = """
+helps['reports report get-share-point-site-usage-file-count'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageFileCounts"
 """
 
-helps['reports get-share-point-site-usage-page'] = """
+helps['reports report get-share-point-site-usage-page'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsagePages"
 """
 
-helps['reports get-share-point-site-usage-site-count'] = """
+helps['reports report get-share-point-site-usage-site-count'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageSiteCounts"
 """
 
-helps['reports get-share-point-site-usage-storage'] = """
+helps['reports report get-share-point-site-usage-storage'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageStorage"
 """
 
-helps['reports get-skype-for-business-activity-count'] = """
+helps['reports report get-skype-for-business-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityCounts"
 """
 
-helps['reports get-skype-for-business-activity-user-count'] = """
+helps['reports report get-skype-for-business-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityUserCounts"
 """
 
-helps['reports get-skype-for-business-activity-user-detail-e4-c9'] = """
+helps['reports report get-skype-for-business-activity-user-detail-e4-c9'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityUserDetail"
 """
 
-helps['reports get-skype-for-business-activity-user-detail744-e'] = """
+helps['reports report get-skype-for-business-activity-user-detail744-e'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityUserDetail"
 """
 
-helps['reports get-skype-for-business-device-usage-distribution-user-count'] = """
+helps['reports report get-skype-for-business-device-usage-distribution-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts"
 """
 
-helps['reports get-skype-for-business-device-usage-user-count'] = """
+helps['reports report get-skype-for-business-device-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserCounts"
 """
 
-helps['reports get-skype-for-business-device-usage-user-detail-a692'] = """
+helps['reports report get-skype-for-business-device-usage-user-detail-a692'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserDetail"
 """
 
-helps['reports get-skype-for-business-device-usage-user-detail-e753'] = """
+helps['reports report get-skype-for-business-device-usage-user-detail-e753'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserDetail"
 """
 
-helps['reports get-skype-for-business-organizer-activity-count'] = """
+helps['reports report get-skype-for-business-organizer-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessOrganizerActivityCounts"
 """
 
-helps['reports get-skype-for-business-organizer-activity-minute-count'] = """
+helps['reports report get-skype-for-business-organizer-activity-minute-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts"
 """
 
-helps['reports get-skype-for-business-organizer-activity-user-count'] = """
+helps['reports report get-skype-for-business-organizer-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessOrganizerActivityUserCounts"
 """
 
-helps['reports get-skype-for-business-participant-activity-count'] = """
+helps['reports report get-skype-for-business-participant-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessParticipantActivityCounts"
 """
 
-helps['reports get-skype-for-business-participant-activity-minute-count'] = """
+helps['reports report get-skype-for-business-participant-activity-minute-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessParticipantActivityMinuteCounts"
 """
 
-helps['reports get-skype-for-business-participant-activity-user-count'] = """
+helps['reports report get-skype-for-business-participant-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessParticipantActivityUserCounts"
 """
 
-helps['reports get-skype-for-business-peer-to-peer-activity-count'] = """
+helps['reports report get-skype-for-business-peer-to-peer-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityCounts"
 """
 
-helps['reports get-skype-for-business-peer-to-peer-activity-minute-count'] = """
+helps['reports report get-skype-for-business-peer-to-peer-activity-minute-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts"
 """
 
-helps['reports get-skype-for-business-peer-to-peer-activity-user-count'] = """
+helps['reports report get-skype-for-business-peer-to-peer-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts"
 """
 
-helps['reports get-team-device-usage-distribution-user-count'] = """
+helps['reports report get-team-device-usage-distribution-user-count'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageDistributionUserCounts"
 """
 
-helps['reports get-team-device-usage-user-count'] = """
+helps['reports report get-team-device-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageUserCounts"
 """
 
-helps['reports get-team-device-usage-user-detail7148'] = """
+helps['reports report get-team-device-usage-user-detail7148'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageUserDetail"
 """
 
-helps['reports get-team-device-usage-user-detail7565'] = """
+helps['reports report get-team-device-usage-user-detail7565'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageUserDetail"
 """
 
-helps['reports get-team-user-activity-count'] = """
+helps['reports report get-team-user-activity-count'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityCounts"
 """
 
-helps['reports get-team-user-activity-user-count'] = """
+helps['reports report get-team-user-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityUserCounts"
 """
 
-helps['reports get-team-user-activity-user-detail-a3-f1'] = """
+helps['reports report get-team-user-activity-user-detail-a3-f1'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityUserDetail"
 """
 
-helps['reports get-team-user-activity-user-detail-eb13'] = """
+helps['reports report get-team-user-activity-user-detail-eb13'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityUserDetail"
 """
 
-helps['reports get-tenant-secure-score'] = """
+helps['reports report get-tenant-secure-score'] = """
     type: command
     short-summary: "Invoke function getTenantSecureScores"
 """
 
-helps['reports get-user-credential-usage-detail'] = """
+helps['reports report get-user-credential-usage-detail'] = """
     type: command
     short-summary: "Get userCredentialUsageDetails from reports"
 """
 
-helps['reports get-yammer-activity-count'] = """
+helps['reports report get-yammer-activity-count'] = """
     type: command
     short-summary: "Invoke function getYammerActivityCounts"
 """
 
-helps['reports get-yammer-activity-user-count'] = """
+helps['reports report get-yammer-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getYammerActivityUserCounts"
 """
 
-helps['reports get-yammer-activity-user-detail-ac30'] = """
+helps['reports report get-yammer-activity-user-detail-ac30'] = """
     type: command
     short-summary: "Invoke function getYammerActivityUserDetail"
 """
 
-helps['reports get-yammer-activity-user-detail15-a5'] = """
+helps['reports report get-yammer-activity-user-detail15-a5'] = """
     type: command
     short-summary: "Invoke function getYammerActivityUserDetail"
 """
 
-helps['reports get-yammer-device-usage-distribution-user-count'] = """
+helps['reports report get-yammer-device-usage-distribution-user-count'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageDistributionUserCounts"
 """
 
-helps['reports get-yammer-device-usage-user-count'] = """
+helps['reports report get-yammer-device-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageUserCounts"
 """
 
-helps['reports get-yammer-device-usage-user-detail-cfad'] = """
+helps['reports report get-yammer-device-usage-user-detail-cfad'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageUserDetail"
 """
 
-helps['reports get-yammer-device-usage-user-detail-d0-ac'] = """
+helps['reports report get-yammer-device-usage-user-detail-d0-ac'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageUserDetail"
 """
 
-helps['reports get-yammer-group-activity-count'] = """
+helps['reports report get-yammer-group-activity-count'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityCounts"
 """
 
-helps['reports get-yammer-group-activity-detail-da9-a'] = """
+helps['reports report get-yammer-group-activity-detail-da9-a'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityDetail"
 """
 
-helps['reports get-yammer-group-activity-detail0-d7-d'] = """
+helps['reports report get-yammer-group-activity-detail0-d7-d'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityDetail"
 """
 
-helps['reports get-yammer-group-activity-group-count'] = """
+helps['reports report get-yammer-group-activity-group-count'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityGroupCounts"
 """
 
-helps['reports list-application-sign-in-detailed-summary'] = """
+helps['reports report list-application-sign-in-detailed-summary'] = """
     type: command
     short-summary: "Get applicationSignInDetailedSummary from reports"
 """
 
-helps['reports list-credential-user-registration-detail'] = """
+helps['reports report list-credential-user-registration-detail'] = """
     type: command
     short-summary: "Get credentialUserRegistrationDetails from reports"
 """
 
-helps['reports list-daily-print-usage-summary'] = """
+helps['reports report list-daily-print-usage-summary'] = """
     type: command
     short-summary: "Get dailyPrintUsageSummariesByUser from reports"
 """
 
-helps['reports list-monthly-print-usage-summary'] = """
+helps['reports report list-monthly-print-usage-summary'] = """
     type: command
     short-summary: "Get monthlyPrintUsageSummariesByUser from reports"
 """
 
-helps['reports list-user-credential-usage-detail'] = """
+helps['reports report list-user-credential-usage-detail'] = """
     type: command
     short-summary: "Get userCredentialUsageDetails from reports"
 """
 
-helps['reports managed-device-enrollment-abandonment-detail'] = """
+helps['reports report managed-device-enrollment-abandonment-detail'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentAbandonmentDetails"
 """
 
-helps['reports managed-device-enrollment-abandonment-summary'] = """
+helps['reports report managed-device-enrollment-abandonment-summary'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentAbandonmentSummary"
 """
 
-helps['reports managed-device-enrollment-failure-details027-e'] = """
+helps['reports report managed-device-enrollment-failure-details027-e'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentFailureDetails"
 """
 
-helps['reports managed-device-enrollment-failure-details2-b3-d'] = """
+helps['reports report managed-device-enrollment-failure-details2-b3-d'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentFailureDetails"
 """
 
-helps['reports managed-device-enrollment-failure-trend'] = """
+helps['reports report managed-device-enrollment-failure-trend'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentFailureTrends"
 """
 
-helps['reports managed-device-enrollment-top-failure-afd1'] = """
+helps['reports report managed-device-enrollment-top-failure-afd1'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentTopFailures"
 """
 
-helps['reports managed-device-enrollment-top-failures4669'] = """
+helps['reports report managed-device-enrollment-top-failures4669'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentTopFailures"
 """
 
-helps['reports update-application-sign-in-detailed-summary'] = """
+helps['reports report update-application-sign-in-detailed-summary'] = """
     type: command
     short-summary: "Update the navigation property applicationSignInDetailedSummary in reports"
 """
 
-helps['reports update-credential-user-registration-detail'] = """
+helps['reports report update-credential-user-registration-detail'] = """
     type: command
     short-summary: "Update the navigation property credentialUserRegistrationDetails in reports"
 """
 
-helps['reports update-daily-print-usage-summary-by-printer'] = """
+helps['reports report update-daily-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Update the navigation property dailyPrintUsageSummariesByPrinter in reports"
 """
 
-helps['reports update-daily-print-usage-summary-by-user'] = """
+helps['reports report update-daily-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Update the navigation property dailyPrintUsageSummariesByUser in reports"
 """
 
-helps['reports update-monthly-print-usage-summary-by-printer'] = """
+helps['reports report update-monthly-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Update the navigation property monthlyPrintUsageSummariesByPrinter in reports"
 """
 
-helps['reports update-monthly-print-usage-summary-by-user'] = """
+helps['reports report update-monthly-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Update the navigation property monthlyPrintUsageSummariesByUser in reports"
 """
 
-helps['reports update-user-credential-usage-detail'] = """
+helps['reports report update-user-credential-usage-detail'] = """
     type: command
     short-summary: "Update the navigation property userCredentialUsageDetails in reports"
 """

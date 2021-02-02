@@ -859,7 +859,69 @@ class UserCalendarCalendarViewOperations(object):
         user_id,  # type: str
         calendar_id,  # type: str
         event_id,  # type: str
-        body,  # type: "models.MicrosoftGraphEvent"
+        id=None,  # type: Optional[str]
+        categories=None,  # type: Optional[List[str]]
+        change_key=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        allow_new_time_proposals=None,  # type: Optional[bool]
+        attendees=None,  # type: Optional[List["models.MicrosoftGraphAttendee"]]
+        body=None,  # type: Optional["models.MicrosoftGraphItemBody"]
+        body_preview=None,  # type: Optional[str]
+        cancelled_occurrences=None,  # type: Optional[List[str]]
+        end=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        has_attachments=None,  # type: Optional[bool]
+        hide_attendees=None,  # type: Optional[bool]
+        importance=None,  # type: Optional[Union[str, "models.MicrosoftGraphImportance"]]
+        is_all_day=None,  # type: Optional[bool]
+        is_cancelled=None,  # type: Optional[bool]
+        is_draft=None,  # type: Optional[bool]
+        is_online_meeting=None,  # type: Optional[bool]
+        is_organizer=None,  # type: Optional[bool]
+        is_reminder_on=None,  # type: Optional[bool]
+        locations=None,  # type: Optional[List["models.MicrosoftGraphLocation"]]
+        occurrence_id=None,  # type: Optional[str]
+        online_meeting_provider=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingProviderType"]]
+        online_meeting_url=None,  # type: Optional[str]
+        original_end_time_zone=None,  # type: Optional[str]
+        original_start=None,  # type: Optional[datetime.datetime]
+        original_start_time_zone=None,  # type: Optional[str]
+        reminder_minutes_before_start=None,  # type: Optional[int]
+        response_requested=None,  # type: Optional[bool]
+        response_status=None,  # type: Optional["models.MicrosoftGraphResponseStatus"]
+        sensitivity=None,  # type: Optional[Union[str, "models.MicrosoftGraphSensitivity"]]
+        series_master_id=None,  # type: Optional[str]
+        show_as=None,  # type: Optional[Union[str, "models.MicrosoftGraphFreeBusyStatus"]]
+        start=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        subject=None,  # type: Optional[str]
+        transaction_id=None,  # type: Optional[str]
+        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEventType"]]
+        uid=None,  # type: Optional[str]
+        web_link=None,  # type: Optional[str]
+        attachments=None,  # type: Optional[List["models.MicrosoftGraphAttachment"]]
+        calendar=None,  # type: Optional["models.MicrosoftGraphCalendar"]
+        exception_occurrences=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        extensions=None,  # type: Optional[List["models.MicrosoftGraphExtension"]]
+        instances=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        multi_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]]
+        single_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]]
+        pattern=None,  # type: Optional["models.MicrosoftGraphRecurrencePattern"]
+        range=None,  # type: Optional["models.MicrosoftGraphRecurrenceRange"]
+        email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
+        conference_id=None,  # type: Optional[str]
+        join_url=None,  # type: Optional[str]
+        phones=None,  # type: Optional[List["models.MicrosoftGraphPhone"]]
+        quick_dial=None,  # type: Optional[str]
+        toll_free_numbers=None,  # type: Optional[List[str]]
+        toll_number=None,  # type: Optional[str]
+        address=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
+        coordinates=None,  # type: Optional["models.MicrosoftGraphOutlookGeoCoordinates"]
+        display_name=None,  # type: Optional[str]
+        location_email_address=None,  # type: Optional[str]
+        location_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationType"]]
+        location_uri=None,  # type: Optional[str]
+        unique_id=None,  # type: Optional[str]
+        unique_id_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphEvent"
@@ -873,8 +935,168 @@ class UserCalendarCalendarViewOperations(object):
         :type calendar_id: str
         :param event_id: key: id of event.
         :type event_id: str
-        :param body: New navigation property.
-        :type body: ~calendar.models.MicrosoftGraphEvent
+        :param id: Read-only.
+        :type id: str
+        :param categories: The categories associated with the item.
+        :type categories: list[str]
+        :param change_key: Identifies the version of the item. Every time the item is changed,
+         changeKey changes as well. This allows Exchange to apply changes to the correct version of the
+         object. Read-only.
+        :type change_key: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param allow_new_time_proposals: True if the meeting organizer allows invitees to propose a new
+         time when responding, false otherwise. Optional. Default is true.
+        :type allow_new_time_proposals: bool
+        :param attendees: The collection of attendees for the event.
+        :type attendees: list[~calendar.models.MicrosoftGraphAttendee]
+        :param body: itemBody.
+        :type body: ~calendar.models.MicrosoftGraphItemBody
+        :param body_preview: The preview of the message associated with the event. It is in text
+         format.
+        :type body_preview: str
+        :param cancelled_occurrences:
+        :type cancelled_occurrences: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param has_attachments: Set to true if the event has attachments.
+        :type has_attachments: bool
+        :param hide_attendees:
+        :type hide_attendees: bool
+        :param importance:
+        :type importance: str or ~calendar.models.MicrosoftGraphImportance
+        :param is_all_day: Set to true if the event lasts all day.
+        :type is_all_day: bool
+        :param is_cancelled: Set to true if the event has been canceled.
+        :type is_cancelled: bool
+        :param is_draft:
+        :type is_draft: bool
+        :param is_online_meeting: True if this event has online meeting information, false otherwise.
+         Default is false. Optional.
+        :type is_online_meeting: bool
+        :param is_organizer: Set to true if the calendar owner (specified by the owner property of the
+         calendar) is the organizer of the event (specified by the organizer property of the event).
+         This also applies if a delegate organized the event on behalf of the owner.
+        :type is_organizer: bool
+        :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
+        :type is_reminder_on: bool
+        :param locations: The locations where the event is held or attended from. The location and
+         locations properties always correspond with each other. If you update the location property,
+         any prior locations in the locations collection would be removed and replaced by the new
+         location value.
+        :type locations: list[~calendar.models.MicrosoftGraphLocation]
+        :param occurrence_id:
+        :type occurrence_id: str
+        :param online_meeting_provider:
+        :type online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
+        :param online_meeting_url: A URL for an online meeting. The property is set only when an
+         organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
+        :type online_meeting_url: str
+        :param original_end_time_zone: The end time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_end_time_zone: str
+        :param original_start: The Timestamp type represents date and time information using ISO 8601
+         format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type original_start: ~datetime.datetime
+        :param original_start_time_zone: The start time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_start_time_zone: str
+        :param reminder_minutes_before_start: The number of minutes before the event start time that
+         the reminder alert occurs.
+        :type reminder_minutes_before_start: int
+        :param response_requested: Default is true, which represents the organizer would like an
+         invitee to send a response to the event.
+        :type response_requested: bool
+        :param response_status: responseStatus.
+        :type response_status: ~calendar.models.MicrosoftGraphResponseStatus
+        :param sensitivity:
+        :type sensitivity: str or ~calendar.models.MicrosoftGraphSensitivity
+        :param series_master_id: The ID for the recurring series master item, if this event is part of
+         a recurring series.
+        :type series_master_id: str
+        :param show_as:
+        :type show_as: str or ~calendar.models.MicrosoftGraphFreeBusyStatus
+        :param start: dateTimeTimeZone.
+        :type start: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param subject: The text of the event's subject line.
+        :type subject: str
+        :param transaction_id: A custom identifier specified by a client app for the server to avoid
+         redundant POST operations in case of client retries to create the same event. This is useful
+         when low network connectivity causes the client to time out before receiving a response from
+         the server for the client's prior create-event request. After you set transactionId when
+         creating an event, you cannot change transactionId in a subsequent update. This property is
+         only returned in a response payload if an app has set it. Optional.
+        :type transaction_id: str
+        :param type:
+        :type type: str or ~calendar.models.MicrosoftGraphEventType
+        :param uid:
+        :type uid: str
+        :param web_link: The URL to open the event in Outlook on the web.Outlook on the web opens the
+         event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web
+         prompts you to sign in.This URL can be accessed from within an iFrame.
+        :type web_link: str
+        :param attachments: The collection of fileAttachment and itemAttachment attachments for the
+         event. Navigation property. Read-only. Nullable.
+        :type attachments: list[~calendar.models.MicrosoftGraphAttachment]
+        :param calendar: calendar.
+        :type calendar: ~calendar.models.MicrosoftGraphCalendar
+        :param exception_occurrences:
+        :type exception_occurrences: list[~calendar.models.MicrosoftGraphEvent]
+        :param extensions: The collection of open extensions defined for the event. Read-only.
+         Nullable.
+        :type extensions: list[~calendar.models.MicrosoftGraphExtension]
+        :param instances: The instances of the event. Navigation property. Read-only. Nullable.
+        :type instances: list[~calendar.models.MicrosoftGraphEvent]
+        :param multi_value_extended_properties: The collection of multi-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type multi_value_extended_properties: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+        :param single_value_extended_properties: The collection of single-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type single_value_extended_properties: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+        :param pattern: recurrencePattern.
+        :type pattern: ~calendar.models.MicrosoftGraphRecurrencePattern
+        :param range: recurrenceRange.
+        :type range: ~calendar.models.MicrosoftGraphRecurrenceRange
+        :param email_address: emailAddress.
+        :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
+        :param conference_id: The ID of the conference.
+        :type conference_id: str
+        :param join_url: The external link that launches the online meeting. This is a URL that clients
+         will launch into a browser and will redirect the user to join the meeting.
+        :type join_url: str
+        :param phones: All of the phone numbers associated with this conference.
+        :type phones: list[~calendar.models.MicrosoftGraphPhone]
+        :param quick_dial: The pre-formatted quickdial for this call.
+        :type quick_dial: str
+        :param toll_free_numbers: The toll free numbers that can be used to join the conference.
+        :type toll_free_numbers: list[str]
+        :param toll_number: The toll number that can be used to join the conference.
+        :type toll_number: str
+        :param address: physicalAddress.
+        :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
+        :param coordinates: outlookGeoCoordinates.
+        :type coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
+        :param location_type:
+        :type location_type: str or ~calendar.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
+        :param unique_id: For internal use only.
+        :type unique_id: str
+        :param unique_id_type:
+        :type unique_id_type: str or ~calendar.models.MicrosoftGraphLocationUniqueIdType
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphEvent, or the result of cls(response)
         :rtype: ~calendar.models.MicrosoftGraphEvent
@@ -883,6 +1105,8 @@ class UserCalendarCalendarViewOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, cancelled_occurrences=cancelled_occurrences, end=end, has_attachments=has_attachments, hide_attendees=hide_attendees, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_draft=is_draft, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, occurrence_id=occurrence_id, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, uid=uid, web_link=web_link, attachments=attachments, calendar=calendar, exception_occurrences=exception_occurrences, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -905,7 +1129,7 @@ class UserCalendarCalendarViewOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1007,7 +1231,69 @@ class UserCalendarCalendarViewOperations(object):
         calendar_id,  # type: str
         event_id,  # type: str
         event_id1,  # type: str
-        body,  # type: "models.MicrosoftGraphEvent"
+        id=None,  # type: Optional[str]
+        categories=None,  # type: Optional[List[str]]
+        change_key=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        allow_new_time_proposals=None,  # type: Optional[bool]
+        attendees=None,  # type: Optional[List["models.MicrosoftGraphAttendee"]]
+        body=None,  # type: Optional["models.MicrosoftGraphItemBody"]
+        body_preview=None,  # type: Optional[str]
+        cancelled_occurrences=None,  # type: Optional[List[str]]
+        end=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        has_attachments=None,  # type: Optional[bool]
+        hide_attendees=None,  # type: Optional[bool]
+        importance=None,  # type: Optional[Union[str, "models.MicrosoftGraphImportance"]]
+        is_all_day=None,  # type: Optional[bool]
+        is_cancelled=None,  # type: Optional[bool]
+        is_draft=None,  # type: Optional[bool]
+        is_online_meeting=None,  # type: Optional[bool]
+        is_organizer=None,  # type: Optional[bool]
+        is_reminder_on=None,  # type: Optional[bool]
+        locations=None,  # type: Optional[List["models.MicrosoftGraphLocation"]]
+        occurrence_id=None,  # type: Optional[str]
+        online_meeting_provider=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingProviderType"]]
+        online_meeting_url=None,  # type: Optional[str]
+        original_end_time_zone=None,  # type: Optional[str]
+        original_start=None,  # type: Optional[datetime.datetime]
+        original_start_time_zone=None,  # type: Optional[str]
+        reminder_minutes_before_start=None,  # type: Optional[int]
+        response_requested=None,  # type: Optional[bool]
+        response_status=None,  # type: Optional["models.MicrosoftGraphResponseStatus"]
+        sensitivity=None,  # type: Optional[Union[str, "models.MicrosoftGraphSensitivity"]]
+        series_master_id=None,  # type: Optional[str]
+        show_as=None,  # type: Optional[Union[str, "models.MicrosoftGraphFreeBusyStatus"]]
+        start=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        subject=None,  # type: Optional[str]
+        transaction_id=None,  # type: Optional[str]
+        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEventType"]]
+        uid=None,  # type: Optional[str]
+        web_link=None,  # type: Optional[str]
+        attachments=None,  # type: Optional[List["models.MicrosoftGraphAttachment"]]
+        calendar=None,  # type: Optional["models.MicrosoftGraphCalendar"]
+        exception_occurrences=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        extensions=None,  # type: Optional[List["models.MicrosoftGraphExtension"]]
+        instances=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        multi_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]]
+        single_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]]
+        pattern=None,  # type: Optional["models.MicrosoftGraphRecurrencePattern"]
+        range=None,  # type: Optional["models.MicrosoftGraphRecurrenceRange"]
+        email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
+        conference_id=None,  # type: Optional[str]
+        join_url=None,  # type: Optional[str]
+        phones=None,  # type: Optional[List["models.MicrosoftGraphPhone"]]
+        quick_dial=None,  # type: Optional[str]
+        toll_free_numbers=None,  # type: Optional[List[str]]
+        toll_number=None,  # type: Optional[str]
+        address=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
+        coordinates=None,  # type: Optional["models.MicrosoftGraphOutlookGeoCoordinates"]
+        display_name=None,  # type: Optional[str]
+        location_email_address=None,  # type: Optional[str]
+        location_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationType"]]
+        location_uri=None,  # type: Optional[str]
+        unique_id=None,  # type: Optional[str]
+        unique_id_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1023,8 +1309,168 @@ class UserCalendarCalendarViewOperations(object):
         :type event_id: str
         :param event_id1: key: id of event.
         :type event_id1: str
-        :param body: New navigation property values.
-        :type body: ~calendar.models.MicrosoftGraphEvent
+        :param id: Read-only.
+        :type id: str
+        :param categories: The categories associated with the item.
+        :type categories: list[str]
+        :param change_key: Identifies the version of the item. Every time the item is changed,
+         changeKey changes as well. This allows Exchange to apply changes to the correct version of the
+         object. Read-only.
+        :type change_key: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param allow_new_time_proposals: True if the meeting organizer allows invitees to propose a new
+         time when responding, false otherwise. Optional. Default is true.
+        :type allow_new_time_proposals: bool
+        :param attendees: The collection of attendees for the event.
+        :type attendees: list[~calendar.models.MicrosoftGraphAttendee]
+        :param body: itemBody.
+        :type body: ~calendar.models.MicrosoftGraphItemBody
+        :param body_preview: The preview of the message associated with the event. It is in text
+         format.
+        :type body_preview: str
+        :param cancelled_occurrences:
+        :type cancelled_occurrences: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param has_attachments: Set to true if the event has attachments.
+        :type has_attachments: bool
+        :param hide_attendees:
+        :type hide_attendees: bool
+        :param importance:
+        :type importance: str or ~calendar.models.MicrosoftGraphImportance
+        :param is_all_day: Set to true if the event lasts all day.
+        :type is_all_day: bool
+        :param is_cancelled: Set to true if the event has been canceled.
+        :type is_cancelled: bool
+        :param is_draft:
+        :type is_draft: bool
+        :param is_online_meeting: True if this event has online meeting information, false otherwise.
+         Default is false. Optional.
+        :type is_online_meeting: bool
+        :param is_organizer: Set to true if the calendar owner (specified by the owner property of the
+         calendar) is the organizer of the event (specified by the organizer property of the event).
+         This also applies if a delegate organized the event on behalf of the owner.
+        :type is_organizer: bool
+        :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
+        :type is_reminder_on: bool
+        :param locations: The locations where the event is held or attended from. The location and
+         locations properties always correspond with each other. If you update the location property,
+         any prior locations in the locations collection would be removed and replaced by the new
+         location value.
+        :type locations: list[~calendar.models.MicrosoftGraphLocation]
+        :param occurrence_id:
+        :type occurrence_id: str
+        :param online_meeting_provider:
+        :type online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
+        :param online_meeting_url: A URL for an online meeting. The property is set only when an
+         organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
+        :type online_meeting_url: str
+        :param original_end_time_zone: The end time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_end_time_zone: str
+        :param original_start: The Timestamp type represents date and time information using ISO 8601
+         format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type original_start: ~datetime.datetime
+        :param original_start_time_zone: The start time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_start_time_zone: str
+        :param reminder_minutes_before_start: The number of minutes before the event start time that
+         the reminder alert occurs.
+        :type reminder_minutes_before_start: int
+        :param response_requested: Default is true, which represents the organizer would like an
+         invitee to send a response to the event.
+        :type response_requested: bool
+        :param response_status: responseStatus.
+        :type response_status: ~calendar.models.MicrosoftGraphResponseStatus
+        :param sensitivity:
+        :type sensitivity: str or ~calendar.models.MicrosoftGraphSensitivity
+        :param series_master_id: The ID for the recurring series master item, if this event is part of
+         a recurring series.
+        :type series_master_id: str
+        :param show_as:
+        :type show_as: str or ~calendar.models.MicrosoftGraphFreeBusyStatus
+        :param start: dateTimeTimeZone.
+        :type start: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param subject: The text of the event's subject line.
+        :type subject: str
+        :param transaction_id: A custom identifier specified by a client app for the server to avoid
+         redundant POST operations in case of client retries to create the same event. This is useful
+         when low network connectivity causes the client to time out before receiving a response from
+         the server for the client's prior create-event request. After you set transactionId when
+         creating an event, you cannot change transactionId in a subsequent update. This property is
+         only returned in a response payload if an app has set it. Optional.
+        :type transaction_id: str
+        :param type:
+        :type type: str or ~calendar.models.MicrosoftGraphEventType
+        :param uid:
+        :type uid: str
+        :param web_link: The URL to open the event in Outlook on the web.Outlook on the web opens the
+         event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web
+         prompts you to sign in.This URL can be accessed from within an iFrame.
+        :type web_link: str
+        :param attachments: The collection of fileAttachment and itemAttachment attachments for the
+         event. Navigation property. Read-only. Nullable.
+        :type attachments: list[~calendar.models.MicrosoftGraphAttachment]
+        :param calendar: calendar.
+        :type calendar: ~calendar.models.MicrosoftGraphCalendar
+        :param exception_occurrences:
+        :type exception_occurrences: list[~calendar.models.MicrosoftGraphEvent]
+        :param extensions: The collection of open extensions defined for the event. Read-only.
+         Nullable.
+        :type extensions: list[~calendar.models.MicrosoftGraphExtension]
+        :param instances: The instances of the event. Navigation property. Read-only. Nullable.
+        :type instances: list[~calendar.models.MicrosoftGraphEvent]
+        :param multi_value_extended_properties: The collection of multi-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type multi_value_extended_properties: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+        :param single_value_extended_properties: The collection of single-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type single_value_extended_properties: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+        :param pattern: recurrencePattern.
+        :type pattern: ~calendar.models.MicrosoftGraphRecurrencePattern
+        :param range: recurrenceRange.
+        :type range: ~calendar.models.MicrosoftGraphRecurrenceRange
+        :param email_address: emailAddress.
+        :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
+        :param conference_id: The ID of the conference.
+        :type conference_id: str
+        :param join_url: The external link that launches the online meeting. This is a URL that clients
+         will launch into a browser and will redirect the user to join the meeting.
+        :type join_url: str
+        :param phones: All of the phone numbers associated with this conference.
+        :type phones: list[~calendar.models.MicrosoftGraphPhone]
+        :param quick_dial: The pre-formatted quickdial for this call.
+        :type quick_dial: str
+        :param toll_free_numbers: The toll free numbers that can be used to join the conference.
+        :type toll_free_numbers: list[str]
+        :param toll_number: The toll number that can be used to join the conference.
+        :type toll_number: str
+        :param address: physicalAddress.
+        :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
+        :param coordinates: outlookGeoCoordinates.
+        :type coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
+        :param location_type:
+        :type location_type: str or ~calendar.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
+        :param unique_id: For internal use only.
+        :type unique_id: str
+        :param unique_id_type:
+        :type unique_id_type: str or ~calendar.models.MicrosoftGraphLocationUniqueIdType
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1033,6 +1479,8 @@ class UserCalendarCalendarViewOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, cancelled_occurrences=cancelled_occurrences, end=end, has_attachments=has_attachments, hide_attendees=hide_attendees, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_draft=is_draft, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, occurrence_id=occurrence_id, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, uid=uid, web_link=web_link, attachments=attachments, calendar=calendar, exception_occurrences=exception_occurrences, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1055,7 +1503,7 @@ class UserCalendarCalendarViewOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1639,7 +2087,69 @@ class UserCalendarCalendarViewOperations(object):
         user_id,  # type: str
         calendar_id,  # type: str
         event_id,  # type: str
-        body,  # type: "models.MicrosoftGraphEvent"
+        id=None,  # type: Optional[str]
+        categories=None,  # type: Optional[List[str]]
+        change_key=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        allow_new_time_proposals=None,  # type: Optional[bool]
+        attendees=None,  # type: Optional[List["models.MicrosoftGraphAttendee"]]
+        body=None,  # type: Optional["models.MicrosoftGraphItemBody"]
+        body_preview=None,  # type: Optional[str]
+        cancelled_occurrences=None,  # type: Optional[List[str]]
+        end=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        has_attachments=None,  # type: Optional[bool]
+        hide_attendees=None,  # type: Optional[bool]
+        importance=None,  # type: Optional[Union[str, "models.MicrosoftGraphImportance"]]
+        is_all_day=None,  # type: Optional[bool]
+        is_cancelled=None,  # type: Optional[bool]
+        is_draft=None,  # type: Optional[bool]
+        is_online_meeting=None,  # type: Optional[bool]
+        is_organizer=None,  # type: Optional[bool]
+        is_reminder_on=None,  # type: Optional[bool]
+        locations=None,  # type: Optional[List["models.MicrosoftGraphLocation"]]
+        occurrence_id=None,  # type: Optional[str]
+        online_meeting_provider=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingProviderType"]]
+        online_meeting_url=None,  # type: Optional[str]
+        original_end_time_zone=None,  # type: Optional[str]
+        original_start=None,  # type: Optional[datetime.datetime]
+        original_start_time_zone=None,  # type: Optional[str]
+        reminder_minutes_before_start=None,  # type: Optional[int]
+        response_requested=None,  # type: Optional[bool]
+        response_status=None,  # type: Optional["models.MicrosoftGraphResponseStatus"]
+        sensitivity=None,  # type: Optional[Union[str, "models.MicrosoftGraphSensitivity"]]
+        series_master_id=None,  # type: Optional[str]
+        show_as=None,  # type: Optional[Union[str, "models.MicrosoftGraphFreeBusyStatus"]]
+        start=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        subject=None,  # type: Optional[str]
+        transaction_id=None,  # type: Optional[str]
+        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEventType"]]
+        uid=None,  # type: Optional[str]
+        web_link=None,  # type: Optional[str]
+        attachments=None,  # type: Optional[List["models.MicrosoftGraphAttachment"]]
+        calendar=None,  # type: Optional["models.MicrosoftGraphCalendar"]
+        exception_occurrences=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        extensions=None,  # type: Optional[List["models.MicrosoftGraphExtension"]]
+        instances=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        multi_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]]
+        single_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]]
+        pattern=None,  # type: Optional["models.MicrosoftGraphRecurrencePattern"]
+        range=None,  # type: Optional["models.MicrosoftGraphRecurrenceRange"]
+        email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
+        conference_id=None,  # type: Optional[str]
+        join_url=None,  # type: Optional[str]
+        phones=None,  # type: Optional[List["models.MicrosoftGraphPhone"]]
+        quick_dial=None,  # type: Optional[str]
+        toll_free_numbers=None,  # type: Optional[List[str]]
+        toll_number=None,  # type: Optional[str]
+        address=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
+        coordinates=None,  # type: Optional["models.MicrosoftGraphOutlookGeoCoordinates"]
+        display_name=None,  # type: Optional[str]
+        location_email_address=None,  # type: Optional[str]
+        location_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationType"]]
+        location_uri=None,  # type: Optional[str]
+        unique_id=None,  # type: Optional[str]
+        unique_id_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphEvent"
@@ -1653,8 +2163,168 @@ class UserCalendarCalendarViewOperations(object):
         :type calendar_id: str
         :param event_id: key: id of event.
         :type event_id: str
-        :param body: New navigation property.
-        :type body: ~calendar.models.MicrosoftGraphEvent
+        :param id: Read-only.
+        :type id: str
+        :param categories: The categories associated with the item.
+        :type categories: list[str]
+        :param change_key: Identifies the version of the item. Every time the item is changed,
+         changeKey changes as well. This allows Exchange to apply changes to the correct version of the
+         object. Read-only.
+        :type change_key: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param allow_new_time_proposals: True if the meeting organizer allows invitees to propose a new
+         time when responding, false otherwise. Optional. Default is true.
+        :type allow_new_time_proposals: bool
+        :param attendees: The collection of attendees for the event.
+        :type attendees: list[~calendar.models.MicrosoftGraphAttendee]
+        :param body: itemBody.
+        :type body: ~calendar.models.MicrosoftGraphItemBody
+        :param body_preview: The preview of the message associated with the event. It is in text
+         format.
+        :type body_preview: str
+        :param cancelled_occurrences:
+        :type cancelled_occurrences: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param has_attachments: Set to true if the event has attachments.
+        :type has_attachments: bool
+        :param hide_attendees:
+        :type hide_attendees: bool
+        :param importance:
+        :type importance: str or ~calendar.models.MicrosoftGraphImportance
+        :param is_all_day: Set to true if the event lasts all day.
+        :type is_all_day: bool
+        :param is_cancelled: Set to true if the event has been canceled.
+        :type is_cancelled: bool
+        :param is_draft:
+        :type is_draft: bool
+        :param is_online_meeting: True if this event has online meeting information, false otherwise.
+         Default is false. Optional.
+        :type is_online_meeting: bool
+        :param is_organizer: Set to true if the calendar owner (specified by the owner property of the
+         calendar) is the organizer of the event (specified by the organizer property of the event).
+         This also applies if a delegate organized the event on behalf of the owner.
+        :type is_organizer: bool
+        :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
+        :type is_reminder_on: bool
+        :param locations: The locations where the event is held or attended from. The location and
+         locations properties always correspond with each other. If you update the location property,
+         any prior locations in the locations collection would be removed and replaced by the new
+         location value.
+        :type locations: list[~calendar.models.MicrosoftGraphLocation]
+        :param occurrence_id:
+        :type occurrence_id: str
+        :param online_meeting_provider:
+        :type online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
+        :param online_meeting_url: A URL for an online meeting. The property is set only when an
+         organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
+        :type online_meeting_url: str
+        :param original_end_time_zone: The end time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_end_time_zone: str
+        :param original_start: The Timestamp type represents date and time information using ISO 8601
+         format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type original_start: ~datetime.datetime
+        :param original_start_time_zone: The start time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_start_time_zone: str
+        :param reminder_minutes_before_start: The number of minutes before the event start time that
+         the reminder alert occurs.
+        :type reminder_minutes_before_start: int
+        :param response_requested: Default is true, which represents the organizer would like an
+         invitee to send a response to the event.
+        :type response_requested: bool
+        :param response_status: responseStatus.
+        :type response_status: ~calendar.models.MicrosoftGraphResponseStatus
+        :param sensitivity:
+        :type sensitivity: str or ~calendar.models.MicrosoftGraphSensitivity
+        :param series_master_id: The ID for the recurring series master item, if this event is part of
+         a recurring series.
+        :type series_master_id: str
+        :param show_as:
+        :type show_as: str or ~calendar.models.MicrosoftGraphFreeBusyStatus
+        :param start: dateTimeTimeZone.
+        :type start: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param subject: The text of the event's subject line.
+        :type subject: str
+        :param transaction_id: A custom identifier specified by a client app for the server to avoid
+         redundant POST operations in case of client retries to create the same event. This is useful
+         when low network connectivity causes the client to time out before receiving a response from
+         the server for the client's prior create-event request. After you set transactionId when
+         creating an event, you cannot change transactionId in a subsequent update. This property is
+         only returned in a response payload if an app has set it. Optional.
+        :type transaction_id: str
+        :param type:
+        :type type: str or ~calendar.models.MicrosoftGraphEventType
+        :param uid:
+        :type uid: str
+        :param web_link: The URL to open the event in Outlook on the web.Outlook on the web opens the
+         event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web
+         prompts you to sign in.This URL can be accessed from within an iFrame.
+        :type web_link: str
+        :param attachments: The collection of fileAttachment and itemAttachment attachments for the
+         event. Navigation property. Read-only. Nullable.
+        :type attachments: list[~calendar.models.MicrosoftGraphAttachment]
+        :param calendar: calendar.
+        :type calendar: ~calendar.models.MicrosoftGraphCalendar
+        :param exception_occurrences:
+        :type exception_occurrences: list[~calendar.models.MicrosoftGraphEvent]
+        :param extensions: The collection of open extensions defined for the event. Read-only.
+         Nullable.
+        :type extensions: list[~calendar.models.MicrosoftGraphExtension]
+        :param instances: The instances of the event. Navigation property. Read-only. Nullable.
+        :type instances: list[~calendar.models.MicrosoftGraphEvent]
+        :param multi_value_extended_properties: The collection of multi-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type multi_value_extended_properties: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+        :param single_value_extended_properties: The collection of single-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type single_value_extended_properties: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+        :param pattern: recurrencePattern.
+        :type pattern: ~calendar.models.MicrosoftGraphRecurrencePattern
+        :param range: recurrenceRange.
+        :type range: ~calendar.models.MicrosoftGraphRecurrenceRange
+        :param email_address: emailAddress.
+        :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
+        :param conference_id: The ID of the conference.
+        :type conference_id: str
+        :param join_url: The external link that launches the online meeting. This is a URL that clients
+         will launch into a browser and will redirect the user to join the meeting.
+        :type join_url: str
+        :param phones: All of the phone numbers associated with this conference.
+        :type phones: list[~calendar.models.MicrosoftGraphPhone]
+        :param quick_dial: The pre-formatted quickdial for this call.
+        :type quick_dial: str
+        :param toll_free_numbers: The toll free numbers that can be used to join the conference.
+        :type toll_free_numbers: list[str]
+        :param toll_number: The toll number that can be used to join the conference.
+        :type toll_number: str
+        :param address: physicalAddress.
+        :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
+        :param coordinates: outlookGeoCoordinates.
+        :type coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
+        :param location_type:
+        :type location_type: str or ~calendar.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
+        :param unique_id: For internal use only.
+        :type unique_id: str
+        :param unique_id_type:
+        :type unique_id_type: str or ~calendar.models.MicrosoftGraphLocationUniqueIdType
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphEvent, or the result of cls(response)
         :rtype: ~calendar.models.MicrosoftGraphEvent
@@ -1663,6 +2333,8 @@ class UserCalendarCalendarViewOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, cancelled_occurrences=cancelled_occurrences, end=end, has_attachments=has_attachments, hide_attendees=hide_attendees, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_draft=is_draft, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, occurrence_id=occurrence_id, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, uid=uid, web_link=web_link, attachments=attachments, calendar=calendar, exception_occurrences=exception_occurrences, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1685,7 +2357,7 @@ class UserCalendarCalendarViewOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1787,7 +2459,69 @@ class UserCalendarCalendarViewOperations(object):
         calendar_id,  # type: str
         event_id,  # type: str
         event_id1,  # type: str
-        body,  # type: "models.MicrosoftGraphEvent"
+        id=None,  # type: Optional[str]
+        categories=None,  # type: Optional[List[str]]
+        change_key=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        allow_new_time_proposals=None,  # type: Optional[bool]
+        attendees=None,  # type: Optional[List["models.MicrosoftGraphAttendee"]]
+        body=None,  # type: Optional["models.MicrosoftGraphItemBody"]
+        body_preview=None,  # type: Optional[str]
+        cancelled_occurrences=None,  # type: Optional[List[str]]
+        end=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        has_attachments=None,  # type: Optional[bool]
+        hide_attendees=None,  # type: Optional[bool]
+        importance=None,  # type: Optional[Union[str, "models.MicrosoftGraphImportance"]]
+        is_all_day=None,  # type: Optional[bool]
+        is_cancelled=None,  # type: Optional[bool]
+        is_draft=None,  # type: Optional[bool]
+        is_online_meeting=None,  # type: Optional[bool]
+        is_organizer=None,  # type: Optional[bool]
+        is_reminder_on=None,  # type: Optional[bool]
+        locations=None,  # type: Optional[List["models.MicrosoftGraphLocation"]]
+        occurrence_id=None,  # type: Optional[str]
+        online_meeting_provider=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingProviderType"]]
+        online_meeting_url=None,  # type: Optional[str]
+        original_end_time_zone=None,  # type: Optional[str]
+        original_start=None,  # type: Optional[datetime.datetime]
+        original_start_time_zone=None,  # type: Optional[str]
+        reminder_minutes_before_start=None,  # type: Optional[int]
+        response_requested=None,  # type: Optional[bool]
+        response_status=None,  # type: Optional["models.MicrosoftGraphResponseStatus"]
+        sensitivity=None,  # type: Optional[Union[str, "models.MicrosoftGraphSensitivity"]]
+        series_master_id=None,  # type: Optional[str]
+        show_as=None,  # type: Optional[Union[str, "models.MicrosoftGraphFreeBusyStatus"]]
+        start=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
+        subject=None,  # type: Optional[str]
+        transaction_id=None,  # type: Optional[str]
+        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEventType"]]
+        uid=None,  # type: Optional[str]
+        web_link=None,  # type: Optional[str]
+        attachments=None,  # type: Optional[List["models.MicrosoftGraphAttachment"]]
+        calendar=None,  # type: Optional["models.MicrosoftGraphCalendar"]
+        exception_occurrences=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        extensions=None,  # type: Optional[List["models.MicrosoftGraphExtension"]]
+        instances=None,  # type: Optional[List["models.MicrosoftGraphEvent"]]
+        multi_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]]
+        single_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]]
+        pattern=None,  # type: Optional["models.MicrosoftGraphRecurrencePattern"]
+        range=None,  # type: Optional["models.MicrosoftGraphRecurrenceRange"]
+        email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
+        conference_id=None,  # type: Optional[str]
+        join_url=None,  # type: Optional[str]
+        phones=None,  # type: Optional[List["models.MicrosoftGraphPhone"]]
+        quick_dial=None,  # type: Optional[str]
+        toll_free_numbers=None,  # type: Optional[List[str]]
+        toll_number=None,  # type: Optional[str]
+        address=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
+        coordinates=None,  # type: Optional["models.MicrosoftGraphOutlookGeoCoordinates"]
+        display_name=None,  # type: Optional[str]
+        location_email_address=None,  # type: Optional[str]
+        location_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationType"]]
+        location_uri=None,  # type: Optional[str]
+        unique_id=None,  # type: Optional[str]
+        unique_id_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1803,8 +2537,168 @@ class UserCalendarCalendarViewOperations(object):
         :type event_id: str
         :param event_id1: key: id of event.
         :type event_id1: str
-        :param body: New navigation property values.
-        :type body: ~calendar.models.MicrosoftGraphEvent
+        :param id: Read-only.
+        :type id: str
+        :param categories: The categories associated with the item.
+        :type categories: list[str]
+        :param change_key: Identifies the version of the item. Every time the item is changed,
+         changeKey changes as well. This allows Exchange to apply changes to the correct version of the
+         object. Read-only.
+        :type change_key: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param allow_new_time_proposals: True if the meeting organizer allows invitees to propose a new
+         time when responding, false otherwise. Optional. Default is true.
+        :type allow_new_time_proposals: bool
+        :param attendees: The collection of attendees for the event.
+        :type attendees: list[~calendar.models.MicrosoftGraphAttendee]
+        :param body: itemBody.
+        :type body: ~calendar.models.MicrosoftGraphItemBody
+        :param body_preview: The preview of the message associated with the event. It is in text
+         format.
+        :type body_preview: str
+        :param cancelled_occurrences:
+        :type cancelled_occurrences: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param has_attachments: Set to true if the event has attachments.
+        :type has_attachments: bool
+        :param hide_attendees:
+        :type hide_attendees: bool
+        :param importance:
+        :type importance: str or ~calendar.models.MicrosoftGraphImportance
+        :param is_all_day: Set to true if the event lasts all day.
+        :type is_all_day: bool
+        :param is_cancelled: Set to true if the event has been canceled.
+        :type is_cancelled: bool
+        :param is_draft:
+        :type is_draft: bool
+        :param is_online_meeting: True if this event has online meeting information, false otherwise.
+         Default is false. Optional.
+        :type is_online_meeting: bool
+        :param is_organizer: Set to true if the calendar owner (specified by the owner property of the
+         calendar) is the organizer of the event (specified by the organizer property of the event).
+         This also applies if a delegate organized the event on behalf of the owner.
+        :type is_organizer: bool
+        :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
+        :type is_reminder_on: bool
+        :param locations: The locations where the event is held or attended from. The location and
+         locations properties always correspond with each other. If you update the location property,
+         any prior locations in the locations collection would be removed and replaced by the new
+         location value.
+        :type locations: list[~calendar.models.MicrosoftGraphLocation]
+        :param occurrence_id:
+        :type occurrence_id: str
+        :param online_meeting_provider:
+        :type online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
+        :param online_meeting_url: A URL for an online meeting. The property is set only when an
+         organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
+        :type online_meeting_url: str
+        :param original_end_time_zone: The end time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_end_time_zone: str
+        :param original_start: The Timestamp type represents date and time information using ISO 8601
+         format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type original_start: ~datetime.datetime
+        :param original_start_time_zone: The start time zone that was set when the event was created. A
+         value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
+         Outlook.
+        :type original_start_time_zone: str
+        :param reminder_minutes_before_start: The number of minutes before the event start time that
+         the reminder alert occurs.
+        :type reminder_minutes_before_start: int
+        :param response_requested: Default is true, which represents the organizer would like an
+         invitee to send a response to the event.
+        :type response_requested: bool
+        :param response_status: responseStatus.
+        :type response_status: ~calendar.models.MicrosoftGraphResponseStatus
+        :param sensitivity:
+        :type sensitivity: str or ~calendar.models.MicrosoftGraphSensitivity
+        :param series_master_id: The ID for the recurring series master item, if this event is part of
+         a recurring series.
+        :type series_master_id: str
+        :param show_as:
+        :type show_as: str or ~calendar.models.MicrosoftGraphFreeBusyStatus
+        :param start: dateTimeTimeZone.
+        :type start: ~calendar.models.MicrosoftGraphDateTimeZone
+        :param subject: The text of the event's subject line.
+        :type subject: str
+        :param transaction_id: A custom identifier specified by a client app for the server to avoid
+         redundant POST operations in case of client retries to create the same event. This is useful
+         when low network connectivity causes the client to time out before receiving a response from
+         the server for the client's prior create-event request. After you set transactionId when
+         creating an event, you cannot change transactionId in a subsequent update. This property is
+         only returned in a response payload if an app has set it. Optional.
+        :type transaction_id: str
+        :param type:
+        :type type: str or ~calendar.models.MicrosoftGraphEventType
+        :param uid:
+        :type uid: str
+        :param web_link: The URL to open the event in Outlook on the web.Outlook on the web opens the
+         event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web
+         prompts you to sign in.This URL can be accessed from within an iFrame.
+        :type web_link: str
+        :param attachments: The collection of fileAttachment and itemAttachment attachments for the
+         event. Navigation property. Read-only. Nullable.
+        :type attachments: list[~calendar.models.MicrosoftGraphAttachment]
+        :param calendar: calendar.
+        :type calendar: ~calendar.models.MicrosoftGraphCalendar
+        :param exception_occurrences:
+        :type exception_occurrences: list[~calendar.models.MicrosoftGraphEvent]
+        :param extensions: The collection of open extensions defined for the event. Read-only.
+         Nullable.
+        :type extensions: list[~calendar.models.MicrosoftGraphExtension]
+        :param instances: The instances of the event. Navigation property. Read-only. Nullable.
+        :type instances: list[~calendar.models.MicrosoftGraphEvent]
+        :param multi_value_extended_properties: The collection of multi-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type multi_value_extended_properties: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+        :param single_value_extended_properties: The collection of single-value extended properties
+         defined for the event. Read-only. Nullable.
+        :type single_value_extended_properties: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+        :param pattern: recurrencePattern.
+        :type pattern: ~calendar.models.MicrosoftGraphRecurrencePattern
+        :param range: recurrenceRange.
+        :type range: ~calendar.models.MicrosoftGraphRecurrenceRange
+        :param email_address: emailAddress.
+        :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
+        :param conference_id: The ID of the conference.
+        :type conference_id: str
+        :param join_url: The external link that launches the online meeting. This is a URL that clients
+         will launch into a browser and will redirect the user to join the meeting.
+        :type join_url: str
+        :param phones: All of the phone numbers associated with this conference.
+        :type phones: list[~calendar.models.MicrosoftGraphPhone]
+        :param quick_dial: The pre-formatted quickdial for this call.
+        :type quick_dial: str
+        :param toll_free_numbers: The toll free numbers that can be used to join the conference.
+        :type toll_free_numbers: list[str]
+        :param toll_number: The toll number that can be used to join the conference.
+        :type toll_number: str
+        :param address: physicalAddress.
+        :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
+        :param coordinates: outlookGeoCoordinates.
+        :type coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
+        :param location_type:
+        :type location_type: str or ~calendar.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
+        :param unique_id: For internal use only.
+        :type unique_id: str
+        :param unique_id_type:
+        :type unique_id_type: str or ~calendar.models.MicrosoftGraphLocationUniqueIdType
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1813,6 +2707,8 @@ class UserCalendarCalendarViewOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, cancelled_occurrences=cancelled_occurrences, end=end, has_attachments=has_attachments, hide_attendees=hide_attendees, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_draft=is_draft, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, occurrence_id=occurrence_id, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, uid=uid, web_link=web_link, attachments=attachments, calendar=calendar, exception_occurrences=exception_occurrences, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1835,7 +2731,7 @@ class UserCalendarCalendarViewOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

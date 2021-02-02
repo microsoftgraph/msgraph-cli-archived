@@ -12,32 +12,32 @@
 from knack.help_files import helps
 
 
-helps['changenotifications'] = """
+helps['changenotifications subscription-subscription'] = """
     type: group
-    short-summary: changenotifications
+    short-summary: changenotifications subscription-subscription
 """
 
-helps['changenotifications delete'] = """
+helps['changenotifications subscription-subscription delete'] = """
     type: command
     short-summary: "Delete entity from subscriptions"
 """
 
-helps['changenotifications create-subscription'] = """
+helps['changenotifications subscription-subscription create-subscription'] = """
     type: command
     short-summary: "Add new entity to subscriptions"
 """
 
-helps['changenotifications get-subscription'] = """
+helps['changenotifications subscription-subscription get-subscription'] = """
     type: command
     short-summary: "Get entity from subscriptions by key"
 """
 
-helps['changenotifications list-subscription'] = """
+helps['changenotifications subscription-subscription list-subscription'] = """
     type: command
     short-summary: "Get entities from subscriptions"
 """
 
-helps['changenotifications update-subscription'] = """
+helps['changenotifications subscription-subscription update-subscription'] = """
     type: command
     short-summary: "Update entity in subscriptions"
 """

@@ -10,28 +10,28 @@
 # pylint: disable=too-many-lines
 
 
-def changenotifications_delete(client,
-                               subscription_id,
-                               if_match=None):
+def changenotifications_subscription_subscription_delete(client,
+                                                         subscription_id,
+                                                         if_match=None):
     return client.delete_subscription(subscription_id=subscription_id,
                                       if_match=if_match)
 
 
-def changenotifications_create_subscription(client,
-                                            id_=None,
-                                            application_id=None,
-                                            change_type=None,
-                                            client_state=None,
-                                            creator_id=None,
-                                            encryption_certificate=None,
-                                            encryption_certificate_id=None,
-                                            expiration_date_time=None,
-                                            include_properties=None,
-                                            include_resource_data=None,
-                                            latest_supported_tls_version=None,
-                                            lifecycle_notification_url=None,
-                                            notification_url=None,
-                                            resource=None):
+def changenotifications_subscription_subscription_create_subscription(client,
+                                                                      id_=None,
+                                                                      application_id=None,
+                                                                      change_type=None,
+                                                                      client_state=None,
+                                                                      creator_id=None,
+                                                                      encryption_certificate=None,
+                                                                      encryption_certificate_id=None,
+                                                                      expiration_date_time=None,
+                                                                      include_properties=None,
+                                                                      include_resource_data=None,
+                                                                      latest_supported_tls_version=None,
+                                                                      lifecycle_notification_url=None,
+                                                                      notification_url=None,
+                                                                      resource=None):
     return client.create_subscription(id=id_,
                                       application_id=application_id,
                                       change_type=change_type,
@@ -48,40 +48,40 @@ def changenotifications_create_subscription(client,
                                       resource=resource)
 
 
-def changenotifications_get_subscription(client,
-                                         subscription_id,
-                                         select=None,
-                                         expand=None):
+def changenotifications_subscription_subscription_get_subscription(client,
+                                                                   subscription_id,
+                                                                   select=None,
+                                                                   expand=None):
     return client.get_subscription(subscription_id=subscription_id,
                                    select=select,
                                    expand=expand)
 
 
-def changenotifications_list_subscription(client,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def changenotifications_subscription_subscription_list_subscription(client,
+                                                                    orderby=None,
+                                                                    select=None,
+                                                                    expand=None):
     return client.list_subscription(orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def changenotifications_update_subscription(client,
-                                            subscription_id,
-                                            id_=None,
-                                            application_id=None,
-                                            change_type=None,
-                                            client_state=None,
-                                            creator_id=None,
-                                            encryption_certificate=None,
-                                            encryption_certificate_id=None,
-                                            expiration_date_time=None,
-                                            include_properties=None,
-                                            include_resource_data=None,
-                                            latest_supported_tls_version=None,
-                                            lifecycle_notification_url=None,
-                                            notification_url=None,
-                                            resource=None):
+def changenotifications_subscription_subscription_update_subscription(client,
+                                                                      subscription_id,
+                                                                      id_=None,
+                                                                      application_id=None,
+                                                                      change_type=None,
+                                                                      client_state=None,
+                                                                      creator_id=None,
+                                                                      encryption_certificate=None,
+                                                                      encryption_certificate_id=None,
+                                                                      expiration_date_time=None,
+                                                                      include_properties=None,
+                                                                      include_resource_data=None,
+                                                                      latest_supported_tls_version=None,
+                                                                      lifecycle_notification_url=None,
+                                                                      notification_url=None,
+                                                                      resource=None):
     return client.update_subscription(subscription_id=subscription_id,
                                       id=id_,
                                       application_id=application_id,

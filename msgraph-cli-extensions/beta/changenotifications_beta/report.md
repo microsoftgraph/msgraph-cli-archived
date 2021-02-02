@@ -1,13 +1,13 @@
 # Azure CLI Module Creation Report
 
-### changenotifications create-subscription
+### changenotifications subscription-subscription create-subscription
 
-create-subscription a changenotifications.
+create-subscription a changenotifications subscription-subscription.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|changenotifications|subscriptions.subscription|
+|changenotifications subscription-subscription|subscriptions.subscription|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -32,14 +32,14 @@ create-subscription a changenotifications.
 |**--notification-url**|string|Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.|notification_url|notificationUrl|
 |**--resource**|string|Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.|resource|resource|
 
-### changenotifications delete
+### changenotifications subscription-subscription delete
 
-delete a changenotifications.
+delete a changenotifications subscription-subscription.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|changenotifications|subscriptions.subscription|
+|changenotifications subscription-subscription|subscriptions.subscription|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -52,14 +52,14 @@ delete a changenotifications.
 |**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### changenotifications get-subscription
+### changenotifications subscription-subscription get-subscription
 
-get-subscription a changenotifications.
+get-subscription a changenotifications subscription-subscription.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|changenotifications|subscriptions.subscription|
+|changenotifications subscription-subscription|subscriptions.subscription|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -73,14 +73,14 @@ get-subscription a changenotifications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### changenotifications list-subscription
+### changenotifications subscription-subscription list-subscription
 
-list-subscription a changenotifications.
+list-subscription a changenotifications subscription-subscription.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|changenotifications|subscriptions.subscription|
+|changenotifications subscription-subscription|subscriptions.subscription|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -94,14 +94,14 @@ list-subscription a changenotifications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### changenotifications update-subscription
+### changenotifications subscription-subscription update-subscription
 
-update-subscription a changenotifications.
+update-subscription a changenotifications subscription-subscription.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|changenotifications|subscriptions.subscription|
+|changenotifications subscription-subscription|subscriptions.subscription|
 
 #### Methods
 |Name (az)|Swagger name|

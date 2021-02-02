@@ -10,63 +10,63 @@
 # pylint: disable=too-many-lines
 
 
-def compliance_get_compliance(client,
-                              select=None,
-                              expand=None):
+def compliance_compliance_compliance_get_compliance(client,
+                                                    select=None,
+                                                    expand=None):
     return client.get_compliance(select=select,
                                  expand=expand)
 
 
-def compliance_update_compliance(client,
-                                 ediscovery_id=None,
-                                 ediscovery_cases=None):
+def compliance_compliance_compliance_update_compliance(client,
+                                                       ediscovery_id=None,
+                                                       ediscovery_cases=None):
     return client.update_compliance(id=ediscovery_id,
                                     cases=ediscovery_cases)
 
 
-def compliance_delete(client,
-                      if_match=None):
+def compliance_compliance_delete(client,
+                                 if_match=None):
     return client.delete_ediscovery(if_match=if_match)
 
 
-def compliance_get_ediscovery(client,
-                              select=None,
-                              expand=None):
+def compliance_compliance_get_ediscovery(client,
+                                         select=None,
+                                         expand=None):
     return client.get_ediscovery(select=select,
                                  expand=expand)
 
 
-def compliance_update_ediscovery(client,
-                                 id_=None,
-                                 cases=None):
+def compliance_compliance_update_ediscovery(client,
+                                            id_=None,
+                                            cases=None):
     return client.update_ediscovery(id=id_,
                                     cases=cases)
 
 
-def compliance_delete(client,
-                      ediscovery_case_id,
-                      if_match=None):
+def compliance_compliance_ediscovery_delete(client,
+                                            ediscovery_case_id,
+                                            if_match=None):
     return client.delete_case(ediscovery_case_id=ediscovery_case_id,
                               if_match=if_match)
 
 
-def compliance_create_case(client,
-                           id_=None,
-                           closed_date_time=None,
-                           created_date_time=None,
-                           description=None,
-                           display_name=None,
-                           external_id=None,
-                           last_modified_date_time=None,
-                           status=None,
-                           custodians=None,
-                           review_sets=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           last_modified_by_user=None,
-                           closed_by_application=None,
-                           closed_by_device=None,
-                           closed_by_user=None):
+def compliance_compliance_ediscovery_create_case(client,
+                                                 id_=None,
+                                                 closed_date_time=None,
+                                                 created_date_time=None,
+                                                 description=None,
+                                                 display_name=None,
+                                                 external_id=None,
+                                                 last_modified_date_time=None,
+                                                 status=None,
+                                                 custodians=None,
+                                                 review_sets=None,
+                                                 last_modified_by_application=None,
+                                                 last_modified_by_device=None,
+                                                 last_modified_by_user=None,
+                                                 closed_by_application=None,
+                                                 closed_by_device=None,
+                                                 closed_by_user=None):
     return client.create_case(id=id_,
                               closed_date_time=closed_date_time,
                               created_date_time=created_date_time,
@@ -85,42 +85,42 @@ def compliance_create_case(client,
                               microsoft_graph_identity_user=closed_by_user)
 
 
-def compliance_get_case(client,
-                        ediscovery_case_id,
-                        select=None,
-                        expand=None):
+def compliance_compliance_ediscovery_get_case(client,
+                                              ediscovery_case_id,
+                                              select=None,
+                                              expand=None):
     return client.get_case(ediscovery_case_id=ediscovery_case_id,
                            select=select,
                            expand=expand)
 
 
-def compliance_list_case(client,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def compliance_compliance_ediscovery_list_case(client,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
     return client.list_case(orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def compliance_update_case(client,
-                           ediscovery_case_id,
-                           id_=None,
-                           closed_date_time=None,
-                           created_date_time=None,
-                           description=None,
-                           display_name=None,
-                           external_id=None,
-                           last_modified_date_time=None,
-                           status=None,
-                           custodians=None,
-                           review_sets=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           last_modified_by_user=None,
-                           closed_by_application=None,
-                           closed_by_device=None,
-                           closed_by_user=None):
+def compliance_compliance_ediscovery_update_case(client,
+                                                 ediscovery_case_id,
+                                                 id_=None,
+                                                 closed_date_time=None,
+                                                 created_date_time=None,
+                                                 description=None,
+                                                 display_name=None,
+                                                 external_id=None,
+                                                 last_modified_date_time=None,
+                                                 status=None,
+                                                 custodians=None,
+                                                 review_sets=None,
+                                                 last_modified_by_application=None,
+                                                 last_modified_by_device=None,
+                                                 last_modified_by_user=None,
+                                                 closed_by_application=None,
+                                                 closed_by_device=None,
+                                                 closed_by_user=None):
     return client.update_case(ediscovery_case_id=ediscovery_case_id,
                               id=id_,
                               closed_date_time=closed_date_time,
@@ -140,11 +140,11 @@ def compliance_update_case(client,
                               microsoft_graph_identity_user=closed_by_user)
 
 
-def compliance_delete(client,
-                      ediscovery_case_id,
-                      custodian_id=None,
-                      if_match=None,
-                      review_set_id=None):
+def compliance_compliance_ediscovery_case_delete(client,
+                                                 ediscovery_case_id,
+                                                 custodian_id=None,
+                                                 if_match=None,
+                                                 review_set_id=None):
     if ediscovery_case_id is not None and custodian_id is not None:
         return client.delete_custodian(ediscovery_case_id=ediscovery_case_id,
                                        custodian_id=custodian_id,
@@ -154,26 +154,26 @@ def compliance_delete(client,
                                     if_match=if_match)
 
 
-def compliance_close(client,
-                     ediscovery_case_id):
+def compliance_compliance_ediscovery_case_close(client,
+                                                ediscovery_case_id):
     return client.close(ediscovery_case_id=ediscovery_case_id)
 
 
-def compliance_create_custodian(client,
-                                ediscovery_case_id,
-                                id_=None,
-                                acknowledged_date_time=None,
-                                apply_hold_to_sources=None,
-                                created_date_time=None,
-                                display_name=None,
-                                email=None,
-                                last_modified_date_time=None,
-                                released_date_time=None,
-                                status=None,
-                                last_index_operation=None,
-                                site_sources=None,
-                                unified_group_sources=None,
-                                user_sources=None):
+def compliance_compliance_ediscovery_case_create_custodian(client,
+                                                           ediscovery_case_id,
+                                                           id_=None,
+                                                           acknowledged_date_time=None,
+                                                           apply_hold_to_sources=None,
+                                                           created_date_time=None,
+                                                           display_name=None,
+                                                           email=None,
+                                                           last_modified_date_time=None,
+                                                           released_date_time=None,
+                                                           status=None,
+                                                           last_index_operation=None,
+                                                           site_sources=None,
+                                                           unified_group_sources=None,
+                                                           user_sources=None):
     return client.create_custodian(ediscovery_case_id=ediscovery_case_id,
                                    id=id_,
                                    acknowledged_date_time=acknowledged_date_time,
@@ -190,15 +190,15 @@ def compliance_create_custodian(client,
                                    user_sources=user_sources)
 
 
-def compliance_create_review_set(client,
-                                 ediscovery_case_id,
-                                 id_=None,
-                                 created_date_time=None,
-                                 display_name=None,
-                                 queries=None,
-                                 created_by_application=None,
-                                 created_by_device=None,
-                                 created_by_user=None):
+def compliance_compliance_ediscovery_case_create_review_set(client,
+                                                            ediscovery_case_id,
+                                                            id_=None,
+                                                            created_date_time=None,
+                                                            display_name=None,
+                                                            queries=None,
+                                                            created_by_application=None,
+                                                            created_by_device=None,
+                                                            created_by_user=None):
     return client.create_review_set(ediscovery_case_id=ediscovery_case_id,
                                     id=id_,
                                     created_date_time=created_date_time,
@@ -209,71 +209,71 @@ def compliance_create_review_set(client,
                                     user=created_by_user)
 
 
-def compliance_get_custodian(client,
-                             ediscovery_case_id,
-                             custodian_id,
-                             select=None,
-                             expand=None):
+def compliance_compliance_ediscovery_case_get_custodian(client,
+                                                        ediscovery_case_id,
+                                                        custodian_id,
+                                                        select=None,
+                                                        expand=None):
     return client.get_custodian(ediscovery_case_id=ediscovery_case_id,
                                 custodian_id=custodian_id,
                                 select=select,
                                 expand=expand)
 
 
-def compliance_get_review_set(client,
-                              ediscovery_case_id,
-                              review_set_id,
-                              select=None,
-                              expand=None):
+def compliance_compliance_ediscovery_case_get_review_set(client,
+                                                         ediscovery_case_id,
+                                                         review_set_id,
+                                                         select=None,
+                                                         expand=None):
     return client.get_review_set(ediscovery_case_id=ediscovery_case_id,
                                  review_set_id=review_set_id,
                                  select=select,
                                  expand=expand)
 
 
-def compliance_list_custodian(client,
-                              ediscovery_case_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
+def compliance_compliance_ediscovery_case_list_custodian(client,
+                                                         ediscovery_case_id,
+                                                         orderby=None,
+                                                         select=None,
+                                                         expand=None):
     return client.list_custodian(ediscovery_case_id=ediscovery_case_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def compliance_list_review_set(client,
-                               ediscovery_case_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def compliance_compliance_ediscovery_case_list_review_set(client,
+                                                          ediscovery_case_id,
+                                                          orderby=None,
+                                                          select=None,
+                                                          expand=None):
     return client.list_review_set(ediscovery_case_id=ediscovery_case_id,
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def compliance_reopen(client,
-                      ediscovery_case_id):
+def compliance_compliance_ediscovery_case_reopen(client,
+                                                 ediscovery_case_id):
     return client.reopen(ediscovery_case_id=ediscovery_case_id)
 
 
-def compliance_update_custodian(client,
-                                ediscovery_case_id,
-                                custodian_id,
-                                id_=None,
-                                acknowledged_date_time=None,
-                                apply_hold_to_sources=None,
-                                created_date_time=None,
-                                display_name=None,
-                                email=None,
-                                last_modified_date_time=None,
-                                released_date_time=None,
-                                status=None,
-                                last_index_operation=None,
-                                site_sources=None,
-                                unified_group_sources=None,
-                                user_sources=None):
+def compliance_compliance_ediscovery_case_update_custodian(client,
+                                                           ediscovery_case_id,
+                                                           custodian_id,
+                                                           id_=None,
+                                                           acknowledged_date_time=None,
+                                                           apply_hold_to_sources=None,
+                                                           created_date_time=None,
+                                                           display_name=None,
+                                                           email=None,
+                                                           last_modified_date_time=None,
+                                                           released_date_time=None,
+                                                           status=None,
+                                                           last_index_operation=None,
+                                                           site_sources=None,
+                                                           unified_group_sources=None,
+                                                           user_sources=None):
     return client.update_custodian(ediscovery_case_id=ediscovery_case_id,
                                    custodian_id=custodian_id,
                                    id=id_,
@@ -291,16 +291,16 @@ def compliance_update_custodian(client,
                                    user_sources=user_sources)
 
 
-def compliance_update_review_set(client,
-                                 ediscovery_case_id,
-                                 review_set_id,
-                                 id_=None,
-                                 created_date_time=None,
-                                 display_name=None,
-                                 queries=None,
-                                 created_by_application=None,
-                                 created_by_device=None,
-                                 created_by_user=None):
+def compliance_compliance_ediscovery_case_update_review_set(client,
+                                                            ediscovery_case_id,
+                                                            review_set_id,
+                                                            id_=None,
+                                                            created_date_time=None,
+                                                            display_name=None,
+                                                            queries=None,
+                                                            created_by_application=None,
+                                                            created_by_device=None,
+                                                            created_by_user=None):
     return client.update_review_set(ediscovery_case_id=ediscovery_case_id,
                                     review_set_id=review_set_id,
                                     id=id_,
@@ -312,13 +312,13 @@ def compliance_update_review_set(client,
                                     user=created_by_user)
 
 
-def compliance_delete(client,
-                      ediscovery_case_id,
-                      custodian_id,
-                      site_source_id=None,
-                      if_match=None,
-                      unified_group_source_id=None,
-                      user_source_id=None):
+def compliance_compliance_ediscovery_case_custodian_delete(client,
+                                                           ediscovery_case_id,
+                                                           custodian_id,
+                                                           site_source_id=None,
+                                                           if_match=None,
+                                                           unified_group_source_id=None,
+                                                           user_source_id=None):
     if ediscovery_case_id is not None and custodian_id is not None and site_source_id is not None:
         return client.delete_site_source(ediscovery_case_id=ediscovery_case_id,
                                          custodian_id=custodian_id,
@@ -339,23 +339,23 @@ def compliance_delete(client,
                                                   if_match=if_match)
 
 
-def compliance_activate(client,
-                        ediscovery_case_id,
-                        custodian_id):
+def compliance_compliance_ediscovery_case_custodian_activate(client,
+                                                             ediscovery_case_id,
+                                                             custodian_id):
     return client.activate(ediscovery_case_id=ediscovery_case_id,
                            custodian_id=custodian_id)
 
 
-def compliance_create_site_source(client,
-                                  ediscovery_case_id,
-                                  custodian_id,
-                                  id_=None,
-                                  created_date_time=None,
-                                  display_name=None,
-                                  created_by_application=None,
-                                  created_by_device=None,
-                                  created_by_user=None,
-                                  site=None):
+def compliance_compliance_ediscovery_case_custodian_create_site_source(client,
+                                                                       ediscovery_case_id,
+                                                                       custodian_id,
+                                                                       id_=None,
+                                                                       created_date_time=None,
+                                                                       display_name=None,
+                                                                       created_by_application=None,
+                                                                       created_by_device=None,
+                                                                       created_by_user=None,
+                                                                       site=None):
     return client.create_site_source(ediscovery_case_id=ediscovery_case_id,
                                      custodian_id=custodian_id,
                                      id=id_,
@@ -367,17 +367,17 @@ def compliance_create_site_source(client,
                                      site=site)
 
 
-def compliance_create_unified_group_source(client,
-                                           ediscovery_case_id,
-                                           custodian_id,
-                                           id_=None,
-                                           created_date_time=None,
-                                           display_name=None,
-                                           created_by_application=None,
-                                           created_by_device=None,
-                                           created_by_user=None,
-                                           included_sources=None,
-                                           group=None):
+def compliance_compliance_ediscovery_case_custodian_create_unified_group_source(client,
+                                                                                ediscovery_case_id,
+                                                                                custodian_id,
+                                                                                id_=None,
+                                                                                created_date_time=None,
+                                                                                display_name=None,
+                                                                                created_by_application=None,
+                                                                                created_by_device=None,
+                                                                                created_by_user=None,
+                                                                                included_sources=None,
+                                                                                group=None):
     return client.create_unified_group_source(ediscovery_case_id=ediscovery_case_id,
                                               custodian_id=custodian_id,
                                               id=id_,
@@ -390,17 +390,17 @@ def compliance_create_unified_group_source(client,
                                               group=group)
 
 
-def compliance_create_user_source(client,
-                                  ediscovery_case_id,
-                                  custodian_id,
-                                  id_=None,
-                                  created_date_time=None,
-                                  display_name=None,
-                                  created_by_application=None,
-                                  created_by_device=None,
-                                  created_by_user=None,
-                                  email=None,
-                                  included_sources=None):
+def compliance_compliance_ediscovery_case_custodian_create_user_source(client,
+                                                                       ediscovery_case_id,
+                                                                       custodian_id,
+                                                                       id_=None,
+                                                                       created_date_time=None,
+                                                                       display_name=None,
+                                                                       created_by_application=None,
+                                                                       created_by_device=None,
+                                                                       created_by_user=None,
+                                                                       email=None,
+                                                                       included_sources=None):
     return client.create_user_source(ediscovery_case_id=ediscovery_case_id,
                                      custodian_id=custodian_id,
                                      id=id_,
@@ -413,30 +413,30 @@ def compliance_create_user_source(client,
                                      included_sources=included_sources)
 
 
-def compliance_get_last_index_operation(client,
-                                        ediscovery_case_id,
-                                        custodian_id,
-                                        select=None,
-                                        expand=None):
+def compliance_compliance_ediscovery_case_custodian_get_last_index_operation(client,
+                                                                             ediscovery_case_id,
+                                                                             custodian_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_last_index_operation(ediscovery_case_id=ediscovery_case_id,
                                            custodian_id=custodian_id,
                                            select=select,
                                            expand=expand)
 
 
-def compliance_get_ref_last_index_operation(client,
-                                            ediscovery_case_id,
-                                            custodian_id):
+def compliance_compliance_ediscovery_case_custodian_get_ref_last_index_operation(client,
+                                                                                 ediscovery_case_id,
+                                                                                 custodian_id):
     return client.get_ref_last_index_operation(ediscovery_case_id=ediscovery_case_id,
                                                custodian_id=custodian_id)
 
 
-def compliance_get_site_source(client,
-                               ediscovery_case_id,
-                               custodian_id,
-                               site_source_id,
-                               select=None,
-                               expand=None):
+def compliance_compliance_ediscovery_case_custodian_get_site_source(client,
+                                                                    ediscovery_case_id,
+                                                                    custodian_id,
+                                                                    site_source_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_site_source(ediscovery_case_id=ediscovery_case_id,
                                   custodian_id=custodian_id,
                                   site_source_id=site_source_id,
@@ -444,12 +444,12 @@ def compliance_get_site_source(client,
                                   expand=expand)
 
 
-def compliance_get_unified_group_source(client,
-                                        ediscovery_case_id,
-                                        custodian_id,
-                                        unified_group_source_id,
-                                        select=None,
-                                        expand=None):
+def compliance_compliance_ediscovery_case_custodian_get_unified_group_source(client,
+                                                                             ediscovery_case_id,
+                                                                             custodian_id,
+                                                                             unified_group_source_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_unified_group_source(ediscovery_case_id=ediscovery_case_id,
                                            custodian_id=custodian_id,
                                            unified_group_source_id=unified_group_source_id,
@@ -457,12 +457,12 @@ def compliance_get_unified_group_source(client,
                                            expand=expand)
 
 
-def compliance_get_user_source(client,
-                               ediscovery_case_id,
-                               custodian_id,
-                               user_source_id,
-                               select=None,
-                               expand=None):
+def compliance_compliance_ediscovery_case_custodian_get_user_source(client,
+                                                                    ediscovery_case_id,
+                                                                    custodian_id,
+                                                                    user_source_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_user_source(ediscovery_case_id=ediscovery_case_id,
                                   custodian_id=custodian_id,
                                   user_source_id=user_source_id,
@@ -470,12 +470,12 @@ def compliance_get_user_source(client,
                                   expand=expand)
 
 
-def compliance_list_site_source(client,
-                                ediscovery_case_id,
-                                custodian_id,
-                                orderby=None,
-                                select=None,
-                                expand=None):
+def compliance_compliance_ediscovery_case_custodian_list_site_source(client,
+                                                                     ediscovery_case_id,
+                                                                     custodian_id,
+                                                                     orderby=None,
+                                                                     select=None,
+                                                                     expand=None):
     return client.list_site_source(ediscovery_case_id=ediscovery_case_id,
                                    custodian_id=custodian_id,
                                    orderby=orderby,
@@ -483,12 +483,12 @@ def compliance_list_site_source(client,
                                    expand=expand)
 
 
-def compliance_list_unified_group_source(client,
-                                         ediscovery_case_id,
-                                         custodian_id,
-                                         orderby=None,
-                                         select=None,
-                                         expand=None):
+def compliance_compliance_ediscovery_case_custodian_list_unified_group_source(client,
+                                                                              ediscovery_case_id,
+                                                                              custodian_id,
+                                                                              orderby=None,
+                                                                              select=None,
+                                                                              expand=None):
     return client.list_unified_group_source(ediscovery_case_id=ediscovery_case_id,
                                             custodian_id=custodian_id,
                                             orderby=orderby,
@@ -496,12 +496,12 @@ def compliance_list_unified_group_source(client,
                                             expand=expand)
 
 
-def compliance_list_user_source(client,
-                                ediscovery_case_id,
-                                custodian_id,
-                                orderby=None,
-                                select=None,
-                                expand=None):
+def compliance_compliance_ediscovery_case_custodian_list_user_source(client,
+                                                                     ediscovery_case_id,
+                                                                     custodian_id,
+                                                                     orderby=None,
+                                                                     select=None,
+                                                                     expand=None):
     return client.list_user_source(ediscovery_case_id=ediscovery_case_id,
                                    custodian_id=custodian_id,
                                    orderby=orderby,
@@ -509,40 +509,40 @@ def compliance_list_user_source(client,
                                    expand=expand)
 
 
-def compliance_release(client,
-                       ediscovery_case_id,
-                       custodian_id):
+def compliance_compliance_ediscovery_case_custodian_release(client,
+                                                            ediscovery_case_id,
+                                                            custodian_id):
     return client.release(ediscovery_case_id=ediscovery_case_id,
                           custodian_id=custodian_id)
 
 
-def compliance_set_ref_last_index_operation(client,
-                                            ediscovery_case_id,
-                                            custodian_id,
-                                            body):
+def compliance_compliance_ediscovery_case_custodian_set_ref_last_index_operation(client,
+                                                                                 ediscovery_case_id,
+                                                                                 custodian_id,
+                                                                                 body):
     return client.set_ref_last_index_operation(ediscovery_case_id=ediscovery_case_id,
                                                custodian_id=custodian_id,
                                                body=body)
 
 
-def compliance_update_index(client,
-                            ediscovery_case_id,
-                            custodian_id):
+def compliance_compliance_ediscovery_case_custodian_update_index(client,
+                                                                 ediscovery_case_id,
+                                                                 custodian_id):
     return client.update_index(ediscovery_case_id=ediscovery_case_id,
                                custodian_id=custodian_id)
 
 
-def compliance_update_site_source(client,
-                                  ediscovery_case_id,
-                                  custodian_id,
-                                  site_source_id,
-                                  id_=None,
-                                  created_date_time=None,
-                                  display_name=None,
-                                  created_by_application=None,
-                                  created_by_device=None,
-                                  created_by_user=None,
-                                  site=None):
+def compliance_compliance_ediscovery_case_custodian_update_site_source(client,
+                                                                       ediscovery_case_id,
+                                                                       custodian_id,
+                                                                       site_source_id,
+                                                                       id_=None,
+                                                                       created_date_time=None,
+                                                                       display_name=None,
+                                                                       created_by_application=None,
+                                                                       created_by_device=None,
+                                                                       created_by_user=None,
+                                                                       site=None):
     return client.update_site_source(ediscovery_case_id=ediscovery_case_id,
                                      custodian_id=custodian_id,
                                      site_source_id=site_source_id,
@@ -555,18 +555,18 @@ def compliance_update_site_source(client,
                                      site=site)
 
 
-def compliance_update_unified_group_source(client,
-                                           ediscovery_case_id,
-                                           custodian_id,
-                                           unified_group_source_id,
-                                           id_=None,
-                                           created_date_time=None,
-                                           display_name=None,
-                                           created_by_application=None,
-                                           created_by_device=None,
-                                           created_by_user=None,
-                                           included_sources=None,
-                                           group=None):
+def compliance_compliance_ediscovery_case_custodian_update_unified_group_source(client,
+                                                                                ediscovery_case_id,
+                                                                                custodian_id,
+                                                                                unified_group_source_id,
+                                                                                id_=None,
+                                                                                created_date_time=None,
+                                                                                display_name=None,
+                                                                                created_by_application=None,
+                                                                                created_by_device=None,
+                                                                                created_by_user=None,
+                                                                                included_sources=None,
+                                                                                group=None):
     return client.update_unified_group_source(ediscovery_case_id=ediscovery_case_id,
                                               custodian_id=custodian_id,
                                               unified_group_source_id=unified_group_source_id,
@@ -580,18 +580,18 @@ def compliance_update_unified_group_source(client,
                                               group=group)
 
 
-def compliance_update_user_source(client,
-                                  ediscovery_case_id,
-                                  custodian_id,
-                                  user_source_id,
-                                  id_=None,
-                                  created_date_time=None,
-                                  display_name=None,
-                                  created_by_application=None,
-                                  created_by_device=None,
-                                  created_by_user=None,
-                                  email=None,
-                                  included_sources=None):
+def compliance_compliance_ediscovery_case_custodian_update_user_source(client,
+                                                                       ediscovery_case_id,
+                                                                       custodian_id,
+                                                                       user_source_id,
+                                                                       id_=None,
+                                                                       created_date_time=None,
+                                                                       display_name=None,
+                                                                       created_by_application=None,
+                                                                       created_by_device=None,
+                                                                       created_by_user=None,
+                                                                       email=None,
+                                                                       included_sources=None):
     return client.update_user_source(ediscovery_case_id=ediscovery_case_id,
                                      custodian_id=custodian_id,
                                      user_source_id=user_source_id,
@@ -605,32 +605,32 @@ def compliance_update_user_source(client,
                                      included_sources=included_sources)
 
 
-def compliance_delete(client,
-                      ediscovery_case_id,
-                      custodian_id,
-                      site_source_id,
-                      if_match=None):
+def compliance_compliance_ediscovery_case_custodian_site_source_delete(client,
+                                                                       ediscovery_case_id,
+                                                                       custodian_id,
+                                                                       site_source_id,
+                                                                       if_match=None):
     return client.delete_ref_site(ediscovery_case_id=ediscovery_case_id,
                                   custodian_id=custodian_id,
                                   site_source_id=site_source_id,
                                   if_match=if_match)
 
 
-def compliance_get_ref_site(client,
-                            ediscovery_case_id,
-                            custodian_id,
-                            site_source_id):
+def compliance_compliance_ediscovery_case_custodian_site_source_get_ref_site(client,
+                                                                             ediscovery_case_id,
+                                                                             custodian_id,
+                                                                             site_source_id):
     return client.get_ref_site(ediscovery_case_id=ediscovery_case_id,
                                custodian_id=custodian_id,
                                site_source_id=site_source_id)
 
 
-def compliance_get_site(client,
-                        ediscovery_case_id,
-                        custodian_id,
-                        site_source_id,
-                        select=None,
-                        expand=None):
+def compliance_compliance_ediscovery_case_custodian_site_source_get_site(client,
+                                                                         ediscovery_case_id,
+                                                                         custodian_id,
+                                                                         site_source_id,
+                                                                         select=None,
+                                                                         expand=None):
     return client.get_site(ediscovery_case_id=ediscovery_case_id,
                            custodian_id=custodian_id,
                            site_source_id=site_source_id,
@@ -638,34 +638,34 @@ def compliance_get_site(client,
                            expand=expand)
 
 
-def compliance_set_ref_site(client,
-                            ediscovery_case_id,
-                            custodian_id,
-                            site_source_id,
-                            body):
+def compliance_compliance_ediscovery_case_custodian_site_source_set_ref_site(client,
+                                                                             ediscovery_case_id,
+                                                                             custodian_id,
+                                                                             site_source_id,
+                                                                             body):
     return client.set_ref_site(ediscovery_case_id=ediscovery_case_id,
                                custodian_id=custodian_id,
                                site_source_id=site_source_id,
                                body=body)
 
 
-def compliance_delete(client,
-                      ediscovery_case_id,
-                      custodian_id,
-                      unified_group_source_id,
-                      if_match=None):
+def compliance_compliance_ediscovery_case_custodian_unified_group_source_delete(client,
+                                                                                ediscovery_case_id,
+                                                                                custodian_id,
+                                                                                unified_group_source_id,
+                                                                                if_match=None):
     return client.delete_ref_group(ediscovery_case_id=ediscovery_case_id,
                                    custodian_id=custodian_id,
                                    unified_group_source_id=unified_group_source_id,
                                    if_match=if_match)
 
 
-def compliance_get_group(client,
-                         ediscovery_case_id,
-                         custodian_id,
-                         unified_group_source_id,
-                         select=None,
-                         expand=None):
+def compliance_compliance_ediscovery_case_custodian_unified_group_source_get_group(client,
+                                                                                   ediscovery_case_id,
+                                                                                   custodian_id,
+                                                                                   unified_group_source_id,
+                                                                                   select=None,
+                                                                                   expand=None):
     return client.get_group(ediscovery_case_id=ediscovery_case_id,
                             custodian_id=custodian_id,
                             unified_group_source_id=unified_group_source_id,
@@ -673,51 +673,51 @@ def compliance_get_group(client,
                             expand=expand)
 
 
-def compliance_get_ref_group(client,
-                             ediscovery_case_id,
-                             custodian_id,
-                             unified_group_source_id):
+def compliance_compliance_ediscovery_case_custodian_unified_group_source_get_ref_group(client,
+                                                                                       ediscovery_case_id,
+                                                                                       custodian_id,
+                                                                                       unified_group_source_id):
     return client.get_ref_group(ediscovery_case_id=ediscovery_case_id,
                                 custodian_id=custodian_id,
                                 unified_group_source_id=unified_group_source_id)
 
 
-def compliance_set_ref_group(client,
-                             ediscovery_case_id,
-                             custodian_id,
-                             unified_group_source_id,
-                             body):
+def compliance_compliance_ediscovery_case_custodian_unified_group_source_set_ref_group(client,
+                                                                                       ediscovery_case_id,
+                                                                                       custodian_id,
+                                                                                       unified_group_source_id,
+                                                                                       body):
     return client.set_ref_group(ediscovery_case_id=ediscovery_case_id,
                                 custodian_id=custodian_id,
                                 unified_group_source_id=unified_group_source_id,
                                 body=body)
 
 
-def compliance_delete(client,
-                      ediscovery_case_id,
-                      review_set_id,
-                      review_set_query_id,
-                      if_match=None):
+def compliance_compliance_ediscovery_case_review_set_delete(client,
+                                                            ediscovery_case_id,
+                                                            review_set_id,
+                                                            review_set_query_id,
+                                                            if_match=None):
     return client.delete_query(ediscovery_case_id=ediscovery_case_id,
                                review_set_id=review_set_id,
                                review_set_query_id=review_set_query_id,
                                if_match=if_match)
 
 
-def compliance_create_query(client,
-                            ediscovery_case_id,
-                            review_set_id,
-                            id_=None,
-                            created_date_time=None,
-                            display_name=None,
-                            last_modified_date_time=None,
-                            query=None,
-                            last_modified_by_application=None,
-                            last_modified_by_device=None,
-                            last_modified_by_user=None,
-                            created_by_application=None,
-                            created_by_device=None,
-                            created_by_user=None):
+def compliance_compliance_ediscovery_case_review_set_create_query(client,
+                                                                  ediscovery_case_id,
+                                                                  review_set_id,
+                                                                  id_=None,
+                                                                  created_date_time=None,
+                                                                  display_name=None,
+                                                                  last_modified_date_time=None,
+                                                                  query=None,
+                                                                  last_modified_by_application=None,
+                                                                  last_modified_by_device=None,
+                                                                  last_modified_by_user=None,
+                                                                  created_by_application=None,
+                                                                  created_by_device=None,
+                                                                  created_by_user=None):
     return client.create_query(ediscovery_case_id=ediscovery_case_id,
                                review_set_id=review_set_id,
                                id=id_,
@@ -733,12 +733,12 @@ def compliance_create_query(client,
                                microsoft_graph_identity_user=created_by_user)
 
 
-def compliance_get_query(client,
-                         ediscovery_case_id,
-                         review_set_id,
-                         review_set_query_id,
-                         select=None,
-                         expand=None):
+def compliance_compliance_ediscovery_case_review_set_get_query(client,
+                                                               ediscovery_case_id,
+                                                               review_set_id,
+                                                               review_set_query_id,
+                                                               select=None,
+                                                               expand=None):
     return client.get_query(ediscovery_case_id=ediscovery_case_id,
                             review_set_id=review_set_id,
                             review_set_query_id=review_set_query_id,
@@ -746,12 +746,12 @@ def compliance_get_query(client,
                             expand=expand)
 
 
-def compliance_list_query(client,
-                          ediscovery_case_id,
-                          review_set_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
+def compliance_compliance_ediscovery_case_review_set_list_query(client,
+                                                                ediscovery_case_id,
+                                                                review_set_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
     return client.list_query(ediscovery_case_id=ediscovery_case_id,
                              review_set_id=review_set_id,
                              orderby=orderby,
@@ -759,21 +759,21 @@ def compliance_list_query(client,
                              expand=expand)
 
 
-def compliance_update_query(client,
-                            ediscovery_case_id,
-                            review_set_id,
-                            review_set_query_id,
-                            id_=None,
-                            created_date_time=None,
-                            display_name=None,
-                            last_modified_date_time=None,
-                            query=None,
-                            last_modified_by_application=None,
-                            last_modified_by_device=None,
-                            last_modified_by_user=None,
-                            created_by_application=None,
-                            created_by_device=None,
-                            created_by_user=None):
+def compliance_compliance_ediscovery_case_review_set_update_query(client,
+                                                                  ediscovery_case_id,
+                                                                  review_set_id,
+                                                                  review_set_query_id,
+                                                                  id_=None,
+                                                                  created_date_time=None,
+                                                                  display_name=None,
+                                                                  last_modified_date_time=None,
+                                                                  query=None,
+                                                                  last_modified_by_application=None,
+                                                                  last_modified_by_device=None,
+                                                                  last_modified_by_user=None,
+                                                                  created_by_application=None,
+                                                                  created_by_device=None,
+                                                                  created_by_user=None):
     return client.update_query(ediscovery_case_id=ediscovery_case_id,
                                review_set_id=review_set_id,
                                review_set_query_id=review_set_query_id,

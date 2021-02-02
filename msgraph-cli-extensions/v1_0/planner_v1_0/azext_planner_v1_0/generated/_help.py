@@ -12,37 +12,37 @@
 from knack.help_files import helps
 
 
-helps['planner'] = """
+helps['planner group'] = """
     type: group
-    short-summary: planner
+    short-summary: planner group
 """
 
-helps['planner delete'] = """
+helps['planner group delete'] = """
     type: command
     short-summary: "Delete navigation property planner for groups"
 """
 
-helps['planner get-planner'] = """
+helps['planner group get-planner'] = """
     type: command
     short-summary: "Get planner from groups"
 """
 
-helps['planner update-planner'] = """
+helps['planner group update-planner'] = """
     type: command
     short-summary: "Update the navigation property planner in groups"
 """
 
-helps['planner'] = """
+helps['planner group-planner'] = """
     type: group
-    short-summary: planner
+    short-summary: planner group-planner
 """
 
-helps['planner delete'] = """
+helps['planner group-planner delete'] = """
     type: command
     short-summary: "Delete navigation property plans for groups"
 """
 
-helps['planner create-plan'] = """
+helps['planner group-planner create-plan'] = """
     type: command
     short-summary: "Create new navigation property to plans for groups"
     parameters:
@@ -87,17 +87,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner get-plan'] = """
+helps['planner group-planner get-plan'] = """
     type: command
     short-summary: "Get plans from groups"
 """
 
-helps['planner list-plan'] = """
+helps['planner group-planner list-plan'] = """
     type: command
     short-summary: "Get plans from groups"
 """
 
-helps['planner update-plan'] = """
+helps['planner group-planner update-plan'] = """
     type: command
     short-summary: "Update the navigation property plans in groups"
     parameters:
@@ -142,57 +142,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner'] = """
+helps['planner group-planner-plan'] = """
     type: group
-    short-summary: planner
+    short-summary: planner group-planner-plan
 """
 
-helps['planner delete'] = """
+helps['planner group-planner-plan delete'] = """
     type: command
     short-summary: "Delete navigation property details for groups"
 """
 
-helps['planner create-bucket'] = """
+helps['planner group-planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for groups"
 """
 
-helps['planner create-task'] = """
+helps['planner group-planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups"
 """
 
-helps['planner get-bucket'] = """
+helps['planner group-planner-plan get-bucket'] = """
     type: command
     short-summary: "Get buckets from groups"
 """
 
-helps['planner get-detail'] = """
+helps['planner group-planner-plan get-detail'] = """
     type: command
     short-summary: "Get details from groups"
 """
 
-helps['planner get-task'] = """
+helps['planner group-planner-plan get-task'] = """
     type: command
     short-summary: "Get tasks from groups"
 """
 
-helps['planner list-bucket'] = """
+helps['planner group-planner-plan list-bucket'] = """
     type: command
     short-summary: "Get buckets from groups"
 """
 
-helps['planner list-task'] = """
+helps['planner group-planner-plan list-task'] = """
     type: command
     short-summary: "Get tasks from groups"
 """
 
-helps['planner update-bucket'] = """
+helps['planner group-planner-plan update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in groups"
 """
 
-helps['planner update-detail'] = """
+helps['planner group-planner-plan update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in groups"
     parameters:
@@ -210,172 +210,172 @@ category6=XX
             category6: The label associated with Category 6
 """
 
-helps['planner update-task'] = """
+helps['planner group-planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in groups"
 """
 
-helps['planner'] = """
+helps['planner group-planner-plan-bucket'] = """
     type: group
-    short-summary: planner
+    short-summary: planner group-planner-plan-bucket
 """
 
-helps['planner delete'] = """
+helps['planner group-planner-plan-bucket delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for groups"
 """
 
-helps['planner create-task'] = """
+helps['planner group-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups"
 """
 
-helps['planner get-task'] = """
+helps['planner group-planner-plan-bucket get-task'] = """
     type: command
     short-summary: "Get tasks from groups"
 """
 
-helps['planner list-task'] = """
+helps['planner group-planner-plan-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from groups"
 """
 
-helps['planner update-task'] = """
+helps['planner group-planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in groups"
 """
 
-helps['planner'] = """
+helps['planner group-planner-plan-bucket-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner group-planner-plan-bucket-task
 """
 
-helps['planner delete'] = """
+helps['planner group-planner-plan-bucket-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for groups"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from groups"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from groups"
 """
 
-helps['planner get-detail'] = """
+helps['planner group-planner-plan-bucket-task get-detail'] = """
     type: command
     short-summary: "Get details from groups"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from groups"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in groups"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in groups"
 """
 
-helps['planner update-detail'] = """
+helps['planner group-planner-plan-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in groups"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in groups"
 """
 
-helps['planner'] = """
+helps['planner group-planner-plan-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner group-planner-plan-task
 """
 
-helps['planner delete'] = """
+helps['planner group-planner-plan-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for groups"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from groups"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner group-planner-plan-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from groups"
 """
 
-helps['planner get-detail'] = """
+helps['planner group-planner-plan-task get-detail'] = """
     type: command
     short-summary: "Get details from groups"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner group-planner-plan-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from groups"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in groups"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner group-planner-plan-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in groups"
 """
 
-helps['planner update-detail'] = """
+helps['planner group-planner-plan-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in groups"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner group-planner-plan-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in groups"
 """
 
-helps['planner'] = """
+helps['planner planner-planner'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-planner
 """
 
-helps['planner get-planner'] = """
+helps['planner planner-planner get-planner'] = """
     type: command
     short-summary: "Get planner"
 """
 
-helps['planner update-planner'] = """
+helps['planner planner-planner update-planner'] = """
     type: command
     short-summary: "Update planner"
 """
 
-helps['planner'] = """
+helps['planner planner'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner
 """
 
-helps['planner delete'] = """
+helps['planner planner delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for planner"
 """
 
-helps['planner create-bucket'] = """
+helps['planner planner create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for planner"
 """
 
-helps['planner create-plan'] = """
+helps['planner planner create-plan'] = """
     type: command
     short-summary: "Create new navigation property to plans for planner"
     parameters:
@@ -420,47 +420,47 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner create-task'] = """
+helps['planner planner create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
 """
 
-helps['planner get-bucket'] = """
+helps['planner planner get-bucket'] = """
     type: command
     short-summary: "Get buckets from planner"
 """
 
-helps['planner get-plan'] = """
+helps['planner planner get-plan'] = """
     type: command
     short-summary: "Get plans from planner"
 """
 
-helps['planner get-task'] = """
+helps['planner planner get-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner list-bucket'] = """
+helps['planner planner list-bucket'] = """
     type: command
     short-summary: "Get buckets from planner"
 """
 
-helps['planner list-plan'] = """
+helps['planner planner list-plan'] = """
     type: command
     short-summary: "Get plans from planner"
 """
 
-helps['planner list-task'] = """
+helps['planner planner list-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner update-bucket'] = """
+helps['planner planner update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in planner"
 """
 
-helps['planner update-plan'] = """
+helps['planner planner update-plan'] = """
     type: command
     short-summary: "Update the navigation property plans in planner"
     parameters:
@@ -505,142 +505,142 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner update-task'] = """
+helps['planner planner update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-bucket'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-bucket
 """
 
-helps['planner delete'] = """
+helps['planner planner-bucket delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for planner"
 """
 
-helps['planner create-task'] = """
+helps['planner planner-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
 """
 
-helps['planner get-task'] = """
+helps['planner planner-bucket get-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner list-task'] = """
+helps['planner planner-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner update-task'] = """
+helps['planner planner-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-bucket-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-bucket-task
 """
 
-helps['planner delete'] = """
+helps['planner planner-bucket-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner planner-bucket-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner planner-bucket-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner"
 """
 
-helps['planner get-detail'] = """
+helps['planner planner-bucket-task get-detail'] = """
     type: command
     short-summary: "Get details from planner"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner planner-bucket-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner planner-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner planner-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner"
 """
 
-helps['planner update-detail'] = """
+helps['planner planner-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner planner-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-plan'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-plan
 """
 
-helps['planner delete'] = """
+helps['planner planner-plan delete'] = """
     type: command
     short-summary: "Delete navigation property details for planner"
 """
 
-helps['planner create-bucket'] = """
+helps['planner planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for planner"
 """
 
-helps['planner create-task'] = """
+helps['planner planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
 """
 
-helps['planner get-bucket'] = """
+helps['planner planner-plan get-bucket'] = """
     type: command
     short-summary: "Get buckets from planner"
 """
 
-helps['planner get-detail'] = """
+helps['planner planner-plan get-detail'] = """
     type: command
     short-summary: "Get details from planner"
 """
 
-helps['planner get-task'] = """
+helps['planner planner-plan get-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner list-bucket'] = """
+helps['planner planner-plan list-bucket'] = """
     type: command
     short-summary: "Get buckets from planner"
 """
 
-helps['planner list-task'] = """
+helps['planner planner-plan list-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner update-bucket'] = """
+helps['planner planner-plan update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in planner"
 """
 
-helps['planner update-detail'] = """
+helps['planner planner-plan update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner"
     parameters:
@@ -658,222 +658,222 @@ category6=XX
             category6: The label associated with Category 6
 """
 
-helps['planner update-task'] = """
+helps['planner planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-plan-bucket'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-plan-bucket
 """
 
-helps['planner delete'] = """
+helps['planner planner-plan-bucket delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for planner"
 """
 
-helps['planner create-task'] = """
+helps['planner planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
 """
 
-helps['planner get-task'] = """
+helps['planner planner-plan-bucket get-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner list-task'] = """
+helps['planner planner-plan-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from planner"
 """
 
-helps['planner update-task'] = """
+helps['planner planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-plan-bucket-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-plan-bucket-task
 """
 
-helps['planner delete'] = """
+helps['planner planner-plan-bucket-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner planner-plan-bucket-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner planner-plan-bucket-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner"
 """
 
-helps['planner get-detail'] = """
+helps['planner planner-plan-bucket-task get-detail'] = """
     type: command
     short-summary: "Get details from planner"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner planner-plan-bucket-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner planner-plan-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner planner-plan-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner"
 """
 
-helps['planner update-detail'] = """
+helps['planner planner-plan-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner planner-plan-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-plan-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-plan-task
 """
 
-helps['planner delete'] = """
+helps['planner planner-plan-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner planner-plan-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner planner-plan-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner"
 """
 
-helps['planner get-detail'] = """
+helps['planner planner-plan-task get-detail'] = """
     type: command
     short-summary: "Get details from planner"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner planner-plan-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner planner-plan-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner planner-plan-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner"
 """
 
-helps['planner update-detail'] = """
+helps['planner planner-plan-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner planner-plan-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner"
 """
 
-helps['planner'] = """
+helps['planner planner-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner planner-task
 """
 
-helps['planner delete'] = """
+helps['planner planner-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner planner-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner planner-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner"
 """
 
-helps['planner get-detail'] = """
+helps['planner planner-task get-detail'] = """
     type: command
     short-summary: "Get details from planner"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner planner-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner planner-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner planner-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner"
 """
 
-helps['planner update-detail'] = """
+helps['planner planner-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner planner-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner"
 """
 
-helps['planner'] = """
+helps['planner user'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user
 """
 
-helps['planner delete'] = """
+helps['planner user delete'] = """
     type: command
     short-summary: "Delete navigation property planner for users"
 """
 
-helps['planner get-planner'] = """
+helps['planner user get-planner'] = """
     type: command
     short-summary: "Get planner from users"
 """
 
-helps['planner update-planner'] = """
+helps['planner user update-planner'] = """
     type: command
     short-summary: "Update the navigation property planner in users"
 """
 
-helps['planner'] = """
+helps['planner user-planner'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user-planner
 """
 
-helps['planner delete'] = """
+helps['planner user-planner delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for users"
 """
 
-helps['planner create-plan'] = """
+helps['planner user-planner create-plan'] = """
     type: command
     short-summary: "Create new navigation property to plans for users"
     parameters:
@@ -918,32 +918,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner create-task'] = """
+helps['planner user-planner create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
 """
 
-helps['planner get-plan'] = """
+helps['planner user-planner get-plan'] = """
     type: command
     short-summary: "Get plans from users"
 """
 
-helps['planner get-task'] = """
+helps['planner user-planner get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['planner list-plan'] = """
+helps['planner user-planner list-plan'] = """
     type: command
     short-summary: "Get plans from users"
 """
 
-helps['planner list-task'] = """
+helps['planner user-planner list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['planner update-plan'] = """
+helps['planner user-planner update-plan'] = """
     type: command
     short-summary: "Update the navigation property plans in users"
     parameters:
@@ -988,62 +988,62 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner update-task'] = """
+helps['planner user-planner update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
 """
 
-helps['planner'] = """
+helps['planner user-planner-plan'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user-planner-plan
 """
 
-helps['planner delete'] = """
+helps['planner user-planner-plan delete'] = """
     type: command
     short-summary: "Delete navigation property details for users"
 """
 
-helps['planner create-bucket'] = """
+helps['planner user-planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for users"
 """
 
-helps['planner create-task'] = """
+helps['planner user-planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
 """
 
-helps['planner get-bucket'] = """
+helps['planner user-planner-plan get-bucket'] = """
     type: command
     short-summary: "Get buckets from users"
 """
 
-helps['planner get-detail'] = """
+helps['planner user-planner-plan get-detail'] = """
     type: command
     short-summary: "Get details from users"
 """
 
-helps['planner get-task'] = """
+helps['planner user-planner-plan get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['planner list-bucket'] = """
+helps['planner user-planner-plan list-bucket'] = """
     type: command
     short-summary: "Get buckets from users"
 """
 
-helps['planner list-task'] = """
+helps['planner user-planner-plan list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['planner update-bucket'] = """
+helps['planner user-planner-plan update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in users"
 """
 
-helps['planner update-detail'] = """
+helps['planner user-planner-plan update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users"
     parameters:
@@ -1061,187 +1061,187 @@ category6=XX
             category6: The label associated with Category 6
 """
 
-helps['planner update-task'] = """
+helps['planner user-planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
 """
 
-helps['planner'] = """
+helps['planner user-planner-plan-bucket'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user-planner-plan-bucket
 """
 
-helps['planner delete'] = """
+helps['planner user-planner-plan-bucket delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for users"
 """
 
-helps['planner create-task'] = """
+helps['planner user-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
 """
 
-helps['planner get-task'] = """
+helps['planner user-planner-plan-bucket get-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['planner list-task'] = """
+helps['planner user-planner-plan-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from users"
 """
 
-helps['planner update-task'] = """
+helps['planner user-planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
 """
 
-helps['planner'] = """
+helps['planner user-planner-plan-bucket-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user-planner-plan-bucket-task
 """
 
-helps['planner delete'] = """
+helps['planner user-planner-plan-bucket-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for users"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from users"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from users"
 """
 
-helps['planner get-detail'] = """
+helps['planner user-planner-plan-bucket-task get-detail'] = """
     type: command
     short-summary: "Get details from users"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from users"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in users"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in users"
 """
 
-helps['planner update-detail'] = """
+helps['planner user-planner-plan-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in users"
 """
 
-helps['planner'] = """
+helps['planner user-planner-plan-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user-planner-plan-task
 """
 
-helps['planner delete'] = """
+helps['planner user-planner-plan-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for users"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from users"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner user-planner-plan-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from users"
 """
 
-helps['planner get-detail'] = """
+helps['planner user-planner-plan-task get-detail'] = """
     type: command
     short-summary: "Get details from users"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner user-planner-plan-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from users"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in users"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner user-planner-plan-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in users"
 """
 
-helps['planner update-detail'] = """
+helps['planner user-planner-plan-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner user-planner-plan-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in users"
 """
 
-helps['planner'] = """
+helps['planner user-planner-task'] = """
     type: group
-    short-summary: planner
+    short-summary: planner user-planner-task
 """
 
-helps['planner delete'] = """
+helps['planner user-planner-task delete'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for users"
 """
 
-helps['planner get-assigned-to-task-board-format'] = """
+helps['planner user-planner-task get-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from users"
 """
 
-helps['planner get-bucket-task-board-format'] = """
+helps['planner user-planner-task get-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from users"
 """
 
-helps['planner get-detail'] = """
+helps['planner user-planner-task get-detail'] = """
     type: command
     short-summary: "Get details from users"
 """
 
-helps['planner get-progress-task-board-format'] = """
+helps['planner user-planner-task get-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from users"
 """
 
-helps['planner update-assigned-to-task-board-format'] = """
+helps['planner user-planner-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in users"
 """
 
-helps['planner update-bucket-task-board-format'] = """
+helps['planner user-planner-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in users"
 """
 
-helps['planner update-detail'] = """
+helps['planner user-planner-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users"
 """
 
-helps['planner update-progress-task-board-format'] = """
+helps['planner user-planner-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in users"
 """

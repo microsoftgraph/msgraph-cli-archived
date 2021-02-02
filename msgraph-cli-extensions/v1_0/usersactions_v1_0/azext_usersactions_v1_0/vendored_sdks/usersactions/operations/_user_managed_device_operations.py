@@ -827,11 +827,11 @@ class UserManagedDeviceOperations(object):
         user_id,  # type: str
         managed_device_id,  # type: str
         calendar_sync_enabled=None,  # type: Optional[bool]
+        device_account=None,  # type: Optional["models.MicrosoftGraphWindowsDeviceAccount"]
         device_account_email=None,  # type: Optional[str]
         exchange_server=None,  # type: Optional[str]
         password_rotation_enabled=None,  # type: Optional[bool]
         session_initiation_protocal_address=None,  # type: Optional[str]
-        password=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -845,6 +845,8 @@ class UserManagedDeviceOperations(object):
         :type managed_device_id: str
         :param calendar_sync_enabled: Not yet documented.
         :type calendar_sync_enabled: bool
+        :param device_account: windowsDeviceAccount.
+        :type device_account: ~users_actions.models.MicrosoftGraphWindowsDeviceAccount
         :param device_account_email: Not yet documented.
         :type device_account_email: str
         :param exchange_server: Not yet documented.
@@ -853,8 +855,6 @@ class UserManagedDeviceOperations(object):
         :type password_rotation_enabled: bool
         :param session_initiation_protocal_address: Not yet documented.
         :type session_initiation_protocal_address: str
-        :param password: Not yet documented.
-        :type password: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -864,7 +864,7 @@ class UserManagedDeviceOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema(calendar_sync_enabled=calendar_sync_enabled, device_account_email=device_account_email, exchange_server=exchange_server, password_rotation_enabled=password_rotation_enabled, session_initiation_protocal_address=session_initiation_protocal_address, password=password)
+        _body = models.Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema(calendar_sync_enabled=calendar_sync_enabled, device_account=device_account, device_account_email=device_account_email, exchange_server=exchange_server, password_rotation_enabled=password_rotation_enabled, session_initiation_protocal_address=session_initiation_protocal_address)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

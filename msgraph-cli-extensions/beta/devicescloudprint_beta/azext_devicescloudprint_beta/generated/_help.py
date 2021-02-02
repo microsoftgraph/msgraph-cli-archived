@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-print'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-print
 """
 
-helps['devicescloudprint get-print'] = """
+helps['devicescloudprint print-print get-print'] = """
     type: command
     short-summary: "Get print"
 """
 
-helps['devicescloudprint update-print'] = """
+helps['devicescloudprint print-print update-print'] = """
     type: command
     short-summary: "Update print"
     parameters:
@@ -42,17 +42,17 @@ helps['devicescloudprint update-print'] = """
             Multiple actions can be specified by using more than one --services argument.
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print delete'] = """
     type: command
     short-summary: "Delete navigation property taskDefinitions for print"
 """
 
-helps['devicescloudprint create-connector'] = """
+helps['devicescloudprint print create-connector'] = """
     type: command
     short-summary: "Create new navigation property to connectors for print"
     parameters:
@@ -65,12 +65,12 @@ state-or-province=XX street-address=XX subdivision=XX subunit=XX
 
 """
 
-helps['devicescloudprint create-operation'] = """
+helps['devicescloudprint print create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for print"
 """
 
-helps['devicescloudprint create-printer'] = """
+helps['devicescloudprint print create-printer'] = """
     type: command
     short-summary: "Create new navigation property to printers for print"
     parameters:
@@ -126,7 +126,7 @@ processing-state-reasons=XX state=XX
             Multiple actions can be specified by using more than one --allowed-users argument.
 """
 
-helps['devicescloudprint create-printer-share'] = """
+helps['devicescloudprint print create-printer-share'] = """
     type: command
     short-summary: "Create new navigation property to printerShares for print"
     parameters:
@@ -182,7 +182,7 @@ processing-state-reasons=XX state=XX
             Multiple actions can be specified by using more than one --allowed-users argument.
 """
 
-helps['devicescloudprint create-report'] = """
+helps['devicescloudprint print create-report'] = """
     type: command
     short-summary: "Create new navigation property to reports for print"
     parameters:
@@ -251,7 +251,7 @@ completed-color-job-count=XX incomplete-job-count=XX usage-date=XX user-principa
             Multiple actions can be specified by using more than one --monthly-print-usage-summaries-by-user argument.
 """
 
-helps['devicescloudprint create-service'] = """
+helps['devicescloudprint print create-service'] = """
     type: command
     short-summary: "Create new navigation property to services for print"
     parameters:
@@ -264,7 +264,7 @@ helps['devicescloudprint create-service'] = """
             Multiple actions can be specified by using more than one --endpoints argument.
 """
 
-helps['devicescloudprint create-share'] = """
+helps['devicescloudprint print create-share'] = """
     type: command
     short-summary: "Create new navigation property to shares for print"
     parameters:
@@ -320,7 +320,7 @@ processing-state-reasons=XX state=XX
             Multiple actions can be specified by using more than one --allowed-users argument.
 """
 
-helps['devicescloudprint create-task-definition'] = """
+helps['devicescloudprint print create-task-definition'] = """
     type: command
     short-summary: "Create new navigation property to taskDefinitions for print"
     parameters:
@@ -336,87 +336,87 @@ for the corresponding App.
             service-principal-name: Refers to the Service Principal Name is the Application name in the tenant.
 """
 
-helps['devicescloudprint get-connector'] = """
+helps['devicescloudprint print get-connector'] = """
     type: command
     short-summary: "Get connectors from print"
 """
 
-helps['devicescloudprint get-operation'] = """
+helps['devicescloudprint print get-operation'] = """
     type: command
     short-summary: "Get operations from print"
 """
 
-helps['devicescloudprint get-printer'] = """
+helps['devicescloudprint print get-printer'] = """
     type: command
     short-summary: "Get printers from print"
 """
 
-helps['devicescloudprint get-printer-share'] = """
+helps['devicescloudprint print get-printer-share'] = """
     type: command
     short-summary: "Get printerShares from print"
 """
 
-helps['devicescloudprint get-report'] = """
+helps['devicescloudprint print get-report'] = """
     type: command
     short-summary: "Get reports from print"
 """
 
-helps['devicescloudprint get-service'] = """
+helps['devicescloudprint print get-service'] = """
     type: command
     short-summary: "Get services from print"
 """
 
-helps['devicescloudprint get-share'] = """
+helps['devicescloudprint print get-share'] = """
     type: command
     short-summary: "Get shares from print"
 """
 
-helps['devicescloudprint get-task-definition'] = """
+helps['devicescloudprint print get-task-definition'] = """
     type: command
     short-summary: "Get taskDefinitions from print"
 """
 
-helps['devicescloudprint list-connector'] = """
+helps['devicescloudprint print list-connector'] = """
     type: command
     short-summary: "Get connectors from print"
 """
 
-helps['devicescloudprint list-operation'] = """
+helps['devicescloudprint print list-operation'] = """
     type: command
     short-summary: "Get operations from print"
 """
 
-helps['devicescloudprint list-printer'] = """
+helps['devicescloudprint print list-printer'] = """
     type: command
     short-summary: "Get printers from print"
 """
 
-helps['devicescloudprint list-printer-share'] = """
+helps['devicescloudprint print list-printer-share'] = """
     type: command
     short-summary: "Get printerShares from print"
 """
 
-helps['devicescloudprint list-report'] = """
+helps['devicescloudprint print list-report'] = """
     type: command
     short-summary: "Get reports from print"
 """
 
-helps['devicescloudprint list-service'] = """
+helps['devicescloudprint print list-service'] = """
     type: command
     short-summary: "Get services from print"
 """
 
-helps['devicescloudprint list-share'] = """
+helps['devicescloudprint print list-share'] = """
     type: command
     short-summary: "Get shares from print"
 """
 
-helps['devicescloudprint list-task-definition'] = """
+helps['devicescloudprint print list-task-definition'] = """
     type: command
     short-summary: "Get taskDefinitions from print"
 """
 
-helps['devicescloudprint update-connector'] = """
+helps['devicescloudprint print update-connector'] = """
     type: command
     short-summary: "Update the navigation property connectors in print"
     parameters:
@@ -429,12 +429,12 @@ state-or-province=XX street-address=XX subdivision=XX subunit=XX
 
 """
 
-helps['devicescloudprint update-operation'] = """
+helps['devicescloudprint print update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in print"
 """
 
-helps['devicescloudprint update-printer'] = """
+helps['devicescloudprint print update-printer'] = """
     type: command
     short-summary: "Update the navigation property printers in print"
     parameters:
@@ -490,7 +490,7 @@ processing-state-reasons=XX state=XX
             Multiple actions can be specified by using more than one --allowed-users argument.
 """
 
-helps['devicescloudprint update-printer-share'] = """
+helps['devicescloudprint print update-printer-share'] = """
     type: command
     short-summary: "Update the navigation property printerShares in print"
     parameters:
@@ -546,7 +546,7 @@ processing-state-reasons=XX state=XX
             Multiple actions can be specified by using more than one --allowed-users argument.
 """
 
-helps['devicescloudprint update-report'] = """
+helps['devicescloudprint print update-report'] = """
     type: command
     short-summary: "Update the navigation property reports in print"
     parameters:
@@ -615,7 +615,7 @@ completed-color-job-count=XX incomplete-job-count=XX usage-date=XX user-principa
             Multiple actions can be specified by using more than one --monthly-print-usage-summaries-by-user argument.
 """
 
-helps['devicescloudprint update-service'] = """
+helps['devicescloudprint print update-service'] = """
     type: command
     short-summary: "Update the navigation property services in print"
     parameters:
@@ -628,7 +628,7 @@ helps['devicescloudprint update-service'] = """
             Multiple actions can be specified by using more than one --endpoints argument.
 """
 
-helps['devicescloudprint update-share'] = """
+helps['devicescloudprint print update-share'] = """
     type: command
     short-summary: "Update the navigation property shares in print"
     parameters:
@@ -684,7 +684,7 @@ processing-state-reasons=XX state=XX
             Multiple actions can be specified by using more than one --allowed-users argument.
 """
 
-helps['devicescloudprint update-task-definition'] = """
+helps['devicescloudprint print update-task-definition'] = """
     type: command
     short-summary: "Update the navigation property taskDefinitions in print"
     parameters:
@@ -700,12 +700,12 @@ for the corresponding App.
             service-principal-name: Refers to the Service Principal Name is the Application name in the tenant.
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-printer'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-printer
 """
 
-helps['devicescloudprint create'] = """
+helps['devicescloudprint print-printer create'] = """
     type: command
     short-summary: "Invoke action create"
     parameters:
@@ -716,427 +716,427 @@ helps['devicescloudprint create'] = """
 
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-printer delete'] = """
     type: command
     short-summary: "Delete ref of navigation property share for print"
 """
 
-helps['devicescloudprint create-allowed-group'] = """
+helps['devicescloudprint print-printer create-allowed-group'] = """
     type: command
     short-summary: "Create new navigation property to allowedGroups for print"
 """
 
-helps['devicescloudprint create-allowed-user'] = """
+helps['devicescloudprint print-printer create-allowed-user'] = """
     type: command
     short-summary: "Create new navigation property to allowedUsers for print"
 """
 
-helps['devicescloudprint create-ref-connector'] = """
+helps['devicescloudprint print-printer create-ref-connector'] = """
     type: command
     short-summary: "Create new navigation property ref to connectors for print"
 """
 
-helps['devicescloudprint create-ref-share'] = """
+helps['devicescloudprint print-printer create-ref-share'] = """
     type: command
     short-summary: "Create new navigation property ref to shares for print"
 """
 
-helps['devicescloudprint create-task-trigger'] = """
+helps['devicescloudprint print-printer create-task-trigger'] = """
     type: command
     short-summary: "Create new navigation property to taskTriggers for print"
 """
 
-helps['devicescloudprint get-allowed-group'] = """
+helps['devicescloudprint print-printer get-allowed-group'] = """
     type: command
     short-summary: "Get allowedGroups from print"
 """
 
-helps['devicescloudprint get-allowed-user'] = """
+helps['devicescloudprint print-printer get-allowed-user'] = """
     type: command
     short-summary: "Get allowedUsers from print"
 """
 
-helps['devicescloudprint get-capability'] = """
+helps['devicescloudprint print-printer get-capability'] = """
     type: command
     short-summary: "Invoke function getCapabilities"
 """
 
-helps['devicescloudprint get-ref-share'] = """
+helps['devicescloudprint print-printer get-ref-share'] = """
     type: command
     short-summary: "Get ref of share from print"
 """
 
-helps['devicescloudprint get-share'] = """
+helps['devicescloudprint print-printer get-share'] = """
     type: command
     short-summary: "Get share from print"
 """
 
-helps['devicescloudprint get-task-trigger'] = """
+helps['devicescloudprint print-printer get-task-trigger'] = """
     type: command
     short-summary: "Get taskTriggers from print"
 """
 
-helps['devicescloudprint list-allowed-group'] = """
+helps['devicescloudprint print-printer list-allowed-group'] = """
     type: command
     short-summary: "Get allowedGroups from print"
 """
 
-helps['devicescloudprint list-allowed-user'] = """
+helps['devicescloudprint print-printer list-allowed-user'] = """
     type: command
     short-summary: "Get allowedUsers from print"
 """
 
-helps['devicescloudprint list-connector'] = """
+helps['devicescloudprint print-printer list-connector'] = """
     type: command
     short-summary: "Get connectors from print"
 """
 
-helps['devicescloudprint list-ref-connector'] = """
+helps['devicescloudprint print-printer list-ref-connector'] = """
     type: command
     short-summary: "Get ref of connectors from print"
 """
 
-helps['devicescloudprint list-ref-share'] = """
+helps['devicescloudprint print-printer list-ref-share'] = """
     type: command
     short-summary: "Get ref of shares from print"
 """
 
-helps['devicescloudprint list-share'] = """
+helps['devicescloudprint print-printer list-share'] = """
     type: command
     short-summary: "Get shares from print"
 """
 
-helps['devicescloudprint list-task-trigger'] = """
+helps['devicescloudprint print-printer list-task-trigger'] = """
     type: command
     short-summary: "Get taskTriggers from print"
 """
 
-helps['devicescloudprint reset-default'] = """
+helps['devicescloudprint print-printer reset-default'] = """
     type: command
     short-summary: "Invoke action resetDefaults"
 """
 
-helps['devicescloudprint restore-factory-default'] = """
+helps['devicescloudprint print-printer restore-factory-default'] = """
     type: command
     short-summary: "Invoke action restoreFactoryDefaults"
 """
 
-helps['devicescloudprint set-ref-share'] = """
+helps['devicescloudprint print-printer set-ref-share'] = """
     type: command
     short-summary: "Update the ref of navigation property share in print"
 """
 
-helps['devicescloudprint update-allowed-group'] = """
+helps['devicescloudprint print-printer update-allowed-group'] = """
     type: command
     short-summary: "Update the navigation property allowedGroups in print"
 """
 
-helps['devicescloudprint update-allowed-user'] = """
+helps['devicescloudprint print-printer update-allowed-user'] = """
     type: command
     short-summary: "Update the navigation property allowedUsers in print"
 """
 
-helps['devicescloudprint update-task-trigger'] = """
+helps['devicescloudprint print-printer update-task-trigger'] = """
     type: command
     short-summary: "Update the navigation property taskTriggers in print"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-printer-task-trigger'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-printer-task-trigger
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-printer-task-trigger delete'] = """
     type: command
     short-summary: "Delete ref of navigation property definition for print"
 """
 
-helps['devicescloudprint get-definition'] = """
+helps['devicescloudprint print-printer-task-trigger get-definition'] = """
     type: command
     short-summary: "Get definition from print"
 """
 
-helps['devicescloudprint get-ref-definition'] = """
+helps['devicescloudprint print-printer-task-trigger get-ref-definition'] = """
     type: command
     short-summary: "Get ref of definition from print"
 """
 
-helps['devicescloudprint set-ref-definition'] = """
+helps['devicescloudprint print-printer-task-trigger set-ref-definition'] = """
     type: command
     short-summary: "Update the ref of navigation property definition in print"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-printer-share'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-printer-share
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-printer-share delete'] = """
     type: command
     short-summary: "Delete ref of navigation property printer for print"
 """
 
-helps['devicescloudprint create-allowed-group'] = """
+helps['devicescloudprint print-printer-share create-allowed-group'] = """
     type: command
     short-summary: "Create new navigation property to allowedGroups for print"
 """
 
-helps['devicescloudprint create-allowed-user'] = """
+helps['devicescloudprint print-printer-share create-allowed-user'] = """
     type: command
     short-summary: "Create new navigation property to allowedUsers for print"
 """
 
-helps['devicescloudprint get-allowed-group'] = """
+helps['devicescloudprint print-printer-share get-allowed-group'] = """
     type: command
     short-summary: "Get allowedGroups from print"
 """
 
-helps['devicescloudprint get-allowed-user'] = """
+helps['devicescloudprint print-printer-share get-allowed-user'] = """
     type: command
     short-summary: "Get allowedUsers from print"
 """
 
-helps['devicescloudprint get-printer'] = """
+helps['devicescloudprint print-printer-share get-printer'] = """
     type: command
     short-summary: "Get printer from print"
 """
 
-helps['devicescloudprint get-ref-printer'] = """
+helps['devicescloudprint print-printer-share get-ref-printer'] = """
     type: command
     short-summary: "Get ref of printer from print"
 """
 
-helps['devicescloudprint list-allowed-group'] = """
+helps['devicescloudprint print-printer-share list-allowed-group'] = """
     type: command
     short-summary: "Get allowedGroups from print"
 """
 
-helps['devicescloudprint list-allowed-user'] = """
+helps['devicescloudprint print-printer-share list-allowed-user'] = """
     type: command
     short-summary: "Get allowedUsers from print"
 """
 
-helps['devicescloudprint set-ref-printer'] = """
+helps['devicescloudprint print-printer-share set-ref-printer'] = """
     type: command
     short-summary: "Update the ref of navigation property printer in print"
 """
 
-helps['devicescloudprint update-allowed-group'] = """
+helps['devicescloudprint print-printer-share update-allowed-group'] = """
     type: command
     short-summary: "Update the navigation property allowedGroups in print"
 """
 
-helps['devicescloudprint update-allowed-user'] = """
+helps['devicescloudprint print-printer-share update-allowed-user'] = """
     type: command
     short-summary: "Update the navigation property allowedUsers in print"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-printer-share-printer'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-printer-share-printer
 """
 
-helps['devicescloudprint get-capability'] = """
+helps['devicescloudprint print-printer-share-printer get-capability'] = """
     type: command
     short-summary: "Invoke function getCapabilities"
 """
 
-helps['devicescloudprint reset-default'] = """
+helps['devicescloudprint print-printer-share-printer reset-default'] = """
     type: command
     short-summary: "Invoke action resetDefaults"
 """
 
-helps['devicescloudprint restore-factory-default'] = """
+helps['devicescloudprint print-printer-share-printer restore-factory-default'] = """
     type: command
     short-summary: "Invoke action restoreFactoryDefaults"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-report'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-report
 """
 
-helps['devicescloudprint get-group-archived-print-job'] = """
+helps['devicescloudprint print-report get-group-archived-print-job'] = """
     type: command
     short-summary: "Invoke function getGroupArchivedPrintJobs"
 """
 
-helps['devicescloudprint get-group-print-usage-summary'] = """
+helps['devicescloudprint print-report get-group-print-usage-summary'] = """
     type: command
     short-summary: "Invoke function getGroupPrintUsageSummary"
 """
 
-helps['devicescloudprint get-overall-print-usage-summary'] = """
+helps['devicescloudprint print-report get-overall-print-usage-summary'] = """
     type: command
     short-summary: "Invoke function getOverallPrintUsageSummary"
 """
 
-helps['devicescloudprint get-print-usage-summary-by-group'] = """
+helps['devicescloudprint print-report get-print-usage-summary-by-group'] = """
     type: command
     short-summary: "Invoke function getPrintUsageSummariesByGroup"
 """
 
-helps['devicescloudprint get-print-usage-summary-by-printer'] = """
+helps['devicescloudprint print-report get-print-usage-summary-by-printer'] = """
     type: command
     short-summary: "Invoke function getPrintUsageSummariesByPrinter"
 """
 
-helps['devicescloudprint get-print-usage-summary-by-time-span'] = """
+helps['devicescloudprint print-report get-print-usage-summary-by-time-span'] = """
     type: command
     short-summary: "Invoke function getPrintUsageSummariesByTimeSpan"
 """
 
-helps['devicescloudprint get-print-usage-summary-by-user'] = """
+helps['devicescloudprint print-report get-print-usage-summary-by-user'] = """
     type: command
     short-summary: "Invoke function getPrintUsageSummariesByUser"
 """
 
-helps['devicescloudprint get-printer-archived-print-job'] = """
+helps['devicescloudprint print-report get-printer-archived-print-job'] = """
     type: command
     short-summary: "Invoke function getPrinterArchivedPrintJobs"
 """
 
-helps['devicescloudprint get-printer-usage-summary'] = """
+helps['devicescloudprint print-report get-printer-usage-summary'] = """
     type: command
     short-summary: "Invoke function getPrinterUsageSummary"
 """
 
-helps['devicescloudprint get-user-archived-print-job'] = """
+helps['devicescloudprint print-report get-user-archived-print-job'] = """
     type: command
     short-summary: "Invoke function getUserArchivedPrintJobs"
 """
 
-helps['devicescloudprint get-user-print-usage-summary'] = """
+helps['devicescloudprint print-report get-user-print-usage-summary'] = """
     type: command
     short-summary: "Invoke function getUserPrintUsageSummary"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-service'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-service
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-service delete'] = """
     type: command
     short-summary: "Delete navigation property endpoints for print"
 """
 
-helps['devicescloudprint create-endpoint'] = """
+helps['devicescloudprint print-service create-endpoint'] = """
     type: command
     short-summary: "Create new navigation property to endpoints for print"
 """
 
-helps['devicescloudprint get-endpoint'] = """
+helps['devicescloudprint print-service get-endpoint'] = """
     type: command
     short-summary: "Get endpoints from print"
 """
 
-helps['devicescloudprint list-endpoint'] = """
+helps['devicescloudprint print-service list-endpoint'] = """
     type: command
     short-summary: "Get endpoints from print"
 """
 
-helps['devicescloudprint update-endpoint'] = """
+helps['devicescloudprint print-service update-endpoint'] = """
     type: command
     short-summary: "Update the navigation property endpoints in print"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-share'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-share
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-share delete'] = """
     type: command
     short-summary: "Delete ref of navigation property printer for print"
 """
 
-helps['devicescloudprint create-allowed-group'] = """
+helps['devicescloudprint print-share create-allowed-group'] = """
     type: command
     short-summary: "Create new navigation property to allowedGroups for print"
 """
 
-helps['devicescloudprint create-allowed-user'] = """
+helps['devicescloudprint print-share create-allowed-user'] = """
     type: command
     short-summary: "Create new navigation property to allowedUsers for print"
 """
 
-helps['devicescloudprint get-allowed-group'] = """
+helps['devicescloudprint print-share get-allowed-group'] = """
     type: command
     short-summary: "Get allowedGroups from print"
 """
 
-helps['devicescloudprint get-allowed-user'] = """
+helps['devicescloudprint print-share get-allowed-user'] = """
     type: command
     short-summary: "Get allowedUsers from print"
 """
 
-helps['devicescloudprint get-printer'] = """
+helps['devicescloudprint print-share get-printer'] = """
     type: command
     short-summary: "Get printer from print"
 """
 
-helps['devicescloudprint get-ref-printer'] = """
+helps['devicescloudprint print-share get-ref-printer'] = """
     type: command
     short-summary: "Get ref of printer from print"
 """
 
-helps['devicescloudprint list-allowed-group'] = """
+helps['devicescloudprint print-share list-allowed-group'] = """
     type: command
     short-summary: "Get allowedGroups from print"
 """
 
-helps['devicescloudprint list-allowed-user'] = """
+helps['devicescloudprint print-share list-allowed-user'] = """
     type: command
     short-summary: "Get allowedUsers from print"
 """
 
-helps['devicescloudprint set-ref-printer'] = """
+helps['devicescloudprint print-share set-ref-printer'] = """
     type: command
     short-summary: "Update the ref of navigation property printer in print"
 """
 
-helps['devicescloudprint update-allowed-group'] = """
+helps['devicescloudprint print-share update-allowed-group'] = """
     type: command
     short-summary: "Update the navigation property allowedGroups in print"
 """
 
-helps['devicescloudprint update-allowed-user'] = """
+helps['devicescloudprint print-share update-allowed-user'] = """
     type: command
     short-summary: "Update the navigation property allowedUsers in print"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-share-printer'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-share-printer
 """
 
-helps['devicescloudprint get-capability'] = """
+helps['devicescloudprint print-share-printer get-capability'] = """
     type: command
     short-summary: "Invoke function getCapabilities"
 """
 
-helps['devicescloudprint reset-default'] = """
+helps['devicescloudprint print-share-printer reset-default'] = """
     type: command
     short-summary: "Invoke action resetDefaults"
 """
 
-helps['devicescloudprint restore-factory-default'] = """
+helps['devicescloudprint print-share-printer restore-factory-default'] = """
     type: command
     short-summary: "Invoke action restoreFactoryDefaults"
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-task-definition'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-task-definition
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-task-definition delete'] = """
     type: command
     short-summary: "Delete navigation property tasks for print"
 """
 
-helps['devicescloudprint create-task'] = """
+helps['devicescloudprint print-task-definition create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for print"
     parameters:
@@ -1147,17 +1147,17 @@ helps['devicescloudprint create-task'] = """
 
 """
 
-helps['devicescloudprint get-task'] = """
+helps['devicescloudprint print-task-definition get-task'] = """
     type: command
     short-summary: "Get tasks from print"
 """
 
-helps['devicescloudprint list-task'] = """
+helps['devicescloudprint print-task-definition list-task'] = """
     type: command
     short-summary: "Get tasks from print"
 """
 
-helps['devicescloudprint update-task'] = """
+helps['devicescloudprint print-task-definition update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in print"
     parameters:
@@ -1168,42 +1168,42 @@ helps['devicescloudprint update-task'] = """
 
 """
 
-helps['devicescloudprint'] = """
+helps['devicescloudprint print-task-definition-task'] = """
     type: group
-    short-summary: devicescloudprint
+    short-summary: devicescloudprint print-task-definition-task
 """
 
-helps['devicescloudprint delete'] = """
+helps['devicescloudprint print-task-definition-task delete'] = """
     type: command
     short-summary: "Delete ref of navigation property trigger for print"
 """
 
-helps['devicescloudprint get-definition'] = """
+helps['devicescloudprint print-task-definition-task get-definition'] = """
     type: command
     short-summary: "Get definition from print"
 """
 
-helps['devicescloudprint get-ref-definition'] = """
+helps['devicescloudprint print-task-definition-task get-ref-definition'] = """
     type: command
     short-summary: "Get ref of definition from print"
 """
 
-helps['devicescloudprint get-ref-trigger'] = """
+helps['devicescloudprint print-task-definition-task get-ref-trigger'] = """
     type: command
     short-summary: "Get ref of trigger from print"
 """
 
-helps['devicescloudprint get-trigger'] = """
+helps['devicescloudprint print-task-definition-task get-trigger'] = """
     type: command
     short-summary: "Get trigger from print"
 """
 
-helps['devicescloudprint set-ref-definition'] = """
+helps['devicescloudprint print-task-definition-task set-ref-definition'] = """
     type: command
     short-summary: "Update the ref of navigation property definition in print"
 """
 
-helps['devicescloudprint set-ref-trigger'] = """
+helps['devicescloudprint print-task-definition-task set-ref-trigger'] = """
     type: command
     short-summary: "Update the ref of navigation property trigger in print"
 """

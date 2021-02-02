@@ -579,15 +579,173 @@ class EducationOperations:
 
     async def update_me(
         self,
-        body: "models.MicrosoftGraphEducationUser",
+        id: Optional[str] = None,
+        related_contacts: Optional[List["models.MicrosoftGraphRelatedContact"]] = None,
+        account_enabled: Optional[bool] = None,
+        assigned_licenses: Optional[List["models.MicrosoftGraphAssignedLicense"]] = None,
+        assigned_plans: Optional[List["models.MicrosoftGraphAssignedPlan"]] = None,
+        business_phones: Optional[List[str]] = None,
+        department: Optional[str] = None,
+        display_name: Optional[str] = None,
+        external_source: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]] = None,
+        external_source_detail: Optional[str] = None,
+        given_name: Optional[str] = None,
+        mail: Optional[str] = None,
+        mailing_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
+        mail_nickname: Optional[str] = None,
+        middle_name: Optional[str] = None,
+        mobile_phone: Optional[str] = None,
+        office_location: Optional[str] = None,
+        password_policies: Optional[str] = None,
+        password_profile: Optional["models.MicrosoftGraphPasswordProfile"] = None,
+        preferred_language: Optional[str] = None,
+        primary_role: Optional[Union[str, "models.MicrosoftGraphEducationUserRole"]] = None,
+        provisioned_plans: Optional[List["models.MicrosoftGraphProvisionedPlan"]] = None,
+        refresh_tokens_valid_from_date_time: Optional[datetime.datetime] = None,
+        residence_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
+        show_in_address_list: Optional[bool] = None,
+        student: Optional["models.MicrosoftGraphEducationStudent"] = None,
+        surname: Optional[str] = None,
+        teacher: Optional["models.MicrosoftGraphEducationTeacher"] = None,
+        usage_location: Optional[str] = None,
+        user_principal_name: Optional[str] = None,
+        user_type: Optional[str] = None,
+        assignments: Optional[List["models.MicrosoftGraphEducationAssignment"]] = None,
+        rubrics: Optional[List["models.MicrosoftGraphEducationRubric"]] = None,
+        classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
+        schools: Optional[List["models.MicrosoftGraphEducationSchool"]] = None,
+        taught_classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
+        user: Optional["models.MicrosoftGraphUser"] = None,
+        immutable_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id2: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property me in education.
 
         Update the navigation property me in education.
 
-        :param body: New navigation property values.
-        :type body: ~education.models.MicrosoftGraphEducationUser
+        :param id: Read-only.
+        :type id: str
+        :param related_contacts: Set of contacts related to the user.  This optional property must be
+         specified in a $select clause and can only be retrieved for an individual user.
+        :type related_contacts: list[~education.models.MicrosoftGraphRelatedContact]
+        :param account_enabled: True if the account is enabled; otherwise, false. This property is
+         required when a user is created. Supports $filter.
+        :type account_enabled: bool
+        :param assigned_licenses: The licenses that are assigned to the user. Not nullable.
+        :type assigned_licenses: list[~education.models.MicrosoftGraphAssignedLicense]
+        :param assigned_plans: The plans that are assigned to the user. Read-only. Not nullable.
+        :type assigned_plans: list[~education.models.MicrosoftGraphAssignedPlan]
+        :param business_phones: The telephone numbers for the user. Note: Although this is a string
+         collection, only one number can be set for this property.
+        :type business_phones: list[str]
+        :param department: The name for the department in which the user works. Supports $filter.
+        :type department: str
+        :param display_name: The name displayed in the address book for the user. This is usually the
+         combination of the user's first name, middle initial, and last name. This property is required
+         when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.
+        :type display_name: str
+        :param external_source:
+        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
+        :param external_source_detail:
+        :type external_source_detail: str
+        :param given_name: The given name (first name) of the user. Supports $filter.
+        :type given_name: str
+        :param mail: The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-
+         Only. Supports $filter.
+        :type mail: str
+        :param mailing_address: physicalAddress.
+        :type mailing_address: ~education.models.MicrosoftGraphPhysicalAddress
+        :param mail_nickname: The mail alias for the user. This property must be specified when a user
+         is created. Supports $filter.
+        :type mail_nickname: str
+        :param middle_name: The middle name of user.
+        :type middle_name: str
+        :param mobile_phone: The primary cellular telephone number for the user.
+        :type mobile_phone: str
+        :param office_location:
+        :type office_location: str
+        :param password_policies: Specifies password policies for the user. This value is an
+         enumeration with one possible value being 'DisableStrongPassword', which allows weaker
+         passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be
+         specified. The two can be specified together; for example: 'DisablePasswordExpiration,
+         DisableStrongPassword'.
+        :type password_policies: str
+        :param password_profile: passwordProfile.
+        :type password_profile: ~education.models.MicrosoftGraphPasswordProfile
+        :param preferred_language: The preferred language for the user. Should follow ISO 639-1 Code;
+         for example, 'en-US'.
+        :type preferred_language: str
+        :param primary_role:
+        :type primary_role: str or ~education.models.MicrosoftGraphEducationUserRole
+        :param provisioned_plans: The plans that are provisioned for the user. Read-only. Not nullable.
+        :type provisioned_plans: list[~education.models.MicrosoftGraphProvisionedPlan]
+        :param refresh_tokens_valid_from_date_time:
+        :type refresh_tokens_valid_from_date_time: ~datetime.datetime
+        :param residence_address: physicalAddress.
+        :type residence_address: ~education.models.MicrosoftGraphPhysicalAddress
+        :param show_in_address_list:
+        :type show_in_address_list: bool
+        :param student: educationStudent.
+        :type student: ~education.models.MicrosoftGraphEducationStudent
+        :param surname: The user's surname (family name or last name). Supports $filter.
+        :type surname: str
+        :param teacher: educationTeacher.
+        :type teacher: ~education.models.MicrosoftGraphEducationTeacher
+        :param usage_location: A two-letter country code (ISO standard 3166). Required for users who
+         will be assigned licenses due to a legal requirement to check for availability of services in
+         countries or regions. Examples include: 'US', 'JP', and 'GB'. Not nullable. Supports $filter.
+        :type usage_location: str
+        :param user_principal_name: The user principal name (UPN) of the user. The UPN is an Internet-
+         style login name for the user based on the Internet standard RFC 822. By convention, this
+         should map to the user's email name. The general format is alias@domain, where domain must be
+         present in the tenant's collection of verified domains. This property is required when a user
+         is created. The verified domains for the tenant can be accessed from the verifiedDomains
+         property of organization. Supports $filter and $orderby.
+        :type user_principal_name: str
+        :param user_type: A string value that can be used to classify user types in your directory,
+         such as 'Member' and 'Guest'. Supports $filter.
+        :type user_type: str
+        :param assignments: List of assignments for the user. Nullable.
+        :type assignments: list[~education.models.MicrosoftGraphEducationAssignment]
+        :param rubrics:
+        :type rubrics: list[~education.models.MicrosoftGraphEducationRubric]
+        :param classes: Classes to which the user belongs. Nullable.
+        :type classes: list[~education.models.MicrosoftGraphEducationClass]
+        :param schools: Schools to which the user belongs. Nullable.
+        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
+        :param taught_classes:
+        :type taught_classes: list[~education.models.MicrosoftGraphEducationClass]
+        :param user: Represents an Azure Active Directory user object.
+        :type user: ~education.models.MicrosoftGraphUser
+        :param immutable_id:
+        :type immutable_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -596,6 +754,8 @@ class EducationOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEducationUser(id=id, related_contacts=related_contacts, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, external_source_detail=external_source_detail, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, assignments=assignments, rubrics=rubrics, classes=classes, schools=schools, taught_classes=taught_classes, user=user, immutable_id=immutable_id, display_name_created_by_user_display_name=microsoft_graph_identity_display_name, id_created_by_user_id=microsoft_graph_identity_id, display_name_created_by_device_display_name=display_name1, id_created_by_device_id=id1, display_name_created_by_application_display_name=display_name2, id_created_by_application_id=id2)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -611,7 +771,7 @@ class EducationOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1674,15 +1834,173 @@ class EducationOperations:
 
     async def create_user(
         self,
-        body: "models.MicrosoftGraphEducationUser",
+        id: Optional[str] = None,
+        related_contacts: Optional[List["models.MicrosoftGraphRelatedContact"]] = None,
+        account_enabled: Optional[bool] = None,
+        assigned_licenses: Optional[List["models.MicrosoftGraphAssignedLicense"]] = None,
+        assigned_plans: Optional[List["models.MicrosoftGraphAssignedPlan"]] = None,
+        business_phones: Optional[List[str]] = None,
+        department: Optional[str] = None,
+        display_name: Optional[str] = None,
+        external_source: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]] = None,
+        external_source_detail: Optional[str] = None,
+        given_name: Optional[str] = None,
+        mail: Optional[str] = None,
+        mailing_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
+        mail_nickname: Optional[str] = None,
+        middle_name: Optional[str] = None,
+        mobile_phone: Optional[str] = None,
+        office_location: Optional[str] = None,
+        password_policies: Optional[str] = None,
+        password_profile: Optional["models.MicrosoftGraphPasswordProfile"] = None,
+        preferred_language: Optional[str] = None,
+        primary_role: Optional[Union[str, "models.MicrosoftGraphEducationUserRole"]] = None,
+        provisioned_plans: Optional[List["models.MicrosoftGraphProvisionedPlan"]] = None,
+        refresh_tokens_valid_from_date_time: Optional[datetime.datetime] = None,
+        residence_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
+        show_in_address_list: Optional[bool] = None,
+        student: Optional["models.MicrosoftGraphEducationStudent"] = None,
+        surname: Optional[str] = None,
+        teacher: Optional["models.MicrosoftGraphEducationTeacher"] = None,
+        usage_location: Optional[str] = None,
+        user_principal_name: Optional[str] = None,
+        user_type: Optional[str] = None,
+        assignments: Optional[List["models.MicrosoftGraphEducationAssignment"]] = None,
+        rubrics: Optional[List["models.MicrosoftGraphEducationRubric"]] = None,
+        classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
+        schools: Optional[List["models.MicrosoftGraphEducationSchool"]] = None,
+        taught_classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
+        user: Optional["models.MicrosoftGraphUser"] = None,
+        immutable_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id2: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphEducationUser":
         """Create new navigation property to users for education.
 
         Create new navigation property to users for education.
 
-        :param body: New navigation property.
-        :type body: ~education.models.MicrosoftGraphEducationUser
+        :param id: Read-only.
+        :type id: str
+        :param related_contacts: Set of contacts related to the user.  This optional property must be
+         specified in a $select clause and can only be retrieved for an individual user.
+        :type related_contacts: list[~education.models.MicrosoftGraphRelatedContact]
+        :param account_enabled: True if the account is enabled; otherwise, false. This property is
+         required when a user is created. Supports $filter.
+        :type account_enabled: bool
+        :param assigned_licenses: The licenses that are assigned to the user. Not nullable.
+        :type assigned_licenses: list[~education.models.MicrosoftGraphAssignedLicense]
+        :param assigned_plans: The plans that are assigned to the user. Read-only. Not nullable.
+        :type assigned_plans: list[~education.models.MicrosoftGraphAssignedPlan]
+        :param business_phones: The telephone numbers for the user. Note: Although this is a string
+         collection, only one number can be set for this property.
+        :type business_phones: list[str]
+        :param department: The name for the department in which the user works. Supports $filter.
+        :type department: str
+        :param display_name: The name displayed in the address book for the user. This is usually the
+         combination of the user's first name, middle initial, and last name. This property is required
+         when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.
+        :type display_name: str
+        :param external_source:
+        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
+        :param external_source_detail:
+        :type external_source_detail: str
+        :param given_name: The given name (first name) of the user. Supports $filter.
+        :type given_name: str
+        :param mail: The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-
+         Only. Supports $filter.
+        :type mail: str
+        :param mailing_address: physicalAddress.
+        :type mailing_address: ~education.models.MicrosoftGraphPhysicalAddress
+        :param mail_nickname: The mail alias for the user. This property must be specified when a user
+         is created. Supports $filter.
+        :type mail_nickname: str
+        :param middle_name: The middle name of user.
+        :type middle_name: str
+        :param mobile_phone: The primary cellular telephone number for the user.
+        :type mobile_phone: str
+        :param office_location:
+        :type office_location: str
+        :param password_policies: Specifies password policies for the user. This value is an
+         enumeration with one possible value being 'DisableStrongPassword', which allows weaker
+         passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be
+         specified. The two can be specified together; for example: 'DisablePasswordExpiration,
+         DisableStrongPassword'.
+        :type password_policies: str
+        :param password_profile: passwordProfile.
+        :type password_profile: ~education.models.MicrosoftGraphPasswordProfile
+        :param preferred_language: The preferred language for the user. Should follow ISO 639-1 Code;
+         for example, 'en-US'.
+        :type preferred_language: str
+        :param primary_role:
+        :type primary_role: str or ~education.models.MicrosoftGraphEducationUserRole
+        :param provisioned_plans: The plans that are provisioned for the user. Read-only. Not nullable.
+        :type provisioned_plans: list[~education.models.MicrosoftGraphProvisionedPlan]
+        :param refresh_tokens_valid_from_date_time:
+        :type refresh_tokens_valid_from_date_time: ~datetime.datetime
+        :param residence_address: physicalAddress.
+        :type residence_address: ~education.models.MicrosoftGraphPhysicalAddress
+        :param show_in_address_list:
+        :type show_in_address_list: bool
+        :param student: educationStudent.
+        :type student: ~education.models.MicrosoftGraphEducationStudent
+        :param surname: The user's surname (family name or last name). Supports $filter.
+        :type surname: str
+        :param teacher: educationTeacher.
+        :type teacher: ~education.models.MicrosoftGraphEducationTeacher
+        :param usage_location: A two-letter country code (ISO standard 3166). Required for users who
+         will be assigned licenses due to a legal requirement to check for availability of services in
+         countries or regions. Examples include: 'US', 'JP', and 'GB'. Not nullable. Supports $filter.
+        :type usage_location: str
+        :param user_principal_name: The user principal name (UPN) of the user. The UPN is an Internet-
+         style login name for the user based on the Internet standard RFC 822. By convention, this
+         should map to the user's email name. The general format is alias@domain, where domain must be
+         present in the tenant's collection of verified domains. This property is required when a user
+         is created. The verified domains for the tenant can be accessed from the verifiedDomains
+         property of organization. Supports $filter and $orderby.
+        :type user_principal_name: str
+        :param user_type: A string value that can be used to classify user types in your directory,
+         such as 'Member' and 'Guest'. Supports $filter.
+        :type user_type: str
+        :param assignments: List of assignments for the user. Nullable.
+        :type assignments: list[~education.models.MicrosoftGraphEducationAssignment]
+        :param rubrics:
+        :type rubrics: list[~education.models.MicrosoftGraphEducationRubric]
+        :param classes: Classes to which the user belongs. Nullable.
+        :type classes: list[~education.models.MicrosoftGraphEducationClass]
+        :param schools: Schools to which the user belongs. Nullable.
+        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
+        :param taught_classes:
+        :type taught_classes: list[~education.models.MicrosoftGraphEducationClass]
+        :param user: Represents an Azure Active Directory user object.
+        :type user: ~education.models.MicrosoftGraphUser
+        :param immutable_id:
+        :type immutable_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphEducationUser, or the result of cls(response)
         :rtype: ~education.models.MicrosoftGraphEducationUser
@@ -1691,6 +2009,8 @@ class EducationOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEducationUser(id=id, related_contacts=related_contacts, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, external_source_detail=external_source_detail, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, assignments=assignments, rubrics=rubrics, classes=classes, schools=schools, taught_classes=taught_classes, user=user, immutable_id=immutable_id, display_name_created_by_user_display_name=microsoft_graph_identity_display_name, id_created_by_user_id=microsoft_graph_identity_id, display_name_created_by_device_display_name=display_name1, id_created_by_device_id=id1, display_name_created_by_application_display_name=display_name2, id_created_by_application_id=id2)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1707,7 +2027,7 @@ class EducationOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1793,7 +2113,50 @@ class EducationOperations:
     async def update_user(
         self,
         education_user_id: str,
-        body: "models.MicrosoftGraphEducationUser",
+        id: Optional[str] = None,
+        related_contacts: Optional[List["models.MicrosoftGraphRelatedContact"]] = None,
+        account_enabled: Optional[bool] = None,
+        assigned_licenses: Optional[List["models.MicrosoftGraphAssignedLicense"]] = None,
+        assigned_plans: Optional[List["models.MicrosoftGraphAssignedPlan"]] = None,
+        business_phones: Optional[List[str]] = None,
+        department: Optional[str] = None,
+        display_name: Optional[str] = None,
+        external_source: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]] = None,
+        external_source_detail: Optional[str] = None,
+        given_name: Optional[str] = None,
+        mail: Optional[str] = None,
+        mailing_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
+        mail_nickname: Optional[str] = None,
+        middle_name: Optional[str] = None,
+        mobile_phone: Optional[str] = None,
+        office_location: Optional[str] = None,
+        password_policies: Optional[str] = None,
+        password_profile: Optional["models.MicrosoftGraphPasswordProfile"] = None,
+        preferred_language: Optional[str] = None,
+        primary_role: Optional[Union[str, "models.MicrosoftGraphEducationUserRole"]] = None,
+        provisioned_plans: Optional[List["models.MicrosoftGraphProvisionedPlan"]] = None,
+        refresh_tokens_valid_from_date_time: Optional[datetime.datetime] = None,
+        residence_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
+        show_in_address_list: Optional[bool] = None,
+        student: Optional["models.MicrosoftGraphEducationStudent"] = None,
+        surname: Optional[str] = None,
+        teacher: Optional["models.MicrosoftGraphEducationTeacher"] = None,
+        usage_location: Optional[str] = None,
+        user_principal_name: Optional[str] = None,
+        user_type: Optional[str] = None,
+        assignments: Optional[List["models.MicrosoftGraphEducationAssignment"]] = None,
+        rubrics: Optional[List["models.MicrosoftGraphEducationRubric"]] = None,
+        classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
+        schools: Optional[List["models.MicrosoftGraphEducationSchool"]] = None,
+        taught_classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
+        user: Optional["models.MicrosoftGraphUser"] = None,
+        immutable_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id2: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property users in education.
@@ -1802,8 +2165,123 @@ class EducationOperations:
 
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
-        :param body: New navigation property values.
-        :type body: ~education.models.MicrosoftGraphEducationUser
+        :param id: Read-only.
+        :type id: str
+        :param related_contacts: Set of contacts related to the user.  This optional property must be
+         specified in a $select clause and can only be retrieved for an individual user.
+        :type related_contacts: list[~education.models.MicrosoftGraphRelatedContact]
+        :param account_enabled: True if the account is enabled; otherwise, false. This property is
+         required when a user is created. Supports $filter.
+        :type account_enabled: bool
+        :param assigned_licenses: The licenses that are assigned to the user. Not nullable.
+        :type assigned_licenses: list[~education.models.MicrosoftGraphAssignedLicense]
+        :param assigned_plans: The plans that are assigned to the user. Read-only. Not nullable.
+        :type assigned_plans: list[~education.models.MicrosoftGraphAssignedPlan]
+        :param business_phones: The telephone numbers for the user. Note: Although this is a string
+         collection, only one number can be set for this property.
+        :type business_phones: list[str]
+        :param department: The name for the department in which the user works. Supports $filter.
+        :type department: str
+        :param display_name: The name displayed in the address book for the user. This is usually the
+         combination of the user's first name, middle initial, and last name. This property is required
+         when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.
+        :type display_name: str
+        :param external_source:
+        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
+        :param external_source_detail:
+        :type external_source_detail: str
+        :param given_name: The given name (first name) of the user. Supports $filter.
+        :type given_name: str
+        :param mail: The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-
+         Only. Supports $filter.
+        :type mail: str
+        :param mailing_address: physicalAddress.
+        :type mailing_address: ~education.models.MicrosoftGraphPhysicalAddress
+        :param mail_nickname: The mail alias for the user. This property must be specified when a user
+         is created. Supports $filter.
+        :type mail_nickname: str
+        :param middle_name: The middle name of user.
+        :type middle_name: str
+        :param mobile_phone: The primary cellular telephone number for the user.
+        :type mobile_phone: str
+        :param office_location:
+        :type office_location: str
+        :param password_policies: Specifies password policies for the user. This value is an
+         enumeration with one possible value being 'DisableStrongPassword', which allows weaker
+         passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be
+         specified. The two can be specified together; for example: 'DisablePasswordExpiration,
+         DisableStrongPassword'.
+        :type password_policies: str
+        :param password_profile: passwordProfile.
+        :type password_profile: ~education.models.MicrosoftGraphPasswordProfile
+        :param preferred_language: The preferred language for the user. Should follow ISO 639-1 Code;
+         for example, 'en-US'.
+        :type preferred_language: str
+        :param primary_role:
+        :type primary_role: str or ~education.models.MicrosoftGraphEducationUserRole
+        :param provisioned_plans: The plans that are provisioned for the user. Read-only. Not nullable.
+        :type provisioned_plans: list[~education.models.MicrosoftGraphProvisionedPlan]
+        :param refresh_tokens_valid_from_date_time:
+        :type refresh_tokens_valid_from_date_time: ~datetime.datetime
+        :param residence_address: physicalAddress.
+        :type residence_address: ~education.models.MicrosoftGraphPhysicalAddress
+        :param show_in_address_list:
+        :type show_in_address_list: bool
+        :param student: educationStudent.
+        :type student: ~education.models.MicrosoftGraphEducationStudent
+        :param surname: The user's surname (family name or last name). Supports $filter.
+        :type surname: str
+        :param teacher: educationTeacher.
+        :type teacher: ~education.models.MicrosoftGraphEducationTeacher
+        :param usage_location: A two-letter country code (ISO standard 3166). Required for users who
+         will be assigned licenses due to a legal requirement to check for availability of services in
+         countries or regions. Examples include: 'US', 'JP', and 'GB'. Not nullable. Supports $filter.
+        :type usage_location: str
+        :param user_principal_name: The user principal name (UPN) of the user. The UPN is an Internet-
+         style login name for the user based on the Internet standard RFC 822. By convention, this
+         should map to the user's email name. The general format is alias@domain, where domain must be
+         present in the tenant's collection of verified domains. This property is required when a user
+         is created. The verified domains for the tenant can be accessed from the verifiedDomains
+         property of organization. Supports $filter and $orderby.
+        :type user_principal_name: str
+        :param user_type: A string value that can be used to classify user types in your directory,
+         such as 'Member' and 'Guest'. Supports $filter.
+        :type user_type: str
+        :param assignments: List of assignments for the user. Nullable.
+        :type assignments: list[~education.models.MicrosoftGraphEducationAssignment]
+        :param rubrics:
+        :type rubrics: list[~education.models.MicrosoftGraphEducationRubric]
+        :param classes: Classes to which the user belongs. Nullable.
+        :type classes: list[~education.models.MicrosoftGraphEducationClass]
+        :param schools: Schools to which the user belongs. Nullable.
+        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
+        :param taught_classes:
+        :type taught_classes: list[~education.models.MicrosoftGraphEducationClass]
+        :param user: Represents an Azure Active Directory user object.
+        :type user: ~education.models.MicrosoftGraphUser
+        :param immutable_id:
+        :type immutable_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1812,6 +2290,8 @@ class EducationOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEducationUser(id=id, related_contacts=related_contacts, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, external_source_detail=external_source_detail, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, assignments=assignments, rubrics=rubrics, classes=classes, schools=schools, taught_classes=taught_classes, user=user, immutable_id=immutable_id, display_name_created_by_user_display_name=microsoft_graph_identity_display_name, id_created_by_user_id=microsoft_graph_identity_id, display_name_created_by_device_display_name=display_name1, id_created_by_device_id=id1, display_name_created_by_application_display_name=display_name2, id_created_by_application_id=id2)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1831,7 +2311,7 @@ class EducationOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

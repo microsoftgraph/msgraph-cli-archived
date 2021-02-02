@@ -20,10 +20,15 @@ def load_command_table(self, _):
         operations_tmpl='azext_schemaextensions_beta.vendored_sdks.schemaextensions.operations._schema_extension_schema'
         '_extension_operations#SchemaExtensionSchemaExtensionOperations.{}',
         client_factory=cf_schema_extension_schema_extension)
-    with self.command_group('schemaextensions', schemaextensions_beta_schema_extension_schema_extension,
-                            client_factory=cf_schema_extension_schema_extension) as g:
-        g.custom_command('delete', 'schemaextensions_delete', confirmation=True)
-        g.custom_command('create-schema-extension', 'schemaextensions_create_schema_extension')
-        g.custom_command('get-schema-extension', 'schemaextensions_get_schema_extension')
-        g.custom_command('list-schema-extension', 'schemaextensions_list_schema_extension')
-        g.custom_command('update-schema-extension', 'schemaextensions_update_schema_extension')
+    with self.command_group('schemaextensions schema-extension-schema-extension',
+                            schemaextensions_beta_schema_extension_schema_extension,
+                            client_factory=cf_schema_extension_schema_extension, is_experimental=True) as g:
+        g.custom_command('delete', 'schemaextensions_schema_extension_schema_extension_delete', confirmation=True)
+        g.custom_command('create-schema-extension', 'schemaextensions_schema_extension_schema_extension_create_schema_e'
+                         'xtension')
+        g.custom_command('get-schema-extension', 'schemaextensions_schema_extension_schema_extension_get_schema_extensi'
+                         'on')
+        g.custom_command('list-schema-extension', 'schemaextensions_schema_extension_schema_extension_list_schema_exten'
+                         'sion')
+        g.custom_command('update-schema-extension', 'schemaextensions_schema_extension_schema_extension_update_schema_e'
+                         'xtension')

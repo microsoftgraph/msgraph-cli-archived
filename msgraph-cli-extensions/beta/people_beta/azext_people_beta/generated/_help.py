@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['people'] = """
+helps['people user'] = """
     type: group
-    short-summary: people
+    short-summary: people user
 """
 
-helps['people delete'] = """
+helps['people user delete'] = """
     type: command
     short-summary: "Delete navigation property profile for users"
 """
 
-helps['people create-person'] = """
+helps['people user create-person'] = """
     type: command
     short-summary: "Create new navigation property to people for users"
     parameters:
@@ -57,27 +57,27 @@ helps['people create-person'] = """
             Multiple actions can be specified by using more than one --websites argument.
 """
 
-helps['people get-analytic'] = """
+helps['people user get-analytic'] = """
     type: command
     short-summary: "Get analytics from users"
 """
 
-helps['people get-person'] = """
+helps['people user get-person'] = """
     type: command
     short-summary: "Get people from users"
 """
 
-helps['people get-profile'] = """
+helps['people user get-profile'] = """
     type: command
     short-summary: "Get profile from users"
 """
 
-helps['people list-person'] = """
+helps['people user list-person'] = """
     type: command
     short-summary: "Get people from users"
 """
 
-helps['people update-analytic'] = """
+helps['people user update-analytic'] = """
     type: command
     short-summary: "Update the navigation property analytics in users"
     parameters:
@@ -95,7 +95,7 @@ helps['people update-analytic'] = """
             Multiple actions can be specified by using more than one --activity-statistics argument.
 """
 
-helps['people update-person'] = """
+helps['people user update-person'] = """
     type: command
     short-summary: "Update the navigation property people in users"
     parameters:
@@ -130,7 +130,7 @@ helps['people update-person'] = """
             Multiple actions can be specified by using more than one --websites argument.
 """
 
-helps['people update-profile'] = """
+helps['people user update-profile'] = """
     type: command
     short-summary: "Update the navigation property profile in users"
     parameters:
@@ -335,47 +335,47 @@ device-created-by-device=XX user-created-by-user=XX id=XX
             Multiple actions can be specified by using more than one --websites argument.
 """
 
-helps['people'] = """
+helps['people user-analytic'] = """
     type: group
-    short-summary: people
+    short-summary: people user-analytic
 """
 
-helps['people delete'] = """
+helps['people user-analytic delete'] = """
     type: command
     short-summary: "Delete navigation property activityStatistics for users"
 """
 
-helps['people create-activity-statistics'] = """
+helps['people user-analytic create-activity-statistics'] = """
     type: command
     short-summary: "Create new navigation property to activityStatistics for users"
 """
 
-helps['people get-activity-statistics'] = """
+helps['people user-analytic get-activity-statistics'] = """
     type: command
     short-summary: "Get activityStatistics from users"
 """
 
-helps['people list-activity-statistics'] = """
+helps['people user-analytic list-activity-statistics'] = """
     type: command
     short-summary: "Get activityStatistics from users"
 """
 
-helps['people update-activity-statistics'] = """
+helps['people user-analytic update-activity-statistics'] = """
     type: command
     short-summary: "Update the navigation property activityStatistics in users"
 """
 
-helps['people'] = """
+helps['people user-profile'] = """
     type: group
-    short-summary: people
+    short-summary: people user-profile
 """
 
-helps['people delete'] = """
+helps['people user-profile delete'] = """
     type: command
     short-summary: "Delete navigation property websites for users"
 """
 
-helps['people create-account'] = """
+helps['people user-profile create-account'] = """
     type: command
     short-summary: "Create new navigation property to account for users"
     parameters:
@@ -455,7 +455,7 @@ country/region. For example, 'en-us'. The language component follows 2-letter co
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 """
 
-helps['people create-address'] = """
+helps['people user-profile create-address'] = """
     type: command
     short-summary: "Create new navigation property to addresses for users"
     parameters:
@@ -543,7 +543,7 @@ associated with the user won't show up as having changed when using delta.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['people create-anniversary'] = """
+helps['people user-profile create-anniversary'] = """
     type: command
     short-summary: "Create new navigation property to anniversaries for users"
     parameters:
@@ -613,7 +613,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-award'] = """
+helps['people user-profile create-award'] = """
     type: command
     short-summary: "Create new navigation property to awards for users"
     parameters:
@@ -683,7 +683,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-certification'] = """
+helps['people user-profile create-certification'] = """
     type: command
     short-summary: "Create new navigation property to certifications for users"
     parameters:
@@ -753,12 +753,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-educational-activity'] = """
+helps['people user-profile create-educational-activity'] = """
     type: command
     short-summary: "Create new navigation property to educationalActivities for users"
 """
 
-helps['people create-email'] = """
+helps['people user-profile create-email'] = """
     type: command
     short-summary: "Create new navigation property to emails for users"
     parameters:
@@ -828,7 +828,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-interest'] = """
+helps['people user-profile create-interest'] = """
     type: command
     short-summary: "Create new navigation property to interests for users"
     parameters:
@@ -898,7 +898,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-language'] = """
+helps['people user-profile create-language'] = """
     type: command
     short-summary: "Create new navigation property to languages for users"
     parameters:
@@ -968,7 +968,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-name'] = """
+helps['people user-profile create-name'] = """
     type: command
     short-summary: "Create new navigation property to names for users"
     parameters:
@@ -1043,7 +1043,7 @@ associated with the user won't show up as having changed when using delta.
 
 """
 
-helps['people create-note'] = """
+helps['people user-profile create-note'] = """
     type: command
     short-summary: "Create new navigation property to notes for users"
     parameters:
@@ -1119,7 +1119,7 @@ associated with the user won't show up as having changed when using delta.
             content: The content of the item.
 """
 
-helps['people create-patent'] = """
+helps['people user-profile create-patent'] = """
     type: command
     short-summary: "Create new navigation property to patents for users"
     parameters:
@@ -1189,7 +1189,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-phone'] = """
+helps['people user-profile create-phone'] = """
     type: command
     short-summary: "Create new navigation property to phones for users"
     parameters:
@@ -1259,7 +1259,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-position'] = """
+helps['people user-profile create-position'] = """
     type: command
     short-summary: "Create new navigation property to positions for users"
     parameters:
@@ -1340,7 +1340,7 @@ associated with the user won't show up as having changed when using delta.
 
 """
 
-helps['people create-project'] = """
+helps['people user-profile create-project'] = """
     type: command
     short-summary: "Create new navigation property to projects for users"
     parameters:
@@ -1433,7 +1433,7 @@ type=XX
             street: The street.
 """
 
-helps['people create-publication'] = """
+helps['people user-profile create-publication'] = """
     type: command
     short-summary: "Create new navigation property to publications for users"
     parameters:
@@ -1503,7 +1503,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-skill'] = """
+helps['people user-profile create-skill'] = """
     type: command
     short-summary: "Create new navigation property to skills for users"
     parameters:
@@ -1573,7 +1573,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people create-web-account'] = """
+helps['people user-profile create-web-account'] = """
     type: command
     short-summary: "Create new navigation property to webAccounts for users"
     parameters:
@@ -1648,7 +1648,7 @@ associated with the user won't show up as having changed when using delta.
 
 """
 
-helps['people create-website'] = """
+helps['people user-profile create-website'] = """
     type: command
     short-summary: "Create new navigation property to websites for users"
     parameters:
@@ -1718,197 +1718,197 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people get-account'] = """
+helps['people user-profile get-account'] = """
     type: command
     short-summary: "Get account from users"
 """
 
-helps['people get-address'] = """
+helps['people user-profile get-address'] = """
     type: command
     short-summary: "Get addresses from users"
 """
 
-helps['people get-anniversary'] = """
+helps['people user-profile get-anniversary'] = """
     type: command
     short-summary: "Get anniversaries from users"
 """
 
-helps['people get-award'] = """
+helps['people user-profile get-award'] = """
     type: command
     short-summary: "Get awards from users"
 """
 
-helps['people get-certification'] = """
+helps['people user-profile get-certification'] = """
     type: command
     short-summary: "Get certifications from users"
 """
 
-helps['people get-educational-activity'] = """
+helps['people user-profile get-educational-activity'] = """
     type: command
     short-summary: "Get educationalActivities from users"
 """
 
-helps['people get-email'] = """
+helps['people user-profile get-email'] = """
     type: command
     short-summary: "Get emails from users"
 """
 
-helps['people get-interest'] = """
+helps['people user-profile get-interest'] = """
     type: command
     short-summary: "Get interests from users"
 """
 
-helps['people get-language'] = """
+helps['people user-profile get-language'] = """
     type: command
     short-summary: "Get languages from users"
 """
 
-helps['people get-name'] = """
+helps['people user-profile get-name'] = """
     type: command
     short-summary: "Get names from users"
 """
 
-helps['people get-note'] = """
+helps['people user-profile get-note'] = """
     type: command
     short-summary: "Get notes from users"
 """
 
-helps['people get-patent'] = """
+helps['people user-profile get-patent'] = """
     type: command
     short-summary: "Get patents from users"
 """
 
-helps['people get-phone'] = """
+helps['people user-profile get-phone'] = """
     type: command
     short-summary: "Get phones from users"
 """
 
-helps['people get-position'] = """
+helps['people user-profile get-position'] = """
     type: command
     short-summary: "Get positions from users"
 """
 
-helps['people get-project'] = """
+helps['people user-profile get-project'] = """
     type: command
     short-summary: "Get projects from users"
 """
 
-helps['people get-publication'] = """
+helps['people user-profile get-publication'] = """
     type: command
     short-summary: "Get publications from users"
 """
 
-helps['people get-skill'] = """
+helps['people user-profile get-skill'] = """
     type: command
     short-summary: "Get skills from users"
 """
 
-helps['people get-web-account'] = """
+helps['people user-profile get-web-account'] = """
     type: command
     short-summary: "Get webAccounts from users"
 """
 
-helps['people get-website'] = """
+helps['people user-profile get-website'] = """
     type: command
     short-summary: "Get websites from users"
 """
 
-helps['people list-account'] = """
+helps['people user-profile list-account'] = """
     type: command
     short-summary: "Get account from users"
 """
 
-helps['people list-address'] = """
+helps['people user-profile list-address'] = """
     type: command
     short-summary: "Get addresses from users"
 """
 
-helps['people list-anniversary'] = """
+helps['people user-profile list-anniversary'] = """
     type: command
     short-summary: "Get anniversaries from users"
 """
 
-helps['people list-award'] = """
+helps['people user-profile list-award'] = """
     type: command
     short-summary: "Get awards from users"
 """
 
-helps['people list-certification'] = """
+helps['people user-profile list-certification'] = """
     type: command
     short-summary: "Get certifications from users"
 """
 
-helps['people list-educational-activity'] = """
+helps['people user-profile list-educational-activity'] = """
     type: command
     short-summary: "Get educationalActivities from users"
 """
 
-helps['people list-email'] = """
+helps['people user-profile list-email'] = """
     type: command
     short-summary: "Get emails from users"
 """
 
-helps['people list-interest'] = """
+helps['people user-profile list-interest'] = """
     type: command
     short-summary: "Get interests from users"
 """
 
-helps['people list-language'] = """
+helps['people user-profile list-language'] = """
     type: command
     short-summary: "Get languages from users"
 """
 
-helps['people list-name'] = """
+helps['people user-profile list-name'] = """
     type: command
     short-summary: "Get names from users"
 """
 
-helps['people list-note'] = """
+helps['people user-profile list-note'] = """
     type: command
     short-summary: "Get notes from users"
 """
 
-helps['people list-patent'] = """
+helps['people user-profile list-patent'] = """
     type: command
     short-summary: "Get patents from users"
 """
 
-helps['people list-phone'] = """
+helps['people user-profile list-phone'] = """
     type: command
     short-summary: "Get phones from users"
 """
 
-helps['people list-position'] = """
+helps['people user-profile list-position'] = """
     type: command
     short-summary: "Get positions from users"
 """
 
-helps['people list-project'] = """
+helps['people user-profile list-project'] = """
     type: command
     short-summary: "Get projects from users"
 """
 
-helps['people list-publication'] = """
+helps['people user-profile list-publication'] = """
     type: command
     short-summary: "Get publications from users"
 """
 
-helps['people list-skill'] = """
+helps['people user-profile list-skill'] = """
     type: command
     short-summary: "Get skills from users"
 """
 
-helps['people list-web-account'] = """
+helps['people user-profile list-web-account'] = """
     type: command
     short-summary: "Get webAccounts from users"
 """
 
-helps['people list-website'] = """
+helps['people user-profile list-website'] = """
     type: command
     short-summary: "Get websites from users"
 """
 
-helps['people update-account'] = """
+helps['people user-profile update-account'] = """
     type: command
     short-summary: "Update the navigation property account in users"
     parameters:
@@ -1988,7 +1988,7 @@ country/region. For example, 'en-us'. The language component follows 2-letter co
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 """
 
-helps['people update-address'] = """
+helps['people user-profile update-address'] = """
     type: command
     short-summary: "Update the navigation property addresses in users"
     parameters:
@@ -2076,7 +2076,7 @@ associated with the user won't show up as having changed when using delta.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['people update-anniversary'] = """
+helps['people user-profile update-anniversary'] = """
     type: command
     short-summary: "Update the navigation property anniversaries in users"
     parameters:
@@ -2146,7 +2146,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-award'] = """
+helps['people user-profile update-award'] = """
     type: command
     short-summary: "Update the navigation property awards in users"
     parameters:
@@ -2216,7 +2216,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-certification'] = """
+helps['people user-profile update-certification'] = """
     type: command
     short-summary: "Update the navigation property certifications in users"
     parameters:
@@ -2286,12 +2286,12 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-educational-activity'] = """
+helps['people user-profile update-educational-activity'] = """
     type: command
     short-summary: "Update the navigation property educationalActivities in users"
 """
 
-helps['people update-email'] = """
+helps['people user-profile update-email'] = """
     type: command
     short-summary: "Update the navigation property emails in users"
     parameters:
@@ -2361,7 +2361,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-interest'] = """
+helps['people user-profile update-interest'] = """
     type: command
     short-summary: "Update the navigation property interests in users"
     parameters:
@@ -2431,7 +2431,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-language'] = """
+helps['people user-profile update-language'] = """
     type: command
     short-summary: "Update the navigation property languages in users"
     parameters:
@@ -2501,7 +2501,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-name'] = """
+helps['people user-profile update-name'] = """
     type: command
     short-summary: "Update the navigation property names in users"
     parameters:
@@ -2576,7 +2576,7 @@ associated with the user won't show up as having changed when using delta.
 
 """
 
-helps['people update-note'] = """
+helps['people user-profile update-note'] = """
     type: command
     short-summary: "Update the navigation property notes in users"
     parameters:
@@ -2652,7 +2652,7 @@ associated with the user won't show up as having changed when using delta.
             content: The content of the item.
 """
 
-helps['people update-patent'] = """
+helps['people user-profile update-patent'] = """
     type: command
     short-summary: "Update the navigation property patents in users"
     parameters:
@@ -2722,7 +2722,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-phone'] = """
+helps['people user-profile update-phone'] = """
     type: command
     short-summary: "Update the navigation property phones in users"
     parameters:
@@ -2792,7 +2792,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-position'] = """
+helps['people user-profile update-position'] = """
     type: command
     short-summary: "Update the navigation property positions in users"
     parameters:
@@ -2873,7 +2873,7 @@ associated with the user won't show up as having changed when using delta.
 
 """
 
-helps['people update-project'] = """
+helps['people user-profile update-project'] = """
     type: command
     short-summary: "Update the navigation property projects in users"
     parameters:
@@ -2966,7 +2966,7 @@ type=XX
             street: The street.
 """
 
-helps['people update-publication'] = """
+helps['people user-profile update-publication'] = """
     type: command
     short-summary: "Update the navigation property publications in users"
     parameters:
@@ -3036,7 +3036,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-skill'] = """
+helps['people user-profile update-skill'] = """
     type: command
     short-summary: "Update the navigation property skills in users"
     parameters:
@@ -3106,7 +3106,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people update-web-account'] = """
+helps['people user-profile update-web-account'] = """
     type: command
     short-summary: "Update the navigation property webAccounts in users"
     parameters:
@@ -3181,7 +3181,7 @@ associated with the user won't show up as having changed when using delta.
 
 """
 
-helps['people update-website'] = """
+helps['people user-profile update-website'] = """
     type: command
     short-summary: "Update the navigation property websites in users"
     parameters:

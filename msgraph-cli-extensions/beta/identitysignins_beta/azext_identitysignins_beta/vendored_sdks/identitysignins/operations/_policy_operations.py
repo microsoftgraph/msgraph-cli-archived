@@ -2382,9 +2382,8 @@ class PolicyOperations(object):
         justification_required_on_approval=None,  # type: Optional[bool]
         mail_notifications_enabled=None,  # type: Optional[bool]
         recommendations_enabled=None,  # type: Optional[bool]
+        recurrence=None,  # type: Optional["models.MicrosoftGraphPatternedRecurrence"]
         reminder_notifications_enabled=None,  # type: Optional[bool]
-        pattern=None,  # type: Optional["models.MicrosoftGraphRecurrencePattern"]
-        range=None,  # type: Optional["models.MicrosoftGraphRecurrenceRange"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -2410,12 +2409,10 @@ class PolicyOperations(object):
         :type mail_notifications_enabled: bool
         :param recommendations_enabled:
         :type recommendations_enabled: bool
+        :param recurrence: patternedRecurrence.
+        :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
         :param reminder_notifications_enabled:
         :type reminder_notifications_enabled: bool
-        :param pattern: recurrencePattern.
-        :type pattern: ~identity_sign_ins.models.MicrosoftGraphRecurrencePattern
-        :param range: recurrenceRange.
-        :type range: ~identity_sign_ins.models.MicrosoftGraphRecurrenceRange
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2425,7 +2422,7 @@ class PolicyOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDirectoryRoleAccessReviewPolicy(id=id, apply_actions=apply_actions, auto_apply_decisions_enabled=auto_apply_decisions_enabled, default_decision=default_decision, default_decision_enabled=default_decision_enabled, instance_duration_in_days=instance_duration_in_days, justification_required_on_approval=justification_required_on_approval, mail_notifications_enabled=mail_notifications_enabled, recommendations_enabled=recommendations_enabled, reminder_notifications_enabled=reminder_notifications_enabled, pattern=pattern, range=range)
+        _body = models.MicrosoftGraphDirectoryRoleAccessReviewPolicy(id=id, apply_actions=apply_actions, auto_apply_decisions_enabled=auto_apply_decisions_enabled, default_decision=default_decision, default_decision_enabled=default_decision_enabled, instance_duration_in_days=instance_duration_in_days, justification_required_on_approval=justification_required_on_approval, mail_notifications_enabled=mail_notifications_enabled, recommendations_enabled=recommendations_enabled, recurrence=recurrence, reminder_notifications_enabled=reminder_notifications_enabled)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

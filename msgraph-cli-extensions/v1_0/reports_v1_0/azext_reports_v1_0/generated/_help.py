@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['reports'] = """
+helps['reports audit-log-audit-log-root'] = """
     type: group
-    short-summary: reports
+    short-summary: reports audit-log-audit-log-root
 """
 
-helps['reports get-audit-log-root'] = """
+helps['reports audit-log-audit-log-root get-audit-log-root'] = """
     type: command
     short-summary: "Get auditLogs"
 """
 
-helps['reports update-audit-log-root'] = """
+helps['reports audit-log-audit-log-root update-audit-log-root'] = """
     type: command
     short-summary: "Update auditLogs"
     parameters:
@@ -70,17 +70,17 @@ information from the sign-in activity.
             Multiple actions can be specified by using more than one --restricted-sign-ins argument.
 """
 
-helps['reports'] = """
+helps['reports audit-log'] = """
     type: group
-    short-summary: reports
+    short-summary: reports audit-log
 """
 
-helps['reports delete'] = """
+helps['reports audit-log delete'] = """
     type: command
     short-summary: "Delete navigation property signIns for auditLogs"
 """
 
-helps['reports create-directory-audit'] = """
+helps['reports audit-log create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs"
     parameters:
@@ -131,7 +131,7 @@ for the corresponding App.
             user-principal-name: The userPrincipalName attribute of the user.
 """
 
-helps['reports create-restricted-sign-in'] = """
+helps['reports audit-log create-restricted-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to restrictedSignIns for auditLogs"
     parameters:
@@ -182,7 +182,7 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports create-sign-in'] = """
+helps['reports audit-log create-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to signIns for auditLogs"
     parameters:
@@ -233,37 +233,37 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports get-directory-audit'] = """
+helps['reports audit-log get-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs"
 """
 
-helps['reports get-restricted-sign-in'] = """
+helps['reports audit-log get-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs"
 """
 
-helps['reports get-sign-in'] = """
+helps['reports audit-log get-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs"
 """
 
-helps['reports list-directory-audit'] = """
+helps['reports audit-log list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs"
 """
 
-helps['reports list-restricted-sign-in'] = """
+helps['reports audit-log list-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs"
 """
 
-helps['reports list-sign-in'] = """
+helps['reports audit-log list-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs"
 """
 
-helps['reports update-directory-audit'] = """
+helps['reports audit-log update-directory-audit'] = """
     type: command
     short-summary: "Update the navigation property directoryAudits in auditLogs"
     parameters:
@@ -314,7 +314,7 @@ for the corresponding App.
             user-principal-name: The userPrincipalName attribute of the user.
 """
 
-helps['reports update-restricted-sign-in'] = """
+helps['reports audit-log update-restricted-sign-in'] = """
     type: command
     short-summary: "Update the navigation property restrictedSignIns in auditLogs"
     parameters:
@@ -365,7 +365,7 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports update-sign-in'] = """
+helps['reports audit-log update-sign-in'] = """
     type: command
     short-summary: "Update the navigation property signIns in auditLogs"
     parameters:
@@ -416,467 +416,467 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports'] = """
+helps['reports report-report-root'] = """
     type: group
-    short-summary: reports
+    short-summary: reports report-report-root
 """
 
-helps['reports get-report-root'] = """
+helps['reports report-report-root get-report-root'] = """
     type: command
     short-summary: "Get reports"
 """
 
-helps['reports update-report-root'] = """
+helps['reports report-report-root update-report-root'] = """
     type: command
     short-summary: "Update reports"
 """
 
-helps['reports'] = """
+helps['reports report'] = """
     type: group
-    short-summary: reports
+    short-summary: reports report
 """
 
-helps['reports device-configuration-device-activity'] = """
+helps['reports report device-configuration-device-activity'] = """
     type: command
     short-summary: "Invoke function deviceConfigurationDeviceActivity"
 """
 
-helps['reports device-configuration-user-activity'] = """
+helps['reports report device-configuration-user-activity'] = """
     type: command
     short-summary: "Invoke function deviceConfigurationUserActivity"
 """
 
-helps['reports get-email-activity-count'] = """
+helps['reports report get-email-activity-count'] = """
     type: command
     short-summary: "Invoke function getEmailActivityCounts"
 """
 
-helps['reports get-email-activity-user-count'] = """
+helps['reports report get-email-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailActivityUserCounts"
 """
 
-helps['reports get-email-activity-user-detail-ddb2'] = """
+helps['reports report get-email-activity-user-detail-ddb2'] = """
     type: command
     short-summary: "Invoke function getEmailActivityUserDetail"
 """
 
-helps['reports get-email-activity-user-detail-fe32'] = """
+helps['reports report get-email-activity-user-detail-fe32'] = """
     type: command
     short-summary: "Invoke function getEmailActivityUserDetail"
 """
 
-helps['reports get-email-app-usage-app-user-count'] = """
+helps['reports report get-email-app-usage-app-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageAppsUserCounts"
 """
 
-helps['reports get-email-app-usage-user-count'] = """
+helps['reports report get-email-app-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageUserCounts"
 """
 
-helps['reports get-email-app-usage-user-detail546-b'] = """
+helps['reports report get-email-app-usage-user-detail546-b'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageUserDetail"
 """
 
-helps['reports get-email-app-usage-user-detail62-ec'] = """
+helps['reports report get-email-app-usage-user-detail62-ec'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageUserDetail"
 """
 
-helps['reports get-email-app-usage-version-user-count'] = """
+helps['reports report get-email-app-usage-version-user-count'] = """
     type: command
     short-summary: "Invoke function getEmailAppUsageVersionsUserCounts"
 """
 
-helps['reports get-mailbox-usage-detail'] = """
+helps['reports report get-mailbox-usage-detail'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageDetail"
 """
 
-helps['reports get-mailbox-usage-mailbox-count'] = """
+helps['reports report get-mailbox-usage-mailbox-count'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageMailboxCounts"
 """
 
-helps['reports get-mailbox-usage-quota-status-mailbox-count'] = """
+helps['reports report get-mailbox-usage-quota-status-mailbox-count'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageQuotaStatusMailboxCounts"
 """
 
-helps['reports get-mailbox-usage-storage'] = """
+helps['reports report get-mailbox-usage-storage'] = """
     type: command
     short-summary: "Invoke function getMailboxUsageStorage"
 """
 
-helps['reports get-office365-activation-count'] = """
+helps['reports report get-office365-activation-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ActivationCounts"
 """
 
-helps['reports get-office365-activation-user-count'] = """
+helps['reports report get-office365-activation-user-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ActivationsUserCounts"
 """
 
-helps['reports get-office365-activation-user-detail'] = """
+helps['reports report get-office365-activation-user-detail'] = """
     type: command
     short-summary: "Invoke function getOffice365ActivationsUserDetail"
 """
 
-helps['reports get-office365-active-user-count'] = """
+helps['reports report get-office365-active-user-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ActiveUserCounts"
 """
 
-helps['reports get-office365-active-user-detail-d389'] = """
+helps['reports report get-office365-active-user-detail-d389'] = """
     type: command
     short-summary: "Invoke function getOffice365ActiveUserDetail"
 """
 
-helps['reports get-office365-active-user-detail68-ad'] = """
+helps['reports report get-office365-active-user-detail68-ad'] = """
     type: command
     short-summary: "Invoke function getOffice365ActiveUserDetail"
 """
 
-helps['reports get-office365-group-activity-count'] = """
+helps['reports report get-office365-group-activity-count'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityCounts"
 """
 
-helps['reports get-office365-group-activity-detail38-f6'] = """
+helps['reports report get-office365-group-activity-detail38-f6'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityDetail"
 """
 
-helps['reports get-office365-group-activity-detail81-cc'] = """
+helps['reports report get-office365-group-activity-detail81-cc'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityDetail"
 """
 
-helps['reports get-office365-group-activity-file-count'] = """
+helps['reports report get-office365-group-activity-file-count'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityFileCounts"
 """
 
-helps['reports get-office365-group-activity-group-count'] = """
+helps['reports report get-office365-group-activity-group-count'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityGroupCounts"
 """
 
-helps['reports get-office365-group-activity-storage'] = """
+helps['reports report get-office365-group-activity-storage'] = """
     type: command
     short-summary: "Invoke function getOffice365GroupsActivityStorage"
 """
 
-helps['reports get-office365-service-user-count'] = """
+helps['reports report get-office365-service-user-count'] = """
     type: command
     short-summary: "Invoke function getOffice365ServicesUserCounts"
 """
 
-helps['reports get-one-drive-activity-file-count'] = """
+helps['reports report get-one-drive-activity-file-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityFileCounts"
 """
 
-helps['reports get-one-drive-activity-user-count'] = """
+helps['reports report get-one-drive-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityUserCounts"
 """
 
-helps['reports get-one-drive-activity-user-detail-c424'] = """
+helps['reports report get-one-drive-activity-user-detail-c424'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityUserDetail"
 """
 
-helps['reports get-one-drive-activity-user-detail05-f1'] = """
+helps['reports report get-one-drive-activity-user-detail05-f1'] = """
     type: command
     short-summary: "Invoke function getOneDriveActivityUserDetail"
 """
 
-helps['reports get-one-drive-usage-account-count'] = """
+helps['reports report get-one-drive-usage-account-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageAccountCounts"
 """
 
-helps['reports get-one-drive-usage-account-detail-dd7-f'] = """
+helps['reports report get-one-drive-usage-account-detail-dd7-f'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageAccountDetail"
 """
 
-helps['reports get-one-drive-usage-account-detail-e827'] = """
+helps['reports report get-one-drive-usage-account-detail-e827'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageAccountDetail"
 """
 
-helps['reports get-one-drive-usage-file-count'] = """
+helps['reports report get-one-drive-usage-file-count'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageFileCounts"
 """
 
-helps['reports get-one-drive-usage-storage'] = """
+helps['reports report get-one-drive-usage-storage'] = """
     type: command
     short-summary: "Invoke function getOneDriveUsageStorage"
 """
 
-helps['reports get-share-point-activity-file-count'] = """
+helps['reports report get-share-point-activity-file-count'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityFileCounts"
 """
 
-helps['reports get-share-point-activity-page'] = """
+helps['reports report get-share-point-activity-page'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityPages"
 """
 
-helps['reports get-share-point-activity-user-count'] = """
+helps['reports report get-share-point-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityUserCounts"
 """
 
-helps['reports get-share-point-activity-user-detail-b778'] = """
+helps['reports report get-share-point-activity-user-detail-b778'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityUserDetail"
 """
 
-helps['reports get-share-point-activity-user-detail-f3-be'] = """
+helps['reports report get-share-point-activity-user-detail-f3-be'] = """
     type: command
     short-summary: "Invoke function getSharePointActivityUserDetail"
 """
 
-helps['reports get-share-point-site-usage-detail-d27-a'] = """
+helps['reports report get-share-point-site-usage-detail-d27-a'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageDetail"
 """
 
-helps['reports get-share-point-site-usage-detail204-b'] = """
+helps['reports report get-share-point-site-usage-detail204-b'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageDetail"
 """
 
-helps['reports get-share-point-site-usage-file-count'] = """
+helps['reports report get-share-point-site-usage-file-count'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageFileCounts"
 """
 
-helps['reports get-share-point-site-usage-page'] = """
+helps['reports report get-share-point-site-usage-page'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsagePages"
 """
 
-helps['reports get-share-point-site-usage-site-count'] = """
+helps['reports report get-share-point-site-usage-site-count'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageSiteCounts"
 """
 
-helps['reports get-share-point-site-usage-storage'] = """
+helps['reports report get-share-point-site-usage-storage'] = """
     type: command
     short-summary: "Invoke function getSharePointSiteUsageStorage"
 """
 
-helps['reports get-skype-for-business-activity-count'] = """
+helps['reports report get-skype-for-business-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityCounts"
 """
 
-helps['reports get-skype-for-business-activity-user-count'] = """
+helps['reports report get-skype-for-business-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityUserCounts"
 """
 
-helps['reports get-skype-for-business-activity-user-detail-e4-c9'] = """
+helps['reports report get-skype-for-business-activity-user-detail-e4-c9'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityUserDetail"
 """
 
-helps['reports get-skype-for-business-activity-user-detail744-e'] = """
+helps['reports report get-skype-for-business-activity-user-detail744-e'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessActivityUserDetail"
 """
 
-helps['reports get-skype-for-business-device-usage-distribution-user-count'] = """
+helps['reports report get-skype-for-business-device-usage-distribution-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts"
 """
 
-helps['reports get-skype-for-business-device-usage-user-count'] = """
+helps['reports report get-skype-for-business-device-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserCounts"
 """
 
-helps['reports get-skype-for-business-device-usage-user-detail-a692'] = """
+helps['reports report get-skype-for-business-device-usage-user-detail-a692'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserDetail"
 """
 
-helps['reports get-skype-for-business-device-usage-user-detail-e753'] = """
+helps['reports report get-skype-for-business-device-usage-user-detail-e753'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserDetail"
 """
 
-helps['reports get-skype-for-business-organizer-activity-count'] = """
+helps['reports report get-skype-for-business-organizer-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessOrganizerActivityCounts"
 """
 
-helps['reports get-skype-for-business-organizer-activity-minute-count'] = """
+helps['reports report get-skype-for-business-organizer-activity-minute-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts"
 """
 
-helps['reports get-skype-for-business-organizer-activity-user-count'] = """
+helps['reports report get-skype-for-business-organizer-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessOrganizerActivityUserCounts"
 """
 
-helps['reports get-skype-for-business-participant-activity-count'] = """
+helps['reports report get-skype-for-business-participant-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessParticipantActivityCounts"
 """
 
-helps['reports get-skype-for-business-participant-activity-minute-count'] = """
+helps['reports report get-skype-for-business-participant-activity-minute-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessParticipantActivityMinuteCounts"
 """
 
-helps['reports get-skype-for-business-participant-activity-user-count'] = """
+helps['reports report get-skype-for-business-participant-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessParticipantActivityUserCounts"
 """
 
-helps['reports get-skype-for-business-peer-to-peer-activity-count'] = """
+helps['reports report get-skype-for-business-peer-to-peer-activity-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityCounts"
 """
 
-helps['reports get-skype-for-business-peer-to-peer-activity-minute-count'] = """
+helps['reports report get-skype-for-business-peer-to-peer-activity-minute-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts"
 """
 
-helps['reports get-skype-for-business-peer-to-peer-activity-user-count'] = """
+helps['reports report get-skype-for-business-peer-to-peer-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts"
 """
 
-helps['reports get-team-device-usage-distribution-user-count'] = """
+helps['reports report get-team-device-usage-distribution-user-count'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageDistributionUserCounts"
 """
 
-helps['reports get-team-device-usage-user-count'] = """
+helps['reports report get-team-device-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageUserCounts"
 """
 
-helps['reports get-team-device-usage-user-detail7148'] = """
+helps['reports report get-team-device-usage-user-detail7148'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageUserDetail"
 """
 
-helps['reports get-team-device-usage-user-detail7565'] = """
+helps['reports report get-team-device-usage-user-detail7565'] = """
     type: command
     short-summary: "Invoke function getTeamsDeviceUsageUserDetail"
 """
 
-helps['reports get-team-user-activity-count'] = """
+helps['reports report get-team-user-activity-count'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityCounts"
 """
 
-helps['reports get-team-user-activity-user-count'] = """
+helps['reports report get-team-user-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityUserCounts"
 """
 
-helps['reports get-team-user-activity-user-detail-a3-f1'] = """
+helps['reports report get-team-user-activity-user-detail-a3-f1'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityUserDetail"
 """
 
-helps['reports get-team-user-activity-user-detail-eb13'] = """
+helps['reports report get-team-user-activity-user-detail-eb13'] = """
     type: command
     short-summary: "Invoke function getTeamsUserActivityUserDetail"
 """
 
-helps['reports get-yammer-activity-count'] = """
+helps['reports report get-yammer-activity-count'] = """
     type: command
     short-summary: "Invoke function getYammerActivityCounts"
 """
 
-helps['reports get-yammer-activity-user-count'] = """
+helps['reports report get-yammer-activity-user-count'] = """
     type: command
     short-summary: "Invoke function getYammerActivityUserCounts"
 """
 
-helps['reports get-yammer-activity-user-detail-ac30'] = """
+helps['reports report get-yammer-activity-user-detail-ac30'] = """
     type: command
     short-summary: "Invoke function getYammerActivityUserDetail"
 """
 
-helps['reports get-yammer-activity-user-detail15-a5'] = """
+helps['reports report get-yammer-activity-user-detail15-a5'] = """
     type: command
     short-summary: "Invoke function getYammerActivityUserDetail"
 """
 
-helps['reports get-yammer-device-usage-distribution-user-count'] = """
+helps['reports report get-yammer-device-usage-distribution-user-count'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageDistributionUserCounts"
 """
 
-helps['reports get-yammer-device-usage-user-count'] = """
+helps['reports report get-yammer-device-usage-user-count'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageUserCounts"
 """
 
-helps['reports get-yammer-device-usage-user-detail-cfad'] = """
+helps['reports report get-yammer-device-usage-user-detail-cfad'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageUserDetail"
 """
 
-helps['reports get-yammer-device-usage-user-detail-d0-ac'] = """
+helps['reports report get-yammer-device-usage-user-detail-d0-ac'] = """
     type: command
     short-summary: "Invoke function getYammerDeviceUsageUserDetail"
 """
 
-helps['reports get-yammer-group-activity-count'] = """
+helps['reports report get-yammer-group-activity-count'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityCounts"
 """
 
-helps['reports get-yammer-group-activity-detail-da9-a'] = """
+helps['reports report get-yammer-group-activity-detail-da9-a'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityDetail"
 """
 
-helps['reports get-yammer-group-activity-detail0-d7-d'] = """
+helps['reports report get-yammer-group-activity-detail0-d7-d'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityDetail"
 """
 
-helps['reports get-yammer-group-activity-group-count'] = """
+helps['reports report get-yammer-group-activity-group-count'] = """
     type: command
     short-summary: "Invoke function getYammerGroupsActivityGroupCounts"
 """
 
-helps['reports managed-device-enrollment-failure-details027-e'] = """
+helps['reports report managed-device-enrollment-failure-details027-e'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentFailureDetails"
 """
 
-helps['reports managed-device-enrollment-failure-details2-b3-d'] = """
+helps['reports report managed-device-enrollment-failure-details2-b3-d'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentFailureDetails"
 """
 
-helps['reports managed-device-enrollment-top-failure-afd1'] = """
+helps['reports report managed-device-enrollment-top-failure-afd1'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentTopFailures"
 """
 
-helps['reports managed-device-enrollment-top-failures4669'] = """
+helps['reports report managed-device-enrollment-top-failures4669'] = """
     type: command
     short-summary: "Invoke function managedDeviceEnrollmentTopFailures"
 """

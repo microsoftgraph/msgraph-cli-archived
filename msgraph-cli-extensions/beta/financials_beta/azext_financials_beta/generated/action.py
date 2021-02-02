@@ -14,6 +14,486 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
+class AddAccounts(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAccounts, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'blocked':
+                d['blocked'] = v[0]
+            elif kl == 'category':
+                d['category'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'number':
+                d['number'] = v[0]
+            elif kl == 'sub-category':
+                d['sub_category'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddAgedAccountsPayable(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAgedAccountsPayable, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'aged-as-of-date':
+                d['aged_as_of_date'] = v[0]
+            elif kl == 'balance-due':
+                d['balance_due'] = v[0]
+            elif kl == 'currency-code':
+                d['currency_code'] = v[0]
+            elif kl == 'current-amount':
+                d['current_amount'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+            elif kl == 'period1-amount':
+                d['period1_amount'] = v[0]
+            elif kl == 'period2-amount':
+                d['period2_amount'] = v[0]
+            elif kl == 'period3-amount':
+                d['period3_amount'] = v[0]
+            elif kl == 'period-length-filter':
+                d['period_length_filter'] = v[0]
+            elif kl == 'vendor-number':
+                d['vendor_number'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddAgedAccountsReceivable(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAgedAccountsReceivable, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'aged-as-of-date':
+                d['aged_as_of_date'] = v[0]
+            elif kl == 'balance-due':
+                d['balance_due'] = v[0]
+            elif kl == 'currency-code':
+                d['currency_code'] = v[0]
+            elif kl == 'current-amount':
+                d['current_amount'] = v[0]
+            elif kl == 'customer-number':
+                d['customer_number'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+            elif kl == 'period1-amount':
+                d['period1_amount'] = v[0]
+            elif kl == 'period2-amount':
+                d['period2_amount'] = v[0]
+            elif kl == 'period3-amount':
+                d['period3_amount'] = v[0]
+            elif kl == 'period-length-filter':
+                d['period_length_filter'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddCountriesRegions(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCountriesRegions, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'address-format':
+                d['address_format'] = v[0]
+            elif kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddCurrencies(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCurrencies, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'amount-decimal-places':
+                d['amount_decimal_places'] = v[0]
+            elif kl == 'amount-rounding-precision':
+                d['amount_rounding_precision'] = v[0]
+            elif kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'symbol':
+                d['symbol'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddDimensions(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddDimensions, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'dimension-values':
+                d['dimension_values'] = v
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddFinancialsDimensionValues(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddFinancialsDimensionValues, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddItemCategories(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddItemCategories, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddPaymentMethods(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddPaymentMethods, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddPaymentTerms(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddPaymentTerms, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'calculate-discount-on-credit-memos':
+                d['calculate_discount_on_credit_memos'] = v[0]
+            elif kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'discount-date-calculation':
+                d['discount_date_calculation'] = v[0]
+            elif kl == 'discount-percent':
+                d['discount_percent'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'due-date-calculation':
+                d['due_date_calculation'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddFinancialsPicture(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddFinancialsPicture, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'content':
+                d['content'] = v[0]
+            elif kl == 'content-type':
+                d['content_type'] = v[0]
+            elif kl == 'height':
+                d['height'] = v[0]
+            elif kl == 'width':
+                d['width'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddShipmentMethods(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddShipmentMethods, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddTaxAreas(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddTaxAreas, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'tax-type':
+                d['tax_type'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddTaxGroups(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddTaxGroups, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'tax-type':
+                d['tax_type'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddUnitsOfMeasure(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddUnitsOfMeasure, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'international-standard-code':
+                d['international_standard_code'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
 class AddAccount(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -148,10 +628,10 @@ class AddCustomerPaymentTerm(argparse.Action):
         return d
 
 
-class AddCustomerPicture(argparse._AppendAction):
+class AddFinancialsCompaniesPicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCustomerPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsCompaniesPicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -206,10 +686,10 @@ class AddCustomerShipmentMethod(argparse.Action):
         return d
 
 
-class AddDimensionValues(argparse._AppendAction):
+class AddFinancialsCompaniesDimensionValues(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDimensionValues, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsCompaniesDimensionValues, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -234,10 +714,10 @@ class AddDimensionValues(argparse._AppendAction):
         return d
 
 
-class AddFinancialsCreateEmployeePicture(argparse._AppendAction):
+class AddFinancialsFinancialCompanyCreateEmployeePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsCreateEmployeePicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialCompanyCreateEmployeePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -292,10 +772,10 @@ class AddItemCategory(argparse.Action):
         return d
 
 
-class AddFinancialsCreateItemPicture(argparse._AppendAction):
+class AddFinancialsFinancialCompanyCreateItemPicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsCreateItemPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialCompanyCreateItemPicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

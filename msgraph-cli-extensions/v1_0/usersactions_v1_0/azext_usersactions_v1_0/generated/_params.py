@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -18,7 +19,7 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_usersactions_v1_0.action import (
     AddAttachmentItem,
     AddEndTime,
-    AddUsersactionsCreateForwardToRecipients,
+    AddUsersactionsUserMailFolderMessageCreateForwardToRecipients,
     AddMessageBccRecipients,
     AddMessageBody,
     AddMessageCcRecipients,
@@ -30,7 +31,10 @@ from azext_usersactions_v1_0.action import (
     AddMessageExtensions,
     AddMessageMultiValueExtendedProperties,
     AddMessageSingleValueExtendedProperties,
-    AddUsersactionsForwardToRecipients,
+    AddUsersactionsUserMailFolderMessageForwardToRecipients,
+    AddUpdateWindowsDeviceAccountActionParameterDeviceAccount,
+    AddUsersactionsUserMessageCreateForwardToRecipients,
+    AddUsersactionsUserMessageForwardToRecipients,
     AddAddLicenses,
     AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands,
     AddUsersOnenoteNotebooksSectionsPagesCommands,
@@ -47,12 +51,12 @@ from azext_usersactions_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('schedules', nargs='*', help='')
@@ -60,71 +64,71 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-calendar-event-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-event-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('schedules', nargs='*', help='')
@@ -132,176 +136,80 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-event-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-event-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-event-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-event accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-event decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-event tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('schedules', nargs='*', help='')
         c.argument('end_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
-
-    with self.argument_context('usersactions get-schedule') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('schedules', nargs='*', help='')
-        c.argument('end_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-        c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-        c.argument('availability_view_interval', type=int, help='')
-
-    with self.argument_context('usersactions accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions decline') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions dismiss-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-
-    with self.argument_context('usersactions snooze-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-
-    with self.argument_context('usersactions tentatively-accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions decline') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions dismiss-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-
-    with self.argument_context('usersactions snooze-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-
-    with self.argument_context('usersactions tentatively-accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -311,7 +219,7 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -320,7 +228,7 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -329,14 +237,14 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -344,7 +252,7 @@ def load_arguments(self, _):
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -353,7 +261,7 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -361,7 +269,7 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -369,20 +277,20 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-calendar-view tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -390,7 +298,103 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-group-calendar-event-attachment create-upload-session') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event-calendar get-schedule') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('schedules', nargs='*', help='')
+        c.argument('end_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('availability_view_interval', type=int, help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event-instance accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event-instance decline') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event-instance dismiss-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event-instance snooze-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event-instance tentatively-accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event decline') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event dismiss-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event snooze-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+
+    with self.argument_context('usersactions user-calendar-group-calendar-event tentatively-accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions user-calendar-group-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -399,13 +403,13 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -414,7 +418,7 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -422,7 +426,7 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -430,20 +434,20 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -451,45 +455,45 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-calendar-view tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-calendar-event-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-event-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -498,7 +502,7 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-event-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -506,7 +510,7 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-event-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -514,20 +518,20 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-event-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -535,39 +539,39 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-event accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-event decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-event snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-event tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('schedules', nargs='*', help='')
@@ -575,76 +579,76 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-calendar-view-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-calendar-view accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-calendar-view decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-calendar-view dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-calendar-view snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-calendar-view tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-event accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-event decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-event dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-event snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar-event tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-calendar-view-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('schedules', nargs='*', help='')
@@ -652,135 +656,135 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-view-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-view-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-view-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-calendar-view accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-calendar-view decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-calendar-view snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-calendar-view tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-event-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-event-calendar-calendar-view accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-event-calendar-calendar-view decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-event-calendar-calendar-view dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-event-calendar-calendar-view snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-event-calendar-calendar-view tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-event-calendar-event accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-event-calendar-event decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-event-calendar-event dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-event-calendar-event snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-event-calendar-event tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-schedule') as c:
+    with self.argument_context('usersactions user-event-calendar get-schedule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('schedules', nargs='*', help='')
@@ -788,94 +792,95 @@ def load_arguments(self, _):
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-event-instance accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-event-instance decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-event-instance dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-event-instance snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-event-instance tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions accept') as c:
+    with self.argument_context('usersactions user-event accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions decline') as c:
+    with self.argument_context('usersactions user-event decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions dismiss-reminder') as c:
+    with self.argument_context('usersactions user-event dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersactions snooze-reminder') as c:
+    with self.argument_context('usersactions user-event snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('usersactions tentatively-accept') as c:
+    with self.argument_context('usersactions user-event tentatively-accept') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions copy') as c:
+    with self.argument_context('usersactions user-mail-folder-child-folder copy') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions move') as c:
+    with self.argument_context('usersactions user-mail-folder-child-folder move') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-mail-folder-message-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions copy') as c:
+    with self.argument_context('usersactions user-mail-folder-message copy') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions create-forward') as c:
+    with self.argument_context('usersactions user-mail-folder-message create-forward') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('to_recipients', action=AddUsersactionsCreateForwardToRecipients, nargs='*', help='')
+        c.argument('to_recipients', action=AddUsersactionsUserMailFolderMessageCreateForwardToRecipients, nargs='*',
+                   help='')
         c.argument('comment', type=str, help='')
         c.argument('id', type=str, help='Read-only.')
         c.argument('message_categories', nargs='*', help='The categories associated with the item')
@@ -949,84 +954,7 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions create-reply') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('comment', type=str, help='')
-        c.argument('id', type=str, help='Read-only.')
-        c.argument('message_categories', nargs='*', help='The categories associated with the item')
-        c.argument('message_change_key', type=str, help='Identifies the version of the item. Every time the item is '
-                   'changed, changeKey changes as well. This allows Exchange to apply changes to the correct version '
-                   'of the object. Read-only.')
-        c.argument('message_created_date_time', help='The Timestamp type represents date and time information using '
-                   'ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look '
-                   'like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('message_last_modified_date_time', help='The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('message_bcc_recipients', action=AddMessageBccRecipients, nargs='*', help='The Bcc: recipients for '
-                   'the message.')
-        c.argument('message_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_body_preview', type=str, help='The first 255 characters of the message body. It is in text '
-                   'format.')
-        c.argument('message_cc_recipients', action=AddMessageCcRecipients, nargs='*', help='The Cc: recipients for the '
-                   'message.')
-        c.argument('message_conversation_id', type=str, help='The ID of the conversation the email belongs to.')
-        c.argument('message_conversation_index',
-                   help='Indicates the position of the message within the conversation.')
-        c.argument('message_flag', type=validate_file_or_dict, help='followupFlag Expected value: '
-                   'json-string/@json-file.')
-        c.argument('message_from', action=AddMessageFrom, nargs='*', help='recipient')
-        c.argument('message_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
-                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
-                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
-                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
-                   '6C05F070\'>`.')
-        c.argument('message_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
-        c.argument('message_inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
-        c.argument('message_internet_message_headers', action=AddMessageInternetMessageHeaders, nargs='*', help='A '
-                   'collection of message headers defined by RFC5322. The set includes message headers indicating the '
-                   'network path taken by a message from the sender to the recipient. It can also contain custom '
-                   'message headers that hold app data for the message.  Returned only on applying a $select query '
-                   'option. Read-only.')
-        c.argument('message_internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
-        c.argument('message_is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
-                   'read receipt is requested for the message.')
-        c.argument('message_is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a '
-                   'draft. A message is a draft if it hasn\'t been sent yet.')
-        c.argument('message_is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been '
-                   'read.')
-        c.argument('message_is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
-                   'read receipt is requested for the message.')
-        c.argument('message_parent_folder_id', type=str, help='The unique identifier for the message\'s parent '
-                   'mailFolder.')
-        c.argument('message_received_date_time', help='The date and time the message was received.')
-        c.argument('message_reply_to', action=AddMessageReplyTo, nargs='*', help='The email addresses to use when '
-                   'replying.')
-        c.argument('message_sender', action=AddMessageFrom, nargs='*', help='recipient')
-        c.argument('message_sent_date_time', help='The date and time the message was sent.')
-        c.argument('message_subject', type=str, help='The subject of the message.')
-        c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
-                   'message.')
-        c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
-        c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
-                   'itemAttachment attachments for the message.')
-        c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
-                   'extensions defined for the message. Nullable.')
-        c.argument('message_multi_value_extended_properties', action=AddMessageMultiValueExtendedProperties, nargs='*',
-                   help='The collection of multi-value extended properties defined for the message. Nullable.')
-        c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
-                   '*', help='The collection of single-value extended properties defined for the message. Nullable.')
-
-    with self.argument_context('usersactions create-reply-all') as c:
+    with self.argument_context('usersactions user-mail-folder-message create-reply') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -1103,11 +1031,10 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions forward') as c:
+    with self.argument_context('usersactions user-mail-folder-message create-reply-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('to_recipients', action=AddUsersactionsForwardToRecipients, nargs='*', help='')
         c.argument('comment', type=str, help='')
         c.argument('id', type=str, help='Read-only.')
         c.argument('message_categories', nargs='*', help='The categories associated with the item')
@@ -1181,13 +1108,92 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions move') as c:
+    with self.argument_context('usersactions user-mail-folder-message forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('to_recipients', action=AddUsersactionsUserMailFolderMessageForwardToRecipients, nargs='*',
+                   help='')
+        c.argument('comment', type=str, help='')
+        c.argument('id', type=str, help='Read-only.')
+        c.argument('message_categories', nargs='*', help='The categories associated with the item')
+        c.argument('message_change_key', type=str, help='Identifies the version of the item. Every time the item is '
+                   'changed, changeKey changes as well. This allows Exchange to apply changes to the correct version '
+                   'of the object. Read-only.')
+        c.argument('message_created_date_time', help='The Timestamp type represents date and time information using '
+                   'ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look '
+                   'like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('message_last_modified_date_time', help='The Timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('message_bcc_recipients', action=AddMessageBccRecipients, nargs='*', help='The Bcc: recipients for '
+                   'the message.')
+        c.argument('message_body', action=AddMessageBody, nargs='*', help='itemBody')
+        c.argument('message_body_preview', type=str, help='The first 255 characters of the message body. It is in text '
+                   'format.')
+        c.argument('message_cc_recipients', action=AddMessageCcRecipients, nargs='*', help='The Cc: recipients for the '
+                   'message.')
+        c.argument('message_conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('message_conversation_index',
+                   help='Indicates the position of the message within the conversation.')
+        c.argument('message_flag', type=validate_file_or_dict, help='followupFlag Expected value: '
+                   'json-string/@json-file.')
+        c.argument('message_from', action=AddMessageFrom, nargs='*', help='recipient')
+        c.argument('message_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
+                   '6C05F070\'>`.')
+        c.argument('message_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('message_inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('message_internet_message_headers', action=AddMessageInternetMessageHeaders, nargs='*', help='A '
+                   'collection of message headers defined by RFC5322. The set includes message headers indicating the '
+                   'network path taken by a message from the sender to the recipient. It can also contain custom '
+                   'message headers that hold app data for the message.  Returned only on applying a $select query '
+                   'option. Read-only.')
+        c.argument('message_internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('message_is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
+                   'read receipt is requested for the message.')
+        c.argument('message_is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a '
+                   'draft. A message is a draft if it hasn\'t been sent yet.')
+        c.argument('message_is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been '
+                   'read.')
+        c.argument('message_is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
+                   'read receipt is requested for the message.')
+        c.argument('message_parent_folder_id', type=str, help='The unique identifier for the message\'s parent '
+                   'mailFolder.')
+        c.argument('message_received_date_time', help='The date and time the message was received.')
+        c.argument('message_reply_to', action=AddMessageReplyTo, nargs='*', help='The email addresses to use when '
+                   'replying.')
+        c.argument('message_sender', action=AddMessageFrom, nargs='*', help='recipient')
+        c.argument('message_sent_date_time', help='The date and time the message was sent.')
+        c.argument('message_subject', type=str, help='The subject of the message.')
+        c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
+                   'message.')
+        c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
+                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
+                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
+                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
+                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
+                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
+                   'iFrame.')
+        c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
+                   'itemAttachment attachments for the message.')
+        c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
+                   'extensions defined for the message. Nullable.')
+        c.argument('message_multi_value_extended_properties', action=AddMessageMultiValueExtendedProperties, nargs='*',
+                   help='The collection of multi-value extended properties defined for the message. Nullable.')
+        c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
+                   '*', help='The collection of single-value extended properties defined for the message. Nullable.')
+
+    with self.argument_context('usersactions user-mail-folder-message move') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions reply') as c:
+    with self.argument_context('usersactions user-mail-folder-message reply') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -1264,7 +1270,7 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions reply-all') as c:
+    with self.argument_context('usersactions user-mail-folder-message reply-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -1341,84 +1347,87 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions send') as c:
+    with self.argument_context('usersactions user-mail-folder-message send') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
 
-    with self.argument_context('usersactions copy') as c:
+    with self.argument_context('usersactions user-mail-folder copy') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions move') as c:
+    with self.argument_context('usersactions user-mail-folder move') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions bypass-activation-lock') as c:
+    with self.argument_context('usersactions user-managed-device bypass-activation-lock') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions clean-window-device') as c:
+    with self.argument_context('usersactions user-managed-device clean-window-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('keep_user_data', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions delete-user-from-shared-apple-device') as c:
+    with self.argument_context('usersactions user-managed-device delete-user-from-shared-apple-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('usersactions disable-lost-mode') as c:
+    with self.argument_context('usersactions user-managed-device disable-lost-mode') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions locate-device') as c:
+    with self.argument_context('usersactions user-managed-device locate-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions logout-shared-apple-device-active-user') as c:
+    with self.argument_context('usersactions user-managed-device logout-shared-apple-device-active-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions reboot-now') as c:
+    with self.argument_context('usersactions user-managed-device reboot-now') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions recover-passcode') as c:
+    with self.argument_context('usersactions user-managed-device recover-passcode') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions remote-lock') as c:
+    with self.argument_context('usersactions user-managed-device remote-lock') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions request-remote-assistance') as c:
+    with self.argument_context('usersactions user-managed-device request-remote-assistance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions reset-passcode') as c:
+    with self.argument_context('usersactions user-managed-device reset-passcode') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions retire') as c:
+    with self.argument_context('usersactions user-managed-device retire') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions shut-down') as c:
+    with self.argument_context('usersactions user-managed-device shut-down') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions sync-device') as c:
+    with self.argument_context('usersactions user-managed-device sync-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions update-window-device-account') as c:
+    with self.argument_context('usersactions user-managed-device update-window-device-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('update_windows_device_account_action_parameter_calendar_sync_enabled',
                    arg_type=get_three_state_flag(), help='Not yet documented')
+        c.argument('update_windows_device_account_action_parameter_device_account',
+                   action=AddUpdateWindowsDeviceAccountActionParameterDeviceAccount, nargs='*', help=''
+                   'windowsDeviceAccount')
         c.argument('update_windows_device_account_action_parameter_device_account_email', type=str, help='Not yet '
                    'documented')
         c.argument('update_windows_device_account_action_parameter_exchange_server', type=str, help='Not yet '
@@ -1427,39 +1436,37 @@ def load_arguments(self, _):
                    arg_type=get_three_state_flag(), help='Not yet documented')
         c.argument('update_windows_device_account_action_parameter_session_initiation_protocal_address', type=str,
                    help='Not yet documented')
-        c.argument('update_windows_device_account_action_parameter_device_account_password', type=str, help='Not yet '
-                   'documented')
 
-    with self.argument_context('usersactions window-defender-scan') as c:
+    with self.argument_context('usersactions user-managed-device window-defender-scan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('quick_scan', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions window-defender-update-signature') as c:
+    with self.argument_context('usersactions user-managed-device window-defender-update-signature') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersactions wipe') as c:
+    with self.argument_context('usersactions user-managed-device wipe') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('keep_enrollment_data', arg_type=get_three_state_flag(), help='')
         c.argument('keep_user_data', arg_type=get_three_state_flag(), help='')
         c.argument('mac_os_unlock_code', type=str, help='')
 
-    with self.argument_context('usersactions create-upload-session') as c:
+    with self.argument_context('usersactions user-message-attachment create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
 
-    with self.argument_context('usersactions copy') as c:
+    with self.argument_context('usersactions user-message copy') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions create-forward') as c:
+    with self.argument_context('usersactions user-message create-forward') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('to_recipients', action=AddUsersactionsCreateForwardToRecipients, nargs='*', help='')
+        c.argument('to_recipients', action=AddUsersactionsUserMessageCreateForwardToRecipients, nargs='*', help='')
         c.argument('comment', type=str, help='')
         c.argument('id', type=str, help='Read-only.')
         c.argument('message_categories', nargs='*', help='The categories associated with the item')
@@ -1533,83 +1540,7 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions create-reply') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('comment', type=str, help='')
-        c.argument('id', type=str, help='Read-only.')
-        c.argument('message_categories', nargs='*', help='The categories associated with the item')
-        c.argument('message_change_key', type=str, help='Identifies the version of the item. Every time the item is '
-                   'changed, changeKey changes as well. This allows Exchange to apply changes to the correct version '
-                   'of the object. Read-only.')
-        c.argument('message_created_date_time', help='The Timestamp type represents date and time information using '
-                   'ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look '
-                   'like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('message_last_modified_date_time', help='The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('message_bcc_recipients', action=AddMessageBccRecipients, nargs='*', help='The Bcc: recipients for '
-                   'the message.')
-        c.argument('message_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_body_preview', type=str, help='The first 255 characters of the message body. It is in text '
-                   'format.')
-        c.argument('message_cc_recipients', action=AddMessageCcRecipients, nargs='*', help='The Cc: recipients for the '
-                   'message.')
-        c.argument('message_conversation_id', type=str, help='The ID of the conversation the email belongs to.')
-        c.argument('message_conversation_index',
-                   help='Indicates the position of the message within the conversation.')
-        c.argument('message_flag', type=validate_file_or_dict, help='followupFlag Expected value: '
-                   'json-string/@json-file.')
-        c.argument('message_from', action=AddMessageFrom, nargs='*', help='recipient')
-        c.argument('message_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
-                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
-                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
-                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
-                   '6C05F070\'>`.')
-        c.argument('message_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
-        c.argument('message_inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
-        c.argument('message_internet_message_headers', action=AddMessageInternetMessageHeaders, nargs='*', help='A '
-                   'collection of message headers defined by RFC5322. The set includes message headers indicating the '
-                   'network path taken by a message from the sender to the recipient. It can also contain custom '
-                   'message headers that hold app data for the message.  Returned only on applying a $select query '
-                   'option. Read-only.')
-        c.argument('message_internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
-        c.argument('message_is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
-                   'read receipt is requested for the message.')
-        c.argument('message_is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a '
-                   'draft. A message is a draft if it hasn\'t been sent yet.')
-        c.argument('message_is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been '
-                   'read.')
-        c.argument('message_is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
-                   'read receipt is requested for the message.')
-        c.argument('message_parent_folder_id', type=str, help='The unique identifier for the message\'s parent '
-                   'mailFolder.')
-        c.argument('message_received_date_time', help='The date and time the message was received.')
-        c.argument('message_reply_to', action=AddMessageReplyTo, nargs='*', help='The email addresses to use when '
-                   'replying.')
-        c.argument('message_sender', action=AddMessageFrom, nargs='*', help='recipient')
-        c.argument('message_sent_date_time', help='The date and time the message was sent.')
-        c.argument('message_subject', type=str, help='The subject of the message.')
-        c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
-                   'message.')
-        c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
-        c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
-                   'itemAttachment attachments for the message.')
-        c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
-                   'extensions defined for the message. Nullable.')
-        c.argument('message_multi_value_extended_properties', action=AddMessageMultiValueExtendedProperties, nargs='*',
-                   help='The collection of multi-value extended properties defined for the message. Nullable.')
-        c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
-                   '*', help='The collection of single-value extended properties defined for the message. Nullable.')
-
-    with self.argument_context('usersactions create-reply-all') as c:
+    with self.argument_context('usersactions user-message create-reply') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('comment', type=str, help='')
@@ -1685,10 +1616,9 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions forward') as c:
+    with self.argument_context('usersactions user-message create-reply-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('to_recipients', action=AddUsersactionsForwardToRecipients, nargs='*', help='')
         c.argument('comment', type=str, help='')
         c.argument('id', type=str, help='Read-only.')
         c.argument('message_categories', nargs='*', help='The categories associated with the item')
@@ -1762,12 +1692,89 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions move') as c:
+    with self.argument_context('usersactions user-message forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('to_recipients', action=AddUsersactionsUserMessageForwardToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
+        c.argument('id', type=str, help='Read-only.')
+        c.argument('message_categories', nargs='*', help='The categories associated with the item')
+        c.argument('message_change_key', type=str, help='Identifies the version of the item. Every time the item is '
+                   'changed, changeKey changes as well. This allows Exchange to apply changes to the correct version '
+                   'of the object. Read-only.')
+        c.argument('message_created_date_time', help='The Timestamp type represents date and time information using '
+                   'ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look '
+                   'like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('message_last_modified_date_time', help='The Timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('message_bcc_recipients', action=AddMessageBccRecipients, nargs='*', help='The Bcc: recipients for '
+                   'the message.')
+        c.argument('message_body', action=AddMessageBody, nargs='*', help='itemBody')
+        c.argument('message_body_preview', type=str, help='The first 255 characters of the message body. It is in text '
+                   'format.')
+        c.argument('message_cc_recipients', action=AddMessageCcRecipients, nargs='*', help='The Cc: recipients for the '
+                   'message.')
+        c.argument('message_conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('message_conversation_index',
+                   help='Indicates the position of the message within the conversation.')
+        c.argument('message_flag', type=validate_file_or_dict, help='followupFlag Expected value: '
+                   'json-string/@json-file.')
+        c.argument('message_from', action=AddMessageFrom, nargs='*', help='recipient')
+        c.argument('message_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
+                   '6C05F070\'>`.')
+        c.argument('message_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('message_inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('message_internet_message_headers', action=AddMessageInternetMessageHeaders, nargs='*', help='A '
+                   'collection of message headers defined by RFC5322. The set includes message headers indicating the '
+                   'network path taken by a message from the sender to the recipient. It can also contain custom '
+                   'message headers that hold app data for the message.  Returned only on applying a $select query '
+                   'option. Read-only.')
+        c.argument('message_internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('message_is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
+                   'read receipt is requested for the message.')
+        c.argument('message_is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a '
+                   'draft. A message is a draft if it hasn\'t been sent yet.')
+        c.argument('message_is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been '
+                   'read.')
+        c.argument('message_is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a '
+                   'read receipt is requested for the message.')
+        c.argument('message_parent_folder_id', type=str, help='The unique identifier for the message\'s parent '
+                   'mailFolder.')
+        c.argument('message_received_date_time', help='The date and time the message was received.')
+        c.argument('message_reply_to', action=AddMessageReplyTo, nargs='*', help='The email addresses to use when '
+                   'replying.')
+        c.argument('message_sender', action=AddMessageFrom, nargs='*', help='recipient')
+        c.argument('message_sent_date_time', help='The date and time the message was sent.')
+        c.argument('message_subject', type=str, help='The subject of the message.')
+        c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
+                   'message.')
+        c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
+                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
+                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
+                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
+                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
+                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
+                   'iFrame.')
+        c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
+                   'itemAttachment attachments for the message.')
+        c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
+                   'extensions defined for the message. Nullable.')
+        c.argument('message_multi_value_extended_properties', action=AddMessageMultiValueExtendedProperties, nargs='*',
+                   help='The collection of multi-value extended properties defined for the message. Nullable.')
+        c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
+                   '*', help='The collection of single-value extended properties defined for the message. Nullable.')
+
+    with self.argument_context('usersactions user-message move') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('destination_id', type=str, help='')
 
-    with self.argument_context('usersactions reply') as c:
+    with self.argument_context('usersactions user-message reply') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('comment', type=str, help='')
@@ -1843,7 +1850,7 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions reply-all') as c:
+    with self.argument_context('usersactions user-message reply-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('comment', type=str, help='')
@@ -1919,45 +1926,45 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions send') as c:
+    with self.argument_context('usersactions user-message send') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
 
-    with self.argument_context('usersactions assign-license') as c:
+    with self.argument_context('usersactions user assign-license') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('add_licenses', action=AddAddLicenses, nargs='*', help='')
         c.argument('remove_licenses', nargs='*', help='')
 
-    with self.argument_context('usersactions change-password') as c:
+    with self.argument_context('usersactions user change-password') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('current_password', type=str, help='')
         c.argument('new_password', type=str, help='')
 
-    with self.argument_context('usersactions check-member-group') as c:
+    with self.argument_context('usersactions user check-member-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('usersactions check-member-object') as c:
+    with self.argument_context('usersactions user check-member-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('usersactions export-personal-data') as c:
+    with self.argument_context('usersactions user export-personal-data') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('storage_location', type=str, help='')
 
-    with self.argument_context('usersactions find-meeting-time') as c:
+    with self.argument_context('usersactions user find-meeting-time') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict,
                    help='Action parameters Expected value: json-string/@json-file.')
 
-    with self.argument_context('usersactions get-available-extension-property') as c:
+    with self.argument_context('usersactions user get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-by-id') as c:
+    with self.argument_context('usersactions user get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('usersactions get-mail-tip') as c:
+    with self.argument_context('usersactions user get-mail-tip') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('email_addresses', nargs='*', help='')
         c.argument('mail_tips_options', arg_type=get_enum_type(['automaticReplies', 'mailboxFullStatus', ''
@@ -1966,27 +1973,27 @@ def load_arguments(self, _):
                                                                 'deliveryRestriction', 'moderationStatus', ''
                                                                 'recipientScope', 'recipientSuggestions']), help='')
 
-    with self.argument_context('usersactions get-member-group') as c:
+    with self.argument_context('usersactions user get-member-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions get-member-object') as c:
+    with self.argument_context('usersactions user get-member-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersactions remove-all-device-from-management') as c:
+    with self.argument_context('usersactions user remove-all-device-from-management') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersactions reprocess-license-assignment') as c:
+    with self.argument_context('usersactions user reprocess-license-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersactions restore') as c:
+    with self.argument_context('usersactions user restore') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersactions revoke-sign-in-session') as c:
+    with self.argument_context('usersactions user revoke-sign-in-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersactions send-mail') as c:
+    with self.argument_context('usersactions user send-mail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('save_to_sent_items', arg_type=get_three_state_flag(), help='')
         c.argument('message_id', type=str, help='Read-only.')
@@ -2061,7 +2068,7 @@ def load_arguments(self, _):
         c.argument('message_single_value_extended_properties', action=AddMessageSingleValueExtendedProperties, nargs=''
                    '*', help='The collection of single-value extended properties defined for the message. Nullable.')
 
-    with self.argument_context('usersactions translate-exchange-id') as c:
+    with self.argument_context('usersactions user translate-exchange-id') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('input_ids', nargs='*', help='')
         c.argument('target_id_type', arg_type=get_enum_type(['entryId', 'ewsId', 'immutableEntryId', 'restId', ''
@@ -2069,17 +2076,17 @@ def load_arguments(self, _):
         c.argument('source_id_type', arg_type=get_enum_type(['entryId', 'ewsId', 'immutableEntryId', 'restId', ''
                                                              'restImmutableEntryId']), help='')
 
-    with self.argument_context('usersactions validate-property') as c:
+    with self.argument_context('usersactions user validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('usersactions wipe-managed-app-registration-by-device-tag') as c:
+    with self.argument_context('usersactions user wipe-managed-app-registration-by-device-tag') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('device_tag', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('group_id', type=str, help='')
@@ -2088,11 +2095,11 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions get-notebook-from-web-url') as c:
+    with self.argument_context('usersactions user-onenote-notebook get-notebook-from-web-url') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2102,7 +2109,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2113,7 +2120,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2124,7 +2131,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2135,7 +2142,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2143,7 +2150,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section-page-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2155,7 +2162,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section-page-parent-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2167,7 +2174,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section-page-parent-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2179,7 +2186,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-group-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2190,7 +2197,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2200,7 +2207,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2210,7 +2217,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2220,14 +2227,14 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddUsersOnenoteNotebooksSectionsPagesCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-page-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2238,18 +2245,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('notebook_id', type=str, help='key: id of notebook')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='')
-        c.argument('group_id', type=str, help='')
-        c.argument('rename_as', type=str, help='')
-        c.argument('site_collection_id', type=str, help='')
-        c.argument('site_id', type=str, help='')
-
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-page-parent-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2260,7 +2256,18 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-page-parent-section copy-to-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('notebook_id', type=str, help='key: id of notebook')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='')
+        c.argument('group_id', type=str, help='')
+        c.argument('rename_as', type=str, help='')
+        c.argument('site_collection_id', type=str, help='')
+        c.argument('site_id', type=str, help='')
+
+    with self.argument_context('usersactions user-onenote-notebook-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2270,7 +2277,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2280,7 +2287,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2291,7 +2298,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-notebook-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2302,7 +2309,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2310,12 +2317,12 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddUsersOnenotePagesCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('group_id', type=str, help='')
@@ -2324,7 +2331,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2334,7 +2341,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2345,7 +2352,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2356,7 +2363,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-group-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2367,7 +2374,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-group-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2376,7 +2383,7 @@ def load_arguments(self, _):
         c.argument('commands', action=AddUsersOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands, nargs='*',
                    help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2387,7 +2394,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2397,7 +2404,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2407,7 +2414,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2417,14 +2424,14 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddUsersOnenotePagesParentnotebookSectionsPagesCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2434,7 +2441,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2444,7 +2451,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2455,7 +2462,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-notebook-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2466,7 +2473,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2475,7 +2482,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2484,7 +2491,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
@@ -2493,13 +2500,13 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddUsersOnenotePagesParentsectionPagesCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('group_id', type=str, help='')
@@ -2508,7 +2515,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2518,7 +2525,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2529,7 +2536,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2540,7 +2547,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2550,7 +2557,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2560,7 +2567,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('group_id', type=str, help='')
@@ -2569,7 +2576,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2579,7 +2586,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2589,7 +2596,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2599,7 +2606,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-page-parent-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2609,7 +2616,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('group_id', type=str, help='')
@@ -2618,7 +2625,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2628,7 +2635,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2638,7 +2645,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2648,7 +2655,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2656,7 +2663,7 @@ def load_arguments(self, _):
         c.argument('commands', action=AddUsersOnenoteSectiongroupsParentnotebookSectionsPagesCommands, nargs='*',
                    help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2667,7 +2674,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section-page-parent-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2678,7 +2685,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section-page-parent-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2689,7 +2696,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-parent-notebook-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2699,7 +2706,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2709,7 +2716,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2719,7 +2726,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2729,14 +2736,14 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddUsersOnenoteSectiongroupsSectionsPagesCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2747,7 +2754,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2759,7 +2766,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2771,7 +2778,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page-parent-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2782,7 +2789,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-page-parent-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2793,7 +2800,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2803,7 +2810,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2814,7 +2821,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-group-section-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2825,7 +2832,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2834,7 +2841,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2843,7 +2850,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section') as c:
+    with self.argument_context('usersactions user-onenote-section-page copy-to-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2852,13 +2859,13 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions onenote-patch-content') as c:
+    with self.argument_context('usersactions user-onenote-section-page onenote-patch-content') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddCommands, nargs='*', help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2868,7 +2875,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2879,7 +2886,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2891,7 +2898,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2903,7 +2910,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2914,7 +2921,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2925,7 +2932,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2935,7 +2942,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-page-parent-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2945,7 +2952,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('group_id', type=str, help='')
@@ -2954,7 +2961,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2964,7 +2971,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2975,7 +2982,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2986,7 +2993,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -2996,7 +3003,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -3006,7 +3013,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('group_id', type=str, help='')
@@ -3015,7 +3022,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-section-group-parent-notebook-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -3025,7 +3032,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-section-group-parent-notebook-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -3035,7 +3042,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-notebook') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -3045,7 +3052,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions copy-to-section-group') as c:
+    with self.argument_context('usersactions user-onenote-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -3055,7 +3062,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('site_id', type=str, help='')
 
-    with self.argument_context('usersactions create-or-get') as c:
+    with self.argument_context('usersactions user-online-meeting create-or-get') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
         c.argument('end_date_time', help='')

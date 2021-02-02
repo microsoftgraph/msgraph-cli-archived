@@ -21,27 +21,27 @@ from azext_planner_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-planner') as c:
+    with self.argument_context('planner group get-planner') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-planner') as c:
+    with self.argument_context('planner group update-planner') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans owned by '
                    'the group. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner group-planner delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner create-plan') as c:
+    with self.argument_context('planner group-planner create-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('contexts', type=validate_file_or_dict, help='plannerPlanContextCollection Expected value: '
@@ -67,19 +67,19 @@ def load_arguments(self, _):
         c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
-    with self.argument_context('planner get-plan') as c:
+    with self.argument_context('planner group-planner get-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-plan') as c:
+    with self.argument_context('planner group-planner list-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-plan') as c:
+    with self.argument_context('planner group-planner update-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -106,14 +106,14 @@ def load_arguments(self, _):
         c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner group-planner-plan delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('if_match', type=str, help='ETag')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
-    with self.argument_context('planner create-bucket') as c:
+    with self.argument_context('planner group-planner-plan create-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -124,47 +124,47 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner group-planner-plan create-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-bucket') as c:
+    with self.argument_context('planner group-planner-plan get-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner group-planner-plan get-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner group-planner-plan get-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-bucket') as c:
+    with self.argument_context('planner group-planner-plan list-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner group-planner-plan list-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-bucket') as c:
+    with self.argument_context('planner group-planner-plan update-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -176,7 +176,7 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner group-planner-plan update-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -187,28 +187,28 @@ def load_arguments(self, _):
         c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner group-planner-plan update-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner group-planner-plan-bucket delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner group-planner-plan-bucket create-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner group-planner-plan-bucket get-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -216,7 +216,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner group-planner-plan-bucket list-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -224,7 +224,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner group-planner-plan-bucket update-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -232,14 +232,14 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task get-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -247,7 +247,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task get-bucket-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -255,7 +255,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task get-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -263,7 +263,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task get-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -271,7 +271,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -284,7 +284,7 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task update-bucket-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -293,7 +293,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task update-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -307,7 +307,7 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task update-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -316,41 +316,41 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner group-planner-plan-task delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task get-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task get-bucket-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner group-planner-plan-task get-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task get-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task update-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -362,7 +362,7 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task update-bucket-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -370,7 +370,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner group-planner-plan-task update-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -383,7 +383,7 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task update-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -391,11 +391,11 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner get-planner') as c:
+    with self.argument_context('planner planner-planner get-planner') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-planner') as c:
+    with self.argument_context('planner planner-planner update-planner') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('buckets', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified buckets Expected value: json-string/@json-file.')
@@ -404,13 +404,13 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified tasks Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner delete') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('if_match', type=str, help='ETag')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
-    with self.argument_context('planner create-bucket') as c:
+    with self.argument_context('planner planner create-bucket') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='Name of the bucket.')
         c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
@@ -419,7 +419,7 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner create-plan') as c:
+    with self.argument_context('planner planner create-plan') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('contexts', type=validate_file_or_dict, help='plannerPlanContextCollection Expected value: '
                    'json-string/@json-file.')
@@ -444,41 +444,41 @@ def load_arguments(self, _):
         c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner planner create-task') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-bucket') as c:
+    with self.argument_context('planner planner get-bucket') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-plan') as c:
+    with self.argument_context('planner planner get-plan') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner planner get-task') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-bucket') as c:
+    with self.argument_context('planner planner list-bucket') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-plan') as c:
+    with self.argument_context('planner planner list-plan') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner planner list-task') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-bucket') as c:
+    with self.argument_context('planner planner update-bucket') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='Name of the bucket.')
@@ -488,7 +488,7 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner update-plan') as c:
+    with self.argument_context('planner planner update-plan') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('contexts', type=validate_file_or_dict, help='plannerPlanContextCollection Expected value: '
@@ -514,69 +514,69 @@ def load_arguments(self, _):
         c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner planner update-task') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-bucket delete') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner planner-bucket create-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner planner-bucket get-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner planner-bucket list-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner planner-bucket update-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-bucket-task delete') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task get-assigned-to-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task get-bucket-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner planner-bucket-task get-detail') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task get-progress-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -587,14 +587,14 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task update-bucket-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner planner-bucket-task update-detail') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -606,20 +606,20 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task update-progress-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-plan delete') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('if_match', type=str, help='ETag')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
-    with self.argument_context('planner create-bucket') as c:
+    with self.argument_context('planner planner-plan create-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='Name of the bucket.')
@@ -629,41 +629,41 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner planner-plan create-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-bucket') as c:
+    with self.argument_context('planner planner-plan get-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner planner-plan get-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner planner-plan get-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-bucket') as c:
+    with self.argument_context('planner planner-plan list-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner planner-plan list-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-bucket') as c:
+    with self.argument_context('planner planner-plan update-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -674,7 +674,7 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner planner-plan update-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
@@ -684,80 +684,80 @@ def load_arguments(self, _):
         c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner planner-plan update-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-plan-bucket delete') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner planner-plan-bucket create-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner planner-plan-bucket get-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner planner-plan-bucket list-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner planner-plan-bucket update-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-plan-bucket-task delete') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task get-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task get-bucket-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner planner-plan-bucket-task get-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task get-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -769,7 +769,7 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task update-bucket-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -777,7 +777,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner planner-plan-bucket-task update-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -790,7 +790,7 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task update-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -798,36 +798,36 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-plan-task delete') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task get-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task get-bucket-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner planner-plan-task get-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task get-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task update-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -838,14 +838,14 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task update-bucket-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner planner-plan-task update-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -857,38 +857,38 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task update-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner planner-task delete') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-task get-assigned-to-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-task get-bucket-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner planner-task get-detail') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-task get-progress-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-task update-assigned-to-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
@@ -898,13 +898,13 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-task update-bucket-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner planner-task update-detail') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
@@ -915,22 +915,22 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner planner-task update-progress-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-planner') as c:
+    with self.argument_context('planner user get-planner') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-planner') as c:
+    with self.argument_context('planner user update-planner') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('favorite_plan_references', type=validate_file_or_dict, help='plannerFavoritePlanReferenceCollection'
@@ -945,18 +945,18 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
                    'with the user. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user-planner delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
         c.argument('if_match', type=str, help='ETag')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
-    with self.argument_context('planner create-all') as c:
+    with self.argument_context('planner user-planner create-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('planner create-plan') as c:
+    with self.argument_context('planner user-planner create-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('contexts', type=validate_file_or_dict, help='plannerPlanContextCollection Expected value: '
@@ -982,83 +982,83 @@ def load_arguments(self, _):
         c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
-    with self.argument_context('planner create-ref-favorite-plan') as c:
+    with self.argument_context('planner user-planner create-ref-favorite-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner create-ref-recent-plan') as c:
+    with self.argument_context('planner user-planner create-ref-recent-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner user-planner create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-all') as c:
+    with self.argument_context('planner user-planner get-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-plan') as c:
+    with self.argument_context('planner user-planner get-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner user-planner get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-all') as c:
+    with self.argument_context('planner user-planner list-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-favorite-plan') as c:
+    with self.argument_context('planner user-planner list-favorite-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-plan') as c:
+    with self.argument_context('planner user-planner list-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-recent-plan') as c:
+    with self.argument_context('planner user-planner list-recent-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-ref-favorite-plan') as c:
+    with self.argument_context('planner user-planner list-ref-favorite-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('planner list-ref-recent-plan') as c:
+    with self.argument_context('planner user-planner list-ref-recent-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner user-planner list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-all') as c:
+    with self.argument_context('planner user-planner update-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('planner update-plan') as c:
+    with self.argument_context('planner user-planner update-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1085,20 +1085,20 @@ def load_arguments(self, _):
         c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner user-planner update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user-planner-plan delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('if_match', type=str, help='ETag')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
-    with self.argument_context('planner create-bucket') as c:
+    with self.argument_context('planner user-planner-plan create-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1109,47 +1109,47 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner user-planner-plan create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-bucket') as c:
+    with self.argument_context('planner user-planner-plan get-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner user-planner-plan get-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner user-planner-plan get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-bucket') as c:
+    with self.argument_context('planner user-planner-plan list-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner user-planner-plan list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-bucket') as c:
+    with self.argument_context('planner user-planner-plan update-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1161,7 +1161,7 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. The collection of tasks in the '
                    'bucket. Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner user-planner-plan update-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1172,28 +1172,28 @@ def load_arguments(self, _):
         c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner user-planner-plan update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user-planner-plan-bucket delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner create-task') as c:
+    with self.argument_context('planner user-planner-plan-bucket create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner get-task') as c:
+    with self.argument_context('planner user-planner-plan-bucket get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1201,7 +1201,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner list-task') as c:
+    with self.argument_context('planner user-planner-plan-bucket list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1209,7 +1209,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-task') as c:
+    with self.argument_context('planner user-planner-plan-bucket update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1217,14 +1217,14 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task get-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1232,7 +1232,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task get-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1240,7 +1240,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task get-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1248,7 +1248,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task get-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1256,7 +1256,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1269,7 +1269,7 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task update-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1278,7 +1278,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task update-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1292,7 +1292,7 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task update-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1301,41 +1301,41 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user-planner-plan-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task get-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task get-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner user-planner-plan-task get-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task get-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task update-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -1347,7 +1347,7 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task update-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -1355,7 +1355,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner user-planner-plan-task update-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -1368,7 +1368,7 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task update-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -1376,36 +1376,36 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner delete') as c:
+    with self.argument_context('planner user-planner-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-task get-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-task get-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-detail') as c:
+    with self.argument_context('planner user-planner-task get-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner get-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-task get-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('planner update-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-task update-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1416,14 +1416,14 @@ def load_arguments(self, _):
                    'dictionary does not provide an order hint for the user the task is assigned to. The format is '
                    'defined as outlined here.')
 
-    with self.argument_context('planner update-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-task update-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint used to order tasks in the Bucket view of the Task Board. The '
                    'format is defined as outlined here.')
 
-    with self.argument_context('planner update-detail') as c:
+    with self.argument_context('planner user-planner-task update-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1435,7 +1435,7 @@ def load_arguments(self, _):
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('planner update-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-task update-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')

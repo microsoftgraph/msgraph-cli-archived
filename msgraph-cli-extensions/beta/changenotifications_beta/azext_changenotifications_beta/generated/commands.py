@@ -20,10 +20,11 @@ def load_command_table(self, _):
         operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscription_subs'
         'cription_operations#SubscriptionSubscriptionOperations.{}',
         client_factory=cf_subscription_subscription)
-    with self.command_group('changenotifications', changenotifications_beta_subscription_subscription,
-                            client_factory=cf_subscription_subscription) as g:
-        g.custom_command('delete', 'changenotifications_delete', confirmation=True)
-        g.custom_command('create-subscription', 'changenotifications_create_subscription')
-        g.custom_command('get-subscription', 'changenotifications_get_subscription')
-        g.custom_command('list-subscription', 'changenotifications_list_subscription')
-        g.custom_command('update-subscription', 'changenotifications_update_subscription')
+    with self.command_group('changenotifications subscription-subscription',
+                            changenotifications_beta_subscription_subscription,
+                            client_factory=cf_subscription_subscription, is_experimental=True) as g:
+        g.custom_command('delete', 'changenotifications_subscription_subscription_delete', confirmation=True)
+        g.custom_command('create-subscription', 'changenotifications_subscription_subscription_create_subscription')
+        g.custom_command('get-subscription', 'changenotifications_subscription_subscription_get_subscription')
+        g.custom_command('list-subscription', 'changenotifications_subscription_subscription_list_subscription')
+        g.custom_command('update-subscription', 'changenotifications_subscription_subscription_update_subscription')

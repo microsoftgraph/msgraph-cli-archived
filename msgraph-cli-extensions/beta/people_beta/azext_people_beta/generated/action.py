@@ -38,10 +38,10 @@ class AddEmailAddresses(argparse._AppendAction):
         return d
 
 
-class AddPeopleCreatePersonPhones(argparse._AppendAction):
+class AddPeopleUserCreatePersonPhones(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPeopleCreatePersonPhones, self).__call__(parser, namespace, action, option_string)
+        super(AddPeopleUserCreatePersonPhones, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -84,10 +84,10 @@ class AddSources(argparse._AppendAction):
         return d
 
 
-class AddPeopleCreatePersonWebsites(argparse._AppendAction):
+class AddPeopleUserCreatePersonWebsites(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPeopleCreatePersonWebsites, self).__call__(parser, namespace, action, option_string)
+        super(AddPeopleUserCreatePersonWebsites, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -554,10 +554,10 @@ class AddPatents(argparse._AppendAction):
         return d
 
 
-class AddPeopleUpdateProfilePhones(argparse._AppendAction):
+class AddPeopleUserUpdateProfilePhones(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPeopleUpdateProfilePhones, self).__call__(parser, namespace, action, option_string)
+        super(AddPeopleUserUpdateProfilePhones, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -714,10 +714,10 @@ class AddSkills(argparse._AppendAction):
         return d
 
 
-class AddPeopleUpdateProfileWebsites(argparse._AppendAction):
+class AddPeopleUserUpdateProfileWebsites(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPeopleUpdateProfileWebsites, self).__call__(parser, namespace, action, option_string)
+        super(AddPeopleUserUpdateProfileWebsites, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -860,7 +860,7 @@ class AddPreferredLanguageTag(argparse.Action):
         return d
 
 
-class AddPeopleCreateAddressDetail(argparse.Action):
+class AddPeopleUserProfileCreateAddressDetail(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.detail = action
@@ -950,7 +950,7 @@ class AddPronunciation(argparse.Action):
         return d
 
 
-class AddPeopleCreateNoteDetail(argparse.Action):
+class AddPeopleUserProfileCreateNoteDetail(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.detail = action
@@ -974,10 +974,10 @@ class AddPeopleCreateNoteDetail(argparse.Action):
         return d
 
 
-class AddPeopleCreatePositionColleagues(argparse._AppendAction):
+class AddPeopleUserProfileCreatePositionColleagues(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPeopleCreatePositionColleagues, self).__call__(parser, namespace, action, option_string)
+        super(AddPeopleUserProfileCreatePositionColleagues, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1026,10 +1026,10 @@ class AddManager(argparse.Action):
         return d
 
 
-class AddPeopleCreateProjectColleagues(argparse._AppendAction):
+class AddPeopleUserProfileCreateProjectColleagues(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPeopleCreateProjectColleagues, self).__call__(parser, namespace, action, option_string)
+        super(AddPeopleUserProfileCreateProjectColleagues, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

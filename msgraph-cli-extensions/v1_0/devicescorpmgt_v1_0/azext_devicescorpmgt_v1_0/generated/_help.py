@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-device-app-management'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-device-app-management
 """
 
-helps['devicescorpmgt get-device-app-management'] = """
+helps['devicescorpmgt device-app-management-device-app-management get-device-app-management'] = """
     type: command
     short-summary: "Get deviceAppManagement"
 """
 
-helps['devicescorpmgt update-device-app-management'] = """
+helps['devicescorpmgt device-app-management-device-app-management update-device-app-management'] = """
     type: command
     short-summary: "Update deviceAppManagement"
     parameters:
@@ -252,37 +252,48 @@ extensions are encrypted when copying from an SMB share within the corporate bou
 argument.
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management delete'] = """
     type: command
     short-summary: "Delete navigation property windowsInformationProtectionPolicies for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-android-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management create-android-managed-app-protection'] = """
     type: command
     short-summary: "Create new navigation property to androidManagedAppProtections for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-default-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management create-default-managed-app-protection'] = """
     type: command
     short-summary: "Create new navigation property to defaultManagedAppProtections for deviceAppManagement"
+    parameters:
+      - name: --custom-settings
+        short-summary: "A set of string key and string value pairs to be sent to the affected users, unalterned by \
+this service"
+        long-summary: |
+            Usage: --custom-settings name=XX value=XX
+
+            name: Name for this key-value pair
+            value: Value for this key-value pair
+
+            Multiple actions can be specified by using more than one --custom-settings argument.
 """
 
-helps['devicescorpmgt create-io-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management create-io-managed-app-protection'] = """
     type: command
     short-summary: "Create new navigation property to iosManagedAppProtections for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-managed-app-policy'] = """
+helps['devicescorpmgt device-app-management create-managed-app-policy'] = """
     type: command
     short-summary: "Create new navigation property to managedAppPolicies for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-managed-app-registration'] = """
+helps['devicescorpmgt device-app-management create-managed-app-registration'] = """
     type: command
     short-summary: "Create new navigation property to managedAppRegistrations for deviceAppManagement"
     parameters:
@@ -329,12 +340,12 @@ version=XX id=XX
             Multiple actions can be specified by using more than one --operations argument.
 """
 
-helps['devicescorpmgt create-managed-app-statuses'] = """
+helps['devicescorpmgt device-app-management create-managed-app-statuses'] = """
     type: command
     short-summary: "Create new navigation property to managedAppStatuses for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-managed-e-book'] = """
+helps['devicescorpmgt device-app-management create-managed-e-book'] = """
     type: command
     short-summary: "Create new navigation property to managedEBooks for deviceAppManagement"
     parameters:
@@ -390,7 +401,7 @@ user-name=XX device-states=XX id=XX
             Multiple actions can be specified by using more than one --user-state-summary argument.
 """
 
-helps['devicescorpmgt create-mdm-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management create-mdm-window-information-protection-policy'] = """
     type: command
     short-summary: "Create new navigation property to mdmWindowsInformationProtectionPolicies for deviceAppManagement"
     parameters:
@@ -540,7 +551,7 @@ copying from an SMB share within the corporate boundary"
             Multiple actions can be specified by using more than one --protected-app-locker-files argument.
 """
 
-helps['devicescorpmgt create-mobile-app'] = """
+helps['devicescorpmgt device-app-management create-mobile-app'] = """
     type: command
     short-summary: "Create new navigation property to mobileApps for deviceAppManagement"
     parameters:
@@ -563,12 +574,12 @@ helps['devicescorpmgt create-mobile-app'] = """
             Multiple actions can be specified by using more than one --categories argument.
 """
 
-helps['devicescorpmgt create-mobile-app-category'] = """
+helps['devicescorpmgt device-app-management create-mobile-app-category'] = """
     type: command
     short-summary: "Create new navigation property to mobileAppCategories for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-mobile-app-configuration'] = """
+helps['devicescorpmgt device-app-management create-mobile-app-configuration'] = """
     type: command
     short-summary: "Create new navigation property to mobileAppConfigurations for deviceAppManagement"
     parameters:
@@ -632,7 +643,7 @@ last-update-date-time=XX not-applicable-count=XX pending-count=XX success-count=
             id: Read-only.
 """
 
-helps['devicescorpmgt create-targeted-managed-app-configuration'] = """
+helps['devicescorpmgt device-app-management create-targeted-managed-app-configuration'] = """
     type: command
     short-summary: "Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement"
     parameters:
@@ -648,12 +659,12 @@ configuration is scoped, unalterned by this service"
             Multiple actions can be specified by using more than one --custom-settings argument.
 """
 
-helps['devicescorpmgt create-vpp-token'] = """
+helps['devicescorpmgt device-app-management create-vpp-token'] = """
     type: command
     short-summary: "Create new navigation property to vppTokens for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management create-window-information-protection-policy'] = """
     type: command
     short-summary: "Create new navigation property to windowsInformationProtectionPolicies for deviceAppManagement"
     parameters:
@@ -803,172 +814,183 @@ copying from an SMB share within the corporate boundary"
             Multiple actions can be specified by using more than one --protected-app-locker-files argument.
 """
 
-helps['devicescorpmgt get-android-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management get-android-managed-app-protection'] = """
     type: command
     short-summary: "Get androidManagedAppProtections from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-default-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management get-default-managed-app-protection'] = """
     type: command
     short-summary: "Get defaultManagedAppProtections from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-io-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management get-io-managed-app-protection'] = """
     type: command
     short-summary: "Get iosManagedAppProtections from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-managed-app-policy'] = """
+helps['devicescorpmgt device-app-management get-managed-app-policy'] = """
     type: command
     short-summary: "Get managedAppPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-managed-app-registration'] = """
+helps['devicescorpmgt device-app-management get-managed-app-registration'] = """
     type: command
     short-summary: "Get managedAppRegistrations from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-managed-app-statuses'] = """
+helps['devicescorpmgt device-app-management get-managed-app-statuses'] = """
     type: command
     short-summary: "Get managedAppStatuses from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-managed-e-book'] = """
+helps['devicescorpmgt device-app-management get-managed-e-book'] = """
     type: command
     short-summary: "Get managedEBooks from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-mdm-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management get-mdm-window-information-protection-policy'] = """
     type: command
     short-summary: "Get mdmWindowsInformationProtectionPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-mobile-app'] = """
+helps['devicescorpmgt device-app-management get-mobile-app'] = """
     type: command
     short-summary: "Get mobileApps from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-mobile-app-category'] = """
+helps['devicescorpmgt device-app-management get-mobile-app-category'] = """
     type: command
     short-summary: "Get mobileAppCategories from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-mobile-app-configuration'] = """
+helps['devicescorpmgt device-app-management get-mobile-app-configuration'] = """
     type: command
     short-summary: "Get mobileAppConfigurations from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-targeted-managed-app-configuration'] = """
+helps['devicescorpmgt device-app-management get-targeted-managed-app-configuration'] = """
     type: command
     short-summary: "Get targetedManagedAppConfigurations from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-vpp-token'] = """
+helps['devicescorpmgt device-app-management get-vpp-token'] = """
     type: command
     short-summary: "Get vppTokens from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management get-window-information-protection-policy'] = """
     type: command
     short-summary: "Get windowsInformationProtectionPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-android-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management list-android-managed-app-protection'] = """
     type: command
     short-summary: "Get androidManagedAppProtections from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-default-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management list-default-managed-app-protection'] = """
     type: command
     short-summary: "Get defaultManagedAppProtections from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-io-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management list-io-managed-app-protection'] = """
     type: command
     short-summary: "Get iosManagedAppProtections from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-managed-app-policy'] = """
+helps['devicescorpmgt device-app-management list-managed-app-policy'] = """
     type: command
     short-summary: "Get managedAppPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-managed-app-registration'] = """
+helps['devicescorpmgt device-app-management list-managed-app-registration'] = """
     type: command
     short-summary: "Get managedAppRegistrations from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-managed-app-statuses'] = """
+helps['devicescorpmgt device-app-management list-managed-app-statuses'] = """
     type: command
     short-summary: "Get managedAppStatuses from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-managed-e-book'] = """
+helps['devicescorpmgt device-app-management list-managed-e-book'] = """
     type: command
     short-summary: "Get managedEBooks from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-mdm-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management list-mdm-window-information-protection-policy'] = """
     type: command
     short-summary: "Get mdmWindowsInformationProtectionPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-mobile-app'] = """
+helps['devicescorpmgt device-app-management list-mobile-app'] = """
     type: command
     short-summary: "Get mobileApps from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-mobile-app-category'] = """
+helps['devicescorpmgt device-app-management list-mobile-app-category'] = """
     type: command
     short-summary: "Get mobileAppCategories from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-mobile-app-configuration'] = """
+helps['devicescorpmgt device-app-management list-mobile-app-configuration'] = """
     type: command
     short-summary: "Get mobileAppConfigurations from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-targeted-managed-app-configuration'] = """
+helps['devicescorpmgt device-app-management list-targeted-managed-app-configuration'] = """
     type: command
     short-summary: "Get targetedManagedAppConfigurations from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-vpp-token'] = """
+helps['devicescorpmgt device-app-management list-vpp-token'] = """
     type: command
     short-summary: "Get vppTokens from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management list-window-information-protection-policy'] = """
     type: command
     short-summary: "Get windowsInformationProtectionPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt sync-microsoft-store-for-business-app'] = """
+helps['devicescorpmgt device-app-management sync-microsoft-store-for-business-app'] = """
     type: command
     short-summary: "Invoke action syncMicrosoftStoreForBusinessApps"
 """
 
-helps['devicescorpmgt update-android-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management update-android-managed-app-protection'] = """
     type: command
     short-summary: "Update the navigation property androidManagedAppProtections in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-default-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management update-default-managed-app-protection'] = """
     type: command
     short-summary: "Update the navigation property defaultManagedAppProtections in deviceAppManagement"
+    parameters:
+      - name: --custom-settings
+        short-summary: "A set of string key and string value pairs to be sent to the affected users, unalterned by \
+this service"
+        long-summary: |
+            Usage: --custom-settings name=XX value=XX
+
+            name: Name for this key-value pair
+            value: Value for this key-value pair
+
+            Multiple actions can be specified by using more than one --custom-settings argument.
 """
 
-helps['devicescorpmgt update-io-managed-app-protection'] = """
+helps['devicescorpmgt device-app-management update-io-managed-app-protection'] = """
     type: command
     short-summary: "Update the navigation property iosManagedAppProtections in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-managed-app-policy'] = """
+helps['devicescorpmgt device-app-management update-managed-app-policy'] = """
     type: command
     short-summary: "Update the navigation property managedAppPolicies in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-managed-app-registration'] = """
+helps['devicescorpmgt device-app-management update-managed-app-registration'] = """
     type: command
     short-summary: "Update the navigation property managedAppRegistrations in deviceAppManagement"
     parameters:
@@ -1015,12 +1037,12 @@ version=XX id=XX
             Multiple actions can be specified by using more than one --operations argument.
 """
 
-helps['devicescorpmgt update-managed-app-statuses'] = """
+helps['devicescorpmgt device-app-management update-managed-app-statuses'] = """
     type: command
     short-summary: "Update the navigation property managedAppStatuses in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-managed-e-book'] = """
+helps['devicescorpmgt device-app-management update-managed-e-book'] = """
     type: command
     short-summary: "Update the navigation property managedEBooks in deviceAppManagement"
     parameters:
@@ -1076,7 +1098,7 @@ user-name=XX device-states=XX id=XX
             Multiple actions can be specified by using more than one --user-state-summary argument.
 """
 
-helps['devicescorpmgt update-mdm-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management update-mdm-window-information-protection-policy'] = """
     type: command
     short-summary: "Update the navigation property mdmWindowsInformationProtectionPolicies in deviceAppManagement"
     parameters:
@@ -1226,7 +1248,7 @@ copying from an SMB share within the corporate boundary"
             Multiple actions can be specified by using more than one --protected-app-locker-files argument.
 """
 
-helps['devicescorpmgt update-mobile-app'] = """
+helps['devicescorpmgt device-app-management update-mobile-app'] = """
     type: command
     short-summary: "Update the navigation property mobileApps in deviceAppManagement"
     parameters:
@@ -1249,12 +1271,12 @@ helps['devicescorpmgt update-mobile-app'] = """
             Multiple actions can be specified by using more than one --categories argument.
 """
 
-helps['devicescorpmgt update-mobile-app-category'] = """
+helps['devicescorpmgt device-app-management update-mobile-app-category'] = """
     type: command
     short-summary: "Update the navigation property mobileAppCategories in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-mobile-app-configuration'] = """
+helps['devicescorpmgt device-app-management update-mobile-app-configuration'] = """
     type: command
     short-summary: "Update the navigation property mobileAppConfigurations in deviceAppManagement"
     parameters:
@@ -1318,7 +1340,7 @@ last-update-date-time=XX not-applicable-count=XX pending-count=XX success-count=
             id: Read-only.
 """
 
-helps['devicescorpmgt update-targeted-managed-app-configuration'] = """
+helps['devicescorpmgt device-app-management update-targeted-managed-app-configuration'] = """
     type: command
     short-summary: "Update the navigation property targetedManagedAppConfigurations in deviceAppManagement"
     parameters:
@@ -1334,12 +1356,12 @@ configuration is scoped, unalterned by this service"
             Multiple actions can be specified by using more than one --custom-settings argument.
 """
 
-helps['devicescorpmgt update-vpp-token'] = """
+helps['devicescorpmgt device-app-management update-vpp-token'] = """
     type: command
     short-summary: "Update the navigation property vppTokens in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-window-information-protection-policy'] = """
+helps['devicescorpmgt device-app-management update-window-information-protection-policy'] = """
     type: command
     short-summary: "Update the navigation property windowsInformationProtectionPolicies in deviceAppManagement"
     parameters:
@@ -1489,257 +1511,257 @@ copying from an SMB share within the corporate boundary"
             Multiple actions can be specified by using more than one --protected-app-locker-files argument.
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-android-managed-app-protection
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection delete'] = """
     type: command
     short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-app'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-app'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection get-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection get-deployment-summary'] = """
     type: command
     short-summary: "Get deploymentSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-app'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection list-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-app'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection update-app'] = """
     type: command
     short-summary: "Update the navigation property apps in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-android-managed-app-protection update-deployment-summary'] = """
     type: command
     short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-default-managed-app-protection
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection delete'] = """
     type: command
     short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-app'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-app'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection get-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection get-deployment-summary'] = """
     type: command
     short-summary: "Get deploymentSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-app'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection list-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-app'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection update-app'] = """
     type: command
     short-summary: "Update the navigation property apps in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-default-managed-app-protection update-deployment-summary'] = """
     type: command
     short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-io-managed-app-protection
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection delete'] = """
     type: command
     short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-app'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-app'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection get-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection get-deployment-summary'] = """
     type: command
     short-summary: "Get deploymentSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-app'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection list-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-app'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection update-app'] = """
     type: command
     short-summary: "Update the navigation property apps in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-io-managed-app-protection update-deployment-summary'] = """
     type: command
     short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-managed-app-policy'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-managed-app-policy
 """
 
-helps['devicescorpmgt target-app'] = """
+helps['devicescorpmgt device-app-management-managed-app-policy target-app'] = """
     type: command
     short-summary: "Invoke action targetApps"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-managed-app-registration
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration delete'] = """
     type: command
     short-summary: "Delete navigation property operations for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-applied-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration create-applied-policy'] = """
     type: command
     short-summary: "Create new navigation property to appliedPolicies for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-intended-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration create-intended-policy'] = """
     type: command
     short-summary: "Create new navigation property to intendedPolicies for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-operation'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-applied-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration get-applied-policy'] = """
     type: command
     short-summary: "Get appliedPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-intended-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration get-intended-policy'] = """
     type: command
     short-summary: "Get intendedPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-operation'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration get-operation'] = """
     type: command
     short-summary: "Get operations from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-user-id-with-flagged-app-registration'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration get-user-id-with-flagged-app-registration'] = """
     type: command
     short-summary: "Invoke function getUserIdsWithFlaggedAppRegistration"
 """
 
-helps['devicescorpmgt list-applied-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration list-applied-policy'] = """
     type: command
     short-summary: "Get appliedPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-intended-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration list-intended-policy'] = """
     type: command
     short-summary: "Get intendedPolicies from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-operation'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration list-operation'] = """
     type: command
     short-summary: "Get operations from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-applied-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration update-applied-policy'] = """
     type: command
     short-summary: "Update the navigation property appliedPolicies in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-intended-policy'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration update-intended-policy'] = """
     type: command
     short-summary: "Update the navigation property intendedPolicies in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-operation'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration-applied-policy'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-managed-app-registration-applied-policy
 """
 
-helps['devicescorpmgt target-app'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration-applied-policy target-app'] = """
     type: command
     short-summary: "Invoke action targetApps"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration-intended-policy'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-managed-app-registration-intended-policy
 """
 
-helps['devicescorpmgt target-app'] = """
+helps['devicescorpmgt device-app-management-managed-app-registration-intended-policy target-app'] = """
     type: command
     short-summary: "Invoke action targetApps"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-managed-e-book'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-managed-e-book
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-managed-e-book delete'] = """
     type: command
     short-summary: "Delete navigation property installSummary for deviceAppManagement"
 """
 
-helps['devicescorpmgt assign'] = """
+helps['devicescorpmgt device-app-management-managed-e-book assign'] = """
     type: command
     short-summary: "Invoke action assign"
 """
 
-helps['devicescorpmgt create-assignment'] = """
+helps['devicescorpmgt device-app-management-managed-e-book create-assignment'] = """
     type: command
     short-summary: "Create new navigation property to assignments for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book create-device-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceStates for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-user-state-summary'] = """
+helps['devicescorpmgt device-app-management-managed-e-book create-user-state-summary'] = """
     type: command
     short-summary: "Create new navigation property to userStateSummary for deviceAppManagement"
     parameters:
@@ -1761,57 +1783,57 @@ os-description=XX os-version=XX user-name=XX id=XX
             Multiple actions can be specified by using more than one --device-states argument.
 """
 
-helps['devicescorpmgt get-assignment'] = """
+helps['devicescorpmgt device-app-management-managed-e-book get-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book get-device-state'] = """
     type: command
     short-summary: "Get deviceStates from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-install-summary'] = """
+helps['devicescorpmgt device-app-management-managed-e-book get-install-summary'] = """
     type: command
     short-summary: "Get installSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-user-state-summary'] = """
+helps['devicescorpmgt device-app-management-managed-e-book get-user-state-summary'] = """
     type: command
     short-summary: "Get userStateSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-assignment'] = """
+helps['devicescorpmgt device-app-management-managed-e-book list-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book list-device-state'] = """
     type: command
     short-summary: "Get deviceStates from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-user-state-summary'] = """
+helps['devicescorpmgt device-app-management-managed-e-book list-user-state-summary'] = """
     type: command
     short-summary: "Get userStateSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-assignment'] = """
+helps['devicescorpmgt device-app-management-managed-e-book update-assignment'] = """
     type: command
     short-summary: "Update the navigation property assignments in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book update-device-state'] = """
     type: command
     short-summary: "Update the navigation property deviceStates in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-install-summary'] = """
+helps['devicescorpmgt device-app-management-managed-e-book update-install-summary'] = """
     type: command
     short-summary: "Update the navigation property installSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-user-state-summary'] = """
+helps['devicescorpmgt device-app-management-managed-e-book update-user-state-summary'] = """
     type: command
     short-summary: "Update the navigation property userStateSummary in deviceAppManagement"
     parameters:
@@ -1833,337 +1855,505 @@ os-description=XX os-version=XX user-name=XX id=XX
             Multiple actions can be specified by using more than one --device-states argument.
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-managed-e-book-user-state-summary
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary delete'] = """
     type: command
     short-summary: "Delete navigation property deviceStates for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceStates for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary get-device-state'] = """
     type: command
     short-summary: "Get deviceStates from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state'] = """
     type: command
     short-summary: "Get deviceStates from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-device-state'] = """
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state'] = """
     type: command
     short-summary: "Update the navigation property deviceStates in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-mobile-app-configuration
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration delete'] = """
     type: command
     short-summary: "Delete navigation property userStatusSummary for deviceAppManagement"
 """
 
-helps['devicescorpmgt assign'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration assign'] = """
     type: command
     short-summary: "Invoke action assign"
 """
 
-helps['devicescorpmgt create-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration create-assignment'] = """
     type: command
     short-summary: "Create new navigation property to assignments for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-device-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses'] = """
     type: command
     short-summary: "Create new navigation property to deviceStatuses for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-user-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses'] = """
     type: command
     short-summary: "Create new navigation property to userStatuses for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration get-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-device-status-summary'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration get-device-status-summary'] = """
     type: command
     short-summary: "Get deviceStatusSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-device-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration get-device-statuses'] = """
     type: command
     short-summary: "Get deviceStatuses from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-user-status-summary'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration get-user-status-summary'] = """
     type: command
     short-summary: "Get userStatusSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-user-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration get-user-statuses'] = """
     type: command
     short-summary: "Get userStatuses from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration list-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-device-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses'] = """
     type: command
     short-summary: "Get deviceStatuses from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-user-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses'] = """
     type: command
     short-summary: "Get userStatuses from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration update-assignment'] = """
     type: command
     short-summary: "Update the navigation property assignments in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-device-status-summary'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration update-device-status-summary'] = """
     type: command
     short-summary: "Update the navigation property deviceStatusSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-device-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration update-device-statuses'] = """
     type: command
     short-summary: "Update the navigation property deviceStatuses in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-user-status-summary'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration update-user-status-summary'] = """
     type: command
     short-summary: "Update the navigation property userStatusSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-user-statuses'] = """
+helps['devicescorpmgt device-app-management-mobile-app-configuration update-user-statuses'] = """
     type: command
     short-summary: "Update the navigation property userStatuses in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-mobile-app'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-mobile-app
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-mobile-app delete'] = """
     type: command
     short-summary: "Delete navigation property assignments for deviceAppManagement"
 """
 
-helps['devicescorpmgt assign'] = """
+helps['devicescorpmgt device-app-management-mobile-app assign'] = """
     type: command
     short-summary: "Invoke action assign"
 """
 
-helps['devicescorpmgt create-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app create-assignment'] = """
     type: command
     short-summary: "Create new navigation property to assignments for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-ref-category'] = """
+helps['devicescorpmgt device-app-management-mobile-app create-ref-category'] = """
     type: command
     short-summary: "Create new navigation property ref to categories for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app get-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app list-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-category'] = """
+helps['devicescorpmgt device-app-management-mobile-app list-category'] = """
     type: command
     short-summary: "Get categories from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-ref-category'] = """
+helps['devicescorpmgt device-app-management-mobile-app list-ref-category'] = """
     type: command
     short-summary: "Get ref of categories from deviceAppManagement"
 """
 
-helps['devicescorpmgt update-assignment'] = """
+helps['devicescorpmgt device-app-management-mobile-app update-assignment'] = """
     type: command
     short-summary: "Update the navigation property assignments in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-targeted-managed-app-configuration
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration delete'] = """
     type: command
     short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
 """
 
-helps['devicescorpmgt assign'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration assign'] = """
     type: command
     short-summary: "Invoke action assign"
 """
 
-helps['devicescorpmgt create-app'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement"
 """
 
-helps['devicescorpmgt create-assignment'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment'] = """
     type: command
     short-summary: "Create new navigation property to assignments for deviceAppManagement"
 """
 
-helps['devicescorpmgt get-app'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration get-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-assignment'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration get-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt get-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration get-deployment-summary'] = """
     type: command
     short-summary: "Get deploymentSummary from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-app'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration list-app'] = """
     type: command
     short-summary: "Get apps from deviceAppManagement"
 """
 
-helps['devicescorpmgt list-assignment'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment'] = """
     type: command
     short-summary: "Get assignments from deviceAppManagement"
 """
 
-helps['devicescorpmgt target-app'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration target-app'] = """
     type: command
     short-summary: "Invoke action targetApps"
 """
 
-helps['devicescorpmgt update-app'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration update-app'] = """
     type: command
     short-summary: "Update the navigation property apps in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-assignment'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration update-assignment'] = """
     type: command
     short-summary: "Update the navigation property assignments in deviceAppManagement"
 """
 
-helps['devicescorpmgt update-deployment-summary'] = """
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration update-deployment-summary'] = """
     type: command
     short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt device-app-management-vpp-token'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt device-app-management-vpp-token
 """
 
-helps['devicescorpmgt sync-license'] = """
+helps['devicescorpmgt device-app-management-vpp-token sync-license'] = """
     type: command
     short-summary: "Invoke action syncLicenses"
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt user'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt user
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt user delete'] = """
     type: command
     short-summary: "Delete navigation property managedDevices for users"
 """
 
-helps['devicescorpmgt create-device-management-troubleshooting-event'] = """
+helps['devicescorpmgt user create-device-management-troubleshooting-event'] = """
     type: command
     short-summary: "Create new navigation property to deviceManagementTroubleshootingEvents for users"
 """
 
-helps['devicescorpmgt create-managed-device'] = """
+helps['devicescorpmgt user create-managed-device'] = """
     type: command
     short-summary: "Create new navigation property to managedDevices for users"
+    parameters:
+      - name: --configuration-manager-client-enabled-features
+        short-summary: "configuration Manager client enabled features"
+        long-summary: |
+            Usage: --configuration-manager-client-enabled-features compliance-policy=XX device-configuration=XX \
+inventory=XX modern-apps=XX resource-access=XX windows-update-for-business=XX
+
+            compliance-policy: Whether compliance policy is managed by Intune
+            device-configuration: Whether device configuration is managed by Intune
+            inventory: Whether inventory is managed by Intune
+            modern-apps: Whether modern application is managed by Intune
+            resource-access: Whether resource access is managed by Intune
+            windows-update-for-business: Whether Windows Update for Business is managed by Intune
+      - name: --device-action-results
+        short-summary: "List of ComplexType deviceActionResult objects."
+        long-summary: |
+            Usage: --device-action-results action-name=XX action-state=XX last-updated-date-time=XX start-date-time=XX
+
+            action-name: Action name
+            last-updated-date-time: Time the action state was last updated
+            start-date-time: Time the action was initiated
+
+            Multiple actions can be specified by using more than one --device-action-results argument.
+      - name: --device-health-attestation-state
+        short-summary: "deviceHealthAttestationState"
+        long-summary: |
+            Usage: --device-health-attestation-state attestation-identity-key=XX bit-locker-status=XX \
+boot-app-security-version=XX boot-debugging=XX boot-manager-security-version=XX boot-manager-version=XX \
+boot-revision-list-info=XX code-integrity=XX code-integrity-check-version=XX code-integrity-policy=XX \
+content-namespace-url=XX content-version=XX data-excution-policy=XX device-health-attestation-status=XX \
+early-launch-anti-malware-driver-protection=XX health-attestation-supported-status=XX health-status-mismatch-info=XX \
+issued-date-time=XX last-update-date-time=XX operating-system-kernel-debugging=XX operating-system-rev-list-info=XX \
+pcr0=XX pcr-hash-algorithm=XX reset-count=XX restart-count=XX safe-mode=XX secure-boot=XX \
+secure-boot-configuration-policy-finger-print=XX test-signing=XX tpm-version=XX virtual-secure-mode=XX windows-pe=XX
+
+            attestation-identity-key: TWhen an Attestation Identity Key (AIK) is present on a device, it indicates \
+that the device has an endorsement key (EK) certificate.
+            bit-locker-status: On or Off of BitLocker Drive Encryption
+            boot-app-security-version: The security version number of the Boot Application
+            boot-debugging: When bootDebugging is enabled, the device is used in development and testing
+            boot-manager-security-version: The security version number of the Boot Application
+            boot-manager-version: The version of the Boot Manager
+            boot-revision-list-info: The Boot Revision List that was loaded during initial boot on the attested device
+            code-integrity: When code integrity is enabled, code execution is restricted to integrity verified code
+            code-integrity-check-version: The version of the Boot Manager
+            code-integrity-policy: The Code Integrity policy that is controlling the security of the boot environment
+            content-namespace-url: The DHA report version. (Namespace version)
+            content-version: The HealthAttestation state schema version
+            data-excution-policy: DEP Policy defines a set of hardware and software technologies that perform \
+additional checks on memory
+            device-health-attestation-status: The DHA report version. (Namespace version)
+            early-launch-anti-malware-driver-protection: ELAM provides protection for the computers in your network \
+when they start up
+            health-attestation-supported-status: This attribute indicates if DHA is supported for the device
+            health-status-mismatch-info: This attribute appears if DHA-Service detects an integrity issue
+            issued-date-time: The DateTime when device was evaluated or issued to MDM
+            last-update-date-time: The Timestamp of the last update.
+            operating-system-kernel-debugging: When operatingSystemKernelDebugging is enabled, the device is used in \
+development and testing
+            operating-system-rev-list-info: The Operating System Revision List that was loaded during initial boot on \
+the attested device
+            pcr0: The measurement that is captured in PCR[0]
+            pcr-hash-algorithm: Informational attribute that identifies the HASH algorithm that was used by TPM
+            reset-count: The number of times a PC device has hibernated or resumed
+            restart-count: The number of times a PC device has rebooted
+            safe-mode: Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
+            secure-boot: When Secure Boot is enabled, the core components must have the correct cryptographic \
+signatures
+            secure-boot-configuration-policy-finger-print: Fingerprint of the Custom Secure Boot Configuration Policy
+            test-signing: When test signing is allowed, the device does not enforce signature validation during boot
+            tpm-version: The security version number of the Boot Application
+            virtual-secure-mode: VSM is a container that protects high value assets from a compromised kernel
+            windows-pe: Operating system running with limited services that is used to prepare a computer for Windows
+      - name: --device-category
+        short-summary: "Device categories provides a way to organize your devices. Using device categories, company \
+administrators can define their own categories that make sense to their company. These categories can then be applied \
+to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and \
+create dynamic Azure Active Directory device groups based on device categories."
+        long-summary: |
+            Usage: --device-category description=XX display-name=XX id=XX
+
+            description: Optional description for the device category.
+            display-name: Display name for the device category.
+            id: Read-only.
 """
 
-helps['devicescorpmgt create-ref-managed-app-registration'] = """
+helps['devicescorpmgt user create-ref-managed-app-registration'] = """
     type: command
     short-summary: "Create new navigation property ref to managedAppRegistrations for users"
 """
 
-helps['devicescorpmgt get-device-management-troubleshooting-event'] = """
+helps['devicescorpmgt user get-device-management-troubleshooting-event'] = """
     type: command
     short-summary: "Get deviceManagementTroubleshootingEvents from users"
 """
 
-helps['devicescorpmgt get-managed-device'] = """
+helps['devicescorpmgt user get-managed-device'] = """
     type: command
     short-summary: "Get managedDevices from users"
 """
 
-helps['devicescorpmgt list-device-management-troubleshooting-event'] = """
+helps['devicescorpmgt user list-device-management-troubleshooting-event'] = """
     type: command
     short-summary: "Get deviceManagementTroubleshootingEvents from users"
 """
 
-helps['devicescorpmgt list-managed-app-registration'] = """
+helps['devicescorpmgt user list-managed-app-registration'] = """
     type: command
     short-summary: "Get managedAppRegistrations from users"
 """
 
-helps['devicescorpmgt list-managed-device'] = """
+helps['devicescorpmgt user list-managed-device'] = """
     type: command
     short-summary: "Get managedDevices from users"
 """
 
-helps['devicescorpmgt list-ref-managed-app-registration'] = """
+helps['devicescorpmgt user list-ref-managed-app-registration'] = """
     type: command
     short-summary: "Get ref of managedAppRegistrations from users"
 """
 
-helps['devicescorpmgt update-device-management-troubleshooting-event'] = """
+helps['devicescorpmgt user update-device-management-troubleshooting-event'] = """
     type: command
     short-summary: "Update the navigation property deviceManagementTroubleshootingEvents in users"
 """
 
-helps['devicescorpmgt update-managed-device'] = """
+helps['devicescorpmgt user update-managed-device'] = """
     type: command
     short-summary: "Update the navigation property managedDevices in users"
+    parameters:
+      - name: --configuration-manager-client-enabled-features
+        short-summary: "configuration Manager client enabled features"
+        long-summary: |
+            Usage: --configuration-manager-client-enabled-features compliance-policy=XX device-configuration=XX \
+inventory=XX modern-apps=XX resource-access=XX windows-update-for-business=XX
+
+            compliance-policy: Whether compliance policy is managed by Intune
+            device-configuration: Whether device configuration is managed by Intune
+            inventory: Whether inventory is managed by Intune
+            modern-apps: Whether modern application is managed by Intune
+            resource-access: Whether resource access is managed by Intune
+            windows-update-for-business: Whether Windows Update for Business is managed by Intune
+      - name: --device-action-results
+        short-summary: "List of ComplexType deviceActionResult objects."
+        long-summary: |
+            Usage: --device-action-results action-name=XX action-state=XX last-updated-date-time=XX start-date-time=XX
+
+            action-name: Action name
+            last-updated-date-time: Time the action state was last updated
+            start-date-time: Time the action was initiated
+
+            Multiple actions can be specified by using more than one --device-action-results argument.
+      - name: --device-health-attestation-state
+        short-summary: "deviceHealthAttestationState"
+        long-summary: |
+            Usage: --device-health-attestation-state attestation-identity-key=XX bit-locker-status=XX \
+boot-app-security-version=XX boot-debugging=XX boot-manager-security-version=XX boot-manager-version=XX \
+boot-revision-list-info=XX code-integrity=XX code-integrity-check-version=XX code-integrity-policy=XX \
+content-namespace-url=XX content-version=XX data-excution-policy=XX device-health-attestation-status=XX \
+early-launch-anti-malware-driver-protection=XX health-attestation-supported-status=XX health-status-mismatch-info=XX \
+issued-date-time=XX last-update-date-time=XX operating-system-kernel-debugging=XX operating-system-rev-list-info=XX \
+pcr0=XX pcr-hash-algorithm=XX reset-count=XX restart-count=XX safe-mode=XX secure-boot=XX \
+secure-boot-configuration-policy-finger-print=XX test-signing=XX tpm-version=XX virtual-secure-mode=XX windows-pe=XX
+
+            attestation-identity-key: TWhen an Attestation Identity Key (AIK) is present on a device, it indicates \
+that the device has an endorsement key (EK) certificate.
+            bit-locker-status: On or Off of BitLocker Drive Encryption
+            boot-app-security-version: The security version number of the Boot Application
+            boot-debugging: When bootDebugging is enabled, the device is used in development and testing
+            boot-manager-security-version: The security version number of the Boot Application
+            boot-manager-version: The version of the Boot Manager
+            boot-revision-list-info: The Boot Revision List that was loaded during initial boot on the attested device
+            code-integrity: When code integrity is enabled, code execution is restricted to integrity verified code
+            code-integrity-check-version: The version of the Boot Manager
+            code-integrity-policy: The Code Integrity policy that is controlling the security of the boot environment
+            content-namespace-url: The DHA report version. (Namespace version)
+            content-version: The HealthAttestation state schema version
+            data-excution-policy: DEP Policy defines a set of hardware and software technologies that perform \
+additional checks on memory
+            device-health-attestation-status: The DHA report version. (Namespace version)
+            early-launch-anti-malware-driver-protection: ELAM provides protection for the computers in your network \
+when they start up
+            health-attestation-supported-status: This attribute indicates if DHA is supported for the device
+            health-status-mismatch-info: This attribute appears if DHA-Service detects an integrity issue
+            issued-date-time: The DateTime when device was evaluated or issued to MDM
+            last-update-date-time: The Timestamp of the last update.
+            operating-system-kernel-debugging: When operatingSystemKernelDebugging is enabled, the device is used in \
+development and testing
+            operating-system-rev-list-info: The Operating System Revision List that was loaded during initial boot on \
+the attested device
+            pcr0: The measurement that is captured in PCR[0]
+            pcr-hash-algorithm: Informational attribute that identifies the HASH algorithm that was used by TPM
+            reset-count: The number of times a PC device has hibernated or resumed
+            restart-count: The number of times a PC device has rebooted
+            safe-mode: Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
+            secure-boot: When Secure Boot is enabled, the core components must have the correct cryptographic \
+signatures
+            secure-boot-configuration-policy-finger-print: Fingerprint of the Custom Secure Boot Configuration Policy
+            test-signing: When test signing is allowed, the device does not enforce signature validation during boot
+            tpm-version: The security version number of the Boot Application
+            virtual-secure-mode: VSM is a container that protects high value assets from a compromised kernel
+            windows-pe: Operating system running with limited services that is used to prepare a computer for Windows
+      - name: --device-category
+        short-summary: "Device categories provides a way to organize your devices. Using device categories, company \
+administrators can define their own categories that make sense to their company. These categories can then be applied \
+to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and \
+create dynamic Azure Active Directory device groups based on device categories."
+        long-summary: |
+            Usage: --device-category description=XX display-name=XX id=XX
+
+            description: Optional description for the device category.
+            display-name: Display name for the device category.
+            id: Read-only.
 """
 
-helps['devicescorpmgt'] = """
+helps['devicescorpmgt user-managed-device'] = """
     type: group
-    short-summary: devicescorpmgt
+    short-summary: devicescorpmgt user-managed-device
 """
 
-helps['devicescorpmgt delete'] = """
+helps['devicescorpmgt user-managed-device delete'] = """
     type: command
     short-summary: "Delete navigation property deviceCategory for users"
 """
 
-helps['devicescorpmgt create-device-compliance-policy-state'] = """
+helps['devicescorpmgt user-managed-device create-device-compliance-policy-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceCompliancePolicyStates for users"
     parameters:
@@ -2187,7 +2377,7 @@ setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-nam
             Multiple actions can be specified by using more than one --setting-states argument.
 """
 
-helps['devicescorpmgt create-device-configuration-state'] = """
+helps['devicescorpmgt user-managed-device create-device-configuration-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceConfigurationStates for users"
     parameters:
@@ -2211,37 +2401,37 @@ setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-nam
             Multiple actions can be specified by using more than one --setting-states argument.
 """
 
-helps['devicescorpmgt get-device-category'] = """
+helps['devicescorpmgt user-managed-device get-device-category'] = """
     type: command
     short-summary: "Get deviceCategory from users"
 """
 
-helps['devicescorpmgt get-device-compliance-policy-state'] = """
+helps['devicescorpmgt user-managed-device get-device-compliance-policy-state'] = """
     type: command
     short-summary: "Get deviceCompliancePolicyStates from users"
 """
 
-helps['devicescorpmgt get-device-configuration-state'] = """
+helps['devicescorpmgt user-managed-device get-device-configuration-state'] = """
     type: command
     short-summary: "Get deviceConfigurationStates from users"
 """
 
-helps['devicescorpmgt list-device-compliance-policy-state'] = """
+helps['devicescorpmgt user-managed-device list-device-compliance-policy-state'] = """
     type: command
     short-summary: "Get deviceCompliancePolicyStates from users"
 """
 
-helps['devicescorpmgt list-device-configuration-state'] = """
+helps['devicescorpmgt user-managed-device list-device-configuration-state'] = """
     type: command
     short-summary: "Get deviceConfigurationStates from users"
 """
 
-helps['devicescorpmgt update-device-category'] = """
+helps['devicescorpmgt user-managed-device update-device-category'] = """
     type: command
     short-summary: "Update the navigation property deviceCategory in users"
 """
 
-helps['devicescorpmgt update-device-compliance-policy-state'] = """
+helps['devicescorpmgt user-managed-device update-device-compliance-policy-state'] = """
     type: command
     short-summary: "Update the navigation property deviceCompliancePolicyStates in users"
     parameters:
@@ -2265,7 +2455,7 @@ setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-nam
             Multiple actions can be specified by using more than one --setting-states argument.
 """
 
-helps['devicescorpmgt update-device-configuration-state'] = """
+helps['devicescorpmgt user-managed-device update-device-configuration-state'] = """
     type: command
     short-summary: "Update the navigation property deviceConfigurationStates in users"
     parameters:

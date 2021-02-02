@@ -10,20 +10,32 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from msgraph.cli.core.commands.parameters import get_enum_type
+from msgraph.cli.core.commands.parameters import (
+    get_three_state_flag,
+    get_enum_type
+)
 from msgraph.cli.core.commands.validators import validate_file_or_dict
-from azext_crossdeviceexperiences_beta.action import AddVisualElementsAttribution
+from azext_crossdeviceexperiences_beta.action import (
+    AddVisualElementsAttribution,
+    AddAlternativeSecurityIds,
+    AddExtensionAttributes,
+    AddMemberOf,
+    AddRegisteredOwners,
+    AddRegisteredUsers,
+    AddTransitiveMemberOf,
+    AddExtensions
+)
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('crossdeviceexperiences delete') as c:
+    with self.argument_context('crossdeviceexperiences user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('if_match', type=str, help='ETag')
         c.argument('device_id', type=str, help='key: id of device')
 
-    with self.argument_context('crossdeviceexperiences create-activity') as c:
+    with self.argument_context('crossdeviceexperiences user create-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activation_url', type=str, help='Required. URL used to launch the activity in the best native '
@@ -70,36 +82,105 @@ def load_arguments(self, _):
                    'unique activity (for example, document name in cases where an activity refers to document '
                    'creation)')
 
-    with self.argument_context('crossdeviceexperiences create-device') as c:
+    with self.argument_context('crossdeviceexperiences user create-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
+                   'otherwise, false. Required.')
+        c.argument('alternative_security_ids', action=AddAlternativeSecurityIds, nargs='*', help='For internal use '
+                   'only. Not nullable.')
+        c.argument('approximate_last_sign_in_date_time', help='The timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('compliance_expiration_date_time', help='The timestamp when the device is no longer deemed '
+                   'compliant. The timestamp type represents date and time information using ISO 8601 format and is '
+                   'always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('device_category', type=str, help='')
+        c.argument('device_id', type=str, help='Unique identifier set by Azure Device Registration Service at the time '
+                   'of registration.')
+        c.argument('device_metadata', type=str, help='For internal use only. Set to null.')
+        c.argument('device_ownership', type=str, help='')
+        c.argument('device_version', type=int, help='For internal use only.')
+        c.argument('display_name', type=str, help='The display name for the device. Required.')
+        c.argument('domain_name', type=str, help='')
+        c.argument('enrollment_profile_name', type=str, help='')
+        c.argument('enrollment_type', type=str, help='')
+        c.argument('extension_attributes', action=AddExtensionAttributes, nargs='*', help=''
+                   'onPremisesExtensionAttributes')
+        c.argument('is_compliant', arg_type=get_three_state_flag(), help='true if the device complies with Mobile '
+                   'Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune '
+                   'for any device OS type or by an approved MDM app for Windows OS devices.')
+        c.argument('is_managed', arg_type=get_three_state_flag(), help='true if the device is managed by a Mobile '
+                   'Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device '
+                   'OS type or by an approved MDM app for Windows OS devices.')
+        c.argument('is_rooted', arg_type=get_three_state_flag(), help='')
+        c.argument('management_type', type=str, help='')
+        c.argument('on_premises_last_sync_date_time', help='The last time at which the object was synced with the '
+                   'on-premises directory. The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\' Read-only.')
+        c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
+                   'from an on-premises directory; false if this object was originally synced from an on-premises '
+                   'directory but is no longer synced; null if this object has never been synced from an on-premises '
+                   'directory (default). Read-only.')
+        c.argument('operating_system', type=str, help='The type of operating system on the device. Required.')
+        c.argument('operating_system_version', type=str, help='The version of the operating system on the device. '
+                   'Required.')
+        c.argument('physical_ids', nargs='*', help='For internal use only. Not nullable.')
+        c.argument('profile_type', type=str, help='The profile type of the device. Possible values:RegisteredDevice '
+                   '(default)SecureVMPrinterSharedIoT')
+        c.argument('registration_date_time', help='')
+        c.argument('system_labels', nargs='*', help='List of labels applied to the device by the system.')
+        c.argument('trust_type', type=str, help='Type of trust for the joined device. Read-only. Possible values: '
+                   'Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - '
+                   'on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device '
+                   'management in Azure Active Directory')
+        c.argument('kind', type=str, help='')
+        c.argument('manufacturer', type=str, help='Manufacturer of the device. Read-only.')
+        c.argument('model', type=str, help='Model of the device. Read-only.')
+        c.argument('name', type=str, help='')
+        c.argument('platform', type=str, help='')
+        c.argument('status', type=str, help='')
+        c.argument('member_of', action=AddMemberOf, nargs='*', help='Groups that this group is a member of. HTTP '
+                   'Methods: GET (supported for all groups). Read-only. Nullable.')
+        c.argument('registered_owners', action=AddRegisteredOwners, nargs='*', help='The user that cloud joined the '
+                   'device or registered their personal device. The registered owner is set at the time of '
+                   'registration. Currently, there can be only one owner. Read-only. Nullable.')
+        c.argument('registered_users', action=AddRegisteredUsers, nargs='*', help='Collection of registered users of '
+                   'the device. For cloud joined devices and registered personal devices, registered users are set to '
+                   'the same value as registered owners at the time of registration. Read-only. Nullable.')
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='*', help='')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the device. Read-only. Nullable.')
+        c.argument('commands', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences get-activity') as c:
+    with self.argument_context('crossdeviceexperiences user get-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences get-device') as c:
+    with self.argument_context('crossdeviceexperiences user get-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences list-activity') as c:
+    with self.argument_context('crossdeviceexperiences user list-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences list-device') as c:
+    with self.argument_context('crossdeviceexperiences user list-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences update-activity') as c:
+    with self.argument_context('crossdeviceexperiences user update-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -147,19 +228,88 @@ def load_arguments(self, _):
                    'unique activity (for example, document name in cases where an activity refers to document '
                    'creation)')
 
-    with self.argument_context('crossdeviceexperiences update-device') as c:
+    with self.argument_context('crossdeviceexperiences user update-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('device_id', type=str, help='key: id of device')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
+                   'otherwise, false. Required.')
+        c.argument('alternative_security_ids', action=AddAlternativeSecurityIds, nargs='*', help='For internal use '
+                   'only. Not nullable.')
+        c.argument('approximate_last_sign_in_date_time', help='The timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('compliance_expiration_date_time', help='The timestamp when the device is no longer deemed '
+                   'compliant. The timestamp type represents date and time information using ISO 8601 format and is '
+                   'always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('device_category', type=str, help='')
+        c.argument('microsoft_graph_device_id', type=str, help='Unique identifier set by Azure Device Registration '
+                   'Service at the time of registration.')
+        c.argument('device_metadata', type=str, help='For internal use only. Set to null.')
+        c.argument('device_ownership', type=str, help='')
+        c.argument('device_version', type=int, help='For internal use only.')
+        c.argument('display_name', type=str, help='The display name for the device. Required.')
+        c.argument('domain_name', type=str, help='')
+        c.argument('enrollment_profile_name', type=str, help='')
+        c.argument('enrollment_type', type=str, help='')
+        c.argument('extension_attributes', action=AddExtensionAttributes, nargs='*', help=''
+                   'onPremisesExtensionAttributes')
+        c.argument('is_compliant', arg_type=get_three_state_flag(), help='true if the device complies with Mobile '
+                   'Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune '
+                   'for any device OS type or by an approved MDM app for Windows OS devices.')
+        c.argument('is_managed', arg_type=get_three_state_flag(), help='true if the device is managed by a Mobile '
+                   'Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device '
+                   'OS type or by an approved MDM app for Windows OS devices.')
+        c.argument('is_rooted', arg_type=get_three_state_flag(), help='')
+        c.argument('management_type', type=str, help='')
+        c.argument('on_premises_last_sync_date_time', help='The last time at which the object was synced with the '
+                   'on-premises directory. The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\' Read-only.')
+        c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
+                   'from an on-premises directory; false if this object was originally synced from an on-premises '
+                   'directory but is no longer synced; null if this object has never been synced from an on-premises '
+                   'directory (default). Read-only.')
+        c.argument('operating_system', type=str, help='The type of operating system on the device. Required.')
+        c.argument('operating_system_version', type=str, help='The version of the operating system on the device. '
+                   'Required.')
+        c.argument('physical_ids', nargs='*', help='For internal use only. Not nullable.')
+        c.argument('profile_type', type=str, help='The profile type of the device. Possible values:RegisteredDevice '
+                   '(default)SecureVMPrinterSharedIoT')
+        c.argument('registration_date_time', help='')
+        c.argument('system_labels', nargs='*', help='List of labels applied to the device by the system.')
+        c.argument('trust_type', type=str, help='Type of trust for the joined device. Read-only. Possible values: '
+                   'Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - '
+                   'on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device '
+                   'management in Azure Active Directory')
+        c.argument('kind', type=str, help='')
+        c.argument('manufacturer', type=str, help='Manufacturer of the device. Read-only.')
+        c.argument('model', type=str, help='Model of the device. Read-only.')
+        c.argument('name', type=str, help='')
+        c.argument('platform', type=str, help='')
+        c.argument('status', type=str, help='')
+        c.argument('member_of', action=AddMemberOf, nargs='*', help='Groups that this group is a member of. HTTP '
+                   'Methods: GET (supported for all groups). Read-only. Nullable.')
+        c.argument('registered_owners', action=AddRegisteredOwners, nargs='*', help='The user that cloud joined the '
+                   'device or registered their personal device. The registered owner is set at the time of '
+                   'registration. Currently, there can be only one owner. Read-only. Nullable.')
+        c.argument('registered_users', action=AddRegisteredUsers, nargs='*', help='Collection of registered users of '
+                   'the device. For cloud joined devices and registered personal devices, registered users are set to '
+                   'the same value as registered owners at the time of registration. Read-only. Nullable.')
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='*', help='')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the device. Read-only. Nullable.')
+        c.argument('commands', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences delete') as c:
+    with self.argument_context('crossdeviceexperiences user-activity delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences create-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity create-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -183,21 +333,21 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences get-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity get-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences list-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity list-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences update-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity update-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
@@ -222,25 +372,25 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences delete') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences get-activity') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item get-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences get-ref-activity') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item get-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
 
-    with self.argument_context('crossdeviceexperiences set-ref-activity') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item set-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')

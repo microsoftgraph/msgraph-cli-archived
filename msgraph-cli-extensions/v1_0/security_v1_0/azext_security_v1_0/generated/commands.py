@@ -20,26 +20,30 @@ def load_command_table(self, _):
         operations_tmpl='azext_security_v1_0.vendored_sdks.security.operations._security_security_operations#SecuritySe'
         'curityOperations.{}',
         client_factory=cf_security_security)
-    with self.command_group('security', security_v1_0_security_security, client_factory=cf_security_security) as g:
-        g.custom_command('get-security', 'security_get_security')
-        g.custom_command('update-security', 'security_update_security')
+    with self.command_group('security security-security', security_v1_0_security_security,
+                            client_factory=cf_security_security, is_experimental=True) as g:
+        g.custom_command('get-security', 'security_security_security_get_security')
+        g.custom_command('update-security', 'security_security_security_update_security')
 
     from azext_security_v1_0.generated._client_factory import cf_security
     security_v1_0_security = CliCommandType(
         operations_tmpl='azext_security_v1_0.vendored_sdks.security.operations._security_operations#SecurityOperations.'
         '{}',
         client_factory=cf_security)
-    with self.command_group('security', security_v1_0_security, client_factory=cf_security) as g:
-        g.custom_command('delete', 'security_delete', confirmation=True)
-        g.custom_command('create-alert', 'security_create_alert')
-        g.custom_command('create-secure-score', 'security_create_secure_score')
-        g.custom_command('create-secure-score-control-profile', 'security_create_secure_score_control_profile')
-        g.custom_command('get-alert', 'security_get_alert')
-        g.custom_command('get-secure-score', 'security_get_secure_score')
-        g.custom_command('get-secure-score-control-profile', 'security_get_secure_score_control_profile')
-        g.custom_command('list-alert', 'security_list_alert')
-        g.custom_command('list-secure-score', 'security_list_secure_score')
-        g.custom_command('list-secure-score-control-profile', 'security_list_secure_score_control_profile')
-        g.custom_command('update-alert', 'security_update_alert')
-        g.custom_command('update-secure-score', 'security_update_secure_score')
-        g.custom_command('update-secure-score-control-profile', 'security_update_secure_score_control_profile')
+    with self.command_group('security security', security_v1_0_security, client_factory=cf_security,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'security_security_delete', confirmation=True)
+        g.custom_command('create-alert', 'security_security_create_alert')
+        g.custom_command('create-secure-score', 'security_security_create_secure_score')
+        g.custom_command('create-secure-score-control-profile',
+                         'security_security_create_secure_score_control_profile')
+        g.custom_command('get-alert', 'security_security_get_alert')
+        g.custom_command('get-secure-score', 'security_security_get_secure_score')
+        g.custom_command('get-secure-score-control-profile', 'security_security_get_secure_score_control_profile')
+        g.custom_command('list-alert', 'security_security_list_alert')
+        g.custom_command('list-secure-score', 'security_security_list_secure_score')
+        g.custom_command('list-secure-score-control-profile', 'security_security_list_secure_score_control_profile')
+        g.custom_command('update-alert', 'security_security_update_alert')
+        g.custom_command('update-secure-score', 'security_security_update_secure_score')
+        g.custom_command('update-secure-score-control-profile',
+                         'security_security_update_secure_score_control_profile')

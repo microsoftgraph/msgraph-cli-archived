@@ -7168,53 +7168,31 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :type additional_properties: dict[str, object]
     :param audio: audio.
     :type audio: ~files.models.MicrosoftGraphAudio
-    :param bundle: bundle.
-    :type bundle: ~files.models.MicrosoftGraphBundle
     :param content: The content stream, if the item represents a file.
     :type content: bytes
     :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
      metadata is changed. Note This property is not returned if the item is a folder. Read-only.
     :type c_tag: str
-    :param deleted: deleted.
-    :type deleted: ~files.models.MicrosoftGraphDeleted
-    :param file: file.
-    :type file: ~files.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
     :type file_system_info: ~files.models.MicrosoftGraphFileSystemInfo
-    :param folder: folder.
-    :type folder: ~files.models.MicrosoftGraphFolder
     :param image: image.
     :type image: ~files.models.MicrosoftGraphImage
     :param location: geoCoordinates.
     :type location: ~files.models.MicrosoftGraphGeoCoordinates
-    :param package: package.
-    :type package: ~files.models.MicrosoftGraphPackage
-    :param pending_operations: pendingOperations.
-    :type pending_operations: ~files.models.MicrosoftGraphPendingOperations
     :param photo: photo.
     :type photo: ~files.models.MicrosoftGraphPhoto
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param remote_item: remoteItem.
-    :type remote_item: ~files.models.MicrosoftGraphRemoteItem
     :param root: root.
     :type root: dict[str, object]
-    :param search_result: searchResult.
-    :type search_result: ~files.models.MicrosoftGraphSearchResult
-    :param shared: shared.
-    :type shared: ~files.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
     :param size: Size of the item in bytes. Read-only.
     :type size: long
-    :param special_folder: specialFolder.
-    :type special_folder: ~files.models.MicrosoftGraphSpecialFolder
     :param video: video.
     :type video: ~files.models.MicrosoftGraphVideo
     :param web_dav_url: WebDAV compatible URL for the item.
     :type web_dav_url: str
-    :param workbook: workbook.
-    :type workbook: ~files.models.MicrosoftGraphWorkbook
     :param activities: The list of recent activities that took place on this item.
     :type activities: list[~files.models.MicrosoftGraphItemActivityOld]
     :param analytics: itemAnalytics.
@@ -7235,7 +7213,113 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param versions: The list of previous versions of the item. For more info, see [getting
      previous versions][]. Read-only. Nullable.
     :type versions: list[~files.models.MicrosoftGraphDriveItemVersion]
+    :param id_workbook_id: Read-only.
+    :type id_workbook_id: str
+    :param application: workbookApplication.
+    :type application: ~files.models.MicrosoftGraphWorkbookApplication
+    :param comments:
+    :type comments: list[~files.models.MicrosoftGraphWorkbookComment]
+    :param functions: workbookFunctions.
+    :type functions: ~files.models.MicrosoftGraphWorkbookFunctions
+    :param names: Represents a collection of workbook scoped named items (named ranges and
+     constants). Read-only.
+    :type names: list[~files.models.MicrosoftGraphWorkbookNamedItem]
+    :param operations: The status of workbook operations. Getting an operation collection is not
+     supported, but you can get the status of a long-running operation if the Location header is
+     returned in the response. Read-only.
+    :type operations: list[~files.models.MicrosoftGraphWorkbookOperation]
+    :param tables: Represents a collection of tables associated with the workbook. Read-only.
+    :type tables: list[~files.models.MicrosoftGraphWorkbookTable]
+    :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
+     only.
+    :type worksheets: list[~files.models.MicrosoftGraphWorkbookWorksheet]
+    :param name_special_folder_name: The unique identifier for this item in the /drive/special
+     collection.
+    :type name_special_folder_name: str
+    :param owner: identitySet.
+    :type owner: ~files.models.MicrosoftGraphIdentitySet
+    :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
+     Read-only.
+    :type scope: str
+    :param shared_by: identitySet.
+    :type shared_by: ~files.models.MicrosoftGraphIdentitySet
+    :param shared_date_time: The UTC date and time when the item was shared. Read-only.
+    :type shared_date_time: ~datetime.datetime
+    :param on_click_telemetry_url: A callback URL that can be used to record telemetry information.
+     The application should issue a GET on this URL if the user interacts with this item to improve
+     the quality of results.
+    :type on_click_telemetry_url: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
+    :param created_date_time_remote_item_created_date_time: Date and time of item creation. Read-
+     only.
+    :type created_date_time_remote_item_created_date_time: ~datetime.datetime
+    :param file: file.
+    :type file: ~files.models.MicrosoftGraphFile
+    :param file_system_info_remote_item_file_system_info: fileSystemInfo.
+    :type file_system_info_remote_item_file_system_info: ~files.models.MicrosoftGraphFileSystemInfo
+    :param folder: folder.
+    :type folder: ~files.models.MicrosoftGraphFolder
+    :param id_remote_item_id: Unique identifier for the remote item in its drive. Read-only.
+    :type id_remote_item_id: str
+    :param image_remote_item_image: image.
+    :type image_remote_item_image: ~files.models.MicrosoftGraphImage
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
+    :param last_modified_date_time_remote_item_last_modified_date_time: Date and time the item was
+     last modified. Read-only.
+    :type last_modified_date_time_remote_item_last_modified_date_time: ~datetime.datetime
+    :param name_remote_item_name: Optional. Filename of the remote item. Read-only.
+    :type name_remote_item_name: str
+    :param package: package.
+    :type package: ~files.models.MicrosoftGraphPackage
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
+    :param shared: shared.
+    :type shared: ~files.models.MicrosoftGraphShared
+    :param sharepoint_ids_remote_item_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_remote_item_sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
+    :param size_remote_item_size: Size of the remote item. Read-only.
+    :type size_remote_item_size: long
+    :param special_folder: specialFolder.
+    :type special_folder: ~files.models.MicrosoftGraphSpecialFolder
+    :param video_remote_item_video: video.
+    :type video_remote_item_video: ~files.models.MicrosoftGraphVideo
+    :param web_dav_url_remote_item_web_dav_url: DAV compatible URL for the item.
+    :type web_dav_url_remote_item_web_dav_url: str
+    :param web_url_remote_item_web_url: URL that displays the resource in the browser. Read-only.
+    :type web_url_remote_item_web_url: str
+    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
+     Read-only.
+    :type queued_date_time: ~datetime.datetime
+    :param type: A string indicating the type of package. While oneNote is the only currently
+     defined value, you should expect other package types to be returned and handle them
+     accordingly.
+    :type type: str
+    :param child_count_folder_child_count: Number of children contained immediately within this
+     container.
+    :type child_count_folder_child_count: int
+    :param view: folderView.
+    :type view: ~files.models.MicrosoftGraphFolderView
+    :param hashes: hashes.
+    :type hashes: ~files.models.MicrosoftGraphHashes
+    :param mime_type: The MIME type for the file. This is determined by logic on the server and
+     might not be the value provided when the file was uploaded. Read-only.
+    :type mime_type: str
+    :param processing_metadata:
+    :type processing_metadata: bool
+    :param state: Represents the state of the deleted item.
+    :type state: str
+    :param album: album.
+    :type album: ~files.models.MicrosoftGraphAlbum
+    :param child_count_bundle_child_count:
+    :type child_count_bundle_child_count: int
     """
+
+    _validation = {
+        'child_count_folder_child_count': {'maximum': 2147483647, 'minimum': -2147483648},
+        'child_count_bundle_child_count': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7263,29 +7347,18 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
-        'bundle': {'key': 'bundle', 'type': 'MicrosoftGraphBundle'},
         'content': {'key': 'content', 'type': 'base64'},
         'c_tag': {'key': 'cTag', 'type': 'str'},
-        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
-        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
         'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
-        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
         'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
         'location': {'key': 'location', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
-        'pending_operations': {'key': 'pendingOperations', 'type': 'MicrosoftGraphPendingOperations'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphPhoto'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'remote_item': {'key': 'remoteItem', 'type': 'MicrosoftGraphRemoteItem'},
         'root': {'key': 'root', 'type': '{object}'},
-        'search_result': {'key': 'searchResult', 'type': 'MicrosoftGraphSearchResult'},
-        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
-        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
         'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
-        'workbook': {'key': 'workbook', 'type': 'MicrosoftGraphWorkbook'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'children': {'key': 'children', 'type': '[MicrosoftGraphDriveItem]'},
@@ -7294,6 +7367,49 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
         'thumbnails': {'key': 'thumbnails', 'type': '[MicrosoftGraphThumbnailSet]'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphDriveItemVersion]'},
+        'id_workbook_id': {'key': 'workbook.id', 'type': 'str'},
+        'application': {'key': 'workbook.application', 'type': 'MicrosoftGraphWorkbookApplication'},
+        'comments': {'key': 'workbook.comments', 'type': '[MicrosoftGraphWorkbookComment]'},
+        'functions': {'key': 'workbook.functions', 'type': 'MicrosoftGraphWorkbookFunctions'},
+        'names': {'key': 'workbook.names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
+        'operations': {'key': 'workbook.operations', 'type': '[MicrosoftGraphWorkbookOperation]'},
+        'tables': {'key': 'workbook.tables', 'type': '[MicrosoftGraphWorkbookTable]'},
+        'worksheets': {'key': 'workbook.worksheets', 'type': '[MicrosoftGraphWorkbookWorksheet]'},
+        'name_special_folder_name': {'key': 'specialFolder.name', 'type': 'str'},
+        'owner': {'key': 'shared.owner', 'type': 'MicrosoftGraphIdentitySet'},
+        'scope': {'key': 'shared.scope', 'type': 'str'},
+        'shared_by': {'key': 'shared.sharedBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'shared_date_time': {'key': 'shared.sharedDateTime', 'type': 'iso-8601'},
+        'on_click_telemetry_url': {'key': 'searchResult.onClickTelemetryUrl', 'type': 'str'},
+        'created_by': {'key': 'remoteItem.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'created_date_time_remote_item_created_date_time': {'key': 'remoteItem.createdDateTime', 'type': 'iso-8601'},
+        'file': {'key': 'remoteItem.file', 'type': 'MicrosoftGraphFile'},
+        'file_system_info_remote_item_file_system_info': {'key': 'remoteItem.fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'remoteItem.folder', 'type': 'MicrosoftGraphFolder'},
+        'id_remote_item_id': {'key': 'remoteItem.id', 'type': 'str'},
+        'image_remote_item_image': {'key': 'remoteItem.image', 'type': 'MicrosoftGraphImage'},
+        'last_modified_by': {'key': 'remoteItem.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'last_modified_date_time_remote_item_last_modified_date_time': {'key': 'remoteItem.lastModifiedDateTime', 'type': 'iso-8601'},
+        'name_remote_item_name': {'key': 'remoteItem.name', 'type': 'str'},
+        'package': {'key': 'remoteItem.package', 'type': 'MicrosoftGraphPackage'},
+        'parent_reference': {'key': 'remoteItem.parentReference', 'type': 'MicrosoftGraphItemReference'},
+        'shared': {'key': 'remoteItem.shared', 'type': 'MicrosoftGraphShared'},
+        'sharepoint_ids_remote_item_sharepoint_ids': {'key': 'remoteItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'size_remote_item_size': {'key': 'remoteItem.size', 'type': 'long'},
+        'special_folder': {'key': 'remoteItem.specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
+        'video_remote_item_video': {'key': 'remoteItem.video', 'type': 'MicrosoftGraphVideo'},
+        'web_dav_url_remote_item_web_dav_url': {'key': 'remoteItem.webDavUrl', 'type': 'str'},
+        'web_url_remote_item_web_url': {'key': 'remoteItem.webUrl', 'type': 'str'},
+        'queued_date_time': {'key': 'pendingOperations.pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
+        'type': {'key': 'package.type', 'type': 'str'},
+        'child_count_folder_child_count': {'key': 'folder.childCount', 'type': 'int'},
+        'view': {'key': 'folder.view', 'type': 'MicrosoftGraphFolderView'},
+        'hashes': {'key': 'file.hashes', 'type': 'MicrosoftGraphHashes'},
+        'mime_type': {'key': 'file.mimeType', 'type': 'str'},
+        'processing_metadata': {'key': 'file.processingMetadata', 'type': 'bool'},
+        'state': {'key': 'deleted.state', 'type': 'str'},
+        'album': {'key': 'bundle.album', 'type': 'MicrosoftGraphAlbum'},
+        'child_count_bundle_child_count': {'key': 'bundle.childCount', 'type': 'int'},
     }
 
     def __init__(
@@ -7324,29 +7440,18 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         audio: Optional["MicrosoftGraphAudio"] = None,
-        bundle: Optional["MicrosoftGraphBundle"] = None,
         content: Optional[bytes] = None,
         c_tag: Optional[str] = None,
-        deleted: Optional["MicrosoftGraphDeleted"] = None,
-        file: Optional["MicrosoftGraphFile"] = None,
         file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
-        folder: Optional["MicrosoftGraphFolder"] = None,
         image: Optional["MicrosoftGraphImage"] = None,
         location: Optional["MicrosoftGraphGeoCoordinates"] = None,
-        package: Optional["MicrosoftGraphPackage"] = None,
-        pending_operations: Optional["MicrosoftGraphPendingOperations"] = None,
         photo: Optional["MicrosoftGraphPhoto"] = None,
         publication: Optional["MicrosoftGraphPublicationFacet"] = None,
-        remote_item: Optional["MicrosoftGraphRemoteItem"] = None,
         root: Optional[Dict[str, object]] = None,
-        search_result: Optional["MicrosoftGraphSearchResult"] = None,
-        shared: Optional["MicrosoftGraphShared"] = None,
         sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         size: Optional[int] = None,
-        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
         video: Optional["MicrosoftGraphVideo"] = None,
         web_dav_url: Optional[str] = None,
-        workbook: Optional["MicrosoftGraphWorkbook"] = None,
         activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
         analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
         children: Optional[List["MicrosoftGraphDriveItem"]] = None,
@@ -7355,35 +7460,67 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         subscriptions: Optional[List["MicrosoftGraphSubscription"]] = None,
         thumbnails: Optional[List["MicrosoftGraphThumbnailSet"]] = None,
         versions: Optional[List["MicrosoftGraphDriveItemVersion"]] = None,
+        id_workbook_id: Optional[str] = None,
+        application: Optional["MicrosoftGraphWorkbookApplication"] = None,
+        comments: Optional[List["MicrosoftGraphWorkbookComment"]] = None,
+        functions: Optional["MicrosoftGraphWorkbookFunctions"] = None,
+        names: Optional[List["MicrosoftGraphWorkbookNamedItem"]] = None,
+        operations: Optional[List["MicrosoftGraphWorkbookOperation"]] = None,
+        tables: Optional[List["MicrosoftGraphWorkbookTable"]] = None,
+        worksheets: Optional[List["MicrosoftGraphWorkbookWorksheet"]] = None,
+        name_special_folder_name: Optional[str] = None,
+        owner: Optional["MicrosoftGraphIdentitySet"] = None,
+        scope: Optional[str] = None,
+        shared_by: Optional["MicrosoftGraphIdentitySet"] = None,
+        shared_date_time: Optional[datetime.datetime] = None,
+        on_click_telemetry_url: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
+        created_date_time_remote_item_created_date_time: Optional[datetime.datetime] = None,
+        file: Optional["MicrosoftGraphFile"] = None,
+        file_system_info_remote_item_file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
+        folder: Optional["MicrosoftGraphFolder"] = None,
+        id_remote_item_id: Optional[str] = None,
+        image_remote_item_image: Optional["MicrosoftGraphImage"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
+        last_modified_date_time_remote_item_last_modified_date_time: Optional[datetime.datetime] = None,
+        name_remote_item_name: Optional[str] = None,
+        package: Optional["MicrosoftGraphPackage"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
+        shared: Optional["MicrosoftGraphShared"] = None,
+        sharepoint_ids_remote_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        size_remote_item_size: Optional[int] = None,
+        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
+        video_remote_item_video: Optional["MicrosoftGraphVideo"] = None,
+        web_dav_url_remote_item_web_dav_url: Optional[str] = None,
+        web_url_remote_item_web_url: Optional[str] = None,
+        queued_date_time: Optional[datetime.datetime] = None,
+        type: Optional[str] = None,
+        child_count_folder_child_count: Optional[int] = None,
+        view: Optional["MicrosoftGraphFolderView"] = None,
+        hashes: Optional["MicrosoftGraphHashes"] = None,
+        mime_type: Optional[str] = None,
+        processing_metadata: Optional[bool] = None,
+        state: Optional[str] = None,
+        album: Optional["MicrosoftGraphAlbum"] = None,
+        child_count_bundle_child_count: Optional[int] = None,
         **kwargs
     ):
         super(MicrosoftGraphDriveItem, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.audio = audio
-        self.bundle = bundle
         self.content = content
         self.c_tag = c_tag
-        self.deleted = deleted
-        self.file = file
         self.file_system_info = file_system_info
-        self.folder = folder
         self.image = image
         self.location = location
-        self.package = package
-        self.pending_operations = pending_operations
         self.photo = photo
         self.publication = publication
-        self.remote_item = remote_item
         self.root = root
-        self.search_result = search_result
-        self.shared = shared
         self.sharepoint_ids = sharepoint_ids
         self.size = size
-        self.special_folder = special_folder
         self.video = video
         self.web_dav_url = web_dav_url
-        self.workbook = workbook
         self.activities = activities
         self.analytics = analytics
         self.children = children
@@ -7392,6 +7529,49 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         self.subscriptions = subscriptions
         self.thumbnails = thumbnails
         self.versions = versions
+        self.id_workbook_id = id_workbook_id
+        self.application = application
+        self.comments = comments
+        self.functions = functions
+        self.names = names
+        self.operations = operations
+        self.tables = tables
+        self.worksheets = worksheets
+        self.name_special_folder_name = name_special_folder_name
+        self.owner = owner
+        self.scope = scope
+        self.shared_by = shared_by
+        self.shared_date_time = shared_date_time
+        self.on_click_telemetry_url = on_click_telemetry_url
+        self.created_by = created_by
+        self.created_date_time_remote_item_created_date_time = created_date_time_remote_item_created_date_time
+        self.file = file
+        self.file_system_info_remote_item_file_system_info = file_system_info_remote_item_file_system_info
+        self.folder = folder
+        self.id_remote_item_id = id_remote_item_id
+        self.image_remote_item_image = image_remote_item_image
+        self.last_modified_by = last_modified_by
+        self.last_modified_date_time_remote_item_last_modified_date_time = last_modified_date_time_remote_item_last_modified_date_time
+        self.name_remote_item_name = name_remote_item_name
+        self.package = package
+        self.parent_reference = parent_reference
+        self.shared = shared
+        self.sharepoint_ids_remote_item_sharepoint_ids = sharepoint_ids_remote_item_sharepoint_ids
+        self.size_remote_item_size = size_remote_item_size
+        self.special_folder = special_folder
+        self.video_remote_item_video = video_remote_item_video
+        self.web_dav_url_remote_item_web_dav_url = web_dav_url_remote_item_web_dav_url
+        self.web_url_remote_item_web_url = web_url_remote_item_web_url
+        self.queued_date_time = queued_date_time
+        self.type = type
+        self.child_count_folder_child_count = child_count_folder_child_count
+        self.view = view
+        self.hashes = hashes
+        self.mime_type = mime_type
+        self.processing_metadata = processing_metadata
+        self.state = state
+        self.album = album
+        self.child_count_bundle_child_count = child_count_bundle_child_count
 
 
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
@@ -16656,25 +16836,26 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param pending_content_update: pendingContentUpdate.
-    :type pending_content_update: ~files.models.MicrosoftGraphPendingContentUpdate
+    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
+     Read-only.
+    :type queued_date_time: ~datetime.datetime
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'MicrosoftGraphPendingContentUpdate'},
+        'queued_date_time': {'key': 'pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        pending_content_update: Optional["MicrosoftGraphPendingContentUpdate"] = None,
+        queued_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
         super(MicrosoftGraphPendingOperations, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.pending_content_update = pending_content_update
+        self.queued_date_time = queued_date_time
 
 
 class MicrosoftGraphPermission(MicrosoftGraphEntity):

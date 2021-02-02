@@ -12,7 +12,8 @@
 
 from msgraph.cli.core.commands.parameters import (
     get_three_state_flag,
-    get_enum_type
+    get_enum_type,
+    get_location_type
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_teams_beta.action import (
@@ -36,7 +37,7 @@ from azext_teams_beta.action import (
     AddMessagingSettings,
     AddGroupsInstalledApps,
     AddGroupsMembers,
-    AddPhoto,
+    AddGroupsPhoto,
     AddScheduleOfferShiftRequests,
     AddScheduleOpenShiftChangeRequests,
     AddScheduleSchedulingGroups,
@@ -48,6 +49,24 @@ from azext_teams_beta.action import (
     AddTeamsMembers,
     AddError,
     AddTeamsTemplateParameters,
+    AddParentReferenceSharepointIds,
+    AddAudio,
+    AddFileSystemInfo,
+    AddImage,
+    AddTeamsChannelsPhoto,
+    AddPublication,
+    AddVideo,
+    AddSubscriptions,
+    AddVersions,
+    AddWorkbookApplication,
+    AddWorkbookComments,
+    AddWorkbookFunctions,
+    AddSharedOwner,
+    AddRemoteItemPackage,
+    AddRemoteItemSpecialFolder,
+    AddFolderView,
+    AddFileHashes,
+    AddBundleAlbum,
     AddTeamsChannelsMembersValues,
     AddTeamsMembersValues,
     AddTeamsPrimarychannelMembersValues,
@@ -59,11 +78,11 @@ from azext_teams_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams app-catalog delete') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams create-team-app') as c:
+    with self.argument_context('teams app-catalog create-team-app') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The name of the catalog app provided by the app developer in the '
                    'Microsoft Teams zip app package.')
@@ -74,17 +93,17 @@ def load_arguments(self, _):
         c.argument('app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each version of the '
                    'app.')
 
-    with self.argument_context('teams get-team-app') as c:
+    with self.argument_context('teams app-catalog get-team-app') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-team-app') as c:
+    with self.argument_context('teams app-catalog list-team-app') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-team-app') as c:
+    with self.argument_context('teams app-catalog update-team-app') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The name of the catalog app provided by the app developer in the '
@@ -96,12 +115,12 @@ def load_arguments(self, _):
         c.argument('app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each version of the '
                    'app.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams app-catalog-team-app delete') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams create-app-definition') as c:
+    with self.argument_context('teams app-catalog-team-app create-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_ad_app_id', type=str, help='')
@@ -130,19 +149,19 @@ def load_arguments(self, _):
                    'show up as having changed when using delta.')
         c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams get-app-definition') as c:
+    with self.argument_context('teams app-catalog-team-app get-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-app-definition') as c:
+    with self.argument_context('teams app-catalog-team-app list-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-app-definition') as c:
+    with self.argument_context('teams app-catalog-team-app update-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -172,11 +191,11 @@ def load_arguments(self, _):
                    'show up as having changed when using delta.')
         c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams chat-chat delete') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams create-chat') as c:
+    with self.argument_context('teams chat-chat create-chat') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
@@ -186,17 +205,17 @@ def load_arguments(self, _):
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams get-chat') as c:
+    with self.argument_context('teams chat-chat get-chat') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-chat') as c:
+    with self.argument_context('teams chat-chat list-chat') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-chat') as c:
+    with self.argument_context('teams chat-chat update-chat') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -207,7 +226,7 @@ def load_arguments(self, _):
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams chat delete') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
@@ -215,7 +234,7 @@ def load_arguments(self, _):
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
-    with self.argument_context('teams create-installed-app') as c:
+    with self.argument_context('teams chat create-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('teams_app_definition_id', type=str, help='Read-only.')
@@ -256,13 +275,13 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams create-member') as c:
+    with self.argument_context('teams chat create-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams create-message') as c:
+    with self.argument_context('teams chat create-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
@@ -321,7 +340,7 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams create-tab') as c:
+    with self.argument_context('teams chat create-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
@@ -340,55 +359,55 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams get-installed-app') as c:
+    with self.argument_context('teams chat get-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-member') as c:
+    with self.argument_context('teams chat get-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-message') as c:
+    with self.argument_context('teams chat get-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-tab') as c:
+    with self.argument_context('teams chat get-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-installed-app') as c:
+    with self.argument_context('teams chat list-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-member') as c:
+    with self.argument_context('teams chat list-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-message') as c:
+    with self.argument_context('teams chat list-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-tab') as c:
+    with self.argument_context('teams chat list-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams send-activity-notification') as c:
+    with self.argument_context('teams chat send-activity-notification') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('topic', action=AddTopic, nargs='*', help='teamworkActivityTopic')
         c.argument('activity_type', type=str, help='')
@@ -398,7 +417,7 @@ def load_arguments(self, _):
         c.argument('recipient', type=validate_file_or_dict, help='teamworkNotificationRecipient Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams update-installed-app') as c:
+    with self.argument_context('teams chat update-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -440,14 +459,14 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams update-member') as c:
+    with self.argument_context('teams chat update-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams update-message') as c:
+    with self.argument_context('teams chat update-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -507,7 +526,7 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams update-tab') as c:
+    with self.argument_context('teams chat update-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -527,66 +546,66 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams chat-installed-app delete') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-ref-team-app') as c:
+    with self.argument_context('teams chat-installed-app get-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
-    with self.argument_context('teams get-ref-team-app-definition') as c:
+    with self.argument_context('teams chat-installed-app get-ref-team-app-definition') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
-    with self.argument_context('teams get-team-app') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams get-team-app-definition') as c:
+    with self.argument_context('teams chat-installed-app get-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-ref-team-app') as c:
+    with self.argument_context('teams chat-installed-app get-team-app-definition') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams chat-installed-app set-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams set-ref-team-app-definition') as c:
+    with self.argument_context('teams chat-installed-app set-ref-team-app-definition') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams upgrade') as c:
+    with self.argument_context('teams chat-installed-app upgrade') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
-    with self.argument_context('teams add') as c:
+    with self.argument_context('teams chat-member add') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('values', action=AddChatsMembersValues, nargs='*', help='')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams chat-message delete') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('if_match', type=str, help='ETag')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams create-hosted-content') as c:
+    with self.argument_context('teams chat-message create-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('content_bytes', help='')
         c.argument('content_type', type=str, help='')
 
-    with self.argument_context('teams create-reply') as c:
+    with self.argument_context('teams chat-message create-reply') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -646,49 +665,49 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delta') as c:
+    with self.argument_context('teams chat-message delta') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
 
-    with self.argument_context('teams get-hosted-content') as c:
+    with self.argument_context('teams chat-message get-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-hosted-content-content') as c:
+    with self.argument_context('teams chat-message get-hosted-content-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
 
-    with self.argument_context('teams get-reply') as c:
+    with self.argument_context('teams chat-message get-reply') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-hosted-content') as c:
+    with self.argument_context('teams chat-message list-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-reply') as c:
+    with self.argument_context('teams chat-message list-reply') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-hosted-content-content') as c:
+    with self.argument_context('teams chat-message set-hosted-content-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('teams update-hosted-content') as c:
+    with self.argument_context('teams chat-message update-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
@@ -696,7 +715,7 @@ def load_arguments(self, _):
         c.argument('content_bytes', help='')
         c.argument('content_type', type=str, help='')
 
-    with self.argument_context('teams update-reply') as c:
+    with self.argument_context('teams chat-message update-reply') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
@@ -757,41 +776,41 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delta') as c:
+    with self.argument_context('teams chat-message-reply delta') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams chat-tab delete') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-ref-team-app') as c:
+    with self.argument_context('teams chat-tab get-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
-    with self.argument_context('teams get-team-app') as c:
+    with self.argument_context('teams chat-tab get-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-ref-team-app') as c:
+    with self.argument_context('teams chat-tab set-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-team') as c:
+    with self.argument_context('teams group get-team') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-team') as c:
+    with self.argument_context('teams group update-team') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
@@ -828,7 +847,7 @@ def load_arguments(self, _):
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
         c.argument('template_id', type=str, help='Read-only.')
@@ -874,11 +893,11 @@ def load_arguments(self, _):
         c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
                    help='')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-team delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams create-team') as c:
+    with self.argument_context('teams team-team create-team') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
                    'sensitivity of the team. Must match one of a pre-configured set in the tenant\'s directory.')
@@ -914,7 +933,7 @@ def load_arguments(self, _):
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
         c.argument('template_id', type=str, help='Read-only.')
@@ -960,17 +979,17 @@ def load_arguments(self, _):
         c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
                    help='')
 
-    with self.argument_context('teams get-team') as c:
+    with self.argument_context('teams team-team get-team') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-team') as c:
+    with self.argument_context('teams team-team list-team') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-team') as c:
+    with self.argument_context('teams team-team update-team') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
@@ -1007,7 +1026,7 @@ def load_arguments(self, _):
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
         c.argument('template_id', type=str, help='Read-only.')
@@ -1053,7 +1072,7 @@ def load_arguments(self, _):
         c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
                    help='')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('if_match', type=str, help='ETag')
@@ -1061,11 +1080,11 @@ def load_arguments(self, _):
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('teams_async_operation_id', type=str, help='key: id of teamsAsyncOperation')
 
-    with self.argument_context('teams archive') as c:
+    with self.argument_context('teams team archive') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('should_set_spo_site_read_only_for_members', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('teams clone') as c:
+    with self.argument_context('teams team clone') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('display_name', type=str, help='')
         c.argument('description', type=str, help='')
@@ -1076,10 +1095,10 @@ def load_arguments(self, _):
         c.argument('parts_to_clone', arg_type=get_enum_type(['apps', 'tabs', 'settings', 'channels', 'members']),
                    help='')
 
-    with self.argument_context('teams complete-migration') as c:
+    with self.argument_context('teams team complete-migration') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams create-channel') as c:
+    with self.argument_context('teams team create-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Read only. Timestamp at which the channel was created.')
@@ -1102,7 +1121,7 @@ def load_arguments(self, _):
         c.argument('tabs', type=validate_file_or_dict, help='A collection of all the tabs in the channel. A navigation '
                    'property. Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams create-installed-app') as c:
+    with self.argument_context('teams team create-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('teams_app_definition_id', type=str, help='Read-only.')
@@ -1143,13 +1162,13 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams create-member') as c:
+    with self.argument_context('teams team create-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams create-operation') as c:
+    with self.argument_context('teams team create-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('attempts_count', type=int, help='Number of times the operation was attempted before being marked '
@@ -1167,104 +1186,104 @@ def load_arguments(self, _):
                    'as result of this async operation. This URL should be treated as an opaque value and not parsed '
                    'into its component paths.')
 
-    with self.argument_context('teams create-ref-owner') as c:
+    with self.argument_context('teams team create-ref-owner') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams get-channel') as c:
+    with self.argument_context('teams team get-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-group') as c:
+    with self.argument_context('teams team get-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-installed-app') as c:
+    with self.argument_context('teams team get-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-member') as c:
+    with self.argument_context('teams team get-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-operation') as c:
+    with self.argument_context('teams team get-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_async_operation_id', type=str, help='key: id of teamsAsyncOperation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-photo') as c:
+    with self.argument_context('teams team get-photo') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-photo-content') as c:
+    with self.argument_context('teams team get-photo-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams get-primary-channel') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams get-ref-group') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-
-    with self.argument_context('teams get-ref-template') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-
-    with self.argument_context('teams get-schedule') as c:
+    with self.argument_context('teams team get-primary-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-template') as c:
+    with self.argument_context('teams team get-ref-group') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+
+    with self.argument_context('teams team get-ref-template') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+
+    with self.argument_context('teams team get-schedule') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-channel') as c:
+    with self.argument_context('teams team get-template') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams team list-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-installed-app') as c:
+    with self.argument_context('teams team list-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-member') as c:
+    with self.argument_context('teams team list-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-operation') as c:
+    with self.argument_context('teams team list-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-owner') as c:
+    with self.argument_context('teams team list-owner') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-ref-owner') as c:
+    with self.argument_context('teams team list-ref-owner') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('teams send-activity-notification') as c:
+    with self.argument_context('teams team send-activity-notification') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('topic', action=AddTopic, nargs='*', help='teamworkActivityTopic')
         c.argument('activity_type', type=str, help='')
@@ -1274,24 +1293,24 @@ def load_arguments(self, _):
         c.argument('recipient', type=validate_file_or_dict, help='teamworkNotificationRecipient Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams set-photo-content') as c:
+    with self.argument_context('teams team set-photo-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('teams set-ref-group') as c:
+    with self.argument_context('teams team set-ref-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams set-ref-template') as c:
+    with self.argument_context('teams team set-ref-template') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams unarchive') as c:
+    with self.argument_context('teams team unarchive') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams update-channel') as c:
+    with self.argument_context('teams team update-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1315,7 +1334,7 @@ def load_arguments(self, _):
         c.argument('tabs', type=validate_file_or_dict, help='A collection of all the tabs in the channel. A navigation '
                    'property. Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams update-installed-app') as c:
+    with self.argument_context('teams team update-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1357,14 +1376,14 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams update-member') as c:
+    with self.argument_context('teams team update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams update-operation') as c:
+    with self.argument_context('teams team update-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_async_operation_id', type=str, help='key: id of teamsAsyncOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1383,13 +1402,13 @@ def load_arguments(self, _):
                    'as result of this async operation. This URL should be treated as an opaque value and not parsed '
                    'into its component paths.')
 
-    with self.argument_context('teams update-photo') as c:
+    with self.argument_context('teams team update-photo') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('teams update-primary-channel') as c:
+    with self.argument_context('teams team update-primary-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Read only. Timestamp at which the channel was created.')
@@ -1412,7 +1431,7 @@ def load_arguments(self, _):
         c.argument('tabs', type=validate_file_or_dict, help='A collection of all the tabs in the channel. A navigation '
                    'property. Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams update-schedule') as c:
+    with self.argument_context('teams team update-schedule') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is enabled for the '
@@ -1451,7 +1470,7 @@ def load_arguments(self, _):
         c.argument('time_clock_settings_approved_location', action=AddScheduleTimeClockSettingsApprovedLocation,
                    nargs='*', help='geoCoordinates')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-channel delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
@@ -1459,21 +1478,21 @@ def load_arguments(self, _):
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
-    with self.argument_context('teams all-message') as c:
+    with self.argument_context('teams team-channel all-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams complete-migration') as c:
+    with self.argument_context('teams team-channel complete-migration') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
 
-    with self.argument_context('teams create-member') as c:
+    with self.argument_context('teams team-channel create-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams create-message') as c:
+    with self.argument_context('teams team-channel create-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1533,7 +1552,7 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams create-tab') as c:
+    with self.argument_context('teams team-channel create-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1553,70 +1572,222 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams get-file-folder') as c:
+    with self.argument_context('teams team-channel get-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-file-folder-content') as c:
+    with self.argument_context('teams team-channel get-file-folder-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
 
-    with self.argument_context('teams get-member') as c:
+    with self.argument_context('teams team-channel get-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-message') as c:
+    with self.argument_context('teams team-channel get-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-tab') as c:
+    with self.argument_context('teams team-channel get-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-member') as c:
+    with self.argument_context('teams team-channel list-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-message') as c:
+    with self.argument_context('teams team-channel list-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-tab') as c:
+    with self.argument_context('teams team-channel list-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-file-folder-content') as c:
+    with self.argument_context('teams team-channel set-file-folder-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('teams update-file-folder') as c:
+    with self.argument_context('teams team-channel update-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('parent_reference_path', type=str,
+                   help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('parent_reference_site_id', type=str, help='')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('audio', action=AddAudio, nargs='*', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='*', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddTeamsChannelsPhoto, nargs='*', help='photo')
+        c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='*', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
+                   'this item. Expected value: json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddSubscriptions, nargs='*', help='The set of subscriptions on the item. '
+                   'Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddVersions, nargs='*', help='The list of previous versions of the item. For '
+                   'more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('analytics_id', type=str, help='Read-only.')
+        c.argument('analytics_all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
                    'json-string/@json-file.')
+        c.argument('analytics_item_activity_stats', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('analytics_last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_id', type=str, help='Read-only.')
+        c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
+        c.argument('workbook_comments', action=AddWorkbookComments, nargs='*', help='')
+        c.argument('workbook_functions', action=AddWorkbookFunctions, nargs='*', help='workbookFunctions')
+        c.argument('workbook_names', type=validate_file_or_dict, help='Represents a collection of workbook scoped '
+                   'named items (named ranges and constants). Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_operations', type=validate_file_or_dict, help='The status of workbook operations. Getting '
+                   'an operation collection is not supported, but you can get the status of a long-running operation '
+                   'if the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_tables', type=validate_file_or_dict, help='Represents a collection of tables associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets '
+                   'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
+                   'collection')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
+                   'organization, or users. Read-only.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
+        c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
+                   'telemetry information. The application should issue a GET on this URL if the user interacts with '
+                   'this item to improve the quality of results.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('remote_item_file', type=validate_file_or_dict,
+                   help='file Expected value: json-string/@json-file.')
+        c.argument('remote_item_file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('remote_item_folder', type=validate_file_or_dict, help='folder Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
+        c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
+        c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
+        c.argument('remote_item_parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_shared', type=validate_file_or_dict, help='shared Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('remote_item_size', type=int, help='Size of the remote item. Read-only.')
+        c.argument('remote_item_special_folder', action=AddRemoteItemSpecialFolder, nargs='*', help='specialFolder')
+        c.argument('remote_item_video', action=AddVideo, nargs='*', help='video')
+        c.argument('remote_item_web_dav_url', type=str, help='DAV compatible URL for the item.')
+        c.argument('remote_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('pending_operations_pending_content_update_queued_date_time', help='Date and time the pending '
+                   'binary operation was queued in UTC time. Read-only.')
+        c.argument('package_type', type=str, help='A string indicating the type of package. While oneNote is the only '
+                   'currently defined value, you should expect other package types to be returned and handle them '
+                   'accordingly.')
+        c.argument('folder_child_count', type=int, help='Number of children contained immediately within this '
+                   'container.')
+        c.argument('folder_view', action=AddFolderView, nargs='*', help='folderView')
+        c.argument('file_hashes', action=AddFileHashes, nargs='*', help='hashes')
+        c.argument('file_mime_type', type=str, help='The MIME type for the file. This is determined by logic on the '
+                   'server and might not be the value provided when the file was uploaded. Read-only.')
+        c.argument('file_processing_metadata', arg_type=get_three_state_flag(), help='')
+        c.argument('deleted_state', type=str, help='Represents the state of the deleted item.')
+        c.argument('bundle_album', action=AddBundleAlbum, nargs='*', help='album')
+        c.argument('bundle_child_count', type=int, help='')
 
-    with self.argument_context('teams update-member') as c:
+    with self.argument_context('teams team-channel update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
@@ -1624,7 +1795,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams update-message') as c:
+    with self.argument_context('teams team-channel update-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1685,7 +1856,7 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams update-tab') as c:
+    with self.argument_context('teams team-channel update-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
@@ -1706,12 +1877,12 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams add') as c:
+    with self.argument_context('teams team-channel-member add') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('values', action=AddTeamsChannelsMembersValues, nargs='*', help='')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-channel-message delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1719,7 +1890,7 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams create-hosted-content') as c:
+    with self.argument_context('teams team-channel-message create-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1727,7 +1898,7 @@ def load_arguments(self, _):
         c.argument('content_bytes', help='')
         c.argument('content_type', type=str, help='')
 
-    with self.argument_context('teams create-reply') as c:
+    with self.argument_context('teams team-channel-message create-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1788,11 +1959,11 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delta') as c:
+    with self.argument_context('teams team-channel-message delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
 
-    with self.argument_context('teams get-hosted-content') as c:
+    with self.argument_context('teams team-channel-message get-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1800,13 +1971,13 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-hosted-content-content') as c:
+    with self.argument_context('teams team-channel-message get-hosted-content-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
 
-    with self.argument_context('teams get-reply') as c:
+    with self.argument_context('teams team-channel-message get-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1814,7 +1985,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-hosted-content') as c:
+    with self.argument_context('teams team-channel-message list-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1822,7 +1993,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-reply') as c:
+    with self.argument_context('teams team-channel-message list-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1830,14 +2001,14 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-hosted-content-content') as c:
+    with self.argument_context('teams team-channel-message set-hosted-content-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('teams update-hosted-content') as c:
+    with self.argument_context('teams team-channel-message update-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1846,7 +2017,7 @@ def load_arguments(self, _):
         c.argument('content_bytes', help='')
         c.argument('content_type', type=str, help='')
 
-    with self.argument_context('teams update-reply') as c:
+    with self.argument_context('teams team-channel-message update-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1908,98 +2079,98 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delta') as c:
+    with self.argument_context('teams team-channel-message-reply delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-channel-tab delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-ref-team-app') as c:
+    with self.argument_context('teams team-channel-tab get-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
-    with self.argument_context('teams get-team-app') as c:
+    with self.argument_context('teams team-channel-tab get-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-ref-team-app') as c:
+    with self.argument_context('teams team-channel-tab set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-installed-app delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-ref-team-app') as c:
+    with self.argument_context('teams team-installed-app get-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
-    with self.argument_context('teams get-ref-team-app-definition') as c:
+    with self.argument_context('teams team-installed-app get-ref-team-app-definition') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
-    with self.argument_context('teams get-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams get-team-app-definition') as c:
+    with self.argument_context('teams team-installed-app get-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-ref-team-app') as c:
+    with self.argument_context('teams team-installed-app get-team-app-definition') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams team-installed-app set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams set-ref-team-app-definition') as c:
+    with self.argument_context('teams team-installed-app set-ref-team-app-definition') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams upgrade') as c:
+    with self.argument_context('teams team-installed-app upgrade') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
-    with self.argument_context('teams add') as c:
+    with self.argument_context('teams team-member add') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('values', action=AddTeamsMembersValues, nargs='*', help='')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-primary-channel delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('if_match', type=str, help='ETag')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
-    with self.argument_context('teams complete-migration') as c:
+    with self.argument_context('teams team-primary-channel complete-migration') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams create-member') as c:
+    with self.argument_context('teams team-primary-channel create-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams create-message') as c:
+    with self.argument_context('teams team-primary-channel create-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
@@ -2058,7 +2229,7 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams create-tab') as c:
+    with self.argument_context('teams team-primary-channel create-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
@@ -2077,67 +2248,219 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams get-file-folder') as c:
+    with self.argument_context('teams team-primary-channel get-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-file-folder-content') as c:
+    with self.argument_context('teams team-primary-channel get-file-folder-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams get-member') as c:
+    with self.argument_context('teams team-primary-channel get-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-message') as c:
+    with self.argument_context('teams team-primary-channel get-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-tab') as c:
+    with self.argument_context('teams team-primary-channel get-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-member') as c:
+    with self.argument_context('teams team-primary-channel list-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-message') as c:
+    with self.argument_context('teams team-primary-channel list-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-tab') as c:
+    with self.argument_context('teams team-primary-channel list-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-file-folder-content') as c:
+    with self.argument_context('teams team-primary-channel set-file-folder-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('teams update-file-folder') as c:
+    with self.argument_context('teams team-primary-channel update-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('parent_reference_path', type=str,
+                   help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('parent_reference_site_id', type=str, help='')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('audio', action=AddAudio, nargs='*', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='*', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddTeamsChannelsPhoto, nargs='*', help='photo')
+        c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='*', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
+                   'this item. Expected value: json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddSubscriptions, nargs='*', help='The set of subscriptions on the item. '
+                   'Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddVersions, nargs='*', help='The list of previous versions of the item. For '
+                   'more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('analytics_id', type=str, help='Read-only.')
+        c.argument('analytics_all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
                    'json-string/@json-file.')
+        c.argument('analytics_item_activity_stats', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('analytics_last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_id', type=str, help='Read-only.')
+        c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
+        c.argument('workbook_comments', action=AddWorkbookComments, nargs='*', help='')
+        c.argument('workbook_functions', action=AddWorkbookFunctions, nargs='*', help='workbookFunctions')
+        c.argument('workbook_names', type=validate_file_or_dict, help='Represents a collection of workbook scoped '
+                   'named items (named ranges and constants). Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_operations', type=validate_file_or_dict, help='The status of workbook operations. Getting '
+                   'an operation collection is not supported, but you can get the status of a long-running operation '
+                   'if the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_tables', type=validate_file_or_dict, help='Represents a collection of tables associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets '
+                   'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
+                   'collection')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
+                   'organization, or users. Read-only.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
+        c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
+                   'telemetry information. The application should issue a GET on this URL if the user interacts with '
+                   'this item to improve the quality of results.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('remote_item_file', type=validate_file_or_dict,
+                   help='file Expected value: json-string/@json-file.')
+        c.argument('remote_item_file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('remote_item_folder', type=validate_file_or_dict, help='folder Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
+        c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
+        c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
+        c.argument('remote_item_parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_shared', type=validate_file_or_dict, help='shared Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('remote_item_size', type=int, help='Size of the remote item. Read-only.')
+        c.argument('remote_item_special_folder', action=AddRemoteItemSpecialFolder, nargs='*', help='specialFolder')
+        c.argument('remote_item_video', action=AddVideo, nargs='*', help='video')
+        c.argument('remote_item_web_dav_url', type=str, help='DAV compatible URL for the item.')
+        c.argument('remote_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('pending_operations_pending_content_update_queued_date_time', help='Date and time the pending '
+                   'binary operation was queued in UTC time. Read-only.')
+        c.argument('package_type', type=str, help='A string indicating the type of package. While oneNote is the only '
+                   'currently defined value, you should expect other package types to be returned and handle them '
+                   'accordingly.')
+        c.argument('folder_child_count', type=int, help='Number of children contained immediately within this '
+                   'container.')
+        c.argument('folder_view', action=AddFolderView, nargs='*', help='folderView')
+        c.argument('file_hashes', action=AddFileHashes, nargs='*', help='hashes')
+        c.argument('file_mime_type', type=str, help='The MIME type for the file. This is determined by logic on the '
+                   'server and might not be the value provided when the file was uploaded. Read-only.')
+        c.argument('file_processing_metadata', arg_type=get_three_state_flag(), help='')
+        c.argument('deleted_state', type=str, help='Represents the state of the deleted item.')
+        c.argument('bundle_album', action=AddBundleAlbum, nargs='*', help='album')
+        c.argument('bundle_child_count', type=int, help='')
 
-    with self.argument_context('teams update-member') as c:
+    with self.argument_context('teams team-primary-channel update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
         c.argument('roles', nargs='*', help='The roles for that user.')
 
-    with self.argument_context('teams update-message') as c:
+    with self.argument_context('teams team-primary-channel update-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2197,7 +2520,7 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams update-tab') as c:
+    with self.argument_context('teams team-primary-channel update-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2217,25 +2540,25 @@ def load_arguments(self, _):
         c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
                    'version of the app.')
 
-    with self.argument_context('teams add') as c:
+    with self.argument_context('teams team-primary-channel-member add') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('values', action=AddTeamsPrimarychannelMembersValues, nargs='*', help='')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-primary-channel-message delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('if_match', type=str, help='ETag')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams create-hosted-content') as c:
+    with self.argument_context('teams team-primary-channel-message create-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('content_bytes', help='')
         c.argument('content_type', type=str, help='')
 
-    with self.argument_context('teams create-reply') as c:
+    with self.argument_context('teams team-primary-channel-message create-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2295,49 +2618,49 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delta') as c:
+    with self.argument_context('teams team-primary-channel-message delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams get-hosted-content') as c:
+    with self.argument_context('teams team-primary-channel-message get-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-hosted-content-content') as c:
+    with self.argument_context('teams team-primary-channel-message get-hosted-content-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
 
-    with self.argument_context('teams get-reply') as c:
+    with self.argument_context('teams team-primary-channel-message get-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-hosted-content') as c:
+    with self.argument_context('teams team-primary-channel-message list-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-reply') as c:
+    with self.argument_context('teams team-primary-channel-message list-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-hosted-content-content') as c:
+    with self.argument_context('teams team-primary-channel-message set-hosted-content-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('teams update-hosted-content') as c:
+    with self.argument_context('teams team-primary-channel-message update-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
@@ -2345,7 +2668,7 @@ def load_arguments(self, _):
         c.argument('content_bytes', help='')
         c.argument('content_type', type=str, help='')
 
-    with self.argument_context('teams update-reply') as c:
+    with self.argument_context('teams team-primary-channel-message update-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
@@ -2406,32 +2729,32 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('teams delta') as c:
+    with self.argument_context('teams team-primary-channel-message-reply delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-primary-channel-tab delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-ref-team-app') as c:
+    with self.argument_context('teams team-primary-channel-tab get-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
-    with self.argument_context('teams get-team-app') as c:
+    with self.argument_context('teams team-primary-channel-tab get-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams set-ref-team-app') as c:
+    with self.argument_context('teams team-primary-channel-tab set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams team-schedule delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('offer_shift_request_id', type=str, help='key: id of offerShiftRequest')
         c.argument('if_match', type=str, help='ETag')
@@ -2445,7 +2768,7 @@ def load_arguments(self, _):
         c.argument('time_off_request_id', type=str, help='key: id of timeOffRequest')
         c.argument('time_off_id', type=str, help='key: id of timeOff')
 
-    with self.argument_context('teams create-offer-shift-request') as c:
+    with self.argument_context('teams team-schedule create-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2502,7 +2825,7 @@ def load_arguments(self, _):
         c.argument('recipient_user_id', type=str, help='User ID of the recipient of the offer shift request.')
         c.argument('sender_shift_id', type=str, help='User ID of the sender of the offer shift request.')
 
-    with self.argument_context('teams create-open-shift') as c:
+    with self.argument_context('teams team-schedule create-open-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2547,7 +2870,7 @@ def load_arguments(self, _):
                    help='ID for the scheduling group that the open shift belongs to.')
         c.argument('shared_open_shift', action=AddDraftOpenShift, nargs='*', help='openShiftItem')
 
-    with self.argument_context('teams create-open-shift-change-request') as c:
+    with self.argument_context('teams team-schedule create-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2598,7 +2921,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('open_shift_id', type=str, help='ID for the open shift.')
 
-    with self.argument_context('teams create-scheduling-group') as c:
+    with self.argument_context('teams team-schedule create-scheduling-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2644,12 +2967,12 @@ def load_arguments(self, _):
         c.argument('user_ids', nargs='*', help='The list of user IDs that are a member of the schedulingGroup. '
                    'Required.')
 
-    with self.argument_context('teams create-shift') as c:
+    with self.argument_context('teams team-schedule create-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams create-swap-shift-change-request') as c:
+    with self.argument_context('teams team-schedule create-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2708,12 +3031,12 @@ def load_arguments(self, _):
         c.argument('recipient_shift_id', type=str, help='ShiftId for the recipient user with whom the request is to '
                    'swap.')
 
-    with self.argument_context('teams create-time-card') as c:
+    with self.argument_context('teams team-schedule create-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams create-time-off') as c:
+    with self.argument_context('teams team-schedule create-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2757,7 +3080,7 @@ def load_arguments(self, _):
         c.argument('shared_time_off', action=AddDraftTimeOff, nargs='*', help='timeOffItem')
         c.argument('user_id', type=str, help='ID of the user assigned to the timeOff. Required.')
 
-    with self.argument_context('teams create-time-off-reason') as c:
+    with self.argument_context('teams team-schedule create-time-off-reason') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2806,7 +3129,7 @@ def load_arguments(self, _):
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether the timeOffReason can be used '
                    'when creating new entities or updating existing ones. Required.')
 
-    with self.argument_context('teams create-time-off-request') as c:
+    with self.argument_context('teams team-schedule create-time-off-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -2863,133 +3186,133 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'')
         c.argument('time_off_reason_id', type=str, help='The reason for the time off.')
 
-    with self.argument_context('teams get-offer-shift-request') as c:
+    with self.argument_context('teams team-schedule get-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('offer_shift_request_id', type=str, help='key: id of offerShiftRequest')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-open-shift') as c:
+    with self.argument_context('teams team-schedule get-open-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('open_shift_id', type=str, help='key: id of openShift')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-open-shift-change-request') as c:
+    with self.argument_context('teams team-schedule get-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('open_shift_change_request_id', type=str, help='key: id of openShiftChangeRequest')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-scheduling-group') as c:
+    with self.argument_context('teams team-schedule get-scheduling-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('scheduling_group_id', type=str, help='key: id of schedulingGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-shift') as c:
+    with self.argument_context('teams team-schedule get-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('shift_id', type=str, help='key: id of shift')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-swap-shift-change-request') as c:
+    with self.argument_context('teams team-schedule get-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('swap_shifts_change_request_id', type=str, help='key: id of swapShiftsChangeRequest')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-time-card') as c:
+    with self.argument_context('teams team-schedule get-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-time-off') as c:
+    with self.argument_context('teams team-schedule get-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_id', type=str, help='key: id of timeOff')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-time-off-reason') as c:
+    with self.argument_context('teams team-schedule get-time-off-reason') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_reason_id', type=str, help='key: id of timeOffReason')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-time-off-request') as c:
+    with self.argument_context('teams team-schedule get-time-off-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_request_id', type=str, help='key: id of timeOffRequest')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-offer-shift-request') as c:
+    with self.argument_context('teams team-schedule list-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-open-shift') as c:
+    with self.argument_context('teams team-schedule list-open-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-open-shift-change-request') as c:
+    with self.argument_context('teams team-schedule list-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-scheduling-group') as c:
+    with self.argument_context('teams team-schedule list-scheduling-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-shift') as c:
+    with self.argument_context('teams team-schedule list-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-swap-shift-change-request') as c:
+    with self.argument_context('teams team-schedule list-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-time-card') as c:
+    with self.argument_context('teams team-schedule list-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-time-off') as c:
+    with self.argument_context('teams team-schedule list-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-time-off-reason') as c:
+    with self.argument_context('teams team-schedule list-time-off-reason') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-time-off-request') as c:
+    with self.argument_context('teams team-schedule list-time-off-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams share') as c:
+    with self.argument_context('teams team-schedule share') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('notify_team', arg_type=get_three_state_flag(), help='')
         c.argument('start_date_time', help='')
         c.argument('end_date_time', help='')
 
-    with self.argument_context('teams update-offer-shift-request') as c:
+    with self.argument_context('teams team-schedule update-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('offer_shift_request_id', type=str, help='key: id of offerShiftRequest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3047,7 +3370,7 @@ def load_arguments(self, _):
         c.argument('recipient_user_id', type=str, help='User ID of the recipient of the offer shift request.')
         c.argument('sender_shift_id', type=str, help='User ID of the sender of the offer shift request.')
 
-    with self.argument_context('teams update-open-shift') as c:
+    with self.argument_context('teams team-schedule update-open-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('open_shift_id', type=str, help='key: id of openShift')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3093,7 +3416,7 @@ def load_arguments(self, _):
                    help='ID for the scheduling group that the open shift belongs to.')
         c.argument('shared_open_shift', action=AddDraftOpenShift, nargs='*', help='openShiftItem')
 
-    with self.argument_context('teams update-open-shift-change-request') as c:
+    with self.argument_context('teams team-schedule update-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('open_shift_change_request_id', type=str, help='key: id of openShiftChangeRequest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3145,7 +3468,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('open_shift_id', type=str, help='ID for the open shift.')
 
-    with self.argument_context('teams update-scheduling-group') as c:
+    with self.argument_context('teams team-schedule update-scheduling-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('scheduling_group_id', type=str, help='key: id of schedulingGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3192,13 +3515,13 @@ def load_arguments(self, _):
         c.argument('user_ids', nargs='*', help='The list of user IDs that are a member of the schedulingGroup. '
                    'Required.')
 
-    with self.argument_context('teams update-shift') as c:
+    with self.argument_context('teams team-schedule update-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('shift_id', type=str, help='key: id of shift')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams update-swap-shift-change-request') as c:
+    with self.argument_context('teams team-schedule update-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('swap_shifts_change_request_id', type=str, help='key: id of swapShiftsChangeRequest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3258,13 +3581,13 @@ def load_arguments(self, _):
         c.argument('recipient_shift_id', type=str, help='ShiftId for the recipient user with whom the request is to '
                    'swap.')
 
-    with self.argument_context('teams update-time-card') as c:
+    with self.argument_context('teams team-schedule update-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams update-time-off') as c:
+    with self.argument_context('teams team-schedule update-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_id', type=str, help='key: id of timeOff')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3309,7 +3632,7 @@ def load_arguments(self, _):
         c.argument('shared_time_off', action=AddDraftTimeOff, nargs='*', help='timeOffItem')
         c.argument('user_id', type=str, help='ID of the user assigned to the timeOff. Required.')
 
-    with self.argument_context('teams update-time-off-reason') as c:
+    with self.argument_context('teams team-schedule update-time-off-reason') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_reason_id', type=str, help='key: id of timeOffReason')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3359,7 +3682,7 @@ def load_arguments(self, _):
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether the timeOffReason can be used '
                    'when creating new entities or updating existing ones. Required.')
 
-    with self.argument_context('teams update-time-off-request') as c:
+    with self.argument_context('teams team-schedule update-time-off-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_request_id', type=str, help='key: id of timeOffRequest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3417,48 +3740,48 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'')
         c.argument('time_off_reason_id', type=str, help='The reason for the time off.')
 
-    with self.argument_context('teams clock-in') as c:
+    with self.argument_context('teams team-schedule-time-card clock-in') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
         c.argument('on_behalf_of_user_id', type=str, help='')
         c.argument('notes', action=AddBody, nargs='*', help='itemBody')
 
-    with self.argument_context('teams clock-out') as c:
+    with self.argument_context('teams team-schedule-time-card clock-out') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
         c.argument('notes', action=AddBody, nargs='*', help='itemBody')
 
-    with self.argument_context('teams confirm') as c:
+    with self.argument_context('teams team-schedule-time-card confirm') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
 
-    with self.argument_context('teams end-break') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('time_card_id', type=str, help='key: id of timeCard')
-        c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
-
-    with self.argument_context('teams start-break') as c:
+    with self.argument_context('teams team-schedule-time-card end-break') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
         c.argument('notes', action=AddBody, nargs='*', help='itemBody')
 
-    with self.argument_context('teams get-teamwork') as c:
+    with self.argument_context('teams team-schedule-time-card start-break') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('time_card_id', type=str, help='key: id of timeCard')
+        c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
+        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+
+    with self.argument_context('teams teamwork-teamwork get-teamwork') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-teamwork') as c:
+    with self.argument_context('teams teamwork-teamwork update-teamwork') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('workforce_integrations', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams teamwork delete') as c:
         c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams create-workforce-integration') as c:
+    with self.argument_context('teams teamwork create-workforce-integration') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
@@ -3514,17 +3837,17 @@ def load_arguments(self, _):
                                                        'unknownFutureValue']), help='')
         c.argument('url', type=str, help='Workforce Integration URL for callbacks from the Shifts service.')
 
-    with self.argument_context('teams get-workforce-integration') as c:
+    with self.argument_context('teams teamwork get-workforce-integration') as c:
         c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-workforce-integration') as c:
+    with self.argument_context('teams teamwork list-workforce-integration') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-workforce-integration') as c:
+    with self.argument_context('teams teamwork update-workforce-integration') as c:
         c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -3581,13 +3904,13 @@ def load_arguments(self, _):
                                                        'unknownFutureValue']), help='')
         c.argument('url', type=str, help='Workforce Integration URL for callbacks from the Shifts service.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('if_match', type=str, help='ETag')
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams create-chat') as c:
+    with self.argument_context('teams user create-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -3598,7 +3921,7 @@ def load_arguments(self, _):
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams create-joined-team') as c:
+    with self.argument_context('teams user create-joined-team') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
@@ -3635,7 +3958,7 @@ def load_arguments(self, _):
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
         c.argument('template_id', type=str, help='Read-only.')
@@ -3681,36 +4004,36 @@ def load_arguments(self, _):
         c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
                    help='')
 
-    with self.argument_context('teams get-chat') as c:
+    with self.argument_context('teams user get-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-joined-team') as c:
+    with self.argument_context('teams user get-joined-team') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-teamwork') as c:
+    with self.argument_context('teams user get-teamwork') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-chat') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams list-joined-team') as c:
+    with self.argument_context('teams user list-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-chat') as c:
+    with self.argument_context('teams user list-joined-team') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams user update-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3722,7 +4045,7 @@ def load_arguments(self, _):
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams update-joined-team') as c:
+    with self.argument_context('teams user update-joined-team') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3760,7 +4083,7 @@ def load_arguments(self, _):
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
         c.argument('template_id', type=str, help='Read-only.')
@@ -3806,144 +4129,56 @@ def load_arguments(self, _):
         c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
                    help='')
 
-    with self.argument_context('teams update-teamwork') as c:
+    with self.argument_context('teams user update-teamwork') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in the personal scope of '
                    'this user. Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams user-teamwork delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams create-installed-app') as c:
+    with self.argument_context('teams user-teamwork create-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
-        c.argument('chat_id', type=str, help='Read-only.')
-        c.argument('chat_created_date_time', help='')
-        c.argument('chat_last_updated_date_time', help='')
-        c.argument('chat_topic', type=str, help='')
-        c.argument('chat_installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('chat_members', action=AddUsersMembers, nargs='*', help='')
-        c.argument('chat_messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('chat_tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('teams get-installed-app') as c:
+    with self.argument_context('teams user-teamwork get-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams list-installed-app') as c:
+    with self.argument_context('teams user-teamwork list-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams update-installed-app') as c:
+    with self.argument_context('teams user-teamwork update-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
-        c.argument('chat_id', type=str, help='Read-only.')
-        c.argument('chat_created_date_time', help='')
-        c.argument('chat_last_updated_date_time', help='')
-        c.argument('chat_topic', type=str, help='')
-        c.argument('chat_installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('chat_members', action=AddUsersMembers, nargs='*', help='')
-        c.argument('chat_messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('chat_tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('teams delete') as c:
+    with self.argument_context('teams user-teamwork-installed-app delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams get-chat') as c:
+    with self.argument_context('teams user-teamwork-installed-app get-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams get-ref-chat') as c:
+    with self.argument_context('teams user-teamwork-installed-app get-ref-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
 
-    with self.argument_context('teams set-ref-chat') as c:
+    with self.argument_context('teams user-teamwork-installed-app set-ref-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '

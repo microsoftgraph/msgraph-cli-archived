@@ -96,7 +96,7 @@ class AddAssignmentCategories(argparse._AppendAction):
         return d
 
 
-class AddAddress(argparse.Action):
+class AddMailingAddress(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.address = action
@@ -260,6 +260,198 @@ class AddProfileStatus(argparse.Action):
         return d
 
 
+class AddRelatedContacts(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddRelatedContacts, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'access-consent':
+                d['access_consent'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'email-address':
+                d['email_address'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+            elif kl == 'mobile-phone':
+                d['mobile_phone'] = v[0]
+            elif kl == 'relationship':
+                d['relationship'] = v[0]
+        return d
+
+
+class AddAssignedLicenses(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAssignedLicenses, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'disabled-plans':
+                d['disabled_plans'] = v
+            elif kl == 'sku-id':
+                d['sku_id'] = v[0]
+        return d
+
+
+class AddAssignedPlans(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAssignedPlans, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'assigned-date-time':
+                d['assigned_date_time'] = v[0]
+            elif kl == 'capability-status':
+                d['capability_status'] = v[0]
+            elif kl == 'service':
+                d['service'] = v[0]
+            elif kl == 'service-plan-id':
+                d['service_plan_id'] = v[0]
+        return d
+
+
+class AddPasswordProfile(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.password_profile = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'force-change-password-next-sign-in':
+                d['force_change_password_next_sign_in'] = v[0]
+            elif kl == 'force-change-password-next-sign-in-with-mfa':
+                d['force_change_password_next_sign_in_with_mfa'] = v[0]
+            elif kl == 'password':
+                d['password'] = v[0]
+        return d
+
+
+class AddProvisionedPlans(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddProvisionedPlans, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'capability-status':
+                d['capability_status'] = v[0]
+            elif kl == 'provisioning-status':
+                d['provisioning_status'] = v[0]
+            elif kl == 'service':
+                d['service'] = v[0]
+        return d
+
+
+class AddStudent(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.student = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'birth-date':
+                d['birth_date'] = v[0]
+            elif kl == 'external-id':
+                d['external_id'] = v[0]
+            elif kl == 'gender':
+                d['gender'] = v[0]
+            elif kl == 'grade':
+                d['grade'] = v[0]
+            elif kl == 'graduation-year':
+                d['graduation_year'] = v[0]
+            elif kl == 'student-number':
+                d['student_number'] = v[0]
+        return d
+
+
+class AddTeacher(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.teacher = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'external-id':
+                d['external_id'] = v[0]
+            elif kl == 'teacher-number':
+                d['teacher_number'] = v[0]
+        return d
+
+
 class AddInstructions(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -308,10 +500,10 @@ class AddCategories(argparse._AppendAction):
         return d
 
 
-class AddEducationClassesResources(argparse._AppendAction):
+class AddResourceCreatedBy(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddEducationClassesResources, self).__call__(parser, namespace, action, option_string)
+        namespace.resource_created_by = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -325,40 +517,18 @@ class AddEducationClassesResources(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'distribute-for-student-work':
-                d['distribute_for_student_work'] = v[0]
-            elif kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'display-name-resource-display-name':
-                d['display_name_resource_display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-user-display-name':
-                d['display_name_resource_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-user-id':
-                d['id_resource_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-device-display-name':
-                d['display_name_resource_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-device-id':
-                d['id_resource_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-application-display-name':
-                d['display_name_resource_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-application-id':
-                d['id_resource_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-user-display-name':
-                d['display_name_resource_created_by_user_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-user-id':
-                d['id_resource_created_by_user_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-device-display-name':
-                d['display_name_resource_created_by_device_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-device-id':
-                d['id_resource_created_by_device_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-application-display-name':
-                d['display_name_resource_created_by_application_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-application-id':
-                d['id_resource_created_by_application_id'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
+            if kl == 'display-name-user-display-name':
+                d['display_name_user_display_name'] = v[0]
+            elif kl == 'id-user-id':
+                d['id_user_id'] = v[0]
+            elif kl == 'display-name-device-display-name':
+                d['display_name_device_display_name'] = v[0]
+            elif kl == 'id-device-id':
+                d['id_device_id'] = v[0]
+            elif kl == 'display-name-application-display-name':
+                d['display_name_application_display_name'] = v[0]
+            elif kl == 'id-application-id':
+                d['id_application_id'] = v[0]
         return d
 
 
@@ -393,114 +563,6 @@ class AddOutcomes(argparse._AppendAction):
                 d['display_name_last_modified_by_application_display_name'] = v[0]
             elif kl == 'id-last-modified-by-application-id':
                 d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddEducationClassesAssignmentsResources(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddEducationClassesAssignmentsResources, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'assignment-resource-url':
-                d['assignment_resource_url'] = v[0]
-            elif kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'display-name-resource-display-name':
-                d['display_name_resource_display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-user-display-name':
-                d['display_name_resource_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-user-id':
-                d['id_resource_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-device-display-name':
-                d['display_name_resource_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-device-id':
-                d['id_resource_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-application-display-name':
-                d['display_name_resource_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-application-id':
-                d['id_resource_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-user-display-name':
-                d['display_name_resource_created_by_user_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-user-id':
-                d['id_resource_created_by_user_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-device-display-name':
-                d['display_name_resource_created_by_device_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-device-id':
-                d['id_resource_created_by_device_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-application-display-name':
-                d['display_name_resource_created_by_application_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-application-id':
-                d['id_resource_created_by_application_id'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddSubmittedResources(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddSubmittedResources, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'assignment-resource-url':
-                d['assignment_resource_url'] = v[0]
-            elif kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'display-name-resource-display-name':
-                d['display_name_resource_display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-user-display-name':
-                d['display_name_resource_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-user-id':
-                d['id_resource_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-device-display-name':
-                d['display_name_resource_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-device-id':
-                d['id_resource_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-resource-last-modified-by-application-display-name':
-                d['display_name_resource_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-resource-last-modified-by-application-id':
-                d['id_resource_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-user-display-name':
-                d['display_name_resource_created_by_user_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-user-id':
-                d['id_resource_created_by_user_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-device-display-name':
-                d['display_name_resource_created_by_device_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-device-id':
-                d['id_resource_created_by_device_id'] = v[0]
-            elif kl == 'display-name-resource-created-by-application-display-name':
-                d['display_name_resource_created_by_application_display_name'] = v[0]
-            elif kl == 'id-resource-created-by-application-id':
-                d['id_resource_created_by_application_id'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
         return d

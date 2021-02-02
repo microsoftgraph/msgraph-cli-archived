@@ -20,326 +20,375 @@ def load_command_table(self, _):
     sites_v1_0_group = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._group_operations#GroupOperations.{}',
         client_factory=cf_group)
-    with self.command_group('sites', sites_v1_0_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('create-site', 'sites_create_site')
-        g.custom_command('get-site', 'sites_get_site')
-        g.custom_command('list-site', 'sites_list_site')
-        g.custom_command('update-site', 'sites_update_site')
+    with self.command_group('sites group', sites_v1_0_group, client_factory=cf_group, is_experimental=True) as g:
+        g.custom_command('delete', 'sites_group_delete', confirmation=True)
+        g.custom_command('create-site', 'sites_group_create_site')
+        g.custom_command('get-site', 'sites_group_get_site')
+        g.custom_command('list-site', 'sites_group_list_site')
+        g.custom_command('update-site', 'sites_group_update_site')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_site
     sites_v1_0_site_site = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_site_operations#SiteSiteOperations.{}',
         client_factory=cf_site_site)
-    with self.command_group('sites', sites_v1_0_site_site, client_factory=cf_site_site) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('create-site', 'sites_create_site')
-        g.custom_command('get-site', 'sites_get_site')
-        g.custom_command('list-site', 'sites_list_site')
-        g.custom_command('update-site', 'sites_update_site')
+    with self.command_group('sites site-site', sites_v1_0_site_site, client_factory=cf_site_site,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_site_delete', confirmation=True)
+        g.custom_command('create-site', 'sites_site_site_create_site')
+        g.custom_command('get-site', 'sites_site_site_get_site')
+        g.custom_command('list-site', 'sites_site_site_list_site')
+        g.custom_command('update-site', 'sites_site_site_update_site')
 
     from azext_sites_v1_0.generated._client_factory import cf_site
     sites_v1_0_site = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_operations#SiteOperations.{}',
         client_factory=cf_site)
-    with self.command_group('sites', sites_v1_0_site, client_factory=cf_site) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('add', 'sites_add')
-        g.custom_command('create-column', 'sites_create_column')
-        g.custom_command('create-content-type', 'sites_create_content_type')
-        g.custom_command('create-drive', 'sites_create_drive')
-        g.custom_command('create-list', 'sites_create_list')
-        g.custom_command('create-site', 'sites_create_site')
-        g.custom_command('get-activity-by-interval53-ee', 'sites_get_activity_by_interval53_ee')
-        g.custom_command('get-activity-by-interval96-b0', 'sites_get_activity_by_interval96_b0')
-        g.custom_command('get-analytic', 'sites_get_analytic')
-        g.custom_command('get-by-path', 'sites_get_by_path')
-        g.custom_command('get-column', 'sites_get_column')
-        g.custom_command('get-content-type', 'sites_get_content_type')
-        g.custom_command('get-drive', 'sites_get_drive')
-        g.custom_command('get-list', 'sites_get_list')
-        g.custom_command('get-ref-analytic', 'sites_get_ref_analytic')
-        g.custom_command('get-site', 'sites_get_site')
-        g.custom_command('list-column', 'sites_list_column')
-        g.custom_command('list-content-type', 'sites_list_content_type')
-        g.custom_command('list-drive', 'sites_list_drive')
-        g.custom_command('list-list', 'sites_list_list')
-        g.custom_command('list-site', 'sites_list_site')
-        g.custom_command('remove', 'sites_remove')
-        g.custom_command('set-ref-analytic', 'sites_set_ref_analytic')
-        g.custom_command('update-column', 'sites_update_column')
-        g.custom_command('update-content-type', 'sites_update_content_type')
-        g.custom_command('update-drive', 'sites_update_drive')
-        g.custom_command('update-list', 'sites_update_list')
-        g.custom_command('update-site', 'sites_update_site')
+    with self.command_group('sites site', sites_v1_0_site, client_factory=cf_site, is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_delete', confirmation=True)
+        g.custom_command('add', 'sites_site_add')
+        g.custom_command('create-column', 'sites_site_create_column')
+        g.custom_command('create-content-type', 'sites_site_create_content_type')
+        g.custom_command('create-drive', 'sites_site_create_drive')
+        g.custom_command('create-list', 'sites_site_create_list')
+        g.custom_command('create-site', 'sites_site_create_site')
+        g.custom_command('get-activity-by-interval53-ee', 'sites_site_get_activity_by_interval53_ee')
+        g.custom_command('get-activity-by-interval96-b0', 'sites_site_get_activity_by_interval96_b0')
+        g.custom_command('get-analytic', 'sites_site_get_analytic')
+        g.custom_command('get-by-path', 'sites_site_get_by_path')
+        g.custom_command('get-column', 'sites_site_get_column')
+        g.custom_command('get-content-type', 'sites_site_get_content_type')
+        g.custom_command('get-drive', 'sites_site_get_drive')
+        g.custom_command('get-list', 'sites_site_get_list')
+        g.custom_command('get-ref-analytic', 'sites_site_get_ref_analytic')
+        g.custom_command('get-site', 'sites_site_get_site')
+        g.custom_command('list-column', 'sites_site_list_column')
+        g.custom_command('list-content-type', 'sites_site_list_content_type')
+        g.custom_command('list-drive', 'sites_site_list_drive')
+        g.custom_command('list-list', 'sites_site_list_list')
+        g.custom_command('list-site', 'sites_site_list_site')
+        g.custom_command('remove', 'sites_site_remove')
+        g.custom_command('set-ref-analytic', 'sites_site_set_ref_analytic')
+        g.custom_command('update-column', 'sites_site_update_column')
+        g.custom_command('update-content-type', 'sites_site_update_content_type')
+        g.custom_command('update-drive', 'sites_site_update_drive')
+        g.custom_command('update-list', 'sites_site_update_list')
+        g.custom_command('update-site', 'sites_site_update_site')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_content_type
     sites_v1_0_site_content_type = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_content_type_operations#SiteContentTypeO'
         'perations.{}',
         client_factory=cf_site_content_type)
-    with self.command_group('sites', sites_v1_0_site_content_type, client_factory=cf_site_content_type) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('create-column-link', 'sites_create_column_link')
-        g.custom_command('get-column-link', 'sites_get_column_link')
-        g.custom_command('list-column-link', 'sites_list_column_link')
-        g.custom_command('update-column-link', 'sites_update_column_link')
+    with self.command_group('sites site-content-type', sites_v1_0_site_content_type,
+                            client_factory=cf_site_content_type, is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_content_type_delete', confirmation=True)
+        g.custom_command('create-column-link', 'sites_site_content_type_create_column_link')
+        g.custom_command('get-column-link', 'sites_site_content_type_get_column_link')
+        g.custom_command('list-column-link', 'sites_site_content_type_list_column_link')
+        g.custom_command('update-column-link', 'sites_site_content_type_update_column_link')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_list
     sites_v1_0_site_list = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_list_operations#SiteListOperations.{}',
         client_factory=cf_site_list)
-    with self.command_group('sites', sites_v1_0_site_list, client_factory=cf_site_list) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('create-column', 'sites_create_column')
-        g.custom_command('create-content-type', 'sites_create_content_type')
-        g.custom_command('create-item', 'sites_create_item')
-        g.custom_command('create-subscription', 'sites_create_subscription')
-        g.custom_command('get-column', 'sites_get_column')
-        g.custom_command('get-content-type', 'sites_get_content_type')
-        g.custom_command('get-drive', 'sites_get_drive')
-        g.custom_command('get-item', 'sites_get_item')
-        g.custom_command('get-subscription', 'sites_get_subscription')
-        g.custom_command('list-column', 'sites_list_column')
-        g.custom_command('list-content-type', 'sites_list_content_type')
-        g.custom_command('list-item', 'sites_list_item')
-        g.custom_command('list-subscription', 'sites_list_subscription')
-        g.custom_command('update-column', 'sites_update_column')
-        g.custom_command('update-content-type', 'sites_update_content_type')
-        g.custom_command('update-drive', 'sites_update_drive')
-        g.custom_command('update-item', 'sites_update_item')
-        g.custom_command('update-subscription', 'sites_update_subscription')
+    with self.command_group('sites site-list', sites_v1_0_site_list, client_factory=cf_site_list,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_list_delete', confirmation=True)
+        g.custom_command('create-column', 'sites_site_list_create_column')
+        g.custom_command('create-content-type', 'sites_site_list_create_content_type')
+        g.custom_command('create-item', 'sites_site_list_create_item')
+        g.custom_command('create-subscription', 'sites_site_list_create_subscription')
+        g.custom_command('get-column', 'sites_site_list_get_column')
+        g.custom_command('get-content-type', 'sites_site_list_get_content_type')
+        g.custom_command('get-drive', 'sites_site_list_get_drive')
+        g.custom_command('get-item', 'sites_site_list_get_item')
+        g.custom_command('get-subscription', 'sites_site_list_get_subscription')
+        g.custom_command('list-column', 'sites_site_list_list_column')
+        g.custom_command('list-content-type', 'sites_site_list_list_content_type')
+        g.custom_command('list-item', 'sites_site_list_list_item')
+        g.custom_command('list-subscription', 'sites_site_list_list_subscription')
+        g.custom_command('update-column', 'sites_site_list_update_column')
+        g.custom_command('update-content-type', 'sites_site_list_update_content_type')
+        g.custom_command('update-drive', 'sites_site_list_update_drive')
+        g.custom_command('update-item', 'sites_site_list_update_item')
+        g.custom_command('update-subscription', 'sites_site_list_update_subscription')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_list_content_type
     sites_v1_0_site_list_content_type = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_list_content_type_operations#SiteListCon'
         'tentTypeOperations.{}',
         client_factory=cf_site_list_content_type)
-    with self.command_group('sites', sites_v1_0_site_list_content_type,
-                            client_factory=cf_site_list_content_type) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('create-column-link', 'sites_create_column_link')
-        g.custom_command('get-column-link', 'sites_get_column_link')
-        g.custom_command('list-column-link', 'sites_list_column_link')
-        g.custom_command('update-column-link', 'sites_update_column_link')
+    with self.command_group('sites site-list-content-type', sites_v1_0_site_list_content_type,
+                            client_factory=cf_site_list_content_type, is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_list_content_type_delete', confirmation=True)
+        g.custom_command('create-column-link', 'sites_site_list_content_type_create_column_link')
+        g.custom_command('get-column-link', 'sites_site_list_content_type_get_column_link')
+        g.custom_command('list-column-link', 'sites_site_list_content_type_list_column_link')
+        g.custom_command('update-column-link', 'sites_site_list_content_type_update_column_link')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_list_item
     sites_v1_0_site_list_item = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_list_item_operations#SiteListItemOperati'
         'ons.{}',
         client_factory=cf_site_list_item)
-    with self.command_group('sites', sites_v1_0_site_list_item, client_factory=cf_site_list_item) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('create-version', 'sites_create_version')
-        g.custom_command('get-activity-by-interval53-ee', 'sites_get_activity_by_interval53_ee')
-        g.custom_command('get-activity-by-interval96-b0', 'sites_get_activity_by_interval96_b0')
-        g.custom_command('get-analytic', 'sites_get_analytic')
-        g.custom_command('get-drive-item', 'sites_get_drive_item')
-        g.custom_command('get-field', 'sites_get_field')
-        g.custom_command('get-ref-analytic', 'sites_get_ref_analytic')
-        g.custom_command('get-version', 'sites_get_version')
-        g.custom_command('list-version', 'sites_list_version')
-        g.custom_command('set-ref-analytic', 'sites_set_ref_analytic')
-        g.custom_command('update-drive-item', 'sites_update_drive_item')
-        g.custom_command('update-field', 'sites_update_field')
-        g.custom_command('update-version', 'sites_update_version')
+    with self.command_group('sites site-list-item', sites_v1_0_site_list_item, client_factory=cf_site_list_item,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_list_item_delete', confirmation=True)
+        g.custom_command('create-version', 'sites_site_list_item_create_version')
+        g.custom_command('get-activity-by-interval53-ee', 'sites_site_list_item_get_activity_by_interval53_ee')
+        g.custom_command('get-activity-by-interval96-b0', 'sites_site_list_item_get_activity_by_interval96_b0')
+        g.custom_command('get-analytic', 'sites_site_list_item_get_analytic')
+        g.custom_command('get-drive-item', 'sites_site_list_item_get_drive_item')
+        g.custom_command('get-field', 'sites_site_list_item_get_field')
+        g.custom_command('get-ref-analytic', 'sites_site_list_item_get_ref_analytic')
+        g.custom_command('get-version', 'sites_site_list_item_get_version')
+        g.custom_command('list-version', 'sites_site_list_item_list_version')
+        g.custom_command('set-ref-analytic', 'sites_site_list_item_set_ref_analytic')
+        g.custom_command('update-drive-item', 'sites_site_list_item_update_drive_item')
+        g.custom_command('update-field', 'sites_site_list_item_update_field')
+        g.custom_command('update-version', 'sites_site_list_item_update_version')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_list_item_version
     sites_v1_0_site_list_item_version = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_list_item_version_operations#SiteListIte'
         'mVersionOperations.{}',
         client_factory=cf_site_list_item_version)
-    with self.command_group('sites', sites_v1_0_site_list_item_version,
-                            client_factory=cf_site_list_item_version) as g:
-        g.custom_command('delete', 'sites_delete', confirmation=True)
-        g.custom_command('get-field', 'sites_get_field')
-        g.custom_command('restore-version', 'sites_restore_version')
-        g.custom_command('update-field', 'sites_update_field')
+    with self.command_group('sites site-list-item-version', sites_v1_0_site_list_item_version,
+                            client_factory=cf_site_list_item_version, is_experimental=True) as g:
+        g.custom_command('delete', 'sites_site_list_item_version_delete', confirmation=True)
+        g.custom_command('get-field', 'sites_site_list_item_version_get_field')
+        g.custom_command('restore-version', 'sites_site_list_item_version_restore_version')
+        g.custom_command('update-field', 'sites_site_list_item_version_update_field')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook
     sites_v1_0_site_onenote_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_operations#SiteOnenoteN'
         'otebookOperations.{}',
         client_factory=cf_site_onenote_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook, client_factory=cf_site_onenote_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
-        g.custom_command('get-notebook-from-web-url', 'sites_get_notebook_from_web_url')
-        g.custom_command('get-recent-notebook', 'sites_get_recent_notebook')
+    with self.command_group('sites site-onenote-notebook', sites_v1_0_site_onenote_notebook,
+                            client_factory=cf_site_onenote_notebook, is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_copy_notebook')
+        g.custom_command('get-notebook-from-web-url', 'sites_site_onenote_notebook_get_notebook_from_web_url')
+        g.custom_command('get-recent-notebook', 'sites_site_onenote_notebook_get_recent_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_parent_notebook
     sites_v1_0_site_onenote_notebook_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_group_parent_no'
         'tebook_operations#SiteOnenoteNotebookSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_notebook_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_notebook_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-notebook-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_notebook_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_notebook_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_group_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section
     sites_v1_0_site_onenote_notebook_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_o'
         'perations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_notebook_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_group_section,
-                            client_factory=cf_site_onenote_notebook_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-notebook-section-group-section',
+                            sites_v1_0_site_onenote_notebook_section_group_section,
+                            client_factory=cf_site_onenote_notebook_section_group_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_notebook_section_group_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_notebook_section_group_section_copy_to_section_gr'
+                         'oup')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section_page
     sites_v1_0_site_onenote_notebook_section_group_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_p'
         'age_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
         client_factory=cf_site_onenote_notebook_section_group_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_group_section_page,
-                            client_factory=cf_site_onenote_notebook_section_group_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-notebook-section-group-section-page',
+                            sites_v1_0_site_onenote_notebook_section_group_section_page,
+                            client_factory=cf_site_onenote_notebook_section_group_section_page,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_notebook_section_group_section_page_copy_to_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_notebook_section_group_section_page_onenote_patch'
+                         '_content')
+        g.custom_command('preview', 'sites_site_onenote_notebook_section_group_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section_page_parent_notebook
     sites_v1_0_site_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_p'
         'age_parent_notebook_operations#SiteOnenoteNotebookSectionGroupSectionPageParentNotebookOperations.{}',
         client_factory=cf_site_onenote_notebook_section_group_section_page_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_group_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_notebook_section_group_section_page_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-notebook-section-group-section-page-parent-notebook',
+                            sites_v1_0_site_onenote_notebook_section_group_section_page_parent_notebook,
+                            client_factory=cf_site_onenote_notebook_section_group_section_page_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_group_section_page_parent_notebook_copy_'
+                         'notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section_page_parent_section
     sites_v1_0_site_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_p'
         'age_parent_section_operations#SiteOnenoteNotebookSectionGroupSectionPageParentSectionOperations.{}',
         client_factory=cf_site_onenote_notebook_section_group_section_page_parent_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_group_section_page_parent_section,
-                            client_factory=cf_site_onenote_notebook_section_group_section_page_parent_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-notebook-section-group-section-page-parent-section',
+                            sites_v1_0_site_onenote_notebook_section_group_section_page_parent_section,
+                            client_factory=cf_site_onenote_notebook_section_group_section_page_parent_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_notebook_section_group_section_page_parent_section_cop'
+                         'y_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_notebook_section_group_section_page_parent_sectio'
+                         'n_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section_parent_notebook
     sites_v1_0_site_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_p'
         'arent_notebook_operations#SiteOnenoteNotebookSectionGroupSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_notebook_section_group_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_group_section_parent_notebook,
-                            client_factory=cf_site_onenote_notebook_section_group_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-notebook-section-group-section-parent-notebook',
+                            sites_v1_0_site_onenote_notebook_section_group_section_parent_notebook,
+                            client_factory=cf_site_onenote_notebook_section_group_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_group_section_parent_notebook_copy_noteb'
+                         'ook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section
     sites_v1_0_site_onenote_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_operations#Site'
         'OnenoteNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section,
-                            client_factory=cf_site_onenote_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-notebook-section', sites_v1_0_site_onenote_notebook_section,
+                            client_factory=cf_site_onenote_notebook_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_notebook_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_notebook_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_page
     sites_v1_0_site_onenote_notebook_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_page_operations'
         '#SiteOnenoteNotebookSectionPageOperations.{}',
         client_factory=cf_site_onenote_notebook_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_page,
-                            client_factory=cf_site_onenote_notebook_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-notebook-section-page', sites_v1_0_site_onenote_notebook_section_page,
+                            client_factory=cf_site_onenote_notebook_section_page, is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_notebook_section_page_copy_to_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_notebook_section_page_onenote_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_notebook_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_page_parent_notebook
     sites_v1_0_site_onenote_notebook_section_page_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_page_parent_not'
         'ebook_operations#SiteOnenoteNotebookSectionPageParentNotebookOperations.{}',
         client_factory=cf_site_onenote_notebook_section_page_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_notebook_section_page_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-notebook-section-page-parent-notebook',
+                            sites_v1_0_site_onenote_notebook_section_page_parent_notebook,
+                            client_factory=cf_site_onenote_notebook_section_page_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_page_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_page_parent_section
     sites_v1_0_site_onenote_notebook_section_page_parent_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_page_parent_sec'
         'tion_operations#SiteOnenoteNotebookSectionPageParentSectionOperations.{}',
         client_factory=cf_site_onenote_notebook_section_page_parent_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_page_parent_section,
-                            client_factory=cf_site_onenote_notebook_section_page_parent_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-notebook-section-page-parent-section',
+                            sites_v1_0_site_onenote_notebook_section_page_parent_section,
+                            client_factory=cf_site_onenote_notebook_section_page_parent_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook',
+                         'sites_site_onenote_notebook_section_page_parent_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_notebook_section_page_parent_section_copy_to_sect'
+                         'ion_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_parent_notebook
     sites_v1_0_site_onenote_notebook_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_notebook'
         '_operations#SiteOnenoteNotebookSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_notebook_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_parent_notebook,
-                            client_factory=cf_site_onenote_notebook_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-notebook-section-parent-notebook',
+                            sites_v1_0_site_onenote_notebook_section_parent_notebook,
+                            client_factory=cf_site_onenote_notebook_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_parent_section_group_parent_notebook
     sites_v1_0_site_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_section_'
         'group_parent_notebook_operations#SiteOnenoteNotebookSectionParentSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_notebook_section_parent_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_parent_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_notebook_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-notebook-section-parent-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_notebook_section_parent_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_notebook_section_parent_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_parent_section_group_parent_notebook_cop'
+                         'y_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_notebook_section_parent_section_group_section
     sites_v1_0_site_onenote_notebook_section_parent_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_section_'
         'group_section_operations#SiteOnenoteNotebookSectionParentSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_notebook_section_parent_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_notebook_section_parent_section_group_section,
-                            client_factory=cf_site_onenote_notebook_section_parent_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-notebook-section-parent-section-group-section',
+                            sites_v1_0_site_onenote_notebook_section_parent_section_group_section,
+                            client_factory=cf_site_onenote_notebook_section_parent_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_notebook_section_parent_section_group_section_copy_to_'
+                         'notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_notebook_section_parent_section_group_section_cop'
+                         'y_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page
     sites_v1_0_site_onenote_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_operations#SiteOnenotePageO'
         'perations.{}',
         client_factory=cf_site_onenote_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_page, client_factory=cf_site_onenote_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-page', sites_v1_0_site_onenote_page,
+                            client_factory=cf_site_onenote_page, is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_page_copy_to_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_page_onenote_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook
     sites_v1_0_site_onenote_page_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_operations#'
         'SiteOnenotePageParentNotebookOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-page-parent-notebook', sites_v1_0_site_onenote_page_parent_notebook,
+                            client_factory=cf_site_onenote_page_parent_notebook, is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_parent_notebook
     sites_v1_0_site_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_gro'
         'up_parent_notebook_operations#SiteOnenotePageParentNotebookSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-page-parent-notebook-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_page_parent_notebook_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_page_parent_notebook_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_notebook_section_group_parent_notebook_copy_n'
+                         'otebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_section
     sites_v1_0_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_gro'
         'up_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section_group_section,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-notebook-section-group-section',
+                            sites_v1_0_site_onenote_page_parent_notebook_section_group_section,
+                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_notebook_section_group_section_copy_to_not'
+                         'ebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_notebook_section_group_section_copy_t'
+                         'o_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_section_page
     sites_v1_0_site_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_gro'
         'up_section_page_operations#SiteOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_group_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section_group_section_page,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-page-parent-notebook-section-group-section-page',
+                            sites_v1_0_site_onenote_page_parent_notebook_section_group_section_page,
+                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section_page,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_page_parent_notebook_section_group_section_page_copy_to'
+                         '_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_page_parent_notebook_section_group_section_page_o'
+                         'nenote_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_page_parent_notebook_section_group_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook
     sites_v1_0_site_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
@@ -347,41 +396,50 @@ def load_command_table(self, _):
         'up_section_parent_notebook_operations#SiteOnenotePageParentNotebookSectionGroupSectionParentNotebookOperations'
         '.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook)
-    with self.command_group('sites',
+    with self.command_group('sites site-onenote-page-parent-notebook-section-group-section-parent-notebook',
                             sites_v1_0_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook) \
-                            as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_notebook_section_group_section_parent_noteboo'
+                         'k_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section
     sites_v1_0_site_onenote_page_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_ope'
         'rations#SiteOnenotePageParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section,
-                            client_factory=cf_site_onenote_page_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-notebook-section',
+                            sites_v1_0_site_onenote_page_parent_notebook_section,
+                            client_factory=cf_site_onenote_page_parent_notebook_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_notebook_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_notebook_section_copy_to_section_grou'
+                         'p')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_page
     sites_v1_0_site_onenote_page_parent_notebook_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_pag'
         'e_operations#SiteOnenotePageParentNotebookSectionPageOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section_page,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-page-parent-notebook-section-page',
+                            sites_v1_0_site_onenote_page_parent_notebook_section_page,
+                            client_factory=cf_site_onenote_page_parent_notebook_section_page,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_page_parent_notebook_section_page_copy_to_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_page_parent_notebook_section_page_onenote_patch_c'
+                         'ontent')
+        g.custom_command('preview', 'sites_site_onenote_page_parent_notebook_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_parent_notebook
     sites_v1_0_site_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_par'
         'ent_notebook_operations#SiteOnenotePageParentNotebookSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-page-parent-notebook-section-parent-notebook',
+                            sites_v1_0_site_onenote_page_parent_notebook_section_parent_notebook,
+                            client_factory=cf_site_onenote_page_parent_notebook_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_notebook_section_parent_notebook_copy_noteboo'
+                         'k')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook
     sites_v1_0_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
@@ -389,11 +447,13 @@ def load_command_table(self, _):
         'ent_section_group_parent_notebook_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupParentNoteb'
         'ookOperations.{}',
         client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook)
-    with self.command_group('sites',
+    with self.command_group('sites site-onenote-page-parent-notebook-section-parent-section-group-parent-notebook',
                             sites_v1_0_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
                             client_factory=\
-                            cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+                            cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_notebook_section_parent_section_group_parent_'
+                         'notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_parent_section_group_section
     sites_v1_0_site_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
@@ -401,41 +461,47 @@ def load_command_table(self, _):
         'ent_section_group_section_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupSectionOperations.{'
         '}',
         client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_notebook_section_parent_section_group_section,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_section) \
-                            as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-notebook-section-parent-section-group-section',
+                            sites_v1_0_site_onenote_page_parent_notebook_section_parent_section_group_section,
+                            client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_notebook_section_parent_section_group_sect'
+                         'ion_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_notebook_section_parent_section_group'
+                         '_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section
     sites_v1_0_site_onenote_page_parent_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_section_operations#S'
         'iteOnenotePageParentSectionOperations.{}',
         client_factory=cf_site_onenote_page_parent_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section,
-                            client_factory=cf_site_onenote_page_parent_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-section', sites_v1_0_site_onenote_page_parent_section,
+                            client_factory=cf_site_onenote_page_parent_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_page
     sites_v1_0_site_onenote_page_parent_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_section_page_operati'
         'ons#SiteOnenotePageParentSectionPageOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section_page,
-                            client_factory=cf_site_onenote_page_parent_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-page-parent-section-page',
+                            sites_v1_0_site_onenote_page_parent_section_page,
+                            client_factory=cf_site_onenote_page_parent_section_page, is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_page_parent_section_page_copy_to_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_page_parent_section_page_onenote_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_page_parent_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook
     sites_v1_0_site_onenote_page_parent_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_noteb'
         'ook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-page-parent-section-parent-notebook',
+                            sites_v1_0_site_onenote_page_parent_section_parent_notebook,
+                            client_factory=cf_site_onenote_page_parent_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_section_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook
     sites_v1_0_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
@@ -443,11 +509,13 @@ def load_command_table(self, _):
         'ook_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupParentNoteb'
         'ookOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook)
-    with self.command_group('sites',
+    with self.command_group('sites site-onenote-page-parent-section-parent-notebook-section-group-parent-notebook',
                             sites_v1_0_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
                             client_factory=\
-                            cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+                            cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_section_parent_notebook_section_group_parent_'
+                         'notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook_section_group_section
     sites_v1_0_site_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
@@ -455,31 +523,40 @@ def load_command_table(self, _):
         'ook_section_group_section_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupSectionOperations.{'
         '}',
         client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section_parent_notebook_section_group_section,
-                            client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_section) \
-                            as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-section-parent-notebook-section-group-section',
+                            sites_v1_0_site_onenote_page_parent_section_parent_notebook_section_group_section,
+                            client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_section_parent_notebook_section_group_sect'
+                         'ion_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_section_parent_notebook_section_group'
+                         '_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook_section
     sites_v1_0_site_onenote_page_parent_section_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_noteb'
         'ook_section_operations#SiteOnenotePageParentSectionParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section_parent_notebook_section,
-                            client_factory=cf_site_onenote_page_parent_section_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-section-parent-notebook-section',
+                            sites_v1_0_site_onenote_page_parent_section_parent_notebook_section,
+                            client_factory=cf_site_onenote_page_parent_section_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_section_parent_notebook_section_copy_to_no'
+                         'tebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_section_parent_notebook_section_copy_'
+                         'to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_section_group_parent_notebook
     sites_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_secti'
         'on_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook) \
-                            as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-page-parent-section-parent-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_section_parent_section_group_parent_notebook_'
+                         'copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section
     sites_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
@@ -487,52 +564,68 @@ def load_command_table(self, _):
         'on_group_parent_notebook_section_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookSectio'
         'nOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section)
-    with self.command_group('sites',
+    with self.command_group('sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section',
                             sites_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
                             client_factory=\
-                            cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+                            cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_section_parent_section_group_parent_notebo'
+                         'ok_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_section_parent_section_group_parent_n'
+                         'otebook_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_section_group_section
     sites_v1_0_site_onenote_page_parent_section_parent_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_secti'
         'on_group_section_operations#SiteOnenotePageParentSectionParentSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_page_parent_section_parent_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_page_parent_section_parent_section_group_section,
-                            client_factory=cf_site_onenote_page_parent_section_parent_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-page-parent-section-parent-section-group-section',
+                            sites_v1_0_site_onenote_page_parent_section_parent_section_group_section,
+                            client_factory=cf_site_onenote_page_parent_section_parent_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_section_parent_section_group_section_copy_'
+                         'to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_section_parent_section_group_section_'
+                         'copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook
     sites_v1_0_site_onenote_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_op'
         'erations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_section_group_parent_notebook, is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_group_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section
     sites_v1_0_site_onenote_section_group_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_se'
         'ction_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_section_group_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-group-parent-notebook-section',
+                            sites_v1_0_site_onenote_section_group_parent_notebook_section,
+                            client_factory=cf_site_onenote_section_group_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_parent_notebook_section_copy_to_notebook'
+                         '')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_parent_notebook_section_copy_to_sec'
+                         'tion_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_page
     sites_v1_0_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_se'
         'ction_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
         client_factory=cf_site_onenote_section_group_parent_notebook_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_parent_notebook_section_page,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-section-group-parent-notebook-section-page',
+                            sites_v1_0_site_onenote_section_group_parent_notebook_section_page,
+                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_section_group_parent_notebook_section_page_copy_to_sect'
+                         'ion')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_section_group_parent_notebook_section_page_onenot'
+                         'e_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_section_group_parent_notebook_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook
     sites_v1_0_site_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
@@ -540,11 +633,12 @@ def load_command_table(self, _):
         'ction_page_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookSectionPageParentNotebookOperations'
         '.{}',
         client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook)
-    with self.command_group('sites',
+    with self.command_group('sites site-onenote-section-group-parent-notebook-section-page-parent-notebook',
                             sites_v1_0_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook) \
-                            as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_group_parent_notebook_section_page_parent_noteboo'
+                         'k_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_page_parent_section
     sites_v1_0_site_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
@@ -552,118 +646,145 @@ def load_command_table(self, _):
         'ction_page_parent_section_operations#SiteOnenoteSectionGroupParentNotebookSectionPageParentSectionOperations.{'
         '}',
         client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_parent_notebook_section_page_parent_section,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_section) \
-                            as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-group-parent-notebook-section-page-parent-section',
+                            sites_v1_0_site_onenote_section_group_parent_notebook_section_page_parent_section,
+                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_parent_notebook_section_page_parent_sect'
+                         'ion_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_parent_notebook_section_page_parent'
+                         '_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_parent_notebook
     sites_v1_0_site_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_se'
         'ction_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_group_parent_notebook_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_parent_notebook_section_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-group-parent-notebook-section-parent-notebook',
+                            sites_v1_0_site_onenote_section_group_parent_notebook_section_parent_notebook,
+                            client_factory=cf_site_onenote_section_group_parent_notebook_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_group_parent_notebook_section_parent_notebook_cop'
+                         'y_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section
     sites_v1_0_site_onenote_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_operations'
         '#SiteOnenoteSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section,
-                            client_factory=cf_site_onenote_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-group-section', sites_v1_0_site_onenote_section_group_section,
+                            client_factory=cf_site_onenote_section_group_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page
     sites_v1_0_site_onenote_section_group_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_page_opera'
         'tions#SiteOnenoteSectionGroupSectionPageOperations.{}',
         client_factory=cf_site_onenote_section_group_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section_page,
-                            client_factory=cf_site_onenote_section_group_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-section-group-section-page',
+                            sites_v1_0_site_onenote_section_group_section_page,
+                            client_factory=cf_site_onenote_section_group_section_page, is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_section_group_section_page_copy_to_section')
+        g.custom_command('onenote-patch-content',
+                         'sites_site_onenote_section_group_section_page_onenote_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_section_group_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page_parent_notebook
     sites_v1_0_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_page_paren'
         't_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_group_section_page_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_section_page_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-group-section-page-parent-notebook',
+                            sites_v1_0_site_onenote_section_group_section_page_parent_notebook,
+                            client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook',
+                         'sites_site_onenote_section_group_section_page_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page_parent_notebook_section
     sites_v1_0_site_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_page_paren'
         't_notebook_section_operations#SiteOnenoteSectionGroupSectionPageParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_section_group_section_page_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section_page_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_group_section_page_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-group-section-page-parent-notebook-section',
+                            sites_v1_0_site_onenote_section_group_section_page_parent_notebook_section,
+                            client_factory=cf_site_onenote_section_group_section_page_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_section_page_parent_notebook_section_cop'
+                         'y_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_section_page_parent_notebook_sectio'
+                         'n_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page_parent_section
     sites_v1_0_site_onenote_section_group_section_page_parent_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_page_paren'
         't_section_operations#SiteOnenoteSectionGroupSectionPageParentSectionOperations.{}',
         client_factory=cf_site_onenote_section_group_section_page_parent_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section_page_parent_section,
-                            client_factory=cf_site_onenote_section_group_section_page_parent_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-group-section-page-parent-section',
+                            sites_v1_0_site_onenote_section_group_section_page_parent_section,
+                            client_factory=cf_site_onenote_section_group_section_page_parent_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_section_page_parent_section_copy_to_note'
+                         'book')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_section_page_parent_section_copy_to'
+                         '_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section_parent_notebook
     sites_v1_0_site_onenote_section_group_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_parent_not'
         'ebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_group_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-group-section-parent-notebook',
+                            sites_v1_0_site_onenote_section_group_section_parent_notebook,
+                            client_factory=cf_site_onenote_section_group_section_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_group_section_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_group_section_parent_notebook_section
     sites_v1_0_site_onenote_section_group_section_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_group_section_parent_not'
         'ebook_section_operations#SiteOnenoteSectionGroupSectionParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_section_group_section_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_group_section_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_group_section_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-group-section-parent-notebook-section',
+                            sites_v1_0_site_onenote_section_group_section_parent_notebook_section,
+                            client_factory=cf_site_onenote_section_group_section_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_section_parent_notebook_section_copy_to_'
+                         'notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_section_parent_notebook_section_cop'
+                         'y_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section
     sites_v1_0_site_onenote_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_operations#SiteOnenoteSe'
         'ctionOperations.{}',
         client_factory=cf_site_onenote_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section, client_factory=cf_site_onenote_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section', sites_v1_0_site_onenote_section,
+                            client_factory=cf_site_onenote_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_page
     sites_v1_0_site_onenote_section_page = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_page_operations#SiteOnen'
         'oteSectionPageOperations.{}',
         client_factory=cf_site_onenote_section_page)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_page,
-                            client_factory=cf_site_onenote_section_page) as g:
-        g.custom_command('copy-to-section', 'sites_copy_to_section')
-        g.custom_command('onenote-patch-content', 'sites_onenote_patch_content')
-        g.custom_command('preview', 'sites_preview')
+    with self.command_group('sites site-onenote-section-page', sites_v1_0_site_onenote_section_page,
+                            client_factory=cf_site_onenote_section_page, is_experimental=True) as g:
+        g.custom_command('copy-to-section', 'sites_site_onenote_section_page_copy_to_section')
+        g.custom_command('onenote-patch-content', 'sites_site_onenote_section_page_onenote_patch_content')
+        g.custom_command('preview', 'sites_site_onenote_section_page_preview')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook
     sites_v1_0_site_onenote_section_page_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_ope'
         'rations#SiteOnenoteSectionPageParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_page_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_section_page_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-page-parent-notebook',
+                            sites_v1_0_site_onenote_section_page_parent_notebook,
+                            client_factory=cf_site_onenote_section_page_parent_notebook, is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_page_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook
     sites_v1_0_site_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
@@ -671,114 +792,147 @@ def load_command_table(self, _):
         'tion_group_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookSectionGroupParentNotebookOperations'
         '.{}',
         client_factory=cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook)
-    with self.command_group('sites',
+    with self.command_group('sites site-onenote-section-page-parent-notebook-section-group-parent-notebook',
                             sites_v1_0_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook) \
-                            as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+                            client_factory=cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_page_parent_notebook_section_group_parent_noteboo'
+                         'k_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook_section_group_section
     sites_v1_0_site_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_sec'
         'tion_group_section_operations#SiteOnenoteSectionPageParentNotebookSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_section_page_parent_notebook_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_page_parent_notebook_section_group_section,
-                            client_factory=cf_site_onenote_section_page_parent_notebook_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-page-parent-notebook-section-group-section',
+                            sites_v1_0_site_onenote_section_page_parent_notebook_section_group_section,
+                            client_factory=cf_site_onenote_section_page_parent_notebook_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_page_parent_notebook_section_group_section_cop'
+                         'y_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_page_parent_notebook_section_group_sectio'
+                         'n_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook_section
     sites_v1_0_site_onenote_section_page_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_sec'
         'tion_operations#SiteOnenoteSectionPageParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_section_page_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_page_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_page_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-page-parent-notebook-section',
+                            sites_v1_0_site_onenote_section_page_parent_notebook_section,
+                            client_factory=cf_site_onenote_section_page_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook',
+                         'sites_site_onenote_section_page_parent_notebook_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_page_parent_notebook_section_copy_to_sect'
+                         'ion_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_section
     sites_v1_0_site_onenote_section_page_parent_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_page_parent_section_oper'
         'ations#SiteOnenoteSectionPageParentSectionOperations.{}',
         client_factory=cf_site_onenote_section_page_parent_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_page_parent_section,
-                            client_factory=cf_site_onenote_section_page_parent_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-page-parent-section',
+                            sites_v1_0_site_onenote_section_page_parent_section,
+                            client_factory=cf_site_onenote_section_page_parent_section, is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_page_parent_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_page_parent_section_copy_to_section_group'
+                         '')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook
     sites_v1_0_site_onenote_section_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_operatio'
         'ns#SiteOnenoteSectionParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_notebook,
-                            client_factory=cf_site_onenote_section_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-parent-notebook',
+                            sites_v1_0_site_onenote_section_parent_notebook,
+                            client_factory=cf_site_onenote_section_parent_notebook, is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_parent_notebook_copy_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook_section_group_parent_notebook
     sites_v1_0_site_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_'
         'group_parent_notebook_operations#SiteOnenoteSectionParentNotebookSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_parent_notebook_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_notebook_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_section_parent_notebook_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-parent-notebook-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_section_parent_notebook_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_section_parent_notebook_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_parent_notebook_section_group_parent_notebook_cop'
+                         'y_notebook')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook_section_group_section
     sites_v1_0_site_onenote_section_parent_notebook_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_'
         'group_section_operations#SiteOnenoteSectionParentNotebookSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_section_parent_notebook_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_notebook_section_group_section,
-                            client_factory=cf_site_onenote_section_parent_notebook_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-parent-notebook-section-group-section',
+                            sites_v1_0_site_onenote_section_parent_notebook_section_group_section,
+                            client_factory=cf_site_onenote_section_parent_notebook_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_parent_notebook_section_group_section_copy_to_'
+                         'notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_parent_notebook_section_group_section_cop'
+                         'y_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook_section
     sites_v1_0_site_onenote_section_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_'
         'operations#SiteOnenoteSectionParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_section_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-parent-notebook-section',
+                            sites_v1_0_site_onenote_section_parent_notebook_section,
+                            client_factory=cf_site_onenote_section_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_parent_notebook_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_parent_notebook_section_copy_to_section_g'
+                         'roup')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group_parent_notebook
     sites_v1_0_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_par'
         'ent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
         client_factory=cf_site_onenote_section_parent_section_group_parent_notebook)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('copy-notebook', 'sites_copy_notebook')
+    with self.command_group('sites site-onenote-section-parent-section-group-parent-notebook',
+                            sites_v1_0_site_onenote_section_parent_section_group_parent_notebook,
+                            client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
+                            is_experimental=True) as g:
+        g.custom_command('copy-notebook', 'sites_site_onenote_section_parent_section_group_parent_notebook_copy_noteboo'
+                         'k')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group_parent_notebook_section
     sites_v1_0_site_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_par'
         'ent_notebook_section_operations#SiteOnenoteSectionParentSectionGroupParentNotebookSectionOperations.{}',
         client_factory=cf_site_onenote_section_parent_section_group_parent_notebook_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_section_group_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_parent_section_group_parent_notebook_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-parent-section-group-parent-notebook-section',
+                            sites_v1_0_site_onenote_section_parent_section_group_parent_notebook_section,
+                            client_factory=cf_site_onenote_section_parent_section_group_parent_notebook_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook', 'sites_site_onenote_section_parent_section_group_parent_notebook_section_c'
+                         'opy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_parent_section_group_parent_notebook_sect'
+                         'ion_copy_to_section_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group_section
     sites_v1_0_site_onenote_section_parent_section_group_section = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_sec'
         'tion_operations#SiteOnenoteSectionParentSectionGroupSectionOperations.{}',
         client_factory=cf_site_onenote_section_parent_section_group_section)
-    with self.command_group('sites', sites_v1_0_site_onenote_section_parent_section_group_section,
-                            client_factory=cf_site_onenote_section_parent_section_group_section) as g:
-        g.custom_command('copy-to-notebook', 'sites_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'sites_copy_to_section_group')
+    with self.command_group('sites site-onenote-section-parent-section-group-section',
+                            sites_v1_0_site_onenote_section_parent_section_group_section,
+                            client_factory=cf_site_onenote_section_parent_section_group_section,
+                            is_experimental=True) as g:
+        g.custom_command('copy-to-notebook',
+                         'sites_site_onenote_section_parent_section_group_section_copy_to_notebook')
+        g.custom_command('copy-to-section-group', 'sites_site_onenote_section_parent_section_group_section_copy_to_sect'
+                         'ion_group')
 
     from azext_sites_v1_0.generated._client_factory import cf_user
     sites_v1_0_user = CliCommandType(
         operations_tmpl='azext_sites_v1_0.vendored_sdks.sites.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
-    with self.command_group('sites', sites_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('create-ref-followed-site', 'sites_create_ref_followed_site')
-        g.custom_command('list-followed-site', 'sites_list_followed_site')
-        g.custom_command('list-ref-followed-site', 'sites_list_ref_followed_site')
+    with self.command_group('sites user', sites_v1_0_user, client_factory=cf_user, is_experimental=True) as g:
+        g.custom_command('create-ref-followed-site', 'sites_user_create_ref_followed_site')
+        g.custom_command('list-followed-site', 'sites_user_list_followed_site')
+        g.custom_command('list-ref-followed-site', 'sites_user_list_ref_followed_site')

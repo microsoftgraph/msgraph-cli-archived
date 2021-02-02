@@ -1637,16 +1637,26 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type screen_capture_blocked: bool
     :param apps: List of apps to which the policy is deployed.
     :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
-    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
-     types under app management workflow.
-    :type deployment_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
+    :param id_deployment_summary_id: Read-only.
+    :type id_deployment_summary_id: str
+    :param configuration_deployed_user_count: Not yet documented.
+    :type configuration_deployed_user_count: int
+    :param configuration_deployment_summary_per_app: Not yet documented.
+    :type configuration_deployment_summary_per_app:
+     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+    :param display_name_deployment_summary_display_name: Not yet documented.
+    :type display_name_deployment_summary_display_name: str
+    :param last_refresh_time: Not yet documented.
+    :type last_refresh_time: ~datetime.datetime
+    :param version_deployment_summary_version: Version of the entity.
+    :type version_deployment_summary_version: str
     """
 
     _validation = {
         'maximum_pin_retries': {'maximum': 2147483647, 'minimum': -2147483648},
         'minimum_pin_length': {'maximum': 2147483647, 'minimum': -2147483648},
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
+        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
@@ -1697,7 +1707,12 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         'minimum_warning_patch_version': {'key': 'minimumWarningPatchVersion', 'type': 'str'},
         'screen_capture_blocked': {'key': 'screenCaptureBlocked', 'type': 'bool'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
+        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
+        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
+        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
+        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
+        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
+        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
     }
 
     def __init__(
@@ -1717,7 +1732,12 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         self.minimum_warning_patch_version = kwargs.get('minimum_warning_patch_version', None)
         self.screen_capture_blocked = kwargs.get('screen_capture_blocked', None)
         self.apps = kwargs.get('apps', None)
-        self.deployment_summary = kwargs.get('deployment_summary', None)
+        self.id_deployment_summary_id = kwargs.get('id_deployment_summary_id', None)
+        self.configuration_deployed_user_count = kwargs.get('configuration_deployed_user_count', None)
+        self.configuration_deployment_summary_per_app = kwargs.get('configuration_deployment_summary_per_app', None)
+        self.display_name_deployment_summary_display_name = kwargs.get('display_name_deployment_summary_display_name', None)
+        self.last_refresh_time = kwargs.get('last_refresh_time', None)
+        self.version_deployment_summary_version = kwargs.get('version_deployment_summary_version', None)
 
 
 class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serialization.Model):
@@ -1896,16 +1916,26 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :type screen_capture_blocked: bool
     :param apps: List of apps to which the policy is deployed.
     :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
-    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
-     types under app management workflow.
-    :type deployment_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
+    :param id_deployment_summary_id: Read-only.
+    :type id_deployment_summary_id: str
+    :param configuration_deployed_user_count: Not yet documented.
+    :type configuration_deployed_user_count: int
+    :param configuration_deployment_summary_per_app: Not yet documented.
+    :type configuration_deployment_summary_per_app:
+     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+    :param display_name_deployment_summary_display_name: Not yet documented.
+    :type display_name_deployment_summary_display_name: str
+    :param last_refresh_time: Not yet documented.
+    :type last_refresh_time: ~datetime.datetime
+    :param version_deployment_summary_version: Version of the entity.
+    :type version_deployment_summary_version: str
     """
 
     _validation = {
         'maximum_pin_retries': {'maximum': 2147483647, 'minimum': -2147483648},
         'minimum_pin_length': {'maximum': 2147483647, 'minimum': -2147483648},
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
+        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
@@ -1955,7 +1985,12 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         'minimum_warning_patch_version': {'key': 'minimumWarningPatchVersion', 'type': 'str'},
         'screen_capture_blocked': {'key': 'screenCaptureBlocked', 'type': 'bool'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
+        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
+        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
+        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
+        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
+        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
+        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
     }
 
     def __init__(
@@ -1976,7 +2011,12 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         self.minimum_warning_patch_version = kwargs.get('minimum_warning_patch_version', None)
         self.screen_capture_blocked = kwargs.get('screen_capture_blocked', None)
         self.apps = kwargs.get('apps', None)
-        self.deployment_summary = kwargs.get('deployment_summary', None)
+        self.id_deployment_summary_id = kwargs.get('id_deployment_summary_id', None)
+        self.configuration_deployed_user_count = kwargs.get('configuration_deployed_user_count', None)
+        self.configuration_deployment_summary_per_app = kwargs.get('configuration_deployment_summary_per_app', None)
+        self.display_name_deployment_summary_display_name = kwargs.get('display_name_deployment_summary_display_name', None)
+        self.last_refresh_time = kwargs.get('last_refresh_time', None)
+        self.version_deployment_summary_version = kwargs.get('version_deployment_summary_version', None)
 
 
 class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
@@ -2851,16 +2891,26 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type minimum_required_sdk_version: str
     :param apps: List of apps to which the policy is deployed.
     :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
-    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
-     types under app management workflow.
-    :type deployment_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
+    :param id_deployment_summary_id: Read-only.
+    :type id_deployment_summary_id: str
+    :param configuration_deployed_user_count: Not yet documented.
+    :type configuration_deployed_user_count: int
+    :param configuration_deployment_summary_per_app: Not yet documented.
+    :type configuration_deployment_summary_per_app:
+     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+    :param display_name_deployment_summary_display_name: Not yet documented.
+    :type display_name_deployment_summary_display_name: str
+    :param last_refresh_time: Not yet documented.
+    :type last_refresh_time: ~datetime.datetime
+    :param version_deployment_summary_version: Version of the entity.
+    :type version_deployment_summary_version: str
     """
 
     _validation = {
         'maximum_pin_retries': {'maximum': 2147483647, 'minimum': -2147483648},
         'minimum_pin_length': {'maximum': 2147483647, 'minimum': -2147483648},
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
+        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
@@ -2908,7 +2958,12 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         'face_id_blocked': {'key': 'faceIdBlocked', 'type': 'bool'},
         'minimum_required_sdk_version': {'key': 'minimumRequiredSdkVersion', 'type': 'str'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
+        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
+        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
+        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
+        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
+        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
+        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
     }
 
     def __init__(
@@ -2925,7 +2980,12 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         self.face_id_blocked = kwargs.get('face_id_blocked', None)
         self.minimum_required_sdk_version = kwargs.get('minimum_required_sdk_version', None)
         self.apps = kwargs.get('apps', None)
-        self.deployment_summary = kwargs.get('deployment_summary', None)
+        self.id_deployment_summary_id = kwargs.get('id_deployment_summary_id', None)
+        self.configuration_deployed_user_count = kwargs.get('configuration_deployed_user_count', None)
+        self.configuration_deployment_summary_per_app = kwargs.get('configuration_deployment_summary_per_app', None)
+        self.display_name_deployment_summary_display_name = kwargs.get('display_name_deployment_summary_display_name', None)
+        self.last_refresh_time = kwargs.get('last_refresh_time', None)
+        self.version_deployment_summary_version = kwargs.get('version_deployment_summary_version', None)
 
 
 class MicrosoftGraphKeyValuePair(msrest.serialization.Model):

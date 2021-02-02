@@ -30,11 +30,11 @@ from azext_reports_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('reports get-audit-log-root') as c:
+    with self.argument_context('reports audit-log-audit-log-root get-audit-log-root') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports update-audit-log-root') as c:
+    with self.argument_context('reports audit-log-audit-log-root update-audit-log-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('directory_audits', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
@@ -42,13 +42,13 @@ def load_arguments(self, _):
         c.argument('sign_ins', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('reports delete') as c:
+    with self.argument_context('reports audit-log delete') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('if_match', type=str, help='ETag')
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('sign_in_id', type=str, help='key: id of signIn')
 
-    with self.argument_context('reports create-directory-audit') as c:
+    with self.argument_context('reports audit-log create-directory-audit') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
                    'type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
@@ -74,7 +74,7 @@ def load_arguments(self, _):
         c.argument('initiated_by_app', action=AddInitiatedByApp, nargs='*', help='appIdentity')
         c.argument('initiated_by_user', action=AddInitiatedByUser, nargs='*', help='userIdentity')
 
-    with self.argument_context('reports create-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log create-restricted-sign-in') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
         c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
@@ -132,7 +132,7 @@ def load_arguments(self, _):
                    'calculated using latitude/longitude information from the sign-in activity.')
         c.argument('target_tenant_id', help='')
 
-    with self.argument_context('reports create-sign-in') as c:
+    with self.argument_context('reports audit-log create-sign-in') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
         c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
@@ -189,37 +189,37 @@ def load_arguments(self, _):
         c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
                    'calculated using latitude/longitude information from the sign-in activity.')
 
-    with self.argument_context('reports get-directory-audit') as c:
+    with self.argument_context('reports audit-log get-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports get-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log get-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports get-sign-in') as c:
+    with self.argument_context('reports audit-log get-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports list-directory-audit') as c:
+    with self.argument_context('reports audit-log list-directory-audit') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports list-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log list-restricted-sign-in') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports list-sign-in') as c:
+    with self.argument_context('reports audit-log list-sign-in') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports update-directory-audit') as c:
+    with self.argument_context('reports audit-log update-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
@@ -246,7 +246,7 @@ def load_arguments(self, _):
         c.argument('initiated_by_app', action=AddInitiatedByApp, nargs='*', help='appIdentity')
         c.argument('initiated_by_user', action=AddInitiatedByUser, nargs='*', help='userIdentity')
 
-    with self.argument_context('reports update-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log update-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
@@ -305,7 +305,7 @@ def load_arguments(self, _):
                    'calculated using latitude/longitude information from the sign-in activity.')
         c.argument('target_tenant_id', help='')
 
-    with self.argument_context('reports update-sign-in') as c:
+    with self.argument_context('reports audit-log update-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
@@ -363,258 +363,258 @@ def load_arguments(self, _):
         c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
                    'calculated using latitude/longitude information from the sign-in activity.')
 
-    with self.argument_context('reports get-report-root') as c:
+    with self.argument_context('reports report-report-root get-report-root') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports update-report-root') as c:
+    with self.argument_context('reports report-report-root update-report-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('reports get-email-activity-count') as c:
+    with self.argument_context('reports report get-email-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-email-activity-user-count') as c:
+    with self.argument_context('reports report get-email-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-email-activity-user-detail-ddb2') as c:
+    with self.argument_context('reports report get-email-activity-user-detail-ddb2') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-email-activity-user-detail-fe32') as c:
+    with self.argument_context('reports report get-email-activity-user-detail-fe32') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-email-app-usage-app-user-count') as c:
+    with self.argument_context('reports report get-email-app-usage-app-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-email-app-usage-user-count') as c:
+    with self.argument_context('reports report get-email-app-usage-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-email-app-usage-user-detail546-b') as c:
+    with self.argument_context('reports report get-email-app-usage-user-detail546-b') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-email-app-usage-user-detail62-ec') as c:
+    with self.argument_context('reports report get-email-app-usage-user-detail62-ec') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-email-app-usage-version-user-count') as c:
+    with self.argument_context('reports report get-email-app-usage-version-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-mailbox-usage-detail') as c:
+    with self.argument_context('reports report get-mailbox-usage-detail') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-mailbox-usage-mailbox-count') as c:
+    with self.argument_context('reports report get-mailbox-usage-mailbox-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-mailbox-usage-quota-status-mailbox-count') as c:
+    with self.argument_context('reports report get-mailbox-usage-quota-status-mailbox-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-mailbox-usage-storage') as c:
+    with self.argument_context('reports report get-mailbox-usage-storage') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-active-user-count') as c:
+    with self.argument_context('reports report get-office365-active-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-active-user-detail-d389') as c:
+    with self.argument_context('reports report get-office365-active-user-detail-d389') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-office365-active-user-detail68-ad') as c:
+    with self.argument_context('reports report get-office365-active-user-detail68-ad') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-group-activity-count') as c:
+    with self.argument_context('reports report get-office365-group-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-group-activity-detail38-f6') as c:
+    with self.argument_context('reports report get-office365-group-activity-detail38-f6') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-group-activity-detail81-cc') as c:
+    with self.argument_context('reports report get-office365-group-activity-detail81-cc') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-office365-group-activity-file-count') as c:
+    with self.argument_context('reports report get-office365-group-activity-file-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-group-activity-group-count') as c:
+    with self.argument_context('reports report get-office365-group-activity-group-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-group-activity-storage') as c:
+    with self.argument_context('reports report get-office365-group-activity-storage') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-office365-service-user-count') as c:
+    with self.argument_context('reports report get-office365-service-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-activity-file-count') as c:
+    with self.argument_context('reports report get-one-drive-activity-file-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-activity-user-count') as c:
+    with self.argument_context('reports report get-one-drive-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-activity-user-detail-c424') as c:
+    with self.argument_context('reports report get-one-drive-activity-user-detail-c424') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-activity-user-detail05-f1') as c:
+    with self.argument_context('reports report get-one-drive-activity-user-detail05-f1') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-one-drive-usage-account-count') as c:
+    with self.argument_context('reports report get-one-drive-usage-account-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-usage-account-detail-dd7-f') as c:
+    with self.argument_context('reports report get-one-drive-usage-account-detail-dd7-f') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-usage-account-detail-e827') as c:
+    with self.argument_context('reports report get-one-drive-usage-account-detail-e827') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-one-drive-usage-file-count') as c:
+    with self.argument_context('reports report get-one-drive-usage-file-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-one-drive-usage-storage') as c:
+    with self.argument_context('reports report get-one-drive-usage-storage') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-activity-file-count') as c:
+    with self.argument_context('reports report get-share-point-activity-file-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-activity-page') as c:
+    with self.argument_context('reports report get-share-point-activity-page') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-activity-user-count') as c:
+    with self.argument_context('reports report get-share-point-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-activity-user-detail-b778') as c:
+    with self.argument_context('reports report get-share-point-activity-user-detail-b778') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-activity-user-detail-f3-be') as c:
+    with self.argument_context('reports report get-share-point-activity-user-detail-f3-be') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-share-point-site-usage-detail-d27-a') as c:
+    with self.argument_context('reports report get-share-point-site-usage-detail-d27-a') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-share-point-site-usage-detail204-b') as c:
+    with self.argument_context('reports report get-share-point-site-usage-detail204-b') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-site-usage-file-count') as c:
+    with self.argument_context('reports report get-share-point-site-usage-file-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-site-usage-page') as c:
+    with self.argument_context('reports report get-share-point-site-usage-page') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-site-usage-site-count') as c:
+    with self.argument_context('reports report get-share-point-site-usage-site-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-share-point-site-usage-storage') as c:
+    with self.argument_context('reports report get-share-point-site-usage-storage') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-activity-count') as c:
+    with self.argument_context('reports report get-skype-for-business-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-activity-user-count') as c:
+    with self.argument_context('reports report get-skype-for-business-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-activity-user-detail-e4-c9') as c:
+    with self.argument_context('reports report get-skype-for-business-activity-user-detail-e4-c9') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-skype-for-business-activity-user-detail744-e') as c:
+    with self.argument_context('reports report get-skype-for-business-activity-user-detail744-e') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-device-usage-distribution-user-count') as c:
+    with self.argument_context('reports report get-skype-for-business-device-usage-distribution-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-device-usage-user-count') as c:
+    with self.argument_context('reports report get-skype-for-business-device-usage-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-device-usage-user-detail-a692') as c:
+    with self.argument_context('reports report get-skype-for-business-device-usage-user-detail-a692') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-skype-for-business-device-usage-user-detail-e753') as c:
+    with self.argument_context('reports report get-skype-for-business-device-usage-user-detail-e753') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-organizer-activity-count') as c:
+    with self.argument_context('reports report get-skype-for-business-organizer-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-organizer-activity-minute-count') as c:
+    with self.argument_context('reports report get-skype-for-business-organizer-activity-minute-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-organizer-activity-user-count') as c:
+    with self.argument_context('reports report get-skype-for-business-organizer-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-participant-activity-count') as c:
+    with self.argument_context('reports report get-skype-for-business-participant-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-participant-activity-minute-count') as c:
+    with self.argument_context('reports report get-skype-for-business-participant-activity-minute-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-participant-activity-user-count') as c:
+    with self.argument_context('reports report get-skype-for-business-participant-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-peer-to-peer-activity-count') as c:
+    with self.argument_context('reports report get-skype-for-business-peer-to-peer-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-peer-to-peer-activity-minute-count') as c:
+    with self.argument_context('reports report get-skype-for-business-peer-to-peer-activity-minute-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-skype-for-business-peer-to-peer-activity-user-count') as c:
+    with self.argument_context('reports report get-skype-for-business-peer-to-peer-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-team-device-usage-distribution-user-count') as c:
+    with self.argument_context('reports report get-team-device-usage-distribution-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-team-device-usage-user-count') as c:
+    with self.argument_context('reports report get-team-device-usage-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-team-device-usage-user-detail7148') as c:
+    with self.argument_context('reports report get-team-device-usage-user-detail7148') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-team-device-usage-user-detail7565') as c:
+    with self.argument_context('reports report get-team-device-usage-user-detail7565') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-team-user-activity-count') as c:
+    with self.argument_context('reports report get-team-user-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-team-user-activity-user-count') as c:
+    with self.argument_context('reports report get-team-user-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-team-user-activity-user-detail-a3-f1') as c:
+    with self.argument_context('reports report get-team-user-activity-user-detail-a3-f1') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-team-user-activity-user-detail-eb13') as c:
+    with self.argument_context('reports report get-team-user-activity-user-detail-eb13') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-activity-count') as c:
+    with self.argument_context('reports report get-yammer-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-activity-user-count') as c:
+    with self.argument_context('reports report get-yammer-activity-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-activity-user-detail-ac30') as c:
+    with self.argument_context('reports report get-yammer-activity-user-detail-ac30') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-yammer-activity-user-detail15-a5') as c:
+    with self.argument_context('reports report get-yammer-activity-user-detail15-a5') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-device-usage-distribution-user-count') as c:
+    with self.argument_context('reports report get-yammer-device-usage-distribution-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-device-usage-user-count') as c:
+    with self.argument_context('reports report get-yammer-device-usage-user-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-device-usage-user-detail-cfad') as c:
+    with self.argument_context('reports report get-yammer-device-usage-user-detail-cfad') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-device-usage-user-detail-d0-ac') as c:
+    with self.argument_context('reports report get-yammer-device-usage-user-detail-d0-ac') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-yammer-group-activity-count') as c:
+    with self.argument_context('reports report get-yammer-group-activity-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-group-activity-detail-da9-a') as c:
+    with self.argument_context('reports report get-yammer-group-activity-detail-da9-a') as c:
         c.argument('date', help='')
 
-    with self.argument_context('reports get-yammer-group-activity-detail0-d7-d') as c:
+    with self.argument_context('reports report get-yammer-group-activity-detail0-d7-d') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-yammer-group-activity-group-count') as c:
+    with self.argument_context('reports report get-yammer-group-activity-group-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports managed-device-enrollment-failure-details2-b3-d') as c:
+    with self.argument_context('reports report managed-device-enrollment-failure-details2-b3-d') as c:
         c.argument('skip', type=int, help='')
         c.argument('top', type=int, help='')
         c.argument('filter_', options_list=['--filter'], type=str, help='')
         c.argument('skip_token', type=str, help='')
 
-    with self.argument_context('reports managed-device-enrollment-top-failure-afd1') as c:
+    with self.argument_context('reports report managed-device-enrollment-top-failure-afd1') as c:
         c.argument('period', type=str, help='')

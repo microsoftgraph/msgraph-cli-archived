@@ -21,113 +21,132 @@ def load_command_table(self, _):
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_compliance_operations#Co'
         'mplianceComplianceOperations.{}',
         client_factory=cf_compliance_compliance)
-    with self.command_group('compliance', compliance_beta_compliance_compliance,
-                            client_factory=cf_compliance_compliance) as g:
-        g.custom_command('get-compliance', 'compliance_get_compliance')
-        g.custom_command('update-compliance', 'compliance_update_compliance')
+    with self.command_group('compliance compliance-compliance', compliance_beta_compliance_compliance,
+                            client_factory=cf_compliance_compliance, is_experimental=True) as g:
+        g.custom_command('get-compliance', 'compliance_compliance_compliance_get_compliance')
+        g.custom_command('update-compliance', 'compliance_compliance_compliance_update_compliance')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance
     compliance_beta_compliance = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_operations#ComplianceOpe'
         'rations.{}',
         client_factory=cf_compliance)
-    with self.command_group('compliance', compliance_beta_compliance, client_factory=cf_compliance) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('get-ediscovery', 'compliance_get_ediscovery')
-        g.custom_command('update-ediscovery', 'compliance_update_ediscovery')
+    with self.command_group('compliance compliance', compliance_beta_compliance, client_factory=cf_compliance,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_delete', confirmation=True)
+        g.custom_command('get-ediscovery', 'compliance_compliance_get_ediscovery')
+        g.custom_command('update-ediscovery', 'compliance_compliance_update_ediscovery')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery
     compliance_beta_compliance_ediscovery = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_operations#Co'
         'mplianceEdiscoveryOperations.{}',
         client_factory=cf_compliance_ediscovery)
-    with self.command_group('compliance', compliance_beta_compliance_ediscovery,
-                            client_factory=cf_compliance_ediscovery) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('create-case', 'compliance_create_case')
-        g.custom_command('get-case', 'compliance_get_case')
-        g.custom_command('list-case', 'compliance_list_case')
-        g.custom_command('update-case', 'compliance_update_case')
+    with self.command_group('compliance compliance-ediscovery', compliance_beta_compliance_ediscovery,
+                            client_factory=cf_compliance_ediscovery, is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_ediscovery_delete', confirmation=True)
+        g.custom_command('create-case', 'compliance_compliance_ediscovery_create_case')
+        g.custom_command('get-case', 'compliance_compliance_ediscovery_get_case')
+        g.custom_command('list-case', 'compliance_compliance_ediscovery_list_case')
+        g.custom_command('update-case', 'compliance_compliance_ediscovery_update_case')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case
     compliance_beta_compliance_ediscovery_case = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_operatio'
         'ns#ComplianceEdiscoveryCaseOperations.{}',
         client_factory=cf_compliance_ediscovery_case)
-    with self.command_group('compliance', compliance_beta_compliance_ediscovery_case,
-                            client_factory=cf_compliance_ediscovery_case) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('close', 'compliance_close')
-        g.custom_command('create-custodian', 'compliance_create_custodian')
-        g.custom_command('create-review-set', 'compliance_create_review_set')
-        g.custom_command('get-custodian', 'compliance_get_custodian')
-        g.custom_command('get-review-set', 'compliance_get_review_set')
-        g.custom_command('list-custodian', 'compliance_list_custodian')
-        g.custom_command('list-review-set', 'compliance_list_review_set')
-        g.custom_command('reopen', 'compliance_reopen')
-        g.custom_command('update-custodian', 'compliance_update_custodian')
-        g.custom_command('update-review-set', 'compliance_update_review_set')
+    with self.command_group('compliance compliance-ediscovery-case', compliance_beta_compliance_ediscovery_case,
+                            client_factory=cf_compliance_ediscovery_case, is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_ediscovery_case_delete', confirmation=True)
+        g.custom_command('close', 'compliance_compliance_ediscovery_case_close')
+        g.custom_command('create-custodian', 'compliance_compliance_ediscovery_case_create_custodian')
+        g.custom_command('create-review-set', 'compliance_compliance_ediscovery_case_create_review_set')
+        g.custom_command('get-custodian', 'compliance_compliance_ediscovery_case_get_custodian')
+        g.custom_command('get-review-set', 'compliance_compliance_ediscovery_case_get_review_set')
+        g.custom_command('list-custodian', 'compliance_compliance_ediscovery_case_list_custodian')
+        g.custom_command('list-review-set', 'compliance_compliance_ediscovery_case_list_review_set')
+        g.custom_command('reopen', 'compliance_compliance_ediscovery_case_reopen')
+        g.custom_command('update-custodian', 'compliance_compliance_ediscovery_case_update_custodian')
+        g.custom_command('update-review-set', 'compliance_compliance_ediscovery_case_update_review_set')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_custodian
     compliance_beta_compliance_ediscovery_case_custodian = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodia'
         'n_operations#ComplianceEdiscoveryCaseCustodianOperations.{}',
         client_factory=cf_compliance_ediscovery_case_custodian)
-    with self.command_group('compliance', compliance_beta_compliance_ediscovery_case_custodian,
-                            client_factory=cf_compliance_ediscovery_case_custodian) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('activate', 'compliance_activate')
-        g.custom_command('create-site-source', 'compliance_create_site_source')
-        g.custom_command('create-unified-group-source', 'compliance_create_unified_group_source')
-        g.custom_command('create-user-source', 'compliance_create_user_source')
-        g.custom_command('get-last-index-operation', 'compliance_get_last_index_operation')
-        g.custom_command('get-ref-last-index-operation', 'compliance_get_ref_last_index_operation')
-        g.custom_command('get-site-source', 'compliance_get_site_source')
-        g.custom_command('get-unified-group-source', 'compliance_get_unified_group_source')
-        g.custom_command('get-user-source', 'compliance_get_user_source')
-        g.custom_command('list-site-source', 'compliance_list_site_source')
-        g.custom_command('list-unified-group-source', 'compliance_list_unified_group_source')
-        g.custom_command('list-user-source', 'compliance_list_user_source')
-        g.custom_command('release', 'compliance_release')
-        g.custom_command('set-ref-last-index-operation', 'compliance_set_ref_last_index_operation')
-        g.custom_command('update-index', 'compliance_update_index')
-        g.custom_command('update-site-source', 'compliance_update_site_source')
-        g.custom_command('update-unified-group-source', 'compliance_update_unified_group_source')
-        g.custom_command('update-user-source', 'compliance_update_user_source')
+    with self.command_group('compliance compliance-ediscovery-case-custodian',
+                            compliance_beta_compliance_ediscovery_case_custodian,
+                            client_factory=cf_compliance_ediscovery_case_custodian, is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_ediscovery_case_custodian_delete', confirmation=True)
+        g.custom_command('activate', 'compliance_compliance_ediscovery_case_custodian_activate')
+        g.custom_command('create-site-source', 'compliance_compliance_ediscovery_case_custodian_create_site_source')
+        g.custom_command('create-unified-group-source', 'compliance_compliance_ediscovery_case_custodian_create_unified'
+                         '_group_source')
+        g.custom_command('create-user-source', 'compliance_compliance_ediscovery_case_custodian_create_user_source')
+        g.custom_command('get-last-index-operation', 'compliance_compliance_ediscovery_case_custodian_get_last_index_op'
+                         'eration')
+        g.custom_command('get-ref-last-index-operation', 'compliance_compliance_ediscovery_case_custodian_get_ref_last_'
+                         'index_operation')
+        g.custom_command('get-site-source', 'compliance_compliance_ediscovery_case_custodian_get_site_source')
+        g.custom_command('get-unified-group-source', 'compliance_compliance_ediscovery_case_custodian_get_unified_group'
+                         '_source')
+        g.custom_command('get-user-source', 'compliance_compliance_ediscovery_case_custodian_get_user_source')
+        g.custom_command('list-site-source', 'compliance_compliance_ediscovery_case_custodian_list_site_source')
+        g.custom_command('list-unified-group-source', 'compliance_compliance_ediscovery_case_custodian_list_unified_gro'
+                         'up_source')
+        g.custom_command('list-user-source', 'compliance_compliance_ediscovery_case_custodian_list_user_source')
+        g.custom_command('release', 'compliance_compliance_ediscovery_case_custodian_release')
+        g.custom_command('set-ref-last-index-operation', 'compliance_compliance_ediscovery_case_custodian_set_ref_last_'
+                         'index_operation')
+        g.custom_command('update-index', 'compliance_compliance_ediscovery_case_custodian_update_index')
+        g.custom_command('update-site-source', 'compliance_compliance_ediscovery_case_custodian_update_site_source')
+        g.custom_command('update-unified-group-source', 'compliance_compliance_ediscovery_case_custodian_update_unified'
+                         '_group_source')
+        g.custom_command('update-user-source', 'compliance_compliance_ediscovery_case_custodian_update_user_source')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_custodian_site_source
     compliance_beta_compliance_ediscovery_case_custodian_site_source = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodia'
         'n_site_source_operations#ComplianceEdiscoveryCaseCustodianSiteSourceOperations.{}',
         client_factory=cf_compliance_ediscovery_case_custodian_site_source)
-    with self.command_group('compliance', compliance_beta_compliance_ediscovery_case_custodian_site_source,
-                            client_factory=cf_compliance_ediscovery_case_custodian_site_source) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('get-ref-site', 'compliance_get_ref_site')
-        g.custom_command('get-site', 'compliance_get_site')
-        g.custom_command('set-ref-site', 'compliance_set_ref_site')
+    with self.command_group('compliance compliance-ediscovery-case-custodian-site-source',
+                            compliance_beta_compliance_ediscovery_case_custodian_site_source,
+                            client_factory=cf_compliance_ediscovery_case_custodian_site_source,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_ediscovery_case_custodian_site_source_delete',
+                         confirmation=True)
+        g.custom_command('get-ref-site', 'compliance_compliance_ediscovery_case_custodian_site_source_get_ref_site')
+        g.custom_command('get-site', 'compliance_compliance_ediscovery_case_custodian_site_source_get_site')
+        g.custom_command('set-ref-site', 'compliance_compliance_ediscovery_case_custodian_site_source_set_ref_site')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_custodian_unified_group_source
     compliance_beta_compliance_ediscovery_case_custodian_unified_group_source = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodia'
         'n_unified_group_source_operations#ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations.{}',
         client_factory=cf_compliance_ediscovery_case_custodian_unified_group_source)
-    with self.command_group('compliance', compliance_beta_compliance_ediscovery_case_custodian_unified_group_source,
-                            client_factory=cf_compliance_ediscovery_case_custodian_unified_group_source) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('get-group', 'compliance_get_group')
-        g.custom_command('get-ref-group', 'compliance_get_ref_group')
-        g.custom_command('set-ref-group', 'compliance_set_ref_group')
+    with self.command_group('compliance compliance-ediscovery-case-custodian-unified-group-source',
+                            compliance_beta_compliance_ediscovery_case_custodian_unified_group_source,
+                            client_factory=cf_compliance_ediscovery_case_custodian_unified_group_source,
+                            is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_ediscovery_case_custodian_unified_group_source_delete',
+                         confirmation=True)
+        g.custom_command('get-group',
+                         'compliance_compliance_ediscovery_case_custodian_unified_group_source_get_group')
+        g.custom_command('get-ref-group', 'compliance_compliance_ediscovery_case_custodian_unified_group_source_get_ref'
+                         '_group')
+        g.custom_command('set-ref-group', 'compliance_compliance_ediscovery_case_custodian_unified_group_source_set_ref'
+                         '_group')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_review_set
     compliance_beta_compliance_ediscovery_case_review_set = CliCommandType(
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_review_s'
         'et_operations#ComplianceEdiscoveryCaseReviewSetOperations.{}',
         client_factory=cf_compliance_ediscovery_case_review_set)
-    with self.command_group('compliance', compliance_beta_compliance_ediscovery_case_review_set,
-                            client_factory=cf_compliance_ediscovery_case_review_set) as g:
-        g.custom_command('delete', 'compliance_delete', confirmation=True)
-        g.custom_command('create-query', 'compliance_create_query')
-        g.custom_command('get-query', 'compliance_get_query')
-        g.custom_command('list-query', 'compliance_list_query')
-        g.custom_command('update-query', 'compliance_update_query')
+    with self.command_group('compliance compliance-ediscovery-case-review-set',
+                            compliance_beta_compliance_ediscovery_case_review_set,
+                            client_factory=cf_compliance_ediscovery_case_review_set, is_experimental=True) as g:
+        g.custom_command('delete', 'compliance_compliance_ediscovery_case_review_set_delete', confirmation=True)
+        g.custom_command('create-query', 'compliance_compliance_ediscovery_case_review_set_create_query')
+        g.custom_command('get-query', 'compliance_compliance_ediscovery_case_review_set_get_query')
+        g.custom_command('list-query', 'compliance_compliance_ediscovery_case_review_set_list_query')
+        g.custom_command('update-query', 'compliance_compliance_ediscovery_case_review_set_update_query')

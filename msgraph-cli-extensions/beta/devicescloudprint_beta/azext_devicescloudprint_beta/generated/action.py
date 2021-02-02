@@ -244,10 +244,10 @@ class AddCapabilitiesCopiesPerJob(argparse.Action):
         return d
 
 
-class AddDevicescloudprintCreatePrinterAllowedGroups(argparse._AppendAction):
+class AddDevicescloudprintPrintCreatePrinterAllowedGroups(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDevicescloudprintCreatePrinterAllowedGroups, self).__call__(parser, namespace, action, option_string)
+        super(AddDevicescloudprintPrintCreatePrinterAllowedGroups, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -268,10 +268,10 @@ class AddDevicescloudprintCreatePrinterAllowedGroups(argparse._AppendAction):
         return d
 
 
-class AddDevicescloudprintCreatePrinterAllowedUsers(argparse._AppendAction):
+class AddDevicescloudprintPrintCreatePrinterAllowedUsers(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDevicescloudprintCreatePrinterAllowedUsers, self).__call__(parser, namespace, action, option_string)
+        super(AddDevicescloudprintPrintCreatePrinterAllowedUsers, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -296,10 +296,10 @@ class AddDevicescloudprintCreatePrinterAllowedUsers(argparse._AppendAction):
         return d
 
 
-class AddDevicescloudprintCreatePrinterShareAllowedGroups(argparse._AppendAction):
+class AddDevicescloudprintPrintCreatePrinterShareAllowedGroups(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDevicescloudprintCreatePrinterShareAllowedGroups, self).__call__(parser, namespace, action, option_string)
+        super(AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -320,10 +320,10 @@ class AddDevicescloudprintCreatePrinterShareAllowedGroups(argparse._AppendAction
         return d
 
 
-class AddDevicescloudprintCreatePrinterShareAllowedUsers(argparse._AppendAction):
+class AddDevicescloudprintPrintCreatePrinterShareAllowedUsers(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDevicescloudprintCreatePrinterShareAllowedUsers, self).__call__(parser, namespace, action, option_string)
+        super(AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

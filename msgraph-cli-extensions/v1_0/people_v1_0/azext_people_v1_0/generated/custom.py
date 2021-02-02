@@ -10,10 +10,10 @@
 # pylint: disable=too-many-lines
 
 
-def people_delete(client,
-                  user_id,
-                  person_id=None,
-                  if_match=None):
+def people_user_delete(client,
+                       user_id,
+                       person_id=None,
+                       if_match=None):
     if user_id is not None and person_id is not None:
         return client.delete_person(user_id=user_id,
                                     person_id=person_id,
@@ -22,28 +22,28 @@ def people_delete(client,
                                  if_match=if_match)
 
 
-def people_create_person(client,
-                         user_id,
-                         id_=None,
-                         birthday=None,
-                         company_name=None,
-                         department=None,
-                         display_name=None,
-                         given_name=None,
-                         im_address=None,
-                         is_favorite=None,
-                         job_title=None,
-                         office_location=None,
-                         person_notes=None,
-                         person_type=None,
-                         phones=None,
-                         postal_addresses=None,
-                         profession=None,
-                         scored_email_addresses=None,
-                         surname=None,
-                         user_principal_name=None,
-                         websites=None,
-                         yomi_company=None):
+def people_user_create_person(client,
+                              user_id,
+                              id_=None,
+                              birthday=None,
+                              company_name=None,
+                              department=None,
+                              display_name=None,
+                              given_name=None,
+                              im_address=None,
+                              is_favorite=None,
+                              job_title=None,
+                              office_location=None,
+                              person_notes=None,
+                              person_type=None,
+                              phones=None,
+                              postal_addresses=None,
+                              profession=None,
+                              scored_email_addresses=None,
+                              surname=None,
+                              user_principal_name=None,
+                              websites=None,
+                              yomi_company=None):
     return client.create_person(user_id=user_id,
                                 id=id_,
                                 birthday=birthday,
@@ -67,43 +67,43 @@ def people_create_person(client,
                                 yomi_company=yomi_company)
 
 
-def people_get_insight(client,
-                       user_id,
-                       select=None,
-                       expand=None):
+def people_user_get_insight(client,
+                            user_id,
+                            select=None,
+                            expand=None):
     return client.get_insight(user_id=user_id,
                               select=select,
                               expand=expand)
 
 
-def people_get_person(client,
-                      user_id,
-                      person_id,
-                      select=None,
-                      expand=None):
+def people_user_get_person(client,
+                           user_id,
+                           person_id,
+                           select=None,
+                           expand=None):
     return client.get_person(user_id=user_id,
                              person_id=person_id,
                              select=select,
                              expand=expand)
 
 
-def people_list_person(client,
-                       user_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
+def people_user_list_person(client,
+                            user_id,
+                            orderby=None,
+                            select=None,
+                            expand=None):
     return client.list_person(user_id=user_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def people_update_insight(client,
-                          user_id,
-                          id_=None,
-                          shared=None,
-                          trending=None,
-                          used=None):
+def people_user_update_insight(client,
+                               user_id,
+                               id_=None,
+                               shared=None,
+                               trending=None,
+                               used=None):
     return client.update_insight(user_id=user_id,
                                  id=id_,
                                  shared=shared,
@@ -111,29 +111,29 @@ def people_update_insight(client,
                                  used=used)
 
 
-def people_update_person(client,
-                         user_id,
-                         person_id,
-                         id_=None,
-                         birthday=None,
-                         company_name=None,
-                         department=None,
-                         display_name=None,
-                         given_name=None,
-                         im_address=None,
-                         is_favorite=None,
-                         job_title=None,
-                         office_location=None,
-                         person_notes=None,
-                         person_type=None,
-                         phones=None,
-                         postal_addresses=None,
-                         profession=None,
-                         scored_email_addresses=None,
-                         surname=None,
-                         user_principal_name=None,
-                         websites=None,
-                         yomi_company=None):
+def people_user_update_person(client,
+                              user_id,
+                              person_id,
+                              id_=None,
+                              birthday=None,
+                              company_name=None,
+                              department=None,
+                              display_name=None,
+                              given_name=None,
+                              im_address=None,
+                              is_favorite=None,
+                              job_title=None,
+                              office_location=None,
+                              person_notes=None,
+                              person_type=None,
+                              phones=None,
+                              postal_addresses=None,
+                              profession=None,
+                              scored_email_addresses=None,
+                              surname=None,
+                              user_principal_name=None,
+                              websites=None,
+                              yomi_company=None):
     return client.update_person(user_id=user_id,
                                 person_id=person_id,
                                 id=id_,
@@ -158,12 +158,12 @@ def people_update_person(client,
                                 yomi_company=yomi_company)
 
 
-def people_delete(client,
-                  user_id,
-                  shared_insight_id=None,
-                  if_match=None,
-                  trending_id=None,
-                  used_insight_id=None):
+def people_user_insight_delete(client,
+                               user_id,
+                               shared_insight_id=None,
+                               if_match=None,
+                               trending_id=None,
+                               used_insight_id=None):
     if user_id is not None and shared_insight_id is not None:
         return client.delete_shared(user_id=user_id,
                                     shared_insight_id=shared_insight_id,
@@ -177,19 +177,19 @@ def people_delete(client,
                               if_match=if_match)
 
 
-def people_create_shared(client,
-                         user_id,
-                         id_=None,
-                         resource_reference=None,
-                         resource_visualization=None,
-                         sharing_history=None,
-                         resource_id=None,
-                         last_shared_method_id=None,
-                         last_shared_shared_by=None,
-                         last_shared_shared_date_time=None,
-                         last_shared_sharing_reference=None,
-                         last_shared_sharing_subject=None,
-                         last_shared_sharing_type=None):
+def people_user_insight_create_shared(client,
+                                      user_id,
+                                      id_=None,
+                                      resource_reference=None,
+                                      resource_visualization=None,
+                                      sharing_history=None,
+                                      resource_id=None,
+                                      last_shared_method_id=None,
+                                      last_shared_shared_by=None,
+                                      last_shared_shared_date_time=None,
+                                      last_shared_sharing_reference=None,
+                                      last_shared_sharing_subject=None,
+                                      last_shared_sharing_type=None):
     return client.create_shared(user_id=user_id,
                                 id=id_,
                                 resource_reference=resource_reference,
@@ -204,14 +204,14 @@ def people_create_shared(client,
                                 sharing_type=last_shared_sharing_type)
 
 
-def people_create_trending(client,
-                           user_id,
-                           id_=None,
-                           last_modified_date_time=None,
-                           resource_reference=None,
-                           resource_visualization=None,
-                           weight=None,
-                           resource_id=None):
+def people_user_insight_create_trending(client,
+                                        user_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        resource_reference=None,
+                                        resource_visualization=None,
+                                        weight=None,
+                                        resource_id=None):
     return client.create_trending(user_id=user_id,
                                   id=id_,
                                   last_modified_date_time=last_modified_date_time,
@@ -221,13 +221,13 @@ def people_create_trending(client,
                                   microsoft_graph_entity_id=resource_id)
 
 
-def people_create_used(client,
-                       user_id,
-                       id_=None,
-                       last_used=None,
-                       resource_reference=None,
-                       resource_visualization=None,
-                       resource_id=None):
+def people_user_insight_create_used(client,
+                                    user_id,
+                                    id_=None,
+                                    last_used=None,
+                                    resource_reference=None,
+                                    resource_visualization=None,
+                                    resource_id=None):
     return client.create_used(user_id=user_id,
                               id=id_,
                               last_used=last_used,
@@ -236,86 +236,86 @@ def people_create_used(client,
                               microsoft_graph_entity_id=resource_id)
 
 
-def people_get_shared(client,
-                      user_id,
-                      shared_insight_id,
-                      select=None,
-                      expand=None):
+def people_user_insight_get_shared(client,
+                                   user_id,
+                                   shared_insight_id,
+                                   select=None,
+                                   expand=None):
     return client.get_shared(user_id=user_id,
                              shared_insight_id=shared_insight_id,
                              select=select,
                              expand=expand)
 
 
-def people_get_trending(client,
-                        user_id,
-                        trending_id,
-                        select=None,
-                        expand=None):
+def people_user_insight_get_trending(client,
+                                     user_id,
+                                     trending_id,
+                                     select=None,
+                                     expand=None):
     return client.get_trending(user_id=user_id,
                                trending_id=trending_id,
                                select=select,
                                expand=expand)
 
 
-def people_get_used(client,
-                    user_id,
-                    used_insight_id,
-                    select=None,
-                    expand=None):
+def people_user_insight_get_used(client,
+                                 user_id,
+                                 used_insight_id,
+                                 select=None,
+                                 expand=None):
     return client.get_used(user_id=user_id,
                            used_insight_id=used_insight_id,
                            select=select,
                            expand=expand)
 
 
-def people_list_shared(client,
-                       user_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
+def people_user_insight_list_shared(client,
+                                    user_id,
+                                    orderby=None,
+                                    select=None,
+                                    expand=None):
     return client.list_shared(user_id=user_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def people_list_trending(client,
-                         user_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def people_user_insight_list_trending(client,
+                                      user_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
     return client.list_trending(user_id=user_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def people_list_used(client,
-                     user_id,
-                     orderby=None,
-                     select=None,
-                     expand=None):
+def people_user_insight_list_used(client,
+                                  user_id,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
     return client.list_used(user_id=user_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def people_update_shared(client,
-                         user_id,
-                         shared_insight_id,
-                         id_=None,
-                         resource_reference=None,
-                         resource_visualization=None,
-                         sharing_history=None,
-                         resource_id=None,
-                         last_shared_method_id=None,
-                         last_shared_shared_by=None,
-                         last_shared_shared_date_time=None,
-                         last_shared_sharing_reference=None,
-                         last_shared_sharing_subject=None,
-                         last_shared_sharing_type=None):
+def people_user_insight_update_shared(client,
+                                      user_id,
+                                      shared_insight_id,
+                                      id_=None,
+                                      resource_reference=None,
+                                      resource_visualization=None,
+                                      sharing_history=None,
+                                      resource_id=None,
+                                      last_shared_method_id=None,
+                                      last_shared_shared_by=None,
+                                      last_shared_shared_date_time=None,
+                                      last_shared_sharing_reference=None,
+                                      last_shared_sharing_subject=None,
+                                      last_shared_sharing_type=None):
     return client.update_shared(user_id=user_id,
                                 shared_insight_id=shared_insight_id,
                                 id=id_,
@@ -331,15 +331,15 @@ def people_update_shared(client,
                                 sharing_type=last_shared_sharing_type)
 
 
-def people_update_trending(client,
-                           user_id,
-                           trending_id,
-                           id_=None,
-                           last_modified_date_time=None,
-                           resource_reference=None,
-                           resource_visualization=None,
-                           weight=None,
-                           resource_id=None):
+def people_user_insight_update_trending(client,
+                                        user_id,
+                                        trending_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        resource_reference=None,
+                                        resource_visualization=None,
+                                        weight=None,
+                                        resource_id=None):
     return client.update_trending(user_id=user_id,
                                   trending_id=trending_id,
                                   id=id_,
@@ -350,14 +350,14 @@ def people_update_trending(client,
                                   microsoft_graph_entity_id=resource_id)
 
 
-def people_update_used(client,
-                       user_id,
-                       used_insight_id,
-                       id_=None,
-                       last_used=None,
-                       resource_reference=None,
-                       resource_visualization=None,
-                       resource_id=None):
+def people_user_insight_update_used(client,
+                                    user_id,
+                                    used_insight_id,
+                                    id_=None,
+                                    last_used=None,
+                                    resource_reference=None,
+                                    resource_visualization=None,
+                                    resource_id=None):
     return client.update_used(user_id=user_id,
                               used_insight_id=used_insight_id,
                               id=id_,
@@ -367,10 +367,10 @@ def people_update_used(client,
                               microsoft_graph_entity_id=resource_id)
 
 
-def people_delete(client,
-                  user_id,
-                  shared_insight_id,
-                  if_match=None):
+def people_user_insight_shared_delete(client,
+                                      user_id,
+                                      shared_insight_id,
+                                      if_match=None):
     if user_id is not None and shared_insight_id is not None:
         return client.delete_ref_last_shared_method(user_id=user_id,
                                                     shared_insight_id=shared_insight_id,
@@ -380,127 +380,127 @@ def people_delete(client,
                                       if_match=if_match)
 
 
-def people_get_last_shared_method(client,
-                                  user_id,
-                                  shared_insight_id,
-                                  select=None,
-                                  expand=None):
+def people_user_insight_shared_get_last_shared_method(client,
+                                                      user_id,
+                                                      shared_insight_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_last_shared_method(user_id=user_id,
                                          shared_insight_id=shared_insight_id,
                                          select=select,
                                          expand=expand)
 
 
-def people_get_ref_last_shared_method(client,
-                                      user_id,
-                                      shared_insight_id):
+def people_user_insight_shared_get_ref_last_shared_method(client,
+                                                          user_id,
+                                                          shared_insight_id):
     return client.get_ref_last_shared_method(user_id=user_id,
                                              shared_insight_id=shared_insight_id)
 
 
-def people_get_ref_resource(client,
-                            user_id,
-                            shared_insight_id):
+def people_user_insight_shared_get_ref_resource(client,
+                                                user_id,
+                                                shared_insight_id):
     return client.get_ref_resource(user_id=user_id,
                                    shared_insight_id=shared_insight_id)
 
 
-def people_get_resource(client,
-                        user_id,
-                        shared_insight_id,
-                        select=None,
-                        expand=None):
+def people_user_insight_shared_get_resource(client,
+                                            user_id,
+                                            shared_insight_id,
+                                            select=None,
+                                            expand=None):
     return client.get_resource(user_id=user_id,
                                shared_insight_id=shared_insight_id,
                                select=select,
                                expand=expand)
 
 
-def people_set_ref_last_shared_method(client,
-                                      user_id,
-                                      shared_insight_id,
-                                      body):
+def people_user_insight_shared_set_ref_last_shared_method(client,
+                                                          user_id,
+                                                          shared_insight_id,
+                                                          body):
     return client.set_ref_last_shared_method(user_id=user_id,
                                              shared_insight_id=shared_insight_id,
                                              body=body)
 
 
-def people_set_ref_resource(client,
-                            user_id,
-                            shared_insight_id,
-                            body):
+def people_user_insight_shared_set_ref_resource(client,
+                                                user_id,
+                                                shared_insight_id,
+                                                body):
     return client.set_ref_resource(user_id=user_id,
                                    shared_insight_id=shared_insight_id,
                                    body=body)
 
 
-def people_delete(client,
-                  user_id,
-                  trending_id,
-                  if_match=None):
+def people_user_insight_trending_delete(client,
+                                        user_id,
+                                        trending_id,
+                                        if_match=None):
     return client.delete_ref_resource(user_id=user_id,
                                       trending_id=trending_id,
                                       if_match=if_match)
 
 
-def people_get_ref_resource(client,
-                            user_id,
-                            trending_id):
+def people_user_insight_trending_get_ref_resource(client,
+                                                  user_id,
+                                                  trending_id):
     return client.get_ref_resource(user_id=user_id,
                                    trending_id=trending_id)
 
 
-def people_get_resource(client,
-                        user_id,
-                        trending_id,
-                        select=None,
-                        expand=None):
+def people_user_insight_trending_get_resource(client,
+                                              user_id,
+                                              trending_id,
+                                              select=None,
+                                              expand=None):
     return client.get_resource(user_id=user_id,
                                trending_id=trending_id,
                                select=select,
                                expand=expand)
 
 
-def people_set_ref_resource(client,
-                            user_id,
-                            trending_id,
-                            body):
+def people_user_insight_trending_set_ref_resource(client,
+                                                  user_id,
+                                                  trending_id,
+                                                  body):
     return client.set_ref_resource(user_id=user_id,
                                    trending_id=trending_id,
                                    body=body)
 
 
-def people_delete(client,
-                  user_id,
-                  used_insight_id,
-                  if_match=None):
+def people_user_insight_used_delete(client,
+                                    user_id,
+                                    used_insight_id,
+                                    if_match=None):
     return client.delete_ref_resource(user_id=user_id,
                                       used_insight_id=used_insight_id,
                                       if_match=if_match)
 
 
-def people_get_ref_resource(client,
-                            user_id,
-                            used_insight_id):
+def people_user_insight_used_get_ref_resource(client,
+                                              user_id,
+                                              used_insight_id):
     return client.get_ref_resource(user_id=user_id,
                                    used_insight_id=used_insight_id)
 
 
-def people_get_resource(client,
-                        user_id,
-                        used_insight_id,
-                        select=None,
-                        expand=None):
+def people_user_insight_used_get_resource(client,
+                                          user_id,
+                                          used_insight_id,
+                                          select=None,
+                                          expand=None):
     return client.get_resource(user_id=user_id,
                                used_insight_id=used_insight_id,
                                select=select,
                                expand=expand)
 
 
-def people_set_ref_resource(client,
-                            user_id,
-                            used_insight_id,
-                            body):
+def people_user_insight_used_set_ref_resource(client,
+                                              user_id,
+                                              used_insight_id,
+                                              body):
     return client.set_ref_resource(user_id=user_id,
                                    used_insight_id=used_insight_id,
                                    body=body)

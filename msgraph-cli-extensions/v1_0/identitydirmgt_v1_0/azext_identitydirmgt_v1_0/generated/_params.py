@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -53,11 +54,11 @@ from azext_identitydirmgt_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt contact-org-contact delete') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-org-contact') as c:
+    with self.argument_context('identitydirmgt contact-org-contact create-org-contact') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('addresses', action=AddAddresses, nargs='*', help='')
@@ -80,17 +81,17 @@ def load_arguments(self, _):
         c.argument('member_of', action=AddContactsOrgcontactMemberOf, nargs='*', help='')
         c.argument('transitive_member_of', action=AddContactsOrgcontactTransitiveMemberOf, nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-org-contact') as c:
+    with self.argument_context('identitydirmgt contact-org-contact get-org-contact') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-org-contact') as c:
+    with self.argument_context('identitydirmgt contact-org-contact list-org-contact') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-org-contact') as c:
+    with self.argument_context('identitydirmgt contact-org-contact update-org-contact') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -114,105 +115,105 @@ def load_arguments(self, _):
         c.argument('member_of', action=AddContactsOrgcontactMemberOf, nargs='*', help='')
         c.argument('transitive_member_of', action=AddContactsOrgcontactTransitiveMemberOf, nargs='*', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt contact delete') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt check-member-group') as c:
+    with self.argument_context('identitydirmgt contact check-member-group') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt check-member-object') as c:
+    with self.argument_context('identitydirmgt contact check-member-object') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt create-ref-direct-report') as c:
+    with self.argument_context('identitydirmgt contact create-ref-direct-report') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-ref-member-of') as c:
+    with self.argument_context('identitydirmgt contact create-ref-member-of') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-ref-transitive-member-of') as c:
+    with self.argument_context('identitydirmgt contact create-ref-transitive-member-of') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt get-available-extension-property') as c:
+    with self.argument_context('identitydirmgt contact get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-by-id') as c:
+    with self.argument_context('identitydirmgt contact get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-manager') as c:
+    with self.argument_context('identitydirmgt contact get-manager') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt get-member-group') as c:
+    with self.argument_context('identitydirmgt contact get-member-group') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-member-object') as c:
+    with self.argument_context('identitydirmgt contact get-member-object') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-ref-manager') as c:
+    with self.argument_context('identitydirmgt contact get-ref-manager') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
 
-    with self.argument_context('identitydirmgt list-direct-report') as c:
-        c.argument('org_contact_id', type=str, help='key: id of orgContact')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitydirmgt list-member-of') as c:
+    with self.argument_context('identitydirmgt contact list-direct-report') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-ref-direct-report') as c:
-        c.argument('org_contact_id', type=str, help='key: id of orgContact')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('identitydirmgt list-ref-member-of') as c:
-        c.argument('org_contact_id', type=str, help='key: id of orgContact')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('identitydirmgt list-ref-transitive-member-of') as c:
-        c.argument('org_contact_id', type=str, help='key: id of orgContact')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('identitydirmgt list-transitive-member-of') as c:
+    with self.argument_context('identitydirmgt contact list-member-of') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt restore') as c:
+    with self.argument_context('identitydirmgt contact list-ref-direct-report') as c:
+        c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('identitydirmgt contact list-ref-member-of') as c:
+        c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('identitydirmgt contact list-ref-transitive-member-of') as c:
+        c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('identitydirmgt contact list-transitive-member-of') as c:
+        c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('identitydirmgt contact restore') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
 
-    with self.argument_context('identitydirmgt set-ref-manager') as c:
+    with self.argument_context('identitydirmgt contact set-ref-manager') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt validate-property') as c:
+    with self.argument_context('identitydirmgt contact validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt contract-contract delete') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-contract') as c:
+    with self.argument_context('identitydirmgt contract-contract create-contract') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('contract_type', type=str, help='Type of contract.Possible values are: SyndicationPartner - Partner '
@@ -231,17 +232,17 @@ def load_arguments(self, _):
                    'when the partnership with the customer is established. It is not automatically updated if the '
                    'customer tenant\'s display name changes.')
 
-    with self.argument_context('identitydirmgt get-contract') as c:
+    with self.argument_context('identitydirmgt contract-contract get-contract') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-contract') as c:
+    with self.argument_context('identitydirmgt contract-contract list-contract') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-contract') as c:
+    with self.argument_context('identitydirmgt contract-contract update-contract') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -261,43 +262,43 @@ def load_arguments(self, _):
                    'when the partnership with the customer is established. It is not automatically updated if the '
                    'customer tenant\'s display name changes.')
 
-    with self.argument_context('identitydirmgt check-member-group') as c:
+    with self.argument_context('identitydirmgt contract check-member-group') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt check-member-object') as c:
+    with self.argument_context('identitydirmgt contract check-member-object') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-available-extension-property') as c:
+    with self.argument_context('identitydirmgt contract get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-by-id') as c:
+    with self.argument_context('identitydirmgt contract get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-member-group') as c:
+    with self.argument_context('identitydirmgt contract get-member-group') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-member-object') as c:
+    with self.argument_context('identitydirmgt contract get-member-object') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt restore') as c:
+    with self.argument_context('identitydirmgt contract restore') as c:
         c.argument('contract_id', type=str, help='key: id of contract')
 
-    with self.argument_context('identitydirmgt validate-property') as c:
+    with self.argument_context('identitydirmgt contract validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt device-device delete') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-device') as c:
+    with self.argument_context('identitydirmgt device-device create-device') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
@@ -355,17 +356,17 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddDevicesDeviceExtensions, nargs='*', help='The collection of open extensions '
                    'defined for the device. Read-only. Nullable.')
 
-    with self.argument_context('identitydirmgt get-device') as c:
+    with self.argument_context('identitydirmgt device-device get-device') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-device') as c:
+    with self.argument_context('identitydirmgt device-device list-device') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-device') as c:
+    with self.argument_context('identitydirmgt device-device update-device') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -424,140 +425,140 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddDevicesDeviceExtensions, nargs='*', help='The collection of open extensions '
                    'defined for the device. Read-only. Nullable.')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt device delete') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt check-member-group') as c:
+    with self.argument_context('identitydirmgt device check-member-group') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt check-member-object') as c:
+    with self.argument_context('identitydirmgt device check-member-object') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt create-extension') as c:
+    with self.argument_context('identitydirmgt device create-extension') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitydirmgt create-ref-member-of') as c:
+    with self.argument_context('identitydirmgt device create-ref-member-of') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-ref-registered-owner') as c:
+    with self.argument_context('identitydirmgt device create-ref-registered-owner') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-ref-registered-user') as c:
+    with self.argument_context('identitydirmgt device create-ref-registered-user') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-ref-transitive-member-of') as c:
+    with self.argument_context('identitydirmgt device create-ref-transitive-member-of') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt get-available-extension-property') as c:
+    with self.argument_context('identitydirmgt device get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-by-id') as c:
+    with self.argument_context('identitydirmgt device get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-extension') as c:
+    with self.argument_context('identitydirmgt device get-extension') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt get-member-group') as c:
+    with self.argument_context('identitydirmgt device get-member-group') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-member-object') as c:
+    with self.argument_context('identitydirmgt device get-member-object') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt list-extension') as c:
+    with self.argument_context('identitydirmgt device list-extension') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-member-of') as c:
+    with self.argument_context('identitydirmgt device list-member-of') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-ref-member-of') as c:
+    with self.argument_context('identitydirmgt device list-ref-member-of') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-ref-registered-owner') as c:
+    with self.argument_context('identitydirmgt device list-ref-registered-owner') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-ref-registered-user') as c:
+    with self.argument_context('identitydirmgt device list-ref-registered-user') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-ref-transitive-member-of') as c:
+    with self.argument_context('identitydirmgt device list-ref-transitive-member-of') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-registered-owner') as c:
-        c.argument('device_id', type=str, help='key: id of device')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitydirmgt list-registered-user') as c:
+    with self.argument_context('identitydirmgt device list-registered-owner') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-transitive-member-of') as c:
+    with self.argument_context('identitydirmgt device list-registered-user') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt restore') as c:
+    with self.argument_context('identitydirmgt device list-transitive-member-of') as c:
+        c.argument('device_id', type=str, help='key: id of device')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('identitydirmgt device restore') as c:
         c.argument('device_id', type=str, help='key: id of device')
 
-    with self.argument_context('identitydirmgt update-extension') as c:
+    with self.argument_context('identitydirmgt device update-extension') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitydirmgt validate-property') as c:
+    with self.argument_context('identitydirmgt device validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt get-directory') as c:
+    with self.argument_context('identitydirmgt directory-directory get-directory') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-directory') as c:
+    with self.argument_context('identitydirmgt directory-directory update-directory') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('administrative_units', action=AddAdministrativeUnits, nargs='*', help='')
         c.argument('deleted_items', action=AddDeletedItems, nargs='*', help='Recently deleted items. Read-only. '
                    'Nullable.')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt directory delete') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('if_match', type=str, help='ETag')
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
 
-    with self.argument_context('identitydirmgt create-administrative-unit') as c:
+    with self.argument_context('identitydirmgt directory create-administrative-unit') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='An optional description for the administrative unit.')
@@ -574,31 +575,31 @@ def load_arguments(self, _):
                    'scopedRoleMembership), DELETE (remove scopedRoleMembership).')
         c.argument('extensions', action=AddDirectoryExtensions, nargs='*', help='')
 
-    with self.argument_context('identitydirmgt create-deleted-item') as c:
+    with self.argument_context('identitydirmgt directory create-deleted-item') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
 
-    with self.argument_context('identitydirmgt get-administrative-unit') as c:
+    with self.argument_context('identitydirmgt directory get-administrative-unit') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt get-deleted-item') as c:
+    with self.argument_context('identitydirmgt directory get-deleted-item') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-administrative-unit') as c:
+    with self.argument_context('identitydirmgt directory list-administrative-unit') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-deleted-item') as c:
+    with self.argument_context('identitydirmgt directory list-deleted-item') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-administrative-unit') as c:
+    with self.argument_context('identitydirmgt directory update-administrative-unit') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -616,27 +617,27 @@ def load_arguments(self, _):
                    'scopedRoleMembership), DELETE (remove scopedRoleMembership).')
         c.argument('extensions', action=AddDirectoryExtensions, nargs='*', help='')
 
-    with self.argument_context('identitydirmgt update-deleted-item') as c:
+    with self.argument_context('identitydirmgt directory update-deleted-item') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit delete') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
 
-    with self.argument_context('identitydirmgt create-extension') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit create-extension') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitydirmgt create-ref-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit create-ref-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-scoped-role-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit create-scoped-role-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id', type=str,
@@ -648,46 +649,46 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('role_member_info_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('identitydirmgt get-extension') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit get-extension') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt get-scoped-role-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit get-scoped-role-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-extension') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit list-extension') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit list-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-ref-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit list-ref-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-scoped-role-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit list-scoped-role-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-extension') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit update-extension') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitydirmgt update-scoped-role-member') as c:
+    with self.argument_context('identitydirmgt directory-administrative-unit update-scoped-role-member') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -700,11 +701,11 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('role_member_info_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt directory-role-directory-role delete') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-directory-role') as c:
+    with self.argument_context('identitydirmgt directory-role-directory-role create-directory-role') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='The description for the directory role. Read-only.')
@@ -716,17 +717,17 @@ def load_arguments(self, _):
                    'this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.')
         c.argument('scoped_members', action=AddScopedMembers, nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-directory-role') as c:
+    with self.argument_context('identitydirmgt directory-role-directory-role get-directory-role') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-directory-role') as c:
+    with self.argument_context('identitydirmgt directory-role-directory-role list-directory-role') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-directory-role') as c:
+    with self.argument_context('identitydirmgt directory-role-directory-role update-directory-role') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -739,25 +740,25 @@ def load_arguments(self, _):
                    'this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.')
         c.argument('scoped_members', action=AddScopedMembers, nargs='*', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt directory-role delete') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt check-member-group') as c:
+    with self.argument_context('identitydirmgt directory-role check-member-group') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt check-member-object') as c:
+    with self.argument_context('identitydirmgt directory-role check-member-object') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt create-ref-member') as c:
+    with self.argument_context('identitydirmgt directory-role create-ref-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-scoped-member') as c:
+    with self.argument_context('identitydirmgt directory-role create-scoped-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('administrative_unit_id', type=str, help='Unique identifier for the administrative unit that the '
@@ -769,47 +770,47 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('role_member_info_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('identitydirmgt get-available-extension-property') as c:
+    with self.argument_context('identitydirmgt directory-role get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-by-id') as c:
+    with self.argument_context('identitydirmgt directory-role get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-member-group') as c:
+    with self.argument_context('identitydirmgt directory-role get-member-group') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-member-object') as c:
+    with self.argument_context('identitydirmgt directory-role get-member-object') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-scoped-member') as c:
+    with self.argument_context('identitydirmgt directory-role get-scoped-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-member') as c:
+    with self.argument_context('identitydirmgt directory-role list-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-ref-member') as c:
+    with self.argument_context('identitydirmgt directory-role list-ref-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-scoped-member') as c:
+    with self.argument_context('identitydirmgt directory-role list-scoped-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt restore') as c:
+    with self.argument_context('identitydirmgt directory-role restore') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
 
-    with self.argument_context('identitydirmgt update-scoped-member') as c:
+    with self.argument_context('identitydirmgt directory-role update-scoped-member') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -822,76 +823,76 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('role_member_info_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('identitydirmgt validate-property') as c:
+    with self.argument_context('identitydirmgt directory-role validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt directory-role-template-directory-role-template delete') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-directory-role-template') as c:
+    with self.argument_context('identitydirmgt directory-role-template-directory-role-template create-directory-role-template') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='The description to set for the directory role. Read-only.')
         c.argument('display_name', type=str, help='The display name to set for the directory role. Read-only.')
 
-    with self.argument_context('identitydirmgt get-directory-role-template') as c:
+    with self.argument_context('identitydirmgt directory-role-template-directory-role-template get-directory-role-template') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-directory-role-template') as c:
+    with self.argument_context('identitydirmgt directory-role-template-directory-role-template list-directory-role-template') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-directory-role-template') as c:
+    with self.argument_context('identitydirmgt directory-role-template-directory-role-template update-directory-role-template') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='The description to set for the directory role. Read-only.')
         c.argument('display_name', type=str, help='The display name to set for the directory role. Read-only.')
 
-    with self.argument_context('identitydirmgt check-member-group') as c:
+    with self.argument_context('identitydirmgt directory-role-template check-member-group') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt check-member-object') as c:
+    with self.argument_context('identitydirmgt directory-role-template check-member-object') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-available-extension-property') as c:
+    with self.argument_context('identitydirmgt directory-role-template get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-by-id') as c:
+    with self.argument_context('identitydirmgt directory-role-template get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-member-group') as c:
+    with self.argument_context('identitydirmgt directory-role-template get-member-group') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-member-object') as c:
+    with self.argument_context('identitydirmgt directory-role-template get-member-object') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt restore') as c:
+    with self.argument_context('identitydirmgt directory-role-template restore') as c:
         c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
 
-    with self.argument_context('identitydirmgt validate-property') as c:
+    with self.argument_context('identitydirmgt directory-role-template validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt domain-domain delete') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-domain') as c:
+    with self.argument_context('identitydirmgt domain-domain create-domain') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('authentication_type', type=str, help='Indicates the configured authentication type for the domain. '
                    'The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD '
@@ -936,17 +937,17 @@ def load_arguments(self, _):
                    'customer adds to the DNS zone file of the domain before the customer can complete domain ownership '
                    'verification with Azure AD.Read-only, Nullable')
 
-    with self.argument_context('identitydirmgt get-domain') as c:
+    with self.argument_context('identitydirmgt domain-domain get-domain') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-domain') as c:
+    with self.argument_context('identitydirmgt domain-domain list-domain') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-domain') as c:
+    with self.argument_context('identitydirmgt domain-domain update-domain') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('authentication_type', type=str, help='Indicates the configured authentication type for the domain. '
@@ -992,17 +993,17 @@ def load_arguments(self, _):
                    'customer adds to the DNS zone file of the domain before the customer can complete domain ownership '
                    'verification with Azure AD.Read-only, Nullable')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt domain delete') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-ref-domain-name-reference') as c:
+    with self.argument_context('identitydirmgt domain create-ref-domain-name-reference') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt create-service-configuration-record') as c:
+    with self.argument_context('identitydirmgt domain create-service-configuration-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_optional', arg_type=get_three_state_flag(), help='If false, this record must be configured by '
@@ -1017,7 +1018,7 @@ def load_arguments(self, _):
         c.argument('ttl', type=int, help='Value to use when configuring the time-to-live (ttl) property of the DNS '
                    'record at the DNS host. Not nullable')
 
-    with self.argument_context('identitydirmgt create-verification-dns-record') as c:
+    with self.argument_context('identitydirmgt domain create-verification-dns-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_optional', arg_type=get_three_state_flag(), help='If false, this record must be configured by '
@@ -1032,61 +1033,45 @@ def load_arguments(self, _):
         c.argument('ttl', type=int, help='Value to use when configuring the time-to-live (ttl) property of the DNS '
                    'record at the DNS host. Not nullable')
 
-    with self.argument_context('identitydirmgt force-delete') as c:
+    with self.argument_context('identitydirmgt domain force-delete') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('disable_user_accounts', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-service-configuration-record') as c:
+    with self.argument_context('identitydirmgt domain get-service-configuration-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt get-verification-dns-record') as c:
+    with self.argument_context('identitydirmgt domain get-verification-dns-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-domain-name-reference') as c:
+    with self.argument_context('identitydirmgt domain list-domain-name-reference') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-ref-domain-name-reference') as c:
+    with self.argument_context('identitydirmgt domain list-ref-domain-name-reference') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('identitydirmgt list-service-configuration-record') as c:
-        c.argument('domain_id', type=str, help='key: id of domain')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitydirmgt list-verification-dns-record') as c:
+    with self.argument_context('identitydirmgt domain list-service-configuration-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-service-configuration-record') as c:
+    with self.argument_context('identitydirmgt domain list-verification-dns-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
-        c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('is_optional', arg_type=get_three_state_flag(), help='If false, this record must be configured by '
-                   'the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.')
-        c.argument('label', type=str, help='Value used when configuring the name of the DNS record at the DNS host.')
-        c.argument('record_type', type=str, help='Indicates what type of DNS record this entity represents.The value '
-                   'can be one of the following: CName, Mx, Srv, TxtKey')
-        c.argument('supported_service', type=str, help='Microsoft Online Service or feature that has a dependency on '
-                   'this DNS record.Can be one of the following values: null, Email, Sharepoint, '
-                   'EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, '
-                   'SharePointPublic, OrgIdAuthentication, Yammer, Intune')
-        c.argument('ttl', type=int, help='Value to use when configuring the time-to-live (ttl) property of the DNS '
-                   'record at the DNS host. Not nullable')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-verification-dns-record') as c:
+    with self.argument_context('identitydirmgt domain update-service-configuration-record') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1102,14 +1087,30 @@ def load_arguments(self, _):
         c.argument('ttl', type=int, help='Value to use when configuring the time-to-live (ttl) property of the DNS '
                    'record at the DNS host. Not nullable')
 
-    with self.argument_context('identitydirmgt verify') as c:
+    with self.argument_context('identitydirmgt domain update-verification-dns-record') as c:
+        c.argument('domain_id', type=str, help='key: id of domain')
+        c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('is_optional', arg_type=get_three_state_flag(), help='If false, this record must be configured by '
+                   'the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.')
+        c.argument('label', type=str, help='Value used when configuring the name of the DNS record at the DNS host.')
+        c.argument('record_type', type=str, help='Indicates what type of DNS record this entity represents.The value '
+                   'can be one of the following: CName, Mx, Srv, TxtKey')
+        c.argument('supported_service', type=str, help='Microsoft Online Service or feature that has a dependency on '
+                   'this DNS record.Can be one of the following values: null, Email, Sharepoint, '
+                   'EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, '
+                   'SharePointPublic, OrgIdAuthentication, Yammer, Intune')
+        c.argument('ttl', type=int, help='Value to use when configuring the time-to-live (ttl) property of the DNS '
+                   'record at the DNS host. Not nullable')
+
+    with self.argument_context('identitydirmgt domain verify') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt organization-organization delete') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-organization') as c:
+    with self.argument_context('identitydirmgt organization-organization create-organization') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The collection of service plans '
@@ -1154,17 +1155,17 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
                    'the organization. Read-only. Nullable.')
 
-    with self.argument_context('identitydirmgt get-organization') as c:
+    with self.argument_context('identitydirmgt organization-organization get-organization') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-organization') as c:
+    with self.argument_context('identitydirmgt organization-organization list-organization') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-organization') as c:
+    with self.argument_context('identitydirmgt organization-organization update-organization') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -1210,72 +1211,72 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
                    'the organization. Read-only. Nullable.')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt organization delete') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt check-member-group') as c:
+    with self.argument_context('identitydirmgt organization check-member-group') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt check-member-object') as c:
+    with self.argument_context('identitydirmgt organization check-member-object') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt create-extension') as c:
+    with self.argument_context('identitydirmgt organization create-extension') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitydirmgt get-available-extension-property') as c:
+    with self.argument_context('identitydirmgt organization get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-by-id') as c:
+    with self.argument_context('identitydirmgt organization get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('identitydirmgt get-extension') as c:
+    with self.argument_context('identitydirmgt organization get-extension') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt get-member-group') as c:
+    with self.argument_context('identitydirmgt organization get-member-group') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt get-member-object') as c:
+    with self.argument_context('identitydirmgt organization get-member-object') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitydirmgt list-extension') as c:
+    with self.argument_context('identitydirmgt organization list-extension') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt restore') as c:
+    with self.argument_context('identitydirmgt organization restore') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
 
-    with self.argument_context('identitydirmgt set-mobile-device-management-authority') as c:
+    with self.argument_context('identitydirmgt organization set-mobile-device-management-authority') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
 
-    with self.argument_context('identitydirmgt update-extension') as c:
+    with self.argument_context('identitydirmgt organization update-extension') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitydirmgt validate-property') as c:
+    with self.argument_context('identitydirmgt organization validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku delete') as c:
         c.argument('subscribed_sku_id', type=str, help='key: id of subscribedSku')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-subscribed-sku') as c:
+    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku create-subscribed-sku') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applies_to', type=str, help='For example, \'User\' or \'Company\'.')
         c.argument('capability_status', type=str, help='Possible values are: Enabled, Warning, Suspended, Deleted, '
@@ -1289,17 +1290,17 @@ def load_arguments(self, _):
                    '\'RMSBASIC\'. To get a list of commercial subscriptions that an organization has acquired, see '
                    'List subscribedSkus.')
 
-    with self.argument_context('identitydirmgt get-subscribed-sku') as c:
+    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku get-subscribed-sku') as c:
         c.argument('subscribed_sku_id', type=str, help='key: id of subscribedSku')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-subscribed-sku') as c:
+    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku list-subscribed-sku') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-subscribed-sku') as c:
+    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku update-subscribed-sku') as c:
         c.argument('subscribed_sku_id', type=str, help='key: id of subscribedSku')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applies_to', type=str, help='For example, \'User\' or \'Company\'.')
@@ -1314,12 +1315,12 @@ def load_arguments(self, _):
                    '\'RMSBASIC\'. To get a list of commercial subscriptions that an organization has acquired, see '
                    'List subscribedSkus.')
 
-    with self.argument_context('identitydirmgt delete') as c:
+    with self.argument_context('identitydirmgt user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitydirmgt create-scoped-role-member-of') as c:
+    with self.argument_context('identitydirmgt user create-scoped-role-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('administrative_unit_id', type=str, help='Unique identifier for the administrative unit that the '
@@ -1331,19 +1332,19 @@ def load_arguments(self, _):
                    'as having changed when using delta.')
         c.argument('role_member_info_id', type=str, help='Unique identifier for the identity.')
 
-    with self.argument_context('identitydirmgt get-scoped-role-member-of') as c:
+    with self.argument_context('identitydirmgt user get-scoped-role-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt list-scoped-role-member-of') as c:
+    with self.argument_context('identitydirmgt user list-scoped-role-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('identitydirmgt update-scoped-role-member-of') as c:
+    with self.argument_context('identitydirmgt user update-scoped-role-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')

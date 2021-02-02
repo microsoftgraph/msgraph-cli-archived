@@ -17,12 +17,12 @@ from azext_crossdeviceexperiences_v1_0.action import AddVisualElementsAttributio
 
 def load_arguments(self, _):
 
-    with self.argument_context('crossdeviceexperiences delete') as c:
+    with self.argument_context('crossdeviceexperiences user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences create-activity') as c:
+    with self.argument_context('crossdeviceexperiences user create-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activation_url', type=str, help='Required. URL used to launch the activity in the best native '
@@ -69,19 +69,19 @@ def load_arguments(self, _):
                    'unique activity (for example, document name in cases where an activity refers to document '
                    'creation)')
 
-    with self.argument_context('crossdeviceexperiences get-activity') as c:
+    with self.argument_context('crossdeviceexperiences user get-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences list-activity') as c:
+    with self.argument_context('crossdeviceexperiences user list-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences update-activity') as c:
+    with self.argument_context('crossdeviceexperiences user update-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -129,13 +129,13 @@ def load_arguments(self, _):
                    'unique activity (for example, document name in cases where an activity refers to document '
                    'creation)')
 
-    with self.argument_context('crossdeviceexperiences delete') as c:
+    with self.argument_context('crossdeviceexperiences user-activity delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences create-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity create-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -159,21 +159,21 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences get-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity get-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences list-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity list-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences update-history-item') as c:
+    with self.argument_context('crossdeviceexperiences user-activity update-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
@@ -198,25 +198,25 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences delete') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences get-activity') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item get-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('crossdeviceexperiences get-ref-activity') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item get-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
 
-    with self.argument_context('crossdeviceexperiences set-ref-activity') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item set-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')

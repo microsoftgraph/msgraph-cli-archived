@@ -330,6 +330,30 @@ class AddWindowsInformationProtectionPolicies(argparse._AppendAction):
         return d
 
 
+class AddDevicescorpmgtDeviceAppManagementCreateDefaultManagedAppProtectionCustomSettings(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddDevicescorpmgtDeviceAppManagementCreateDefaultManagedAppProtectionCustomSettings, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'name':
+                d['name'] = v[0]
+            elif kl == 'value':
+                d['value'] = v[0]
+        return d
+
+
 class AddAppliedPolicies(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -1058,10 +1082,10 @@ class AddUserStatusSummary(argparse.Action):
         return d
 
 
-class AddCustomSettings(argparse._AppendAction):
+class AddDevicescorpmgtDeviceAppManagementCreateTargetedManagedAppConfigurationCustomSettings(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCustomSettings, self).__call__(parser, namespace, action, option_string)
+        super(AddDevicescorpmgtDeviceAppManagementCreateTargetedManagedAppConfigurationCustomSettings, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1120,10 +1144,180 @@ class AddDeviceappmanagementManagedebooksDeviceStates(argparse._AppendAction):
         return d
 
 
-class AddDevicescorpmgtCreateDeviceCompliancePolicyStateSettingStates(argparse._AppendAction):
+class AddConfigurationManagerClientEnabledFeatures(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDevicescorpmgtCreateDeviceCompliancePolicyStateSettingStates, self).__call__(parser, namespace, action, option_string)
+        namespace.configuration_manager_client_enabled_features = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'compliance-policy':
+                d['compliance_policy'] = v[0]
+            elif kl == 'device-configuration':
+                d['device_configuration'] = v[0]
+            elif kl == 'inventory':
+                d['inventory'] = v[0]
+            elif kl == 'modern-apps':
+                d['modern_apps'] = v[0]
+            elif kl == 'resource-access':
+                d['resource_access'] = v[0]
+            elif kl == 'windows-update-for-business':
+                d['windows_update_for_business'] = v[0]
+        return d
+
+
+class AddDeviceActionResults(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddDeviceActionResults, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'action-name':
+                d['action_name'] = v[0]
+            elif kl == 'action-state':
+                d['action_state'] = v[0]
+            elif kl == 'last-updated-date-time':
+                d['last_updated_date_time'] = v[0]
+            elif kl == 'start-date-time':
+                d['start_date_time'] = v[0]
+        return d
+
+
+class AddDeviceHealthAttestationState(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.device_health_attestation_state = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'attestation-identity-key':
+                d['attestation_identity_key'] = v[0]
+            elif kl == 'bit-locker-status':
+                d['bit_locker_status'] = v[0]
+            elif kl == 'boot-app-security-version':
+                d['boot_app_security_version'] = v[0]
+            elif kl == 'boot-debugging':
+                d['boot_debugging'] = v[0]
+            elif kl == 'boot-manager-security-version':
+                d['boot_manager_security_version'] = v[0]
+            elif kl == 'boot-manager-version':
+                d['boot_manager_version'] = v[0]
+            elif kl == 'boot-revision-list-info':
+                d['boot_revision_list_info'] = v[0]
+            elif kl == 'code-integrity':
+                d['code_integrity'] = v[0]
+            elif kl == 'code-integrity-check-version':
+                d['code_integrity_check_version'] = v[0]
+            elif kl == 'code-integrity-policy':
+                d['code_integrity_policy'] = v[0]
+            elif kl == 'content-namespace-url':
+                d['content_namespace_url'] = v[0]
+            elif kl == 'content-version':
+                d['content_version'] = v[0]
+            elif kl == 'data-excution-policy':
+                d['data_excution_policy'] = v[0]
+            elif kl == 'device-health-attestation-status':
+                d['device_health_attestation_status'] = v[0]
+            elif kl == 'early-launch-anti-malware-driver-protection':
+                d['early_launch_anti_malware_driver_protection'] = v[0]
+            elif kl == 'health-attestation-supported-status':
+                d['health_attestation_supported_status'] = v[0]
+            elif kl == 'health-status-mismatch-info':
+                d['health_status_mismatch_info'] = v[0]
+            elif kl == 'issued-date-time':
+                d['issued_date_time'] = v[0]
+            elif kl == 'last-update-date-time':
+                d['last_update_date_time'] = v[0]
+            elif kl == 'operating-system-kernel-debugging':
+                d['operating_system_kernel_debugging'] = v[0]
+            elif kl == 'operating-system-rev-list-info':
+                d['operating_system_rev_list_info'] = v[0]
+            elif kl == 'pcr0':
+                d['pcr0'] = v[0]
+            elif kl == 'pcr-hash-algorithm':
+                d['pcr_hash_algorithm'] = v[0]
+            elif kl == 'reset-count':
+                d['reset_count'] = v[0]
+            elif kl == 'restart-count':
+                d['restart_count'] = v[0]
+            elif kl == 'safe-mode':
+                d['safe_mode'] = v[0]
+            elif kl == 'secure-boot':
+                d['secure_boot'] = v[0]
+            elif kl == 'secure-boot-configuration-policy-finger-print':
+                d['secure_boot_configuration_policy_finger_print'] = v[0]
+            elif kl == 'test-signing':
+                d['test_signing'] = v[0]
+            elif kl == 'tpm-version':
+                d['tpm_version'] = v[0]
+            elif kl == 'virtual-secure-mode':
+                d['virtual_secure_mode'] = v[0]
+            elif kl == 'windows-pe':
+                d['windows_pe'] = v[0]
+        return d
+
+
+class AddDeviceCategory(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.device_category = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'description':
+                d['description'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1164,10 +1358,10 @@ class AddDevicescorpmgtCreateDeviceCompliancePolicyStateSettingStates(argparse._
         return d
 
 
-class AddDevicescorpmgtCreateDeviceConfigurationStateSettingStates(argparse._AppendAction):
+class AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDevicescorpmgtCreateDeviceConfigurationStateSettingStates, self).__call__(parser, namespace, action, option_string)
+        super(AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

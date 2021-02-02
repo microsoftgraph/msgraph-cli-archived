@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -25,16 +26,16 @@ from azext_notes_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-onenote') as c:
+    with self.argument_context('notes group get-onenote') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-onenote') as c:
+    with self.argument_context('notes group update-onenote') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
@@ -53,7 +54,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
                    'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('if_match', type=str, help='ETag')
@@ -63,7 +64,7 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-notebook') as c:
+    with self.argument_context('notes group-onenote create-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -97,7 +98,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes create-operation') as c:
+    with self.argument_context('notes group-onenote create-operation') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The start time of the operation.')
@@ -110,24 +111,24 @@ def load_arguments(self, _):
         c.argument('resource_location', type=str, help='The resource URI for the object. For example, the resource URI '
                    'for a copied page or section.')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-resource') as c:
+    with self.argument_context('notes group-onenote create-resource') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
         c.argument('content', help='The content stream')
         c.argument('content_url', type=str, help='The URL for downloading the content')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -158,79 +159,79 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-notebook') as c:
+    with self.argument_context('notes group-onenote get-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-operation') as c:
+    with self.argument_context('notes group-onenote get-operation') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_operation_id', type=str, help='key: id of onenoteOperation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-resource') as c:
+    with self.argument_context('notes group-onenote get-resource') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_resource_id', type=str, help='key: id of onenoteResource')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-notebook') as c:
+    with self.argument_context('notes group-onenote list-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-operation') as c:
+    with self.argument_context('notes group-onenote list-operation') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-resource') as c:
+    with self.argument_context('notes group-onenote list-resource') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-notebook') as c:
+    with self.argument_context('notes group-onenote update-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -265,7 +266,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-operation') as c:
+    with self.argument_context('notes group-onenote update-operation') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_operation_id', type=str, help='key: id of onenoteOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -279,13 +280,13 @@ def load_arguments(self, _):
         c.argument('resource_location', type=str, help='The resource URI for the object. For example, the resource URI '
                    'for a copied page or section.')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-resource') as c:
+    with self.argument_context('notes group-onenote update-resource') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_resource_id', type=str, help='key: id of onenoteResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -293,13 +294,13 @@ def load_arguments(self, _):
         c.argument('content', help='The content stream')
         c.argument('content_url', type=str, help='The URL for downloading the content')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -331,20 +332,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -376,42 +377,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -444,7 +445,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -452,14 +453,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -492,21 +493,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -514,7 +515,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -522,7 +523,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -530,7 +531,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -538,7 +539,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -574,7 +575,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -607,7 +608,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -615,7 +616,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -649,7 +650,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -657,7 +658,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -665,7 +666,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -674,7 +675,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -682,7 +683,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -690,7 +691,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -699,7 +700,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -708,7 +709,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -745,7 +746,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -779,7 +780,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section-page delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -787,7 +788,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section-page get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -796,7 +797,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section-page get-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -805,7 +806,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section-page update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -843,7 +844,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-group-section-page update-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -852,21 +853,21 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -874,21 +875,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -896,7 +897,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-notebook-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -904,7 +905,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -940,7 +941,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -973,14 +974,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook-section-page delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-page get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -988,7 +989,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-page get-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -996,7 +997,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-page update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1033,7 +1034,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-page update-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1041,7 +1042,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1049,14 +1050,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1089,21 +1090,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1111,7 +1112,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1119,7 +1120,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1127,7 +1128,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1135,7 +1136,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1171,7 +1172,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1204,7 +1205,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1212,7 +1213,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-notebook-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1246,24 +1247,24 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes group-onenote-page get-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1298,26 +1299,26 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes group-onenote-page update-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1349,42 +1350,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1417,7 +1418,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1425,14 +1426,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1465,21 +1466,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1487,7 +1488,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1495,7 +1496,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1503,7 +1504,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1511,7 +1512,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1547,7 +1548,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1580,7 +1581,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1588,7 +1589,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1622,7 +1623,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1630,7 +1631,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1638,7 +1639,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1647,7 +1648,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1655,7 +1656,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1663,7 +1664,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1672,7 +1673,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1681,7 +1682,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1718,7 +1719,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1752,21 +1753,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1774,21 +1775,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1796,7 +1797,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1804,7 +1805,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1840,7 +1841,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1873,7 +1874,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1881,14 +1882,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1921,21 +1922,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1943,7 +1944,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1951,7 +1952,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1959,7 +1960,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1967,7 +1968,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2003,7 +2004,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2036,7 +2037,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2044,7 +2045,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2078,52 +2079,52 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-page-parent-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2158,7 +2159,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2190,20 +2191,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2235,42 +2236,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2303,7 +2304,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2311,14 +2312,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2351,21 +2352,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2373,7 +2374,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2381,7 +2382,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2389,7 +2390,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2397,7 +2398,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2433,7 +2434,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2466,7 +2467,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2474,7 +2475,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2508,20 +2509,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2553,47 +2554,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2628,7 +2629,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2660,14 +2661,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2700,20 +2701,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2745,42 +2746,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2813,20 +2814,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2858,47 +2859,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2933,7 +2934,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2965,14 +2966,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
@@ -3005,20 +3006,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3050,42 +3051,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
@@ -3118,210 +3119,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes get-page') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-notebook') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-page') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-page') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-parent-notebook') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
-                   'notebook. Read-only.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
-                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the notebook. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the notebook. Read-only.')
-        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-
-    with self.argument_context('notes update-parent-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes get-parent-notebook') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-parent-notebook') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
-                   'notebook. Read-only.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
-                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the notebook. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the notebook. Read-only.')
-        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-
-    with self.argument_context('notes update-parent-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3329,21 +3141,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3351,7 +3163,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3359,7 +3171,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3395,7 +3207,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3428,14 +3240,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section-page delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section-page get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3443,7 +3255,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section-page get-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3451,7 +3263,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section-page update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3488,7 +3300,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes group-onenote-section-group-parent-notebook-section-page update-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -3496,306 +3308,61 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-group-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes create-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes get-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-group-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes get-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-section') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-section-group') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes create-page') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes get-page') as c:
-        c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-section get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-section get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes group-onenote-section-group-section list-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes group-onenote-section-group-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -3829,8 +3396,9 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-group-section update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -3861,28 +3429,32 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-group-section-page delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-section-page get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes group-onenote-section-group-section-page get-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-group-section-page update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -3917,14 +3489,443 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes group-onenote-section-group-section-page update-parent-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook delete') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook create-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook create-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook get-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook get-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook list-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook list-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook update-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook update-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook delete') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook create-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook create-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook get-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook get-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook list-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook list-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook update-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-group-section-parent-notebook update-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section delete') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('notes group-onenote-section create-page') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section get-page') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section get-parent-notebook') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section get-parent-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section list-page') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section update-parent-notebook') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'notebook. Read-only.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
+                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the notebook. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the notebook. Read-only.')
+        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+
+    with self.argument_context('notes group-onenote-section update-parent-section-group') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-page delete') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('notes group-onenote-section-page get-parent-notebook') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-page get-parent-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes group-onenote-section-page update-parent-notebook') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'notebook. Read-only.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
+                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the notebook. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the notebook. Read-only.')
+        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+
+    with self.argument_context('notes group-onenote-section-page update-parent-section') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes group-onenote-section-page-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -3932,14 +3933,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -3972,7 +3973,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -3980,7 +3981,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -3988,7 +3989,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -3996,7 +3997,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4004,7 +4005,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4012,7 +4013,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4046,7 +4047,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4055,7 +4056,7 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4063,7 +4064,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4097,7 +4098,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4105,7 +4106,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4113,7 +4114,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4122,7 +4123,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4131,7 +4132,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4140,7 +4141,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4149,7 +4150,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4186,7 +4187,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4220,7 +4221,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4229,7 +4230,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -4264,20 +4265,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4309,42 +4310,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4377,7 +4378,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4385,14 +4386,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4425,21 +4426,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4447,7 +4448,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4455,7 +4456,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4463,7 +4464,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4471,7 +4472,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4507,7 +4508,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4540,7 +4541,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4548,7 +4549,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4582,20 +4583,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4627,47 +4628,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group get-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group get-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4702,7 +4703,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group update-parent-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4734,14 +4735,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4774,20 +4775,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4819,42 +4820,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook get-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook get-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook list-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook list-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -4887,16 +4888,16 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-onenote') as c:
+    with self.argument_context('notes site get-onenote') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-onenote') as c:
+    with self.argument_context('notes site update-onenote') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
@@ -4915,7 +4916,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
                    'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('if_match', type=str, help='ETag')
@@ -4925,7 +4926,7 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-notebook') as c:
+    with self.argument_context('notes site-onenote create-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -4959,7 +4960,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes create-operation') as c:
+    with self.argument_context('notes site-onenote create-operation') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The start time of the operation.')
@@ -4972,24 +4973,24 @@ def load_arguments(self, _):
         c.argument('resource_location', type=str, help='The resource URI for the object. For example, the resource URI '
                    'for a copied page or section.')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-resource') as c:
+    with self.argument_context('notes site-onenote create-resource') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
         c.argument('content', help='The content stream')
         c.argument('content_url', type=str, help='The URL for downloading the content')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -5020,79 +5021,79 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-notebook') as c:
+    with self.argument_context('notes site-onenote get-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-operation') as c:
+    with self.argument_context('notes site-onenote get-operation') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_operation_id', type=str, help='key: id of onenoteOperation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-resource') as c:
+    with self.argument_context('notes site-onenote get-resource') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_resource_id', type=str, help='key: id of onenoteResource')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-notebook') as c:
+    with self.argument_context('notes site-onenote list-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-operation') as c:
+    with self.argument_context('notes site-onenote list-operation') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-resource') as c:
+    with self.argument_context('notes site-onenote list-resource') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-notebook') as c:
+    with self.argument_context('notes site-onenote update-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -5127,7 +5128,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-operation') as c:
+    with self.argument_context('notes site-onenote update-operation') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_operation_id', type=str, help='key: id of onenoteOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -5141,13 +5142,13 @@ def load_arguments(self, _):
         c.argument('resource_location', type=str, help='The resource URI for the object. For example, the resource URI '
                    'for a copied page or section.')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-resource') as c:
+    with self.argument_context('notes site-onenote update-resource') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_resource_id', type=str, help='key: id of onenoteResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -5155,13 +5156,13 @@ def load_arguments(self, _):
         c.argument('content', help='The content stream')
         c.argument('content_url', type=str, help='The URL for downloading the content')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -5193,20 +5194,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -5238,42 +5239,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5306,7 +5307,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5314,14 +5315,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5354,21 +5355,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5376,7 +5377,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5384,7 +5385,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5392,7 +5393,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5400,7 +5401,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5436,7 +5437,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5469,7 +5470,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5477,7 +5478,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5511,7 +5512,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5519,7 +5520,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5527,7 +5528,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5536,7 +5537,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5544,7 +5545,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5552,7 +5553,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5561,7 +5562,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5570,7 +5571,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5607,7 +5608,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5641,7 +5642,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section-page delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5649,7 +5650,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section-page get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5658,7 +5659,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section-page get-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5667,7 +5668,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section-page update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5705,7 +5706,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-group-section-page update-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -5714,21 +5715,21 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5736,21 +5737,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5758,7 +5759,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-notebook-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5766,7 +5767,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5802,7 +5803,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5835,14 +5836,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook-section-page delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-page get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5850,7 +5851,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-page get-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5858,7 +5859,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-page update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5895,7 +5896,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-page update-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5903,7 +5904,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5911,14 +5912,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5951,21 +5952,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5973,7 +5974,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5981,7 +5982,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5989,7 +5990,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -5997,7 +5998,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6033,7 +6034,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6066,7 +6067,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6074,7 +6075,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-notebook-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6108,24 +6109,24 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes site-onenote-page get-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -6160,26 +6161,26 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes site-onenote-page update-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -6211,42 +6212,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6279,7 +6280,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6287,14 +6288,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6327,21 +6328,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6349,7 +6350,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6357,7 +6358,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6365,7 +6366,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6373,7 +6374,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6409,7 +6410,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6442,7 +6443,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6450,7 +6451,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6484,7 +6485,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6492,7 +6493,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6500,7 +6501,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6509,7 +6510,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6517,7 +6518,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6525,7 +6526,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6534,7 +6535,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6543,7 +6544,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6580,7 +6581,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -6614,21 +6615,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6636,21 +6637,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6658,7 +6659,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6666,7 +6667,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6702,7 +6703,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6735,7 +6736,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6743,14 +6744,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6783,21 +6784,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6805,7 +6806,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6813,7 +6814,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6821,7 +6822,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6829,7 +6830,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6865,7 +6866,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6898,7 +6899,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6906,7 +6907,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -6940,52 +6941,52 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-page-parent-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7020,7 +7021,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7052,20 +7053,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7097,42 +7098,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7165,7 +7166,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7173,14 +7174,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7213,21 +7214,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7235,7 +7236,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7243,7 +7244,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7251,7 +7252,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7259,7 +7260,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7295,7 +7296,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7328,7 +7329,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7336,7 +7337,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7370,20 +7371,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7415,47 +7416,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7490,7 +7491,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7522,14 +7523,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7562,20 +7563,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7607,42 +7608,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -7675,20 +7676,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7720,47 +7721,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7795,7 +7796,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7827,14 +7828,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
@@ -7867,20 +7868,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -7912,42 +7913,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
@@ -7980,210 +7981,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes get-page') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-notebook') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-page') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-page') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-parent-notebook') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
-                   'notebook. Read-only.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
-                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the notebook. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the notebook. Read-only.')
-        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-
-    with self.argument_context('notes update-parent-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes get-parent-notebook') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-parent-notebook') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
-                   'notebook. Read-only.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
-                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the notebook. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the notebook. Read-only.')
-        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-
-    with self.argument_context('notes update-parent-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8191,21 +8003,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8213,7 +8025,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8221,7 +8033,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8257,7 +8069,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8290,14 +8102,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section-page delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section-page get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8305,7 +8117,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section-page get-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8313,7 +8125,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section-page update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8350,7 +8162,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes site-onenote-section-group-parent-notebook-section-page update-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -8358,306 +8170,61 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-group-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes create-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes get-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-group-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes get-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-section') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-section-group') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes create-page') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes get-page') as c:
-        c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-section get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-section get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes site-onenote-section-group-section list-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes site-onenote-section-group-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -8691,8 +8258,9 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-group-section update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -8723,28 +8291,32 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-group-section-page delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-section-page get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes site-onenote-section-group-section-page get-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-group-section-page update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -8779,14 +8351,443 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes site-onenote-section-group-section-page update-parent-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook delete') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook create-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook create-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook get-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook get-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook list-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook list-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook update-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook update-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook delete') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook create-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook create-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook get-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook get-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook list-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook list-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook update-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-group-section-parent-notebook update-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section delete') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('notes site-onenote-section create-page') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section get-page') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section get-parent-notebook') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section get-parent-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section list-page') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section update-parent-notebook') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'notebook. Read-only.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
+                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the notebook. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the notebook. Read-only.')
+        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+
+    with self.argument_context('notes site-onenote-section update-parent-section-group') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-page delete') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('notes site-onenote-section-page get-parent-notebook') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-page get-parent-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes site-onenote-section-page update-parent-notebook') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'notebook. Read-only.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
+                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the notebook. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the notebook. Read-only.')
+        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+
+    with self.argument_context('notes site-onenote-section-page update-parent-section') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes site-onenote-section-page-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8794,14 +8795,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8834,7 +8835,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8842,7 +8843,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8850,7 +8851,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8858,7 +8859,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8866,7 +8867,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8874,7 +8875,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8908,7 +8909,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8917,7 +8918,7 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8925,7 +8926,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8959,7 +8960,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8967,7 +8968,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8975,7 +8976,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8984,7 +8985,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -8993,7 +8994,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -9002,7 +9003,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -9011,7 +9012,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -9048,7 +9049,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -9082,7 +9083,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -9091,7 +9092,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -9126,20 +9127,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -9171,42 +9172,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9239,7 +9240,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9247,14 +9248,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9287,21 +9288,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9309,7 +9310,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9317,7 +9318,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9325,7 +9326,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9333,7 +9334,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9369,7 +9370,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9402,7 +9403,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9410,7 +9411,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9444,20 +9445,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -9489,47 +9490,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group get-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group get-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -9564,7 +9565,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group update-parent-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -9596,14 +9597,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9636,20 +9637,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -9681,42 +9682,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook get-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook get-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook list-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook list-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -9749,16 +9750,16 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-onenote') as c:
+    with self.argument_context('notes user get-onenote') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-onenote') as c:
+    with self.argument_context('notes user update-onenote') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
@@ -9777,7 +9778,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
                    'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('if_match', type=str, help='ETag')
@@ -9787,7 +9788,7 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-notebook') as c:
+    with self.argument_context('notes user-onenote create-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -9821,7 +9822,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes create-operation') as c:
+    with self.argument_context('notes user-onenote create-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The start time of the operation.')
@@ -9834,24 +9835,24 @@ def load_arguments(self, _):
         c.argument('resource_location', type=str, help='The resource URI for the object. For example, the resource URI '
                    'for a copied page or section.')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-resource') as c:
+    with self.argument_context('notes user-onenote create-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
         c.argument('content', help='The content stream')
         c.argument('content_url', type=str, help='The URL for downloading the content')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -9882,79 +9883,79 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-notebook') as c:
+    with self.argument_context('notes user-onenote get-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-operation') as c:
+    with self.argument_context('notes user-onenote get-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_operation_id', type=str, help='key: id of onenoteOperation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-resource') as c:
+    with self.argument_context('notes user-onenote get-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_resource_id', type=str, help='key: id of onenoteResource')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-notebook') as c:
+    with self.argument_context('notes user-onenote list-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-operation') as c:
+    with self.argument_context('notes user-onenote list-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-resource') as c:
+    with self.argument_context('notes user-onenote list-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-notebook') as c:
+    with self.argument_context('notes user-onenote update-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -9989,7 +9990,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-operation') as c:
+    with self.argument_context('notes user-onenote update-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_operation_id', type=str, help='key: id of onenoteOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -10003,13 +10004,13 @@ def load_arguments(self, _):
         c.argument('resource_location', type=str, help='The resource URI for the object. For example, the resource URI '
                    'for a copied page or section.')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-resource') as c:
+    with self.argument_context('notes user-onenote update-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_resource_id', type=str, help='key: id of onenoteResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -10017,13 +10018,13 @@ def load_arguments(self, _):
         c.argument('content', help='The content stream')
         c.argument('content_url', type=str, help='The URL for downloading the content')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -10055,20 +10056,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -10100,42 +10101,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10168,7 +10169,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10176,14 +10177,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10216,21 +10217,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10238,7 +10239,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10246,7 +10247,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10254,7 +10255,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10262,7 +10263,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10298,7 +10299,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10331,7 +10332,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10339,7 +10340,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10373,7 +10374,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10381,7 +10382,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10389,7 +10390,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10398,7 +10399,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10406,7 +10407,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10414,7 +10415,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10423,7 +10424,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10432,7 +10433,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10469,7 +10470,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10503,7 +10504,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section-page delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10511,7 +10512,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section-page get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10520,7 +10521,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section-page get-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10529,7 +10530,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section-page update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10567,7 +10568,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-group-section-page update-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -10576,21 +10577,21 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10598,21 +10599,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10620,7 +10621,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-notebook-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10628,7 +10629,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10664,7 +10665,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10697,14 +10698,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook-section-page delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-page get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10712,7 +10713,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-page get-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10720,7 +10721,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-page update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10757,7 +10758,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-page update-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10765,7 +10766,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10773,14 +10774,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10813,21 +10814,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10835,7 +10836,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10843,7 +10844,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10851,7 +10852,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10859,7 +10860,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10895,7 +10896,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10928,7 +10929,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10936,7 +10937,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-notebook-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -10970,24 +10971,24 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes user-onenote-page get-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -11022,26 +11023,26 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes user-onenote-page update-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -11073,42 +11074,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11141,7 +11142,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11149,14 +11150,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11189,21 +11190,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11211,7 +11212,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11219,7 +11220,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11227,7 +11228,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11235,7 +11236,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11271,7 +11272,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11304,7 +11305,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11312,7 +11313,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11346,7 +11347,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11354,7 +11355,7 @@ def load_arguments(self, _):
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11362,7 +11363,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11371,7 +11372,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11379,7 +11380,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11387,7 +11388,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11396,7 +11397,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11405,7 +11406,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11442,7 +11443,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -11476,21 +11477,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11498,21 +11499,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11520,7 +11521,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11528,7 +11529,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11564,7 +11565,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11597,7 +11598,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11605,14 +11606,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11645,21 +11646,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11667,7 +11668,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11675,7 +11676,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11683,7 +11684,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11691,7 +11692,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11727,7 +11728,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11760,7 +11761,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11768,7 +11769,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -11802,52 +11803,52 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-page-parent-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -11882,7 +11883,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -11914,20 +11915,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -11959,42 +11960,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12027,7 +12028,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12035,14 +12036,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12075,21 +12076,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12097,7 +12098,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12105,7 +12106,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12113,7 +12114,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12121,7 +12122,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12157,7 +12158,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12190,7 +12191,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12198,7 +12199,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12232,20 +12233,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12277,47 +12278,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12352,7 +12353,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12384,14 +12385,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12424,20 +12425,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12469,42 +12470,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -12537,20 +12538,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12582,47 +12583,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12657,7 +12658,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12689,14 +12690,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
@@ -12729,20 +12730,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -12774,42 +12775,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
@@ -12842,210 +12843,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes create-page') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes get-page') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-notebook') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-page') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-page') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-parent-notebook') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
-                   'notebook. Read-only.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
-                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the notebook. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the notebook. Read-only.')
-        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-
-    with self.argument_context('notes update-parent-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes get-parent-notebook') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-parent-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-parent-notebook') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
-                   'notebook. Read-only.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
-                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the notebook. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the notebook. Read-only.')
-        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
-
-    with self.argument_context('notes update-parent-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes create-page') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes get-page') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13053,21 +12865,21 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13075,7 +12887,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13083,7 +12895,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13119,7 +12931,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13152,14 +12964,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section-page delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section-page get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13167,7 +12979,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section-page get-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13175,7 +12987,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section-page update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13212,7 +13024,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes user-onenote-section-group-parent-notebook-section-page update-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -13220,306 +13032,61 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-group-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes create-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes get-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-group-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes get-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes get-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes list-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('notes update-section') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes update-section-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
-        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('display_name', type=str, help='The name of the notebook.')
-        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
-                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
-                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
-                   'Read-only.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
-                   'returns all the section groups in the section group. Read-only.')
-        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
-                   'sections in the section group. Read-only.')
-        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
-                   'json-string/@json-file.')
-        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-
-    with self.argument_context('notes delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('notes create-page') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('notes get-page') as c:
-        c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-section get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-section get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-page') as c:
+    with self.argument_context('notes user-onenote-section-group-section list-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-page') as c:
+    with self.argument_context('notes user-onenote-section-group-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -13553,8 +13120,9 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-group-section update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
@@ -13585,28 +13153,32 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-group-section-page delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-section-page get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section') as c:
+    with self.argument_context('notes user-onenote-section-group-section-page get-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-group-section-page update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -13641,14 +13213,443 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section') as c:
+    with self.argument_context('notes user-onenote-section-group-section-page update-parent-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook create-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook create-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook get-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook get-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook list-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook list-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook update-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook update-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook create-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook create-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook get-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook get-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook list-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook list-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook update-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-group-section-parent-notebook update-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('section_group_id', type=str, help='key: id of sectionGroup')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('section_group_id1', type=str, help='key: id of sectionGroup')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('notes user-onenote-section create-page') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section get-page') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section get-parent-notebook') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section get-parent-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section list-page') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section update-parent-notebook') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'notebook. Read-only.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
+                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the notebook. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the notebook. Read-only.')
+        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+
+    with self.argument_context('notes user-onenote-section update-parent-section-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the section group. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the section group. Read-only.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
+                   'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the section. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-page delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('notes user-onenote-section-page get-parent-notebook') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-page get-parent-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notes user-onenote-section-page update-parent-notebook') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'notebook. Read-only.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='Indicates whether the notebook is shared. If '
+                   'true, the contents of the notebook can be seen by people other than the owner. Read-only.')
+        c.argument('section_groups_url', type=str, help='The URL for the sectionGroups navigation property, which '
+                   'returns all the section groups in the notebook. Read-only.')
+        c.argument('sections_url', type=str, help='The URL for the sections navigation property, which returns all the '
+                   'sections in the notebook. Read-only.')
+        c.argument('user_role', arg_type=get_enum_type(['Owner', 'Contributor', 'None', 'Reader']), help='')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in the notebook. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in the notebook. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+
+    with self.argument_context('notes user-onenote-section-page update-parent-section') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
+        c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('notes user-onenote-section-page-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13656,14 +13657,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13696,7 +13697,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13704,7 +13705,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13712,7 +13713,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13720,7 +13721,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13728,7 +13729,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13736,7 +13737,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13770,7 +13771,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13779,7 +13780,7 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13787,7 +13788,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13821,7 +13822,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13829,7 +13830,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13837,7 +13838,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13846,7 +13847,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13855,7 +13856,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13864,7 +13865,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13873,7 +13874,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13910,7 +13911,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13944,7 +13945,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13953,7 +13954,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -13988,20 +13989,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -14033,42 +14034,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14101,7 +14102,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14109,14 +14110,14 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14149,21 +14150,21 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14171,7 +14172,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14179,7 +14180,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14187,7 +14188,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14195,7 +14196,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14231,7 +14232,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14264,7 +14265,7 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14272,7 +14273,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14306,20 +14307,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -14351,47 +14352,47 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group get-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group get-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-parent-notebook') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -14426,7 +14427,7 @@ def load_arguments(self, _):
         c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
         c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
-    with self.argument_context('notes update-parent-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group update-parent-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -14458,14 +14459,14 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -14498,20 +14499,20 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes delete') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('if_match', type=str, help='ETag')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
 
-    with self.argument_context('notes create-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes create-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -14543,42 +14544,42 @@ def load_arguments(self, _):
         c.argument('sections', type=validate_file_or_dict, help='The sections in the section group. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('notes get-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook get-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes get-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook get-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook list-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes list-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook list-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('notes update-section') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('notes update-section-group') as c:
+    with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')

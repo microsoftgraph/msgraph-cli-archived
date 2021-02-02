@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['sites'] = """
+helps['sites group'] = """
     type: group
-    short-summary: sites
+    short-summary: sites group
 """
 
-helps['sites delete'] = """
+helps['sites group delete'] = """
     type: command
     short-summary: "Delete navigation property sites for groups"
 """
 
-helps['sites create-site'] = """
+helps['sites group create-site'] = """
     type: command
     short-summary: "Create new navigation property to sites for groups"
     parameters:
@@ -122,17 +122,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --onenote-resources argument.
 """
 
-helps['sites get-site'] = """
+helps['sites group get-site'] = """
     type: command
     short-summary: "Get sites from groups"
 """
 
-helps['sites list-site'] = """
+helps['sites group list-site'] = """
     type: command
     short-summary: "Get sites from groups"
 """
 
-helps['sites update-site'] = """
+helps['sites group update-site'] = """
     type: command
     short-summary: "Update the navigation property sites in groups"
     parameters:
@@ -232,17 +232,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --onenote-resources argument.
 """
 
-helps['sites'] = """
+helps['sites site-site'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-site
 """
 
-helps['sites delete'] = """
+helps['sites site-site delete'] = """
     type: command
     short-summary: "Delete entity from sites"
 """
 
-helps['sites create-site'] = """
+helps['sites site-site create-site'] = """
     type: command
     short-summary: "Add new entity to sites"
     parameters:
@@ -342,17 +342,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --onenote-resources argument.
 """
 
-helps['sites get-site'] = """
+helps['sites site-site get-site'] = """
     type: command
     short-summary: "Get entity from sites by key"
 """
 
-helps['sites list-site'] = """
+helps['sites site-site list-site'] = """
     type: command
     short-summary: "Get entities from sites"
 """
 
-helps['sites update-site'] = """
+helps['sites site-site update-site'] = """
     type: command
     short-summary: "Update entity in sites"
     parameters:
@@ -452,22 +452,22 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --onenote-resources argument.
 """
 
-helps['sites'] = """
+helps['sites site'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site
 """
 
-helps['sites delete'] = """
+helps['sites site delete'] = """
     type: command
     short-summary: "Delete navigation property drive for sites"
 """
 
-helps['sites add'] = """
+helps['sites site add'] = """
     type: command
     short-summary: "Invoke action add"
 """
 
-helps['sites create-column'] = """
+helps['sites site create-column'] = """
     type: command
     short-summary: "Create new navigation property to columns for sites"
     parameters:
@@ -552,7 +552,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['sites create-content-type'] = """
+helps['sites site create-content-type'] = """
     type: command
     short-summary: "Create new navigation property to contentTypes for sites"
     parameters:
@@ -588,7 +588,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['sites create-drive'] = """
+helps['sites site create-drive'] = """
     type: command
     short-summary: "Create new navigation property to drives for sites"
     parameters:
@@ -709,7 +709,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites create-list'] = """
+helps['sites site create-list'] = """
     type: command
     short-summary: "Create new navigation property to lists for sites"
     parameters:
@@ -853,7 +853,7 @@ must make use of the HTTPS protocol.
             Multiple actions can be specified by using more than one --subscriptions argument.
 """
 
-helps['sites create-page'] = """
+helps['sites site create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites"
     parameters:
@@ -941,7 +941,7 @@ associated with the user won't show up as having changed when using delta.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
 """
 
-helps['sites create-site'] = """
+helps['sites site create-site'] = """
     type: command
     short-summary: "Create new navigation property to sites for sites"
     parameters:
@@ -1041,102 +1041,102 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --onenote-resources argument.
 """
 
-helps['sites delta'] = """
+helps['sites site delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['sites get-activity-by-interval'] = """
+helps['sites site get-activity-by-interval'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval"
 """
 
-helps['sites get-analytic'] = """
+helps['sites site get-analytic'] = """
     type: command
     short-summary: "Get analytics from sites"
 """
 
-helps['sites get-by-path'] = """
+helps['sites site get-by-path'] = """
     type: command
     short-summary: "Invoke function getByPath"
 """
 
-helps['sites get-column'] = """
+helps['sites site get-column'] = """
     type: command
     short-summary: "Get columns from sites"
 """
 
-helps['sites get-content-type'] = """
+helps['sites site get-content-type'] = """
     type: command
     short-summary: "Get contentTypes from sites"
 """
 
-helps['sites get-drive'] = """
+helps['sites site get-drive'] = """
     type: command
     short-summary: "Get drive from sites"
 """
 
-helps['sites get-list'] = """
+helps['sites site get-list'] = """
     type: command
     short-summary: "Get lists from sites"
 """
 
-helps['sites get-page'] = """
+helps['sites site get-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['sites get-ref-analytic'] = """
+helps['sites site get-ref-analytic'] = """
     type: command
     short-summary: "Get ref of analytics from sites"
 """
 
-helps['sites get-site'] = """
+helps['sites site get-site'] = """
     type: command
     short-summary: "Get sites from sites"
 """
 
-helps['sites list-column'] = """
+helps['sites site list-column'] = """
     type: command
     short-summary: "Get columns from sites"
 """
 
-helps['sites list-content-type'] = """
+helps['sites site list-content-type'] = """
     type: command
     short-summary: "Get contentTypes from sites"
 """
 
-helps['sites list-drive'] = """
+helps['sites site list-drive'] = """
     type: command
     short-summary: "Get drives from sites"
 """
 
-helps['sites list-list'] = """
+helps['sites site list-list'] = """
     type: command
     short-summary: "Get lists from sites"
 """
 
-helps['sites list-page'] = """
+helps['sites site list-page'] = """
     type: command
     short-summary: "Get pages from sites"
 """
 
-helps['sites list-site'] = """
+helps['sites site list-site'] = """
     type: command
     short-summary: "Get sites from sites"
 """
 
-helps['sites remove'] = """
+helps['sites site remove'] = """
     type: command
     short-summary: "Invoke action remove"
 """
 
-helps['sites set-ref-analytic'] = """
+helps['sites site set-ref-analytic'] = """
     type: command
     short-summary: "Update the ref of navigation property analytics in sites"
 """
 
-helps['sites update-column'] = """
+helps['sites site update-column'] = """
     type: command
     short-summary: "Update the navigation property columns in sites"
     parameters:
@@ -1221,7 +1221,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['sites update-content-type'] = """
+helps['sites site update-content-type'] = """
     type: command
     short-summary: "Update the navigation property contentTypes in sites"
     parameters:
@@ -1257,7 +1257,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['sites update-drive'] = """
+helps['sites site update-drive'] = """
     type: command
     short-summary: "Update the navigation property drive in sites"
     parameters:
@@ -1378,7 +1378,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites update-list'] = """
+helps['sites site update-list'] = """
     type: command
     short-summary: "Update the navigation property lists in sites"
     parameters:
@@ -1522,7 +1522,7 @@ must make use of the HTTPS protocol.
             Multiple actions can be specified by using more than one --subscriptions argument.
 """
 
-helps['sites update-page'] = """
+helps['sites site update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites"
     parameters:
@@ -1610,7 +1610,7 @@ associated with the user won't show up as having changed when using delta.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
 """
 
-helps['sites update-site'] = """
+helps['sites site update-site'] = """
     type: command
     short-summary: "Update the navigation property sites in sites"
     parameters:
@@ -1710,52 +1710,52 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --onenote-resources argument.
 """
 
-helps['sites'] = """
+helps['sites site-content-type'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-content-type
 """
 
-helps['sites delete'] = """
+helps['sites site-content-type delete'] = """
     type: command
     short-summary: "Delete navigation property columnLinks for sites"
 """
 
-helps['sites create-column-link'] = """
+helps['sites site-content-type create-column-link'] = """
     type: command
     short-summary: "Create new navigation property to columnLinks for sites"
 """
 
-helps['sites get-column-link'] = """
+helps['sites site-content-type get-column-link'] = """
     type: command
     short-summary: "Get columnLinks from sites"
 """
 
-helps['sites list-column-link'] = """
+helps['sites site-content-type list-column-link'] = """
     type: command
     short-summary: "Get columnLinks from sites"
 """
 
-helps['sites update-column-link'] = """
+helps['sites site-content-type update-column-link'] = """
     type: command
     short-summary: "Update the navigation property columnLinks in sites"
 """
 
-helps['sites'] = """
+helps['sites site-list'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list
 """
 
-helps['sites delete'] = """
+helps['sites site-list delete'] = """
     type: command
     short-summary: "Delete navigation property drive for sites"
 """
 
-helps['sites create-activity'] = """
+helps['sites site-list create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for sites"
 """
 
-helps['sites create-column'] = """
+helps['sites site-list create-column'] = """
     type: command
     short-summary: "Create new navigation property to columns for sites"
     parameters:
@@ -1840,7 +1840,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['sites create-content-type'] = """
+helps['sites site-list create-content-type'] = """
     type: command
     short-summary: "Create new navigation property to contentTypes for sites"
     parameters:
@@ -1876,7 +1876,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['sites create-item'] = """
+helps['sites site-list create-item'] = """
     type: command
     short-summary: "Create new navigation property to items for sites"
     parameters:
@@ -1986,72 +1986,72 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['sites create-subscription'] = """
+helps['sites site-list create-subscription'] = """
     type: command
     short-summary: "Create new navigation property to subscriptions for sites"
 """
 
-helps['sites get-activity'] = """
+helps['sites site-list get-activity'] = """
     type: command
     short-summary: "Get activities from sites"
 """
 
-helps['sites get-column'] = """
+helps['sites site-list get-column'] = """
     type: command
     short-summary: "Get columns from sites"
 """
 
-helps['sites get-content-type'] = """
+helps['sites site-list get-content-type'] = """
     type: command
     short-summary: "Get contentTypes from sites"
 """
 
-helps['sites get-drive'] = """
+helps['sites site-list get-drive'] = """
     type: command
     short-summary: "Get drive from sites"
 """
 
-helps['sites get-item'] = """
+helps['sites site-list get-item'] = """
     type: command
     short-summary: "Get items from sites"
 """
 
-helps['sites get-subscription'] = """
+helps['sites site-list get-subscription'] = """
     type: command
     short-summary: "Get subscriptions from sites"
 """
 
-helps['sites list-activity'] = """
+helps['sites site-list list-activity'] = """
     type: command
     short-summary: "Get activities from sites"
 """
 
-helps['sites list-column'] = """
+helps['sites site-list list-column'] = """
     type: command
     short-summary: "Get columns from sites"
 """
 
-helps['sites list-content-type'] = """
+helps['sites site-list list-content-type'] = """
     type: command
     short-summary: "Get contentTypes from sites"
 """
 
-helps['sites list-item'] = """
+helps['sites site-list list-item'] = """
     type: command
     short-summary: "Get items from sites"
 """
 
-helps['sites list-subscription'] = """
+helps['sites site-list list-subscription'] = """
     type: command
     short-summary: "Get subscriptions from sites"
 """
 
-helps['sites update-activity'] = """
+helps['sites site-list update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in sites"
 """
 
-helps['sites update-column'] = """
+helps['sites site-list update-column'] = """
     type: command
     short-summary: "Update the navigation property columns in sites"
     parameters:
@@ -2136,7 +2136,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['sites update-content-type'] = """
+helps['sites site-list update-content-type'] = """
     type: command
     short-summary: "Update the navigation property contentTypes in sites"
     parameters:
@@ -2172,7 +2172,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['sites update-drive'] = """
+helps['sites site-list update-drive'] = """
     type: command
     short-summary: "Update the navigation property drive in sites"
     parameters:
@@ -2293,7 +2293,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites update-item'] = """
+helps['sites site-list update-item'] = """
     type: command
     short-summary: "Update the navigation property items in sites"
     parameters:
@@ -2403,47 +2403,490 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['sites update-subscription'] = """
+helps['sites site-list update-subscription'] = """
     type: command
     short-summary: "Update the navigation property subscriptions in sites"
 """
 
-helps['sites'] = """
+helps['sites site-list-activity'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-activity
 """
 
-helps['sites delete'] = """
+helps['sites site-list-activity delete'] = """
     type: command
     short-summary: "Delete navigation property listItem for sites"
 """
 
-helps['sites get-drive-item'] = """
+helps['sites site-list-activity get-drive-item'] = """
     type: command
     short-summary: "Get driveItem from sites"
 """
 
-helps['sites get-drive-item-content'] = """
+helps['sites site-list-activity get-drive-item-content'] = """
     type: command
     short-summary: "Get media content for the navigation property driveItem from sites"
 """
 
-helps['sites get-list-item'] = """
+helps['sites site-list-activity get-list-item'] = """
     type: command
     short-summary: "Get listItem from sites"
 """
 
-helps['sites set-drive-item-content'] = """
+helps['sites site-list-activity set-drive-item-content'] = """
     type: command
     short-summary: "Update media content for the navigation property driveItem in sites"
 """
 
-helps['sites update-drive-item'] = """
+helps['sites site-list-activity update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in sites"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --workbook-comments
+        long-summary: |
+            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+
+            content: The content of comment.
+            content-type: Indicates the type for the comment.
+            replies: Read-only. Nullable.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --workbook-comments argument.
+      - name: --workbook-functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --workbook-functions id=XX
+
+            id: Read-only.
+      - name: --remote-item-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --remote-item-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --remote-item-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-package
+        short-summary: "package"
+        long-summary: |
+            Usage: --remote-item-package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --remote-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --remote-item-special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --remote-item-special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --remote-item-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --folder-view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --file-hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
+      - name: --bundle-album
+        short-summary: "album"
+        long-summary: |
+            Usage: --bundle-album cover-image-item-id=XX
+
 """
 
-helps['sites update-list-item'] = """
+helps['sites site-list-activity update-list-item'] = """
     type: command
     short-summary: "Update the navigation property listItem in sites"
     parameters:
@@ -2553,22 +2996,22 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['sites'] = """
+helps['sites site-list-activity-list-item'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-activity-list-item
 """
 
-helps['sites delete'] = """
+helps['sites site-list-activity-list-item delete'] = """
     type: command
     short-summary: "Delete navigation property fields for sites"
 """
 
-helps['sites create-activity'] = """
+helps['sites site-list-activity-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for sites"
 """
 
-helps['sites create-link'] = """
+helps['sites site-list-activity-list-item create-link'] = """
     type: command
     short-summary: "Invoke action createLink"
     parameters:
@@ -2584,7 +3027,7 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['sites create-version'] = """
+helps['sites site-list-activity-list-item create-version'] = """
     type: command
     short-summary: "Create new navigation property to versions for sites"
     parameters:
@@ -2624,82 +3067,525 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites get-activity'] = """
+helps['sites site-list-activity-list-item get-activity'] = """
     type: command
     short-summary: "Get activities from sites"
 """
 
-helps['sites get-activity-by-interval'] = """
+helps['sites site-list-activity-list-item get-activity-by-interval'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval"
 """
 
-helps['sites get-analytic'] = """
+helps['sites site-list-activity-list-item get-analytic'] = """
     type: command
     short-summary: "Get analytics from sites"
 """
 
-helps['sites get-drive-item'] = """
+helps['sites site-list-activity-list-item get-drive-item'] = """
     type: command
     short-summary: "Get driveItem from sites"
 """
 
-helps['sites get-drive-item-content'] = """
+helps['sites site-list-activity-list-item get-drive-item-content'] = """
     type: command
     short-summary: "Get media content for the navigation property driveItem from sites"
 """
 
-helps['sites get-field'] = """
+helps['sites site-list-activity-list-item get-field'] = """
     type: command
     short-summary: "Get fields from sites"
 """
 
-helps['sites get-ref-analytic'] = """
+helps['sites site-list-activity-list-item get-ref-analytic'] = """
     type: command
     short-summary: "Get ref of analytics from sites"
 """
 
-helps['sites get-version'] = """
+helps['sites site-list-activity-list-item get-version'] = """
     type: command
     short-summary: "Get versions from sites"
 """
 
-helps['sites list-activity'] = """
+helps['sites site-list-activity-list-item list-activity'] = """
     type: command
     short-summary: "Get activities from sites"
 """
 
-helps['sites list-version'] = """
+helps['sites site-list-activity-list-item list-version'] = """
     type: command
     short-summary: "Get versions from sites"
 """
 
-helps['sites set-drive-item-content'] = """
+helps['sites site-list-activity-list-item set-drive-item-content'] = """
     type: command
     short-summary: "Update media content for the navigation property driveItem in sites"
 """
 
-helps['sites set-ref-analytic'] = """
+helps['sites site-list-activity-list-item set-ref-analytic'] = """
     type: command
     short-summary: "Update the ref of navigation property analytics in sites"
 """
 
-helps['sites update-activity'] = """
+helps['sites site-list-activity-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in sites"
 """
 
-helps['sites update-drive-item'] = """
+helps['sites site-list-activity-list-item update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in sites"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --workbook-comments
+        long-summary: |
+            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+
+            content: The content of comment.
+            content-type: Indicates the type for the comment.
+            replies: Read-only. Nullable.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --workbook-comments argument.
+      - name: --workbook-functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --workbook-functions id=XX
+
+            id: Read-only.
+      - name: --remote-item-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --remote-item-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --remote-item-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-package
+        short-summary: "package"
+        long-summary: |
+            Usage: --remote-item-package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --remote-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --remote-item-special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --remote-item-special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --remote-item-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --folder-view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --file-hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
+      - name: --bundle-album
+        short-summary: "album"
+        long-summary: |
+            Usage: --bundle-album cover-image-item-id=XX
+
 """
 
-helps['sites update-field'] = """
+helps['sites site-list-activity-list-item update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in sites"
 """
 
-helps['sites update-version'] = """
+helps['sites site-list-activity-list-item update-version'] = """
     type: command
     short-summary: "Update the navigation property versions in sites"
     parameters:
@@ -2739,77 +3625,77 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites'] = """
+helps['sites site-list-activity-list-item-version'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-activity-list-item-version
 """
 
-helps['sites delete'] = """
+helps['sites site-list-activity-list-item-version delete'] = """
     type: command
     short-summary: "Delete navigation property fields for sites"
 """
 
-helps['sites get-field'] = """
+helps['sites site-list-activity-list-item-version get-field'] = """
     type: command
     short-summary: "Get fields from sites"
 """
 
-helps['sites restore-version'] = """
+helps['sites site-list-activity-list-item-version restore-version'] = """
     type: command
     short-summary: "Invoke action restoreVersion"
 """
 
-helps['sites update-field'] = """
+helps['sites site-list-activity-list-item-version update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in sites"
 """
 
-helps['sites'] = """
+helps['sites site-list-content-type'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-content-type
 """
 
-helps['sites delete'] = """
+helps['sites site-list-content-type delete'] = """
     type: command
     short-summary: "Delete navigation property columnLinks for sites"
 """
 
-helps['sites create-column-link'] = """
+helps['sites site-list-content-type create-column-link'] = """
     type: command
     short-summary: "Create new navigation property to columnLinks for sites"
 """
 
-helps['sites get-column-link'] = """
+helps['sites site-list-content-type get-column-link'] = """
     type: command
     short-summary: "Get columnLinks from sites"
 """
 
-helps['sites list-column-link'] = """
+helps['sites site-list-content-type list-column-link'] = """
     type: command
     short-summary: "Get columnLinks from sites"
 """
 
-helps['sites update-column-link'] = """
+helps['sites site-list-content-type update-column-link'] = """
     type: command
     short-summary: "Update the navigation property columnLinks in sites"
 """
 
-helps['sites'] = """
+helps['sites site-list-item'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-item
 """
 
-helps['sites delete'] = """
+helps['sites site-list-item delete'] = """
     type: command
     short-summary: "Delete navigation property fields for sites"
 """
 
-helps['sites create-activity'] = """
+helps['sites site-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for sites"
 """
 
-helps['sites create-link'] = """
+helps['sites site-list-item create-link'] = """
     type: command
     short-summary: "Invoke action createLink"
     parameters:
@@ -2825,7 +3711,7 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['sites create-version'] = """
+helps['sites site-list-item create-version'] = """
     type: command
     short-summary: "Create new navigation property to versions for sites"
     parameters:
@@ -2865,82 +3751,525 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites get-activity'] = """
+helps['sites site-list-item get-activity'] = """
     type: command
     short-summary: "Get activities from sites"
 """
 
-helps['sites get-activity-by-interval'] = """
+helps['sites site-list-item get-activity-by-interval'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval"
 """
 
-helps['sites get-analytic'] = """
+helps['sites site-list-item get-analytic'] = """
     type: command
     short-summary: "Get analytics from sites"
 """
 
-helps['sites get-drive-item'] = """
+helps['sites site-list-item get-drive-item'] = """
     type: command
     short-summary: "Get driveItem from sites"
 """
 
-helps['sites get-drive-item-content'] = """
+helps['sites site-list-item get-drive-item-content'] = """
     type: command
     short-summary: "Get media content for the navigation property driveItem from sites"
 """
 
-helps['sites get-field'] = """
+helps['sites site-list-item get-field'] = """
     type: command
     short-summary: "Get fields from sites"
 """
 
-helps['sites get-ref-analytic'] = """
+helps['sites site-list-item get-ref-analytic'] = """
     type: command
     short-summary: "Get ref of analytics from sites"
 """
 
-helps['sites get-version'] = """
+helps['sites site-list-item get-version'] = """
     type: command
     short-summary: "Get versions from sites"
 """
 
-helps['sites list-activity'] = """
+helps['sites site-list-item list-activity'] = """
     type: command
     short-summary: "Get activities from sites"
 """
 
-helps['sites list-version'] = """
+helps['sites site-list-item list-version'] = """
     type: command
     short-summary: "Get versions from sites"
 """
 
-helps['sites set-drive-item-content'] = """
+helps['sites site-list-item set-drive-item-content'] = """
     type: command
     short-summary: "Update media content for the navigation property driveItem in sites"
 """
 
-helps['sites set-ref-analytic'] = """
+helps['sites site-list-item set-ref-analytic'] = """
     type: command
     short-summary: "Update the ref of navigation property analytics in sites"
 """
 
-helps['sites update-activity'] = """
+helps['sites site-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in sites"
 """
 
-helps['sites update-drive-item'] = """
+helps['sites site-list-item update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in sites"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --workbook-comments
+        long-summary: |
+            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+
+            content: The content of comment.
+            content-type: Indicates the type for the comment.
+            replies: Read-only. Nullable.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --workbook-comments argument.
+      - name: --workbook-functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --workbook-functions id=XX
+
+            id: Read-only.
+      - name: --remote-item-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --remote-item-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --remote-item-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-package
+        short-summary: "package"
+        long-summary: |
+            Usage: --remote-item-package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --remote-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --remote-item-special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --remote-item-special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --remote-item-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --folder-view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --file-hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
+      - name: --bundle-album
+        short-summary: "album"
+        long-summary: |
+            Usage: --bundle-album cover-image-item-id=XX
+
 """
 
-helps['sites update-field'] = """
+helps['sites site-list-item update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in sites"
 """
 
-helps['sites update-version'] = """
+helps['sites site-list-item update-version'] = """
     type: command
     short-summary: "Update the navigation property versions in sites"
     parameters:
@@ -2980,42 +4309,485 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['sites'] = """
+helps['sites site-list-item-activity'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-item-activity
 """
 
-helps['sites delete'] = """
+helps['sites site-list-item-activity delete'] = """
     type: command
     short-summary: "Delete navigation property listItem for sites"
 """
 
-helps['sites get-drive-item'] = """
+helps['sites site-list-item-activity get-drive-item'] = """
     type: command
     short-summary: "Get driveItem from sites"
 """
 
-helps['sites get-drive-item-content'] = """
+helps['sites site-list-item-activity get-drive-item-content'] = """
     type: command
     short-summary: "Get media content for the navigation property driveItem from sites"
 """
 
-helps['sites get-list-item'] = """
+helps['sites site-list-item-activity get-list-item'] = """
     type: command
     short-summary: "Get listItem from sites"
 """
 
-helps['sites set-drive-item-content'] = """
+helps['sites site-list-item-activity set-drive-item-content'] = """
     type: command
     short-summary: "Update media content for the navigation property driveItem in sites"
 """
 
-helps['sites update-drive-item'] = """
+helps['sites site-list-item-activity update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in sites"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --workbook-comments
+        long-summary: |
+            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+
+            content: The content of comment.
+            content-type: Indicates the type for the comment.
+            replies: Read-only. Nullable.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --workbook-comments argument.
+      - name: --workbook-functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --workbook-functions id=XX
+
+            id: Read-only.
+      - name: --remote-item-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --remote-item-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --remote-item-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-package
+        short-summary: "package"
+        long-summary: |
+            Usage: --remote-item-package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --remote-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --remote-item-special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --remote-item-special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --remote-item-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --folder-view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --file-hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
+      - name: --bundle-album
+        short-summary: "album"
+        long-summary: |
+            Usage: --bundle-album cover-image-item-id=XX
+
 """
 
-helps['sites update-list-item'] = """
+helps['sites site-list-item-activity update-list-item'] = """
     type: command
     short-summary: "Update the navigation property listItem in sites"
     parameters:
@@ -3125,12 +4897,12 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['sites'] = """
+helps['sites site-list-item-activity-list-item'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-item-activity-list-item
 """
 
-helps['sites create-link'] = """
+helps['sites site-list-item-activity-list-item create-link'] = """
     type: command
     short-summary: "Invoke action createLink"
     parameters:
@@ -3146,92 +4918,92 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['sites get-activity-by-interval'] = """
+helps['sites site-list-item-activity-list-item get-activity-by-interval'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval"
 """
 
-helps['sites'] = """
+helps['sites site-list-item-version'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-list-item-version
 """
 
-helps['sites delete'] = """
+helps['sites site-list-item-version delete'] = """
     type: command
     short-summary: "Delete navigation property fields for sites"
 """
 
-helps['sites get-field'] = """
+helps['sites site-list-item-version get-field'] = """
     type: command
     short-summary: "Get fields from sites"
 """
 
-helps['sites restore-version'] = """
+helps['sites site-list-item-version restore-version'] = """
     type: command
     short-summary: "Invoke action restoreVersion"
 """
 
-helps['sites update-field'] = """
+helps['sites site-list-item-version update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in sites"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites get-notebook-from-web-url'] = """
+helps['sites site-onenote-notebook get-notebook-from-web-url'] = """
     type: command
     short-summary: "Invoke action getNotebookFromWebUrl"
 """
 
-helps['sites get-recent-notebook'] = """
+helps['sites site-onenote-notebook get-recent-notebook'] = """
     type: command
     short-summary: "Invoke function getRecentNotebooks"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-group-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-group-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-notebook-section-group-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-notebook-section-group-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3248,72 +5020,72 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-notebook-section-group-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-group-section-page-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook-section-group-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-group-section-page-parent-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-group-section-page-parent-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-notebook-section-group-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-notebook-section-group-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-group-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook-section-group-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-notebook-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-notebook-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3330,82 +5102,82 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-notebook-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-page-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-page-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-page-parent-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-page-parent-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-notebook-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-notebook-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-parent-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-notebook-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-notebook-section-parent-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-notebook-section-parent-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-notebook-section-parent-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-notebook-section-parent-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3422,57 +5194,57 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-group-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3489,47 +5261,47 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-group-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section-group-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-page-parent-notebook-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-page-parent-notebook-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3546,72 +5318,72 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-page-parent-notebook-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-parent-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-notebook-section-parent-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-notebook-section-parent-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-page-parent-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-page-parent-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3628,137 +5400,137 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-page-parent-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-notebook-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-notebook-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-section-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-page-parent-section-parent-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-page-parent-section-parent-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-group-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-group-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-parent-notebook-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3775,72 +5547,72 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-parent-notebook-section-page-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page-parent-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-parent-notebook-section-page-parent-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-parent-notebook-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-group-parent-notebook-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-section-group-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-section-group-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3857,102 +5629,102 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-section-group-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section-page-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-group-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section-page-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section-page-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-group-section-page-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-group-section-page-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section-page-parent-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section-page-parent-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-group-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-group-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-group-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-group-section-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-group-section-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-group-section-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-group-section-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-page
 """
 
-helps['sites copy-to-section'] = """
+helps['sites site-onenote-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection"
 """
 
-helps['sites onenote-patch-content'] = """
+helps['sites site-onenote-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent"
     parameters:
@@ -3969,192 +5741,192 @@ element, or the body or title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['sites preview'] = """
+helps['sites site-onenote-section-page preview'] = """
     type: command
     short-summary: "Invoke function preview"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-page-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-page-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-page-parent-notebook-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-page-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-page-parent-notebook-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-page-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-page-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-page-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-page-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-page-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-page-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-page-parent-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-page-parent-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-notebook-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-notebook-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-section-group-parent-notebook
 """
 
-helps['sites copy-notebook'] = """
+helps['sites site-onenote-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-section-group-parent-notebook-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-parent-section-group-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-parent-section-group-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-onenote-section-parent-section-group-section'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-onenote-section-parent-section-group-section
 """
 
-helps['sites copy-to-notebook'] = """
+helps['sites site-onenote-section-parent-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook"
 """
 
-helps['sites copy-to-section-group'] = """
+helps['sites site-onenote-section-parent-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup"
 """
 
-helps['sites'] = """
+helps['sites site-page'] = """
     type: group
-    short-summary: sites
+    short-summary: sites site-page
 """
 
-helps['sites publish'] = """
+helps['sites site-page publish'] = """
     type: command
     short-summary: "Invoke action publish"
 """
 
-helps['sites'] = """
+helps['sites user'] = """
     type: group
-    short-summary: sites
+    short-summary: sites user
 """
 
-helps['sites create-ref-followed-site'] = """
+helps['sites user create-ref-followed-site'] = """
     type: command
     short-summary: "Create new navigation property ref to followedSites for users"
 """
 
-helps['sites list-followed-site'] = """
+helps['sites user list-followed-site'] = """
     type: command
     short-summary: "Get followedSites from users"
 """
 
-helps['sites list-ref-followed-site'] = """
+helps['sites user list-ref-followed-site'] = """
     type: command
     short-summary: "Get ref of followedSites from users"
 """

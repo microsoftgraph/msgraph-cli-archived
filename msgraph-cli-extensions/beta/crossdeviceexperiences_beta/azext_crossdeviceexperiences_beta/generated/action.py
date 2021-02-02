@@ -40,3 +40,197 @@ class AddVisualElementsAttribution(argparse.Action):
             elif kl == 'icon-url':
                 d['icon_url'] = v[0]
         return d
+
+
+class AddAlternativeSecurityIds(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAlternativeSecurityIds, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'identity-provider':
+                d['identity_provider'] = v[0]
+            elif kl == 'key':
+                d['key'] = v[0]
+            elif kl == 'type':
+                d['type'] = v[0]
+        return d
+
+
+class AddExtensionAttributes(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.extension_attributes = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'extension-attribute1':
+                d['extension_attribute1'] = v[0]
+            elif kl == 'extension-attribute10':
+                d['extension_attribute10'] = v[0]
+            elif kl == 'extension-attribute11':
+                d['extension_attribute11'] = v[0]
+            elif kl == 'extension-attribute12':
+                d['extension_attribute12'] = v[0]
+            elif kl == 'extension-attribute13':
+                d['extension_attribute13'] = v[0]
+            elif kl == 'extension-attribute14':
+                d['extension_attribute14'] = v[0]
+            elif kl == 'extension-attribute15':
+                d['extension_attribute15'] = v[0]
+            elif kl == 'extension-attribute2':
+                d['extension_attribute2'] = v[0]
+            elif kl == 'extension-attribute3':
+                d['extension_attribute3'] = v[0]
+            elif kl == 'extension-attribute4':
+                d['extension_attribute4'] = v[0]
+            elif kl == 'extension-attribute5':
+                d['extension_attribute5'] = v[0]
+            elif kl == 'extension-attribute6':
+                d['extension_attribute6'] = v[0]
+            elif kl == 'extension-attribute7':
+                d['extension_attribute7'] = v[0]
+            elif kl == 'extension-attribute8':
+                d['extension_attribute8'] = v[0]
+            elif kl == 'extension-attribute9':
+                d['extension_attribute9'] = v[0]
+        return d
+
+
+class AddMemberOf(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddMemberOf, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'deleted-date-time':
+                d['deleted_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddRegisteredOwners(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddRegisteredOwners, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'deleted-date-time':
+                d['deleted_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddRegisteredUsers(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddRegisteredUsers, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'deleted-date-time':
+                d['deleted_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddTransitiveMemberOf(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddTransitiveMemberOf, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'deleted-date-time':
+                d['deleted_date_time'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddExtensions(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddExtensions, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'id':
+                d['id'] = v[0]
+        return d

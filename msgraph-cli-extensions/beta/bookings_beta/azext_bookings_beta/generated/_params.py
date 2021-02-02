@@ -30,11 +30,11 @@ from azext_bookings_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('bookings delete') as c:
+    with self.argument_context('bookings booking-business-booking-business delete') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('bookings create-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business create-booking-business') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
         c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
@@ -58,17 +58,17 @@ def load_arguments(self, _):
         c.argument('staff_members', type=validate_file_or_dict, help='All staff members that provides services in this '
                    'business. Expected value: json-string/@json-file.')
 
-    with self.argument_context('bookings get-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business get-booking-business') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business list-booking-business') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings update-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business update-booking-business') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
@@ -93,7 +93,7 @@ def load_arguments(self, _):
         c.argument('staff_members', type=validate_file_or_dict, help='All staff members that provides services in this '
                    'business. Expected value: json-string/@json-file.')
 
-    with self.argument_context('bookings delete') as c:
+    with self.argument_context('bookings booking-business delete') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('if_match', type=str, help='ETag')
@@ -101,7 +101,7 @@ def load_arguments(self, _):
         c.argument('booking_service_id', type=str, help='key: id of bookingService')
         c.argument('booking_staff_member_id', type=str, help='key: id of bookingStaffMember')
 
-    with self.argument_context('bookings create-appointment') as c:
+    with self.argument_context('bookings booking-business create-appointment') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('additional_information', type=str, help='')
@@ -164,7 +164,7 @@ def load_arguments(self, _):
         c.argument('customer_location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory',
                                                                                'private', 'bing']), help='')
 
-    with self.argument_context('bookings create-calendar-view') as c:
+    with self.argument_context('bookings booking-business create-calendar-view') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('additional_information', type=str, help='')
@@ -227,13 +227,13 @@ def load_arguments(self, _):
         c.argument('customer_location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory',
                                                                                'private', 'bing']), help='')
 
-    with self.argument_context('bookings create-customer') as c:
+    with self.argument_context('bookings booking-business create-customer') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
         c.argument('email_address', type=str, help='The e-mail address of this person.')
 
-    with self.argument_context('bookings create-service') as c:
+    with self.argument_context('bookings booking-business create-service') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
@@ -269,7 +269,7 @@ def load_arguments(self, _):
         c.argument('default_location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory',
                                                                               'private', 'bing']), help='')
 
-    with self.argument_context('bookings create-staff-member') as c:
+    with self.argument_context('bookings booking-business create-staff-member') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
@@ -280,13 +280,13 @@ def load_arguments(self, _):
         c.argument('use_business_hours', arg_type=get_three_state_flag(), help='')
         c.argument('working_hours', action=AddWorkingHours, nargs='*', help='')
 
-    with self.argument_context('bookings get-appointment') as c:
+    with self.argument_context('bookings booking-business get-appointment') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings get-calendar-view') as c:
+    with self.argument_context('bookings booking-business get-calendar-view') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('start', type=str, help='The start date and time of the time range, represented in ISO 8601 format. '
@@ -296,31 +296,31 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings get-customer') as c:
+    with self.argument_context('bookings booking-business get-customer') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_customer_id', type=str, help='key: id of bookingCustomer')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings get-service') as c:
+    with self.argument_context('bookings booking-business get-service') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_service_id', type=str, help='key: id of bookingService')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings get-staff-member') as c:
+    with self.argument_context('bookings booking-business get-staff-member') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_staff_member_id', type=str, help='key: id of bookingStaffMember')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-appointment') as c:
+    with self.argument_context('bookings booking-business list-appointment') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-calendar-view') as c:
+    with self.argument_context('bookings booking-business list-calendar-view') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('start', type=str, help='The start date and time of the time range, represented in ISO 8601 format. '
                    'For example, 2019-11-08T19:00:00-08:00')
@@ -330,31 +330,31 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-customer') as c:
+    with self.argument_context('bookings booking-business list-customer') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-service') as c:
+    with self.argument_context('bookings booking-business list-service') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-staff-member') as c:
+    with self.argument_context('bookings booking-business list-staff-member') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings publish') as c:
+    with self.argument_context('bookings booking-business publish') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
 
-    with self.argument_context('bookings unpublish') as c:
+    with self.argument_context('bookings booking-business unpublish') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
 
-    with self.argument_context('bookings update-appointment') as c:
+    with self.argument_context('bookings booking-business update-appointment') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -418,7 +418,7 @@ def load_arguments(self, _):
         c.argument('customer_location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory',
                                                                                'private', 'bing']), help='')
 
-    with self.argument_context('bookings update-calendar-view') as c:
+    with self.argument_context('bookings booking-business update-calendar-view') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -482,14 +482,14 @@ def load_arguments(self, _):
         c.argument('customer_location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory',
                                                                                'private', 'bing']), help='')
 
-    with self.argument_context('bookings update-customer') as c:
+    with self.argument_context('bookings booking-business update-customer') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_customer_id', type=str, help='key: id of bookingCustomer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
         c.argument('email_address', type=str, help='The e-mail address of this person.')
 
-    with self.argument_context('bookings update-service') as c:
+    with self.argument_context('bookings booking-business update-service') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_service_id', type=str, help='key: id of bookingService')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -526,7 +526,7 @@ def load_arguments(self, _):
         c.argument('default_location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory',
                                                                               'private', 'bing']), help='')
 
-    with self.argument_context('bookings update-staff-member') as c:
+    with self.argument_context('bookings booking-business update-staff-member') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_staff_member_id', type=str, help='key: id of bookingStaffMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -538,35 +538,35 @@ def load_arguments(self, _):
         c.argument('use_business_hours', arg_type=get_three_state_flag(), help='')
         c.argument('working_hours', action=AddWorkingHours, nargs='*', help='')
 
-    with self.argument_context('bookings cancel') as c:
+    with self.argument_context('bookings booking-business-appointment cancel') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('cancellation_message', type=str, help='')
 
-    with self.argument_context('bookings cancel') as c:
+    with self.argument_context('bookings booking-business-calendar-view cancel') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('cancellation_message', type=str, help='')
 
-    with self.argument_context('bookings delete') as c:
+    with self.argument_context('bookings booking-currency-booking-currency delete') as c:
         c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('bookings create-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency create-booking-currency') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('symbol', type=str, help='')
 
-    with self.argument_context('bookings get-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency get-booking-currency') as c:
         c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings list-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency list-booking-currency') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings update-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency update-booking-currency') as c:
         c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('symbol', type=str, help='')

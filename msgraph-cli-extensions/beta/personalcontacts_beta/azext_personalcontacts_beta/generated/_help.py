@@ -12,22 +12,122 @@
 from knack.help_files import helps
 
 
-helps['personalcontacts'] = """
+helps['personalcontacts user'] = """
     type: group
-    short-summary: personalcontacts
+    short-summary: personalcontacts user
 """
 
-helps['personalcontacts delete'] = """
+helps['personalcontacts user delete'] = """
     type: command
     short-summary: "Delete navigation property contacts for users"
 """
 
-helps['personalcontacts create-contact'] = """
+helps['personalcontacts user create-contact'] = """
     type: command
     short-summary: "Create new navigation property to contacts for users"
+    parameters:
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses other-label=XX type=XX address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --phones
+        long-summary: |
+            Usage: --phones number=XX type=XX
+
+            number: The phone number.
+
+            Multiple actions can be specified by using more than one --phones argument.
+      - name: --postal-addresses
+        long-summary: |
+            Usage: --postal-addresses city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+
+            Multiple actions can be specified by using more than one --postal-addresses argument.
+      - name: --websites
+        long-summary: |
+            Usage: --websites address=XX display-name=XX type=XX
+
+            address: The URL of the website.
+            display-name: The display name of the web site.
+
+            Multiple actions can be specified by using more than one --websites argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['personalcontacts create-contact-folder'] = """
+helps['personalcontacts user create-contact-folder'] = """
     type: command
     short-summary: "Create new navigation property to contactFolders for users"
     parameters:
@@ -53,32 +153,132 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['personalcontacts get-contact'] = """
+helps['personalcontacts user get-contact'] = """
     type: command
     short-summary: "Get contacts from users"
 """
 
-helps['personalcontacts get-contact-folder'] = """
+helps['personalcontacts user get-contact-folder'] = """
     type: command
     short-summary: "Get contactFolders from users"
 """
 
-helps['personalcontacts list-contact'] = """
+helps['personalcontacts user list-contact'] = """
     type: command
     short-summary: "Get contacts from users"
 """
 
-helps['personalcontacts list-contact-folder'] = """
+helps['personalcontacts user list-contact-folder'] = """
     type: command
     short-summary: "Get contactFolders from users"
 """
 
-helps['personalcontacts update-contact'] = """
+helps['personalcontacts user update-contact'] = """
     type: command
     short-summary: "Update the navigation property contacts in users"
+    parameters:
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses other-label=XX type=XX address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --phones
+        long-summary: |
+            Usage: --phones number=XX type=XX
+
+            number: The phone number.
+
+            Multiple actions can be specified by using more than one --phones argument.
+      - name: --postal-addresses
+        long-summary: |
+            Usage: --postal-addresses city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+
+            Multiple actions can be specified by using more than one --postal-addresses argument.
+      - name: --websites
+        long-summary: |
+            Usage: --websites address=XX display-name=XX type=XX
+
+            address: The URL of the website.
+            display-name: The display name of the web site.
+
+            Multiple actions can be specified by using more than one --websites argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['personalcontacts update-contact-folder'] = """
+helps['personalcontacts user update-contact-folder'] = """
     type: command
     short-summary: "Update the navigation property contactFolders in users"
     parameters:
@@ -104,17 +304,17 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['personalcontacts'] = """
+helps['personalcontacts user-contact-folder'] = """
     type: group
-    short-summary: personalcontacts
+    short-summary: personalcontacts user-contact-folder
 """
 
-helps['personalcontacts delete'] = """
+helps['personalcontacts user-contact-folder delete'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users"
 """
 
-helps['personalcontacts create-child-folder'] = """
+helps['personalcontacts user-contact-folder create-child-folder'] = """
     type: command
     short-summary: "Create new navigation property to childFolders for users"
     parameters:
@@ -140,62 +340,162 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['personalcontacts create-contact'] = """
+helps['personalcontacts user-contact-folder create-contact'] = """
     type: command
     short-summary: "Create new navigation property to contacts for users"
+    parameters:
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses other-label=XX type=XX address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --phones
+        long-summary: |
+            Usage: --phones number=XX type=XX
+
+            number: The phone number.
+
+            Multiple actions can be specified by using more than one --phones argument.
+      - name: --postal-addresses
+        long-summary: |
+            Usage: --postal-addresses city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+
+            Multiple actions can be specified by using more than one --postal-addresses argument.
+      - name: --websites
+        long-summary: |
+            Usage: --websites address=XX display-name=XX type=XX
+
+            address: The URL of the website.
+            display-name: The display name of the web site.
+
+            Multiple actions can be specified by using more than one --websites argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['personalcontacts create-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['personalcontacts create-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['personalcontacts get-child-folder'] = """
+helps['personalcontacts user-contact-folder get-child-folder'] = """
     type: command
     short-summary: "Get childFolders from users"
 """
 
-helps['personalcontacts get-contact'] = """
+helps['personalcontacts user-contact-folder get-contact'] = """
     type: command
     short-summary: "Get contacts from users"
 """
 
-helps['personalcontacts get-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['personalcontacts get-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['personalcontacts list-child-folder'] = """
+helps['personalcontacts user-contact-folder list-child-folder'] = """
     type: command
     short-summary: "Get childFolders from users"
 """
 
-helps['personalcontacts list-contact'] = """
+helps['personalcontacts user-contact-folder list-contact'] = """
     type: command
     short-summary: "Get contacts from users"
 """
 
-helps['personalcontacts list-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['personalcontacts list-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['personalcontacts update-child-folder'] = """
+helps['personalcontacts user-contact-folder update-child-folder'] = """
     type: command
     short-summary: "Update the navigation property childFolders in users"
     parameters:
@@ -221,197 +521,297 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['personalcontacts update-contact'] = """
+helps['personalcontacts user-contact-folder update-contact'] = """
     type: command
     short-summary: "Update the navigation property contacts in users"
+    parameters:
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses other-label=XX type=XX address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --phones
+        long-summary: |
+            Usage: --phones number=XX type=XX
+
+            number: The phone number.
+
+            Multiple actions can be specified by using more than one --phones argument.
+      - name: --postal-addresses
+        long-summary: |
+            Usage: --postal-addresses city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+
+            Multiple actions can be specified by using more than one --postal-addresses argument.
+      - name: --websites
+        long-summary: |
+            Usage: --websites address=XX display-name=XX type=XX
+
+            address: The URL of the website.
+            display-name: The display name of the web site.
+
+            Multiple actions can be specified by using more than one --websites argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['personalcontacts update-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['personalcontacts update-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['personalcontacts'] = """
+helps['personalcontacts user-contact-folder-contact'] = """
     type: group
-    short-summary: personalcontacts
+    short-summary: personalcontacts user-contact-folder-contact
 """
 
-helps['personalcontacts delete'] = """
+helps['personalcontacts user-contact-folder-contact delete'] = """
     type: command
     short-summary: "Delete navigation property photo for users"
 """
 
-helps['personalcontacts create-extension'] = """
+helps['personalcontacts user-contact-folder-contact create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users"
 """
 
-helps['personalcontacts create-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['personalcontacts create-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['personalcontacts get-extension'] = """
+helps['personalcontacts user-contact-folder-contact get-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['personalcontacts get-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['personalcontacts get-photo'] = """
+helps['personalcontacts user-contact-folder-contact get-photo'] = """
     type: command
     short-summary: "Get photo from users"
 """
 
-helps['personalcontacts get-photo-content'] = """
+helps['personalcontacts user-contact-folder-contact get-photo-content'] = """
     type: command
     short-summary: "Get media content for the navigation property photo from users"
 """
 
-helps['personalcontacts get-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['personalcontacts list-extension'] = """
+helps['personalcontacts user-contact-folder-contact list-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['personalcontacts list-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['personalcontacts list-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['personalcontacts set-photo-content'] = """
+helps['personalcontacts user-contact-folder-contact set-photo-content'] = """
     type: command
     short-summary: "Update media content for the navigation property photo in users"
 """
 
-helps['personalcontacts update-extension'] = """
+helps['personalcontacts user-contact-folder-contact update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users"
 """
 
-helps['personalcontacts update-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['personalcontacts update-photo'] = """
+helps['personalcontacts user-contact-folder-contact update-photo'] = """
     type: command
     short-summary: "Update the navigation property photo in users"
 """
 
-helps['personalcontacts update-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """
 
-helps['personalcontacts'] = """
+helps['personalcontacts user-contact'] = """
     type: group
-    short-summary: personalcontacts
+    short-summary: personalcontacts user-contact
 """
 
-helps['personalcontacts delete'] = """
+helps['personalcontacts user-contact delete'] = """
     type: command
     short-summary: "Delete navigation property photo for users"
 """
 
-helps['personalcontacts create-extension'] = """
+helps['personalcontacts user-contact create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users"
 """
 
-helps['personalcontacts create-multi-value-extended-property'] = """
+helps['personalcontacts user-contact create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users"
 """
 
-helps['personalcontacts create-single-value-extended-property'] = """
+helps['personalcontacts user-contact create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users"
 """
 
-helps['personalcontacts get-extension'] = """
+helps['personalcontacts user-contact get-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['personalcontacts get-multi-value-extended-property'] = """
+helps['personalcontacts user-contact get-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['personalcontacts get-photo'] = """
+helps['personalcontacts user-contact get-photo'] = """
     type: command
     short-summary: "Get photo from users"
 """
 
-helps['personalcontacts get-photo-content'] = """
+helps['personalcontacts user-contact get-photo-content'] = """
     type: command
     short-summary: "Get media content for the navigation property photo from users"
 """
 
-helps['personalcontacts get-single-value-extended-property'] = """
+helps['personalcontacts user-contact get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['personalcontacts list-extension'] = """
+helps['personalcontacts user-contact list-extension'] = """
     type: command
     short-summary: "Get extensions from users"
 """
 
-helps['personalcontacts list-multi-value-extended-property'] = """
+helps['personalcontacts user-contact list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users"
 """
 
-helps['personalcontacts list-single-value-extended-property'] = """
+helps['personalcontacts user-contact list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
-helps['personalcontacts set-photo-content'] = """
+helps['personalcontacts user-contact set-photo-content'] = """
     type: command
     short-summary: "Update media content for the navigation property photo in users"
 """
 
-helps['personalcontacts update-extension'] = """
+helps['personalcontacts user-contact update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users"
 """
 
-helps['personalcontacts update-multi-value-extended-property'] = """
+helps['personalcontacts user-contact update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users"
 """
 
-helps['personalcontacts update-photo'] = """
+helps['personalcontacts user-contact update-photo'] = """
     type: command
     short-summary: "Update the navigation property photo in users"
 """
 
-helps['personalcontacts update-single-value-extended-property'] = """
+helps['personalcontacts user-contact update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users"
 """

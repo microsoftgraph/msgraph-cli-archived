@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['cloudcommunications'] = """
+helps['cloudcommunications user'] = """
     type: group
-    short-summary: cloudcommunications
+    short-summary: cloudcommunications user
 """
 
-helps['cloudcommunications delete'] = """
+helps['cloudcommunications user delete'] = """
     type: command
     short-summary: "Delete navigation property onlineMeetings for users"
 """
 
-helps['cloudcommunications create-online-meeting'] = """
+helps['cloudcommunications user create-online-meeting'] = """
     type: command
     short-summary: "Create new navigation property to onlineMeetings for users"
     parameters:
@@ -50,17 +50,17 @@ helps['cloudcommunications create-online-meeting'] = """
             content: The content of the item.
 """
 
-helps['cloudcommunications get-online-meeting'] = """
+helps['cloudcommunications user get-online-meeting'] = """
     type: command
     short-summary: "Get onlineMeetings from users"
 """
 
-helps['cloudcommunications list-online-meeting'] = """
+helps['cloudcommunications user list-online-meeting'] = """
     type: command
     short-summary: "Get onlineMeetings from users"
 """
 
-helps['cloudcommunications update-online-meeting'] = """
+helps['cloudcommunications user update-online-meeting'] = """
     type: command
     short-summary: "Update the navigation property onlineMeetings in users"
     parameters:

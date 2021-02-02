@@ -21,18 +21,18 @@ from azext_search_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('search get-external') as c:
+    with self.argument_context('search external-external get-external') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('search update-external') as c:
+    with self.argument_context('search external-external update-external') as c:
         c.argument('connections', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('search delete') as c:
+    with self.argument_context('search external delete') as c:
         c.argument('external_connection_id', type=str, help='key: id of externalConnection')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('search create-connection') as c:
+    with self.argument_context('search external create-connection') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration', action=AddConfiguration, nargs='*', help='configuration')
         c.argument('description', type=str, help='')
@@ -46,17 +46,17 @@ def load_arguments(self, _):
         c.argument('schema_base_type', type=str, help='')
         c.argument('schema_properties', action=AddSchemaProperties, nargs='*', help='')
 
-    with self.argument_context('search get-connection') as c:
+    with self.argument_context('search external get-connection') as c:
         c.argument('external_connection_id', type=str, help='key: id of externalConnection')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('search list-connection') as c:
+    with self.argument_context('search external list-connection') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('search update-connection') as c:
+    with self.argument_context('search external update-connection') as c:
         c.argument('external_connection_id', type=str, help='key: id of externalConnection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration', action=AddConfiguration, nargs='*', help='configuration')
@@ -71,12 +71,12 @@ def load_arguments(self, _):
         c.argument('schema_base_type', type=str, help='')
         c.argument('schema_properties', action=AddSchemaProperties, nargs='*', help='')
 
-    with self.argument_context('search get-search-entity') as c:
+    with self.argument_context('search search-search-entity get-search-entity') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('search update-search-entity') as c:
+    with self.argument_context('search search-search-entity update-search-entity') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('search query') as c:
+    with self.argument_context('search search query') as c:
         c.argument('requests', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')

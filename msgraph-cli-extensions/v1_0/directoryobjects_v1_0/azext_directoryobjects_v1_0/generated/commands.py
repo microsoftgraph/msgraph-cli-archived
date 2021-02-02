@@ -20,26 +20,32 @@ def load_command_table(self, _):
         operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_object_direct'
         'ory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
         client_factory=cf_directory_object_directory_object)
-    with self.command_group('directoryobjects', directoryobjects_v1_0_directory_object_directory_object,
-                            client_factory=cf_directory_object_directory_object) as g:
-        g.custom_command('delete', 'directoryobjects_delete', confirmation=True)
-        g.custom_command('create-directory-object', 'directoryobjects_create_directory_object')
-        g.custom_command('get-directory-object', 'directoryobjects_get_directory_object')
-        g.custom_command('list-directory-object', 'directoryobjects_list_directory_object')
-        g.custom_command('update-directory-object', 'directoryobjects_update_directory_object')
+    with self.command_group('directoryobjects directory-object-directory-object',
+                            directoryobjects_v1_0_directory_object_directory_object,
+                            client_factory=cf_directory_object_directory_object, is_experimental=True) as g:
+        g.custom_command('delete', 'directoryobjects_directory_object_directory_object_delete', confirmation=True)
+        g.custom_command('create-directory-object', 'directoryobjects_directory_object_directory_object_create_director'
+                         'y_object')
+        g.custom_command('get-directory-object', 'directoryobjects_directory_object_directory_object_get_directory_obje'
+                         'ct')
+        g.custom_command('list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_ob'
+                         'ject')
+        g.custom_command('update-directory-object', 'directoryobjects_directory_object_directory_object_update_director'
+                         'y_object')
 
     from azext_directoryobjects_v1_0.generated._client_factory import cf_directory_object
     directoryobjects_v1_0_directory_object = CliCommandType(
         operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_object_operat'
         'ions#DirectoryObjectOperations.{}',
         client_factory=cf_directory_object)
-    with self.command_group('directoryobjects', directoryobjects_v1_0_directory_object,
-                            client_factory=cf_directory_object) as g:
-        g.custom_command('check-member-group', 'directoryobjects_check_member_group')
-        g.custom_command('check-member-object', 'directoryobjects_check_member_object')
-        g.custom_command('get-available-extension-property', 'directoryobjects_get_available_extension_property')
-        g.custom_command('get-by-id', 'directoryobjects_get_by_id')
-        g.custom_command('get-member-group', 'directoryobjects_get_member_group')
-        g.custom_command('get-member-object', 'directoryobjects_get_member_object')
-        g.custom_command('restore', 'directoryobjects_restore')
-        g.custom_command('validate-property', 'directoryobjects_validate_property')
+    with self.command_group('directoryobjects directory-object', directoryobjects_v1_0_directory_object,
+                            client_factory=cf_directory_object, is_experimental=True) as g:
+        g.custom_command('check-member-group', 'directoryobjects_directory_object_check_member_group')
+        g.custom_command('check-member-object', 'directoryobjects_directory_object_check_member_object')
+        g.custom_command('get-available-extension-property', 'directoryobjects_directory_object_get_available_extension'
+                         '_property')
+        g.custom_command('get-by-id', 'directoryobjects_directory_object_get_by_id')
+        g.custom_command('get-member-group', 'directoryobjects_directory_object_get_member_group')
+        g.custom_command('get-member-object', 'directoryobjects_directory_object_get_member_object')
+        g.custom_command('restore', 'directoryobjects_directory_object_restore')
+        g.custom_command('validate-property', 'directoryobjects_directory_object_validate_property')
