@@ -350,10 +350,9 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
                 )
 
                 indent = 2
-                long_summary = layout.get('long_summary', None)
+                long_summary = layout.get('long_summary', None).split('\n')[0]
                 if long_summary:
-                    pass
-                    # _print_indent(long_summary, indent, width=self.textwrap_width)
+                    _print_indent(long_summary, indent, width=self.textwrap_width)
 
             _print_indent('')
 
