@@ -82,7 +82,7 @@ class GraphCliCommandInvoker(CommandInvoker):
 
         Raises
         ------
-        BrokenPipeError
+        BrokenPipeError, OSError
             When less in unix or more in windows is terminated before navigating to the last page
             it sends a SIGPIPE signal. Python ignores the signal and raises BrokenPipeError instead
         '''
@@ -191,6 +191,8 @@ class GraphCliCommandInvoker(CommandInvoker):
                                          parsed_args.command].table_transformer,
                                      is_query_active=self.data['query_active'])
         except BrokenPipeError:
+            return sys.exit()
+        except OSError:
             return sys.exit()
 
     def _run_jobs_serially(self, jobs, ids):
