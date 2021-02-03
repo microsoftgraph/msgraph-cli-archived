@@ -191,8 +191,16 @@ class GraphCliCommandInvoker(CommandInvoker):
                                          parsed_args.command].table_transformer,
                                      is_query_active=self.data['query_active'])
         except BrokenPipeError:
+            # Python flushes standard streams on exit; redirect remaining output to devnull
+            # to avoid another BrokenPipeError at shutdown
+            devnull = os.open(os.devnull, os.O_WRONLY)
+            os.dup2(devnull, sys.stdout.fileno())
             return sys.exit()
         except OSError:
+            # Python flushes standard streams on exit; redirect remaining output to devnull
+            # to avoid another BrokenPipeError at shutdown
+            devnull = os.open(os.devnull, os.O_WRONLY)
+            os.dup2(devnull, sys.stdout.fileno())
             return sys.exit()
 
     def _run_jobs_serially(self, jobs, ids):
