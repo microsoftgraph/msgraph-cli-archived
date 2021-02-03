@@ -20,9 +20,9 @@ def load_command_table(self, _):
         operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_operations#GroupOperations.{}',
         client_factory=cf_group)
     with self.command_group('planner group', planner_v1_0_group, client_factory=cf_group, is_experimental=True) as g:
+        g.custom_command('update', 'planner_group_update')
         g.custom_command('delete', 'planner_group_delete', confirmation=True)
-        g.custom_command('getr', 'planner_group_getr')
-        g.custom_command('updater', 'planner_group_updater')
+        g.custom_command('get', 'planner_group_get')
 
     from azext_planner_v1_0.generated._client_factory import cf_group_planner
     planner_v1_0_group_planner = CliCommandType(
@@ -120,10 +120,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_planner_operations#PlannerPlanner'
         'Operations.{}',
         client_factory=cf_planner_planner)
-    with self.command_group('planner planner-planner', planner_v1_0_planner_planner, client_factory=cf_planner_planner,
+    with self.command_group('planner planner', planner_v1_0_planner_planner, client_factory=cf_planner_planner,
                             is_experimental=True) as g:
-        g.custom_command('getr', 'planner_planner_planner_getr')
-        g.custom_command('updater', 'planner_planner_planner_updater')
+        g.custom_command('update', 'planner_planner_update')
+        g.custom_command('get', 'planner_planner_get')
 
     from azext_planner_v1_0.generated._client_factory import cf_planner
     planner_v1_0_planner = CliCommandType(
@@ -281,9 +281,9 @@ def load_command_table(self, _):
         operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('planner user', planner_v1_0_user, client_factory=cf_user, is_experimental=True) as g:
+        g.custom_command('update', 'planner_user_update')
         g.custom_command('delete', 'planner_user_delete', confirmation=True)
-        g.custom_command('getr', 'planner_user_getr')
-        g.custom_command('updater', 'planner_user_updater')
+        g.custom_command('get', 'planner_user_get')
 
     from azext_planner_v1_0.generated._client_factory import cf_user_planner
     planner_v1_0_user_planner = CliCommandType(

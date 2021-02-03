@@ -1753,6 +1753,172 @@ helps['sites site-list delete'] = """
 helps['sites site-list create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for sites"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --actor-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['sites site-list create-column'] = """
@@ -2049,6 +2215,172 @@ helps['sites site-list list-subscription'] = """
 helps['sites site-list update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in sites"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --actor-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['sites site-list update-column'] = """
@@ -3009,6 +3341,172 @@ helps['sites site-list-activity-list-item delete'] = """
 helps['sites site-list-activity-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for sites"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --actor-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['sites site-list-activity-list-item create-link'] = """
@@ -3130,6 +3628,172 @@ helps['sites site-list-activity-list-item set-ref-analytic'] = """
 helps['sites site-list-activity-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in sites"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --actor-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['sites site-list-activity-list-item update-drive-item'] = """
@@ -3693,6 +4357,172 @@ helps['sites site-list-item delete'] = """
 helps['sites site-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for sites"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --actor-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['sites site-list-item create-link'] = """
@@ -3814,6 +4644,172 @@ helps['sites site-list-item set-ref-analytic'] = """
 helps['sites site-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in sites"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --list-item-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --list-item-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list-item-content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --list-item-content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --list-item-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX \
+device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-item-versions argument.
+      - name: --actor-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --actor-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --actor-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['sites site-list-item update-drive-item'] = """

@@ -2384,7 +2384,26 @@ class UserProfileOperations(object):
     def create_educational_activity(
         self,
         user_id,  # type: str
-        body,  # type: "models.MicrosoftGraphEducationalActivity"
+        id=None,  # type: Optional[str]
+        allowed_audiences=None,  # type: Optional[Union[str, "models.MicrosoftGraphAllowedAudiences"]]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        inference=None,  # type: Optional["models.MicrosoftGraphInferenceData"]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        source=None,  # type: Optional["models.MicrosoftGraphPersonDataSources"]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        completion_month_year=None,  # type: Optional[datetime.date]
+        end_month_year=None,  # type: Optional[datetime.date]
+        program=None,  # type: Optional["models.MicrosoftGraphEducationalActivityDetail"]
+        start_month_year=None,  # type: Optional[datetime.date]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        location=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
+        web_url=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphEducationalActivity"
@@ -2394,8 +2413,46 @@ class UserProfileOperations(object):
 
         :param user_id: key: id of user.
         :type user_id: str
-        :param body: New navigation property.
-        :type body: ~people.models.MicrosoftGraphEducationalActivity
+        :param id: Read-only.
+        :type id: str
+        :param allowed_audiences:
+        :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+        :param created_date_time:
+        :type created_date_time: ~datetime.datetime
+        :param inference: inferenceData.
+        :type inference: ~people.models.MicrosoftGraphInferenceData
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param source: personDataSources.
+        :type source: ~people.models.MicrosoftGraphPersonDataSources
+        :param application: identity.
+        :type application: ~people.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~people.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~people.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~people.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~people.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~people.models.MicrosoftGraphIdentity
+        :param completion_month_year:
+        :type completion_month_year: ~datetime.date
+        :param end_month_year:
+        :type end_month_year: ~datetime.date
+        :param program: educationalActivityDetail.
+        :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
+        :param start_month_year:
+        :type start_month_year: ~datetime.date
+        :param description:
+        :type description: str
+        :param display_name:
+        :type display_name: str
+        :param location: physicalAddress.
+        :type location: ~people.models.MicrosoftGraphPhysicalAddress
+        :param web_url:
+        :type web_url: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphEducationalActivity, or the result of cls(response)
         :rtype: ~people.models.MicrosoftGraphEducationalActivity
@@ -2404,6 +2461,8 @@ class UserProfileOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationalActivity"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEducationalActivity(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, completion_month_year=completion_month_year, end_month_year=end_month_year, program=program, start_month_year=start_month_year, description=description, display_name=display_name, location=location, web_url=web_url)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2424,7 +2483,7 @@ class UserProfileOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationalActivity')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationalActivity')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -2516,7 +2575,26 @@ class UserProfileOperations(object):
         self,
         user_id,  # type: str
         educational_activity_id,  # type: str
-        body,  # type: "models.MicrosoftGraphEducationalActivity"
+        id=None,  # type: Optional[str]
+        allowed_audiences=None,  # type: Optional[Union[str, "models.MicrosoftGraphAllowedAudiences"]]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        inference=None,  # type: Optional["models.MicrosoftGraphInferenceData"]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        source=None,  # type: Optional["models.MicrosoftGraphPersonDataSources"]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        completion_month_year=None,  # type: Optional[datetime.date]
+        end_month_year=None,  # type: Optional[datetime.date]
+        program=None,  # type: Optional["models.MicrosoftGraphEducationalActivityDetail"]
+        start_month_year=None,  # type: Optional[datetime.date]
+        description=None,  # type: Optional[str]
+        display_name=None,  # type: Optional[str]
+        location=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
+        web_url=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -2528,8 +2606,46 @@ class UserProfileOperations(object):
         :type user_id: str
         :param educational_activity_id: key: id of educationalActivity.
         :type educational_activity_id: str
-        :param body: New navigation property values.
-        :type body: ~people.models.MicrosoftGraphEducationalActivity
+        :param id: Read-only.
+        :type id: str
+        :param allowed_audiences:
+        :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+        :param created_date_time:
+        :type created_date_time: ~datetime.datetime
+        :param inference: inferenceData.
+        :type inference: ~people.models.MicrosoftGraphInferenceData
+        :param last_modified_date_time:
+        :type last_modified_date_time: ~datetime.datetime
+        :param source: personDataSources.
+        :type source: ~people.models.MicrosoftGraphPersonDataSources
+        :param application: identity.
+        :type application: ~people.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~people.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~people.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~people.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~people.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~people.models.MicrosoftGraphIdentity
+        :param completion_month_year:
+        :type completion_month_year: ~datetime.date
+        :param end_month_year:
+        :type end_month_year: ~datetime.date
+        :param program: educationalActivityDetail.
+        :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
+        :param start_month_year:
+        :type start_month_year: ~datetime.date
+        :param description:
+        :type description: str
+        :param display_name:
+        :type display_name: str
+        :param location: physicalAddress.
+        :type location: ~people.models.MicrosoftGraphPhysicalAddress
+        :param web_url:
+        :type web_url: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2538,6 +2654,8 @@ class UserProfileOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphEducationalActivity(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, completion_month_year=completion_month_year, end_month_year=end_month_year, program=program, start_month_year=start_month_year, description=description, display_name=display_name, location=location, web_url=web_url)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2558,7 +2676,7 @@ class UserProfileOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationalActivity')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationalActivity')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

@@ -21,6 +21,9 @@ from azext_reports_beta.action import (
     AddTargetResources,
     AddInitiatedByApp,
     AddInitiatedByUser,
+    AddInitiatedBy,
+    AddModifiedProperties,
+    AddServicePrincipal,
     AddAppliedConditionalAccessPolicies,
     AddAuthenticationDetails,
     AddAuthenticationProcessingDetails,
@@ -91,12 +94,72 @@ def load_arguments(self, _):
         c.argument('initiated_by_user', action=AddInitiatedByUser, nargs='*', help='userIdentity')
 
     with self.argument_context('reports audit-log create-directory-provisioning') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action', type=str, help='')
+        c.argument('activity_date_time', help='')
+        c.argument('change_id', type=str, help='')
+        c.argument('cycle_id', type=str, help='')
+        c.argument('duration_in_milliseconds', type=int, help='')
+        c.argument('initiated_by', action=AddInitiatedBy, nargs='*', help='initiator')
+        c.argument('job_id', type=str, help='')
+        c.argument('modified_properties', action=AddModifiedProperties, nargs='*', help='')
+        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('service_principal', action=AddServicePrincipal, nargs='*', help='provisioningServicePrincipal')
+        c.argument('tenant_id', type=str, help='')
+        c.argument('target_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
                    'json-string/@json-file.')
+        c.argument('target_system_display_name', type=str, help='')
+        c.argument('target_system_id', type=str, help='')
+        c.argument('target_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('target_identity_display_name', type=str, help='')
+        c.argument('target_identity_id', type=str, help='')
+        c.argument('target_identity_identity_type', type=str, help='')
+        c.argument('status_info_status', arg_type=get_enum_type(['success', 'failure', 'skipped',
+                                                                'unknownFutureValue']), help='')
+        c.argument('source_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_system_display_name', type=str, help='')
+        c.argument('source_system_id', type=str, help='')
+        c.argument('source_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_identity_display_name', type=str, help='')
+        c.argument('source_identity_id', type=str, help='')
+        c.argument('source_identity_identity_type', type=str, help='')
 
     with self.argument_context('reports audit-log create-provisioning') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action', type=str, help='')
+        c.argument('activity_date_time', help='')
+        c.argument('change_id', type=str, help='')
+        c.argument('cycle_id', type=str, help='')
+        c.argument('duration_in_milliseconds', type=int, help='')
+        c.argument('initiated_by', action=AddInitiatedBy, nargs='*', help='initiator')
+        c.argument('job_id', type=str, help='')
+        c.argument('modified_properties', action=AddModifiedProperties, nargs='*', help='')
+        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('service_principal', action=AddServicePrincipal, nargs='*', help='provisioningServicePrincipal')
+        c.argument('tenant_id', type=str, help='')
+        c.argument('target_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
                    'json-string/@json-file.')
+        c.argument('target_system_display_name', type=str, help='')
+        c.argument('target_system_id', type=str, help='')
+        c.argument('target_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('target_identity_display_name', type=str, help='')
+        c.argument('target_identity_id', type=str, help='')
+        c.argument('target_identity_identity_type', type=str, help='')
+        c.argument('status_info_status', arg_type=get_enum_type(['success', 'failure', 'skipped',
+                                                                'unknownFutureValue']), help='')
+        c.argument('source_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_system_display_name', type=str, help='')
+        c.argument('source_system_id', type=str, help='')
+        c.argument('source_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_identity_display_name', type=str, help='')
+        c.argument('source_identity_id', type=str, help='')
+        c.argument('source_identity_identity_type', type=str, help='')
 
     with self.argument_context('reports audit-log create-restricted-sign-in') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -330,13 +393,73 @@ def load_arguments(self, _):
 
     with self.argument_context('reports audit-log update-directory-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action', type=str, help='')
+        c.argument('activity_date_time', help='')
+        c.argument('change_id', type=str, help='')
+        c.argument('cycle_id', type=str, help='')
+        c.argument('duration_in_milliseconds', type=int, help='')
+        c.argument('initiated_by', action=AddInitiatedBy, nargs='*', help='initiator')
+        c.argument('job_id', type=str, help='')
+        c.argument('modified_properties', action=AddModifiedProperties, nargs='*', help='')
+        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('service_principal', action=AddServicePrincipal, nargs='*', help='provisioningServicePrincipal')
+        c.argument('tenant_id', type=str, help='')
+        c.argument('target_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
                    'json-string/@json-file.')
+        c.argument('target_system_display_name', type=str, help='')
+        c.argument('target_system_id', type=str, help='')
+        c.argument('target_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('target_identity_display_name', type=str, help='')
+        c.argument('target_identity_id', type=str, help='')
+        c.argument('target_identity_identity_type', type=str, help='')
+        c.argument('status_info_status', arg_type=get_enum_type(['success', 'failure', 'skipped',
+                                                                'unknownFutureValue']), help='')
+        c.argument('source_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_system_display_name', type=str, help='')
+        c.argument('source_system_id', type=str, help='')
+        c.argument('source_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_identity_display_name', type=str, help='')
+        c.argument('source_identity_id', type=str, help='')
+        c.argument('source_identity_identity_type', type=str, help='')
 
     with self.argument_context('reports audit-log update-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action', type=str, help='')
+        c.argument('activity_date_time', help='')
+        c.argument('change_id', type=str, help='')
+        c.argument('cycle_id', type=str, help='')
+        c.argument('duration_in_milliseconds', type=int, help='')
+        c.argument('initiated_by', action=AddInitiatedBy, nargs='*', help='initiator')
+        c.argument('job_id', type=str, help='')
+        c.argument('modified_properties', action=AddModifiedProperties, nargs='*', help='')
+        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('service_principal', action=AddServicePrincipal, nargs='*', help='provisioningServicePrincipal')
+        c.argument('tenant_id', type=str, help='')
+        c.argument('target_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
                    'json-string/@json-file.')
+        c.argument('target_system_display_name', type=str, help='')
+        c.argument('target_system_id', type=str, help='')
+        c.argument('target_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('target_identity_display_name', type=str, help='')
+        c.argument('target_identity_id', type=str, help='')
+        c.argument('target_identity_identity_type', type=str, help='')
+        c.argument('status_info_status', arg_type=get_enum_type(['success', 'failure', 'skipped',
+                                                                'unknownFutureValue']), help='')
+        c.argument('source_system_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_system_display_name', type=str, help='')
+        c.argument('source_system_id', type=str, help='')
+        c.argument('source_identity_details', type=validate_file_or_dict, help='detailsInfo Expected value: '
+                   'json-string/@json-file.')
+        c.argument('source_identity_display_name', type=str, help='')
+        c.argument('source_identity_id', type=str, help='')
+        c.argument('source_identity_identity_type', type=str, help='')
 
     with self.argument_context('reports audit-log update-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')

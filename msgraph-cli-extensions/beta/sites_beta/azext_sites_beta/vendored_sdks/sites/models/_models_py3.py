@@ -9902,26 +9902,148 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param action: itemActionSet.
-    :type action: ~sites.models.MicrosoftGraphItemActionSet
-    :param actor: identitySet.
-    :type actor: ~sites.models.MicrosoftGraphIdentitySet
     :param times: itemActivityTimeSet.
     :type times: ~sites.models.MicrosoftGraphItemActivityTimeSet
     :param drive_item: driveItem.
     :type drive_item: ~sites.models.MicrosoftGraphDriveItem
-    :param list_item: listItem.
-    :type list_item: ~sites.models.MicrosoftGraphListItem
+    :param id_list_item_id: Read-only.
+    :type id_list_item_id: str
+    :param created_date_time: Date and time of item creation. Read-only.
+    :type created_date_time: ~datetime.datetime
+    :param description: Provides a user-visible description of the item. Optional.
+    :type description: str
+    :param e_tag: ETag for the item. Read-only.
+    :type e_tag: str
+    :param last_modified_date_time: Date and time the item was last modified. Read-only.
+    :type last_modified_date_time: ~datetime.datetime
+    :param name_list_item_name: The name of the item. Read-write.
+    :type name_list_item_name: str
+    :param web_url: URL that displays the resource in the browser. Read-only.
+    :type web_url: str
+    :param created_by_user: Represents an Azure Active Directory user object.
+    :type created_by_user: ~sites.models.MicrosoftGraphUser
+    :param last_modified_by_user: Represents an Azure Active Directory user object.
+    :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
+    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
+    :type drive_id: str
+    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
+    :type drive_type: str
+    :param id_list_item_parent_reference_id: Unique identifier of the item in the drive. Read-only.
+    :type id_list_item_parent_reference_id: str
+    :param name_list_item_parent_reference_name: The name of the item being referenced. Read-only.
+    :type name_list_item_parent_reference_name: str
+    :param path: Path that can be used to navigate to the item. Read-only.
+    :type path: str
+    :param share_id: A unique identifier for a shared resource that can be accessed via the
+     [Shares][] API.
+    :type share_id: str
+    :param sharepoint_ids_list_item_parent_reference_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_list_item_parent_reference_sharepoint_ids:
+     ~sites.models.MicrosoftGraphSharepointIds
+    :param site_id:
+    :type site_id: str
+    :param application_list_item_last_modified_by_application: identity.
+    :type application_list_item_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
+    :param device_list_item_last_modified_by_device: identity.
+    :type device_list_item_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
+    :param user_list_item_last_modified_by_user: identity.
+    :type user_list_item_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
+    :param application_list_item_created_by_application: identity.
+    :type application_list_item_created_by_application: ~sites.models.MicrosoftGraphIdentity
+    :param device_list_item_created_by_device: identity.
+    :type device_list_item_created_by_device: ~sites.models.MicrosoftGraphIdentity
+    :param user_list_item_created_by_user: identity.
+    :type user_list_item_created_by_user: ~sites.models.MicrosoftGraphIdentity
+    :param content_type: contentTypeInfo.
+    :type content_type: ~sites.models.MicrosoftGraphContentTypeInfo
+    :param sharepoint_ids_list_item_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_list_item_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+    :param activities: The list of recent activities that took place on this item.
+    :type activities: list[~sites.models.MicrosoftGraphItemActivityOld]
+    :param analytics: itemAnalytics.
+    :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
+    :param drive_item_list_item_drive_item: driveItem.
+    :type drive_item_list_item_drive_item: ~sites.models.MicrosoftGraphDriveItem
+    :param versions: The list of previous versions of the list item.
+    :type versions: list[~sites.models.MicrosoftGraphListItemVersion]
+    :param id_list_item_fields_id: Read-only.
+    :type id_list_item_fields_id: str
+    :param application_actor_application: identity.
+    :type application_actor_application: ~sites.models.MicrosoftGraphIdentity
+    :param device_actor_device: identity.
+    :type device_actor_device: ~sites.models.MicrosoftGraphIdentity
+    :param user_actor_user: identity.
+    :type user_actor_user: ~sites.models.MicrosoftGraphIdentity
+    :param comment: commentAction.
+    :type comment: ~sites.models.MicrosoftGraphCommentAction
+    :param create: createAction.
+    :type create: dict[str, object]
+    :param delete: deleteAction.
+    :type delete: ~sites.models.MicrosoftGraphDeleteAction
+    :param edit: editAction.
+    :type edit: dict[str, object]
+    :param mention: mentionAction.
+    :type mention: ~sites.models.MicrosoftGraphMentionAction
+    :param move: moveAction.
+    :type move: ~sites.models.MicrosoftGraphMoveAction
+    :param rename: renameAction.
+    :type rename: ~sites.models.MicrosoftGraphRenameAction
+    :param restore: restoreAction.
+    :type restore: dict[str, object]
+    :param share: shareAction.
+    :type share: ~sites.models.MicrosoftGraphShareAction
+    :param version: versionAction.
+    :type version: ~sites.models.MicrosoftGraphVersionAction
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'action': {'key': 'action', 'type': 'MicrosoftGraphItemActionSet'},
-        'actor': {'key': 'actor', 'type': 'MicrosoftGraphIdentitySet'},
         'times': {'key': 'times', 'type': 'MicrosoftGraphItemActivityTimeSet'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
-        'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
+        'id_list_item_id': {'key': 'listItem.id', 'type': 'str'},
+        'created_date_time': {'key': 'listItem.createdDateTime', 'type': 'iso-8601'},
+        'description': {'key': 'listItem.description', 'type': 'str'},
+        'e_tag': {'key': 'listItem.eTag', 'type': 'str'},
+        'last_modified_date_time': {'key': 'listItem.lastModifiedDateTime', 'type': 'iso-8601'},
+        'name_list_item_name': {'key': 'listItem.name', 'type': 'str'},
+        'web_url': {'key': 'listItem.webUrl', 'type': 'str'},
+        'created_by_user': {'key': 'listItem.createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'listItem.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
+        'drive_id': {'key': 'listItem.parentReference.driveId', 'type': 'str'},
+        'drive_type': {'key': 'listItem.parentReference.driveType', 'type': 'str'},
+        'id_list_item_parent_reference_id': {'key': 'listItem.parentReference.id', 'type': 'str'},
+        'name_list_item_parent_reference_name': {'key': 'listItem.parentReference.name', 'type': 'str'},
+        'path': {'key': 'listItem.parentReference.path', 'type': 'str'},
+        'share_id': {'key': 'listItem.parentReference.shareId', 'type': 'str'},
+        'sharepoint_ids_list_item_parent_reference_sharepoint_ids': {'key': 'listItem.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_id': {'key': 'listItem.parentReference.siteId', 'type': 'str'},
+        'application_list_item_last_modified_by_application': {'key': 'listItem.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_list_item_last_modified_by_device': {'key': 'listItem.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'application_list_item_created_by_application': {'key': 'listItem.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_list_item_created_by_device': {'key': 'listItem.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_list_item_created_by_user': {'key': 'listItem.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'content_type': {'key': 'listItem.contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
+        'sharepoint_ids_list_item_sharepoint_ids': {'key': 'listItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'activities': {'key': 'listItem.activities', 'type': '[MicrosoftGraphItemActivityOld]'},
+        'analytics': {'key': 'listItem.analytics', 'type': 'MicrosoftGraphItemAnalytics'},
+        'drive_item_list_item_drive_item': {'key': 'listItem.driveItem', 'type': 'MicrosoftGraphDriveItem'},
+        'versions': {'key': 'listItem.versions', 'type': '[MicrosoftGraphListItemVersion]'},
+        'id_list_item_fields_id': {'key': 'listItem.fields.id', 'type': 'str'},
+        'application_actor_application': {'key': 'actor.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_actor_device': {'key': 'actor.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_actor_user': {'key': 'actor.user', 'type': 'MicrosoftGraphIdentity'},
+        'comment': {'key': 'action.comment', 'type': 'MicrosoftGraphCommentAction'},
+        'create': {'key': 'action.create', 'type': '{object}'},
+        'delete': {'key': 'action.delete', 'type': 'MicrosoftGraphDeleteAction'},
+        'edit': {'key': 'action.edit', 'type': '{object}'},
+        'mention': {'key': 'action.mention', 'type': 'MicrosoftGraphMentionAction'},
+        'move': {'key': 'action.move', 'type': 'MicrosoftGraphMoveAction'},
+        'rename': {'key': 'action.rename', 'type': 'MicrosoftGraphRenameAction'},
+        'restore': {'key': 'action.restore', 'type': '{object}'},
+        'share': {'key': 'action.share', 'type': 'MicrosoftGraphShareAction'},
+        'version': {'key': 'action.version', 'type': 'MicrosoftGraphVersionAction'},
     }
 
     def __init__(
@@ -9929,20 +10051,100 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        action: Optional["MicrosoftGraphItemActionSet"] = None,
-        actor: Optional["MicrosoftGraphIdentitySet"] = None,
         times: Optional["MicrosoftGraphItemActivityTimeSet"] = None,
         drive_item: Optional["MicrosoftGraphDriveItem"] = None,
-        list_item: Optional["MicrosoftGraphListItem"] = None,
+        id_list_item_id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        description: Optional[str] = None,
+        e_tag: Optional[str] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        name_list_item_name: Optional[str] = None,
+        web_url: Optional[str] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
+        drive_id: Optional[str] = None,
+        drive_type: Optional[str] = None,
+        id_list_item_parent_reference_id: Optional[str] = None,
+        name_list_item_parent_reference_name: Optional[str] = None,
+        path: Optional[str] = None,
+        share_id: Optional[str] = None,
+        sharepoint_ids_list_item_parent_reference_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        site_id: Optional[str] = None,
+        application_list_item_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_list_item_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_list_item_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
+        application_list_item_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_list_item_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_list_item_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
+        content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
+        sharepoint_ids_list_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
+        analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
+        drive_item_list_item_drive_item: Optional["MicrosoftGraphDriveItem"] = None,
+        versions: Optional[List["MicrosoftGraphListItemVersion"]] = None,
+        id_list_item_fields_id: Optional[str] = None,
+        application_actor_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_actor_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_actor_user: Optional["MicrosoftGraphIdentity"] = None,
+        comment: Optional["MicrosoftGraphCommentAction"] = None,
+        create: Optional[Dict[str, object]] = None,
+        delete: Optional["MicrosoftGraphDeleteAction"] = None,
+        edit: Optional[Dict[str, object]] = None,
+        mention: Optional["MicrosoftGraphMentionAction"] = None,
+        move: Optional["MicrosoftGraphMoveAction"] = None,
+        rename: Optional["MicrosoftGraphRenameAction"] = None,
+        restore: Optional[Dict[str, object]] = None,
+        share: Optional["MicrosoftGraphShareAction"] = None,
+        version: Optional["MicrosoftGraphVersionAction"] = None,
         **kwargs
     ):
         super(MicrosoftGraphItemActivityOld, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.action = action
-        self.actor = actor
         self.times = times
         self.drive_item = drive_item
-        self.list_item = list_item
+        self.id_list_item_id = id_list_item_id
+        self.created_date_time = created_date_time
+        self.description = description
+        self.e_tag = e_tag
+        self.last_modified_date_time = last_modified_date_time
+        self.name_list_item_name = name_list_item_name
+        self.web_url = web_url
+        self.created_by_user = created_by_user
+        self.last_modified_by_user = last_modified_by_user
+        self.drive_id = drive_id
+        self.drive_type = drive_type
+        self.id_list_item_parent_reference_id = id_list_item_parent_reference_id
+        self.name_list_item_parent_reference_name = name_list_item_parent_reference_name
+        self.path = path
+        self.share_id = share_id
+        self.sharepoint_ids_list_item_parent_reference_sharepoint_ids = sharepoint_ids_list_item_parent_reference_sharepoint_ids
+        self.site_id = site_id
+        self.application_list_item_last_modified_by_application = application_list_item_last_modified_by_application
+        self.device_list_item_last_modified_by_device = device_list_item_last_modified_by_device
+        self.user_list_item_last_modified_by_user = user_list_item_last_modified_by_user
+        self.application_list_item_created_by_application = application_list_item_created_by_application
+        self.device_list_item_created_by_device = device_list_item_created_by_device
+        self.user_list_item_created_by_user = user_list_item_created_by_user
+        self.content_type = content_type
+        self.sharepoint_ids_list_item_sharepoint_ids = sharepoint_ids_list_item_sharepoint_ids
+        self.activities = activities
+        self.analytics = analytics
+        self.drive_item_list_item_drive_item = drive_item_list_item_drive_item
+        self.versions = versions
+        self.id_list_item_fields_id = id_list_item_fields_id
+        self.application_actor_application = application_actor_application
+        self.device_actor_device = device_actor_device
+        self.user_actor_user = user_actor_user
+        self.comment = comment
+        self.create = create
+        self.delete = delete
+        self.edit = edit
+        self.mention = mention
+        self.move = move
+        self.rename = rename
+        self.restore = restore
+        self.share = share
+        self.version = version
 
 
 class MicrosoftGraphItemActivityStat(MicrosoftGraphEntity):

@@ -14,6 +14,78 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
+class AddOwner(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.owner = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+        return d
+
+
+class AddCalendarGroupUpdateMultiValueExtendedProperties(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCalendarGroupUpdateMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'value':
+                d['value'] = v
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddCalendarGroupUpdateSingleValueExtendedProperties(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCalendarGroupUpdateSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'value':
+                d['value'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
 class AddBody(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -140,10 +212,10 @@ class AddExtensions(argparse._AppendAction):
         return d
 
 
-class AddCalendarGroupCreaterViewMultiValueExtendedProperties(argparse._AppendAction):
+class AddCalendarGroupCreateViewMultiValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCalendarGroupCreaterViewMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddCalendarGroupCreateViewMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -164,10 +236,10 @@ class AddCalendarGroupCreaterViewMultiValueExtendedProperties(argparse._AppendAc
         return d
 
 
-class AddCalendarGroupCreaterViewSingleValueExtendedProperties(argparse._AppendAction):
+class AddCalendarGroupCreateViewSingleValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCalendarGroupCreaterViewSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddCalendarGroupCreateViewSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -249,30 +321,6 @@ class AddRecurrenceRange(argparse.Action):
                 d['start_date'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
-        return d
-
-
-class AddOwner(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.organizer_email_address = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
         return d
 
 
@@ -361,52 +409,4 @@ class AddLocationCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
-        return d
-
-
-class AddCalendarGroupUpdaterMultiValueExtendedProperties(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCalendarGroupUpdaterMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'value':
-                d['value'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddCalendarGroupUpdaterSingleValueExtendedProperties(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCalendarGroupUpdaterSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'value':
-                d['value'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
         return d

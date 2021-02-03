@@ -10,18 +10,18 @@
 # pylint: disable=too-many-lines
 
 
-def compliance_compliance_compliance_gete(client,
-                                          select=None,
-                                          expand=None):
-    return client.get_compliance(select=select,
-                                 expand=expand)
-
-
-def compliance_compliance_compliance_updatee(client,
-                                             ediscovery_id=None,
-                                             ediscovery_cases=None):
+def compliance_compliance_update(client,
+                                 ediscovery_id=None,
+                                 ediscovery_cases=None):
     return client.update_compliance(id=ediscovery_id,
                                     cases=ediscovery_cases)
+
+
+def compliance_compliance_get(client,
+                              select=None,
+                              expand=None):
+    return client.get_compliance(select=select,
+                                 expand=expand)
 
 
 def compliance_compliance_delete(client,

@@ -35,14 +35,19 @@ from azext_sites_beta.action import (
     AddSitesSubscriptions,
     AddContentType,
     AddPublishingState,
-    AddSitesListsVersions,
+    AddTimes,
+    AddSitesSiteListActivityUpdateListItemVersions,
+    AddActionDelete,
+    AddActionMove,
+    AddActionRename,
+    AddActionVersion,
     AddAudio,
     AddFileSystemInfo,
     AddImage,
     AddPhoto,
     AddVideo,
     AddSitesListsActivitiesSubscriptions,
-    AddSitesListsActivitiesVersions,
+    AddSitesSiteListActivityUpdateDriveItemVersions,
     AddWorkbookApplication,
     AddWorkbookComments,
     AddWorkbookFunctions,
@@ -1140,8 +1145,76 @@ def load_arguments(self, _):
     with self.argument_context('sites site-list create-activity') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help=''
+                   'identity')
+        c.argument('list_item_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_created_by_application', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('list_item_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_activities', type=validate_file_or_dict, help='The list of recent activities that took '
+                   'place on this item. Expected value: json-string/@json-file.')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
+        c.argument('list_item_fields_id', type=str, help='Read-only.')
+        c.argument('actor_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', type=validate_file_or_dict, help='mentionAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', type=validate_file_or_dict, help='shareAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('sites site-list create-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -1250,8 +1323,8 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions of the '
-                   'list item.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The list of '
+                   'previous versions of the list item.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('sites site-list create-subscription') as c:
@@ -1385,8 +1458,76 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help=''
+                   'identity')
+        c.argument('list_item_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_created_by_application', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('list_item_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_activities', type=validate_file_or_dict, help='The list of recent activities that took '
+                   'place on this item. Expected value: json-string/@json-file.')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
+        c.argument('list_item_fields_id', type=str, help='Read-only.')
+        c.argument('actor_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', type=validate_file_or_dict, help='mentionAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', type=validate_file_or_dict, help='shareAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('sites site-list update-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -1560,8 +1701,8 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions of the '
-                   'list item.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The list of '
+                   'previous versions of the list item.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('sites site-list update-subscription') as c:
@@ -1710,8 +1851,9 @@ def load_arguments(self, _):
         c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
                    'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
                    'value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsActivitiesVersions, nargs='*', help='The list of previous versions '
-                   'of the item. For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateDriveItemVersions, nargs='*', help='The list of '
+                   'previous versions of the item. For more info, see [getting previous versions][]. Read-only. '
+                   'Nullable.')
         c.argument('list_item_id', type=str, help='Read-only.')
         c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('list_item_description', type=str,
@@ -1757,8 +1899,8 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
                    'json-string/@json-file.')
-        c.argument('list_item_versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions '
-                   'of the list item.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
         c.argument('list_item_fields_id', type=str, help='Read-only.')
         c.argument('workbook_id', type=str, help='Read-only.')
         c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
@@ -1870,8 +2012,8 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions of the '
-                   'list item.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The list of '
+                   'previous versions of the list item.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('sites site-list-activity-list-item delete') as c:
@@ -1886,8 +2028,76 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help=''
+                   'identity')
+        c.argument('list_item_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_created_by_application', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('list_item_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_activities', type=validate_file_or_dict, help='The list of recent activities that took '
+                   'place on this item. Expected value: json-string/@json-file.')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
+        c.argument('list_item_fields_id', type=str, help='Read-only.')
+        c.argument('actor_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', type=validate_file_or_dict, help='mentionAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', type=validate_file_or_dict, help='shareAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('sites site-list-activity-list-item create-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -2000,8 +2210,76 @@ def load_arguments(self, _):
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
         c.argument('item_activity_old_id1', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help=''
+                   'identity')
+        c.argument('list_item_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_created_by_application', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('list_item_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_activities', type=validate_file_or_dict, help='The list of recent activities that took '
+                   'place on this item. Expected value: json-string/@json-file.')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
+        c.argument('list_item_fields_id', type=str, help='Read-only.')
+        c.argument('actor_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', type=validate_file_or_dict, help='mentionAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', type=validate_file_or_dict, help='shareAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('sites site-list-activity-list-item update-drive-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -2066,8 +2344,9 @@ def load_arguments(self, _):
         c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
                    'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
                    'value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsActivitiesVersions, nargs='*', help='The list of previous versions '
-                   'of the item. For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateDriveItemVersions, nargs='*', help='The list of '
+                   'previous versions of the item. For more info, see [getting previous versions][]. Read-only. '
+                   'Nullable.')
         c.argument('list_item_id', type=str, help='Read-only.')
         c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('list_item_description', type=str,
@@ -2113,8 +2392,8 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
                    'json-string/@json-file.')
-        c.argument('list_item_versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions '
-                   'of the list item.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
         c.argument('list_item_fields_id', type=str, help='Read-only.')
         c.argument('workbook_id', type=str, help='Read-only.')
         c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
@@ -2281,8 +2560,76 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help=''
+                   'identity')
+        c.argument('list_item_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_created_by_application', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('list_item_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_activities', type=validate_file_or_dict, help='The list of recent activities that took '
+                   'place on this item. Expected value: json-string/@json-file.')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
+        c.argument('list_item_fields_id', type=str, help='Read-only.')
+        c.argument('actor_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', type=validate_file_or_dict, help='mentionAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', type=validate_file_or_dict, help='shareAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('sites site-list-item create-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -2395,8 +2742,76 @@ def load_arguments(self, _):
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help=''
+                   'identity')
+        c.argument('list_item_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_created_by_application', action=AddLastModifiedByApplication, nargs='*',
+                   help='identity')
+        c.argument('list_item_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_item_content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_activities', type=validate_file_or_dict, help='The list of recent activities that took '
+                   'place on this item. Expected value: json-string/@json-file.')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
+        c.argument('list_item_fields_id', type=str, help='Read-only.')
+        c.argument('actor_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('actor_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', type=validate_file_or_dict, help='mentionAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', type=validate_file_or_dict, help='shareAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('sites site-list-item update-drive-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -2461,8 +2876,9 @@ def load_arguments(self, _):
         c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
                    'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
                    'value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsActivitiesVersions, nargs='*', help='The list of previous versions '
-                   'of the item. For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateDriveItemVersions, nargs='*', help='The list of '
+                   'previous versions of the item. For more info, see [getting previous versions][]. Read-only. '
+                   'Nullable.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
         c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('list_item_description', type=str,
@@ -2508,8 +2924,8 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
                    'json-string/@json-file.')
-        c.argument('list_item_versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions '
-                   'of the list item.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
         c.argument('list_item_fields_id', type=str, help='Read-only.')
         c.argument('workbook_id', type=str, help='Read-only.')
         c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
@@ -2698,8 +3114,9 @@ def load_arguments(self, _):
         c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
                    'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
                    'value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsActivitiesVersions, nargs='*', help='The list of previous versions '
-                   'of the item. For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateDriveItemVersions, nargs='*', help='The list of '
+                   'previous versions of the item. For more info, see [getting previous versions][]. Read-only. '
+                   'Nullable.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
         c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('list_item_description', type=str,
@@ -2745,8 +3162,8 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
                    'json-string/@json-file.')
-        c.argument('list_item_versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions '
-                   'of the list item.')
+        c.argument('list_item_versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The '
+                   'list of previous versions of the list item.')
         c.argument('list_item_fields_id', type=str, help='Read-only.')
         c.argument('workbook_id', type=str, help='Read-only.')
         c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
@@ -2859,8 +3276,8 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddSitesListsVersions, nargs='*', help='The list of previous versions of the '
-                   'list item.')
+        c.argument('versions', action=AddSitesSiteListActivityUpdateListItemVersions, nargs='*', help='The list of '
+                   'previous versions of the list item.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('sites site-list-item-activity-list-item create-link') as c:

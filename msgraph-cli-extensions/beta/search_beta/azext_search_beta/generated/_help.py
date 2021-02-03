@@ -97,17 +97,17 @@ is-searchable=XX labels=XX name=XX type=XX
             Multiple actions can be specified by using more than one --schema-properties argument.
 """
 
-helps['search search-search-entity'] = """
+helps['search search-entity'] = """
     type: group
-    short-summary: search search-search-entity
+    short-summary: search search-entity
 """
 
-helps['search search-search-entity geth-entity'] = """
+helps['search search-entity get-entity'] = """
     type: command
     short-summary: "Get search"
 """
 
-helps['search search-search-entity updateh-entity'] = """
+helps['search search-entity update-entity'] = """
     type: command
     short-summary: "Update search"
 """

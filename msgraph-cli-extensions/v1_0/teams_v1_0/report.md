@@ -3396,7 +3396,29 @@ create-shift a teams team-schedule.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--scheduling-group-id**|string|ID of the scheduling group the shift is part of. Required.|scheduling_group_id|schedulingGroupId|
+|**--user-id**|string|ID of the user assigned to the shift. Required.|user_id|userId|
+|**--shared-shift-end-date-time**|date-time||end_date_time|endDateTime|
+|**--shared-shift-start-date-time**|date-time||start_date_time|startDateTime|
+|**--shared-shift-theme**|choice||theme|theme|
+|**--shared-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
+|**--shared-shift-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
+|**--shared-shift-notes**|string|The shift notes for the shiftItem.|notes|notes|
+|**--draft-shift-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
+|**--draft-shift-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
+|**--draft-shift-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
+|**--draft-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
+|**--draft-shift-display-name**|string|The shift label of the shiftItem.|display_name2|displayName|
+|**--draft-shift-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
 
 ### teams team-schedule create-swap-shift-change-request
 
@@ -4157,7 +4179,29 @@ update-shift a teams team-schedule.
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--shift-id**|string|key: id of shift|shift_id|shift-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--scheduling-group-id**|string|ID of the scheduling group the shift is part of. Required.|scheduling_group_id|schedulingGroupId|
+|**--user-id**|string|ID of the user assigned to the shift. Required.|user_id|userId|
+|**--shared-shift-end-date-time**|date-time||end_date_time|endDateTime|
+|**--shared-shift-start-date-time**|date-time||start_date_time|startDateTime|
+|**--shared-shift-theme**|choice||theme|theme|
+|**--shared-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
+|**--shared-shift-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
+|**--shared-shift-notes**|string|The shift notes for the shiftItem.|notes|notes|
+|**--draft-shift-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
+|**--draft-shift-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
+|**--draft-shift-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
+|**--draft-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
+|**--draft-shift-display-name**|string|The shift label of the shiftItem.|display_name2|displayName|
+|**--draft-shift-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
 
 ### teams team-schedule update-swap-shift-change-request
 

@@ -120,7 +120,17 @@ find-meeting-time a usersactions user.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--body**|object|Action parameters|body|body|
+|**--attendees**|array||attendees|attendees|
+|**--meeting-duration**|duration||meeting_duration|meetingDuration|
+|**--max-candidates**|integer||max_candidates|maxCandidates|
+|**--is-organizer-optional**|boolean||is_organizer_optional|isOrganizerOptional|
+|**--return-suggestion-reasons**|boolean||return_suggestion_reasons|returnSuggestionReasons|
+|**--minimum-attendee-percentage**|number||minimum_attendee_percentage|minimumAttendeePercentage|
+|**--time-constraint-activity-domain**|choice||activity_domain|activityDomain|
+|**--time-constraint-time-slots**|array||time_slots|timeSlots|
+|**--location-constraint-is-required**|boolean|The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations.|is_required|isRequired|
+|**--location-constraint-locations**|array|Constraint information for one or more locations that the client requests for the meeting.|locations|locations|
+|**--location-constraint-suggest-location**|boolean|The client requests the service to suggest one or more meeting locations.|suggest_location|suggestLocation|
 
 ### usersactions user get-available-extension-property
 

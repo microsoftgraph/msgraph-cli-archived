@@ -41,11 +41,11 @@ from azext_education_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('education education-education-root getn-root') as c:
+    with self.argument_context('education education-root get-root') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('education education-education-root updaten-root') as c:
+    with self.argument_context('education education-root update-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('synchronization_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')

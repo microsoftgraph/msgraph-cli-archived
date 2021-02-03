@@ -2895,9 +2895,33 @@ def usersactions_user_export_personal_data(client,
 
 def usersactions_user_find_meeting_time(client,
                                         user_id,
-                                        body):
+                                        attendees=None,
+                                        meeting_duration=None,
+                                        max_candidates=None,
+                                        is_organizer_optional=None,
+                                        return_suggestion_reasons=None,
+                                        minimum_attendee_percentage=None,
+                                        time_constraint_activity_domain=None,
+                                        time_constraint_time_slots=None,
+                                        location_constraint_is_required=None,
+                                        location_constraint_locations=None,
+                                        location_constraint_suggest_location=None):
+    if is_organizer_optional is None:
+        is_organizer_optional = False
+    if return_suggestion_reasons is None:
+        return_suggestion_reasons = False
     return client.find_meeting_time(user_id=user_id,
-                                    body=body)
+                                    attendees=attendees,
+                                    meeting_duration=meeting_duration,
+                                    max_candidates=max_candidates,
+                                    is_organizer_optional=is_organizer_optional,
+                                    return_suggestion_reasons=return_suggestion_reasons,
+                                    minimum_attendee_percentage=minimum_attendee_percentage,
+                                    activity_domain=time_constraint_activity_domain,
+                                    time_slots=time_constraint_time_slots,
+                                    is_required=location_constraint_is_required,
+                                    locations=location_constraint_locations,
+                                    suggest_location=location_constraint_suggest_location)
 
 
 def usersactions_user_get_available_extension_property(client,

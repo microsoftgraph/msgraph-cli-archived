@@ -154,7 +154,52 @@ class SiteListItemOperations(object):
         site_id,  # type: str
         list_id,  # type: str
         list_item_id,  # type: str
-        body,  # type: "models.MicrosoftGraphItemActivityOld"
+        id=None,  # type: Optional[str]
+        times=None,  # type: Optional["models.MicrosoftGraphItemActivityTimeSet"]
+        drive_item=None,  # type: Optional["models.MicrosoftGraphDriveItem"]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        e_tag=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        name=None,  # type: Optional[str]
+        web_url=None,  # type: Optional[str]
+        created_by_user=None,  # type: Optional["models.MicrosoftGraphUser"]
+        last_modified_by_user=None,  # type: Optional["models.MicrosoftGraphUser"]
+        drive_id=None,  # type: Optional[str]
+        drive_type=None,  # type: Optional[str]
+        microsoft_graph_item_reference_id=None,  # type: Optional[str]
+        microsoft_graph_item_reference_name=None,  # type: Optional[str]
+        path=None,  # type: Optional[str]
+        share_id=None,  # type: Optional[str]
+        sharepoint_ids=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        microsoft_graph_item_reference_site_id=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        content_type_parameter=None,  # type: Optional["models.MicrosoftGraphContentTypeInfo"]
+        microsoft_graph_sharepoint_ids=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        activities=None,  # type: Optional[List["models.MicrosoftGraphItemActivityOld"]]
+        analytics=None,  # type: Optional["models.MicrosoftGraphItemAnalytics"]
+        microsoft_graph_drive_item=None,  # type: Optional["models.MicrosoftGraphDriveItem"]
+        versions=None,  # type: Optional[List["models.MicrosoftGraphListItemVersion"]]
+        id1=None,  # type: Optional[str]
+        application1=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device1=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user1=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        comment=None,  # type: Optional["models.MicrosoftGraphCommentAction"]
+        create=None,  # type: Optional[Dict[str, object]]
+        delete=None,  # type: Optional["models.MicrosoftGraphDeleteAction"]
+        edit=None,  # type: Optional[Dict[str, object]]
+        mention=None,  # type: Optional["models.MicrosoftGraphMentionAction"]
+        move=None,  # type: Optional["models.MicrosoftGraphMoveAction"]
+        rename=None,  # type: Optional["models.MicrosoftGraphRenameAction"]
+        restore=None,  # type: Optional[Dict[str, object]]
+        share=None,  # type: Optional["models.MicrosoftGraphShareAction"]
+        version=None,  # type: Optional["models.MicrosoftGraphVersionAction"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphItemActivityOld"
@@ -168,8 +213,100 @@ class SiteListItemOperations(object):
         :type list_id: str
         :param list_item_id: key: id of listItem.
         :type list_item_id: str
-        :param body: New navigation property.
-        :type body: ~sites.models.MicrosoftGraphItemActivityOld
+        :param id: Read-only.
+        :type id: str
+        :param times: itemActivityTimeSet.
+        :type times: ~sites.models.MicrosoftGraphItemActivityTimeSet
+        :param drive_item: driveItem.
+        :type drive_item: ~sites.models.MicrosoftGraphDriveItem
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param created_date_time: Date and time of item creation. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param description: Provides a user-visible description of the item. Optional.
+        :type description: str
+        :param e_tag: ETag for the item. Read-only.
+        :type e_tag: str
+        :param last_modified_date_time: Date and time the item was last modified. Read-only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param name: The name of the item. Read-write.
+        :type name: str
+        :param web_url: URL that displays the resource in the browser. Read-only.
+        :type web_url: str
+        :param created_by_user: Represents an Azure Active Directory user object.
+        :type created_by_user: ~sites.models.MicrosoftGraphUser
+        :param last_modified_by_user: Represents an Azure Active Directory user object.
+        :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
+        :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
+        :type drive_id: str
+        :param drive_type: Identifies the type of drive. See [drive][] resource for values.
+        :type drive_type: str
+        :param microsoft_graph_item_reference_id: Unique identifier of the item in the drive. Read-
+         only.
+        :type microsoft_graph_item_reference_id: str
+        :param microsoft_graph_item_reference_name: The name of the item being referenced. Read-only.
+        :type microsoft_graph_item_reference_name: str
+        :param path: Path that can be used to navigate to the item. Read-only.
+        :type path: str
+        :param share_id: A unique identifier for a shared resource that can be accessed via the
+         [Shares][] API.
+        :type share_id: str
+        :param sharepoint_ids: sharepointIds.
+        :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+        :param microsoft_graph_item_reference_site_id:
+        :type microsoft_graph_item_reference_site_id: str
+        :param application: identity.
+        :type application: ~sites.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~sites.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~sites.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~sites.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~sites.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~sites.models.MicrosoftGraphIdentity
+        :param content_type_parameter: contentTypeInfo.
+        :type content_type_parameter: ~sites.models.MicrosoftGraphContentTypeInfo
+        :param microsoft_graph_sharepoint_ids: sharepointIds.
+        :type microsoft_graph_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+        :param activities: The list of recent activities that took place on this item.
+        :type activities: list[~sites.models.MicrosoftGraphItemActivityOld]
+        :param analytics: itemAnalytics.
+        :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
+        :param microsoft_graph_drive_item: driveItem.
+        :type microsoft_graph_drive_item: ~sites.models.MicrosoftGraphDriveItem
+        :param versions: The list of previous versions of the list item.
+        :type versions: list[~sites.models.MicrosoftGraphListItemVersion]
+        :param id1: Read-only.
+        :type id1: str
+        :param application1: identity.
+        :type application1: ~sites.models.MicrosoftGraphIdentity
+        :param device1: identity.
+        :type device1: ~sites.models.MicrosoftGraphIdentity
+        :param user1: identity.
+        :type user1: ~sites.models.MicrosoftGraphIdentity
+        :param comment: commentAction.
+        :type comment: ~sites.models.MicrosoftGraphCommentAction
+        :param create: createAction.
+        :type create: dict[str, object]
+        :param delete: deleteAction.
+        :type delete: ~sites.models.MicrosoftGraphDeleteAction
+        :param edit: editAction.
+        :type edit: dict[str, object]
+        :param mention: mentionAction.
+        :type mention: ~sites.models.MicrosoftGraphMentionAction
+        :param move: moveAction.
+        :type move: ~sites.models.MicrosoftGraphMoveAction
+        :param rename: renameAction.
+        :type rename: ~sites.models.MicrosoftGraphRenameAction
+        :param restore: restoreAction.
+        :type restore: dict[str, object]
+        :param share: shareAction.
+        :type share: ~sites.models.MicrosoftGraphShareAction
+        :param version: versionAction.
+        :type version: ~sites.models.MicrosoftGraphVersionAction
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphItemActivityOld, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphItemActivityOld
@@ -178,6 +315,8 @@ class SiteListItemOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItemActivityOld"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphItemActivityOld(id=id, times=times, drive_item=drive_item, id_list_item_id=microsoft_graph_entity_id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name_list_item_name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_list_item_parent_reference_id=microsoft_graph_item_reference_id, name_list_item_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids_list_item_parent_reference_sharepoint_ids=sharepoint_ids, site_id=microsoft_graph_item_reference_site_id, application_list_item_last_modified_by_application=application, device_list_item_last_modified_by_device=device, user_list_item_last_modified_by_user=user, application_list_item_created_by_application=microsoft_graph_identity_application, device_list_item_created_by_device=microsoft_graph_identity_device, user_list_item_created_by_user=microsoft_graph_identity_user, content_type=content_type_parameter, sharepoint_ids_list_item_sharepoint_ids=microsoft_graph_sharepoint_ids, activities=activities, analytics=analytics, drive_item_list_item_drive_item=microsoft_graph_drive_item, versions=versions, id_list_item_fields_id=id1, application_actor_application=application1, device_actor_device=device1, user_actor_user=user1, comment=comment, create=create, delete=delete, edit=edit, mention=mention, move=move, rename=rename, restore=restore, share=share, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -200,7 +339,7 @@ class SiteListItemOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphItemActivityOld')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphItemActivityOld')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -302,7 +441,52 @@ class SiteListItemOperations(object):
         list_id,  # type: str
         list_item_id,  # type: str
         item_activity_old_id,  # type: str
-        body,  # type: "models.MicrosoftGraphItemActivityOld"
+        id=None,  # type: Optional[str]
+        times=None,  # type: Optional["models.MicrosoftGraphItemActivityTimeSet"]
+        drive_item=None,  # type: Optional["models.MicrosoftGraphDriveItem"]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        description=None,  # type: Optional[str]
+        e_tag=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        name=None,  # type: Optional[str]
+        web_url=None,  # type: Optional[str]
+        created_by_user=None,  # type: Optional["models.MicrosoftGraphUser"]
+        last_modified_by_user=None,  # type: Optional["models.MicrosoftGraphUser"]
+        drive_id=None,  # type: Optional[str]
+        drive_type=None,  # type: Optional[str]
+        microsoft_graph_item_reference_id=None,  # type: Optional[str]
+        microsoft_graph_item_reference_name=None,  # type: Optional[str]
+        path=None,  # type: Optional[str]
+        share_id=None,  # type: Optional[str]
+        sharepoint_ids=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        microsoft_graph_item_reference_site_id=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        content_type_parameter=None,  # type: Optional["models.MicrosoftGraphContentTypeInfo"]
+        microsoft_graph_sharepoint_ids=None,  # type: Optional["models.MicrosoftGraphSharepointIds"]
+        activities=None,  # type: Optional[List["models.MicrosoftGraphItemActivityOld"]]
+        analytics=None,  # type: Optional["models.MicrosoftGraphItemAnalytics"]
+        microsoft_graph_drive_item=None,  # type: Optional["models.MicrosoftGraphDriveItem"]
+        versions=None,  # type: Optional[List["models.MicrosoftGraphListItemVersion"]]
+        id1=None,  # type: Optional[str]
+        application1=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device1=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user1=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        comment=None,  # type: Optional["models.MicrosoftGraphCommentAction"]
+        create=None,  # type: Optional[Dict[str, object]]
+        delete=None,  # type: Optional["models.MicrosoftGraphDeleteAction"]
+        edit=None,  # type: Optional[Dict[str, object]]
+        mention=None,  # type: Optional["models.MicrosoftGraphMentionAction"]
+        move=None,  # type: Optional["models.MicrosoftGraphMoveAction"]
+        rename=None,  # type: Optional["models.MicrosoftGraphRenameAction"]
+        restore=None,  # type: Optional[Dict[str, object]]
+        share=None,  # type: Optional["models.MicrosoftGraphShareAction"]
+        version=None,  # type: Optional["models.MicrosoftGraphVersionAction"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -318,8 +502,100 @@ class SiteListItemOperations(object):
         :type list_item_id: str
         :param item_activity_old_id: key: id of itemActivityOLD.
         :type item_activity_old_id: str
-        :param body: New navigation property values.
-        :type body: ~sites.models.MicrosoftGraphItemActivityOld
+        :param id: Read-only.
+        :type id: str
+        :param times: itemActivityTimeSet.
+        :type times: ~sites.models.MicrosoftGraphItemActivityTimeSet
+        :param drive_item: driveItem.
+        :type drive_item: ~sites.models.MicrosoftGraphDriveItem
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param created_date_time: Date and time of item creation. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param description: Provides a user-visible description of the item. Optional.
+        :type description: str
+        :param e_tag: ETag for the item. Read-only.
+        :type e_tag: str
+        :param last_modified_date_time: Date and time the item was last modified. Read-only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param name: The name of the item. Read-write.
+        :type name: str
+        :param web_url: URL that displays the resource in the browser. Read-only.
+        :type web_url: str
+        :param created_by_user: Represents an Azure Active Directory user object.
+        :type created_by_user: ~sites.models.MicrosoftGraphUser
+        :param last_modified_by_user: Represents an Azure Active Directory user object.
+        :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
+        :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
+        :type drive_id: str
+        :param drive_type: Identifies the type of drive. See [drive][] resource for values.
+        :type drive_type: str
+        :param microsoft_graph_item_reference_id: Unique identifier of the item in the drive. Read-
+         only.
+        :type microsoft_graph_item_reference_id: str
+        :param microsoft_graph_item_reference_name: The name of the item being referenced. Read-only.
+        :type microsoft_graph_item_reference_name: str
+        :param path: Path that can be used to navigate to the item. Read-only.
+        :type path: str
+        :param share_id: A unique identifier for a shared resource that can be accessed via the
+         [Shares][] API.
+        :type share_id: str
+        :param sharepoint_ids: sharepointIds.
+        :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+        :param microsoft_graph_item_reference_site_id:
+        :type microsoft_graph_item_reference_site_id: str
+        :param application: identity.
+        :type application: ~sites.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~sites.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~sites.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~sites.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~sites.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~sites.models.MicrosoftGraphIdentity
+        :param content_type_parameter: contentTypeInfo.
+        :type content_type_parameter: ~sites.models.MicrosoftGraphContentTypeInfo
+        :param microsoft_graph_sharepoint_ids: sharepointIds.
+        :type microsoft_graph_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+        :param activities: The list of recent activities that took place on this item.
+        :type activities: list[~sites.models.MicrosoftGraphItemActivityOld]
+        :param analytics: itemAnalytics.
+        :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
+        :param microsoft_graph_drive_item: driveItem.
+        :type microsoft_graph_drive_item: ~sites.models.MicrosoftGraphDriveItem
+        :param versions: The list of previous versions of the list item.
+        :type versions: list[~sites.models.MicrosoftGraphListItemVersion]
+        :param id1: Read-only.
+        :type id1: str
+        :param application1: identity.
+        :type application1: ~sites.models.MicrosoftGraphIdentity
+        :param device1: identity.
+        :type device1: ~sites.models.MicrosoftGraphIdentity
+        :param user1: identity.
+        :type user1: ~sites.models.MicrosoftGraphIdentity
+        :param comment: commentAction.
+        :type comment: ~sites.models.MicrosoftGraphCommentAction
+        :param create: createAction.
+        :type create: dict[str, object]
+        :param delete: deleteAction.
+        :type delete: ~sites.models.MicrosoftGraphDeleteAction
+        :param edit: editAction.
+        :type edit: dict[str, object]
+        :param mention: mentionAction.
+        :type mention: ~sites.models.MicrosoftGraphMentionAction
+        :param move: moveAction.
+        :type move: ~sites.models.MicrosoftGraphMoveAction
+        :param rename: renameAction.
+        :type rename: ~sites.models.MicrosoftGraphRenameAction
+        :param restore: restoreAction.
+        :type restore: dict[str, object]
+        :param share: shareAction.
+        :type share: ~sites.models.MicrosoftGraphShareAction
+        :param version: versionAction.
+        :type version: ~sites.models.MicrosoftGraphVersionAction
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -328,6 +604,8 @@ class SiteListItemOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphItemActivityOld(id=id, times=times, drive_item=drive_item, id_list_item_id=microsoft_graph_entity_id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name_list_item_name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_list_item_parent_reference_id=microsoft_graph_item_reference_id, name_list_item_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids_list_item_parent_reference_sharepoint_ids=sharepoint_ids, site_id=microsoft_graph_item_reference_site_id, application_list_item_last_modified_by_application=application, device_list_item_last_modified_by_device=device, user_list_item_last_modified_by_user=user, application_list_item_created_by_application=microsoft_graph_identity_application, device_list_item_created_by_device=microsoft_graph_identity_device, user_list_item_created_by_user=microsoft_graph_identity_user, content_type=content_type_parameter, sharepoint_ids_list_item_sharepoint_ids=microsoft_graph_sharepoint_ids, activities=activities, analytics=analytics, drive_item_list_item_drive_item=microsoft_graph_drive_item, versions=versions, id_list_item_fields_id=id1, application_actor_application=application1, device_actor_device=device1, user_actor_user=user1, comment=comment, create=create, delete=delete, edit=edit, mention=mention, move=move, rename=rename, restore=restore, share=share, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -350,7 +628,7 @@ class SiteListItemOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphItemActivityOld')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphItemActivityOld')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

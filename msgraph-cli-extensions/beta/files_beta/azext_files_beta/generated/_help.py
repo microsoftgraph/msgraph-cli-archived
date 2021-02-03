@@ -40,60 +40,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -122,60 +68,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -252,33 +144,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-drive get-drive'] = """
@@ -309,60 +174,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -391,60 +202,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -521,33 +278,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive'] = """
@@ -563,6 +293,53 @@ helps['files drive delete'] = """
 helps['files drive create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive create-bundle'] = """
@@ -583,60 +360,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -786,16 +509,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -823,6 +557,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -840,6 +628,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -927,60 +733,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -1130,16 +882,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -1167,6 +930,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -1184,6 +1001,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -1271,60 +1106,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -1474,16 +1255,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -1511,6 +1303,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -1528,6 +1374,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -1615,60 +1479,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -1818,16 +1628,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -1855,6 +1676,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -1872,6 +1747,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -2069,6 +1962,53 @@ helps['files drive shared-with-me'] = """
 helps['files drive update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive update-bundle'] = """
@@ -2089,60 +2029,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -2292,16 +2178,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -2329,6 +2226,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -2346,6 +2297,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -2433,60 +2402,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -2636,16 +2551,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -2673,6 +2599,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -2690,6 +2670,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -2777,60 +2775,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -2980,16 +2924,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -3017,6 +2972,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -3034,6 +3043,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -3121,60 +3148,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list
         short-summary: "listInfo"
         long-summary: |
@@ -3265,60 +3238,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -3468,16 +3387,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -3505,6 +3435,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -3522,6 +3506,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -3609,60 +3611,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -3812,16 +3760,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -3849,6 +3808,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -3866,6 +3879,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -3983,60 +4014,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -4186,16 +4163,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -4223,6 +4211,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -4240,6 +4282,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -4327,60 +4387,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -4405,15 +4411,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -4432,6 +4449,53 @@ helps['files drive-activity-list-item delete'] = """
 helps['files drive-activity-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-activity-list-item create-link'] = """
@@ -4461,33 +4525,6 @@ helps['files drive-activity-list-item create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-activity-list-item get-activity'] = """
@@ -4553,6 +4590,53 @@ helps['files drive-activity-list-item set-ref-analytic'] = """
 helps['files drive-activity-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-activity-list-item update-drive-item'] = """
@@ -4573,60 +4657,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -4776,16 +4806,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -4813,6 +4854,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -4830,6 +4925,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -4915,33 +5028,6 @@ helps['files drive-activity-list-item update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-activity-list-item-version'] = """
@@ -4982,6 +5068,53 @@ helps['files drive-list delete'] = """
 helps['files drive-list create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-list create-column'] = """
@@ -5123,60 +5256,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -5201,15 +5280,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -5278,6 +5368,53 @@ helps['files drive-list list-subscription'] = """
 helps['files drive-list update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-list update-column'] = """
@@ -5419,60 +5556,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -5501,60 +5584,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -5631,33 +5660,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-list update-item'] = """
@@ -5678,60 +5680,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -5756,15 +5704,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -5823,60 +5782,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -6026,16 +5931,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -6063,6 +5979,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -6080,6 +6050,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -6167,60 +6155,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -6245,15 +6179,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -6272,6 +6217,53 @@ helps['files drive-list-activity-list-item delete'] = """
 helps['files drive-list-activity-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-list-activity-list-item create-link'] = """
@@ -6301,33 +6293,6 @@ helps['files drive-list-activity-list-item create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-list-activity-list-item get-activity'] = """
@@ -6393,6 +6358,53 @@ helps['files drive-list-activity-list-item set-ref-analytic'] = """
 helps['files drive-list-activity-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-list-activity-list-item update-drive-item'] = """
@@ -6413,60 +6425,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -6616,16 +6574,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -6653,6 +6622,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -6670,6 +6693,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -6755,33 +6796,6 @@ helps['files drive-list-activity-list-item update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-list-activity-list-item-version'] = """
@@ -6852,6 +6866,53 @@ helps['files drive-list-item delete'] = """
 helps['files drive-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-list-item create-link'] = """
@@ -6881,33 +6942,6 @@ helps['files drive-list-item create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-list-item get-activity'] = """
@@ -6973,6 +7007,53 @@ helps['files drive-list-item set-ref-analytic'] = """
 helps['files drive-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in drives"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files drive-list-item update-drive-item'] = """
@@ -6993,60 +7074,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -7196,16 +7223,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -7233,6 +7271,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -7250,6 +7342,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -7335,33 +7445,6 @@ helps['files drive-list-item update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files drive-list-item-activity'] = """
@@ -7412,60 +7495,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -7615,16 +7644,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -7652,6 +7692,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -7669,6 +7763,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -7756,60 +7868,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -7834,15 +7892,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -7927,60 +7996,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -8009,60 +8024,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -8139,33 +8100,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files group get-drive'] = """
@@ -8196,60 +8130,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -8278,60 +8158,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -8408,33 +8234,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-shared-drive-item'] = """
@@ -8450,6 +8249,167 @@ helps['files share-shared-drive-item delete'] = """
 helps['files share-shared-drive-item create-shared-drive-item'] = """
     type: command
     short-summary: "Add new entity to shares"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --permission-granted-to-identities
+        short-summary: "For link type permissions, the details of the users to whom permission was granted. \
+Read-only."
+        long-summary: |
+            Usage: --permission-granted-to-identities display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+
+            Multiple actions can be specified by using more than one --permission-granted-to-identities argument.
+      - name: --permission-link-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --permission-link-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --permission-invitation-invited-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --permission-invitation-invited-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --permission-inherited-from-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --permission-inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-list
+        short-summary: "listInfo"
+        long-summary: |
+            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+
+            content-types-enabled: If true, indicates that content types are enabled for this list.
+            hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
+            template: An enumerated value that represents the base list template used in creating the list. Possible \
+values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+      - name: --list-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-subscriptions
+        short-summary: "The set of subscriptions on the list."
+        long-summary: |
+            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-subscriptions argument.
 """
 
 helps['files share-shared-drive-item get-shared-drive-item'] = """
@@ -8465,6 +8425,167 @@ helps['files share-shared-drive-item list-shared-drive-item'] = """
 helps['files share-shared-drive-item update-shared-drive-item'] = """
     type: command
     short-summary: "Update entity in shares"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --permission-granted-to-identities
+        short-summary: "For link type permissions, the details of the users to whom permission was granted. \
+Read-only."
+        long-summary: |
+            Usage: --permission-granted-to-identities display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+
+            Multiple actions can be specified by using more than one --permission-granted-to-identities argument.
+      - name: --permission-link-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --permission-link-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --permission-invitation-invited-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --permission-invitation-invited-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --permission-inherited-from-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --permission-inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
+site-id=XX site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-list
+        short-summary: "listInfo"
+        long-summary: |
+            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+
+            content-types-enabled: If true, indicates that content types are enabled for this list.
+            hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
+            template: An enumerated value that represents the base list template used in creating the list. Possible \
+values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+      - name: --list-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --list-subscriptions
+        short-summary: "The set of subscriptions on the list."
+        long-summary: |
+            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --list-subscriptions argument.
 """
 
 helps['files share'] = """
@@ -8495,60 +8616,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -8698,16 +8765,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -8735,6 +8813,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -8752,6 +8884,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -8909,60 +9059,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -9112,16 +9208,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -9149,6 +9256,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -9166,6 +9327,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -9253,60 +9432,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -9456,16 +9581,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -9493,6 +9629,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -9510,6 +9700,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -9597,60 +9805,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list
         short-summary: "listInfo"
         long-summary: |
@@ -9741,60 +9895,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -9819,15 +9919,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -9836,6 +9947,69 @@ user=XX id=XX
 helps['files share update-permission'] = """
     type: command
     short-summary: "Update the navigation property permission in shares"
+    parameters:
+      - name: --granted-to-identities
+        short-summary: "For link type permissions, the details of the users to whom permission was granted. \
+Read-only."
+        long-summary: |
+            Usage: --granted-to-identities display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+
+            Multiple actions can be specified by using more than one --granted-to-identities argument.
+      - name: --link-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --link-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --invitation-invited-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --invitation-invited-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --inherited-from-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
 helps['files share update-root'] = """
@@ -9856,60 +10030,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -10059,16 +10179,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -10096,6 +10227,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -10113,6 +10298,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -10200,60 +10403,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -10295,6 +10444,53 @@ helps['files share-list delete'] = """
 helps['files share-list create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list create-column'] = """
@@ -10436,60 +10632,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -10514,15 +10656,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -10591,6 +10744,53 @@ helps['files share-list list-subscription'] = """
 helps['files share-list update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list update-column'] = """
@@ -10732,60 +10932,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -10814,60 +10960,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -10944,33 +11036,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list update-item'] = """
@@ -10991,60 +11056,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -11069,15 +11080,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -11136,60 +11158,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -11339,16 +11307,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -11376,6 +11355,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -11393,6 +11426,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -11480,60 +11531,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -11558,15 +11555,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -11585,6 +11593,53 @@ helps['files share-list-activity-list-item delete'] = """
 helps['files share-list-activity-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list-activity-list-item create-link'] = """
@@ -11614,33 +11669,6 @@ helps['files share-list-activity-list-item create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list-activity-list-item get-activity'] = """
@@ -11706,6 +11734,53 @@ helps['files share-list-activity-list-item set-ref-analytic'] = """
 helps['files share-list-activity-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list-activity-list-item update-drive-item'] = """
@@ -11726,60 +11801,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -11929,16 +11950,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -11966,6 +11998,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -11983,6 +12069,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -12068,33 +12172,6 @@ helps['files share-list-activity-list-item update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list-activity-list-item-version'] = """
@@ -12165,6 +12242,53 @@ helps['files share-list-item delete'] = """
 helps['files share-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list-item create-link'] = """
@@ -12194,33 +12318,6 @@ helps['files share-list-item create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list-item get-activity'] = """
@@ -12286,6 +12383,53 @@ helps['files share-list-item set-ref-analytic'] = """
 helps['files share-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list-item update-drive-item'] = """
@@ -12306,60 +12450,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -12509,16 +12599,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -12546,6 +12647,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -12563,6 +12718,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -12648,33 +12821,6 @@ helps['files share-list-item update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list-item-activity'] = """
@@ -12725,60 +12871,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -12928,16 +13020,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -12965,6 +13068,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -12982,6 +13139,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -13069,60 +13244,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -13147,15 +13268,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -13225,6 +13357,53 @@ helps['files share-list-item delete'] = """
 helps['files share-list-item create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list-item create-link'] = """
@@ -13254,33 +13433,6 @@ helps['files share-list-item create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list-item get-activity'] = """
@@ -13346,6 +13498,53 @@ helps['files share-list-item set-ref-analytic'] = """
 helps['files share-list-item update-activity'] = """
     type: command
     short-summary: "Update the navigation property activities in shares"
+    parameters:
+      - name: --times
+        short-summary: "itemActivityTimeSet"
+        long-summary: |
+            Usage: --times last-recorded-date-time=XX observed-date-time=XX recorded-date-time=XX
+
+            observed-date-time: When the activity was observed to take place.
+            recorded-date-time: When the observation was recorded on the service.
+      - name: --action-delete
+        short-summary: "deleteAction"
+        long-summary: |
+            Usage: --action-delete name=XX object-type=XX
+
+            name: The name of the item that was deleted.
+            object-type: File or Folder, depending on the type of the deleted item.
+      - name: --action-mention
+        short-summary: "mentionAction"
+        long-summary: |
+            Usage: --action-mention mentionees=XX
+
+            mentionees: The identities of the users mentioned in this action.
+      - name: --action-move
+        short-summary: "moveAction"
+        long-summary: |
+            Usage: --action-move from=XX to=XX
+
+            from: The name of the location the item was moved from.
+            to: The name of the location the item was moved to.
+      - name: --action-rename
+        short-summary: "renameAction"
+        long-summary: |
+            Usage: --action-rename new-name=XX old-name=XX
+
+            new-name: The new name of the item.
+            old-name: The previous name of the item.
+      - name: --action-share
+        short-summary: "shareAction"
+        long-summary: |
+            Usage: --action-share recipients=XX
+
+            recipients: The identities the item was shared with in this action.
+      - name: --action-version
+        short-summary: "versionAction"
+        long-summary: |
+            Usage: --action-version new-version=XX
+
+            new-version: The name of the new version that was created by this action.
 """
 
 helps['files share-list-item update-drive-item'] = """
@@ -13366,60 +13565,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -13569,16 +13714,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -13606,6 +13762,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -13623,6 +13833,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -13708,33 +13936,6 @@ helps['files share-list-item update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files share-list-item-activity'] = """
@@ -13785,60 +13986,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -13988,16 +14135,27 @@ must make use of the HTTPS protocol.
         short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
 Read-only. Nullable."
         long-summary: |
-            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX \
+display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
+display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             content: The content stream for this version of the item.
             size: Indicates the size of the content stream for this version of the item.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -14025,6 +14183,60 @@ AutomaticExceptTables, Manual.
             Usage: --workbook-functions id=XX
 
             id: Read-only.
+      - name: --shared-owner
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --shared-shared-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
+XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --remote-item-created-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-file-system-info
         short-summary: "fileSystemInfo"
         long-summary: |
@@ -14042,6 +14254,24 @@ list only.
 
             height: Optional. Height of the image, in pixels. Read-only.
             width: Optional. Width of the image, in pixels. Read-only.
+      - name: --remote-item-last-modified-by
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --remote-item-package
         short-summary: "package"
         long-summary: |
@@ -14129,60 +14359,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
@@ -14207,15 +14383,26 @@ SharePoint site.
       - name: --versions
         short-summary: "The list of previous versions of the list item."
         long-summary: |
-            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
-user=XX id=XX
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX display-name-last-modified-by-u\
+ser-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX id=XX
 
             id-fields-id: Read-only.
             last-modified-date-time: Date and time the version was last modified. Read-only.
             publication: publicationFacet
-            application: identity
-            device: identity
-            user: identity
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
@@ -14337,60 +14524,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -14419,60 +14552,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -14549,33 +14628,6 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
 helps['files user get-drive'] = """
@@ -14606,60 +14658,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --share-point-ids
         short-summary: "sharepointIds"
         long-summary: |
@@ -14688,60 +14686,6 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user1
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user1 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --list-created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user2
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user2 display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
       - name: --list-list
         short-summary: "listInfo"
         long-summary: |
@@ -14818,31 +14762,4 @@ must make use of the HTTPS protocol.
             Usage: --quota-storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --owner-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --owner-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """

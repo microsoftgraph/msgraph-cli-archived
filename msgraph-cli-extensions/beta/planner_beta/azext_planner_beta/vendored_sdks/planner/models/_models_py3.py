@@ -1284,8 +1284,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     :type bucket_id: str
     :param checklist_item_count: Number of checklist items that are present on the task.
     :type checklist_item_count: int
-    :param completed_by: identitySet.
-    :type completed_by: ~planner.models.MicrosoftGraphIdentitySet
     :param completed_date_time: Read-only. Date and time at which the 'percentComplete' of the task
      is set to '100'. The Timestamp type represents date and time information using ISO 8601 format
      and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
@@ -1294,8 +1292,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     :param conversation_thread_id: Thread ID of the conversation on the task. This is the ID of the
      conversation thread object created in the group.
     :type conversation_thread_id: str
-    :param created_by: identitySet.
-    :type created_by: ~planner.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the task is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1328,16 +1324,44 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     :type start_date_time: ~datetime.datetime
     :param title: Title of the task.
     :type title: str
-    :param assigned_to_task_board_format: plannerAssignedToTaskBoardTaskFormat.
-    :type assigned_to_task_board_format:
-     ~planner.models.MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
     :param bucket_task_board_format: plannerBucketTaskBoardTaskFormat.
     :type bucket_task_board_format: ~planner.models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat
-    :param details: plannerTaskDetails.
-    :type details: ~planner.models.MicrosoftGraphPlannerTaskDetails
     :param progress_task_board_format: plannerProgressTaskBoardTaskFormat.
     :type progress_task_board_format:
      ~planner.models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat
+    :param id_details_id: Read-only.
+    :type id_details_id: str
+    :param checklist: plannerChecklistItems.
+    :type checklist: dict[str, object]
+    :param description: Description of the task.
+    :type description: str
+    :param preview_type_details_preview_type:  Possible values include: "automatic", "noPreview",
+     "checklist", "description", "reference".
+    :type preview_type_details_preview_type: str or
+     ~planner.models.MicrosoftGraphPlannerPreviewType
+    :param references: plannerExternalReferences.
+    :type references: dict[str, object]
+    :param id_assigned_to_task_board_format_id: Read-only.
+    :type id_assigned_to_task_board_format_id: str
+    :param order_hints_by_assignee: plannerOrderHintsByAssignee.
+    :type order_hints_by_assignee: dict[str, object]
+    :param unassigned_order_hint: Hint value used to order the task on the AssignedTo view of the
+     Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary
+     does not provide an order hint for the user the task is assigned to. The format is defined as
+     outlined here.
+    :type unassigned_order_hint: str
+    :param application_created_by_application: identity.
+    :type application_created_by_application: ~planner.models.MicrosoftGraphIdentity
+    :param device_created_by_device: identity.
+    :type device_created_by_device: ~planner.models.MicrosoftGraphIdentity
+    :param user_created_by_user: identity.
+    :type user_created_by_user: ~planner.models.MicrosoftGraphIdentity
+    :param application_completed_by_application: identity.
+    :type application_completed_by_application: ~planner.models.MicrosoftGraphIdentity
+    :param device_completed_by_device: identity.
+    :type device_completed_by_device: ~planner.models.MicrosoftGraphIdentity
+    :param user_completed_by_user: identity.
+    :type user_completed_by_user: ~planner.models.MicrosoftGraphIdentity
     """
 
     _validation = {
@@ -1358,10 +1382,8 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         'assignments': {'key': 'assignments', 'type': '{object}'},
         'bucket_id': {'key': 'bucketId', 'type': 'str'},
         'checklist_item_count': {'key': 'checklistItemCount', 'type': 'int'},
-        'completed_by': {'key': 'completedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'completed_date_time': {'key': 'completedDateTime', 'type': 'iso-8601'},
         'conversation_thread_id': {'key': 'conversationThreadId', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'due_date_time': {'key': 'dueDateTime', 'type': 'iso-8601'},
         'has_description': {'key': 'hasDescription', 'type': 'bool'},
@@ -1373,10 +1395,22 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         'reference_count': {'key': 'referenceCount', 'type': 'int'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'title': {'key': 'title', 'type': 'str'},
-        'assigned_to_task_board_format': {'key': 'assignedToTaskBoardFormat', 'type': 'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat'},
         'bucket_task_board_format': {'key': 'bucketTaskBoardFormat', 'type': 'MicrosoftGraphPlannerBucketTaskBoardTaskFormat'},
-        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerTaskDetails'},
         'progress_task_board_format': {'key': 'progressTaskBoardFormat', 'type': 'MicrosoftGraphPlannerProgressTaskBoardTaskFormat'},
+        'id_details_id': {'key': 'details.id', 'type': 'str'},
+        'checklist': {'key': 'details.checklist', 'type': '{object}'},
+        'description': {'key': 'details.description', 'type': 'str'},
+        'preview_type_details_preview_type': {'key': 'details.previewType', 'type': 'str'},
+        'references': {'key': 'details.references', 'type': '{object}'},
+        'id_assigned_to_task_board_format_id': {'key': 'assignedToTaskBoardFormat.id', 'type': 'str'},
+        'order_hints_by_assignee': {'key': 'assignedToTaskBoardFormat.orderHintsByAssignee', 'type': '{object}'},
+        'unassigned_order_hint': {'key': 'assignedToTaskBoardFormat.unassignedOrderHint', 'type': 'str'},
+        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'application_completed_by_application': {'key': 'completedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_completed_by_device': {'key': 'completedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_completed_by_user': {'key': 'completedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1391,10 +1425,8 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         assignments: Optional[Dict[str, object]] = None,
         bucket_id: Optional[str] = None,
         checklist_item_count: Optional[int] = None,
-        completed_by: Optional["MicrosoftGraphIdentitySet"] = None,
         completed_date_time: Optional[datetime.datetime] = None,
         conversation_thread_id: Optional[str] = None,
-        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         due_date_time: Optional[datetime.datetime] = None,
         has_description: Optional[bool] = None,
@@ -1406,10 +1438,22 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         reference_count: Optional[int] = None,
         start_date_time: Optional[datetime.datetime] = None,
         title: Optional[str] = None,
-        assigned_to_task_board_format: Optional["MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat"] = None,
         bucket_task_board_format: Optional["MicrosoftGraphPlannerBucketTaskBoardTaskFormat"] = None,
-        details: Optional["MicrosoftGraphPlannerTaskDetails"] = None,
         progress_task_board_format: Optional["MicrosoftGraphPlannerProgressTaskBoardTaskFormat"] = None,
+        id_details_id: Optional[str] = None,
+        checklist: Optional[Dict[str, object]] = None,
+        description: Optional[str] = None,
+        preview_type_details_preview_type: Optional[Union[str, "MicrosoftGraphPlannerPreviewType"]] = None,
+        references: Optional[Dict[str, object]] = None,
+        id_assigned_to_task_board_format_id: Optional[str] = None,
+        order_hints_by_assignee: Optional[Dict[str, object]] = None,
+        unassigned_order_hint: Optional[str] = None,
+        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
+        application_completed_by_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_completed_by_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_completed_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPlannerTask, self).__init__(id=id, **kwargs)
@@ -1421,10 +1465,8 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         self.assignments = assignments
         self.bucket_id = bucket_id
         self.checklist_item_count = checklist_item_count
-        self.completed_by = completed_by
         self.completed_date_time = completed_date_time
         self.conversation_thread_id = conversation_thread_id
-        self.created_by = created_by
         self.created_date_time = created_date_time
         self.due_date_time = due_date_time
         self.has_description = has_description
@@ -1436,10 +1478,22 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         self.reference_count = reference_count
         self.start_date_time = start_date_time
         self.title = title
-        self.assigned_to_task_board_format = assigned_to_task_board_format
         self.bucket_task_board_format = bucket_task_board_format
-        self.details = details
         self.progress_task_board_format = progress_task_board_format
+        self.id_details_id = id_details_id
+        self.checklist = checklist
+        self.description = description
+        self.preview_type_details_preview_type = preview_type_details_preview_type
+        self.references = references
+        self.id_assigned_to_task_board_format_id = id_assigned_to_task_board_format_id
+        self.order_hints_by_assignee = order_hints_by_assignee
+        self.unassigned_order_hint = unassigned_order_hint
+        self.application_created_by_application = application_created_by_application
+        self.device_created_by_device = device_created_by_device
+        self.user_created_by_user = user_created_by_user
+        self.application_completed_by_application = application_completed_by_application
+        self.device_completed_by_device = device_completed_by_device
+        self.user_completed_by_user = user_completed_by_user
 
 
 class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):

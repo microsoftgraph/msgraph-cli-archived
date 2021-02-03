@@ -42,10 +42,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_search_beta.vendored_sdks.search.operations._search_search_entity_operations#SearchSearc'
         'hEntityOperations.{}',
         client_factory=cf_search_search_entity)
-    with self.command_group('search search-search-entity', search_beta_search_search_entity,
+    with self.command_group('search search-entity', search_beta_search_search_entity,
                             client_factory=cf_search_search_entity, is_experimental=True) as g:
-        g.custom_command('geth-entity', 'search_search_search_entity_geth_entity')
-        g.custom_command('updateh-entity', 'search_search_search_entity_updateh_entity')
+        g.custom_command('get-entity', 'search_search_entity_get_entity')
+        g.custom_command('update-entity', 'search_search_entity_update_entity')
 
     from azext_search_beta.generated._client_factory import cf_search
     search_beta_search = CliCommandType(

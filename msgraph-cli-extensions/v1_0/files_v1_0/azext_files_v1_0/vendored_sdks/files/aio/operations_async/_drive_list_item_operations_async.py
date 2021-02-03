@@ -374,12 +374,18 @@ class DriveListItemOperations:
         share_id: Optional[str] = None,
         sharepoint_ids: Optional["models.MicrosoftGraphSharepointIds"] = None,
         site_id: Optional[str] = None,
-        application: Optional["models.MicrosoftGraphIdentity"] = None,
-        device: Optional["models.MicrosoftGraphIdentity"] = None,
-        user: Optional["models.MicrosoftGraphIdentity"] = None,
-        microsoft_graph_identity_application: Optional["models.MicrosoftGraphIdentity"] = None,
-        microsoft_graph_identity_device: Optional["models.MicrosoftGraphIdentity"] = None,
-        microsoft_graph_identity_user: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id3: Optional[str] = None,
+        display_name3: Optional[str] = None,
+        id4: Optional[str] = None,
+        display_name4: Optional[str] = None,
+        id5: Optional[str] = None,
         audio: Optional["models.MicrosoftGraphAudio"] = None,
         content: Optional[bytes] = None,
         c_tag: Optional[str] = None,
@@ -410,26 +416,32 @@ class DriveListItemOperations:
         microsoft_graph_user_last_modified_by_user: Optional["models.MicrosoftGraphUser"] = None,
         drive_id1: Optional[str] = None,
         microsoft_graph_item_reference_drive_type: Optional[str] = None,
-        id1: Optional[str] = None,
+        id6: Optional[str] = None,
         name1: Optional[str] = None,
         microsoft_graph_item_reference_path: Optional[str] = None,
         microsoft_graph_item_reference_share_id: Optional[str] = None,
         sharepoint_ids1: Optional["models.MicrosoftGraphSharepointIds"] = None,
         microsoft_graph_item_reference_site_id: Optional[str] = None,
-        application1: Optional["models.MicrosoftGraphIdentity"] = None,
-        device1: Optional["models.MicrosoftGraphIdentity"] = None,
-        user1: Optional["models.MicrosoftGraphIdentity"] = None,
-        application2: Optional["models.MicrosoftGraphIdentity"] = None,
-        device2: Optional["models.MicrosoftGraphIdentity"] = None,
-        user2: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name5: Optional[str] = None,
+        id7: Optional[str] = None,
+        display_name6: Optional[str] = None,
+        id8: Optional[str] = None,
+        display_name7: Optional[str] = None,
+        id9: Optional[str] = None,
+        display_name8: Optional[str] = None,
+        id10: Optional[str] = None,
+        display_name9: Optional[str] = None,
+        id11: Optional[str] = None,
+        display_name10: Optional[str] = None,
+        id12: Optional[str] = None,
         content_type_parameter: Optional["models.MicrosoftGraphContentTypeInfo"] = None,
         sharepoint_ids2: Optional["models.MicrosoftGraphSharepointIds"] = None,
         microsoft_graph_item_analytics: Optional["models.MicrosoftGraphItemAnalytics"] = None,
         drive_item: Optional["models.MicrosoftGraphDriveItem"] = None,
         microsoft_graph_list_item_versions: Optional[List["models.MicrosoftGraphListItemVersion"]] = None,
-        id2: Optional[str] = None,
-        id3: Optional[str] = None,
-        microsoft_graph_workbook_application: Optional["models.MicrosoftGraphWorkbookApplication"] = None,
+        id13: Optional[str] = None,
+        id14: Optional[str] = None,
+        application: Optional["models.MicrosoftGraphWorkbookApplication"] = None,
         comments: Optional[List["models.MicrosoftGraphWorkbookComment"]] = None,
         functions: Optional["models.MicrosoftGraphWorkbookFunctions"] = None,
         names: Optional[List["models.MicrosoftGraphWorkbookNamedItem"]] = None,
@@ -516,18 +528,48 @@ class DriveListItemOperations:
         :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
         :param site_id:
         :type site_id: str
-        :param application: identity.
-        :type application: ~files.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~files.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~files.models.MicrosoftGraphIdentity
-        :param microsoft_graph_identity_application: identity.
-        :type microsoft_graph_identity_application: ~files.models.MicrosoftGraphIdentity
-        :param microsoft_graph_identity_device: identity.
-        :type microsoft_graph_identity_device: ~files.models.MicrosoftGraphIdentity
-        :param microsoft_graph_identity_user: identity.
-        :type microsoft_graph_identity_user: ~files.models.MicrosoftGraphIdentity
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
         :param audio: audio.
         :type audio: ~files.models.MicrosoftGraphAudio
         :param content: The content stream, if the item represents a file.
@@ -599,8 +641,8 @@ class DriveListItemOperations:
         :param microsoft_graph_item_reference_drive_type: Identifies the type of drive. See [drive][]
          resource for values.
         :type microsoft_graph_item_reference_drive_type: str
-        :param id1: Unique identifier of the item in the drive. Read-only.
-        :type id1: str
+        :param id6: Unique identifier of the item in the drive. Read-only.
+        :type id6: str
         :param name1: The name of the item being referenced. Read-only.
         :type name1: str
         :param microsoft_graph_item_reference_path: Path that can be used to navigate to the item.
@@ -613,18 +655,48 @@ class DriveListItemOperations:
         :type sharepoint_ids1: ~files.models.MicrosoftGraphSharepointIds
         :param microsoft_graph_item_reference_site_id:
         :type microsoft_graph_item_reference_site_id: str
-        :param application1: identity.
-        :type application1: ~files.models.MicrosoftGraphIdentity
-        :param device1: identity.
-        :type device1: ~files.models.MicrosoftGraphIdentity
-        :param user1: identity.
-        :type user1: ~files.models.MicrosoftGraphIdentity
-        :param application2: identity.
-        :type application2: ~files.models.MicrosoftGraphIdentity
-        :param device2: identity.
-        :type device2: ~files.models.MicrosoftGraphIdentity
-        :param user2: identity.
-        :type user2: ~files.models.MicrosoftGraphIdentity
+        :param display_name5: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name5: str
+        :param id7: Unique identifier for the identity.
+        :type id7: str
+        :param display_name6: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name6: str
+        :param id8: Unique identifier for the identity.
+        :type id8: str
+        :param display_name7: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name7: str
+        :param id9: Unique identifier for the identity.
+        :type id9: str
+        :param display_name8: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name8: str
+        :param id10: Unique identifier for the identity.
+        :type id10: str
+        :param display_name9: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name9: str
+        :param id11: Unique identifier for the identity.
+        :type id11: str
+        :param display_name10: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name10: str
+        :param id12: Unique identifier for the identity.
+        :type id12: str
         :param content_type_parameter: contentTypeInfo.
         :type content_type_parameter: ~files.models.MicrosoftGraphContentTypeInfo
         :param sharepoint_ids2: sharepointIds.
@@ -635,12 +707,12 @@ class DriveListItemOperations:
         :type drive_item: ~files.models.MicrosoftGraphDriveItem
         :param microsoft_graph_list_item_versions: The list of previous versions of the list item.
         :type microsoft_graph_list_item_versions: list[~files.models.MicrosoftGraphListItemVersion]
-        :param id2: Read-only.
-        :type id2: str
-        :param id3: Read-only.
-        :type id3: str
-        :param microsoft_graph_workbook_application: workbookApplication.
-        :type microsoft_graph_workbook_application: ~files.models.MicrosoftGraphWorkbookApplication
+        :param id13: Read-only.
+        :type id13: str
+        :param id14: Read-only.
+        :type id14: str
+        :param application: workbookApplication.
+        :type application: ~files.models.MicrosoftGraphWorkbookApplication
         :param comments:
         :type comments: list[~files.models.MicrosoftGraphWorkbookComment]
         :param functions: workbookFunctions.
@@ -744,7 +816,7 @@ class DriveListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDriveItem(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=microsoft_graph_item_reference_drive_id, drive_type=drive_type, id_parent_reference_id=microsoft_graph_item_reference_id, name_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, audio=audio, content=content, c_tag=c_tag, file_system_info=file_system_info, image=image, location=location, photo=photo, publication=publication, root=root, sharepoint_ids=microsoft_graph_sharepoint_ids, size=size, video=video, web_dav_url=web_dav_url, analytics=analytics, children=children, permissions=permissions, subscriptions=subscriptions, thumbnails=thumbnails, versions=versions, id_list_item_id=microsoft_graph_entity_id, created_date_time_list_item_created_date_time=microsoft_graph_base_item_created_date_time_created_date_time, description_list_item_description=microsoft_graph_base_item_description, e_tag_list_item_e_tag=microsoft_graph_base_item_e_tag, last_modified_date_time_list_item_last_modified_date_time=microsoft_graph_base_item_last_modified_date_time_last_modified_date_time, name_list_item_name=microsoft_graph_base_item_name, web_url_list_item_web_url=microsoft_graph_base_item_web_url, created_by_user_list_item_created_by_user=microsoft_graph_user_created_by_user, last_modified_by_user_list_item_last_modified_by_user=microsoft_graph_user_last_modified_by_user, drive_id_list_item_parent_reference_drive_id=drive_id1, drive_type_list_item_parent_reference_drive_type=microsoft_graph_item_reference_drive_type, id_list_item_parent_reference_id=id1, name_list_item_parent_reference_name=name1, path_list_item_parent_reference_path=microsoft_graph_item_reference_path, share_id_list_item_parent_reference_share_id=microsoft_graph_item_reference_share_id, sharepoint_ids_list_item_parent_reference_sharepoint_ids=sharepoint_ids1, site_id_list_item_parent_reference_site_id=microsoft_graph_item_reference_site_id, application_list_item_last_modified_by_application=application1, device_list_item_last_modified_by_device=device1, user_list_item_last_modified_by_user=user1, application_list_item_created_by_application=application2, device_list_item_created_by_device=device2, user_list_item_created_by_user=user2, content_type=content_type_parameter, sharepoint_ids_list_item_sharepoint_ids=sharepoint_ids2, analytics_list_item_analytics=microsoft_graph_item_analytics, drive_item=drive_item, versions_list_item_versions=microsoft_graph_list_item_versions, id_list_item_fields_id=id2, id_workbook_id=id3, application_workbook_application=microsoft_graph_workbook_application, comments=comments, functions=functions, names=names, operations=operations, tables=tables, worksheets=worksheets, name_special_folder_name=microsoft_graph_special_folder_name, owner=owner, scope=scope, shared_by=shared_by, shared_date_time=shared_date_time, on_click_telemetry_url=on_click_telemetry_url, created_by=created_by, created_date_time_remote_item_created_date_time=microsoft_graph_remote_item_created_date_time_created_date_time, file=file, file_system_info_remote_item_file_system_info=microsoft_graph_file_system_info_file_system_info, folder=folder, id_remote_item_id=microsoft_graph_remote_item_id, image_remote_item_image=microsoft_graph_image, last_modified_by=last_modified_by, last_modified_date_time_remote_item_last_modified_date_time=microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time, name_remote_item_name=microsoft_graph_remote_item_name, package=package, parent_reference=parent_reference, shared=shared, sharepoint_ids_remote_item_sharepoint_ids=sharepoint_ids3, size_remote_item_size=integer_size, special_folder=special_folder, video_remote_item_video=microsoft_graph_video, web_dav_url_remote_item_web_dav_url=microsoft_graph_remote_item_web_dav_url_web_dav_url, web_url_remote_item_web_url=microsoft_graph_remote_item_web_url, queued_date_time=queued_date_time, type=type, child_count=child_count, view=view, hashes=hashes, mime_type=mime_type, processing_metadata=processing_metadata, state=state)
+        _body = models.MicrosoftGraphDriveItem(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=microsoft_graph_item_reference_drive_id, drive_type=drive_type, id_parent_reference_id=microsoft_graph_item_reference_id, name_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, audio=audio, content=content, c_tag=c_tag, file_system_info=file_system_info, image=image, location=location, photo=photo, publication=publication, root=root, sharepoint_ids=microsoft_graph_sharepoint_ids, size=size, video=video, web_dav_url=web_dav_url, analytics=analytics, children=children, permissions=permissions, subscriptions=subscriptions, thumbnails=thumbnails, versions=versions, id_list_item_id=microsoft_graph_entity_id, created_date_time_list_item_created_date_time=microsoft_graph_base_item_created_date_time_created_date_time, description_list_item_description=microsoft_graph_base_item_description, e_tag_list_item_e_tag=microsoft_graph_base_item_e_tag, last_modified_date_time_list_item_last_modified_date_time=microsoft_graph_base_item_last_modified_date_time_last_modified_date_time, name_list_item_name=microsoft_graph_base_item_name, web_url_list_item_web_url=microsoft_graph_base_item_web_url, created_by_user_list_item_created_by_user=microsoft_graph_user_created_by_user, last_modified_by_user_list_item_last_modified_by_user=microsoft_graph_user_last_modified_by_user, drive_id_list_item_parent_reference_drive_id=drive_id1, drive_type_list_item_parent_reference_drive_type=microsoft_graph_item_reference_drive_type, id_list_item_parent_reference_id=id6, name_list_item_parent_reference_name=name1, path_list_item_parent_reference_path=microsoft_graph_item_reference_path, share_id_list_item_parent_reference_share_id=microsoft_graph_item_reference_share_id, sharepoint_ids_list_item_parent_reference_sharepoint_ids=sharepoint_ids1, site_id_list_item_parent_reference_site_id=microsoft_graph_item_reference_site_id, display_name_list_item_last_modified_by_user_display_name=display_name5, id_list_item_last_modified_by_user_id=id7, display_name_list_item_last_modified_by_device_display_name=display_name6, id_list_item_last_modified_by_device_id=id8, display_name_list_item_last_modified_by_application_display_name=display_name7, id_list_item_last_modified_by_application_id=id9, display_name_list_item_created_by_user_display_name=display_name8, id_list_item_created_by_user_id=id10, display_name_list_item_created_by_device_display_name=display_name9, id_list_item_created_by_device_id=id11, display_name_list_item_created_by_application_display_name=display_name10, id_list_item_created_by_application_id=id12, content_type=content_type_parameter, sharepoint_ids_list_item_sharepoint_ids=sharepoint_ids2, analytics_list_item_analytics=microsoft_graph_item_analytics, drive_item=drive_item, versions_list_item_versions=microsoft_graph_list_item_versions, id_list_item_fields_id=id13, id_workbook_id=id14, application=application, comments=comments, functions=functions, names=names, operations=operations, tables=tables, worksheets=worksheets, name_special_folder_name=microsoft_graph_special_folder_name, owner=owner, scope=scope, shared_by=shared_by, shared_date_time=shared_date_time, on_click_telemetry_url=on_click_telemetry_url, created_by=created_by, created_date_time_remote_item_created_date_time=microsoft_graph_remote_item_created_date_time_created_date_time, file=file, file_system_info_remote_item_file_system_info=microsoft_graph_file_system_info_file_system_info, folder=folder, id_remote_item_id=microsoft_graph_remote_item_id, image_remote_item_image=microsoft_graph_image, last_modified_by=last_modified_by, last_modified_date_time_remote_item_last_modified_date_time=microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time, name_remote_item_name=microsoft_graph_remote_item_name, package=package, parent_reference=parent_reference, shared=shared, sharepoint_ids_remote_item_sharepoint_ids=sharepoint_ids3, size_remote_item_size=integer_size, special_folder=special_folder, video_remote_item_video=microsoft_graph_video, web_dav_url_remote_item_web_dav_url=microsoft_graph_remote_item_web_dav_url_web_dav_url, web_url_remote_item_web_url=microsoft_graph_remote_item_web_url, queued_date_time=queued_date_time, type=type, child_count=child_count, view=view, hashes=hashes, mime_type=mime_type, processing_metadata=processing_metadata, state=state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1260,9 +1332,12 @@ class DriveListItemOperations:
         id: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["models.MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["models.MicrosoftGraphIdentity"] = None,
-        device: Optional["models.MicrosoftGraphIdentity"] = None,
-        user: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
         microsoft_graph_entity_id: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphListItemVersion":
@@ -1280,12 +1355,27 @@ class DriveListItemOperations:
         :type last_modified_date_time: ~datetime.datetime
         :param publication: publicationFacet.
         :type publication: ~files.models.MicrosoftGraphPublicationFacet
-        :param application: identity.
-        :type application: ~files.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~files.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~files.models.MicrosoftGraphIdentity
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :param microsoft_graph_entity_id: Read-only.
         :type microsoft_graph_entity_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1297,7 +1387,7 @@ class DriveListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, application=application, device=device, user=user, id_fields_id=microsoft_graph_entity_id)
+        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, id_fields_id=microsoft_graph_entity_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1418,9 +1508,12 @@ class DriveListItemOperations:
         id: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["models.MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["models.MicrosoftGraphIdentity"] = None,
-        device: Optional["models.MicrosoftGraphIdentity"] = None,
-        user: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
         microsoft_graph_entity_id: Optional[str] = None,
         **kwargs
     ) -> None:
@@ -1440,12 +1533,27 @@ class DriveListItemOperations:
         :type last_modified_date_time: ~datetime.datetime
         :param publication: publicationFacet.
         :type publication: ~files.models.MicrosoftGraphPublicationFacet
-        :param application: identity.
-        :type application: ~files.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~files.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~files.models.MicrosoftGraphIdentity
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :param microsoft_graph_entity_id: Read-only.
         :type microsoft_graph_entity_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1457,7 +1565,7 @@ class DriveListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, application=application, device=device, user=user, id_fields_id=microsoft_graph_entity_id)
+        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, id_fields_id=microsoft_graph_entity_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

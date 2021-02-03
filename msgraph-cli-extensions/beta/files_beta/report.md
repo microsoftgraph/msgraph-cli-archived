@@ -18,7 +18,26 @@ create-activity a files drive.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive create-bundle
 
@@ -55,12 +74,18 @@ create-bundle a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -83,7 +108,7 @@ create-bundle a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -161,12 +186,18 @@ create-following a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -189,7 +220,7 @@ create-following a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -267,12 +298,18 @@ create-item a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -295,7 +332,7 @@ create-item a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -373,12 +410,18 @@ create-special a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -401,7 +444,7 @@ create-special a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1014,7 +1057,26 @@ update-activity a files drive.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive update-bundle
 
@@ -1052,12 +1114,18 @@ update-bundle a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -1080,7 +1148,7 @@ update-bundle a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1159,12 +1227,18 @@ update-following a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -1187,7 +1261,7 @@ update-following a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1266,12 +1340,18 @@ update-item a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -1294,7 +1374,7 @@ update-item a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1372,13 +1452,19 @@ update-list a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--microsoft-graph-list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list**|object|listInfo|list|list|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -1424,12 +1510,18 @@ update-root a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -1452,7 +1544,7 @@ update-root a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1531,12 +1623,18 @@ update-special a files drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -1559,7 +1657,7 @@ update-special a files drive.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1745,12 +1843,18 @@ update-drive-item a files drive-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -1773,7 +1877,7 @@ update-drive-item a files drive-activity.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -1852,12 +1956,18 @@ update-list-item a files drive-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -1885,7 +1995,26 @@ create-activity a files drive-activity-list-item.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-activity-list-item create-link
 
@@ -1934,9 +2063,12 @@ create-version a files drive-activity-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files drive-activity-list-item delete
@@ -2249,7 +2381,26 @@ update-activity a files drive-activity-list-item.
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
 |**--item-activity-old-id1**|string|key: id of itemActivityOLD|item_activity_old_id1|itemActivityOLD-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-activity-list-item update-drive-item
 
@@ -2287,12 +2438,18 @@ update-drive-item a files drive-activity-list-item.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -2315,7 +2472,7 @@ update-drive-item a files drive-activity-list-item.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -2402,9 +2559,12 @@ update-version a files drive-activity-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files drive-activity-list-item-version delete
@@ -2529,12 +2689,18 @@ create-drive a files drive-drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -2555,19 +2721,25 @@ create-drive a files drive-drive.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -2583,9 +2755,12 @@ create-drive a files drive-drive.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files drive-drive delete
 
@@ -2684,12 +2859,18 @@ update-drive a files drive-drive.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -2710,19 +2891,25 @@ update-drive a files drive-drive.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -2738,9 +2925,12 @@ update-drive a files drive-drive.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files drive-list create-activity
 
@@ -2760,7 +2950,26 @@ create-activity a files drive-list.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-list create-column
 
@@ -2874,12 +3083,18 @@ create-item a files drive-list.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -3211,7 +3426,26 @@ update-activity a files drive-list.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-list update-column
 
@@ -3327,12 +3561,18 @@ update-drive a files drive-list.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -3353,19 +3593,25 @@ update-drive a files drive-list.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -3381,9 +3627,12 @@ update-drive a files drive-list.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files drive-list update-item
 
@@ -3421,12 +3670,18 @@ update-item a files drive-list.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -3612,12 +3867,18 @@ update-drive-item a files drive-list-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -3640,7 +3901,7 @@ update-drive-item a files drive-list-activity.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -3719,12 +3980,18 @@ update-list-item a files drive-list-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -3752,7 +4019,26 @@ create-activity a files drive-list-activity-list-item.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-list-activity-list-item create-link
 
@@ -3801,9 +4087,12 @@ create-version a files drive-list-activity-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files drive-list-activity-list-item delete
@@ -4116,7 +4405,26 @@ update-activity a files drive-list-activity-list-item.
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
 |**--item-activity-old-id1**|string|key: id of itemActivityOLD|item_activity_old_id1|itemActivityOLD-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-list-activity-list-item update-drive-item
 
@@ -4154,12 +4462,18 @@ update-drive-item a files drive-list-activity-list-item.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -4182,7 +4496,7 @@ update-drive-item a files drive-list-activity-list-item.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -4269,9 +4583,12 @@ update-version a files drive-list-activity-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files drive-list-activity-list-item-version delete
@@ -4494,7 +4811,26 @@ create-activity a files drive-list-item.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--list-item-id**|string|key: id of listItem|list_item_id|listItem-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-list-item create-link
 
@@ -4543,9 +4879,12 @@ create-version a files drive-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files drive-list-item delete
@@ -4858,7 +5197,26 @@ update-activity a files drive-list-item.
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--list-item-id**|string|key: id of listItem|list_item_id|listItem-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files drive-list-item update-drive-item
 
@@ -4896,12 +5254,18 @@ update-drive-item a files drive-list-item.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -4924,7 +5288,7 @@ update-drive-item a files drive-list-item.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -5011,9 +5375,12 @@ update-version a files drive-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files drive-list-item-activity delete
@@ -5165,12 +5532,18 @@ update-drive-item a files drive-list-item-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -5193,7 +5566,7 @@ update-drive-item a files drive-list-item-activity.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -5273,12 +5646,18 @@ update-list-item a files drive-list-item-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -5460,12 +5839,18 @@ create-drive a files group.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -5486,19 +5871,25 @@ create-drive a files group.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -5514,9 +5905,12 @@ create-drive a files group.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files group delete
 
@@ -5622,12 +6016,18 @@ update-drive a files group.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -5648,19 +6048,25 @@ update-drive a files group.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -5676,9 +6082,12 @@ update-drive a files group.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files share create-item
 
@@ -5715,12 +6124,18 @@ create-item a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -5743,7 +6158,7 @@ create-item a files share.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -6137,12 +6552,18 @@ update-drive-item a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -6165,7 +6586,7 @@ update-drive-item a files share.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -6244,12 +6665,18 @@ update-item a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -6272,7 +6699,7 @@ update-item a files share.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -6350,13 +6777,19 @@ update-list a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--microsoft-graph-list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list**|object|listInfo|list|list|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -6402,12 +6835,18 @@ update-list-item a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -6434,7 +6873,37 @@ update-permission a files share.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--expiration-date-time**|date-time|A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.|expiration_date_time|expirationDateTime|
+|**--granted-to-identities**|array|For link type permissions, the details of the users to whom permission was granted. Read-only.|granted_to_identities|grantedToIdentities|
+|**--has-password**|boolean|This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.|has_password|hasPassword|
+|**--roles**|array|The type of permission, e.g. read. See below for the full list of roles. Read-only.|roles|roles|
+|**--share-id**|string|A unique token that can be used to access this shared item via the **shares** API. Read-only.|share_id|shareId|
+|**--link-application**|object|identity|application|application|
+|**--link-configurator-url**|string||configurator_url|configuratorUrl|
+|**--link-prevents-download**|boolean|If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.|prevents_download|preventsDownload|
+|**--link-scope**|string|The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.|scope|scope|
+|**--link-type**|string|The type of the link created.|type|type|
+|**--link-web-html**|string|For embed links, this property contains the HTML code for an :code:`<iframe>` element that will embed the item in a webpage.|web_html|webHtml|
+|**--link-web-url**|string|A URL that opens the item in the browser on the OneDrive website.|web_url|webUrl|
+|**--invitation-email**|string|The email address provided for the recipient of the sharing invitation. Read-only.|email|email|
+|**--invitation-invited-by**|object|identitySet|invited_by|invitedBy|
+|**--invitation-redeemed-by**|string||redeemed_by|redeemedBy|
+|**--invitation-sign-in-required**|boolean|If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.|sign_in_required|signInRequired|
+|**--inherited-from-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--inherited-from-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--inherited-from-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--inherited-from-name**|string|The name of the item being referenced. Read-only.|name|name|
+|**--inherited-from-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--inherited-from-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--inherited-from-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--inherited-from-site-id**|string||site_id|siteId|
+|**--granted-to-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--granted-to-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--granted-to-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--granted-to-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--granted-to-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--granted-to-application-id**|string|Unique identifier for the identity.|id2|id|
 
 ### files share update-root
 
@@ -6471,12 +6940,18 @@ update-root a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -6499,7 +6974,7 @@ update-root a files share.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -6577,13 +7052,19 @@ update-site a files share.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--microsoft-graph-site-display-name**|string|The full title for the site. Read-only.|microsoft_graph_site_display_name|displayName|
 |**--root**|dictionary|root|root|root|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -6625,7 +7106,26 @@ create-activity a files share-list.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files share-list create-column
 
@@ -6739,12 +7239,18 @@ create-item a files share-list.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -7076,7 +7582,26 @@ update-activity a files share-list.
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files share-list update-column
 
@@ -7192,12 +7717,18 @@ update-drive a files share-list.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -7218,19 +7749,25 @@ update-drive a files share-list.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -7246,9 +7783,12 @@ update-drive a files share-list.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files share-list update-item
 
@@ -7286,12 +7826,18 @@ update-item a files share-list.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -7477,12 +8023,18 @@ update-drive-item a files share-list-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -7505,7 +8057,7 @@ update-drive-item a files share-list-activity.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -7584,12 +8136,18 @@ update-list-item a files share-list-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -7617,7 +8175,26 @@ create-activity a files share-list-activity-list-item.
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files share-list-activity-list-item create-link
 
@@ -7666,9 +8243,12 @@ create-version a files share-list-activity-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files share-list-activity-list-item delete
@@ -7981,7 +8561,26 @@ update-activity a files share-list-activity-list-item.
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
 |**--item-activity-old-id1**|string|key: id of itemActivityOLD|item_activity_old_id1|itemActivityOLD-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files share-list-activity-list-item update-drive-item
 
@@ -8019,12 +8618,18 @@ update-drive-item a files share-list-activity-list-item.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -8047,7 +8652,7 @@ update-drive-item a files share-list-activity-list-item.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -8134,9 +8739,12 @@ update-version a files share-list-activity-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files share-list-activity-list-item-version delete
@@ -8358,7 +8966,26 @@ create-activity a files share-list-item.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files share-list-item create-link
 
@@ -8405,9 +9032,12 @@ create-version a files share-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files share-list-item delete
@@ -8706,7 +9336,26 @@ update-activity a files share-list-item.
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--actor-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--actor-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--actor-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--actor-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--actor-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--actor-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### files share-list-item update-drive-item
 
@@ -8743,12 +9392,18 @@ update-drive-item a files share-list-item.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -8771,7 +9426,7 @@ update-drive-item a files share-list-item.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -8856,9 +9511,12 @@ update-version a files share-list-item.
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|Date and time the version was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
 |**--publication**|object|publicationFacet|publication|publication|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
 |**--fields-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### files share-list-item-activity delete
@@ -9004,12 +9662,18 @@ update-drive-item a files share-list-item-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -9032,7 +9696,7 @@ update-drive-item a files share-list-item-activity.
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
 |**--workbook-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-application**|object|workbookApplication|application|application|
 |**--workbook-comments**|array||comments|comments|
 |**--workbook-functions**|object|workbookFunctions|functions|functions|
 |**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
@@ -9111,12 +9775,18 @@ update-list-item a files share-list-item-activity.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
@@ -9315,7 +9985,116 @@ create-shared-drive-item a files share-shared-drive-item.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New entity|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--items**|array|All driveItems contained in the sharing root. This collection cannot be enumerated.|items|items|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--root**|object|driveItem|root|root|
+|**--site**|object|site|site|site|
+|**--permission-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--permission-expiration-date-time**|date-time|A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.|expiration_date_time|expirationDateTime|
+|**--permission-granted-to-identities**|array|For link type permissions, the details of the users to whom permission was granted. Read-only.|granted_to_identities|grantedToIdentities|
+|**--permission-has-password**|boolean|This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.|has_password|hasPassword|
+|**--permission-roles**|array|The type of permission, e.g. read. See below for the full list of roles. Read-only.|roles|roles|
+|**--permission-share-id**|string|A unique token that can be used to access this shared item via the **shares** API. Read-only.|microsoft_graph_permission_share_id|shareId|
+|**--permission-link-application**|object|identity|application|application|
+|**--permission-link-configurator-url**|string||configurator_url|configuratorUrl|
+|**--permission-link-prevents-download**|boolean|If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.|prevents_download|preventsDownload|
+|**--permission-link-scope**|string|The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.|scope|scope|
+|**--permission-link-type**|string|The type of the link created.|type|type|
+|**--permission-link-web-html**|string|For embed links, this property contains the HTML code for an :code:`<iframe>` element that will embed the item in a webpage.|web_html|webHtml|
+|**--permission-link-web-url**|string|A URL that opens the item in the browser on the OneDrive website.|microsoft_graph_sharing_link_web_url|webUrl|
+|**--permission-invitation-email**|string|The email address provided for the recipient of the sharing invitation. Read-only.|email|email|
+|**--permission-invitation-invited-by**|object|identitySet|invited_by|invitedBy|
+|**--permission-invitation-redeemed-by**|string||redeemed_by|redeemedBy|
+|**--permission-invitation-sign-in-required**|boolean|If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.|sign_in_required|signInRequired|
+|**--permission-inherited-from-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--permission-inherited-from-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--permission-inherited-from-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
+|**--permission-inherited-from-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--permission-inherited-from-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--permission-inherited-from-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--permission-inherited-from-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--permission-inherited-from-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--permission-granted-to-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--permission-granted-to-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--permission-granted-to-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--permission-granted-to-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--permission-granted-to-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--permission-granted-to-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-id**|string|Read-only.|id10|id|
+|**--list-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
+|**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type1|driveType|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id11|id|
+|**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name2|name|
+|**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path1|path|
+|**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id1|shareId|
+|**--list-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-parent-reference-site-id**|string||site_id1|siteId|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id13|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id14|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id15|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id16|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id17|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
+|**--list-list**|object|listInfo|list|list|
+|**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-system**|dictionary|systemFacet|system|system|
+|**--list-activities**|array||activities|activities|
+|**--list-columns**|array|The collection of field definitions for this list.|columns|columns|
+|**--list-content-types**|array|The collection of content types present in this list.|content_types|contentTypes|
+|**--list-drive**|object|drive|drive|drive|
+|**--list-items**|array|All items contained in the list.|microsoft_graph_list_items|items|
+|**--list-subscriptions**|array|The set of subscriptions on the list.|subscriptions|subscriptions|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name14|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id18|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name15|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id19|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name16|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id20|id|
 
 ### files share-shared-drive-item delete
 
@@ -9397,7 +10176,116 @@ update-shared-drive-item a files share-shared-drive-item.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
-|**--body**|object|New property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--items**|array|All driveItems contained in the sharing root. This collection cannot be enumerated.|items|items|
+|**--list-item**|object|listItem|list_item|listItem|
+|**--root**|object|driveItem|root|root|
+|**--site**|object|site|site|site|
+|**--permission-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--permission-expiration-date-time**|date-time|A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.|expiration_date_time|expirationDateTime|
+|**--permission-granted-to-identities**|array|For link type permissions, the details of the users to whom permission was granted. Read-only.|granted_to_identities|grantedToIdentities|
+|**--permission-has-password**|boolean|This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.|has_password|hasPassword|
+|**--permission-roles**|array|The type of permission, e.g. read. See below for the full list of roles. Read-only.|roles|roles|
+|**--permission-share-id**|string|A unique token that can be used to access this shared item via the **shares** API. Read-only.|microsoft_graph_permission_share_id|shareId|
+|**--permission-link-application**|object|identity|application|application|
+|**--permission-link-configurator-url**|string||configurator_url|configuratorUrl|
+|**--permission-link-prevents-download**|boolean|If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.|prevents_download|preventsDownload|
+|**--permission-link-scope**|string|The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.|scope|scope|
+|**--permission-link-type**|string|The type of the link created.|type|type|
+|**--permission-link-web-html**|string|For embed links, this property contains the HTML code for an :code:`<iframe>` element that will embed the item in a webpage.|web_html|webHtml|
+|**--permission-link-web-url**|string|A URL that opens the item in the browser on the OneDrive website.|microsoft_graph_sharing_link_web_url|webUrl|
+|**--permission-invitation-email**|string|The email address provided for the recipient of the sharing invitation. Read-only.|email|email|
+|**--permission-invitation-invited-by**|object|identitySet|invited_by|invitedBy|
+|**--permission-invitation-redeemed-by**|string||redeemed_by|redeemedBy|
+|**--permission-invitation-sign-in-required**|boolean|If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.|sign_in_required|signInRequired|
+|**--permission-inherited-from-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--permission-inherited-from-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--permission-inherited-from-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
+|**--permission-inherited-from-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--permission-inherited-from-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--permission-inherited-from-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--permission-inherited-from-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--permission-inherited-from-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--permission-granted-to-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--permission-granted-to-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--permission-granted-to-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--permission-granted-to-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--permission-granted-to-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--permission-granted-to-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-id**|string|Read-only.|id10|id|
+|**--list-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
+|**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type1|driveType|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id11|id|
+|**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name2|name|
+|**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path1|path|
+|**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id1|shareId|
+|**--list-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-parent-reference-site-id**|string||site_id1|siteId|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id13|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id14|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id15|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id16|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id17|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
+|**--list-list**|object|listInfo|list|list|
+|**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-system**|dictionary|systemFacet|system|system|
+|**--list-activities**|array||activities|activities|
+|**--list-columns**|array|The collection of field definitions for this list.|columns|columns|
+|**--list-content-types**|array|The collection of content types present in this list.|content_types|contentTypes|
+|**--list-drive**|object|drive|drive|drive|
+|**--list-items**|array|All items contained in the list.|microsoft_graph_list_items|items|
+|**--list-subscriptions**|array|The set of subscriptions on the list.|subscriptions|subscriptions|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name14|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id18|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name15|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id19|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name16|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id20|id|
 
 ### files user create-drive
 
@@ -9434,12 +10322,18 @@ create-drive a files user.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -9460,19 +10354,25 @@ create-drive a files user.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -9488,9 +10388,12 @@ create-drive a files user.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|
 
 ### files user delete
 
@@ -9596,12 +10499,18 @@ update-drive a files user.
 |**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
 |**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
 |**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
 |**--microsoft-graph-drive-type**|string|Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.|microsoft_graph_drive_type|driveType|
 |**--share-point-ids**|object|sharepointIds|share_point_ids|sharePointIds|
 |**--system**|dictionary|systemFacet|system|system|
@@ -9622,19 +10531,25 @@ update-drive a files user.
 |**--list-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
 |**--list-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
 |**--list-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
-|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
 |**--list-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
 |**--list-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
 |**--list-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
 |**--list-parent-reference-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--list-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--list-last-modified-by-application**|object|identity|application1|application|
-|**--list-last-modified-by-device**|object|identity|device1|device|
-|**--user1**|object|identity|user1|user|
-|**--list-created-by-application**|object|identity|application2|application|
-|**--list-created-by-device**|object|identity|device2|device|
-|**--user2**|object|identity|user2|user|
-|**--list-display-name**|string|The displayable title of the list.|display_name|displayName|
+|**--list-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-display-name**|string|The displayable title of the list.|microsoft_graph_list_display_name|displayName|
 |**--list-list**|object|listInfo|list|list|
 |**--list-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
 |**--list-system**|dictionary|systemFacet|microsoft_graph_system_facet_system|system|
@@ -9650,6 +10565,9 @@ update-drive a files user.
 |**--quota-storage-plan-information**|object|storagePlanInformation|storage_plan_information|storagePlanInformation|
 |**--quota-total**|integer|Total allowed storage space, in bytes. Read-only.|total|total|
 |**--quota-used**|integer|Total space used, in bytes. Read-only.|used|used|
-|**--owner-application**|object|identity|application3|application|
-|**--owner-device**|object|identity|device3|device|
-|**--owner-user**|object|identity|user3|user|
+|**--owner-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name11|displayName|
+|**--owner-user-id**|string|Unique identifier for the identity.|id13|id|
+|**--owner-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name12|displayName|
+|**--owner-device-id**|string|Unique identifier for the identity.|id14|id|
+|**--owner-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name13|displayName|
+|**--owner-application-id**|string|Unique identifier for the identity.|id15|id|

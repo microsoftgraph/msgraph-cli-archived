@@ -11,22 +11,22 @@
 # pylint: disable=too-many-lines
 
 
-def security_security_security_gety(client,
-                                    select=None,
-                                    expand=None):
-    return client.get_security(select=select,
-                               expand=expand)
-
-
-def security_security_security_updatey(client,
-                                       id_=None,
-                                       alerts=None,
-                                       secure_score_control_profiles=None,
-                                       secure_scores=None):
+def security_security_update(client,
+                             id_=None,
+                             alerts=None,
+                             secure_score_control_profiles=None,
+                             secure_scores=None):
     return client.update_security(id=id_,
                                   alerts=alerts,
                                   secure_score_control_profiles=secure_score_control_profiles,
                                   secure_scores=secure_scores)
+
+
+def security_security_get(client,
+                          select=None,
+                          expand=None):
+    return client.get_security(select=select,
+                               expand=expand)
 
 
 def security_security_delete(client,

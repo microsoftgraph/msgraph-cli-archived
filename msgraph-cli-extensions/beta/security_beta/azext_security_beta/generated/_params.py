@@ -20,6 +20,10 @@ from azext_security_beta.action import (
     AddProviderStatus,
     AddProviderTenantSettings,
     AddTiIndicators,
+    AddErrorInfo,
+    AddParameters,
+    AddStates,
+    AddVendorInformation,
     AddCloudAppStates,
     AddFileStates,
     AddHistoryStates,
@@ -30,7 +34,6 @@ from azext_security_beta.action import (
     AddSecurityResources,
     AddTriggers,
     AddUserStates,
-    AddVendorInformation,
     AddSecuritySecurityCreateAlertVulnerabilityStates,
     AddDomainCategories,
     AddRegistrant,
@@ -46,9 +49,6 @@ from azext_security_beta.action import (
     AddComplianceInformation,
     AddControlStateUpdates,
     AddAccounts,
-    AddErrorInfo,
-    AddParameters,
-    AddStates,
     AddSecuritySecurityTiIndicatorSubmitTiIndicatorValue,
     AddSecuritySecurityTiIndicatorUpdateTiIndicatorValue
 )
@@ -56,11 +56,7 @@ from azext_security_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('security security-security gety') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('security security-security updatey') as c:
+    with self.argument_context('security security update') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('provider_status', action=AddProviderStatus, nargs='*', help='')
         c.argument('alerts', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
@@ -84,6 +80,10 @@ def load_arguments(self, _):
         c.argument('user_security_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
+    with self.argument_context('security security get') as c:
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
     with self.argument_context('security security delete') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
         c.argument('if_match', type=str, help='ETag')
@@ -98,6 +98,23 @@ def load_arguments(self, _):
         c.argument('security_action_id', type=str, help='key: id of securityAction')
         c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
         c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
+
+    with self.argument_context('security security create-action') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action_reason', type=str, help='')
+        c.argument('app_id', type=str, help='')
+        c.argument('azure_tenant_id', type=str, help='')
+        c.argument('client_context', type=str, help='')
+        c.argument('completed_date_time', help='')
+        c.argument('created_date_time', help='')
+        c.argument('error_info', action=AddErrorInfo, nargs='*', help='ResultInfo')
+        c.argument('last_action_date_time', help='')
+        c.argument('name', type=str, help='')
+        c.argument('parameters', action=AddParameters, nargs='*', help='')
+        c.argument('states', action=AddStates, nargs='*', help='')
+        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
+        c.argument('user', type=str, help='')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
 
     with self.argument_context('security security create-alert') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -397,22 +414,10 @@ def load_arguments(self, _):
         c.argument('user_principal_name', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
 
-    with self.argument_context('security security createy-action') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action_reason', type=str, help='')
-        c.argument('app_id', type=str, help='')
-        c.argument('azure_tenant_id', type=str, help='')
-        c.argument('client_context', type=str, help='')
-        c.argument('completed_date_time', help='')
-        c.argument('created_date_time', help='')
-        c.argument('error_info', action=AddErrorInfo, nargs='*', help='ResultInfo')
-        c.argument('last_action_date_time', help='')
-        c.argument('name', type=str, help='')
-        c.argument('parameters', action=AddParameters, nargs='*', help='')
-        c.argument('states', action=AddStates, nargs='*', help='')
-        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
-        c.argument('user', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+    with self.argument_context('security security get-action') as c:
+        c.argument('security_action_id', type=str, help='key: id of securityAction')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('security security get-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
@@ -469,8 +474,8 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('security security gety-action') as c:
-        c.argument('security_action_id', type=str, help='key: id of securityAction')
+    with self.argument_context('security security list-action') as c:
+        c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
@@ -529,10 +534,23 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('security security listy-action') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security update-action') as c:
+        c.argument('security_action_id', type=str, help='key: id of securityAction')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action_reason', type=str, help='')
+        c.argument('app_id', type=str, help='')
+        c.argument('azure_tenant_id', type=str, help='')
+        c.argument('client_context', type=str, help='')
+        c.argument('completed_date_time', help='')
+        c.argument('created_date_time', help='')
+        c.argument('error_info', action=AddErrorInfo, nargs='*', help='ResultInfo')
+        c.argument('last_action_date_time', help='')
+        c.argument('name', type=str, help='')
+        c.argument('parameters', action=AddParameters, nargs='*', help='')
+        c.argument('states', action=AddStates, nargs='*', help='')
+        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
+        c.argument('user', type=str, help='')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
 
     with self.argument_context('security security update-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
@@ -843,28 +861,10 @@ def load_arguments(self, _):
         c.argument('user_principal_name', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
 
-    with self.argument_context('security security updatey-action') as c:
-        c.argument('security_action_id', type=str, help='key: id of securityAction')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action_reason', type=str, help='')
-        c.argument('app_id', type=str, help='')
-        c.argument('azure_tenant_id', type=str, help='')
-        c.argument('client_context', type=str, help='')
-        c.argument('completed_date_time', help='')
-        c.argument('created_date_time', help='')
-        c.argument('error_info', action=AddErrorInfo, nargs='*', help='ResultInfo')
-        c.argument('last_action_date_time', help='')
-        c.argument('name', type=str, help='')
-        c.argument('parameters', action=AddParameters, nargs='*', help='')
-        c.argument('states', action=AddStates, nargs='*', help='')
-        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
-        c.argument('user', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
-
     with self.argument_context('security security-alert update-alert') as c:
         c.argument('value', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('security security-security-action cancel-security-action') as c:
+    with self.argument_context('security security-action cancel-security-action') as c:
         c.argument('security_action_id', type=str, help='key: id of securityAction')
 
     with self.argument_context('security security-ti-indicator delete-ti-indicator') as c:

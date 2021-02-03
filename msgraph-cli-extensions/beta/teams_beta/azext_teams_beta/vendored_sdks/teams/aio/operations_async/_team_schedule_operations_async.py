@@ -2281,7 +2281,36 @@ class TeamScheduleOperations:
     async def create_shift(
         self,
         team_id: str,
-        body: "models.MicrosoftGraphShift",
+        id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id3: Optional[str] = None,
+        display_name3: Optional[str] = None,
+        id4: Optional[str] = None,
+        display_name4: Optional[str] = None,
+        id5: Optional[str] = None,
+        is_staged_for_deletion: Optional[bool] = None,
+        scheduling_group_id: Optional[str] = None,
+        user_id: Optional[str] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        theme: Optional[Union[str, "models.MicrosoftGraphScheduleEntityTheme"]] = None,
+        activities: Optional[List["models.MicrosoftGraphShiftActivity"]] = None,
+        microsoft_graph_shift_item_display_name: Optional[str] = None,
+        notes: Optional[str] = None,
+        microsoft_graph_schedule_entity_end_date_time_end_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_schedule_entity_start_date_time_start_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_schedule_entity_theme: Optional[Union[str, "models.MicrosoftGraphScheduleEntityTheme"]] = None,
+        microsoft_graph_shift_item_activities: Optional[List["models.MicrosoftGraphShiftActivity"]] = None,
+        display_name5: Optional[str] = None,
+        microsoft_graph_shift_item_notes: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphShift":
         """Create new navigation property to shifts for teams.
@@ -2290,8 +2319,92 @@ class TeamScheduleOperations:
 
         :param team_id: key: id of team.
         :type team_id: str
-        :param body: New navigation property.
-        :type body: ~teams.models.MicrosoftGraphShift
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
+        :param is_staged_for_deletion:
+        :type is_staged_for_deletion: bool
+        :param scheduling_group_id: ID of the scheduling group the shift is part of. Required.
+        :type scheduling_group_id: str
+        :param user_id: ID of the user assigned to the shift. Required.
+        :type user_id: str
+        :param end_date_time:
+        :type end_date_time: ~datetime.datetime
+        :param start_date_time:
+        :type start_date_time: ~datetime.datetime
+        :param theme:
+        :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+        :param activities: An incremental part of a shift which can cover details of when and where an
+         employee is during their shift. For example, an assignment or a scheduled break or lunch.
+         Required.
+        :type activities: list[~teams.models.MicrosoftGraphShiftActivity]
+        :param microsoft_graph_shift_item_display_name: The shift label of the shiftItem.
+        :type microsoft_graph_shift_item_display_name: str
+        :param notes: The shift notes for the shiftItem.
+        :type notes: str
+        :param microsoft_graph_schedule_entity_end_date_time_end_date_time:
+        :type microsoft_graph_schedule_entity_end_date_time_end_date_time: ~datetime.datetime
+        :param microsoft_graph_schedule_entity_start_date_time_start_date_time:
+        :type microsoft_graph_schedule_entity_start_date_time_start_date_time: ~datetime.datetime
+        :param microsoft_graph_schedule_entity_theme:
+        :type microsoft_graph_schedule_entity_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+        :param microsoft_graph_shift_item_activities: An incremental part of a shift which can cover
+         details of when and where an employee is during their shift. For example, an assignment or a
+         scheduled break or lunch. Required.
+        :type microsoft_graph_shift_item_activities: list[~teams.models.MicrosoftGraphShiftActivity]
+        :param display_name5: The shift label of the shiftItem.
+        :type display_name5: str
+        :param microsoft_graph_shift_item_notes: The shift notes for the shiftItem.
+        :type microsoft_graph_shift_item_notes: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphShift, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphShift
@@ -2300,6 +2413,8 @@ class TeamScheduleOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphShift"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphShift(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, is_staged_for_deletion=is_staged_for_deletion, scheduling_group_id=scheduling_group_id, user_id=user_id, end_date_time_shared_shift_end_date_time=end_date_time, start_date_time_shared_shift_start_date_time=start_date_time, theme_shared_shift_theme=theme, activities_shared_shift_activities=activities, display_name_shared_shift_display_name=microsoft_graph_shift_item_display_name, notes_shared_shift_notes=notes, end_date_time_draft_shift_end_date_time=microsoft_graph_schedule_entity_end_date_time_end_date_time, start_date_time_draft_shift_start_date_time=microsoft_graph_schedule_entity_start_date_time_start_date_time, theme_draft_shift_theme=microsoft_graph_schedule_entity_theme, activities_draft_shift_activities=microsoft_graph_shift_item_activities, display_name_draft_shift_display_name=display_name5, notes_draft_shift_notes=microsoft_graph_shift_item_notes)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2320,7 +2435,7 @@ class TeamScheduleOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphShift')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphShift')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -2411,7 +2526,36 @@ class TeamScheduleOperations:
         self,
         team_id: str,
         shift_id: str,
-        body: "models.MicrosoftGraphShift",
+        id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id3: Optional[str] = None,
+        display_name3: Optional[str] = None,
+        id4: Optional[str] = None,
+        display_name4: Optional[str] = None,
+        id5: Optional[str] = None,
+        is_staged_for_deletion: Optional[bool] = None,
+        scheduling_group_id: Optional[str] = None,
+        user_id: Optional[str] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        theme: Optional[Union[str, "models.MicrosoftGraphScheduleEntityTheme"]] = None,
+        activities: Optional[List["models.MicrosoftGraphShiftActivity"]] = None,
+        microsoft_graph_shift_item_display_name: Optional[str] = None,
+        notes: Optional[str] = None,
+        microsoft_graph_schedule_entity_end_date_time_end_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_schedule_entity_start_date_time_start_date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_schedule_entity_theme: Optional[Union[str, "models.MicrosoftGraphScheduleEntityTheme"]] = None,
+        microsoft_graph_shift_item_activities: Optional[List["models.MicrosoftGraphShiftActivity"]] = None,
+        display_name5: Optional[str] = None,
+        microsoft_graph_shift_item_notes: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property shifts in teams.
@@ -2422,8 +2566,92 @@ class TeamScheduleOperations:
         :type team_id: str
         :param shift_id: key: id of shift.
         :type shift_id: str
-        :param body: New navigation property values.
-        :type body: ~teams.models.MicrosoftGraphShift
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
+        :param is_staged_for_deletion:
+        :type is_staged_for_deletion: bool
+        :param scheduling_group_id: ID of the scheduling group the shift is part of. Required.
+        :type scheduling_group_id: str
+        :param user_id: ID of the user assigned to the shift. Required.
+        :type user_id: str
+        :param end_date_time:
+        :type end_date_time: ~datetime.datetime
+        :param start_date_time:
+        :type start_date_time: ~datetime.datetime
+        :param theme:
+        :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+        :param activities: An incremental part of a shift which can cover details of when and where an
+         employee is during their shift. For example, an assignment or a scheduled break or lunch.
+         Required.
+        :type activities: list[~teams.models.MicrosoftGraphShiftActivity]
+        :param microsoft_graph_shift_item_display_name: The shift label of the shiftItem.
+        :type microsoft_graph_shift_item_display_name: str
+        :param notes: The shift notes for the shiftItem.
+        :type notes: str
+        :param microsoft_graph_schedule_entity_end_date_time_end_date_time:
+        :type microsoft_graph_schedule_entity_end_date_time_end_date_time: ~datetime.datetime
+        :param microsoft_graph_schedule_entity_start_date_time_start_date_time:
+        :type microsoft_graph_schedule_entity_start_date_time_start_date_time: ~datetime.datetime
+        :param microsoft_graph_schedule_entity_theme:
+        :type microsoft_graph_schedule_entity_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+        :param microsoft_graph_shift_item_activities: An incremental part of a shift which can cover
+         details of when and where an employee is during their shift. For example, an assignment or a
+         scheduled break or lunch. Required.
+        :type microsoft_graph_shift_item_activities: list[~teams.models.MicrosoftGraphShiftActivity]
+        :param display_name5: The shift label of the shiftItem.
+        :type display_name5: str
+        :param microsoft_graph_shift_item_notes: The shift notes for the shiftItem.
+        :type microsoft_graph_shift_item_notes: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2432,6 +2660,8 @@ class TeamScheduleOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphShift(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, is_staged_for_deletion=is_staged_for_deletion, scheduling_group_id=scheduling_group_id, user_id=user_id, end_date_time_shared_shift_end_date_time=end_date_time, start_date_time_shared_shift_start_date_time=start_date_time, theme_shared_shift_theme=theme, activities_shared_shift_activities=activities, display_name_shared_shift_display_name=microsoft_graph_shift_item_display_name, notes_shared_shift_notes=notes, end_date_time_draft_shift_end_date_time=microsoft_graph_schedule_entity_end_date_time_end_date_time, start_date_time_draft_shift_start_date_time=microsoft_graph_schedule_entity_start_date_time_start_date_time, theme_draft_shift_theme=microsoft_graph_schedule_entity_theme, activities_draft_shift_activities=microsoft_graph_shift_item_activities, display_name_draft_shift_display_name=display_name5, notes_draft_shift_notes=microsoft_graph_shift_item_notes)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2452,7 +2682,7 @@ class TeamScheduleOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphShift')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphShift')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -3181,7 +3411,35 @@ class TeamScheduleOperations:
     async def create_time_card(
         self,
         team_id: str,
-        body: "models.MicrosoftGraphTimeCard",
+        id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id3: Optional[str] = None,
+        display_name3: Optional[str] = None,
+        id4: Optional[str] = None,
+        display_name4: Optional[str] = None,
+        id5: Optional[str] = None,
+        breaks: Optional[List["models.MicrosoftGraphTimeCardBreak"]] = None,
+        confirmed_by: Optional[Union[str, "models.MicrosoftGraphConfirmedBy"]] = None,
+        notes: Optional["models.MicrosoftGraphItemBody"] = None,
+        state: Optional[Union[str, "models.MicrosoftGraphTimeCardState"]] = None,
+        user_id: Optional[str] = None,
+        microsoft_graph_time_card_entry_breaks: Optional[List["models.MicrosoftGraphTimeCardBreak"]] = None,
+        clock_in_event: Optional["models.MicrosoftGraphTimeCardEvent"] = None,
+        clock_out_event: Optional["models.MicrosoftGraphTimeCardEvent"] = None,
+        at_approved_location: Optional[bool] = None,
+        date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_item_body_notes: Optional["models.MicrosoftGraphItemBody"] = None,
+        boolean_at_approved_location: Optional[bool] = None,
+        microsoft_graph_time_card_event_date_time: Optional[datetime.datetime] = None,
+        notes1: Optional["models.MicrosoftGraphItemBody"] = None,
         **kwargs
     ) -> "models.MicrosoftGraphTimeCard":
         """Create new navigation property to timeCards for teams.
@@ -3190,8 +3448,86 @@ class TeamScheduleOperations:
 
         :param team_id: key: id of team.
         :type team_id: str
-        :param body: New navigation property.
-        :type body: ~teams.models.MicrosoftGraphTimeCard
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
+        :param breaks:
+        :type breaks: list[~teams.models.MicrosoftGraphTimeCardBreak]
+        :param confirmed_by:
+        :type confirmed_by: str or ~teams.models.MicrosoftGraphConfirmedBy
+        :param notes: itemBody.
+        :type notes: ~teams.models.MicrosoftGraphItemBody
+        :param state:
+        :type state: str or ~teams.models.MicrosoftGraphTimeCardState
+        :param user_id:
+        :type user_id: str
+        :param microsoft_graph_time_card_entry_breaks:
+        :type microsoft_graph_time_card_entry_breaks: list[~teams.models.MicrosoftGraphTimeCardBreak]
+        :param clock_in_event: timeCardEvent.
+        :type clock_in_event: ~teams.models.MicrosoftGraphTimeCardEvent
+        :param clock_out_event: timeCardEvent.
+        :type clock_out_event: ~teams.models.MicrosoftGraphTimeCardEvent
+        :param at_approved_location:
+        :type at_approved_location: bool
+        :param date_time:
+        :type date_time: ~datetime.datetime
+        :param microsoft_graph_item_body_notes: itemBody.
+        :type microsoft_graph_item_body_notes: ~teams.models.MicrosoftGraphItemBody
+        :param boolean_at_approved_location:
+        :type boolean_at_approved_location: bool
+        :param microsoft_graph_time_card_event_date_time:
+        :type microsoft_graph_time_card_event_date_time: ~datetime.datetime
+        :param notes1: itemBody.
+        :type notes1: ~teams.models.MicrosoftGraphItemBody
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTimeCard, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTimeCard
@@ -3200,6 +3536,8 @@ class TeamScheduleOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTimeCard"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphTimeCard(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, breaks=breaks, confirmed_by=confirmed_by, notes=notes, state=state, user_id=user_id, breaks_original_entry_breaks=microsoft_graph_time_card_entry_breaks, clock_in_event=clock_in_event, clock_out_event=clock_out_event, at_approved_location_clock_out_event_at_approved_location=at_approved_location, date_time_clock_out_event_date_time=date_time, notes_clock_out_event_notes=microsoft_graph_item_body_notes, at_approved_location_clock_in_event_at_approved_location=boolean_at_approved_location, date_time_clock_in_event_date_time=microsoft_graph_time_card_event_date_time, notes_clock_in_event_notes=notes1)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3220,7 +3558,7 @@ class TeamScheduleOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphTimeCard')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphTimeCard')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -3311,7 +3649,35 @@ class TeamScheduleOperations:
         self,
         team_id: str,
         time_card_id: str,
-        body: "models.MicrosoftGraphTimeCard",
+        id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id3: Optional[str] = None,
+        display_name3: Optional[str] = None,
+        id4: Optional[str] = None,
+        display_name4: Optional[str] = None,
+        id5: Optional[str] = None,
+        breaks: Optional[List["models.MicrosoftGraphTimeCardBreak"]] = None,
+        confirmed_by: Optional[Union[str, "models.MicrosoftGraphConfirmedBy"]] = None,
+        notes: Optional["models.MicrosoftGraphItemBody"] = None,
+        state: Optional[Union[str, "models.MicrosoftGraphTimeCardState"]] = None,
+        user_id: Optional[str] = None,
+        microsoft_graph_time_card_entry_breaks: Optional[List["models.MicrosoftGraphTimeCardBreak"]] = None,
+        clock_in_event: Optional["models.MicrosoftGraphTimeCardEvent"] = None,
+        clock_out_event: Optional["models.MicrosoftGraphTimeCardEvent"] = None,
+        at_approved_location: Optional[bool] = None,
+        date_time: Optional[datetime.datetime] = None,
+        microsoft_graph_item_body_notes: Optional["models.MicrosoftGraphItemBody"] = None,
+        boolean_at_approved_location: Optional[bool] = None,
+        microsoft_graph_time_card_event_date_time: Optional[datetime.datetime] = None,
+        notes1: Optional["models.MicrosoftGraphItemBody"] = None,
         **kwargs
     ) -> None:
         """Update the navigation property timeCards in teams.
@@ -3322,8 +3688,86 @@ class TeamScheduleOperations:
         :type team_id: str
         :param time_card_id: key: id of timeCard.
         :type time_card_id: str
-        :param body: New navigation property values.
-        :type body: ~teams.models.MicrosoftGraphTimeCard
+        :param id: Read-only.
+        :type id: str
+        :param created_date_time: The Timestamp type represents date and time information using ISO
+         8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+         this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param last_modified_date_time: The Timestamp type represents date and time information using
+         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+         like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
+        :param breaks:
+        :type breaks: list[~teams.models.MicrosoftGraphTimeCardBreak]
+        :param confirmed_by:
+        :type confirmed_by: str or ~teams.models.MicrosoftGraphConfirmedBy
+        :param notes: itemBody.
+        :type notes: ~teams.models.MicrosoftGraphItemBody
+        :param state:
+        :type state: str or ~teams.models.MicrosoftGraphTimeCardState
+        :param user_id:
+        :type user_id: str
+        :param microsoft_graph_time_card_entry_breaks:
+        :type microsoft_graph_time_card_entry_breaks: list[~teams.models.MicrosoftGraphTimeCardBreak]
+        :param clock_in_event: timeCardEvent.
+        :type clock_in_event: ~teams.models.MicrosoftGraphTimeCardEvent
+        :param clock_out_event: timeCardEvent.
+        :type clock_out_event: ~teams.models.MicrosoftGraphTimeCardEvent
+        :param at_approved_location:
+        :type at_approved_location: bool
+        :param date_time:
+        :type date_time: ~datetime.datetime
+        :param microsoft_graph_item_body_notes: itemBody.
+        :type microsoft_graph_item_body_notes: ~teams.models.MicrosoftGraphItemBody
+        :param boolean_at_approved_location:
+        :type boolean_at_approved_location: bool
+        :param microsoft_graph_time_card_event_date_time:
+        :type microsoft_graph_time_card_event_date_time: ~datetime.datetime
+        :param notes1: itemBody.
+        :type notes1: ~teams.models.MicrosoftGraphItemBody
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3332,6 +3776,8 @@ class TeamScheduleOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphTimeCard(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, breaks=breaks, confirmed_by=confirmed_by, notes=notes, state=state, user_id=user_id, breaks_original_entry_breaks=microsoft_graph_time_card_entry_breaks, clock_in_event=clock_in_event, clock_out_event=clock_out_event, at_approved_location_clock_out_event_at_approved_location=at_approved_location, date_time_clock_out_event_date_time=date_time, notes_clock_out_event_notes=microsoft_graph_item_body_notes, at_approved_location_clock_in_event_at_approved_location=boolean_at_approved_location, date_time_clock_in_event_date_time=microsoft_graph_time_card_event_date_time, notes_clock_in_event_notes=notes1)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3352,7 +3798,7 @@ class TeamScheduleOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphTimeCard')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphTimeCard')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

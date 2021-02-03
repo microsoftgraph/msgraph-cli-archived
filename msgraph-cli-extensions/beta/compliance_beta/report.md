@@ -19,6 +19,26 @@ delete a compliance compliance.
 |------|----|-----------|----------|------------|
 |**--if-match**|string|ETag|if_match|If-Match|
 
+### compliance compliance get
+
+get a compliance compliance.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|compliance compliance|compliance.compliance|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get|GetCompliance|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
 ### compliance compliance get-ediscovery
 
 get-ediscovery a compliance compliance.
@@ -39,6 +59,26 @@ get-ediscovery a compliance compliance.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### compliance compliance update
+
+update a compliance compliance.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|compliance compliance|compliance.compliance|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update|UpdateCompliance|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-id**|string|Read-only.|id|id|
+|**--ediscovery-cases**|array||cases|cases|
+
 ### compliance compliance update-ediscovery
 
 update-ediscovery a compliance compliance.
@@ -58,46 +98,6 @@ update-ediscovery a compliance compliance.
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--cases**|array||cases|cases|
-
-### compliance compliance-compliance gete
-
-gete a compliance compliance-compliance.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-compliance|compliance.compliance|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|gete|GetCompliance|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-compliance updatee
-
-updatee a compliance compliance-compliance.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-compliance|compliance.compliance|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|updatee|UpdateCompliance|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-id**|string|Read-only.|id|id|
-|**--ediscovery-cases**|array||cases|cases|
 
 ### compliance compliance-ediscovery create-case
 

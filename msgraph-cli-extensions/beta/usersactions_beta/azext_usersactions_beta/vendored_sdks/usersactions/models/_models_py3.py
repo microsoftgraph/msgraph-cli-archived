@@ -41891,10 +41891,6 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
     :type additional_properties: dict[str, object]
     :param attendees:
     :type attendees: list[~users_actions.models.MicrosoftGraphAttendeeBase]
-    :param location_constraint: locationConstraint.
-    :type location_constraint: ~users_actions.models.MicrosoftGraphLocationConstraint
-    :param time_constraint: timeConstraint.
-    :type time_constraint: ~users_actions.models.MicrosoftGraphTimeConstraint
     :param meeting_duration:
     :type meeting_duration: ~datetime.timedelta
     :param max_candidates:
@@ -41905,6 +41901,22 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
     :type return_suggestion_reasons: bool
     :param minimum_attendee_percentage:
     :type minimum_attendee_percentage: float
+    :param activity_domain:  Possible values include: "unknown", "work", "personal",
+     "unrestricted".
+    :type activity_domain: str or ~users_actions.models.MicrosoftGraphActivityDomain
+    :param time_slots:
+    :type time_slots: list[~users_actions.models.MicrosoftGraphTimeSlot]
+    :param is_required: The client requests the service to include in the response a meeting
+     location for the meeting. If this is true and all the resources are busy, findMeetingTimes will
+     not return any meeting time suggestions. If this is false and all the resources are busy,
+     findMeetingTimes would still look for meeting times without locations.
+    :type is_required: bool
+    :param locations: Constraint information for one or more locations that the client requests for
+     the meeting.
+    :type locations: list[~users_actions.models.MicrosoftGraphLocationConstraintItem]
+    :param suggest_location: The client requests the service to suggest one or more meeting
+     locations.
+    :type suggest_location: bool
     """
 
     _validation = {
@@ -41914,13 +41926,16 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'attendees': {'key': 'attendees', 'type': '[MicrosoftGraphAttendeeBase]'},
-        'location_constraint': {'key': 'locationConstraint', 'type': 'MicrosoftGraphLocationConstraint'},
-        'time_constraint': {'key': 'timeConstraint', 'type': 'MicrosoftGraphTimeConstraint'},
         'meeting_duration': {'key': 'meetingDuration', 'type': 'duration'},
         'max_candidates': {'key': 'maxCandidates', 'type': 'int'},
         'is_organizer_optional': {'key': 'isOrganizerOptional', 'type': 'bool'},
         'return_suggestion_reasons': {'key': 'returnSuggestionReasons', 'type': 'bool'},
         'minimum_attendee_percentage': {'key': 'minimumAttendeePercentage', 'type': 'float'},
+        'activity_domain': {'key': 'timeConstraint.activityDomain', 'type': 'str'},
+        'time_slots': {'key': 'timeConstraint.timeSlots', 'type': '[MicrosoftGraphTimeSlot]'},
+        'is_required': {'key': 'locationConstraint.isRequired', 'type': 'bool'},
+        'locations': {'key': 'locationConstraint.locations', 'type': '[MicrosoftGraphLocationConstraintItem]'},
+        'suggest_location': {'key': 'locationConstraint.suggestLocation', 'type': 'bool'},
     }
 
     def __init__(
@@ -41928,25 +41943,31 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         attendees: Optional[List["MicrosoftGraphAttendeeBase"]] = None,
-        location_constraint: Optional["MicrosoftGraphLocationConstraint"] = None,
-        time_constraint: Optional["MicrosoftGraphTimeConstraint"] = None,
         meeting_duration: Optional[datetime.timedelta] = None,
         max_candidates: Optional[int] = None,
         is_organizer_optional: Optional[bool] = False,
         return_suggestion_reasons: Optional[bool] = False,
         minimum_attendee_percentage: Optional[float] = None,
+        activity_domain: Optional[Union[str, "MicrosoftGraphActivityDomain"]] = None,
+        time_slots: Optional[List["MicrosoftGraphTimeSlot"]] = None,
+        is_required: Optional[bool] = None,
+        locations: Optional[List["MicrosoftGraphLocationConstraintItem"]] = None,
+        suggest_location: Optional[bool] = None,
         **kwargs
     ):
         super(PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.attendees = attendees
-        self.location_constraint = location_constraint
-        self.time_constraint = time_constraint
         self.meeting_duration = meeting_duration
         self.max_candidates = max_candidates
         self.is_organizer_optional = is_organizer_optional
         self.return_suggestion_reasons = return_suggestion_reasons
         self.minimum_attendee_percentage = minimum_attendee_percentage
+        self.activity_domain = activity_domain
+        self.time_slots = time_slots
+        self.is_required = is_required
+        self.locations = locations
+        self.suggest_location = suggest_location
 
 
 class PathsT4Hh9DUsersUserIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
