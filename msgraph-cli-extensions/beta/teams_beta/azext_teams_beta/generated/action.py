@@ -886,6 +886,86 @@ class AddScheduleSchedulingGroups(argparse._AppendAction):
         return d
 
 
+class AddScheduleShifts(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddScheduleShifts, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'is-staged-for-deletion':
+                d['is_staged_for_deletion'] = v[0]
+            elif kl == 'scheduling-group-id':
+                d['scheduling_group_id'] = v[0]
+            elif kl == 'user-id':
+                d['user_id'] = v[0]
+            elif kl == 'end-date-time-shared-shift-end-date-time':
+                d['end_date_time_shared_shift_end_date_time'] = v[0]
+            elif kl == 'start-date-time-shared-shift-start-date-time':
+                d['start_date_time_shared_shift_start_date_time'] = v[0]
+            elif kl == 'theme-shared-shift-theme':
+                d['theme_shared_shift_theme'] = v[0]
+            elif kl == 'activities-shared-shift-activities':
+                d['activities_shared_shift_activities'] = v
+            elif kl == 'display-name-shared-shift-display-name':
+                d['display_name_shared_shift_display_name'] = v[0]
+            elif kl == 'notes-shared-shift-notes':
+                d['notes_shared_shift_notes'] = v[0]
+            elif kl == 'end-date-time-draft-shift-end-date-time':
+                d['end_date_time_draft_shift_end_date_time'] = v[0]
+            elif kl == 'start-date-time-draft-shift-start-date-time':
+                d['start_date_time_draft_shift_start_date_time'] = v[0]
+            elif kl == 'theme-draft-shift-theme':
+                d['theme_draft_shift_theme'] = v[0]
+            elif kl == 'activities-draft-shift-activities':
+                d['activities_draft_shift_activities'] = v
+            elif kl == 'display-name-draft-shift-display-name':
+                d['display_name_draft_shift_display_name'] = v[0]
+            elif kl == 'notes-draft-shift-notes':
+                d['notes_draft_shift_notes'] = v[0]
+            elif kl == 'created-date-time':
+                d['created_date_time'] = v[0]
+            elif kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'display-name-last-modified-by-user-display-name':
+                d['display_name_last_modified_by_user_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-user-id':
+                d['id_last_modified_by_user_id'] = v[0]
+            elif kl == 'display-name-last-modified-by-device-display-name':
+                d['display_name_last_modified_by_device_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-device-id':
+                d['id_last_modified_by_device_id'] = v[0]
+            elif kl == 'display-name-last-modified-by-application-display-name':
+                d['display_name_last_modified_by_application_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-application-id':
+                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'display-name-created-by-user-display-name':
+                d['display_name_created_by_user_display_name'] = v[0]
+            elif kl == 'id-created-by-user-id':
+                d['id_created_by_user_id'] = v[0]
+            elif kl == 'display-name-created-by-device-display-name':
+                d['display_name_created_by_device_display_name'] = v[0]
+            elif kl == 'id-created-by-device-id':
+                d['id_created_by_device_id'] = v[0]
+            elif kl == 'display-name-created-by-application-display-name':
+                d['display_name_created_by_application_display_name'] = v[0]
+            elif kl == 'id-created-by-application-id':
+                d['id_created_by_application_id'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
 class AddScheduleSwapShiftsChangeRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -1867,6 +1947,38 @@ class AddDraftOpenShift(argparse.Action):
                 d['notes'] = v[0]
             elif kl == 'end-date-time':
                 d['end_date_time'] = v[0]
+            elif kl == 'start-date-time':
+                d['start_date_time'] = v[0]
+            elif kl == 'theme':
+                d['theme'] = v[0]
+        return d
+
+
+class AddSharedShiftActivities(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddSharedShiftActivities, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'end-date-time':
+                d['end_date_time'] = v[0]
+            elif kl == 'is-paid':
+                d['is_paid'] = v[0]
             elif kl == 'start-date-time':
                 d['start_date_time'] = v[0]
             elif kl == 'theme':

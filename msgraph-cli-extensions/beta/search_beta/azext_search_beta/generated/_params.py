@@ -71,11 +71,11 @@ def load_arguments(self, _):
         c.argument('schema_base_type', type=str, help='')
         c.argument('schema_properties', action=AddSchemaProperties, nargs='*', help='')
 
-    with self.argument_context('search search-search-entity geth-entity') as c:
+    with self.argument_context('search search-entity get-entity') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('search search-search-entity updateh-entity') as c:
+    with self.argument_context('search search-entity update-entity') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('search search query') as c:

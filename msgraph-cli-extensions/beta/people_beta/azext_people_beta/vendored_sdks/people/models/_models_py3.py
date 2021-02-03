@@ -937,12 +937,18 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     :type completion_month_year: ~datetime.date
     :param end_month_year:
     :type end_month_year: ~datetime.date
-    :param institution: institutionData.
-    :type institution: ~people.models.MicrosoftGraphInstitutionData
     :param program: educationalActivityDetail.
     :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
     :param start_month_year:
     :type start_month_year: ~datetime.date
+    :param description:
+    :type description: str
+    :param display_name:
+    :type display_name: str
+    :param location: physicalAddress.
+    :type location: ~people.models.MicrosoftGraphPhysicalAddress
+    :param web_url:
+    :type web_url: str
     """
 
     _attribute_map = {
@@ -962,9 +968,12 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_month_year': {'key': 'completionMonthYear', 'type': 'date'},
         'end_month_year': {'key': 'endMonthYear', 'type': 'date'},
-        'institution': {'key': 'institution', 'type': 'MicrosoftGraphInstitutionData'},
         'program': {'key': 'program', 'type': 'MicrosoftGraphEducationalActivityDetail'},
         'start_month_year': {'key': 'startMonthYear', 'type': 'date'},
+        'description': {'key': 'institution.description', 'type': 'str'},
+        'display_name': {'key': 'institution.displayName', 'type': 'str'},
+        'location': {'key': 'institution.location', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'web_url': {'key': 'institution.webUrl', 'type': 'str'},
     }
 
     def __init__(
@@ -986,9 +995,12 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         additional_properties: Optional[Dict[str, object]] = None,
         completion_month_year: Optional[datetime.date] = None,
         end_month_year: Optional[datetime.date] = None,
-        institution: Optional["MicrosoftGraphInstitutionData"] = None,
         program: Optional["MicrosoftGraphEducationalActivityDetail"] = None,
         start_month_year: Optional[datetime.date] = None,
+        description: Optional[str] = None,
+        display_name: Optional[str] = None,
+        location: Optional["MicrosoftGraphPhysicalAddress"] = None,
+        web_url: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationalActivity, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
@@ -996,9 +1008,12 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         self.additional_properties = additional_properties
         self.completion_month_year = completion_month_year
         self.end_month_year = end_month_year
-        self.institution = institution
         self.program = program
         self.start_month_year = start_month_year
+        self.description = description
+        self.display_name = display_name
+        self.location = location
+        self.web_url = web_url
 
 
 class MicrosoftGraphEducationalActivityDetail(msrest.serialization.Model):

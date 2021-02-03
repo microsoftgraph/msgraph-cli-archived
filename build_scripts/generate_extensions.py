@@ -67,12 +67,22 @@ cli:
     cli-flatten-payload-max-prop: 256
     # max depth of flatten
     cli-flatten-payload-max-level: 1
+    cli-flatten-payload-max-complexity: 0.5
+    cli-flatten-payload-max-array-object-prop-count: 8
 ```
     """
     write_to('readme.cli.md', config)
 
 
 def generate_az_config_for(file_name, version):
+    parsed_file_name = file_name
+
+    # For filenames that are plural we get their singular form by removing the s.
+    # Command group use the singular form of the filename, ie if filename is applications
+    # the command group will be mg applications application
+    if file_name[-1] == 's':
+        parsed_file_name = file_name[:-1]
+
     config = f"""
 # CLI
 
@@ -90,31 +100,29 @@ az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
 cli-core-lib: msgraph.cli.core 
 
-# File names are in plural for example applications while group names are singular. 
-# file_name[:-1] removes the s from the file name
 directive:
     - where:
           group: {file_name}_{version}
       set:
           group: {file_name}
     - where:
-          group: {file_name[:-1]}-{file_name[:-1]}
+          group: {parsed_file_name}-{parsed_file_name}
       set:
-          group: {file_name[:-1]}
+          group: {parsed_file_name}
     - where:
-          command: create-{file_name[:-1]}
+          command: create-{parsed_file_name}
       set:
           command: create
     - where:
-          command: get-{file_name[:-1]}
+          command: get-{parsed_file_name}
       set:
           command: get
     - where:
-          command: list-{file_name[:-1]}
+          command: list-{parsed_file_name}
       set:
           command: list
     - where:
-          command: update-{file_name[:-1]}
+          command: update-{parsed_file_name}
       set:
           command: update
 

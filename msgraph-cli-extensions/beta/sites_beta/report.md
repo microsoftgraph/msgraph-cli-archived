@@ -1395,7 +1395,52 @@ create-activity a sites site-list.
 |------|----|-----------|----------|------------|
 |**--site-id**|string|key: id of site|site_id|site-id|
 |**--list-id**|string|key: id of list|list_id|list-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application|application|
+|**--list-item-last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--list-item-created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--list-item-created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--list-item-activities**|array|The list of recent activities that took place on this item.|activities|activities|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id1|id|
+|**--actor-application**|object|identity|application1|application|
+|**--actor-device**|object|identity|device1|device|
+|**--actor-user**|object|identity|user1|user|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### sites site-list create-column
 
@@ -1863,7 +1908,52 @@ update-activity a sites site-list.
 |**--site-id**|string|key: id of site|site_id|site-id|
 |**--list-id**|string|key: id of list|list_id|list-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application|application|
+|**--list-item-last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--list-item-created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--list-item-created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--list-item-activities**|array|The list of recent activities that took place on this item.|activities|activities|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id1|id|
+|**--actor-application**|object|identity|application1|application|
+|**--actor-device**|object|identity|device1|device|
+|**--actor-user**|object|identity|user1|user|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### sites site-list update-column
 
@@ -2414,7 +2504,52 @@ create-activity a sites site-list-activity-list-item.
 |**--site-id**|string|key: id of site|site_id|site-id|
 |**--list-id**|string|key: id of list|list_id|list-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application|application|
+|**--list-item-last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--list-item-created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--list-item-created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--list-item-activities**|array|The list of recent activities that took place on this item.|activities|activities|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id1|id|
+|**--actor-application**|object|identity|application1|application|
+|**--actor-device**|object|identity|device1|device|
+|**--actor-user**|object|identity|user1|user|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### sites site-list-activity-list-item create-link
 
@@ -2794,7 +2929,52 @@ update-activity a sites site-list-activity-list-item.
 |**--list-id**|string|key: id of list|list_id|list-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
 |**--item-activity-old-id1**|string|key: id of itemActivityOLD|item_activity_old_id1|itemActivityOLD-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application|application|
+|**--list-item-last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--list-item-created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--list-item-created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--list-item-activities**|array|The list of recent activities that took place on this item.|activities|activities|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id1|id|
+|**--actor-application**|object|identity|application1|application|
+|**--actor-device**|object|identity|device1|device|
+|**--actor-user**|object|identity|user1|user|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### sites site-list-activity-list-item update-drive-item
 
@@ -3214,7 +3394,52 @@ create-activity a sites site-list-item.
 |**--site-id**|string|key: id of site|site_id|site-id|
 |**--list-id**|string|key: id of list|list_id|list-id|
 |**--list-item-id**|string|key: id of listItem|list_item_id|listItem-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application|application|
+|**--list-item-last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--list-item-created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--list-item-created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--list-item-activities**|array|The list of recent activities that took place on this item.|activities|activities|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id1|id|
+|**--actor-application**|object|identity|application1|application|
+|**--actor-device**|object|identity|device1|device|
+|**--actor-user**|object|identity|user1|user|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### sites site-list-item create-link
 
@@ -3594,7 +3819,52 @@ update-activity a sites site-list-item.
 |**--list-id**|string|key: id of list|list_id|list-id|
 |**--list-item-id**|string|key: id of listItem|list_item_id|listItem-id|
 |**--item-activity-old-id**|string|key: id of itemActivityOLD|item_activity_old_id|itemActivityOLD-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--times**|object|itemActivityTimeSet|times|times|
+|**--drive-item**|object|driveItem|drive_item|driveItem|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application|application|
+|**--list-item-last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--list-item-created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--list-item-created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--list-item-activities**|array|The list of recent activities that took place on this item.|activities|activities|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id1|id|
+|**--actor-application**|object|identity|application1|application|
+|**--actor-device**|object|identity|device1|device|
+|**--actor-user**|object|identity|user1|user|
+|**--action-comment**|object|commentAction|comment|comment|
+|**--action-create**|dictionary|createAction|create|create|
+|**--action-delete**|object|deleteAction|delete|delete|
+|**--action-edit**|dictionary|editAction|edit|edit|
+|**--action-mention**|object|mentionAction|mention|mention|
+|**--action-move**|object|moveAction|move|move|
+|**--action-rename**|object|renameAction|rename|rename|
+|**--action-restore**|dictionary|restoreAction|restore|restore|
+|**--action-share**|object|shareAction|share|share|
+|**--action-version**|object|versionAction|version|version|
 
 ### sites site-list-item update-drive-item
 

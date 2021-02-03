@@ -542,15 +542,93 @@ class AuditLogOperations:
 
     async def create_directory_provisioning(
         self,
-        body: "models.MicrosoftGraphProvisioningObjectSummary",
+        id: Optional[str] = None,
+        action: Optional[str] = None,
+        activity_date_time: Optional[datetime.datetime] = None,
+        change_id: Optional[str] = None,
+        cycle_id: Optional[str] = None,
+        duration_in_milliseconds: Optional[int] = None,
+        initiated_by: Optional["models.MicrosoftGraphInitiator"] = None,
+        job_id: Optional[str] = None,
+        modified_properties: Optional[List["models.MicrosoftGraphModifiedProperty"]] = None,
+        provisioning_steps: Optional[List["models.MicrosoftGraphProvisioningStep"]] = None,
+        service_principal: Optional["models.MicrosoftGraphProvisioningServicePrincipal"] = None,
+        tenant_id: Optional[str] = None,
+        details: Optional[Dict[str, object]] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_provisioning_system_details_id: Optional[str] = None,
+        microsoft_graph_details_info_details: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioned_identity_display_name: Optional[str] = None,
+        microsoft_graph_provisioned_identity_id: Optional[str] = None,
+        identity_type: Optional[str] = None,
+        status: Optional[Union[str, "models.MicrosoftGraphProvisioningResult"]] = None,
+        details1: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioning_system_details_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        details2: Optional[Dict[str, object]] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        microsoft_graph_provisioned_identity_type: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphProvisioningObjectSummary":
         """Create new navigation property to directoryProvisioning for auditLogs.
 
         Create new navigation property to directoryProvisioning for auditLogs.
 
-        :param body: New navigation property.
-        :type body: ~reports.models.MicrosoftGraphProvisioningObjectSummary
+        :param id: Read-only.
+        :type id: str
+        :param action:
+        :type action: str
+        :param activity_date_time:
+        :type activity_date_time: ~datetime.datetime
+        :param change_id:
+        :type change_id: str
+        :param cycle_id:
+        :type cycle_id: str
+        :param duration_in_milliseconds:
+        :type duration_in_milliseconds: int
+        :param initiated_by: initiator.
+        :type initiated_by: ~reports.models.MicrosoftGraphInitiator
+        :param job_id:
+        :type job_id: str
+        :param modified_properties:
+        :type modified_properties: list[~reports.models.MicrosoftGraphModifiedProperty]
+        :param provisioning_steps:
+        :type provisioning_steps: list[~reports.models.MicrosoftGraphProvisioningStep]
+        :param service_principal: provisioningServicePrincipal.
+        :type service_principal: ~reports.models.MicrosoftGraphProvisioningServicePrincipal
+        :param tenant_id:
+        :type tenant_id: str
+        :param details: detailsInfo.
+        :type details: dict[str, object]
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_provisioning_system_details_id:
+        :type microsoft_graph_provisioning_system_details_id: str
+        :param microsoft_graph_details_info_details: detailsInfo.
+        :type microsoft_graph_details_info_details: dict[str, object]
+        :param microsoft_graph_provisioned_identity_display_name:
+        :type microsoft_graph_provisioned_identity_display_name: str
+        :param microsoft_graph_provisioned_identity_id:
+        :type microsoft_graph_provisioned_identity_id: str
+        :param identity_type:
+        :type identity_type: str
+        :param status:
+        :type status: str or ~reports.models.MicrosoftGraphProvisioningResult
+        :param details1: detailsInfo.
+        :type details1: dict[str, object]
+        :param microsoft_graph_provisioning_system_details_display_name:
+        :type microsoft_graph_provisioning_system_details_display_name: str
+        :param id1:
+        :type id1: str
+        :param details2: detailsInfo.
+        :type details2: dict[str, object]
+        :param display_name1:
+        :type display_name1: str
+        :param id2:
+        :type id2: str
+        :param microsoft_graph_provisioned_identity_type:
+        :type microsoft_graph_provisioned_identity_type: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphProvisioningObjectSummary, or the result of cls(response)
         :rtype: ~reports.models.MicrosoftGraphProvisioningObjectSummary
@@ -559,6 +637,8 @@ class AuditLogOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphProvisioningObjectSummary"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphProvisioningObjectSummary(id=id, action=action, activity_date_time=activity_date_time, change_id=change_id, cycle_id=cycle_id, duration_in_milliseconds=duration_in_milliseconds, initiated_by=initiated_by, job_id=job_id, modified_properties=modified_properties, provisioning_steps=provisioning_steps, service_principal=service_principal, tenant_id=tenant_id, details_target_system_details=details, display_name_target_system_display_name=display_name, id_target_system_id=microsoft_graph_provisioning_system_details_id, details_target_identity_details=microsoft_graph_details_info_details, display_name_target_identity_display_name=microsoft_graph_provisioned_identity_display_name, id_target_identity_id=microsoft_graph_provisioned_identity_id, identity_type_target_identity_type=identity_type, status=status, details_source_system_details=details1, display_name_source_system_display_name=microsoft_graph_provisioning_system_details_display_name, id_source_system_id=id1, details_source_identity_details=details2, display_name_source_identity_display_name=display_name1, id_source_identity_id=id2, identity_type_source_identity_type=microsoft_graph_provisioned_identity_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -575,7 +655,7 @@ class AuditLogOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphProvisioningObjectSummary')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphProvisioningObjectSummary')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -661,7 +741,33 @@ class AuditLogOperations:
     async def update_directory_provisioning(
         self,
         provisioning_object_summary_id: str,
-        body: "models.MicrosoftGraphProvisioningObjectSummary",
+        id: Optional[str] = None,
+        action: Optional[str] = None,
+        activity_date_time: Optional[datetime.datetime] = None,
+        change_id: Optional[str] = None,
+        cycle_id: Optional[str] = None,
+        duration_in_milliseconds: Optional[int] = None,
+        initiated_by: Optional["models.MicrosoftGraphInitiator"] = None,
+        job_id: Optional[str] = None,
+        modified_properties: Optional[List["models.MicrosoftGraphModifiedProperty"]] = None,
+        provisioning_steps: Optional[List["models.MicrosoftGraphProvisioningStep"]] = None,
+        service_principal: Optional["models.MicrosoftGraphProvisioningServicePrincipal"] = None,
+        tenant_id: Optional[str] = None,
+        details: Optional[Dict[str, object]] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_provisioning_system_details_id: Optional[str] = None,
+        microsoft_graph_details_info_details: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioned_identity_display_name: Optional[str] = None,
+        microsoft_graph_provisioned_identity_id: Optional[str] = None,
+        identity_type: Optional[str] = None,
+        status: Optional[Union[str, "models.MicrosoftGraphProvisioningResult"]] = None,
+        details1: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioning_system_details_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        details2: Optional[Dict[str, object]] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        microsoft_graph_provisioned_identity_type: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property directoryProvisioning in auditLogs.
@@ -670,8 +776,60 @@ class AuditLogOperations:
 
         :param provisioning_object_summary_id: key: id of provisioningObjectSummary.
         :type provisioning_object_summary_id: str
-        :param body: New navigation property values.
-        :type body: ~reports.models.MicrosoftGraphProvisioningObjectSummary
+        :param id: Read-only.
+        :type id: str
+        :param action:
+        :type action: str
+        :param activity_date_time:
+        :type activity_date_time: ~datetime.datetime
+        :param change_id:
+        :type change_id: str
+        :param cycle_id:
+        :type cycle_id: str
+        :param duration_in_milliseconds:
+        :type duration_in_milliseconds: int
+        :param initiated_by: initiator.
+        :type initiated_by: ~reports.models.MicrosoftGraphInitiator
+        :param job_id:
+        :type job_id: str
+        :param modified_properties:
+        :type modified_properties: list[~reports.models.MicrosoftGraphModifiedProperty]
+        :param provisioning_steps:
+        :type provisioning_steps: list[~reports.models.MicrosoftGraphProvisioningStep]
+        :param service_principal: provisioningServicePrincipal.
+        :type service_principal: ~reports.models.MicrosoftGraphProvisioningServicePrincipal
+        :param tenant_id:
+        :type tenant_id: str
+        :param details: detailsInfo.
+        :type details: dict[str, object]
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_provisioning_system_details_id:
+        :type microsoft_graph_provisioning_system_details_id: str
+        :param microsoft_graph_details_info_details: detailsInfo.
+        :type microsoft_graph_details_info_details: dict[str, object]
+        :param microsoft_graph_provisioned_identity_display_name:
+        :type microsoft_graph_provisioned_identity_display_name: str
+        :param microsoft_graph_provisioned_identity_id:
+        :type microsoft_graph_provisioned_identity_id: str
+        :param identity_type:
+        :type identity_type: str
+        :param status:
+        :type status: str or ~reports.models.MicrosoftGraphProvisioningResult
+        :param details1: detailsInfo.
+        :type details1: dict[str, object]
+        :param microsoft_graph_provisioning_system_details_display_name:
+        :type microsoft_graph_provisioning_system_details_display_name: str
+        :param id1:
+        :type id1: str
+        :param details2: detailsInfo.
+        :type details2: dict[str, object]
+        :param display_name1:
+        :type display_name1: str
+        :param id2:
+        :type id2: str
+        :param microsoft_graph_provisioned_identity_type:
+        :type microsoft_graph_provisioned_identity_type: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -680,6 +838,8 @@ class AuditLogOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphProvisioningObjectSummary(id=id, action=action, activity_date_time=activity_date_time, change_id=change_id, cycle_id=cycle_id, duration_in_milliseconds=duration_in_milliseconds, initiated_by=initiated_by, job_id=job_id, modified_properties=modified_properties, provisioning_steps=provisioning_steps, service_principal=service_principal, tenant_id=tenant_id, details_target_system_details=details, display_name_target_system_display_name=display_name, id_target_system_id=microsoft_graph_provisioning_system_details_id, details_target_identity_details=microsoft_graph_details_info_details, display_name_target_identity_display_name=microsoft_graph_provisioned_identity_display_name, id_target_identity_id=microsoft_graph_provisioned_identity_id, identity_type_target_identity_type=identity_type, status=status, details_source_system_details=details1, display_name_source_system_display_name=microsoft_graph_provisioning_system_details_display_name, id_source_system_id=id1, details_source_identity_details=details2, display_name_source_identity_display_name=display_name1, id_source_identity_id=id2, identity_type_source_identity_type=microsoft_graph_provisioned_identity_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -699,7 +859,7 @@ class AuditLogOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphProvisioningObjectSummary')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphProvisioningObjectSummary')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -859,15 +1019,93 @@ class AuditLogOperations:
 
     async def create_provisioning(
         self,
-        body: "models.MicrosoftGraphProvisioningObjectSummary",
+        id: Optional[str] = None,
+        action: Optional[str] = None,
+        activity_date_time: Optional[datetime.datetime] = None,
+        change_id: Optional[str] = None,
+        cycle_id: Optional[str] = None,
+        duration_in_milliseconds: Optional[int] = None,
+        initiated_by: Optional["models.MicrosoftGraphInitiator"] = None,
+        job_id: Optional[str] = None,
+        modified_properties: Optional[List["models.MicrosoftGraphModifiedProperty"]] = None,
+        provisioning_steps: Optional[List["models.MicrosoftGraphProvisioningStep"]] = None,
+        service_principal: Optional["models.MicrosoftGraphProvisioningServicePrincipal"] = None,
+        tenant_id: Optional[str] = None,
+        details: Optional[Dict[str, object]] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_provisioning_system_details_id: Optional[str] = None,
+        microsoft_graph_details_info_details: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioned_identity_display_name: Optional[str] = None,
+        microsoft_graph_provisioned_identity_id: Optional[str] = None,
+        identity_type: Optional[str] = None,
+        status: Optional[Union[str, "models.MicrosoftGraphProvisioningResult"]] = None,
+        details1: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioning_system_details_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        details2: Optional[Dict[str, object]] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        microsoft_graph_provisioned_identity_type: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphProvisioningObjectSummary":
         """Create new navigation property to provisioning for auditLogs.
 
         Create new navigation property to provisioning for auditLogs.
 
-        :param body: New navigation property.
-        :type body: ~reports.models.MicrosoftGraphProvisioningObjectSummary
+        :param id: Read-only.
+        :type id: str
+        :param action:
+        :type action: str
+        :param activity_date_time:
+        :type activity_date_time: ~datetime.datetime
+        :param change_id:
+        :type change_id: str
+        :param cycle_id:
+        :type cycle_id: str
+        :param duration_in_milliseconds:
+        :type duration_in_milliseconds: int
+        :param initiated_by: initiator.
+        :type initiated_by: ~reports.models.MicrosoftGraphInitiator
+        :param job_id:
+        :type job_id: str
+        :param modified_properties:
+        :type modified_properties: list[~reports.models.MicrosoftGraphModifiedProperty]
+        :param provisioning_steps:
+        :type provisioning_steps: list[~reports.models.MicrosoftGraphProvisioningStep]
+        :param service_principal: provisioningServicePrincipal.
+        :type service_principal: ~reports.models.MicrosoftGraphProvisioningServicePrincipal
+        :param tenant_id:
+        :type tenant_id: str
+        :param details: detailsInfo.
+        :type details: dict[str, object]
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_provisioning_system_details_id:
+        :type microsoft_graph_provisioning_system_details_id: str
+        :param microsoft_graph_details_info_details: detailsInfo.
+        :type microsoft_graph_details_info_details: dict[str, object]
+        :param microsoft_graph_provisioned_identity_display_name:
+        :type microsoft_graph_provisioned_identity_display_name: str
+        :param microsoft_graph_provisioned_identity_id:
+        :type microsoft_graph_provisioned_identity_id: str
+        :param identity_type:
+        :type identity_type: str
+        :param status:
+        :type status: str or ~reports.models.MicrosoftGraphProvisioningResult
+        :param details1: detailsInfo.
+        :type details1: dict[str, object]
+        :param microsoft_graph_provisioning_system_details_display_name:
+        :type microsoft_graph_provisioning_system_details_display_name: str
+        :param id1:
+        :type id1: str
+        :param details2: detailsInfo.
+        :type details2: dict[str, object]
+        :param display_name1:
+        :type display_name1: str
+        :param id2:
+        :type id2: str
+        :param microsoft_graph_provisioned_identity_type:
+        :type microsoft_graph_provisioned_identity_type: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphProvisioningObjectSummary, or the result of cls(response)
         :rtype: ~reports.models.MicrosoftGraphProvisioningObjectSummary
@@ -876,6 +1114,8 @@ class AuditLogOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphProvisioningObjectSummary"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphProvisioningObjectSummary(id=id, action=action, activity_date_time=activity_date_time, change_id=change_id, cycle_id=cycle_id, duration_in_milliseconds=duration_in_milliseconds, initiated_by=initiated_by, job_id=job_id, modified_properties=modified_properties, provisioning_steps=provisioning_steps, service_principal=service_principal, tenant_id=tenant_id, details_target_system_details=details, display_name_target_system_display_name=display_name, id_target_system_id=microsoft_graph_provisioning_system_details_id, details_target_identity_details=microsoft_graph_details_info_details, display_name_target_identity_display_name=microsoft_graph_provisioned_identity_display_name, id_target_identity_id=microsoft_graph_provisioned_identity_id, identity_type_target_identity_type=identity_type, status=status, details_source_system_details=details1, display_name_source_system_display_name=microsoft_graph_provisioning_system_details_display_name, id_source_system_id=id1, details_source_identity_details=details2, display_name_source_identity_display_name=display_name1, id_source_identity_id=id2, identity_type_source_identity_type=microsoft_graph_provisioned_identity_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -892,7 +1132,7 @@ class AuditLogOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphProvisioningObjectSummary')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphProvisioningObjectSummary')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -978,7 +1218,33 @@ class AuditLogOperations:
     async def update_provisioning(
         self,
         provisioning_object_summary_id: str,
-        body: "models.MicrosoftGraphProvisioningObjectSummary",
+        id: Optional[str] = None,
+        action: Optional[str] = None,
+        activity_date_time: Optional[datetime.datetime] = None,
+        change_id: Optional[str] = None,
+        cycle_id: Optional[str] = None,
+        duration_in_milliseconds: Optional[int] = None,
+        initiated_by: Optional["models.MicrosoftGraphInitiator"] = None,
+        job_id: Optional[str] = None,
+        modified_properties: Optional[List["models.MicrosoftGraphModifiedProperty"]] = None,
+        provisioning_steps: Optional[List["models.MicrosoftGraphProvisioningStep"]] = None,
+        service_principal: Optional["models.MicrosoftGraphProvisioningServicePrincipal"] = None,
+        tenant_id: Optional[str] = None,
+        details: Optional[Dict[str, object]] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_provisioning_system_details_id: Optional[str] = None,
+        microsoft_graph_details_info_details: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioned_identity_display_name: Optional[str] = None,
+        microsoft_graph_provisioned_identity_id: Optional[str] = None,
+        identity_type: Optional[str] = None,
+        status: Optional[Union[str, "models.MicrosoftGraphProvisioningResult"]] = None,
+        details1: Optional[Dict[str, object]] = None,
+        microsoft_graph_provisioning_system_details_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        details2: Optional[Dict[str, object]] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        microsoft_graph_provisioned_identity_type: Optional[str] = None,
         **kwargs
     ) -> None:
         """Update the navigation property provisioning in auditLogs.
@@ -987,8 +1253,60 @@ class AuditLogOperations:
 
         :param provisioning_object_summary_id: key: id of provisioningObjectSummary.
         :type provisioning_object_summary_id: str
-        :param body: New navigation property values.
-        :type body: ~reports.models.MicrosoftGraphProvisioningObjectSummary
+        :param id: Read-only.
+        :type id: str
+        :param action:
+        :type action: str
+        :param activity_date_time:
+        :type activity_date_time: ~datetime.datetime
+        :param change_id:
+        :type change_id: str
+        :param cycle_id:
+        :type cycle_id: str
+        :param duration_in_milliseconds:
+        :type duration_in_milliseconds: int
+        :param initiated_by: initiator.
+        :type initiated_by: ~reports.models.MicrosoftGraphInitiator
+        :param job_id:
+        :type job_id: str
+        :param modified_properties:
+        :type modified_properties: list[~reports.models.MicrosoftGraphModifiedProperty]
+        :param provisioning_steps:
+        :type provisioning_steps: list[~reports.models.MicrosoftGraphProvisioningStep]
+        :param service_principal: provisioningServicePrincipal.
+        :type service_principal: ~reports.models.MicrosoftGraphProvisioningServicePrincipal
+        :param tenant_id:
+        :type tenant_id: str
+        :param details: detailsInfo.
+        :type details: dict[str, object]
+        :param display_name:
+        :type display_name: str
+        :param microsoft_graph_provisioning_system_details_id:
+        :type microsoft_graph_provisioning_system_details_id: str
+        :param microsoft_graph_details_info_details: detailsInfo.
+        :type microsoft_graph_details_info_details: dict[str, object]
+        :param microsoft_graph_provisioned_identity_display_name:
+        :type microsoft_graph_provisioned_identity_display_name: str
+        :param microsoft_graph_provisioned_identity_id:
+        :type microsoft_graph_provisioned_identity_id: str
+        :param identity_type:
+        :type identity_type: str
+        :param status:
+        :type status: str or ~reports.models.MicrosoftGraphProvisioningResult
+        :param details1: detailsInfo.
+        :type details1: dict[str, object]
+        :param microsoft_graph_provisioning_system_details_display_name:
+        :type microsoft_graph_provisioning_system_details_display_name: str
+        :param id1:
+        :type id1: str
+        :param details2: detailsInfo.
+        :type details2: dict[str, object]
+        :param display_name1:
+        :type display_name1: str
+        :param id2:
+        :type id2: str
+        :param microsoft_graph_provisioned_identity_type:
+        :type microsoft_graph_provisioned_identity_type: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -997,6 +1315,8 @@ class AuditLogOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphProvisioningObjectSummary(id=id, action=action, activity_date_time=activity_date_time, change_id=change_id, cycle_id=cycle_id, duration_in_milliseconds=duration_in_milliseconds, initiated_by=initiated_by, job_id=job_id, modified_properties=modified_properties, provisioning_steps=provisioning_steps, service_principal=service_principal, tenant_id=tenant_id, details_target_system_details=details, display_name_target_system_display_name=display_name, id_target_system_id=microsoft_graph_provisioning_system_details_id, details_target_identity_details=microsoft_graph_details_info_details, display_name_target_identity_display_name=microsoft_graph_provisioned_identity_display_name, id_target_identity_id=microsoft_graph_provisioned_identity_id, identity_type_target_identity_type=identity_type, status=status, details_source_system_details=details1, display_name_source_system_display_name=microsoft_graph_provisioning_system_details_display_name, id_source_system_id=id1, details_source_identity_details=details2, display_name_source_identity_display_name=display_name1, id_source_identity_id=id2, identity_type_source_identity_type=microsoft_graph_provisioned_identity_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1016,7 +1336,7 @@ class AuditLogOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphProvisioningObjectSummary')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphProvisioningObjectSummary')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

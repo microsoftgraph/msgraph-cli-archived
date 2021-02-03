@@ -179,19 +179,19 @@ query a search search.
 |------|----|-----------|----------|------------|
 |**--requests**|array||requests|requests|
 
-### search search-search-entity geth-entity
+### search search-entity get-entity
 
-geth-entity a search search-search-entity.
+get-entity a search search-entity.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|search search-search-entity|search.searchEntity|
+|search search-entity|search.searchEntity|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|geth-entity|GetSearchEntity|
+|get-entity|GetSearchEntity|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -199,19 +199,19 @@ geth-entity a search search-search-entity.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### search search-search-entity updateh-entity
+### search search-entity update-entity
 
-updateh-entity a search search-search-entity.
+update-entity a search search-entity.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|search search-search-entity|search.searchEntity|
+|search search-entity|search.searchEntity|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|updateh-entity|UpdateSearchEntity|
+|update-entity|UpdateSearchEntity|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

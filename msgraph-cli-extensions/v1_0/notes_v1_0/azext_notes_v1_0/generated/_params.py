@@ -19,8 +19,8 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_notes_v1_0.action import (
     AddResources,
     AddError,
-    AddLastModifiedByApplication,
-    AddLinksOneNoteClientUrl
+    AddLinksOneNoteClientUrl,
+    AddLastModifiedByApplication
 )
 
 
@@ -79,8 +79,28 @@ def load_arguments(self, _):
 
     with self.argument_context('notes group-onenote create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote create-resource') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -91,8 +111,34 @@ def load_arguments(self, _):
 
     with self.argument_context('notes group-onenote create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -248,8 +294,28 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote update-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote update-resource') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -262,8 +328,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote update-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -342,8 +434,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenotebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -409,8 +527,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -457,8 +601,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -613,8 +783,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -663,8 +859,28 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-group-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -706,8 +922,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-group-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -850,8 +1086,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -864,8 +1126,28 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -902,8 +1184,28 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1039,8 +1341,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-parent-section-group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1054,8 +1382,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1210,8 +1564,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenotebook-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1302,8 +1682,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-page update-parent-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1315,8 +1721,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-page-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1382,8 +1814,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1430,8 +1888,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1586,8 +2070,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1636,8 +2146,28 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1679,8 +2209,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section-group-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1764,8 +2314,28 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1802,8 +2372,28 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1886,8 +2476,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2042,8 +2658,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-notebook-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2088,8 +2730,28 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-page-parent-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2121,8 +2783,28 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2201,8 +2883,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-page-parent-section-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2268,8 +2976,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2316,8 +3050,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2472,8 +3232,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2519,8 +3305,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-page-parent-section-parent-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2665,8 +3477,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2711,8 +3549,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2778,8 +3642,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2824,8 +3714,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2970,8 +3886,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3016,8 +3958,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-section-group-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3083,8 +4051,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3130,8 +4124,28 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-parent-notebook-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3168,8 +4182,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-parent-notebook-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3305,8 +4339,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3319,8 +4379,28 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3357,8 +4437,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3494,8 +4594,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3511,8 +4637,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3590,8 +4742,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section-page-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3640,8 +4818,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3713,8 +4917,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-group-section-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3759,8 +4989,28 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-section create-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section get-page') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3792,8 +5042,28 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section update-parent-notebook') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3922,8 +5192,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-page-parent-notebook delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3937,8 +5233,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-page-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4010,8 +5332,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-page-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4061,8 +5409,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4227,8 +5601,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-page-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4275,8 +5675,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-section-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4342,8 +5768,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4390,8 +5842,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-notebook-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4546,8 +6024,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-notebook-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4593,8 +6097,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-section-parent-section-group create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-section-group create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4739,8 +6269,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-section-group update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4785,8 +6341,34 @@ def load_arguments(self, _):
     with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4852,8 +6434,34 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes group-onenote-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4941,8 +6549,28 @@ def load_arguments(self, _):
 
     with self.argument_context('notes site-onenote create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote create-resource') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -4953,8 +6581,34 @@ def load_arguments(self, _):
 
     with self.argument_context('notes site-onenote create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5110,8 +6764,28 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote update-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote update-resource') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5124,8 +6798,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote update-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5204,8 +6904,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenotebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5271,8 +6997,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5319,8 +7071,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5475,8 +7253,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5525,8 +7329,28 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-group-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5568,8 +7392,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-group-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5712,8 +7556,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5726,8 +7596,28 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5764,8 +7654,28 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5901,8 +7811,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-parent-section-group delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -5916,8 +7852,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6072,8 +8034,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenotebook-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6164,8 +8152,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-page update-parent-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6177,8 +8191,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-page-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6244,8 +8284,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6292,8 +8358,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6448,8 +8540,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6498,8 +8616,28 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6541,8 +8679,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section-group-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6626,8 +8784,28 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6664,8 +8842,28 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6748,8 +8946,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6904,8 +9128,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-notebook-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6950,8 +9200,28 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-page-parent-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -6983,8 +9253,28 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7063,8 +9353,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-page-parent-section-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7130,8 +9446,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7178,8 +9520,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7334,8 +9702,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7381,8 +9775,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-page-parent-section-parent-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7527,8 +9947,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7573,8 +10019,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7640,8 +10112,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7686,8 +10184,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7832,8 +10356,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7878,8 +10428,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-section-group-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7945,8 +10521,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -7992,8 +10594,28 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-parent-notebook-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8030,8 +10652,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-parent-notebook-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8167,8 +10809,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8181,8 +10849,28 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8219,8 +10907,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8356,8 +11064,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8373,8 +11107,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8452,8 +11212,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section-page-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8502,8 +11288,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8575,8 +11387,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-group-section-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8621,8 +11459,28 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-section create-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section get-page') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8654,8 +11512,28 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section update-parent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8784,8 +11662,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-page-parent-notebook delete') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8799,8 +11703,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-page-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8872,8 +11802,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-page-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -8923,8 +11879,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9089,8 +12071,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-page-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9137,8 +12145,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-section-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9204,8 +12238,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9252,8 +12312,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-notebook-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9408,8 +12494,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-notebook-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9455,8 +12567,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-section-parent-section-group create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-section-group create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9601,8 +12739,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-section-group update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9647,8 +12811,34 @@ def load_arguments(self, _):
     with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9714,8 +12904,34 @@ def load_arguments(self, _):
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes site-onenote-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -9803,8 +13019,28 @@ def load_arguments(self, _):
 
     with self.argument_context('notes user-onenote create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote create-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -9815,8 +13051,34 @@ def load_arguments(self, _):
 
     with self.argument_context('notes user-onenote create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -9972,8 +13234,28 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote update-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote update-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -9986,8 +13268,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote update-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10066,8 +13374,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenotebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10133,8 +13467,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10181,8 +13541,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10337,8 +13723,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10387,8 +13799,28 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-group-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10430,8 +13862,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-group-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10574,8 +14026,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10588,8 +14066,28 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10626,8 +14124,28 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10763,8 +14281,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-parent-section-group delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10778,8 +14322,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10934,8 +14504,34 @@ def load_arguments(self, _):
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenotebook-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11026,8 +14622,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-page update-parent-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11039,8 +14661,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-page-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11106,8 +14754,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11154,8 +14828,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11310,8 +15010,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11360,8 +15086,28 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11403,8 +15149,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section-group-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11488,8 +15254,28 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11526,8 +15312,28 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11610,8 +15416,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11766,8 +15598,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-notebook-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11812,8 +15670,28 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-page-parent-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11845,8 +15723,28 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11925,8 +15823,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-page-parent-section-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11992,8 +15916,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12040,8 +15990,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12196,8 +16172,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12243,8 +16245,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-page-parent-section-parent-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12389,8 +16417,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12435,8 +16489,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12502,8 +16582,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12548,8 +16654,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12694,8 +16826,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12740,8 +16898,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-section-group-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12807,8 +16991,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12854,8 +17064,28 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-parent-notebook-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -12892,8 +17122,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-parent-notebook-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13029,8 +17279,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13043,8 +17319,28 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13081,8 +17377,28 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13218,8 +17534,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13235,8 +17577,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13314,8 +17682,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section-page-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13364,8 +17758,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13437,8 +17857,34 @@ def load_arguments(self, _):
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-group-section-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13483,8 +17929,28 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-section create-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section get-page') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13516,8 +17982,28 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('content', help='The page\'s HTML content.')
+        c.argument('content_url', type=str, help='The URL for the page\'s HTML content.  Read-only.')
+        c.argument('created_by_app_id', type=str, help='The unique identifier of the application that created the '
+                   'page. Read-only.')
+        c.argument('last_modified_date_time', help='The date and time when the page was last modified. The timestamp '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('level', type=int, help='The indentation level of the page. Read-only.')
+        c.argument('order', type=int, help='The order of the page within its parent section. Read-only.')
+        c.argument('title', type=str, help='The title of the page.')
+        c.argument('user_tags', nargs='*', help='')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section', type=validate_file_or_dict, help='onenoteSection Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section update-parent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13646,8 +18132,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-page-parent-notebook delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13661,8 +18173,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-page-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13734,8 +18272,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-page-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13785,8 +18349,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13951,8 +18541,34 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-page-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -13999,8 +18615,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-section-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14066,8 +18708,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14114,8 +18782,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-notebook-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14270,8 +18964,34 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-notebook-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14317,8 +19037,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-section-parent-section-group create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-section-group create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14463,8 +19209,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-section-group update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14509,8 +19281,34 @@ def load_arguments(self, _):
     with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook create-section') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook create-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -14576,8 +19374,34 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('self', type=str, help='The endpoint where you can get details about the page. Read-only.')
+        c.argument('created_date_time', help='The date and time when the page was created. The timestamp represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('display_name', type=str, help='The name of the notebook.')
+        c.argument('last_modified_date_time', help='The date and time when the notebook was last modified. The '
+                   'timestamp represents date and time information using ISO 8601 format and is always in UTC time. '
+                   'For example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. '
+                   'Read-only.')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('is_default', arg_type=get_three_state_flag(), help='Indicates whether this is the user\'s default '
+                   'section. Read-only.')
+        c.argument('pages_url', type=str, help='The pages endpoint where you can get details for all the pages in the '
+                   'section. Read-only.')
+        c.argument('pages', type=validate_file_or_dict, help='The collection of pages in the section.  Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('parent_notebook', type=validate_file_or_dict, help='notebook Expected value: '
                    'json-string/@json-file.')
+        c.argument('parent_section_group', type=validate_file_or_dict, help='sectionGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('links_one_note_client_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
+        c.argument('links_one_note_web_url', action=AddLinksOneNoteClientUrl, nargs='*', help='externalLink')
 
     with self.argument_context('notes user-onenote-section-parent-section-group-parent-notebook update-section-group') as c:
         c.argument('user_id', type=str, help='key: id of user')

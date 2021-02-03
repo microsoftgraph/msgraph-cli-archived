@@ -2356,18 +2356,48 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
@@ -2389,12 +2419,18 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -2419,12 +2455,18 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
         self.share_id = kwargs.get('share_id', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
         self.site_id = kwargs.get('site_id', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
+        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
+        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
+        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
+        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
+        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
+        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
+        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
+        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
+        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
+        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
+        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
+        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
@@ -2439,12 +2481,27 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param application: identity.
-    :type application: ~files.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~files.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
     """
 
     _attribute_map = {
@@ -2452,9 +2509,12 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -2465,9 +2525,12 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.publication = kwargs.get('publication', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
+        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
+        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
+        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
+        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
+        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
+        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
 
 
 class MicrosoftGraphBundle(msrest.serialization.Model):
@@ -5778,18 +5841,48 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -5854,20 +5947,50 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
      ~files.models.MicrosoftGraphSharepointIds
     :param site_id_list_parent_reference_site_id:
     :type site_id_list_parent_reference_site_id: str
-    :param application_list_last_modified_by_application: identity.
-    :type application_list_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_list_last_modified_by_device: identity.
-    :type device_list_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_list_last_modified_by_user: identity.
-    :type user_list_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_list_created_by_application: identity.
-    :type application_list_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_list_created_by_device: identity.
-    :type device_list_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_list_created_by_user: identity.
-    :type user_list_created_by_user: ~files.models.MicrosoftGraphIdentity
-    :param display_name: The displayable title of the list.
-    :type display_name: str
+    :param display_name_list_last_modified_by_user_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_list_last_modified_by_user_display_name: str
+    :param id_list_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_list_last_modified_by_user_id: str
+    :param display_name_list_last_modified_by_device_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_list_last_modified_by_device_display_name: str
+    :param id_list_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_list_last_modified_by_device_id: str
+    :param display_name_list_last_modified_by_application_display_name: The identity's display
+     name. Note that this may not always be available or up to date. For example, if a user changes
+     their display name, the API may show the new value in a future response, but the items
+     associated with the user won't show up as having changed when using delta.
+    :type display_name_list_last_modified_by_application_display_name: str
+    :param id_list_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_list_last_modified_by_application_id: str
+    :param display_name_list_created_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_list_created_by_user_display_name: str
+    :param id_list_created_by_user_id: Unique identifier for the identity.
+    :type id_list_created_by_user_id: str
+    :param display_name_list_created_by_device_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_list_created_by_device_display_name: str
+    :param id_list_created_by_device_id: Unique identifier for the identity.
+    :type id_list_created_by_device_id: str
+    :param display_name_list_created_by_application_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_list_created_by_application_display_name: str
+    :param id_list_created_by_application_id: Unique identifier for the identity.
+    :type id_list_created_by_application_id: str
+    :param display_name_list_display_name: The displayable title of the list.
+    :type display_name_list_display_name: str
     :param list: listInfo.
     :type list: ~files.models.MicrosoftGraphListInfo
     :param sharepoint_ids_list_sharepoint_ids: sharepointIds.
@@ -5898,12 +6021,27 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     :type total: long
     :param used: Total space used, in bytes. Read-only.
     :type used: long
-    :param application_owner_application: identity.
-    :type application_owner_application: ~files.models.MicrosoftGraphIdentity
-    :param device_owner_device: identity.
-    :type device_owner_device: ~files.models.MicrosoftGraphIdentity
-    :param user_owner_user: identity.
-    :type user_owner_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_owner_user_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_owner_user_display_name: str
+    :param id_owner_user_id: Unique identifier for the identity.
+    :type id_owner_user_id: str
+    :param display_name_owner_device_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_owner_device_display_name: str
+    :param id_owner_device_id: Unique identifier for the identity.
+    :type id_owner_device_id: str
+    :param display_name_owner_application_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_owner_application_display_name: str
+    :param id_owner_application_id: Unique identifier for the identity.
+    :type id_owner_application_id: str
     """
 
     _attribute_map = {
@@ -5924,12 +6062,18 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'drive_type': {'key': 'driveType', 'type': 'str'},
         'share_point_ids': {'key': 'sharePointIds', 'type': 'MicrosoftGraphSharepointIds'},
@@ -5957,13 +6101,19 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         'share_id_list_parent_reference_share_id': {'key': 'list.parentReference.shareId', 'type': 'str'},
         'sharepoint_ids_list_parent_reference_sharepoint_ids': {'key': 'list.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'site_id_list_parent_reference_site_id': {'key': 'list.parentReference.siteId', 'type': 'str'},
-        'application_list_last_modified_by_application': {'key': 'list.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_last_modified_by_device': {'key': 'list.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_last_modified_by_user': {'key': 'list.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_list_created_by_application': {'key': 'list.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_created_by_device': {'key': 'list.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_created_by_user': {'key': 'list.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'display_name': {'key': 'list.displayName', 'type': 'str'},
+        'display_name_list_last_modified_by_user_display_name': {'key': 'list.lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_list_last_modified_by_user_id': {'key': 'list.lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_list_last_modified_by_device_display_name': {'key': 'list.lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_list_last_modified_by_device_id': {'key': 'list.lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_list_last_modified_by_application_display_name': {'key': 'list.lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_list_last_modified_by_application_id': {'key': 'list.lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_list_created_by_user_display_name': {'key': 'list.createdBy.user.displayName', 'type': 'str'},
+        'id_list_created_by_user_id': {'key': 'list.createdBy.user.id', 'type': 'str'},
+        'display_name_list_created_by_device_display_name': {'key': 'list.createdBy.device.displayName', 'type': 'str'},
+        'id_list_created_by_device_id': {'key': 'list.createdBy.device.id', 'type': 'str'},
+        'display_name_list_created_by_application_display_name': {'key': 'list.createdBy.application.displayName', 'type': 'str'},
+        'id_list_created_by_application_id': {'key': 'list.createdBy.application.id', 'type': 'str'},
+        'display_name_list_display_name': {'key': 'list.displayName', 'type': 'str'},
         'list': {'key': 'list.list', 'type': 'MicrosoftGraphListInfo'},
         'sharepoint_ids_list_sharepoint_ids': {'key': 'list.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'system_list_system': {'key': 'list.system', 'type': '{object}'},
@@ -5979,9 +6129,12 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         'storage_plan_information': {'key': 'quota.storagePlanInformation', 'type': 'MicrosoftGraphStoragePlanInformation'},
         'total': {'key': 'quota.total', 'type': 'long'},
         'used': {'key': 'quota.used', 'type': 'long'},
-        'application_owner_application': {'key': 'owner.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_owner_device': {'key': 'owner.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_owner_user': {'key': 'owner.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_owner_user_display_name': {'key': 'owner.user.displayName', 'type': 'str'},
+        'id_owner_user_id': {'key': 'owner.user.id', 'type': 'str'},
+        'display_name_owner_device_display_name': {'key': 'owner.device.displayName', 'type': 'str'},
+        'id_owner_device_id': {'key': 'owner.device.id', 'type': 'str'},
+        'display_name_owner_application_display_name': {'key': 'owner.application.displayName', 'type': 'str'},
+        'id_owner_application_id': {'key': 'owner.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -6017,13 +6170,19 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         self.share_id_list_parent_reference_share_id = kwargs.get('share_id_list_parent_reference_share_id', None)
         self.sharepoint_ids_list_parent_reference_sharepoint_ids = kwargs.get('sharepoint_ids_list_parent_reference_sharepoint_ids', None)
         self.site_id_list_parent_reference_site_id = kwargs.get('site_id_list_parent_reference_site_id', None)
-        self.application_list_last_modified_by_application = kwargs.get('application_list_last_modified_by_application', None)
-        self.device_list_last_modified_by_device = kwargs.get('device_list_last_modified_by_device', None)
-        self.user_list_last_modified_by_user = kwargs.get('user_list_last_modified_by_user', None)
-        self.application_list_created_by_application = kwargs.get('application_list_created_by_application', None)
-        self.device_list_created_by_device = kwargs.get('device_list_created_by_device', None)
-        self.user_list_created_by_user = kwargs.get('user_list_created_by_user', None)
-        self.display_name = kwargs.get('display_name', None)
+        self.display_name_list_last_modified_by_user_display_name = kwargs.get('display_name_list_last_modified_by_user_display_name', None)
+        self.id_list_last_modified_by_user_id = kwargs.get('id_list_last_modified_by_user_id', None)
+        self.display_name_list_last_modified_by_device_display_name = kwargs.get('display_name_list_last_modified_by_device_display_name', None)
+        self.id_list_last_modified_by_device_id = kwargs.get('id_list_last_modified_by_device_id', None)
+        self.display_name_list_last_modified_by_application_display_name = kwargs.get('display_name_list_last_modified_by_application_display_name', None)
+        self.id_list_last_modified_by_application_id = kwargs.get('id_list_last_modified_by_application_id', None)
+        self.display_name_list_created_by_user_display_name = kwargs.get('display_name_list_created_by_user_display_name', None)
+        self.id_list_created_by_user_id = kwargs.get('id_list_created_by_user_id', None)
+        self.display_name_list_created_by_device_display_name = kwargs.get('display_name_list_created_by_device_display_name', None)
+        self.id_list_created_by_device_id = kwargs.get('id_list_created_by_device_id', None)
+        self.display_name_list_created_by_application_display_name = kwargs.get('display_name_list_created_by_application_display_name', None)
+        self.id_list_created_by_application_id = kwargs.get('id_list_created_by_application_id', None)
+        self.display_name_list_display_name = kwargs.get('display_name_list_display_name', None)
         self.list = kwargs.get('list', None)
         self.sharepoint_ids_list_sharepoint_ids = kwargs.get('sharepoint_ids_list_sharepoint_ids', None)
         self.system_list_system = kwargs.get('system_list_system', None)
@@ -6039,9 +6198,12 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         self.storage_plan_information = kwargs.get('storage_plan_information', None)
         self.total = kwargs.get('total', None)
         self.used = kwargs.get('used', None)
-        self.application_owner_application = kwargs.get('application_owner_application', None)
-        self.device_owner_device = kwargs.get('device_owner_device', None)
-        self.user_owner_user = kwargs.get('user_owner_user', None)
+        self.display_name_owner_user_display_name = kwargs.get('display_name_owner_user_display_name', None)
+        self.id_owner_user_id = kwargs.get('id_owner_user_id', None)
+        self.display_name_owner_device_display_name = kwargs.get('display_name_owner_device_display_name', None)
+        self.id_owner_device_id = kwargs.get('id_owner_device_id', None)
+        self.display_name_owner_application_display_name = kwargs.get('display_name_owner_application_display_name', None)
+        self.id_owner_application_id = kwargs.get('id_owner_application_id', None)
 
 
 class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
@@ -6083,18 +6245,48 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :type share_id: str
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6271,12 +6463,18 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         'path': {'key': 'parentReference.path', 'type': 'str'},
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
         'content': {'key': 'content', 'type': 'base64'},
@@ -6429,12 +6627,27 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param application: identity.
-    :type application: ~files.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~files.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6449,9 +6662,12 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
         'id': {'key': 'id', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content': {'key': 'content', 'type': 'base64'},
         'size': {'key': 'size', 'type': 'long'},
@@ -8105,19 +8321,37 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param application: identity.
-    :type application: ~files.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~files.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_user_display_name: The identity's display name. Note that this may not
+     always be available or up to date. For example, if a user changes their display name, the API
+     may show the new value in a future response, but the items associated with the user won't show
+     up as having changed when using delta.
+    :type display_name_user_display_name: str
+    :param id_user_id: Unique identifier for the identity.
+    :type id_user_id: str
+    :param display_name_device_display_name: The identity's display name. Note that this may not
+     always be available or up to date. For example, if a user changes their display name, the API
+     may show the new value in a future response, but the items associated with the user won't show
+     up as having changed when using delta.
+    :type display_name_device_display_name: str
+    :param id_device_id: Unique identifier for the identity.
+    :type id_device_id: str
+    :param display_name_application_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_application_display_name: str
+    :param id_application_id: Unique identifier for the identity.
+    :type id_application_id: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_user_display_name': {'key': 'user.displayName', 'type': 'str'},
+        'id_user_id': {'key': 'user.id', 'type': 'str'},
+        'display_name_device_display_name': {'key': 'device.displayName', 'type': 'str'},
+        'id_device_id': {'key': 'device.id', 'type': 'str'},
+        'display_name_application_display_name': {'key': 'application.displayName', 'type': 'str'},
+        'id_application_id': {'key': 'application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -8126,9 +8360,12 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     ):
         super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
+        self.display_name_user_display_name = kwargs.get('display_name_user_display_name', None)
+        self.id_user_id = kwargs.get('id_user_id', None)
+        self.display_name_device_display_name = kwargs.get('display_name_device_display_name', None)
+        self.id_device_id = kwargs.get('id_device_id', None)
+        self.display_name_application_display_name = kwargs.get('display_name_application_display_name', None)
+        self.id_application_id = kwargs.get('id_application_id', None)
 
 
 class MicrosoftGraphImage(msrest.serialization.Model):
@@ -8679,26 +8916,77 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param action: itemActionSet.
-    :type action: ~files.models.MicrosoftGraphItemActionSet
-    :param actor: identitySet.
-    :type actor: ~files.models.MicrosoftGraphIdentitySet
     :param times: itemActivityTimeSet.
     :type times: ~files.models.MicrosoftGraphItemActivityTimeSet
     :param drive_item: driveItem.
     :type drive_item: ~files.models.MicrosoftGraphDriveItem
     :param list_item: listItem.
     :type list_item: ~files.models.MicrosoftGraphListItem
+    :param display_name_actor_user_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_actor_user_display_name: str
+    :param id_actor_user_id: Unique identifier for the identity.
+    :type id_actor_user_id: str
+    :param display_name_actor_device_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_actor_device_display_name: str
+    :param id_actor_device_id: Unique identifier for the identity.
+    :type id_actor_device_id: str
+    :param display_name_actor_application_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_actor_application_display_name: str
+    :param id_actor_application_id: Unique identifier for the identity.
+    :type id_actor_application_id: str
+    :param comment: commentAction.
+    :type comment: ~files.models.MicrosoftGraphCommentAction
+    :param create: createAction.
+    :type create: dict[str, object]
+    :param delete: deleteAction.
+    :type delete: ~files.models.MicrosoftGraphDeleteAction
+    :param edit: editAction.
+    :type edit: dict[str, object]
+    :param mention: mentionAction.
+    :type mention: ~files.models.MicrosoftGraphMentionAction
+    :param move: moveAction.
+    :type move: ~files.models.MicrosoftGraphMoveAction
+    :param rename: renameAction.
+    :type rename: ~files.models.MicrosoftGraphRenameAction
+    :param restore: restoreAction.
+    :type restore: dict[str, object]
+    :param share: shareAction.
+    :type share: ~files.models.MicrosoftGraphShareAction
+    :param version: versionAction.
+    :type version: ~files.models.MicrosoftGraphVersionAction
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'action': {'key': 'action', 'type': 'MicrosoftGraphItemActionSet'},
-        'actor': {'key': 'actor', 'type': 'MicrosoftGraphIdentitySet'},
         'times': {'key': 'times', 'type': 'MicrosoftGraphItemActivityTimeSet'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
         'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
+        'display_name_actor_user_display_name': {'key': 'actor.user.displayName', 'type': 'str'},
+        'id_actor_user_id': {'key': 'actor.user.id', 'type': 'str'},
+        'display_name_actor_device_display_name': {'key': 'actor.device.displayName', 'type': 'str'},
+        'id_actor_device_id': {'key': 'actor.device.id', 'type': 'str'},
+        'display_name_actor_application_display_name': {'key': 'actor.application.displayName', 'type': 'str'},
+        'id_actor_application_id': {'key': 'actor.application.id', 'type': 'str'},
+        'comment': {'key': 'action.comment', 'type': 'MicrosoftGraphCommentAction'},
+        'create': {'key': 'action.create', 'type': '{object}'},
+        'delete': {'key': 'action.delete', 'type': 'MicrosoftGraphDeleteAction'},
+        'edit': {'key': 'action.edit', 'type': '{object}'},
+        'mention': {'key': 'action.mention', 'type': 'MicrosoftGraphMentionAction'},
+        'move': {'key': 'action.move', 'type': 'MicrosoftGraphMoveAction'},
+        'rename': {'key': 'action.rename', 'type': 'MicrosoftGraphRenameAction'},
+        'restore': {'key': 'action.restore', 'type': '{object}'},
+        'share': {'key': 'action.share', 'type': 'MicrosoftGraphShareAction'},
+        'version': {'key': 'action.version', 'type': 'MicrosoftGraphVersionAction'},
     }
 
     def __init__(
@@ -8707,11 +8995,25 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphItemActivityOld, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.action = kwargs.get('action', None)
-        self.actor = kwargs.get('actor', None)
         self.times = kwargs.get('times', None)
         self.drive_item = kwargs.get('drive_item', None)
         self.list_item = kwargs.get('list_item', None)
+        self.display_name_actor_user_display_name = kwargs.get('display_name_actor_user_display_name', None)
+        self.id_actor_user_id = kwargs.get('id_actor_user_id', None)
+        self.display_name_actor_device_display_name = kwargs.get('display_name_actor_device_display_name', None)
+        self.id_actor_device_id = kwargs.get('id_actor_device_id', None)
+        self.display_name_actor_application_display_name = kwargs.get('display_name_actor_application_display_name', None)
+        self.id_actor_application_id = kwargs.get('id_actor_application_id', None)
+        self.comment = kwargs.get('comment', None)
+        self.create = kwargs.get('create', None)
+        self.delete = kwargs.get('delete', None)
+        self.edit = kwargs.get('edit', None)
+        self.mention = kwargs.get('mention', None)
+        self.move = kwargs.get('move', None)
+        self.rename = kwargs.get('rename', None)
+        self.restore = kwargs.get('restore', None)
+        self.share = kwargs.get('share', None)
+        self.version = kwargs.get('version', None)
 
 
 class MicrosoftGraphItemActivityStat(MicrosoftGraphEntity):
@@ -9688,18 +9990,48 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
     :type share_id: str
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -9743,12 +10075,18 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
         'path': {'key': 'parentReference.path', 'type': 'str'},
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'list': {'key': 'list', 'type': 'MicrosoftGraphListInfo'},
@@ -9855,18 +10193,48 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     :type share_id: str
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -9904,12 +10272,18 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
         'path': {'key': 'parentReference.path', 'type': 'str'},
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
@@ -9948,12 +10322,27 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param application: identity.
-    :type application: ~files.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~files.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -9966,9 +10355,12 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
         'id': {'key': 'id', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'id_fields_id': {'key': 'fields.id', 'type': 'str'},
     }
@@ -14262,40 +14654,120 @@ class MicrosoftGraphPermission(MicrosoftGraphEntity):
      expiration time of the permission. DateTime.MinValue indicates there is no expiration set for
      this permission. Optional.
     :type expiration_date_time: ~datetime.datetime
-    :param granted_to: identitySet.
-    :type granted_to: ~files.models.MicrosoftGraphIdentitySet
     :param granted_to_identities: For link type permissions, the details of the users to whom
      permission was granted. Read-only.
     :type granted_to_identities: list[~files.models.MicrosoftGraphIdentitySet]
     :param has_password: This indicates whether password is set for this permission, it's only
      showing in response. Optional and Read-only and for OneDrive Personal only.
     :type has_password: bool
-    :param inherited_from: itemReference.
-    :type inherited_from: ~files.models.MicrosoftGraphItemReference
-    :param invitation: sharingInvitation.
-    :type invitation: ~files.models.MicrosoftGraphSharingInvitation
-    :param link: sharingLink.
-    :type link: ~files.models.MicrosoftGraphSharingLink
     :param roles: The type of permission, e.g. read. See below for the full list of roles. Read-
      only.
     :type roles: list[str]
     :param share_id: A unique token that can be used to access this shared item via the **shares**
      API. Read-only.
     :type share_id: str
+    :param application: identity.
+    :type application: ~files.models.MicrosoftGraphIdentity
+    :param configurator_url:
+    :type configurator_url: str
+    :param prevents_download: If true then the user can only use this link to view the item on the
+     web, and cannot use it to download the contents of the item. Only for OneDrive for Business and
+     SharePoint.
+    :type prevents_download: bool
+    :param scope: The scope of the link represented by this permission. Value anonymous indicates
+     the link is usable by anyone, organization indicates the link is only usable for users signed
+     into the same tenant.
+    :type scope: str
+    :param type: The type of the link created.
+    :type type: str
+    :param web_html: For embed links, this property contains the HTML code for an :code:`<iframe>`
+     element that will embed the item in a webpage.
+    :type web_html: str
+    :param web_url: A URL that opens the item in the browser on the OneDrive website.
+    :type web_url: str
+    :param email: The email address provided for the recipient of the sharing invitation. Read-
+     only.
+    :type email: str
+    :param invited_by: identitySet.
+    :type invited_by: ~files.models.MicrosoftGraphIdentitySet
+    :param redeemed_by:
+    :type redeemed_by: str
+    :param sign_in_required: If true the recipient of the invitation needs to sign in in order to
+     access the shared item. Read-only.
+    :type sign_in_required: bool
+    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
+    :type drive_id: str
+    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
+    :type drive_type: str
+    :param id_inherited_from_id: Unique identifier of the item in the drive. Read-only.
+    :type id_inherited_from_id: str
+    :param name: The name of the item being referenced. Read-only.
+    :type name: str
+    :param path: Path that can be used to navigate to the item. Read-only.
+    :type path: str
+    :param share_id_inherited_from_share_id: A unique identifier for a shared resource that can be
+     accessed via the [Shares][] API.
+    :type share_id_inherited_from_share_id: str
+    :param sharepoint_ids: sharepointIds.
+    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
+    :param site_id:
+    :type site_id: str
+    :param display_name_granted_to_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_granted_to_user_display_name: str
+    :param id_granted_to_user_id: Unique identifier for the identity.
+    :type id_granted_to_user_id: str
+    :param display_name_granted_to_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_granted_to_device_display_name: str
+    :param id_granted_to_device_id: Unique identifier for the identity.
+    :type id_granted_to_device_id: str
+    :param display_name_granted_to_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_granted_to_application_display_name: str
+    :param id_granted_to_application_id: Unique identifier for the identity.
+    :type id_granted_to_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'expiration_date_time': {'key': 'expirationDateTime', 'type': 'iso-8601'},
-        'granted_to': {'key': 'grantedTo', 'type': 'MicrosoftGraphIdentitySet'},
         'granted_to_identities': {'key': 'grantedToIdentities', 'type': '[MicrosoftGraphIdentitySet]'},
         'has_password': {'key': 'hasPassword', 'type': 'bool'},
-        'inherited_from': {'key': 'inheritedFrom', 'type': 'MicrosoftGraphItemReference'},
-        'invitation': {'key': 'invitation', 'type': 'MicrosoftGraphSharingInvitation'},
-        'link': {'key': 'link', 'type': 'MicrosoftGraphSharingLink'},
         'roles': {'key': 'roles', 'type': '[str]'},
         'share_id': {'key': 'shareId', 'type': 'str'},
+        'application': {'key': 'link.application', 'type': 'MicrosoftGraphIdentity'},
+        'configurator_url': {'key': 'link.configuratorUrl', 'type': 'str'},
+        'prevents_download': {'key': 'link.preventsDownload', 'type': 'bool'},
+        'scope': {'key': 'link.scope', 'type': 'str'},
+        'type': {'key': 'link.type', 'type': 'str'},
+        'web_html': {'key': 'link.webHtml', 'type': 'str'},
+        'web_url': {'key': 'link.webUrl', 'type': 'str'},
+        'email': {'key': 'invitation.email', 'type': 'str'},
+        'invited_by': {'key': 'invitation.invitedBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'redeemed_by': {'key': 'invitation.redeemedBy', 'type': 'str'},
+        'sign_in_required': {'key': 'invitation.signInRequired', 'type': 'bool'},
+        'drive_id': {'key': 'inheritedFrom.driveId', 'type': 'str'},
+        'drive_type': {'key': 'inheritedFrom.driveType', 'type': 'str'},
+        'id_inherited_from_id': {'key': 'inheritedFrom.id', 'type': 'str'},
+        'name': {'key': 'inheritedFrom.name', 'type': 'str'},
+        'path': {'key': 'inheritedFrom.path', 'type': 'str'},
+        'share_id_inherited_from_share_id': {'key': 'inheritedFrom.shareId', 'type': 'str'},
+        'sharepoint_ids': {'key': 'inheritedFrom.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_id': {'key': 'inheritedFrom.siteId', 'type': 'str'},
+        'display_name_granted_to_user_display_name': {'key': 'grantedTo.user.displayName', 'type': 'str'},
+        'id_granted_to_user_id': {'key': 'grantedTo.user.id', 'type': 'str'},
+        'display_name_granted_to_device_display_name': {'key': 'grantedTo.device.displayName', 'type': 'str'},
+        'id_granted_to_device_id': {'key': 'grantedTo.device.id', 'type': 'str'},
+        'display_name_granted_to_application_display_name': {'key': 'grantedTo.application.displayName', 'type': 'str'},
+        'id_granted_to_application_id': {'key': 'grantedTo.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -14305,14 +14777,35 @@ class MicrosoftGraphPermission(MicrosoftGraphEntity):
         super(MicrosoftGraphPermission, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.expiration_date_time = kwargs.get('expiration_date_time', None)
-        self.granted_to = kwargs.get('granted_to', None)
         self.granted_to_identities = kwargs.get('granted_to_identities', None)
         self.has_password = kwargs.get('has_password', None)
-        self.inherited_from = kwargs.get('inherited_from', None)
-        self.invitation = kwargs.get('invitation', None)
-        self.link = kwargs.get('link', None)
         self.roles = kwargs.get('roles', None)
         self.share_id = kwargs.get('share_id', None)
+        self.application = kwargs.get('application', None)
+        self.configurator_url = kwargs.get('configurator_url', None)
+        self.prevents_download = kwargs.get('prevents_download', None)
+        self.scope = kwargs.get('scope', None)
+        self.type = kwargs.get('type', None)
+        self.web_html = kwargs.get('web_html', None)
+        self.web_url = kwargs.get('web_url', None)
+        self.email = kwargs.get('email', None)
+        self.invited_by = kwargs.get('invited_by', None)
+        self.redeemed_by = kwargs.get('redeemed_by', None)
+        self.sign_in_required = kwargs.get('sign_in_required', None)
+        self.drive_id = kwargs.get('drive_id', None)
+        self.drive_type = kwargs.get('drive_type', None)
+        self.id_inherited_from_id = kwargs.get('id_inherited_from_id', None)
+        self.name = kwargs.get('name', None)
+        self.path = kwargs.get('path', None)
+        self.share_id_inherited_from_share_id = kwargs.get('share_id_inherited_from_share_id', None)
+        self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
+        self.site_id = kwargs.get('site_id', None)
+        self.display_name_granted_to_user_display_name = kwargs.get('display_name_granted_to_user_display_name', None)
+        self.id_granted_to_user_id = kwargs.get('id_granted_to_user_id', None)
+        self.display_name_granted_to_device_display_name = kwargs.get('display_name_granted_to_device_display_name', None)
+        self.id_granted_to_device_id = kwargs.get('id_granted_to_device_id', None)
+        self.display_name_granted_to_application_display_name = kwargs.get('display_name_granted_to_application_display_name', None)
+        self.id_granted_to_application_id = kwargs.get('id_granted_to_application_id', None)
 
 
 class MicrosoftGraphPerson(MicrosoftGraphEntity):
@@ -17826,38 +18319,276 @@ class MicrosoftGraphSharedDriveItem(MicrosoftGraphBaseItem):
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param owner: identitySet.
-    :type owner: ~files.models.MicrosoftGraphIdentitySet
     :param drive_item: driveItem.
     :type drive_item: ~files.models.MicrosoftGraphDriveItem
     :param items: All driveItems contained in the sharing root. This collection cannot be
      enumerated.
     :type items: list[~files.models.MicrosoftGraphDriveItem]
-    :param list: list.
-    :type list: ~files.models.MicrosoftGraphList
     :param list_item: listItem.
     :type list_item: ~files.models.MicrosoftGraphListItem
-    :param permission: permission.
-    :type permission: ~files.models.MicrosoftGraphPermission
     :param root: driveItem.
     :type root: ~files.models.MicrosoftGraphDriveItem
     :param site: site.
     :type site: ~files.models.MicrosoftGraphSite
+    :param id_permission_id: Read-only.
+    :type id_permission_id: str
+    :param expiration_date_time: A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the
+     expiration time of the permission. DateTime.MinValue indicates there is no expiration set for
+     this permission. Optional.
+    :type expiration_date_time: ~datetime.datetime
+    :param granted_to_identities: For link type permissions, the details of the users to whom
+     permission was granted. Read-only.
+    :type granted_to_identities: list[~files.models.MicrosoftGraphIdentitySet]
+    :param has_password: This indicates whether password is set for this permission, it's only
+     showing in response. Optional and Read-only and for OneDrive Personal only.
+    :type has_password: bool
+    :param roles: The type of permission, e.g. read. See below for the full list of roles. Read-
+     only.
+    :type roles: list[str]
+    :param share_id_permission_share_id: A unique token that can be used to access this shared item
+     via the **shares** API. Read-only.
+    :type share_id_permission_share_id: str
+    :param application: identity.
+    :type application: ~files.models.MicrosoftGraphIdentity
+    :param configurator_url:
+    :type configurator_url: str
+    :param prevents_download: If true then the user can only use this link to view the item on the
+     web, and cannot use it to download the contents of the item. Only for OneDrive for Business and
+     SharePoint.
+    :type prevents_download: bool
+    :param scope: The scope of the link represented by this permission. Value anonymous indicates
+     the link is usable by anyone, organization indicates the link is only usable for users signed
+     into the same tenant.
+    :type scope: str
+    :param type: The type of the link created.
+    :type type: str
+    :param web_html: For embed links, this property contains the HTML code for an :code:`<iframe>`
+     element that will embed the item in a webpage.
+    :type web_html: str
+    :param web_url_permission_link_web_url: A URL that opens the item in the browser on the
+     OneDrive website.
+    :type web_url_permission_link_web_url: str
+    :param email: The email address provided for the recipient of the sharing invitation. Read-
+     only.
+    :type email: str
+    :param invited_by: identitySet.
+    :type invited_by: ~files.models.MicrosoftGraphIdentitySet
+    :param redeemed_by:
+    :type redeemed_by: str
+    :param sign_in_required: If true the recipient of the invitation needs to sign in in order to
+     access the shared item. Read-only.
+    :type sign_in_required: bool
+    :param drive_id_permission_inherited_from_drive_id: Unique identifier of the drive instance
+     that contains the item. Read-only.
+    :type drive_id_permission_inherited_from_drive_id: str
+    :param drive_type_permission_inherited_from_drive_type: Identifies the type of drive. See
+     [drive][] resource for values.
+    :type drive_type_permission_inherited_from_drive_type: str
+    :param id_permission_inherited_from_id: Unique identifier of the item in the drive. Read-only.
+    :type id_permission_inherited_from_id: str
+    :param name_permission_inherited_from_name: The name of the item being referenced. Read-only.
+    :type name_permission_inherited_from_name: str
+    :param path_permission_inherited_from_path: Path that can be used to navigate to the item.
+     Read-only.
+    :type path_permission_inherited_from_path: str
+    :param share_id_permission_inherited_from_share_id: A unique identifier for a shared resource
+     that can be accessed via the [Shares][] API.
+    :type share_id_permission_inherited_from_share_id: str
+    :param sharepoint_ids_permission_inherited_from_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_permission_inherited_from_sharepoint_ids:
+     ~files.models.MicrosoftGraphSharepointIds
+    :param site_id_permission_inherited_from_site_id:
+    :type site_id_permission_inherited_from_site_id: str
+    :param display_name_permission_granted_to_user_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_permission_granted_to_user_display_name: str
+    :param id_permission_granted_to_user_id: Unique identifier for the identity.
+    :type id_permission_granted_to_user_id: str
+    :param display_name_permission_granted_to_device_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_permission_granted_to_device_display_name: str
+    :param id_permission_granted_to_device_id: Unique identifier for the identity.
+    :type id_permission_granted_to_device_id: str
+    :param display_name_permission_granted_to_application_display_name: The identity's display
+     name. Note that this may not always be available or up to date. For example, if a user changes
+     their display name, the API may show the new value in a future response, but the items
+     associated with the user won't show up as having changed when using delta.
+    :type display_name_permission_granted_to_application_display_name: str
+    :param id_permission_granted_to_application_id: Unique identifier for the identity.
+    :type id_permission_granted_to_application_id: str
+    :param id_list_id: Read-only.
+    :type id_list_id: str
+    :param created_date_time_list_created_date_time: Date and time of item creation. Read-only.
+    :type created_date_time_list_created_date_time: ~datetime.datetime
+    :param description_list_description: Provides a user-visible description of the item. Optional.
+    :type description_list_description: str
+    :param e_tag_list_e_tag: ETag for the item. Read-only.
+    :type e_tag_list_e_tag: str
+    :param last_modified_date_time_list_last_modified_date_time: Date and time the item was last
+     modified. Read-only.
+    :type last_modified_date_time_list_last_modified_date_time: ~datetime.datetime
+    :param name_list_name: The name of the item. Read-write.
+    :type name_list_name: str
+    :param web_url_list_web_url: URL that displays the resource in the browser. Read-only.
+    :type web_url_list_web_url: str
+    :param created_by_user_list_created_by_user: Represents an Azure Active Directory user object.
+    :type created_by_user_list_created_by_user: ~files.models.MicrosoftGraphUser
+    :param last_modified_by_user_list_last_modified_by_user: Represents an Azure Active Directory
+     user object.
+    :type last_modified_by_user_list_last_modified_by_user: ~files.models.MicrosoftGraphUser
+    :param drive_id_list_parent_reference_drive_id: Unique identifier of the drive instance that
+     contains the item. Read-only.
+    :type drive_id_list_parent_reference_drive_id: str
+    :param drive_type_list_parent_reference_drive_type: Identifies the type of drive. See [drive][]
+     resource for values.
+    :type drive_type_list_parent_reference_drive_type: str
+    :param id_list_parent_reference_id: Unique identifier of the item in the drive. Read-only.
+    :type id_list_parent_reference_id: str
+    :param name_list_parent_reference_name: The name of the item being referenced. Read-only.
+    :type name_list_parent_reference_name: str
+    :param path_list_parent_reference_path: Path that can be used to navigate to the item. Read-
+     only.
+    :type path_list_parent_reference_path: str
+    :param share_id_list_parent_reference_share_id: A unique identifier for a shared resource that
+     can be accessed via the [Shares][] API.
+    :type share_id_list_parent_reference_share_id: str
+    :param sharepoint_ids_list_parent_reference_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_list_parent_reference_sharepoint_ids:
+     ~files.models.MicrosoftGraphSharepointIds
+    :param site_id_list_parent_reference_site_id:
+    :type site_id_list_parent_reference_site_id: str
+    :param display_name_list_last_modified_by_user_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_list_last_modified_by_user_display_name: str
+    :param id_list_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_list_last_modified_by_user_id: str
+    :param display_name_list_last_modified_by_device_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_list_last_modified_by_device_display_name: str
+    :param id_list_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_list_last_modified_by_device_id: str
+    :param display_name_list_last_modified_by_application_display_name: The identity's display
+     name. Note that this may not always be available or up to date. For example, if a user changes
+     their display name, the API may show the new value in a future response, but the items
+     associated with the user won't show up as having changed when using delta.
+    :type display_name_list_last_modified_by_application_display_name: str
+    :param id_list_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_list_last_modified_by_application_id: str
+    :param display_name_list_created_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_list_created_by_user_display_name: str
+    :param id_list_created_by_user_id: Unique identifier for the identity.
+    :type id_list_created_by_user_id: str
+    :param display_name_list_created_by_device_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_list_created_by_device_display_name: str
+    :param id_list_created_by_device_id: Unique identifier for the identity.
+    :type id_list_created_by_device_id: str
+    :param display_name_list_created_by_application_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_list_created_by_application_display_name: str
+    :param id_list_created_by_application_id: Unique identifier for the identity.
+    :type id_list_created_by_application_id: str
+    :param display_name_list_display_name: The displayable title of the list.
+    :type display_name_list_display_name: str
+    :param list: listInfo.
+    :type list: ~files.models.MicrosoftGraphListInfo
+    :param sharepoint_ids_list_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_list_sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
+    :param system: systemFacet.
+    :type system: dict[str, object]
+    :param activities:
+    :type activities: list[~files.models.MicrosoftGraphItemActivityOld]
+    :param columns: The collection of field definitions for this list.
+    :type columns: list[~files.models.MicrosoftGraphColumnDefinition]
+    :param content_types: The collection of content types present in this list.
+    :type content_types: list[~files.models.MicrosoftGraphContentType]
+    :param drive: drive.
+    :type drive: ~files.models.MicrosoftGraphDrive
+    :param items_list_items: All items contained in the list.
+    :type items_list_items: list[~files.models.MicrosoftGraphListItem]
+    :param subscriptions: The set of subscriptions on the list.
+    :type subscriptions: list[~files.models.MicrosoftGraphSubscription]
+    :param display_name_owner_user_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_owner_user_display_name: str
+    :param id_owner_user_id: Unique identifier for the identity.
+    :type id_owner_user_id: str
+    :param display_name_owner_device_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_owner_device_display_name: str
+    :param id_owner_device_id: Unique identifier for the identity.
+    :type id_owner_device_id: str
+    :param display_name_owner_application_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_owner_application_display_name: str
+    :param id_owner_application_id: Unique identifier for the identity.
+    :type id_owner_application_id: str
     """
 
     _attribute_map = {
@@ -17879,21 +18610,100 @@ class MicrosoftGraphSharedDriveItem(MicrosoftGraphBaseItem):
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
         'items': {'key': 'items', 'type': '[MicrosoftGraphDriveItem]'},
-        'list': {'key': 'list', 'type': 'MicrosoftGraphList'},
         'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
-        'permission': {'key': 'permission', 'type': 'MicrosoftGraphPermission'},
         'root': {'key': 'root', 'type': 'MicrosoftGraphDriveItem'},
         'site': {'key': 'site', 'type': 'MicrosoftGraphSite'},
+        'id_permission_id': {'key': 'permission.id', 'type': 'str'},
+        'expiration_date_time': {'key': 'permission.expirationDateTime', 'type': 'iso-8601'},
+        'granted_to_identities': {'key': 'permission.grantedToIdentities', 'type': '[MicrosoftGraphIdentitySet]'},
+        'has_password': {'key': 'permission.hasPassword', 'type': 'bool'},
+        'roles': {'key': 'permission.roles', 'type': '[str]'},
+        'share_id_permission_share_id': {'key': 'permission.shareId', 'type': 'str'},
+        'application': {'key': 'permission.link.application', 'type': 'MicrosoftGraphIdentity'},
+        'configurator_url': {'key': 'permission.link.configuratorUrl', 'type': 'str'},
+        'prevents_download': {'key': 'permission.link.preventsDownload', 'type': 'bool'},
+        'scope': {'key': 'permission.link.scope', 'type': 'str'},
+        'type': {'key': 'permission.link.type', 'type': 'str'},
+        'web_html': {'key': 'permission.link.webHtml', 'type': 'str'},
+        'web_url_permission_link_web_url': {'key': 'permission.link.webUrl', 'type': 'str'},
+        'email': {'key': 'permission.invitation.email', 'type': 'str'},
+        'invited_by': {'key': 'permission.invitation.invitedBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'redeemed_by': {'key': 'permission.invitation.redeemedBy', 'type': 'str'},
+        'sign_in_required': {'key': 'permission.invitation.signInRequired', 'type': 'bool'},
+        'drive_id_permission_inherited_from_drive_id': {'key': 'permission.inheritedFrom.driveId', 'type': 'str'},
+        'drive_type_permission_inherited_from_drive_type': {'key': 'permission.inheritedFrom.driveType', 'type': 'str'},
+        'id_permission_inherited_from_id': {'key': 'permission.inheritedFrom.id', 'type': 'str'},
+        'name_permission_inherited_from_name': {'key': 'permission.inheritedFrom.name', 'type': 'str'},
+        'path_permission_inherited_from_path': {'key': 'permission.inheritedFrom.path', 'type': 'str'},
+        'share_id_permission_inherited_from_share_id': {'key': 'permission.inheritedFrom.shareId', 'type': 'str'},
+        'sharepoint_ids_permission_inherited_from_sharepoint_ids': {'key': 'permission.inheritedFrom.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_id_permission_inherited_from_site_id': {'key': 'permission.inheritedFrom.siteId', 'type': 'str'},
+        'display_name_permission_granted_to_user_display_name': {'key': 'permission.grantedTo.user.displayName', 'type': 'str'},
+        'id_permission_granted_to_user_id': {'key': 'permission.grantedTo.user.id', 'type': 'str'},
+        'display_name_permission_granted_to_device_display_name': {'key': 'permission.grantedTo.device.displayName', 'type': 'str'},
+        'id_permission_granted_to_device_id': {'key': 'permission.grantedTo.device.id', 'type': 'str'},
+        'display_name_permission_granted_to_application_display_name': {'key': 'permission.grantedTo.application.displayName', 'type': 'str'},
+        'id_permission_granted_to_application_id': {'key': 'permission.grantedTo.application.id', 'type': 'str'},
+        'id_list_id': {'key': 'list.id', 'type': 'str'},
+        'created_date_time_list_created_date_time': {'key': 'list.createdDateTime', 'type': 'iso-8601'},
+        'description_list_description': {'key': 'list.description', 'type': 'str'},
+        'e_tag_list_e_tag': {'key': 'list.eTag', 'type': 'str'},
+        'last_modified_date_time_list_last_modified_date_time': {'key': 'list.lastModifiedDateTime', 'type': 'iso-8601'},
+        'name_list_name': {'key': 'list.name', 'type': 'str'},
+        'web_url_list_web_url': {'key': 'list.webUrl', 'type': 'str'},
+        'created_by_user_list_created_by_user': {'key': 'list.createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user_list_last_modified_by_user': {'key': 'list.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
+        'drive_id_list_parent_reference_drive_id': {'key': 'list.parentReference.driveId', 'type': 'str'},
+        'drive_type_list_parent_reference_drive_type': {'key': 'list.parentReference.driveType', 'type': 'str'},
+        'id_list_parent_reference_id': {'key': 'list.parentReference.id', 'type': 'str'},
+        'name_list_parent_reference_name': {'key': 'list.parentReference.name', 'type': 'str'},
+        'path_list_parent_reference_path': {'key': 'list.parentReference.path', 'type': 'str'},
+        'share_id_list_parent_reference_share_id': {'key': 'list.parentReference.shareId', 'type': 'str'},
+        'sharepoint_ids_list_parent_reference_sharepoint_ids': {'key': 'list.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_id_list_parent_reference_site_id': {'key': 'list.parentReference.siteId', 'type': 'str'},
+        'display_name_list_last_modified_by_user_display_name': {'key': 'list.lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_list_last_modified_by_user_id': {'key': 'list.lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_list_last_modified_by_device_display_name': {'key': 'list.lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_list_last_modified_by_device_id': {'key': 'list.lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_list_last_modified_by_application_display_name': {'key': 'list.lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_list_last_modified_by_application_id': {'key': 'list.lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_list_created_by_user_display_name': {'key': 'list.createdBy.user.displayName', 'type': 'str'},
+        'id_list_created_by_user_id': {'key': 'list.createdBy.user.id', 'type': 'str'},
+        'display_name_list_created_by_device_display_name': {'key': 'list.createdBy.device.displayName', 'type': 'str'},
+        'id_list_created_by_device_id': {'key': 'list.createdBy.device.id', 'type': 'str'},
+        'display_name_list_created_by_application_display_name': {'key': 'list.createdBy.application.displayName', 'type': 'str'},
+        'id_list_created_by_application_id': {'key': 'list.createdBy.application.id', 'type': 'str'},
+        'display_name_list_display_name': {'key': 'list.displayName', 'type': 'str'},
+        'list': {'key': 'list.list', 'type': 'MicrosoftGraphListInfo'},
+        'sharepoint_ids_list_sharepoint_ids': {'key': 'list.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'system': {'key': 'list.system', 'type': '{object}'},
+        'activities': {'key': 'list.activities', 'type': '[MicrosoftGraphItemActivityOld]'},
+        'columns': {'key': 'list.columns', 'type': '[MicrosoftGraphColumnDefinition]'},
+        'content_types': {'key': 'list.contentTypes', 'type': '[MicrosoftGraphContentType]'},
+        'drive': {'key': 'list.drive', 'type': 'MicrosoftGraphDrive'},
+        'items_list_items': {'key': 'list.items', 'type': '[MicrosoftGraphListItem]'},
+        'subscriptions': {'key': 'list.subscriptions', 'type': '[MicrosoftGraphSubscription]'},
+        'display_name_owner_user_display_name': {'key': 'owner.user.displayName', 'type': 'str'},
+        'id_owner_user_id': {'key': 'owner.user.id', 'type': 'str'},
+        'display_name_owner_device_display_name': {'key': 'owner.device.displayName', 'type': 'str'},
+        'id_owner_device_id': {'key': 'owner.device.id', 'type': 'str'},
+        'display_name_owner_application_display_name': {'key': 'owner.application.displayName', 'type': 'str'},
+        'id_owner_application_id': {'key': 'owner.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -17903,14 +18713,87 @@ class MicrosoftGraphSharedDriveItem(MicrosoftGraphBaseItem):
         super(MicrosoftGraphSharedDriveItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.owner = kwargs.get('owner', None)
         self.drive_item = kwargs.get('drive_item', None)
         self.items = kwargs.get('items', None)
-        self.list = kwargs.get('list', None)
         self.list_item = kwargs.get('list_item', None)
-        self.permission = kwargs.get('permission', None)
         self.root = kwargs.get('root', None)
         self.site = kwargs.get('site', None)
+        self.id_permission_id = kwargs.get('id_permission_id', None)
+        self.expiration_date_time = kwargs.get('expiration_date_time', None)
+        self.granted_to_identities = kwargs.get('granted_to_identities', None)
+        self.has_password = kwargs.get('has_password', None)
+        self.roles = kwargs.get('roles', None)
+        self.share_id_permission_share_id = kwargs.get('share_id_permission_share_id', None)
+        self.application = kwargs.get('application', None)
+        self.configurator_url = kwargs.get('configurator_url', None)
+        self.prevents_download = kwargs.get('prevents_download', None)
+        self.scope = kwargs.get('scope', None)
+        self.type = kwargs.get('type', None)
+        self.web_html = kwargs.get('web_html', None)
+        self.web_url_permission_link_web_url = kwargs.get('web_url_permission_link_web_url', None)
+        self.email = kwargs.get('email', None)
+        self.invited_by = kwargs.get('invited_by', None)
+        self.redeemed_by = kwargs.get('redeemed_by', None)
+        self.sign_in_required = kwargs.get('sign_in_required', None)
+        self.drive_id_permission_inherited_from_drive_id = kwargs.get('drive_id_permission_inherited_from_drive_id', None)
+        self.drive_type_permission_inherited_from_drive_type = kwargs.get('drive_type_permission_inherited_from_drive_type', None)
+        self.id_permission_inherited_from_id = kwargs.get('id_permission_inherited_from_id', None)
+        self.name_permission_inherited_from_name = kwargs.get('name_permission_inherited_from_name', None)
+        self.path_permission_inherited_from_path = kwargs.get('path_permission_inherited_from_path', None)
+        self.share_id_permission_inherited_from_share_id = kwargs.get('share_id_permission_inherited_from_share_id', None)
+        self.sharepoint_ids_permission_inherited_from_sharepoint_ids = kwargs.get('sharepoint_ids_permission_inherited_from_sharepoint_ids', None)
+        self.site_id_permission_inherited_from_site_id = kwargs.get('site_id_permission_inherited_from_site_id', None)
+        self.display_name_permission_granted_to_user_display_name = kwargs.get('display_name_permission_granted_to_user_display_name', None)
+        self.id_permission_granted_to_user_id = kwargs.get('id_permission_granted_to_user_id', None)
+        self.display_name_permission_granted_to_device_display_name = kwargs.get('display_name_permission_granted_to_device_display_name', None)
+        self.id_permission_granted_to_device_id = kwargs.get('id_permission_granted_to_device_id', None)
+        self.display_name_permission_granted_to_application_display_name = kwargs.get('display_name_permission_granted_to_application_display_name', None)
+        self.id_permission_granted_to_application_id = kwargs.get('id_permission_granted_to_application_id', None)
+        self.id_list_id = kwargs.get('id_list_id', None)
+        self.created_date_time_list_created_date_time = kwargs.get('created_date_time_list_created_date_time', None)
+        self.description_list_description = kwargs.get('description_list_description', None)
+        self.e_tag_list_e_tag = kwargs.get('e_tag_list_e_tag', None)
+        self.last_modified_date_time_list_last_modified_date_time = kwargs.get('last_modified_date_time_list_last_modified_date_time', None)
+        self.name_list_name = kwargs.get('name_list_name', None)
+        self.web_url_list_web_url = kwargs.get('web_url_list_web_url', None)
+        self.created_by_user_list_created_by_user = kwargs.get('created_by_user_list_created_by_user', None)
+        self.last_modified_by_user_list_last_modified_by_user = kwargs.get('last_modified_by_user_list_last_modified_by_user', None)
+        self.drive_id_list_parent_reference_drive_id = kwargs.get('drive_id_list_parent_reference_drive_id', None)
+        self.drive_type_list_parent_reference_drive_type = kwargs.get('drive_type_list_parent_reference_drive_type', None)
+        self.id_list_parent_reference_id = kwargs.get('id_list_parent_reference_id', None)
+        self.name_list_parent_reference_name = kwargs.get('name_list_parent_reference_name', None)
+        self.path_list_parent_reference_path = kwargs.get('path_list_parent_reference_path', None)
+        self.share_id_list_parent_reference_share_id = kwargs.get('share_id_list_parent_reference_share_id', None)
+        self.sharepoint_ids_list_parent_reference_sharepoint_ids = kwargs.get('sharepoint_ids_list_parent_reference_sharepoint_ids', None)
+        self.site_id_list_parent_reference_site_id = kwargs.get('site_id_list_parent_reference_site_id', None)
+        self.display_name_list_last_modified_by_user_display_name = kwargs.get('display_name_list_last_modified_by_user_display_name', None)
+        self.id_list_last_modified_by_user_id = kwargs.get('id_list_last_modified_by_user_id', None)
+        self.display_name_list_last_modified_by_device_display_name = kwargs.get('display_name_list_last_modified_by_device_display_name', None)
+        self.id_list_last_modified_by_device_id = kwargs.get('id_list_last_modified_by_device_id', None)
+        self.display_name_list_last_modified_by_application_display_name = kwargs.get('display_name_list_last_modified_by_application_display_name', None)
+        self.id_list_last_modified_by_application_id = kwargs.get('id_list_last_modified_by_application_id', None)
+        self.display_name_list_created_by_user_display_name = kwargs.get('display_name_list_created_by_user_display_name', None)
+        self.id_list_created_by_user_id = kwargs.get('id_list_created_by_user_id', None)
+        self.display_name_list_created_by_device_display_name = kwargs.get('display_name_list_created_by_device_display_name', None)
+        self.id_list_created_by_device_id = kwargs.get('id_list_created_by_device_id', None)
+        self.display_name_list_created_by_application_display_name = kwargs.get('display_name_list_created_by_application_display_name', None)
+        self.id_list_created_by_application_id = kwargs.get('id_list_created_by_application_id', None)
+        self.display_name_list_display_name = kwargs.get('display_name_list_display_name', None)
+        self.list = kwargs.get('list', None)
+        self.sharepoint_ids_list_sharepoint_ids = kwargs.get('sharepoint_ids_list_sharepoint_ids', None)
+        self.system = kwargs.get('system', None)
+        self.activities = kwargs.get('activities', None)
+        self.columns = kwargs.get('columns', None)
+        self.content_types = kwargs.get('content_types', None)
+        self.drive = kwargs.get('drive', None)
+        self.items_list_items = kwargs.get('items_list_items', None)
+        self.subscriptions = kwargs.get('subscriptions', None)
+        self.display_name_owner_user_display_name = kwargs.get('display_name_owner_user_display_name', None)
+        self.id_owner_user_id = kwargs.get('id_owner_user_id', None)
+        self.display_name_owner_device_display_name = kwargs.get('display_name_owner_device_display_name', None)
+        self.id_owner_device_id = kwargs.get('id_owner_device_id', None)
+        self.display_name_owner_application_display_name = kwargs.get('display_name_owner_application_display_name', None)
+        self.id_owner_application_id = kwargs.get('id_owner_application_id', None)
 
 
 class MicrosoftGraphSharedInsight(MicrosoftGraphEntity):
@@ -18432,18 +19315,48 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     :type share_id: str
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -18523,12 +19436,18 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         'path': {'key': 'parentReference.path', 'type': 'str'},
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'root': {'key': 'root', 'type': '{object}'},
@@ -18661,18 +19580,48 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
     :param site_id:
     :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~files.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~files.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~files.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~files.models.MicrosoftGraphIdentity
+    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_user_display_name: str
+    :param id_last_modified_by_user_id: Unique identifier for the identity.
+    :type id_last_modified_by_user_id: str
+    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_device_display_name: str
+    :param id_last_modified_by_device_id: Unique identifier for the identity.
+    :type id_last_modified_by_device_id: str
+    :param display_name_last_modified_by_application_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_last_modified_by_application_display_name: str
+    :param id_last_modified_by_application_id: Unique identifier for the identity.
+    :type id_last_modified_by_application_id: str
+    :param display_name_created_by_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_user_display_name: str
+    :param id_created_by_user_id: Unique identifier for the identity.
+    :type id_created_by_user_id: str
+    :param display_name_created_by_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_created_by_device_display_name: str
+    :param id_created_by_device_id: Unique identifier for the identity.
+    :type id_created_by_device_id: str
+    :param display_name_created_by_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_created_by_application_display_name: str
+    :param id_created_by_application_id: Unique identifier for the identity.
+    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -18707,12 +19656,18 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
         'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
         'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
+        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
+        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
+        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
+        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
+        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
+        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
+        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
+        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
+        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
+        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
+        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'page_layout_type': {'key': 'pageLayoutType', 'type': 'str'},

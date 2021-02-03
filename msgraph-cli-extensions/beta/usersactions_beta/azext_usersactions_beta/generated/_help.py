@@ -4078,6 +4078,32 @@ helps['usersactions user export-personal-data'] = """
 helps['usersactions user find-meeting-time'] = """
     type: command
     short-summary: "Invoke action findMeetingTimes"
+    parameters:
+      - name: --attendees
+        long-summary: |
+            Usage: --attendees type=XX address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --attendees argument.
+      - name: --location-constraint-locations
+        short-summary: "Constraint information for one or more locations that the client requests for the meeting."
+        long-summary: |
+            Usage: --location-constraint-locations resolve-availability=XX address=XX coordinates=XX display-name=XX \
+location-email-address=XX location-type=XX location-uri=XX unique-id=XX unique-id-type=XX
+
+            resolve-availability: If set to true and the specified resource is busy, findMeetingTimes looks for \
+another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the \
+resource best ranked in the user's cache without checking if it's free. Default is true.
+            address: physicalAddress
+            coordinates: outlookGeoCoordinates
+            display-name: The name associated with the location.
+            location-email-address: Optional email address of the location.
+            location-uri: Optional URI representing the location.
+            unique-id: For internal use only.
+
+            Multiple actions can be specified by using more than one --location-constraint-locations argument.
 """
 
 helps['usersactions user get-by-id'] = """

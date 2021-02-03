@@ -45,32 +45,29 @@ class ShareListItemOperations:
     def list_activity(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
-        orderby: Optional[List[Union[str, "models.Enum295"]]] = None,
-        select: Optional[List[Union[str, "models.Enum296"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum297"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum318"]]] = None,
+        select: Optional[List[Union[str, "models.Enum319"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum320"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.CollectionOfItemActivityOld6"]:
+    ) -> AsyncIterable["models.CollectionOfItemActivityOld7"]:
         """Get activities from shares.
 
         Get activities from shares.
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum295]
+        :type orderby: list[str or ~files.models.Enum318]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum296]
+        :type select: list[str or ~files.models.Enum319]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum297]
+        :type expand: list[str or ~files.models.Enum320]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfItemActivityOld6 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.CollectionOfItemActivityOld6]
+        :return: An iterator like instance of either CollectionOfItemActivityOld7 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.CollectionOfItemActivityOld7]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfItemActivityOld6"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfItemActivityOld7"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
@@ -86,7 +83,6 @@ class ShareListItemOperations:
                 url = self.list_activity.metadata['url']  # type: ignore
                 path_format_arguments = {
                     'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-                    'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
                 }
                 url = self._client.format_url(url, **path_format_arguments)
                 # Construct parameters
@@ -116,7 +112,7 @@ class ShareListItemOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfItemActivityOld6', pipeline_response)
+            deserialized = self._deserialize('CollectionOfItemActivityOld7', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -138,13 +134,31 @@ class ShareListItemOperations:
         return AsyncItemPaged(
             get_next, extract_data
         )
-    list_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/activities'}  # type: ignore
+    list_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/activities'}  # type: ignore
 
     async def create_activity(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
-        body: "models.MicrosoftGraphItemActivityOld",
+        id: Optional[str] = None,
+        times: Optional["models.MicrosoftGraphItemActivityTimeSet"] = None,
+        drive_item: Optional["models.MicrosoftGraphDriveItem"] = None,
+        list_item: Optional["models.MicrosoftGraphListItem"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        comment: Optional["models.MicrosoftGraphCommentAction"] = None,
+        create: Optional[Dict[str, object]] = None,
+        delete: Optional["models.MicrosoftGraphDeleteAction"] = None,
+        edit: Optional[Dict[str, object]] = None,
+        mention: Optional["models.MicrosoftGraphMentionAction"] = None,
+        move: Optional["models.MicrosoftGraphMoveAction"] = None,
+        rename: Optional["models.MicrosoftGraphRenameAction"] = None,
+        restore: Optional[Dict[str, object]] = None,
+        share: Optional["models.MicrosoftGraphShareAction"] = None,
+        version: Optional["models.MicrosoftGraphVersionAction"] = None,
         **kwargs
     ) -> "models.MicrosoftGraphItemActivityOld":
         """Create new navigation property to activities for shares.
@@ -153,10 +167,55 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
-        :param body: New navigation property.
-        :type body: ~files.models.MicrosoftGraphItemActivityOld
+        :param id: Read-only.
+        :type id: str
+        :param times: itemActivityTimeSet.
+        :type times: ~files.models.MicrosoftGraphItemActivityTimeSet
+        :param drive_item: driveItem.
+        :type drive_item: ~files.models.MicrosoftGraphDriveItem
+        :param list_item: listItem.
+        :type list_item: ~files.models.MicrosoftGraphListItem
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param comment: commentAction.
+        :type comment: ~files.models.MicrosoftGraphCommentAction
+        :param create: createAction.
+        :type create: dict[str, object]
+        :param delete: deleteAction.
+        :type delete: ~files.models.MicrosoftGraphDeleteAction
+        :param edit: editAction.
+        :type edit: dict[str, object]
+        :param mention: mentionAction.
+        :type mention: ~files.models.MicrosoftGraphMentionAction
+        :param move: moveAction.
+        :type move: ~files.models.MicrosoftGraphMoveAction
+        :param rename: renameAction.
+        :type rename: ~files.models.MicrosoftGraphRenameAction
+        :param restore: restoreAction.
+        :type restore: dict[str, object]
+        :param share: shareAction.
+        :type share: ~files.models.MicrosoftGraphShareAction
+        :param version: versionAction.
+        :type version: ~files.models.MicrosoftGraphVersionAction
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphItemActivityOld, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphItemActivityOld
@@ -165,6 +224,8 @@ class ShareListItemOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItemActivityOld"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphItemActivityOld(id=id, times=times, drive_item=drive_item, list_item=list_item, display_name_actor_user_display_name=display_name, id_actor_user_id=microsoft_graph_identity_id, display_name_actor_device_display_name=microsoft_graph_identity_display_name, id_actor_device_id=id1, display_name_actor_application_display_name=display_name1, id_actor_application_id=id2, comment=comment, create=create, delete=delete, edit=edit, mention=mention, move=move, rename=rename, restore=restore, share=share, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -172,7 +233,6 @@ class ShareListItemOperations:
         url = self.create_activity.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -186,7 +246,7 @@ class ShareListItemOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphItemActivityOld')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphItemActivityOld')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -204,15 +264,14 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/activities'}  # type: ignore
+    create_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/activities'}  # type: ignore
 
     async def get_activity(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         item_activity_old_id: str,
-        select: Optional[List[Union[str, "models.Enum298"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum299"]]] = None,
+        select: Optional[List[Union[str, "models.Enum321"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum322"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphItemActivityOld":
         """Get activities from shares.
@@ -221,14 +280,12 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param item_activity_old_id: key: id of itemActivityOLD.
         :type item_activity_old_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum298]
+        :type select: list[str or ~files.models.Enum321]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum299]
+        :type expand: list[str or ~files.models.Enum322]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphItemActivityOld, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphItemActivityOld
@@ -243,7 +300,6 @@ class ShareListItemOperations:
         url = self.get_activity.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'itemActivityOLD-id': self._serialize.url("item_activity_old_id", item_activity_old_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -275,14 +331,32 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/activities/{itemActivityOLD-id}'}  # type: ignore
+    get_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/activities/{itemActivityOLD-id}'}  # type: ignore
 
     async def update_activity(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         item_activity_old_id: str,
-        body: "models.MicrosoftGraphItemActivityOld",
+        id: Optional[str] = None,
+        times: Optional["models.MicrosoftGraphItemActivityTimeSet"] = None,
+        drive_item: Optional["models.MicrosoftGraphDriveItem"] = None,
+        list_item: Optional["models.MicrosoftGraphListItem"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        comment: Optional["models.MicrosoftGraphCommentAction"] = None,
+        create: Optional[Dict[str, object]] = None,
+        delete: Optional["models.MicrosoftGraphDeleteAction"] = None,
+        edit: Optional[Dict[str, object]] = None,
+        mention: Optional["models.MicrosoftGraphMentionAction"] = None,
+        move: Optional["models.MicrosoftGraphMoveAction"] = None,
+        rename: Optional["models.MicrosoftGraphRenameAction"] = None,
+        restore: Optional[Dict[str, object]] = None,
+        share: Optional["models.MicrosoftGraphShareAction"] = None,
+        version: Optional["models.MicrosoftGraphVersionAction"] = None,
         **kwargs
     ) -> None:
         """Update the navigation property activities in shares.
@@ -291,12 +365,57 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param item_activity_old_id: key: id of itemActivityOLD.
         :type item_activity_old_id: str
-        :param body: New navigation property values.
-        :type body: ~files.models.MicrosoftGraphItemActivityOld
+        :param id: Read-only.
+        :type id: str
+        :param times: itemActivityTimeSet.
+        :type times: ~files.models.MicrosoftGraphItemActivityTimeSet
+        :param drive_item: driveItem.
+        :type drive_item: ~files.models.MicrosoftGraphDriveItem
+        :param list_item: listItem.
+        :type list_item: ~files.models.MicrosoftGraphListItem
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param comment: commentAction.
+        :type comment: ~files.models.MicrosoftGraphCommentAction
+        :param create: createAction.
+        :type create: dict[str, object]
+        :param delete: deleteAction.
+        :type delete: ~files.models.MicrosoftGraphDeleteAction
+        :param edit: editAction.
+        :type edit: dict[str, object]
+        :param mention: mentionAction.
+        :type mention: ~files.models.MicrosoftGraphMentionAction
+        :param move: moveAction.
+        :type move: ~files.models.MicrosoftGraphMoveAction
+        :param rename: renameAction.
+        :type rename: ~files.models.MicrosoftGraphRenameAction
+        :param restore: restoreAction.
+        :type restore: dict[str, object]
+        :param share: shareAction.
+        :type share: ~files.models.MicrosoftGraphShareAction
+        :param version: versionAction.
+        :type version: ~files.models.MicrosoftGraphVersionAction
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -305,6 +424,8 @@ class ShareListItemOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphItemActivityOld(id=id, times=times, drive_item=drive_item, list_item=list_item, display_name_actor_user_display_name=display_name, id_actor_user_id=microsoft_graph_identity_id, display_name_actor_device_display_name=microsoft_graph_identity_display_name, id_actor_device_id=id1, display_name_actor_application_display_name=display_name1, id_actor_application_id=id2, comment=comment, create=create, delete=delete, edit=edit, mention=mention, move=move, rename=rename, restore=restore, share=share, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -312,7 +433,6 @@ class ShareListItemOperations:
         url = self.update_activity.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'itemActivityOLD-id': self._serialize.url("item_activity_old_id", item_activity_old_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -326,7 +446,7 @@ class ShareListItemOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphItemActivityOld')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphItemActivityOld')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -341,12 +461,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/activities/{itemActivityOLD-id}'}  # type: ignore
+    update_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/activities/{itemActivityOLD-id}'}  # type: ignore
 
     async def delete_activity(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         item_activity_old_id: str,
         if_match: Optional[str] = None,
         **kwargs
@@ -357,8 +476,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param item_activity_old_id: key: id of itemActivityOLD.
         :type item_activity_old_id: str
         :param if_match: ETag.
@@ -377,7 +494,6 @@ class ShareListItemOperations:
         url = self.delete_activity.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'itemActivityOLD-id': self._serialize.url("item_activity_old_id", item_activity_old_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -403,14 +519,13 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/activities/{itemActivityOLD-id}'}  # type: ignore
+    delete_activity.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/activities/{itemActivityOLD-id}'}  # type: ignore
 
     async def get_analytic(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
-        select: Optional[List[Union[str, "models.Enum304"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum305"]]] = None,
+        select: Optional[List[Union[str, "models.Enum327"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum328"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphItemAnalytics":
         """Get analytics from shares.
@@ -419,12 +534,10 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum304]
+        :type select: list[str or ~files.models.Enum327]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum305]
+        :type expand: list[str or ~files.models.Enum328]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphItemAnalytics, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphItemAnalytics
@@ -439,7 +552,6 @@ class ShareListItemOperations:
         url = self.get_analytic.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -470,12 +582,11 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/analytics'}  # type: ignore
+    get_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/analytics'}  # type: ignore
 
     async def get_ref_analytic(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         **kwargs
     ) -> str:
         """Get ref of analytics from shares.
@@ -484,8 +595,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: str, or the result of cls(response)
         :rtype: str
@@ -500,7 +609,6 @@ class ShareListItemOperations:
         url = self.get_ref_analytic.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -527,12 +635,11 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_ref_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/analytics/$ref'}  # type: ignore
+    get_ref_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/analytics/$ref'}  # type: ignore
 
     async def set_ref_analytic(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         body: Dict[str, object],
         **kwargs
     ) -> None:
@@ -542,8 +649,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param body: New navigation property ref values.
         :type body: dict[str, object]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -561,7 +666,6 @@ class ShareListItemOperations:
         url = self.set_ref_analytic.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -589,12 +693,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    set_ref_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/analytics/$ref'}  # type: ignore
+    set_ref_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/analytics/$ref'}  # type: ignore
 
     async def delete_ref_analytic(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         if_match: Optional[str] = None,
         **kwargs
     ) -> None:
@@ -604,8 +707,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param if_match: ETag.
         :type if_match: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -622,7 +723,6 @@ class ShareListItemOperations:
         url = self.delete_ref_analytic.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -647,14 +747,13 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_ref_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/analytics/$ref'}  # type: ignore
+    delete_ref_analytic.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/analytics/$ref'}  # type: ignore
 
     async def get_drive_item(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
-        select: Optional[List[Union[str, "models.Enum306"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum307"]]] = None,
+        select: Optional[List[Union[str, "models.Enum329"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum330"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphDriveItem":
         """Get driveItem from shares.
@@ -663,12 +762,10 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum306]
+        :type select: list[str or ~files.models.Enum329]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum307]
+        :type expand: list[str or ~files.models.Enum330]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDriveItem, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphDriveItem
@@ -683,7 +780,6 @@ class ShareListItemOperations:
         url = self.get_drive_item.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -714,12 +810,11 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_drive_item.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem'}  # type: ignore
+    get_drive_item.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/driveItem'}  # type: ignore
 
     async def update_drive_item(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -737,12 +832,18 @@ class ShareListItemOperations:
         share_id: Optional[str] = None,
         sharepoint_ids: Optional["models.MicrosoftGraphSharepointIds"] = None,
         site_id: Optional[str] = None,
-        application: Optional["models.MicrosoftGraphIdentity"] = None,
-        device: Optional["models.MicrosoftGraphIdentity"] = None,
-        user: Optional["models.MicrosoftGraphIdentity"] = None,
-        microsoft_graph_identity_application: Optional["models.MicrosoftGraphIdentity"] = None,
-        microsoft_graph_identity_device: Optional["models.MicrosoftGraphIdentity"] = None,
-        microsoft_graph_identity_user: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
+        display_name2: Optional[str] = None,
+        id3: Optional[str] = None,
+        display_name3: Optional[str] = None,
+        id4: Optional[str] = None,
+        display_name4: Optional[str] = None,
+        id5: Optional[str] = None,
         audio: Optional["models.MicrosoftGraphAudio"] = None,
         content: Optional[bytes] = None,
         c_tag: Optional[str] = None,
@@ -765,7 +866,7 @@ class ShareListItemOperations:
         thumbnails: Optional[List["models.MicrosoftGraphThumbnailSet"]] = None,
         versions: Optional[List["models.MicrosoftGraphDriveItemVersion"]] = None,
         microsoft_graph_entity_id: Optional[str] = None,
-        microsoft_graph_workbook_application: Optional["models.MicrosoftGraphWorkbookApplication"] = None,
+        application: Optional["models.MicrosoftGraphWorkbookApplication"] = None,
         comments: Optional[List["models.MicrosoftGraphWorkbookComment"]] = None,
         functions: Optional["models.MicrosoftGraphWorkbookFunctions"] = None,
         names: Optional[List["models.MicrosoftGraphWorkbookNamedItem"]] = None,
@@ -815,8 +916,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param id: Read-only.
         :type id: str
         :param created_date_time: Date and time of item creation. Read-only.
@@ -853,18 +952,48 @@ class ShareListItemOperations:
         :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
         :param site_id:
         :type site_id: str
-        :param application: identity.
-        :type application: ~files.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~files.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~files.models.MicrosoftGraphIdentity
-        :param microsoft_graph_identity_application: identity.
-        :type microsoft_graph_identity_application: ~files.models.MicrosoftGraphIdentity
-        :param microsoft_graph_identity_device: identity.
-        :type microsoft_graph_identity_device: ~files.models.MicrosoftGraphIdentity
-        :param microsoft_graph_identity_user: identity.
-        :type microsoft_graph_identity_user: ~files.models.MicrosoftGraphIdentity
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
+        :param display_name2: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name2: str
+        :param id3: Unique identifier for the identity.
+        :type id3: str
+        :param display_name3: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name3: str
+        :param id4: Unique identifier for the identity.
+        :type id4: str
+        :param display_name4: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name4: str
+        :param id5: Unique identifier for the identity.
+        :type id5: str
         :param audio: audio.
         :type audio: ~files.models.MicrosoftGraphAudio
         :param content: The content stream, if the item represents a file.
@@ -914,8 +1043,8 @@ class ShareListItemOperations:
         :type versions: list[~files.models.MicrosoftGraphDriveItemVersion]
         :param microsoft_graph_entity_id: Read-only.
         :type microsoft_graph_entity_id: str
-        :param microsoft_graph_workbook_application: workbookApplication.
-        :type microsoft_graph_workbook_application: ~files.models.MicrosoftGraphWorkbookApplication
+        :param application: workbookApplication.
+        :type application: ~files.models.MicrosoftGraphWorkbookApplication
         :param comments:
         :type comments: list[~files.models.MicrosoftGraphWorkbookComment]
         :param functions: workbookFunctions.
@@ -1023,7 +1152,7 @@ class ShareListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDriveItem(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=microsoft_graph_item_reference_id, name_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, audio=audio, content=content, c_tag=c_tag, file_system_info=file_system_info, image=image, location=location, photo=photo, publication=publication, root=root, sharepoint_ids=microsoft_graph_sharepoint_ids, size=size, video=video, web_dav_url=web_dav_url, activities=activities, analytics=analytics, children=children, list_item=list_item, permissions=permissions, subscriptions=subscriptions, thumbnails=thumbnails, versions=versions, id_workbook_id=microsoft_graph_entity_id, application=microsoft_graph_workbook_application, comments=comments, functions=functions, names=names, operations=operations, tables=tables, worksheets=worksheets, name_special_folder_name=microsoft_graph_special_folder_name, owner=owner, scope=scope, shared_by=shared_by, shared_date_time=shared_date_time, on_click_telemetry_url=on_click_telemetry_url, created_by=created_by, created_date_time_remote_item_created_date_time=microsoft_graph_remote_item_created_date_time_created_date_time, file=file, file_system_info_remote_item_file_system_info=microsoft_graph_file_system_info_file_system_info, folder=folder, id_remote_item_id=microsoft_graph_remote_item_id, image_remote_item_image=microsoft_graph_image, last_modified_by=last_modified_by, last_modified_date_time_remote_item_last_modified_date_time=microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time, name_remote_item_name=microsoft_graph_remote_item_name, package=package, parent_reference=parent_reference, shared=shared, sharepoint_ids_remote_item_sharepoint_ids=sharepoint_ids1, size_remote_item_size=integer_size, special_folder=special_folder, video_remote_item_video=microsoft_graph_video, web_dav_url_remote_item_web_dav_url=microsoft_graph_remote_item_web_dav_url_web_dav_url, web_url_remote_item_web_url=microsoft_graph_remote_item_web_url, queued_date_time=queued_date_time, type=type, child_count_folder_child_count=child_count, view=view, hashes=hashes, mime_type=mime_type, processing_metadata=processing_metadata, state=state, album=album, child_count_bundle_child_count=integer_child_count)
+        _body = models.MicrosoftGraphDriveItem(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=microsoft_graph_item_reference_id, name_parent_reference_name=microsoft_graph_item_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, display_name_created_by_user_display_name=display_name2, id_created_by_user_id=id3, display_name_created_by_device_display_name=display_name3, id_created_by_device_id=id4, display_name_created_by_application_display_name=display_name4, id_created_by_application_id=id5, audio=audio, content=content, c_tag=c_tag, file_system_info=file_system_info, image=image, location=location, photo=photo, publication=publication, root=root, sharepoint_ids=microsoft_graph_sharepoint_ids, size=size, video=video, web_dav_url=web_dav_url, activities=activities, analytics=analytics, children=children, list_item=list_item, permissions=permissions, subscriptions=subscriptions, thumbnails=thumbnails, versions=versions, id_workbook_id=microsoft_graph_entity_id, application=application, comments=comments, functions=functions, names=names, operations=operations, tables=tables, worksheets=worksheets, name_special_folder_name=microsoft_graph_special_folder_name, owner=owner, scope=scope, shared_by=shared_by, shared_date_time=shared_date_time, on_click_telemetry_url=on_click_telemetry_url, created_by=created_by, created_date_time_remote_item_created_date_time=microsoft_graph_remote_item_created_date_time_created_date_time, file=file, file_system_info_remote_item_file_system_info=microsoft_graph_file_system_info_file_system_info, folder=folder, id_remote_item_id=microsoft_graph_remote_item_id, image_remote_item_image=microsoft_graph_image, last_modified_by=last_modified_by, last_modified_date_time_remote_item_last_modified_date_time=microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time, name_remote_item_name=microsoft_graph_remote_item_name, package=package, parent_reference=parent_reference, shared=shared, sharepoint_ids_remote_item_sharepoint_ids=sharepoint_ids1, size_remote_item_size=integer_size, special_folder=special_folder, video_remote_item_video=microsoft_graph_video, web_dav_url_remote_item_web_dav_url=microsoft_graph_remote_item_web_dav_url_web_dav_url, web_url_remote_item_web_url=microsoft_graph_remote_item_web_url, queued_date_time=queued_date_time, type=type, child_count_folder_child_count=child_count, view=view, hashes=hashes, mime_type=mime_type, processing_metadata=processing_metadata, state=state, album=album, child_count_bundle_child_count=integer_child_count)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1031,7 +1160,6 @@ class ShareListItemOperations:
         url = self.update_drive_item.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1059,12 +1187,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_drive_item.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem'}  # type: ignore
+    update_drive_item.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/driveItem'}  # type: ignore
 
     async def delete_drive_item(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         if_match: Optional[str] = None,
         **kwargs
     ) -> None:
@@ -1074,8 +1201,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param if_match: ETag.
         :type if_match: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1092,7 +1217,6 @@ class ShareListItemOperations:
         url = self.delete_drive_item.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1117,12 +1241,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_drive_item.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem'}  # type: ignore
+    delete_drive_item.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/driveItem'}  # type: ignore
 
     async def get_drive_item_content(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         **kwargs
     ) -> IO:
         """Get media content for the navigation property driveItem from shares.
@@ -1131,8 +1254,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: IO, or the result of cls(response)
         :rtype: IO
@@ -1147,7 +1268,6 @@ class ShareListItemOperations:
         url = self.get_drive_item_content.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1174,12 +1294,11 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_drive_item_content.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem/content'}  # type: ignore
+    get_drive_item_content.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/driveItem/content'}  # type: ignore
 
     async def set_drive_item_content(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         data: IO,
         **kwargs
     ) -> None:
@@ -1189,8 +1308,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param data: New media content.
         :type data: IO
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1208,7 +1325,6 @@ class ShareListItemOperations:
         url = self.set_drive_item_content.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1235,12 +1351,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    set_drive_item_content.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem/content'}  # type: ignore
+    set_drive_item_content.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/driveItem/content'}  # type: ignore
 
     async def get_field(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
@@ -1251,8 +1366,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param select: Select properties to be returned.
         :type select: list[str]
         :param expand: Expand related entities.
@@ -1271,7 +1384,6 @@ class ShareListItemOperations:
         url = self.get_field.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1302,12 +1414,11 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_field.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/fields'}  # type: ignore
+    get_field.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/fields'}  # type: ignore
 
     async def update_field(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         id: Optional[str] = None,
         **kwargs
     ) -> None:
@@ -1317,8 +1428,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param id: Read-only.
         :type id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1338,7 +1447,6 @@ class ShareListItemOperations:
         url = self.update_field.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1366,12 +1474,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_field.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/fields'}  # type: ignore
+    update_field.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/fields'}  # type: ignore
 
     async def delete_field(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         if_match: Optional[str] = None,
         **kwargs
     ) -> None:
@@ -1381,8 +1488,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param if_match: ETag.
         :type if_match: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1399,7 +1504,6 @@ class ShareListItemOperations:
         url = self.delete_field.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1424,12 +1528,11 @@ class ShareListItemOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_field.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/fields'}  # type: ignore
+    delete_field.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/fields'}  # type: ignore
 
     async def create_link(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         type: Optional[str] = None,
         scope: Optional[str] = None,
         expiration_date_time: Optional[datetime.datetime] = None,
@@ -1443,8 +1546,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param type:
         :type type: str
         :param scope:
@@ -1464,7 +1565,7 @@ class ShareListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.PathsW7Qa13SharesShareddriveitemIdListItemsListitemIdMicrosoftGraphCreatelinkPostRequestbodyContentApplicationJsonSchema(type=type, scope=scope, expiration_date_time=expiration_date_time, password=password, recipients=recipients)
+        _body = models.PathsWclibkSharesShareddriveitemIdListitemMicrosoftGraphCreatelinkPostRequestbodyContentApplicationJsonSchema(type=type, scope=scope, expiration_date_time=expiration_date_time, password=password, recipients=recipients)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1472,7 +1573,6 @@ class ShareListItemOperations:
         url = self.create_link.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1486,7 +1586,7 @@ class ShareListItemOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'PathsW7Qa13SharesShareddriveitemIdListItemsListitemIdMicrosoftGraphCreatelinkPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(_body, 'PathsWclibkSharesShareddriveitemIdListitemMicrosoftGraphCreatelinkPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1504,12 +1604,11 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_link.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/microsoft.graph.createLink'}  # type: ignore
+    create_link.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/microsoft.graph.createLink'}  # type: ignore
 
     async def get_activity_by_interval(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         start_date_time: str,
         end_date_time: str,
         interval: str,
@@ -1521,8 +1620,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param start_date_time:
         :type start_date_time: str
         :param end_date_time:
@@ -1543,7 +1640,6 @@ class ShareListItemOperations:
         url = self.get_activity_by_interval.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'startDateTime': self._serialize.url("start_date_time", start_date_time, 'str'),
             'endDateTime': self._serialize.url("end_date_time", end_date_time, 'str'),
             'interval': self._serialize.url("interval", interval, 'str'),
@@ -1573,37 +1669,34 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_activity_by_interval.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/microsoft.graph.getActivitiesByInterval(startDateTime=\'{startDateTime}\',endDateTime=\'{endDateTime}\',interval=\'{interval}\')'}  # type: ignore
+    get_activity_by_interval.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/microsoft.graph.getActivitiesByInterval(startDateTime=\'{startDateTime}\',endDateTime=\'{endDateTime}\',interval=\'{interval}\')'}  # type: ignore
 
     def list_version(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
-        orderby: Optional[List[Union[str, "models.Enum308"]]] = None,
-        select: Optional[List[Union[str, "models.Enum309"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum310"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum331"]]] = None,
+        select: Optional[List[Union[str, "models.Enum332"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum333"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.CollectionOfListItemVersion3"]:
+    ) -> AsyncIterable["models.CollectionOfListItemVersion4"]:
         """Get versions from shares.
 
         Get versions from shares.
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum308]
+        :type orderby: list[str or ~files.models.Enum331]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum309]
+        :type select: list[str or ~files.models.Enum332]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum310]
+        :type expand: list[str or ~files.models.Enum333]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfListItemVersion3 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.CollectionOfListItemVersion3]
+        :return: An iterator like instance of either CollectionOfListItemVersion4 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.CollectionOfListItemVersion4]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfListItemVersion3"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfListItemVersion4"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
@@ -1619,7 +1712,6 @@ class ShareListItemOperations:
                 url = self.list_version.metadata['url']  # type: ignore
                 path_format_arguments = {
                     'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-                    'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
                 }
                 url = self._client.format_url(url, **path_format_arguments)
                 # Construct parameters
@@ -1649,7 +1741,7 @@ class ShareListItemOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfListItemVersion3', pipeline_response)
+            deserialized = self._deserialize('CollectionOfListItemVersion4', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1671,18 +1763,20 @@ class ShareListItemOperations:
         return AsyncItemPaged(
             get_next, extract_data
         )
-    list_version.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/versions'}  # type: ignore
+    list_version.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions'}  # type: ignore
 
     async def create_version(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         id: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["models.MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["models.MicrosoftGraphIdentity"] = None,
-        device: Optional["models.MicrosoftGraphIdentity"] = None,
-        user: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
         microsoft_graph_entity_id: Optional[str] = None,
         **kwargs
     ) -> "models.MicrosoftGraphListItemVersion":
@@ -1692,20 +1786,33 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param id: Read-only.
         :type id: str
         :param last_modified_date_time: Date and time the version was last modified. Read-only.
         :type last_modified_date_time: ~datetime.datetime
         :param publication: publicationFacet.
         :type publication: ~files.models.MicrosoftGraphPublicationFacet
-        :param application: identity.
-        :type application: ~files.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~files.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~files.models.MicrosoftGraphIdentity
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :param microsoft_graph_entity_id: Read-only.
         :type microsoft_graph_entity_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1717,7 +1824,7 @@ class ShareListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, application=application, device=device, user=user, id_fields_id=microsoft_graph_entity_id)
+        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, id_fields_id=microsoft_graph_entity_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1725,7 +1832,6 @@ class ShareListItemOperations:
         url = self.create_version.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -1757,15 +1863,14 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_version.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/versions'}  # type: ignore
+    create_version.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions'}  # type: ignore
 
     async def get_version(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         list_item_version_id: str,
-        select: Optional[List[Union[str, "models.Enum311"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum312"]]] = None,
+        select: Optional[List[Union[str, "models.Enum334"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum335"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphListItemVersion":
         """Get versions from shares.
@@ -1774,14 +1879,12 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param list_item_version_id: key: id of listItemVersion.
         :type list_item_version_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum311]
+        :type select: list[str or ~files.models.Enum334]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum312]
+        :type expand: list[str or ~files.models.Enum335]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphListItemVersion, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphListItemVersion
@@ -1796,7 +1899,6 @@ class ShareListItemOperations:
         url = self.get_version.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -1828,19 +1930,21 @@ class ShareListItemOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_version.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/versions/{listItemVersion-id}'}  # type: ignore
+    get_version.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}'}  # type: ignore
 
     async def update_version(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         list_item_version_id: str,
         id: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["models.MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["models.MicrosoftGraphIdentity"] = None,
-        device: Optional["models.MicrosoftGraphIdentity"] = None,
-        user: Optional["models.MicrosoftGraphIdentity"] = None,
+        display_name: Optional[str] = None,
+        microsoft_graph_identity_id: Optional[str] = None,
+        microsoft_graph_identity_display_name: Optional[str] = None,
+        id1: Optional[str] = None,
+        display_name1: Optional[str] = None,
+        id2: Optional[str] = None,
         microsoft_graph_entity_id: Optional[str] = None,
         **kwargs
     ) -> None:
@@ -1850,8 +1954,6 @@ class ShareListItemOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param list_item_version_id: key: id of listItemVersion.
         :type list_item_version_id: str
         :param id: Read-only.
@@ -1860,12 +1962,27 @@ class ShareListItemOperations:
         :type last_modified_date_time: ~datetime.datetime
         :param publication: publicationFacet.
         :type publication: ~files.models.MicrosoftGraphPublicationFacet
-        :param application: identity.
-        :type application: ~files.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~files.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~files.models.MicrosoftGraphIdentity
+        :param display_name: The identity's display name. Note that this may not always be available or
+         up to date. For example, if a user changes their display name, the API may show the new value
+         in a future response, but the items associated with the user won't show up as having changed
+         when using delta.
+        :type display_name: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
+        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
+         not always be available or up to date. For example, if a user changes their display name, the
+         API may show the new value in a future response, but the items associated with the user won't
+         show up as having changed when using delta.
+        :type microsoft_graph_identity_display_name: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
+        :param display_name1: The identity's display name. Note that this may not always be available
+         or up to date. For example, if a user changes their display name, the API may show the new
+         value in a future response, but the items associated with the user won't show up as having
+         changed when using delta.
+        :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :param microsoft_graph_entity_id: Read-only.
         :type microsoft_graph_entity_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1877,7 +1994,102 @@ class ShareListItemOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, application=application, device=device, user=user, id_fields_id=microsoft_graph_entity_id)
+        _body = models.MicrosoftGraphListItemVersion(id=id, last_modified_date_time=last_modified_date_time, publication=publication, display_name_last_modified_by_user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, id_fields_id=microsoft_graph_entity_id)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.update_version.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
+            'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphListItemVersion')
+        body_content_kwargs['content'] = body_content
+        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    update_version.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}'}  # type: ignore
+
+    async def delete_version(
+        self,
+        shared_drive_item_id: str,
+        list_item_version_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property versions for shares.
+
+        Delete navigation property versions for shares.
+
+        :param shared_drive_item_id: key: id of sharedDriveItem.
+        :type shared_drive_item_id: str
+        :param list_item_version_id: key: id of listItemVersion.
+        :type list_item_version_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_version.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
+            'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_version.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}'}  # type: ignore
+user_display_name=display_name, id_last_modified_by_user_id=microsoft_graph_identity_id, display_name_last_modified_by_device_display_name=microsoft_graph_identity_display_name, id_last_modified_by_device_id=id1, display_name_last_modified_by_application_display_name=display_name1, id_last_modified_by_application_id=id2, id_fields_id=microsoft_graph_entity_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

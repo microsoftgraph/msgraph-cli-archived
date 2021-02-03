@@ -20,10 +20,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_security_v1_0.vendored_sdks.security.operations._security_security_operations#SecuritySe'
         'curityOperations.{}',
         client_factory=cf_security_security)
-    with self.command_group('security security-security', security_v1_0_security_security,
-                            client_factory=cf_security_security, is_experimental=True) as g:
-        g.custom_command('gety', 'security_security_security_gety')
-        g.custom_command('updatey', 'security_security_security_updatey')
+    with self.command_group('security security', security_v1_0_security_security, client_factory=cf_security_security,
+                            is_experimental=True) as g:
+        g.custom_command('update', 'security_security_update')
+        g.custom_command('get', 'security_security_get')
 
     from azext_security_v1_0.generated._client_factory import cf_security
     security_v1_0_security = CliCommandType(

@@ -12,17 +12,12 @@
 from knack.help_files import helps
 
 
-helps['security security-security'] = """
+helps['security security'] = """
     type: group
-    short-summary: security security-security
+    short-summary: security security
 """
 
-helps['security security-security gety'] = """
-    type: command
-    short-summary: "Get Security"
-"""
-
-helps['security security-security updatey'] = """
+helps['security security update'] = """
     type: command
     short-summary: "Update Security"
     parameters:
@@ -59,6 +54,11 @@ target-product=XX threat-type=XX tlp-level=XX url=XX user-agent=XX id=XX
             Multiple actions can be specified by using more than one --ti-indicators argument.
 """
 
+helps['security security get'] = """
+    type: command
+    short-summary: "Get Security"
+"""
+
 helps['security security'] = """
     type: group
     short-summary: security security
@@ -67,6 +67,41 @@ helps['security security'] = """
 helps['security security delete'] = """
     type: command
     short-summary: "Delete navigation property userSecurityProfiles for Security"
+"""
+
+helps['security security create-action'] = """
+    type: command
+    short-summary: "Create new navigation property to securityActions for Security"
+    parameters:
+      - name: --error-info
+        short-summary: "ResultInfo"
+        long-summary: |
+            Usage: --error-info code=XX message=XX subcode=XX
+
+      - name: --parameters
+        long-summary: |
+            Usage: --parameters name=XX value=XX
+
+            name: Name for this key-value pair
+            value: Value for this key-value pair
+
+            Multiple actions can be specified by using more than one --parameters argument.
+      - name: --states
+        long-summary: |
+            Usage: --states app-id=XX status=XX updated-date-time=XX user=XX
+
+
+            Multiple actions can be specified by using more than one --states argument.
+      - name: --vendor-information
+        short-summary: "securityVendorInformation"
+        long-summary: |
+            Usage: --vendor-information provider=XX provider-version=XX sub-provider=XX vendor=XX
+
+            provider: Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
+            provider-version: Version of the provider or subprovider, if it exists, that generated the alert. Required
+            sub-provider: Specific subprovider (under aggregating provider); for example, \
+WindowsDefenderATP.SmartScreen.
+            vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
 helps['security security create-alert'] = """
@@ -509,39 +544,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security security createy-action'] = """
+helps['security security get-action'] = """
     type: command
-    short-summary: "Create new navigation property to securityActions for Security"
-    parameters:
-      - name: --error-info
-        short-summary: "ResultInfo"
-        long-summary: |
-            Usage: --error-info code=XX message=XX subcode=XX
-
-      - name: --parameters
-        long-summary: |
-            Usage: --parameters name=XX value=XX
-
-            name: Name for this key-value pair
-            value: Value for this key-value pair
-
-            Multiple actions can be specified by using more than one --parameters argument.
-      - name: --states
-        long-summary: |
-            Usage: --states app-id=XX status=XX updated-date-time=XX user=XX
-
-
-            Multiple actions can be specified by using more than one --states argument.
-      - name: --vendor-information
-        short-summary: "securityVendorInformation"
-        long-summary: |
-            Usage: --vendor-information provider=XX provider-version=XX sub-provider=XX vendor=XX
-
-            provider: Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
-            provider-version: Version of the provider or subprovider, if it exists, that generated the alert. Required
-            sub-provider: Specific subprovider (under aggregating provider); for example, \
-WindowsDefenderATP.SmartScreen.
-            vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
+    short-summary: "Get securityActions from Security"
 """
 
 helps['security security get-alert'] = """
@@ -599,7 +604,7 @@ helps['security security get-user-security-profile'] = """
     short-summary: "Get userSecurityProfiles from Security"
 """
 
-helps['security security gety-action'] = """
+helps['security security list-action'] = """
     type: command
     short-summary: "Get securityActions from Security"
 """
@@ -659,9 +664,39 @@ helps['security security list-user-security-profile'] = """
     short-summary: "Get userSecurityProfiles from Security"
 """
 
-helps['security security listy-action'] = """
+helps['security security update-action'] = """
     type: command
-    short-summary: "Get securityActions from Security"
+    short-summary: "Update the navigation property securityActions in Security"
+    parameters:
+      - name: --error-info
+        short-summary: "ResultInfo"
+        long-summary: |
+            Usage: --error-info code=XX message=XX subcode=XX
+
+      - name: --parameters
+        long-summary: |
+            Usage: --parameters name=XX value=XX
+
+            name: Name for this key-value pair
+            value: Value for this key-value pair
+
+            Multiple actions can be specified by using more than one --parameters argument.
+      - name: --states
+        long-summary: |
+            Usage: --states app-id=XX status=XX updated-date-time=XX user=XX
+
+
+            Multiple actions can be specified by using more than one --states argument.
+      - name: --vendor-information
+        short-summary: "securityVendorInformation"
+        long-summary: |
+            Usage: --vendor-information provider=XX provider-version=XX sub-provider=XX vendor=XX
+
+            provider: Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
+            provider-version: Version of the provider or subprovider, if it exists, that generated the alert. Required
+            sub-provider: Specific subprovider (under aggregating provider); for example, \
+WindowsDefenderATP.SmartScreen.
+            vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
 helps['security security update-alert'] = """
@@ -1104,41 +1139,6 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security security updatey-action'] = """
-    type: command
-    short-summary: "Update the navigation property securityActions in Security"
-    parameters:
-      - name: --error-info
-        short-summary: "ResultInfo"
-        long-summary: |
-            Usage: --error-info code=XX message=XX subcode=XX
-
-      - name: --parameters
-        long-summary: |
-            Usage: --parameters name=XX value=XX
-
-            name: Name for this key-value pair
-            value: Value for this key-value pair
-
-            Multiple actions can be specified by using more than one --parameters argument.
-      - name: --states
-        long-summary: |
-            Usage: --states app-id=XX status=XX updated-date-time=XX user=XX
-
-
-            Multiple actions can be specified by using more than one --states argument.
-      - name: --vendor-information
-        short-summary: "securityVendorInformation"
-        long-summary: |
-            Usage: --vendor-information provider=XX provider-version=XX sub-provider=XX vendor=XX
-
-            provider: Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
-            provider-version: Version of the provider or subprovider, if it exists, that generated the alert. Required
-            sub-provider: Specific subprovider (under aggregating provider); for example, \
-WindowsDefenderATP.SmartScreen.
-            vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
-"""
-
 helps['security security-alert'] = """
     type: group
     short-summary: security security-alert
@@ -1149,12 +1149,12 @@ helps['security security-alert update-alert'] = """
     short-summary: "Invoke action updateAlerts"
 """
 
-helps['security security-security-action'] = """
+helps['security security-action'] = """
     type: group
-    short-summary: security security-security-action
+    short-summary: security security-action
 """
 
-helps['security security-security-action cancel-security-action'] = """
+helps['security security-action cancel-security-action'] = """
     type: command
     short-summary: "Invoke action cancelSecurityAction"
 """

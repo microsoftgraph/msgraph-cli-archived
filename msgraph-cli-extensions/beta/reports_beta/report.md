@@ -48,7 +48,33 @@ create-directory-provisioning a reports audit-log.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--action**|string||action|action|
+|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
+|**--change-id**|string||change_id|changeId|
+|**--cycle-id**|string||cycle_id|cycleId|
+|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
+|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
+|**--job-id**|string||job_id|jobId|
+|**--modified-properties**|array||modified_properties|modifiedProperties|
+|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
+|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
+|**--tenant-id**|string||tenant_id|tenantId|
+|**--target-system-details**|dictionary|detailsInfo|details|details|
+|**--target-system-display-name**|string||display_name|displayName|
+|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--target-identity-identity-type**|string||identity_type|identityType|
+|**--status-info-status**|choice||status|status|
+|**--source-system-details**|dictionary|detailsInfo|details1|details|
+|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--source-system-id**|string||id1|id|
+|**--source-identity-details**|dictionary|detailsInfo|details2|details|
+|**--source-identity-display-name**|string||display_name1|displayName|
+|**--source-identity-id**|string||id2|id|
+|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
 
 ### reports audit-log create-provisioning
 
@@ -67,7 +93,33 @@ create-provisioning a reports audit-log.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--action**|string||action|action|
+|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
+|**--change-id**|string||change_id|changeId|
+|**--cycle-id**|string||cycle_id|cycleId|
+|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
+|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
+|**--job-id**|string||job_id|jobId|
+|**--modified-properties**|array||modified_properties|modifiedProperties|
+|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
+|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
+|**--tenant-id**|string||tenant_id|tenantId|
+|**--target-system-details**|dictionary|detailsInfo|details|details|
+|**--target-system-display-name**|string||display_name|displayName|
+|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--target-identity-identity-type**|string||identity_type|identityType|
+|**--status-info-status**|choice||status|status|
+|**--source-system-details**|dictionary|detailsInfo|details1|details|
+|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--source-system-id**|string||id1|id|
+|**--source-identity-details**|dictionary|detailsInfo|details2|details|
+|**--source-identity-display-name**|string||display_name1|displayName|
+|**--source-identity-id**|string||id2|id|
+|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
 
 ### reports audit-log create-restricted-sign-in
 
@@ -481,7 +533,33 @@ update-directory-provisioning a reports audit-log.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--action**|string||action|action|
+|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
+|**--change-id**|string||change_id|changeId|
+|**--cycle-id**|string||cycle_id|cycleId|
+|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
+|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
+|**--job-id**|string||job_id|jobId|
+|**--modified-properties**|array||modified_properties|modifiedProperties|
+|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
+|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
+|**--tenant-id**|string||tenant_id|tenantId|
+|**--target-system-details**|dictionary|detailsInfo|details|details|
+|**--target-system-display-name**|string||display_name|displayName|
+|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--target-identity-identity-type**|string||identity_type|identityType|
+|**--status-info-status**|choice||status|status|
+|**--source-system-details**|dictionary|detailsInfo|details1|details|
+|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--source-system-id**|string||id1|id|
+|**--source-identity-details**|dictionary|detailsInfo|details2|details|
+|**--source-identity-display-name**|string||display_name1|displayName|
+|**--source-identity-id**|string||id2|id|
+|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
 
 ### reports audit-log update-provisioning
 
@@ -501,7 +579,33 @@ update-provisioning a reports audit-log.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--action**|string||action|action|
+|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
+|**--change-id**|string||change_id|changeId|
+|**--cycle-id**|string||cycle_id|cycleId|
+|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
+|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
+|**--job-id**|string||job_id|jobId|
+|**--modified-properties**|array||modified_properties|modifiedProperties|
+|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
+|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
+|**--tenant-id**|string||tenant_id|tenantId|
+|**--target-system-details**|dictionary|detailsInfo|details|details|
+|**--target-system-display-name**|string||display_name|displayName|
+|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--target-identity-identity-type**|string||identity_type|identityType|
+|**--status-info-status**|choice||status|status|
+|**--source-system-details**|dictionary|detailsInfo|details1|details|
+|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--source-system-id**|string||id1|id|
+|**--source-identity-details**|dictionary|detailsInfo|details2|details|
+|**--source-identity-display-name**|string||display_name1|displayName|
+|**--source-identity-id**|string||id2|id|
+|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
 
 ### reports audit-log update-restricted-sign-in
 

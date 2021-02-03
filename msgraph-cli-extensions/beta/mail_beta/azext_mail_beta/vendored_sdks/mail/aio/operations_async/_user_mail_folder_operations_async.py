@@ -587,7 +587,83 @@ class UserMailFolderOperations:
         self,
         user_id: str,
         mail_folder_id: str,
-        body: "models.MicrosoftGraphMessageRule",
+        id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        has_error: Optional[bool] = None,
+        is_enabled: Optional[bool] = None,
+        is_read_only: Optional[bool] = None,
+        sequence: Optional[int] = None,
+        body_contains: Optional[List[str]] = None,
+        body_or_subject_contains: Optional[List[str]] = None,
+        categories: Optional[List[str]] = None,
+        from_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        has_attachments: Optional[bool] = None,
+        header_contains: Optional[List[str]] = None,
+        importance: Optional[Union[str, "models.MicrosoftGraphImportance"]] = None,
+        is_approval_request: Optional[bool] = None,
+        is_automatic_forward: Optional[bool] = None,
+        is_automatic_reply: Optional[bool] = None,
+        is_encrypted: Optional[bool] = None,
+        is_meeting_request: Optional[bool] = None,
+        is_meeting_response: Optional[bool] = None,
+        is_non_delivery_report: Optional[bool] = None,
+        is_permission_controlled: Optional[bool] = None,
+        is_read_receipt: Optional[bool] = None,
+        is_signed: Optional[bool] = None,
+        is_voicemail: Optional[bool] = None,
+        message_action_flag: Optional[Union[str, "models.MicrosoftGraphMessageActionFlag"]] = None,
+        not_sent_to_me: Optional[bool] = None,
+        recipient_contains: Optional[List[str]] = None,
+        sender_contains: Optional[List[str]] = None,
+        sensitivity: Optional[Union[str, "models.MicrosoftGraphSensitivity"]] = None,
+        sent_cc_me: Optional[bool] = None,
+        sent_only_to_me: Optional[bool] = None,
+        sent_to_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        sent_to_me: Optional[bool] = None,
+        sent_to_or_cc_me: Optional[bool] = None,
+        subject_contains: Optional[List[str]] = None,
+        within_size_range: Optional["models.MicrosoftGraphSizeRange"] = None,
+        microsoft_graph_message_rule_predicates_body_contains: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_categories: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_from_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        boolean_has_attachments: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_header_contains: Optional[List[str]] = None,
+        microsoft_graph_importance: Optional[Union[str, "models.MicrosoftGraphImportance"]] = None,
+        is_approval_request: Optional[bool] = None,
+        is_automatic_forward: Optional[bool] = None,
+        is_automatic_reply: Optional[bool] = None,
+        is_encrypted: Optional[bool] = None,
+        is_meeting_request: Optional[bool] = None,
+        is_meeting_response: Optional[bool] = None,
+        is_non_delivery_report: Optional[bool] = None,
+        is_permission_controlled: Optional[bool] = None,
+        is_read_receipt: Optional[bool] = None,
+        is_signed: Optional[bool] = None,
+        is_voicemail: Optional[bool] = None,
+        microsoft_graph_message_action_flag_message_action_flag: Optional[Union[str, "models.MicrosoftGraphMessageActionFlag"]] = None,
+        boolean_not_sent_to_me: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_recipient_contains: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_sender_contains: Optional[List[str]] = None,
+        microsoft_graph_sensitivity: Optional[Union[str, "models.MicrosoftGraphSensitivity"]] = None,
+        boolean_sent_cc_me: Optional[bool] = None,
+        boolean_sent_only_to_me: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        boolean_sent_to_me: Optional[bool] = None,
+        boolean_sent_to_or_cc_me: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_subject_contains: Optional[List[str]] = None,
+        microsoft_graph_size_range_within_size_range: Optional["models.MicrosoftGraphSizeRange"] = None,
+        assign_categories: Optional[List[str]] = None,
+        copy_to_folder: Optional[str] = None,
+        delete: Optional[bool] = None,
+        forward_as_attachment_to: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        forward_to: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        mark_as_read: Optional[bool] = None,
+        mark_importance: Optional[Union[str, "models.MicrosoftGraphImportance"]] = None,
+        move_to_folder: Optional[str] = None,
+        permanent_delete: Optional[bool] = None,
+        redirect_to: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        stop_processing_rules: Optional[bool] = None,
         **kwargs
     ) -> "models.MicrosoftGraphMessageRule":
         """Create new navigation property to messageRules for users.
@@ -598,8 +674,225 @@ class UserMailFolderOperations:
         :type user_id: str
         :param mail_folder_id: key: id of mailFolder.
         :type mail_folder_id: str
-        :param body: New navigation property.
-        :type body: ~mail.models.MicrosoftGraphMessageRule
+        :param id: Read-only.
+        :type id: str
+        :param display_name: The display name of the rule.
+        :type display_name: str
+        :param has_error: Indicates whether the rule is in an error condition. Read-only.
+        :type has_error: bool
+        :param is_enabled: Indicates whether the rule is enabled to be applied to messages.
+        :type is_enabled: bool
+        :param is_read_only: Indicates if the rule is read-only and cannot be modified or deleted by
+         the rules REST API.
+        :type is_read_only: bool
+        :param sequence: Indicates the order in which the rule is executed, among other rules.
+        :type sequence: int
+        :param body_contains: Represents the strings that should appear in the body of an incoming
+         message in order for the condition or exception to apply.
+        :type body_contains: list[str]
+        :param body_or_subject_contains: Represents the strings that should appear in the body or
+         subject of an incoming message in order for the condition or exception to apply.
+        :type body_or_subject_contains: list[str]
+        :param categories: Represents the categories that an incoming message should be labeled with in
+         order for the condition or exception to apply.
+        :type categories: list[str]
+        :param from_addresses: Represents the specific sender email addresses of an incoming message in
+         order for the condition or exception to apply.
+        :type from_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param has_attachments: Indicates whether an incoming message must have attachments in order
+         for the condition or exception to apply.
+        :type has_attachments: bool
+        :param header_contains: Represents the strings that appear in the headers of an incoming
+         message in order for the condition or exception to apply.
+        :type header_contains: list[str]
+        :param importance:
+        :type importance: str or ~mail.models.MicrosoftGraphImportance
+        :param is_approval_request: Indicates whether an incoming message must be an approval request
+         in order for the condition or exception to apply.
+        :type is_approval_request: bool
+        :param is_automatic_forward: Indicates whether an incoming message must be automatically
+         forwarded in order for the condition or exception to apply.
+        :type is_automatic_forward: bool
+        :param is_automatic_reply: Indicates whether an incoming message must be an auto reply in order
+         for the condition or exception to apply.
+        :type is_automatic_reply: bool
+        :param is_encrypted: Indicates whether an incoming message must be encrypted in order for the
+         condition or exception to apply.
+        :type is_encrypted: bool
+        :param is_meeting_request: Indicates whether an incoming message must be a meeting request in
+         order for the condition or exception to apply.
+        :type is_meeting_request: bool
+        :param is_meeting_response: Indicates whether an incoming message must be a meeting response in
+         order for the condition or exception to apply.
+        :type is_meeting_response: bool
+        :param is_non_delivery_report: Indicates whether an incoming message must be a non-delivery
+         report in order for the condition or exception to apply.
+        :type is_non_delivery_report: bool
+        :param is_permission_controlled: Indicates whether an incoming message must be permission
+         controlled (RMS-protected) in order for the condition or exception to apply.
+        :type is_permission_controlled: bool
+        :param is_read_receipt: Indicates whether an incoming message must be a read receipt in order
+         for the condition or exception to apply.
+        :type is_read_receipt: bool
+        :param is_signed: Indicates whether an incoming message must be S/MIME-signed in order for the
+         condition or exception to apply.
+        :type is_signed: bool
+        :param is_voicemail: Indicates whether an incoming message must be a voice mail in order for
+         the condition or exception to apply.
+        :type is_voicemail: bool
+        :param message_action_flag:
+        :type message_action_flag: str or ~mail.models.MicrosoftGraphMessageActionFlag
+        :param not_sent_to_me: Indicates whether the owner of the mailbox must not be a recipient of an
+         incoming message in order for the condition or exception to apply.
+        :type not_sent_to_me: bool
+        :param recipient_contains: Represents the strings that appear in either the toRecipients or
+         ccRecipients properties of an incoming message in order for the condition or exception to
+         apply.
+        :type recipient_contains: list[str]
+        :param sender_contains: Represents the strings that appear in the from property of an incoming
+         message in order for the condition or exception to apply.
+        :type sender_contains: list[str]
+        :param sensitivity:
+        :type sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
+        :param sent_cc_me: Indicates whether the owner of the mailbox must be in the ccRecipients
+         property of an incoming message in order for the condition or exception to apply.
+        :type sent_cc_me: bool
+        :param sent_only_to_me: Indicates whether the owner of the mailbox must be the only recipient
+         in an incoming message in order for the condition or exception to apply.
+        :type sent_only_to_me: bool
+        :param sent_to_addresses: Represents the email addresses that an incoming message must have
+         been sent to in order for the condition or exception to apply.
+        :type sent_to_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param sent_to_me: Indicates whether the owner of the mailbox must be in the toRecipients
+         property of an incoming message in order for the condition or exception to apply.
+        :type sent_to_me: bool
+        :param sent_to_or_cc_me: Indicates whether the owner of the mailbox must be in either a
+         toRecipients or ccRecipients property of an incoming message in order for the condition or
+         exception to apply.
+        :type sent_to_or_cc_me: bool
+        :param subject_contains: Represents the strings that appear in the subject of an incoming
+         message in order for the condition or exception to apply.
+        :type subject_contains: list[str]
+        :param within_size_range: sizeRange.
+        :type within_size_range: ~mail.models.MicrosoftGraphSizeRange
+        :param microsoft_graph_message_rule_predicates_body_contains: Represents the strings that
+         should appear in the body of an incoming message in order for the condition or exception to
+         apply.
+        :type microsoft_graph_message_rule_predicates_body_contains: list[str]
+        :param
+         microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains:
+         Represents the strings that should appear in the body or subject of an incoming message in
+         order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains: list[str]
+        :param microsoft_graph_message_rule_predicates_categories: Represents the categories that an
+         incoming message should be labeled with in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_categories: list[str]
+        :param microsoft_graph_message_rule_predicates_from_addresses: Represents the specific sender
+         email addresses of an incoming message in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_from_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param boolean_has_attachments: Indicates whether an incoming message must have attachments in
+         order for the condition or exception to apply.
+        :type boolean_has_attachments: bool
+        :param microsoft_graph_message_rule_predicates_header_contains: Represents the strings that
+         appear in the headers of an incoming message in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_header_contains: list[str]
+        :param microsoft_graph_importance:
+        :type microsoft_graph_importance: str or ~mail.models.MicrosoftGraphImportance
+        :param is_approval_request: Indicates whether an incoming message must be an approval request
+         in order for the condition or exception to apply.
+        :type is_approval_request: bool
+        :param is_automatic_forward: Indicates whether an incoming message must be automatically
+         forwarded in order for the condition or exception to apply.
+        :type is_automatic_forward: bool
+        :param is_automatic_reply: Indicates whether an incoming message must be an auto reply in order
+         for the condition or exception to apply.
+        :type is_automatic_reply: bool
+        :param is_encrypted: Indicates whether an incoming message must be encrypted in order for the
+         condition or exception to apply.
+        :type is_encrypted: bool
+        :param is_meeting_request: Indicates whether an incoming message must be a meeting request in
+         order for the condition or exception to apply.
+        :type is_meeting_request: bool
+        :param is_meeting_response: Indicates whether an incoming message must be a meeting response in
+         order for the condition or exception to apply.
+        :type is_meeting_response: bool
+        :param is_non_delivery_report: Indicates whether an incoming message must be a non-delivery
+         report in order for the condition or exception to apply.
+        :type is_non_delivery_report: bool
+        :param is_permission_controlled: Indicates whether an incoming message must be permission
+         controlled (RMS-protected) in order for the condition or exception to apply.
+        :type is_permission_controlled: bool
+        :param is_read_receipt: Indicates whether an incoming message must be a read receipt in order
+         for the condition or exception to apply.
+        :type is_read_receipt: bool
+        :param is_signed: Indicates whether an incoming message must be S/MIME-signed in order for the
+         condition or exception to apply.
+        :type is_signed: bool
+        :param is_voicemail: Indicates whether an incoming message must be a voice mail in order for
+         the condition or exception to apply.
+        :type is_voicemail: bool
+        :param microsoft_graph_message_action_flag_message_action_flag:
+        :type microsoft_graph_message_action_flag_message_action_flag: str or ~mail.models.MicrosoftGraphMessageActionFlag
+        :param boolean_not_sent_to_me: Indicates whether the owner of the mailbox must not be a
+         recipient of an incoming message in order for the condition or exception to apply.
+        :type boolean_not_sent_to_me: bool
+        :param microsoft_graph_message_rule_predicates_recipient_contains: Represents the strings that
+         appear in either the toRecipients or ccRecipients properties of an incoming message in order
+         for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_recipient_contains: list[str]
+        :param microsoft_graph_message_rule_predicates_sender_contains: Represents the strings that
+         appear in the from property of an incoming message in order for the condition or exception to
+         apply.
+        :type microsoft_graph_message_rule_predicates_sender_contains: list[str]
+        :param microsoft_graph_sensitivity:
+        :type microsoft_graph_sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
+        :param boolean_sent_cc_me: Indicates whether the owner of the mailbox must be in the
+         ccRecipients property of an incoming message in order for the condition or exception to apply.
+        :type boolean_sent_cc_me: bool
+        :param boolean_sent_only_to_me: Indicates whether the owner of the mailbox must be the only
+         recipient in an incoming message in order for the condition or exception to apply.
+        :type boolean_sent_only_to_me: bool
+        :param microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses: Represents
+         the email addresses that an incoming message must have been sent to in order for the condition
+         or exception to apply.
+        :type microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param boolean_sent_to_me: Indicates whether the owner of the mailbox must be in the
+         toRecipients property of an incoming message in order for the condition or exception to apply.
+        :type boolean_sent_to_me: bool
+        :param boolean_sent_to_or_cc_me: Indicates whether the owner of the mailbox must be in either a
+         toRecipients or ccRecipients property of an incoming message in order for the condition or
+         exception to apply.
+        :type boolean_sent_to_or_cc_me: bool
+        :param microsoft_graph_message_rule_predicates_subject_contains: Represents the strings that
+         appear in the subject of an incoming message in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_subject_contains: list[str]
+        :param microsoft_graph_size_range_within_size_range: sizeRange.
+        :type microsoft_graph_size_range_within_size_range: ~mail.models.MicrosoftGraphSizeRange
+        :param assign_categories: A list of categories to be assigned to a message.
+        :type assign_categories: list[str]
+        :param copy_to_folder: The ID of a folder that a message is to be copied to.
+        :type copy_to_folder: str
+        :param delete: Indicates whether a message should be moved to the Deleted Items folder.
+        :type delete: bool
+        :param forward_as_attachment_to: The email addresses of the recipients to which a message
+         should be forwarded as an attachment.
+        :type forward_as_attachment_to: list[~mail.models.MicrosoftGraphRecipient]
+        :param forward_to: The email addresses of the recipients to which a message should be
+         forwarded.
+        :type forward_to: list[~mail.models.MicrosoftGraphRecipient]
+        :param mark_as_read: Indicates whether a message should be marked as read.
+        :type mark_as_read: bool
+        :param mark_importance:
+        :type mark_importance: str or ~mail.models.MicrosoftGraphImportance
+        :param move_to_folder: The ID of the folder that a message will be moved to.
+        :type move_to_folder: str
+        :param permanent_delete: Indicates whether a message should be permanently deleted and not
+         saved to the Deleted Items folder.
+        :type permanent_delete: bool
+        :param redirect_to: The email addresses to which a message should be redirected.
+        :type redirect_to: list[~mail.models.MicrosoftGraphRecipient]
+        :param stop_processing_rules: Indicates whether subsequent rules should be evaluated.
+        :type stop_processing_rules: bool
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphMessageRule, or the result of cls(response)
         :rtype: ~mail.models.MicrosoftGraphMessageRule
@@ -608,6 +901,8 @@ class UserMailFolderOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessageRule"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphMessageRule(id=id, display_name=display_name, has_error=has_error, is_enabled=is_enabled, is_read_only=is_read_only, sequence=sequence, body_contains_exceptions_body_contains=body_contains, body_or_subject_contains_exceptions_body_or_subject_contains=body_or_subject_contains, categories_exceptions_categories=categories, from_addresses_exceptions_from_addresses=from_addresses, has_attachments_exceptions_has_attachments=has_attachments, header_contains_exceptions_header_contains=header_contains, importance_exceptions_importance=importance, is_approval_request_exceptions_is_approval_request=is_approval_request, is_automatic_forward_exceptions_is_automatic_forward=is_automatic_forward, is_automatic_reply_exceptions_is_automatic_reply=is_automatic_reply, is_encrypted_exceptions_is_encrypted=is_encrypted, is_meeting_request_exceptions_is_meeting_request=is_meeting_request, is_meeting_response_exceptions_is_meeting_response=is_meeting_response, is_non_delivery_report_exceptions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_exceptions_is_permission_controlled=is_permission_controlled, is_read_receipt_exceptions_is_read_receipt=is_read_receipt, is_signed_exceptions_is_signed=is_signed, is_voicemail_exceptions_is_voicemail=is_voicemail, message_action_flag_exceptions_message_action_flag=message_action_flag, not_sent_to_me_exceptions_not_sent_to_me=not_sent_to_me, recipient_contains_exceptions_recipient_contains=recipient_contains, sender_contains_exceptions_sender_contains=sender_contains, sensitivity_exceptions_sensitivity=sensitivity, sent_cc_me_exceptions_sent_cc_me=sent_cc_me, sent_only_to_me_exceptions_sent_only_to_me=sent_only_to_me, sent_to_addresses_exceptions_sent_to_addresses=sent_to_addresses, sent_to_me_exceptions_sent_to_me=sent_to_me, sent_to_or_cc_me_exceptions_sent_to_or_cc_me=sent_to_or_cc_me, subject_contains_exceptions_subject_contains=subject_contains, within_size_range_exceptions_within_size_range=within_size_range, body_contains_conditions_body_contains=microsoft_graph_message_rule_predicates_body_contains, body_or_subject_contains_conditions_body_or_subject_contains=microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains, categories_conditions_categories=microsoft_graph_message_rule_predicates_categories, from_addresses_conditions_from_addresses=microsoft_graph_message_rule_predicates_from_addresses, has_attachments_conditions_has_attachments=boolean_has_attachments, header_contains_conditions_header_contains=microsoft_graph_message_rule_predicates_header_contains, importance_conditions_importance=microsoft_graph_importance, is_approval_request_conditions_is_approval_request=is_approval_request, is_automatic_forward_conditions_is_automatic_forward=is_automatic_forward, is_automatic_reply_conditions_is_automatic_reply=is_automatic_reply, is_encrypted_conditions_is_encrypted=is_encrypted, is_meeting_request_conditions_is_meeting_request=is_meeting_request, is_meeting_response_conditions_is_meeting_response=is_meeting_response, is_non_delivery_report_conditions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_conditions_is_permission_controlled=is_permission_controlled, is_read_receipt_conditions_is_read_receipt=is_read_receipt, is_signed_conditions_is_signed=is_signed, is_voicemail_conditions_is_voicemail=is_voicemail, message_action_flag_conditions_message_action_flag=microsoft_graph_message_action_flag_message_action_flag, not_sent_to_me_conditions_not_sent_to_me=boolean_not_sent_to_me, recipient_contains_conditions_recipient_contains=microsoft_graph_message_rule_predicates_recipient_contains, sender_contains_conditions_sender_contains=microsoft_graph_message_rule_predicates_sender_contains, sensitivity_conditions_sensitivity=microsoft_graph_sensitivity, sent_cc_me_conditions_sent_cc_me=boolean_sent_cc_me, sent_only_to_me_conditions_sent_only_to_me=boolean_sent_only_to_me, sent_to_addresses_conditions_sent_to_addresses=microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses, sent_to_me_conditions_sent_to_me=boolean_sent_to_me, sent_to_or_cc_me_conditions_sent_to_or_cc_me=boolean_sent_to_or_cc_me, subject_contains_conditions_subject_contains=microsoft_graph_message_rule_predicates_subject_contains, within_size_range_conditions_within_size_range=microsoft_graph_size_range_within_size_range, assign_categories=assign_categories, copy_to_folder=copy_to_folder, delete=delete, forward_as_attachment_to=forward_as_attachment_to, forward_to=forward_to, mark_as_read=mark_as_read, mark_importance=mark_importance, move_to_folder=move_to_folder, permanent_delete=permanent_delete, redirect_to=redirect_to, stop_processing_rules=stop_processing_rules)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -629,7 +924,7 @@ class UserMailFolderOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphMessageRule')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphMessageRule')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -725,7 +1020,83 @@ class UserMailFolderOperations:
         user_id: str,
         mail_folder_id: str,
         message_rule_id: str,
-        body: "models.MicrosoftGraphMessageRule",
+        id: Optional[str] = None,
+        display_name: Optional[str] = None,
+        has_error: Optional[bool] = None,
+        is_enabled: Optional[bool] = None,
+        is_read_only: Optional[bool] = None,
+        sequence: Optional[int] = None,
+        body_contains: Optional[List[str]] = None,
+        body_or_subject_contains: Optional[List[str]] = None,
+        categories: Optional[List[str]] = None,
+        from_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        has_attachments: Optional[bool] = None,
+        header_contains: Optional[List[str]] = None,
+        importance: Optional[Union[str, "models.MicrosoftGraphImportance"]] = None,
+        is_approval_request: Optional[bool] = None,
+        is_automatic_forward: Optional[bool] = None,
+        is_automatic_reply: Optional[bool] = None,
+        is_encrypted: Optional[bool] = None,
+        is_meeting_request: Optional[bool] = None,
+        is_meeting_response: Optional[bool] = None,
+        is_non_delivery_report: Optional[bool] = None,
+        is_permission_controlled: Optional[bool] = None,
+        is_read_receipt: Optional[bool] = None,
+        is_signed: Optional[bool] = None,
+        is_voicemail: Optional[bool] = None,
+        message_action_flag: Optional[Union[str, "models.MicrosoftGraphMessageActionFlag"]] = None,
+        not_sent_to_me: Optional[bool] = None,
+        recipient_contains: Optional[List[str]] = None,
+        sender_contains: Optional[List[str]] = None,
+        sensitivity: Optional[Union[str, "models.MicrosoftGraphSensitivity"]] = None,
+        sent_cc_me: Optional[bool] = None,
+        sent_only_to_me: Optional[bool] = None,
+        sent_to_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        sent_to_me: Optional[bool] = None,
+        sent_to_or_cc_me: Optional[bool] = None,
+        subject_contains: Optional[List[str]] = None,
+        within_size_range: Optional["models.MicrosoftGraphSizeRange"] = None,
+        microsoft_graph_message_rule_predicates_body_contains: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_categories: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_from_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        boolean_has_attachments: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_header_contains: Optional[List[str]] = None,
+        microsoft_graph_importance: Optional[Union[str, "models.MicrosoftGraphImportance"]] = None,
+        is_approval_request: Optional[bool] = None,
+        is_automatic_forward: Optional[bool] = None,
+        is_automatic_reply: Optional[bool] = None,
+        is_encrypted: Optional[bool] = None,
+        is_meeting_request: Optional[bool] = None,
+        is_meeting_response: Optional[bool] = None,
+        is_non_delivery_report: Optional[bool] = None,
+        is_permission_controlled: Optional[bool] = None,
+        is_read_receipt: Optional[bool] = None,
+        is_signed: Optional[bool] = None,
+        is_voicemail: Optional[bool] = None,
+        microsoft_graph_message_action_flag_message_action_flag: Optional[Union[str, "models.MicrosoftGraphMessageActionFlag"]] = None,
+        boolean_not_sent_to_me: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_recipient_contains: Optional[List[str]] = None,
+        microsoft_graph_message_rule_predicates_sender_contains: Optional[List[str]] = None,
+        microsoft_graph_sensitivity: Optional[Union[str, "models.MicrosoftGraphSensitivity"]] = None,
+        boolean_sent_cc_me: Optional[bool] = None,
+        boolean_sent_only_to_me: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        boolean_sent_to_me: Optional[bool] = None,
+        boolean_sent_to_or_cc_me: Optional[bool] = None,
+        microsoft_graph_message_rule_predicates_subject_contains: Optional[List[str]] = None,
+        microsoft_graph_size_range_within_size_range: Optional["models.MicrosoftGraphSizeRange"] = None,
+        assign_categories: Optional[List[str]] = None,
+        copy_to_folder: Optional[str] = None,
+        delete: Optional[bool] = None,
+        forward_as_attachment_to: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        forward_to: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        mark_as_read: Optional[bool] = None,
+        mark_importance: Optional[Union[str, "models.MicrosoftGraphImportance"]] = None,
+        move_to_folder: Optional[str] = None,
+        permanent_delete: Optional[bool] = None,
+        redirect_to: Optional[List["models.MicrosoftGraphRecipient"]] = None,
+        stop_processing_rules: Optional[bool] = None,
         **kwargs
     ) -> None:
         """Update the navigation property messageRules in users.
@@ -738,8 +1109,225 @@ class UserMailFolderOperations:
         :type mail_folder_id: str
         :param message_rule_id: key: id of messageRule.
         :type message_rule_id: str
-        :param body: New navigation property values.
-        :type body: ~mail.models.MicrosoftGraphMessageRule
+        :param id: Read-only.
+        :type id: str
+        :param display_name: The display name of the rule.
+        :type display_name: str
+        :param has_error: Indicates whether the rule is in an error condition. Read-only.
+        :type has_error: bool
+        :param is_enabled: Indicates whether the rule is enabled to be applied to messages.
+        :type is_enabled: bool
+        :param is_read_only: Indicates if the rule is read-only and cannot be modified or deleted by
+         the rules REST API.
+        :type is_read_only: bool
+        :param sequence: Indicates the order in which the rule is executed, among other rules.
+        :type sequence: int
+        :param body_contains: Represents the strings that should appear in the body of an incoming
+         message in order for the condition or exception to apply.
+        :type body_contains: list[str]
+        :param body_or_subject_contains: Represents the strings that should appear in the body or
+         subject of an incoming message in order for the condition or exception to apply.
+        :type body_or_subject_contains: list[str]
+        :param categories: Represents the categories that an incoming message should be labeled with in
+         order for the condition or exception to apply.
+        :type categories: list[str]
+        :param from_addresses: Represents the specific sender email addresses of an incoming message in
+         order for the condition or exception to apply.
+        :type from_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param has_attachments: Indicates whether an incoming message must have attachments in order
+         for the condition or exception to apply.
+        :type has_attachments: bool
+        :param header_contains: Represents the strings that appear in the headers of an incoming
+         message in order for the condition or exception to apply.
+        :type header_contains: list[str]
+        :param importance:
+        :type importance: str or ~mail.models.MicrosoftGraphImportance
+        :param is_approval_request: Indicates whether an incoming message must be an approval request
+         in order for the condition or exception to apply.
+        :type is_approval_request: bool
+        :param is_automatic_forward: Indicates whether an incoming message must be automatically
+         forwarded in order for the condition or exception to apply.
+        :type is_automatic_forward: bool
+        :param is_automatic_reply: Indicates whether an incoming message must be an auto reply in order
+         for the condition or exception to apply.
+        :type is_automatic_reply: bool
+        :param is_encrypted: Indicates whether an incoming message must be encrypted in order for the
+         condition or exception to apply.
+        :type is_encrypted: bool
+        :param is_meeting_request: Indicates whether an incoming message must be a meeting request in
+         order for the condition or exception to apply.
+        :type is_meeting_request: bool
+        :param is_meeting_response: Indicates whether an incoming message must be a meeting response in
+         order for the condition or exception to apply.
+        :type is_meeting_response: bool
+        :param is_non_delivery_report: Indicates whether an incoming message must be a non-delivery
+         report in order for the condition or exception to apply.
+        :type is_non_delivery_report: bool
+        :param is_permission_controlled: Indicates whether an incoming message must be permission
+         controlled (RMS-protected) in order for the condition or exception to apply.
+        :type is_permission_controlled: bool
+        :param is_read_receipt: Indicates whether an incoming message must be a read receipt in order
+         for the condition or exception to apply.
+        :type is_read_receipt: bool
+        :param is_signed: Indicates whether an incoming message must be S/MIME-signed in order for the
+         condition or exception to apply.
+        :type is_signed: bool
+        :param is_voicemail: Indicates whether an incoming message must be a voice mail in order for
+         the condition or exception to apply.
+        :type is_voicemail: bool
+        :param message_action_flag:
+        :type message_action_flag: str or ~mail.models.MicrosoftGraphMessageActionFlag
+        :param not_sent_to_me: Indicates whether the owner of the mailbox must not be a recipient of an
+         incoming message in order for the condition or exception to apply.
+        :type not_sent_to_me: bool
+        :param recipient_contains: Represents the strings that appear in either the toRecipients or
+         ccRecipients properties of an incoming message in order for the condition or exception to
+         apply.
+        :type recipient_contains: list[str]
+        :param sender_contains: Represents the strings that appear in the from property of an incoming
+         message in order for the condition or exception to apply.
+        :type sender_contains: list[str]
+        :param sensitivity:
+        :type sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
+        :param sent_cc_me: Indicates whether the owner of the mailbox must be in the ccRecipients
+         property of an incoming message in order for the condition or exception to apply.
+        :type sent_cc_me: bool
+        :param sent_only_to_me: Indicates whether the owner of the mailbox must be the only recipient
+         in an incoming message in order for the condition or exception to apply.
+        :type sent_only_to_me: bool
+        :param sent_to_addresses: Represents the email addresses that an incoming message must have
+         been sent to in order for the condition or exception to apply.
+        :type sent_to_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param sent_to_me: Indicates whether the owner of the mailbox must be in the toRecipients
+         property of an incoming message in order for the condition or exception to apply.
+        :type sent_to_me: bool
+        :param sent_to_or_cc_me: Indicates whether the owner of the mailbox must be in either a
+         toRecipients or ccRecipients property of an incoming message in order for the condition or
+         exception to apply.
+        :type sent_to_or_cc_me: bool
+        :param subject_contains: Represents the strings that appear in the subject of an incoming
+         message in order for the condition or exception to apply.
+        :type subject_contains: list[str]
+        :param within_size_range: sizeRange.
+        :type within_size_range: ~mail.models.MicrosoftGraphSizeRange
+        :param microsoft_graph_message_rule_predicates_body_contains: Represents the strings that
+         should appear in the body of an incoming message in order for the condition or exception to
+         apply.
+        :type microsoft_graph_message_rule_predicates_body_contains: list[str]
+        :param
+         microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains:
+         Represents the strings that should appear in the body or subject of an incoming message in
+         order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains: list[str]
+        :param microsoft_graph_message_rule_predicates_categories: Represents the categories that an
+         incoming message should be labeled with in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_categories: list[str]
+        :param microsoft_graph_message_rule_predicates_from_addresses: Represents the specific sender
+         email addresses of an incoming message in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_from_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param boolean_has_attachments: Indicates whether an incoming message must have attachments in
+         order for the condition or exception to apply.
+        :type boolean_has_attachments: bool
+        :param microsoft_graph_message_rule_predicates_header_contains: Represents the strings that
+         appear in the headers of an incoming message in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_header_contains: list[str]
+        :param microsoft_graph_importance:
+        :type microsoft_graph_importance: str or ~mail.models.MicrosoftGraphImportance
+        :param is_approval_request: Indicates whether an incoming message must be an approval request
+         in order for the condition or exception to apply.
+        :type is_approval_request: bool
+        :param is_automatic_forward: Indicates whether an incoming message must be automatically
+         forwarded in order for the condition or exception to apply.
+        :type is_automatic_forward: bool
+        :param is_automatic_reply: Indicates whether an incoming message must be an auto reply in order
+         for the condition or exception to apply.
+        :type is_automatic_reply: bool
+        :param is_encrypted: Indicates whether an incoming message must be encrypted in order for the
+         condition or exception to apply.
+        :type is_encrypted: bool
+        :param is_meeting_request: Indicates whether an incoming message must be a meeting request in
+         order for the condition or exception to apply.
+        :type is_meeting_request: bool
+        :param is_meeting_response: Indicates whether an incoming message must be a meeting response in
+         order for the condition or exception to apply.
+        :type is_meeting_response: bool
+        :param is_non_delivery_report: Indicates whether an incoming message must be a non-delivery
+         report in order for the condition or exception to apply.
+        :type is_non_delivery_report: bool
+        :param is_permission_controlled: Indicates whether an incoming message must be permission
+         controlled (RMS-protected) in order for the condition or exception to apply.
+        :type is_permission_controlled: bool
+        :param is_read_receipt: Indicates whether an incoming message must be a read receipt in order
+         for the condition or exception to apply.
+        :type is_read_receipt: bool
+        :param is_signed: Indicates whether an incoming message must be S/MIME-signed in order for the
+         condition or exception to apply.
+        :type is_signed: bool
+        :param is_voicemail: Indicates whether an incoming message must be a voice mail in order for
+         the condition or exception to apply.
+        :type is_voicemail: bool
+        :param microsoft_graph_message_action_flag_message_action_flag:
+        :type microsoft_graph_message_action_flag_message_action_flag: str or ~mail.models.MicrosoftGraphMessageActionFlag
+        :param boolean_not_sent_to_me: Indicates whether the owner of the mailbox must not be a
+         recipient of an incoming message in order for the condition or exception to apply.
+        :type boolean_not_sent_to_me: bool
+        :param microsoft_graph_message_rule_predicates_recipient_contains: Represents the strings that
+         appear in either the toRecipients or ccRecipients properties of an incoming message in order
+         for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_recipient_contains: list[str]
+        :param microsoft_graph_message_rule_predicates_sender_contains: Represents the strings that
+         appear in the from property of an incoming message in order for the condition or exception to
+         apply.
+        :type microsoft_graph_message_rule_predicates_sender_contains: list[str]
+        :param microsoft_graph_sensitivity:
+        :type microsoft_graph_sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
+        :param boolean_sent_cc_me: Indicates whether the owner of the mailbox must be in the
+         ccRecipients property of an incoming message in order for the condition or exception to apply.
+        :type boolean_sent_cc_me: bool
+        :param boolean_sent_only_to_me: Indicates whether the owner of the mailbox must be the only
+         recipient in an incoming message in order for the condition or exception to apply.
+        :type boolean_sent_only_to_me: bool
+        :param microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses: Represents
+         the email addresses that an incoming message must have been sent to in order for the condition
+         or exception to apply.
+        :type microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses: list[~mail.models.MicrosoftGraphRecipient]
+        :param boolean_sent_to_me: Indicates whether the owner of the mailbox must be in the
+         toRecipients property of an incoming message in order for the condition or exception to apply.
+        :type boolean_sent_to_me: bool
+        :param boolean_sent_to_or_cc_me: Indicates whether the owner of the mailbox must be in either a
+         toRecipients or ccRecipients property of an incoming message in order for the condition or
+         exception to apply.
+        :type boolean_sent_to_or_cc_me: bool
+        :param microsoft_graph_message_rule_predicates_subject_contains: Represents the strings that
+         appear in the subject of an incoming message in order for the condition or exception to apply.
+        :type microsoft_graph_message_rule_predicates_subject_contains: list[str]
+        :param microsoft_graph_size_range_within_size_range: sizeRange.
+        :type microsoft_graph_size_range_within_size_range: ~mail.models.MicrosoftGraphSizeRange
+        :param assign_categories: A list of categories to be assigned to a message.
+        :type assign_categories: list[str]
+        :param copy_to_folder: The ID of a folder that a message is to be copied to.
+        :type copy_to_folder: str
+        :param delete: Indicates whether a message should be moved to the Deleted Items folder.
+        :type delete: bool
+        :param forward_as_attachment_to: The email addresses of the recipients to which a message
+         should be forwarded as an attachment.
+        :type forward_as_attachment_to: list[~mail.models.MicrosoftGraphRecipient]
+        :param forward_to: The email addresses of the recipients to which a message should be
+         forwarded.
+        :type forward_to: list[~mail.models.MicrosoftGraphRecipient]
+        :param mark_as_read: Indicates whether a message should be marked as read.
+        :type mark_as_read: bool
+        :param mark_importance:
+        :type mark_importance: str or ~mail.models.MicrosoftGraphImportance
+        :param move_to_folder: The ID of the folder that a message will be moved to.
+        :type move_to_folder: str
+        :param permanent_delete: Indicates whether a message should be permanently deleted and not
+         saved to the Deleted Items folder.
+        :type permanent_delete: bool
+        :param redirect_to: The email addresses to which a message should be redirected.
+        :type redirect_to: list[~mail.models.MicrosoftGraphRecipient]
+        :param stop_processing_rules: Indicates whether subsequent rules should be evaluated.
+        :type stop_processing_rules: bool
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -748,6 +1336,8 @@ class UserMailFolderOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphMessageRule(id=id, display_name=display_name, has_error=has_error, is_enabled=is_enabled, is_read_only=is_read_only, sequence=sequence, body_contains_exceptions_body_contains=body_contains, body_or_subject_contains_exceptions_body_or_subject_contains=body_or_subject_contains, categories_exceptions_categories=categories, from_addresses_exceptions_from_addresses=from_addresses, has_attachments_exceptions_has_attachments=has_attachments, header_contains_exceptions_header_contains=header_contains, importance_exceptions_importance=importance, is_approval_request_exceptions_is_approval_request=is_approval_request, is_automatic_forward_exceptions_is_automatic_forward=is_automatic_forward, is_automatic_reply_exceptions_is_automatic_reply=is_automatic_reply, is_encrypted_exceptions_is_encrypted=is_encrypted, is_meeting_request_exceptions_is_meeting_request=is_meeting_request, is_meeting_response_exceptions_is_meeting_response=is_meeting_response, is_non_delivery_report_exceptions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_exceptions_is_permission_controlled=is_permission_controlled, is_read_receipt_exceptions_is_read_receipt=is_read_receipt, is_signed_exceptions_is_signed=is_signed, is_voicemail_exceptions_is_voicemail=is_voicemail, message_action_flag_exceptions_message_action_flag=message_action_flag, not_sent_to_me_exceptions_not_sent_to_me=not_sent_to_me, recipient_contains_exceptions_recipient_contains=recipient_contains, sender_contains_exceptions_sender_contains=sender_contains, sensitivity_exceptions_sensitivity=sensitivity, sent_cc_me_exceptions_sent_cc_me=sent_cc_me, sent_only_to_me_exceptions_sent_only_to_me=sent_only_to_me, sent_to_addresses_exceptions_sent_to_addresses=sent_to_addresses, sent_to_me_exceptions_sent_to_me=sent_to_me, sent_to_or_cc_me_exceptions_sent_to_or_cc_me=sent_to_or_cc_me, subject_contains_exceptions_subject_contains=subject_contains, within_size_range_exceptions_within_size_range=within_size_range, body_contains_conditions_body_contains=microsoft_graph_message_rule_predicates_body_contains, body_or_subject_contains_conditions_body_or_subject_contains=microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains, categories_conditions_categories=microsoft_graph_message_rule_predicates_categories, from_addresses_conditions_from_addresses=microsoft_graph_message_rule_predicates_from_addresses, has_attachments_conditions_has_attachments=boolean_has_attachments, header_contains_conditions_header_contains=microsoft_graph_message_rule_predicates_header_contains, importance_conditions_importance=microsoft_graph_importance, is_approval_request_conditions_is_approval_request=is_approval_request, is_automatic_forward_conditions_is_automatic_forward=is_automatic_forward, is_automatic_reply_conditions_is_automatic_reply=is_automatic_reply, is_encrypted_conditions_is_encrypted=is_encrypted, is_meeting_request_conditions_is_meeting_request=is_meeting_request, is_meeting_response_conditions_is_meeting_response=is_meeting_response, is_non_delivery_report_conditions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_conditions_is_permission_controlled=is_permission_controlled, is_read_receipt_conditions_is_read_receipt=is_read_receipt, is_signed_conditions_is_signed=is_signed, is_voicemail_conditions_is_voicemail=is_voicemail, message_action_flag_conditions_message_action_flag=microsoft_graph_message_action_flag_message_action_flag, not_sent_to_me_conditions_not_sent_to_me=boolean_not_sent_to_me, recipient_contains_conditions_recipient_contains=microsoft_graph_message_rule_predicates_recipient_contains, sender_contains_conditions_sender_contains=microsoft_graph_message_rule_predicates_sender_contains, sensitivity_conditions_sensitivity=microsoft_graph_sensitivity, sent_cc_me_conditions_sent_cc_me=boolean_sent_cc_me, sent_only_to_me_conditions_sent_only_to_me=boolean_sent_only_to_me, sent_to_addresses_conditions_sent_to_addresses=microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses, sent_to_me_conditions_sent_to_me=boolean_sent_to_me, sent_to_or_cc_me_conditions_sent_to_or_cc_me=boolean_sent_to_or_cc_me, subject_contains_conditions_subject_contains=microsoft_graph_message_rule_predicates_subject_contains, within_size_range_conditions_within_size_range=microsoft_graph_size_range_within_size_range, assign_categories=assign_categories, copy_to_folder=copy_to_folder, delete=delete, forward_as_attachment_to=forward_as_attachment_to, forward_to=forward_to, mark_as_read=mark_as_read, mark_importance=mark_importance, move_to_folder=move_to_folder, permanent_delete=permanent_delete, redirect_to=redirect_to, stop_processing_rules=stop_processing_rules)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -769,7 +1359,7 @@ class UserMailFolderOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphMessageRule')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphMessageRule')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

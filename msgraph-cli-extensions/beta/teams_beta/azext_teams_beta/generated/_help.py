@@ -1341,6 +1341,62 @@ in a future response, but the items associated with the user won't show up as ha
             id: Read-only.
 
             Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
+      - name: --schedule-shifts
+        short-summary: "The shifts in the schedule."
+        long-summary: |
+            Usage: --schedule-shifts is-staged-for-deletion=XX scheduling-group-id=XX user-id=XX \
+end-date-time-shared-shift-end-date-time=XX start-date-time-shared-shift-start-date-time=XX \
+theme-shared-shift-theme=XX activities-shared-shift-activities=XX display-name-shared-shift-display-name=XX \
+notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX start-date-time-draft-shift-start-date-time=XX \
+theme-draft-shift-theme=XX activities-draft-shift-activities=XX display-name-draft-shift-display-name=XX \
+notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-n\
+ame=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX display-name-created-by-user-display-name=XX id-created-by-user-id=XX \
+display-name-created-by-device-display-name=XX id-created-by-device-id=XX display-name-created-by-application-display-n\
+ame=XX id-created-by-application-id=XX id=XX
+
+            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
+            user-id: ID of the user assigned to the shift. Required.
+            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-shared-shift-display-name: The shift label of the shiftItem.
+            notes-shared-shift-notes: The shift notes for the shiftItem.
+            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-draft-shift-display-name: The shift label of the shiftItem.
+            notes-draft-shift-notes: The shift notes for the shiftItem.
+            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
+always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --schedule-shifts argument.
       - name: --schedule-swap-shifts-change-requests
         long-summary: |
             Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
@@ -1744,6 +1800,62 @@ in a future response, but the items associated with the user won't show up as ha
             id: Read-only.
 
             Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
+      - name: --schedule-shifts
+        short-summary: "The shifts in the schedule."
+        long-summary: |
+            Usage: --schedule-shifts is-staged-for-deletion=XX scheduling-group-id=XX user-id=XX \
+end-date-time-shared-shift-end-date-time=XX start-date-time-shared-shift-start-date-time=XX \
+theme-shared-shift-theme=XX activities-shared-shift-activities=XX display-name-shared-shift-display-name=XX \
+notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX start-date-time-draft-shift-start-date-time=XX \
+theme-draft-shift-theme=XX activities-draft-shift-activities=XX display-name-draft-shift-display-name=XX \
+notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-n\
+ame=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX display-name-created-by-user-display-name=XX id-created-by-user-id=XX \
+display-name-created-by-device-display-name=XX id-created-by-device-id=XX display-name-created-by-application-display-n\
+ame=XX id-created-by-application-id=XX id=XX
+
+            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
+            user-id: ID of the user assigned to the shift. Required.
+            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-shared-shift-display-name: The shift label of the shiftItem.
+            notes-shared-shift-notes: The shift notes for the shiftItem.
+            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-draft-shift-display-name: The shift label of the shiftItem.
+            notes-draft-shift-notes: The shift notes for the shiftItem.
+            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
+always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --schedule-shifts argument.
       - name: --schedule-swap-shifts-change-requests
         long-summary: |
             Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
@@ -2127,6 +2239,62 @@ in a future response, but the items associated with the user won't show up as ha
             id: Read-only.
 
             Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
+      - name: --schedule-shifts
+        short-summary: "The shifts in the schedule."
+        long-summary: |
+            Usage: --schedule-shifts is-staged-for-deletion=XX scheduling-group-id=XX user-id=XX \
+end-date-time-shared-shift-end-date-time=XX start-date-time-shared-shift-start-date-time=XX \
+theme-shared-shift-theme=XX activities-shared-shift-activities=XX display-name-shared-shift-display-name=XX \
+notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX start-date-time-draft-shift-start-date-time=XX \
+theme-draft-shift-theme=XX activities-draft-shift-activities=XX display-name-draft-shift-display-name=XX \
+notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-n\
+ame=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX display-name-created-by-user-display-name=XX id-created-by-user-id=XX \
+display-name-created-by-device-display-name=XX id-created-by-device-id=XX display-name-created-by-application-display-n\
+ame=XX id-created-by-application-id=XX id=XX
+
+            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
+            user-id: ID of the user assigned to the shift. Required.
+            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-shared-shift-display-name: The shift label of the shiftItem.
+            notes-shared-shift-notes: The shift notes for the shiftItem.
+            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-draft-shift-display-name: The shift label of the shiftItem.
+            notes-draft-shift-notes: The shift notes for the shiftItem.
+            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
+always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --schedule-shifts argument.
       - name: --schedule-swap-shifts-change-requests
         long-summary: |
             Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
@@ -2767,6 +2935,61 @@ in a future response, but the items associated with the user won't show up as ha
             id: Read-only.
 
             Multiple actions can be specified by using more than one --scheduling-groups argument.
+      - name: --shifts
+        short-summary: "The shifts in the schedule."
+        long-summary: |
+            Usage: --shifts is-staged-for-deletion=XX scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-\
+date-time=XX start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX \
+activities-shared-shift-activities=XX display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX \
+end-date-time-draft-shift-end-date-time=XX start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX \
+activities-draft-shift-activities=XX display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX \
+created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
+id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
+display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX \
+display-name-created-by-user-display-name=XX id-created-by-user-id=XX display-name-created-by-device-display-name=XX \
+id-created-by-device-id=XX display-name-created-by-application-display-name=XX id-created-by-application-id=XX id=XX
+
+            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
+            user-id: ID of the user assigned to the shift. Required.
+            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-shared-shift-display-name: The shift label of the shiftItem.
+            notes-shared-shift-notes: The shift notes for the shiftItem.
+            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-draft-shift-display-name: The shift label of the shiftItem.
+            notes-draft-shift-notes: The shift notes for the shiftItem.
+            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
+always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --shifts argument.
       - name: --swap-shifts-change-requests
         long-summary: |
             Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
@@ -5196,6 +5419,45 @@ helps['teams team-schedule create-scheduling-group'] = """
 helps['teams team-schedule create-shift'] = """
     type: command
     short-summary: "Create new navigation property to shifts for teams"
+    parameters:
+      - name: --shared-shift-activities
+        short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
+their shift. For example, an assignment or a scheduled break or lunch. Required."
+        long-summary: |
+            Usage: --shared-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
+theme=XX
+
+            code: Customer defined code for the shiftActivity. Required.
+            display-name: The name of the shiftActivity. Required.
+            end-date-time: The end date and time for the shiftActivity. The Timestamp type represents date and time \
+information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like \
+this: '2014-01-01T00:00:00Z'. Required.
+            is-paid: Indicates whether the microsoft.graph.user should be paid for the activity during their shift. \
+Required.
+            start-date-time: The start date and time for the shiftActivity. The Timestamp type represents date and \
+time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
+like this: '2014-01-01T00:00:00Z'. Required.
+
+            Multiple actions can be specified by using more than one --shared-shift-activities argument.
+      - name: --draft-shift-activities
+        short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
+their shift. For example, an assignment or a scheduled break or lunch. Required."
+        long-summary: |
+            Usage: --draft-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
+theme=XX
+
+            code: Customer defined code for the shiftActivity. Required.
+            display-name: The name of the shiftActivity. Required.
+            end-date-time: The end date and time for the shiftActivity. The Timestamp type represents date and time \
+information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like \
+this: '2014-01-01T00:00:00Z'. Required.
+            is-paid: Indicates whether the microsoft.graph.user should be paid for the activity during their shift. \
+Required.
+            start-date-time: The start date and time for the shiftActivity. The Timestamp type represents date and \
+time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
+like this: '2014-01-01T00:00:00Z'. Required.
+
+            Multiple actions can be specified by using more than one --draft-shift-activities argument.
 """
 
 helps['teams team-schedule create-swap-shift-change-request'] = """
@@ -5206,6 +5468,25 @@ helps['teams team-schedule create-swap-shift-change-request'] = """
 helps['teams team-schedule create-time-card'] = """
     type: command
     short-summary: "Create new navigation property to timeCards for teams"
+    parameters:
+      - name: --notes
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --notes content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --clock-out-event-notes
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --clock-out-event-notes content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --clock-in-event-notes
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --clock-in-event-notes content=XX content-type=XX
+
+            content: The content of the item.
 """
 
 helps['teams team-schedule create-time-off'] = """
@@ -5387,6 +5668,45 @@ helps['teams team-schedule update-scheduling-group'] = """
 helps['teams team-schedule update-shift'] = """
     type: command
     short-summary: "Update the navigation property shifts in teams"
+    parameters:
+      - name: --shared-shift-activities
+        short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
+their shift. For example, an assignment or a scheduled break or lunch. Required."
+        long-summary: |
+            Usage: --shared-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
+theme=XX
+
+            code: Customer defined code for the shiftActivity. Required.
+            display-name: The name of the shiftActivity. Required.
+            end-date-time: The end date and time for the shiftActivity. The Timestamp type represents date and time \
+information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like \
+this: '2014-01-01T00:00:00Z'. Required.
+            is-paid: Indicates whether the microsoft.graph.user should be paid for the activity during their shift. \
+Required.
+            start-date-time: The start date and time for the shiftActivity. The Timestamp type represents date and \
+time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
+like this: '2014-01-01T00:00:00Z'. Required.
+
+            Multiple actions can be specified by using more than one --shared-shift-activities argument.
+      - name: --draft-shift-activities
+        short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
+their shift. For example, an assignment or a scheduled break or lunch. Required."
+        long-summary: |
+            Usage: --draft-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
+theme=XX
+
+            code: Customer defined code for the shiftActivity. Required.
+            display-name: The name of the shiftActivity. Required.
+            end-date-time: The end date and time for the shiftActivity. The Timestamp type represents date and time \
+information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like \
+this: '2014-01-01T00:00:00Z'. Required.
+            is-paid: Indicates whether the microsoft.graph.user should be paid for the activity during their shift. \
+Required.
+            start-date-time: The start date and time for the shiftActivity. The Timestamp type represents date and \
+time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
+like this: '2014-01-01T00:00:00Z'. Required.
+
+            Multiple actions can be specified by using more than one --draft-shift-activities argument.
 """
 
 helps['teams team-schedule update-swap-shift-change-request'] = """
@@ -5397,6 +5717,25 @@ helps['teams team-schedule update-swap-shift-change-request'] = """
 helps['teams team-schedule update-time-card'] = """
     type: command
     short-summary: "Update the navigation property timeCards in teams"
+    parameters:
+      - name: --notes
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --notes content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --clock-out-event-notes
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --clock-out-event-notes content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --clock-in-event-notes
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --clock-in-event-notes content=XX content-type=XX
+
+            content: The content of the item.
 """
 
 helps['teams team-schedule update-time-off'] = """
@@ -5840,6 +6179,62 @@ in a future response, but the items associated with the user won't show up as ha
             id: Read-only.
 
             Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
+      - name: --schedule-shifts
+        short-summary: "The shifts in the schedule."
+        long-summary: |
+            Usage: --schedule-shifts is-staged-for-deletion=XX scheduling-group-id=XX user-id=XX \
+end-date-time-shared-shift-end-date-time=XX start-date-time-shared-shift-start-date-time=XX \
+theme-shared-shift-theme=XX activities-shared-shift-activities=XX display-name-shared-shift-display-name=XX \
+notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX start-date-time-draft-shift-start-date-time=XX \
+theme-draft-shift-theme=XX activities-draft-shift-activities=XX display-name-draft-shift-display-name=XX \
+notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-n\
+ame=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX display-name-created-by-user-display-name=XX id-created-by-user-id=XX \
+display-name-created-by-device-display-name=XX id-created-by-device-id=XX display-name-created-by-application-display-n\
+ame=XX id-created-by-application-id=XX id=XX
+
+            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
+            user-id: ID of the user assigned to the shift. Required.
+            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-shared-shift-display-name: The shift label of the shiftItem.
+            notes-shared-shift-notes: The shift notes for the shiftItem.
+            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-draft-shift-display-name: The shift label of the shiftItem.
+            notes-draft-shift-notes: The shift notes for the shiftItem.
+            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
+always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --schedule-shifts argument.
       - name: --schedule-swap-shifts-change-requests
         long-summary: |
             Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
@@ -6300,6 +6695,62 @@ in a future response, but the items associated with the user won't show up as ha
             id: Read-only.
 
             Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
+      - name: --schedule-shifts
+        short-summary: "The shifts in the schedule."
+        long-summary: |
+            Usage: --schedule-shifts is-staged-for-deletion=XX scheduling-group-id=XX user-id=XX \
+end-date-time-shared-shift-end-date-time=XX start-date-time-shared-shift-start-date-time=XX \
+theme-shared-shift-theme=XX activities-shared-shift-activities=XX display-name-shared-shift-display-name=XX \
+notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX start-date-time-draft-shift-start-date-time=XX \
+theme-draft-shift-theme=XX activities-draft-shift-activities=XX display-name-draft-shift-display-name=XX \
+notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-n\
+ame=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
+id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
+id-last-modified-by-application-id=XX display-name-created-by-user-display-name=XX id-created-by-user-id=XX \
+display-name-created-by-device-display-name=XX id-created-by-device-id=XX display-name-created-by-application-display-n\
+ame=XX id-created-by-application-id=XX id=XX
+
+            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
+            user-id: ID of the user assigned to the shift. Required.
+            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-shared-shift-display-name: The shift label of the shiftItem.
+            notes-shared-shift-notes: The shift notes for the shiftItem.
+            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
+where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+            display-name-draft-shift-display-name: The shift label of the shiftItem.
+            notes-draft-shift-notes: The shift notes for the shiftItem.
+            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
+always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-user-id: Unique identifier for the identity.
+            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-device-id: Unique identifier for the identity.
+            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
+not always be available or up to date. For example, if a user changes their display name, the API may show the new \
+value in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-last-modified-by-application-id: Unique identifier for the identity.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --schedule-shifts argument.
       - name: --schedule-swap-shifts-change-requests
         long-summary: |
             Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
@@ -6467,6 +6918,79 @@ helps['teams user-teamwork delete'] = """
 helps['teams user-teamwork create-installed-app'] = """
     type: command
     short-summary: "Create new navigation property to installedApps for users"
+    parameters:
+      - name: --teams-app-app-definitions
+        short-summary: "The details for each version of the app."
+        long-summary: |
+            Usage: --teams-app-app-definitions azure-ad-app-id=XX description=XX display-name=XX \
+last-modified-date-time=XX publishing-state=XX shortdescription=XX teams-app-id=XX version=XX \
+display-name-created-by-user-display-name=XX id-created-by-user-id=XX display-name-created-by-device-display-name=XX \
+id-created-by-device-id=XX display-name-created-by-application-display-name=XX id-created-by-application-id=XX id=XX
+
+            display-name: The name of the app provided by the app developer.
+            teams-app-id: The ID from the Teams app manifest.
+            version: The version number of the application.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+      - name: --chat-installed-apps
+        long-summary: |
+            Usage: --chat-installed-apps id-teams-app-definition-id=XX azure-ad-app-id=XX description=XX \
+display-name-teams-app-definition-display-name=XX last-modified-date-time=XX publishing-state=XX shortdescription=XX \
+teams-app-id=XX version=XX display-name-teams-app-definition-created-by-user-display-name=XX \
+id-teams-app-definition-created-by-user-id=XX display-name-teams-app-definition-created-by-device-display-name=XX \
+id-teams-app-definition-created-by-device-id=XX display-name-teams-app-definition-created-by-application-display-name=X\
+X id-teams-app-definition-created-by-application-id=XX id-teams-app-id=XX display-name-teams-app-display-name=XX \
+distribution-method=XX external-id=XX app-definitions=XX id=XX
+
+            id-teams-app-definition-id: Read-only.
+            display-name-teams-app-definition-display-name: The name of the app provided by the app developer.
+            teams-app-id: The ID from the Teams app manifest.
+            version: The version number of the application.
+            display-name-teams-app-definition-created-by-user-display-name: The identity's display name. Note that \
+this may not always be available or up to date. For example, if a user changes their display name, the API may show \
+the new value in a future response, but the items associated with the user won't show up as having changed when using \
+delta.
+            id-teams-app-definition-created-by-user-id: Unique identifier for the identity.
+            display-name-teams-app-definition-created-by-device-display-name: The identity's display name. Note that \
+this may not always be available or up to date. For example, if a user changes their display name, the API may show \
+the new value in a future response, but the items associated with the user won't show up as having changed when using \
+delta.
+            id-teams-app-definition-created-by-device-id: Unique identifier for the identity.
+            display-name-teams-app-definition-created-by-application-display-name: The identity's display name. Note \
+that this may not always be available or up to date. For example, if a user changes their display name, the API may \
+show the new value in a future response, but the items associated with the user won't show up as having changed when \
+using delta.
+            id-teams-app-definition-created-by-application-id: Unique identifier for the identity.
+            id-teams-app-id: Read-only.
+            display-name-teams-app-display-name: The name of the catalog app provided by the app developer in the \
+Microsoft Teams zip app package.
+            external-id: The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.
+            app-definitions: The details for each version of the app.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --chat-installed-apps argument.
+      - name: --chat-members
+        long-summary: |
+            Usage: --chat-members display-name=XX roles=XX id=XX
+
+            display-name: The display name of the user.
+            roles: The roles for that user.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --chat-members argument.
 """
 
 helps['teams user-teamwork get-installed-app'] = """
@@ -6482,6 +7006,79 @@ helps['teams user-teamwork list-installed-app'] = """
 helps['teams user-teamwork update-installed-app'] = """
     type: command
     short-summary: "Update the navigation property installedApps in users"
+    parameters:
+      - name: --teams-app-app-definitions
+        short-summary: "The details for each version of the app."
+        long-summary: |
+            Usage: --teams-app-app-definitions azure-ad-app-id=XX description=XX display-name=XX \
+last-modified-date-time=XX publishing-state=XX shortdescription=XX teams-app-id=XX version=XX \
+display-name-created-by-user-display-name=XX id-created-by-user-id=XX display-name-created-by-device-display-name=XX \
+id-created-by-device-id=XX display-name-created-by-application-display-name=XX id-created-by-application-id=XX id=XX
+
+            display-name: The name of the app provided by the app developer.
+            teams-app-id: The ID from the Teams app manifest.
+            version: The version number of the application.
+            display-name-created-by-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-user-id: Unique identifier for the identity.
+            display-name-created-by-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-device-id: Unique identifier for the identity.
+            display-name-created-by-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+            id-created-by-application-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+      - name: --chat-installed-apps
+        long-summary: |
+            Usage: --chat-installed-apps id-teams-app-definition-id=XX azure-ad-app-id=XX description=XX \
+display-name-teams-app-definition-display-name=XX last-modified-date-time=XX publishing-state=XX shortdescription=XX \
+teams-app-id=XX version=XX display-name-teams-app-definition-created-by-user-display-name=XX \
+id-teams-app-definition-created-by-user-id=XX display-name-teams-app-definition-created-by-device-display-name=XX \
+id-teams-app-definition-created-by-device-id=XX display-name-teams-app-definition-created-by-application-display-name=X\
+X id-teams-app-definition-created-by-application-id=XX id-teams-app-id=XX display-name-teams-app-display-name=XX \
+distribution-method=XX external-id=XX app-definitions=XX id=XX
+
+            id-teams-app-definition-id: Read-only.
+            display-name-teams-app-definition-display-name: The name of the app provided by the app developer.
+            teams-app-id: The ID from the Teams app manifest.
+            version: The version number of the application.
+            display-name-teams-app-definition-created-by-user-display-name: The identity's display name. Note that \
+this may not always be available or up to date. For example, if a user changes their display name, the API may show \
+the new value in a future response, but the items associated with the user won't show up as having changed when using \
+delta.
+            id-teams-app-definition-created-by-user-id: Unique identifier for the identity.
+            display-name-teams-app-definition-created-by-device-display-name: The identity's display name. Note that \
+this may not always be available or up to date. For example, if a user changes their display name, the API may show \
+the new value in a future response, but the items associated with the user won't show up as having changed when using \
+delta.
+            id-teams-app-definition-created-by-device-id: Unique identifier for the identity.
+            display-name-teams-app-definition-created-by-application-display-name: The identity's display name. Note \
+that this may not always be available or up to date. For example, if a user changes their display name, the API may \
+show the new value in a future response, but the items associated with the user won't show up as having changed when \
+using delta.
+            id-teams-app-definition-created-by-application-id: Unique identifier for the identity.
+            id-teams-app-id: Read-only.
+            display-name-teams-app-display-name: The name of the catalog app provided by the app developer in the \
+Microsoft Teams zip app package.
+            external-id: The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.
+            app-definitions: The details for each version of the app.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --chat-installed-apps argument.
+      - name: --chat-members
+        long-summary: |
+            Usage: --chat-members display-name=XX roles=XX id=XX
+
+            display-name: The display name of the user.
+            roles: The roles for that user.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --chat-members argument.
 """
 
 helps['teams user-teamwork-installed-app'] = """

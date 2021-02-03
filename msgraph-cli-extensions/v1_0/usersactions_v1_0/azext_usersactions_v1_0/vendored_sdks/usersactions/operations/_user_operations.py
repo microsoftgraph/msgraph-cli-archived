@@ -371,7 +371,17 @@ class UserOperations(object):
     def find_meeting_time(
         self,
         user_id,  # type: str
-        body,  # type: "models.PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema"
+        attendees=None,  # type: Optional[List["models.MicrosoftGraphAttendeeBase"]]
+        meeting_duration=None,  # type: Optional[datetime.timedelta]
+        max_candidates=None,  # type: Optional[int]
+        is_organizer_optional=False,  # type: Optional[bool]
+        return_suggestion_reasons=False,  # type: Optional[bool]
+        minimum_attendee_percentage=None,  # type: Optional[float]
+        activity_domain=None,  # type: Optional[Union[str, "models.MicrosoftGraphActivityDomain"]]
+        time_slots=None,  # type: Optional[List["models.MicrosoftGraphTimeSlot"]]
+        is_required=None,  # type: Optional[bool]
+        locations=None,  # type: Optional[List["models.MicrosoftGraphLocationConstraintItem"]]
+        suggest_location=None,  # type: Optional[bool]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphMeetingTimeSuggestionsResult"
@@ -381,8 +391,33 @@ class UserOperations(object):
 
         :param user_id: key: id of user.
         :type user_id: str
-        :param body: Action parameters.
-        :type body: ~users_actions.models.PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema
+        :param attendees:
+        :type attendees: list[~users_actions.models.MicrosoftGraphAttendeeBase]
+        :param meeting_duration:
+        :type meeting_duration: ~datetime.timedelta
+        :param max_candidates:
+        :type max_candidates: int
+        :param is_organizer_optional:
+        :type is_organizer_optional: bool
+        :param return_suggestion_reasons:
+        :type return_suggestion_reasons: bool
+        :param minimum_attendee_percentage:
+        :type minimum_attendee_percentage: float
+        :param activity_domain:
+        :type activity_domain: str or ~users_actions.models.MicrosoftGraphActivityDomain
+        :param time_slots:
+        :type time_slots: list[~users_actions.models.MicrosoftGraphTimeSlot]
+        :param is_required: The client requests the service to include in the response a meeting
+         location for the meeting. If this is true and all the resources are busy, findMeetingTimes will
+         not return any meeting time suggestions. If this is false and all the resources are busy,
+         findMeetingTimes would still look for meeting times without locations.
+        :type is_required: bool
+        :param locations: Constraint information for one or more locations that the client requests for
+         the meeting.
+        :type locations: list[~users_actions.models.MicrosoftGraphLocationConstraintItem]
+        :param suggest_location: The client requests the service to suggest one or more meeting
+         locations.
+        :type suggest_location: bool
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphMeetingTimeSuggestionsResult, or the result of cls(response)
         :rtype: ~users_actions.models.MicrosoftGraphMeetingTimeSuggestionsResult
@@ -391,6 +426,8 @@ class UserOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMeetingTimeSuggestionsResult"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema(attendees=attendees, meeting_duration=meeting_duration, max_candidates=max_candidates, is_organizer_optional=is_organizer_optional, return_suggestion_reasons=return_suggestion_reasons, minimum_attendee_percentage=minimum_attendee_percentage, activity_domain=activity_domain, time_slots=time_slots, is_required=is_required, locations=locations, suggest_location=suggest_location)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -411,7 +448,7 @@ class UserOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(_body, 'PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 

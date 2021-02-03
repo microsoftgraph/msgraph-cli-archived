@@ -21,10 +21,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_compliance_operations#Co'
         'mplianceComplianceOperations.{}',
         client_factory=cf_compliance_compliance)
-    with self.command_group('compliance compliance-compliance', compliance_beta_compliance_compliance,
+    with self.command_group('compliance compliance', compliance_beta_compliance_compliance,
                             client_factory=cf_compliance_compliance, is_experimental=True) as g:
-        g.custom_command('gete', 'compliance_compliance_compliance_gete')
-        g.custom_command('updatee', 'compliance_compliance_compliance_updatee')
+        g.custom_command('update', 'compliance_compliance_update')
+        g.custom_command('get', 'compliance_compliance_get')
 
     from azext_compliance_beta.generated._client_factory import cf_compliance
     compliance_beta_compliance = CliCommandType(

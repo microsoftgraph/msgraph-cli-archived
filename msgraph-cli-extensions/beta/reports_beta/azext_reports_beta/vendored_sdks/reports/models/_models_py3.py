@@ -3651,18 +3651,38 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
     :type provisioning_steps: list[~reports.models.MicrosoftGraphProvisioningStep]
     :param service_principal: provisioningServicePrincipal.
     :type service_principal: ~reports.models.MicrosoftGraphProvisioningServicePrincipal
-    :param source_identity: provisionedIdentity.
-    :type source_identity: ~reports.models.MicrosoftGraphProvisionedIdentity
-    :param source_system: provisioningSystemDetails.
-    :type source_system: ~reports.models.MicrosoftGraphProvisioningSystemDetails
-    :param status_info: statusBase.
-    :type status_info: ~reports.models.MicrosoftGraphStatusBase
-    :param target_identity: provisionedIdentity.
-    :type target_identity: ~reports.models.MicrosoftGraphProvisionedIdentity
-    :param target_system: provisioningSystemDetails.
-    :type target_system: ~reports.models.MicrosoftGraphProvisioningSystemDetails
     :param tenant_id:
     :type tenant_id: str
+    :param details_target_system_details: detailsInfo.
+    :type details_target_system_details: dict[str, object]
+    :param display_name_target_system_display_name:
+    :type display_name_target_system_display_name: str
+    :param id_target_system_id:
+    :type id_target_system_id: str
+    :param details_target_identity_details: detailsInfo.
+    :type details_target_identity_details: dict[str, object]
+    :param display_name_target_identity_display_name:
+    :type display_name_target_identity_display_name: str
+    :param id_target_identity_id:
+    :type id_target_identity_id: str
+    :param identity_type_target_identity_type:
+    :type identity_type_target_identity_type: str
+    :param status:  Possible values include: "success", "failure", "skipped", "unknownFutureValue".
+    :type status: str or ~reports.models.MicrosoftGraphProvisioningResult
+    :param details_source_system_details: detailsInfo.
+    :type details_source_system_details: dict[str, object]
+    :param display_name_source_system_display_name:
+    :type display_name_source_system_display_name: str
+    :param id_source_system_id:
+    :type id_source_system_id: str
+    :param details_source_identity_details: detailsInfo.
+    :type details_source_identity_details: dict[str, object]
+    :param display_name_source_identity_display_name:
+    :type display_name_source_identity_display_name: str
+    :param id_source_identity_id:
+    :type id_source_identity_id: str
+    :param identity_type_source_identity_type:
+    :type identity_type_source_identity_type: str
     """
 
     _validation = {
@@ -3682,12 +3702,22 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
         'modified_properties': {'key': 'modifiedProperties', 'type': '[MicrosoftGraphModifiedProperty]'},
         'provisioning_steps': {'key': 'provisioningSteps', 'type': '[MicrosoftGraphProvisioningStep]'},
         'service_principal': {'key': 'servicePrincipal', 'type': 'MicrosoftGraphProvisioningServicePrincipal'},
-        'source_identity': {'key': 'sourceIdentity', 'type': 'MicrosoftGraphProvisionedIdentity'},
-        'source_system': {'key': 'sourceSystem', 'type': 'MicrosoftGraphProvisioningSystemDetails'},
-        'status_info': {'key': 'statusInfo', 'type': 'MicrosoftGraphStatusBase'},
-        'target_identity': {'key': 'targetIdentity', 'type': 'MicrosoftGraphProvisionedIdentity'},
-        'target_system': {'key': 'targetSystem', 'type': 'MicrosoftGraphProvisioningSystemDetails'},
         'tenant_id': {'key': 'tenantId', 'type': 'str'},
+        'details_target_system_details': {'key': 'targetSystem.details', 'type': '{object}'},
+        'display_name_target_system_display_name': {'key': 'targetSystem.displayName', 'type': 'str'},
+        'id_target_system_id': {'key': 'targetSystem.id', 'type': 'str'},
+        'details_target_identity_details': {'key': 'targetIdentity.details', 'type': '{object}'},
+        'display_name_target_identity_display_name': {'key': 'targetIdentity.displayName', 'type': 'str'},
+        'id_target_identity_id': {'key': 'targetIdentity.id', 'type': 'str'},
+        'identity_type_target_identity_type': {'key': 'targetIdentity.identityType', 'type': 'str'},
+        'status': {'key': 'statusInfo.status', 'type': 'str'},
+        'details_source_system_details': {'key': 'sourceSystem.details', 'type': '{object}'},
+        'display_name_source_system_display_name': {'key': 'sourceSystem.displayName', 'type': 'str'},
+        'id_source_system_id': {'key': 'sourceSystem.id', 'type': 'str'},
+        'details_source_identity_details': {'key': 'sourceIdentity.details', 'type': '{object}'},
+        'display_name_source_identity_display_name': {'key': 'sourceIdentity.displayName', 'type': 'str'},
+        'id_source_identity_id': {'key': 'sourceIdentity.id', 'type': 'str'},
+        'identity_type_source_identity_type': {'key': 'sourceIdentity.identityType', 'type': 'str'},
     }
 
     def __init__(
@@ -3705,12 +3735,22 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
         modified_properties: Optional[List["MicrosoftGraphModifiedProperty"]] = None,
         provisioning_steps: Optional[List["MicrosoftGraphProvisioningStep"]] = None,
         service_principal: Optional["MicrosoftGraphProvisioningServicePrincipal"] = None,
-        source_identity: Optional["MicrosoftGraphProvisionedIdentity"] = None,
-        source_system: Optional["MicrosoftGraphProvisioningSystemDetails"] = None,
-        status_info: Optional["MicrosoftGraphStatusBase"] = None,
-        target_identity: Optional["MicrosoftGraphProvisionedIdentity"] = None,
-        target_system: Optional["MicrosoftGraphProvisioningSystemDetails"] = None,
         tenant_id: Optional[str] = None,
+        details_target_system_details: Optional[Dict[str, object]] = None,
+        display_name_target_system_display_name: Optional[str] = None,
+        id_target_system_id: Optional[str] = None,
+        details_target_identity_details: Optional[Dict[str, object]] = None,
+        display_name_target_identity_display_name: Optional[str] = None,
+        id_target_identity_id: Optional[str] = None,
+        identity_type_target_identity_type: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphProvisioningResult"]] = None,
+        details_source_system_details: Optional[Dict[str, object]] = None,
+        display_name_source_system_display_name: Optional[str] = None,
+        id_source_system_id: Optional[str] = None,
+        details_source_identity_details: Optional[Dict[str, object]] = None,
+        display_name_source_identity_display_name: Optional[str] = None,
+        id_source_identity_id: Optional[str] = None,
+        identity_type_source_identity_type: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphProvisioningObjectSummary, self).__init__(id=id, **kwargs)
@@ -3725,12 +3765,22 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
         self.modified_properties = modified_properties
         self.provisioning_steps = provisioning_steps
         self.service_principal = service_principal
-        self.source_identity = source_identity
-        self.source_system = source_system
-        self.status_info = status_info
-        self.target_identity = target_identity
-        self.target_system = target_system
         self.tenant_id = tenant_id
+        self.details_target_system_details = details_target_system_details
+        self.display_name_target_system_display_name = display_name_target_system_display_name
+        self.id_target_system_id = id_target_system_id
+        self.details_target_identity_details = details_target_identity_details
+        self.display_name_target_identity_display_name = display_name_target_identity_display_name
+        self.id_target_identity_id = id_target_identity_id
+        self.identity_type_target_identity_type = identity_type_target_identity_type
+        self.status = status
+        self.details_source_system_details = details_source_system_details
+        self.display_name_source_system_display_name = display_name_source_system_display_name
+        self.id_source_system_id = id_source_system_id
+        self.details_source_identity_details = details_source_identity_details
+        self.display_name_source_identity_display_name = display_name_source_identity_display_name
+        self.id_source_identity_id = id_source_identity_id
+        self.identity_type_source_identity_type = identity_type_source_identity_type
 
 
 class MicrosoftGraphProvisioningServicePrincipal(MicrosoftGraphIdentity):

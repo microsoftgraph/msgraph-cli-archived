@@ -25,13 +25,13 @@ from azext_compliance_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('compliance compliance-compliance gete') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('compliance compliance-compliance updatee') as c:
+    with self.argument_context('compliance compliance update') as c:
         c.argument('ediscovery_id', type=str, help='Read-only.')
         c.argument('ediscovery_cases', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('compliance compliance get') as c:
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('compliance compliance delete') as c:
         c.argument('if_match', type=str, help='ETag')

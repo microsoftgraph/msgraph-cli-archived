@@ -41,6 +41,7 @@ from azext_teams_beta.action import (
     AddScheduleOfferShiftRequests,
     AddScheduleOpenShiftChangeRequests,
     AddScheduleSchedulingGroups,
+    AddScheduleShifts,
     AddScheduleSwapShiftsChangeRequests,
     AddScheduleTimeOffReasons,
     AddScheduleTimeOffRequests,
@@ -71,6 +72,7 @@ from azext_teams_beta.action import (
     AddTeamsMembersValues,
     AddTeamsPrimarychannelMembersValues,
     AddDraftOpenShift,
+    AddSharedShiftActivities,
     AddDraftTimeOff,
     AddEncryption
 )
@@ -869,8 +871,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -965,8 +966,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -1048,8 +1048,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -1458,8 +1457,7 @@ def load_arguments(self, _):
         c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical grouping of '
                    'users in the schedule (usually by role).')
-        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*', help='')
         c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons for a '
@@ -2969,8 +2967,68 @@ def load_arguments(self, _):
 
     with self.argument_context('teams team-schedule create-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
+        c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
+        c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
+        c.argument('shared_shift_end_date_time', help='')
+        c.argument('shared_shift_start_date_time', help='')
+        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
+                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('draft_shift_end_date_time', help='')
+        c.argument('draft_shift_start_date_time', help='')
+        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
+                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
 
     with self.argument_context('teams team-schedule create-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3033,8 +3091,61 @@ def load_arguments(self, _):
 
     with self.argument_context('teams team-schedule create-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('breaks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('confirmed_by', arg_type=get_enum_type(['none', 'user', 'manager', 'unknownFutureValue']), help='')
+        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('state', arg_type=get_enum_type(['clockedIn', 'onBreak', 'clockedOut', 'unknownFutureValue']),
+                   help='')
+        c.argument('user_id', type=str, help='')
+        c.argument('original_entry_breaks', type=validate_file_or_dict,
+                   help=' Expected value: json-string/@json-file.')
+        c.argument('original_entry_clock_in_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
                    'json-string/@json-file.')
+        c.argument('original_entry_clock_out_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
+                   'json-string/@json-file.')
+        c.argument('clock_out_event_at_approved_location', arg_type=get_three_state_flag(), help='')
+        c.argument('clock_out_event_date_time', help='')
+        c.argument('clock_out_event_notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('clock_in_event_at_approved_location', arg_type=get_three_state_flag(), help='')
+        c.argument('clock_in_event_date_time', help='')
+        c.argument('clock_in_event_notes', action=AddBody, nargs='*', help='itemBody')
 
     with self.argument_context('teams team-schedule create-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3518,8 +3629,68 @@ def load_arguments(self, _):
     with self.argument_context('teams team-schedule update-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('shift_id', type=str, help='key: id of shift')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
+        c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
+        c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
+        c.argument('shared_shift_end_date_time', help='')
+        c.argument('shared_shift_start_date_time', help='')
+        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
+                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('draft_shift_end_date_time', help='')
+        c.argument('draft_shift_start_date_time', help='')
+        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
+                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
 
     with self.argument_context('teams team-schedule update-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3584,8 +3755,61 @@ def load_arguments(self, _):
     with self.argument_context('teams team-schedule update-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('breaks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('confirmed_by', arg_type=get_enum_type(['none', 'user', 'manager', 'unknownFutureValue']), help='')
+        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('state', arg_type=get_enum_type(['clockedIn', 'onBreak', 'clockedOut', 'unknownFutureValue']),
+                   help='')
+        c.argument('user_id', type=str, help='')
+        c.argument('original_entry_breaks', type=validate_file_or_dict,
+                   help=' Expected value: json-string/@json-file.')
+        c.argument('original_entry_clock_in_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
                    'json-string/@json-file.')
+        c.argument('original_entry_clock_out_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
+                   'json-string/@json-file.')
+        c.argument('clock_out_event_at_approved_location', arg_type=get_three_state_flag(), help='')
+        c.argument('clock_out_event_date_time', help='')
+        c.argument('clock_out_event_notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('clock_in_event_at_approved_location', arg_type=get_three_state_flag(), help='')
+        c.argument('clock_in_event_date_time', help='')
+        c.argument('clock_in_event_notes', action=AddBody, nargs='*', help='itemBody')
 
     with self.argument_context('teams team-schedule update-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3989,8 +4213,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -4114,8 +4337,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -4142,8 +4364,52 @@ def load_arguments(self, _):
 
     with self.argument_context('teams user-teamwork create-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('teams_app_definition_id', type=str, help='Read-only.')
+        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
+        c.argument('teams_app_definition_description', type=str, help='')
+        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
+                   'developer.')
+        c.argument('teams_app_definition_last_modified_date_time', help='')
+        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
+                                                                                    'published',
+                   'unknownFutureValue']), help='')
+        c.argument('teams_app_definition_shortdescription', type=str, help='')
+        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
+        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
+        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
+                   'name. Note that this may not always be available or up to date. For example, if a user changes '
+                   'their display name, the API may show the new value in a future response, but the items associated '
+                   'with the user won\'t show up as having changed when using delta.')
+        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
+                   'name. Note that this may not always be available or up to date. For example, if a user changes '
+                   'their display name, the API may show the new value in a future response, but the items associated '
+                   'with the user won\'t show up as having changed when using delta.')
+        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
+                   'identity.')
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
+        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                            'unknownFutureValue']), help='')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
+        c.argument('chat_id', type=str, help='Read-only.')
+        c.argument('chat_created_date_time', help='')
+        c.argument('chat_last_updated_date_time', help='')
+        c.argument('chat_topic', type=str, help='')
+        c.argument('chat_installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
+        c.argument('chat_members', action=AddUsersMembers, nargs='*', help='')
+        c.argument('chat_messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('chat_tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('teams user-teamwork get-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4160,8 +4426,52 @@ def load_arguments(self, _):
     with self.argument_context('teams user-teamwork update-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('teams_app_definition_id', type=str, help='Read-only.')
+        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
+        c.argument('teams_app_definition_description', type=str, help='')
+        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
+                   'developer.')
+        c.argument('teams_app_definition_last_modified_date_time', help='')
+        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
+                                                                                    'published',
+                   'unknownFutureValue']), help='')
+        c.argument('teams_app_definition_shortdescription', type=str, help='')
+        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
+        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
+        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
+                   'name. Note that this may not always be available or up to date. For example, if a user changes '
+                   'their display name, the API may show the new value in a future response, but the items associated '
+                   'with the user won\'t show up as having changed when using delta.')
+        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
+                   'name. Note that this may not always be available or up to date. For example, if a user changes '
+                   'their display name, the API may show the new value in a future response, but the items associated '
+                   'with the user won\'t show up as having changed when using delta.')
+        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
+                   'identity.')
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
+        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                            'unknownFutureValue']), help='')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
+        c.argument('chat_id', type=str, help='Read-only.')
+        c.argument('chat_created_date_time', help='')
+        c.argument('chat_last_updated_date_time', help='')
+        c.argument('chat_topic', type=str, help='')
+        c.argument('chat_installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
+        c.argument('chat_members', action=AddUsersMembers, nargs='*', help='')
+        c.argument('chat_messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('chat_tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('teams user-teamwork-installed-app delete') as c:
         c.argument('user_id', type=str, help='key: id of user')

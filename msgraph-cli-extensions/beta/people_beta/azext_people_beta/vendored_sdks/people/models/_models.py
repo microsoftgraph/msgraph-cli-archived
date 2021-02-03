@@ -815,12 +815,18 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     :type completion_month_year: ~datetime.date
     :param end_month_year:
     :type end_month_year: ~datetime.date
-    :param institution: institutionData.
-    :type institution: ~people.models.MicrosoftGraphInstitutionData
     :param program: educationalActivityDetail.
     :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
     :param start_month_year:
     :type start_month_year: ~datetime.date
+    :param description:
+    :type description: str
+    :param display_name:
+    :type display_name: str
+    :param location: physicalAddress.
+    :type location: ~people.models.MicrosoftGraphPhysicalAddress
+    :param web_url:
+    :type web_url: str
     """
 
     _attribute_map = {
@@ -840,9 +846,12 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_month_year': {'key': 'completionMonthYear', 'type': 'date'},
         'end_month_year': {'key': 'endMonthYear', 'type': 'date'},
-        'institution': {'key': 'institution', 'type': 'MicrosoftGraphInstitutionData'},
         'program': {'key': 'program', 'type': 'MicrosoftGraphEducationalActivityDetail'},
         'start_month_year': {'key': 'startMonthYear', 'type': 'date'},
+        'description': {'key': 'institution.description', 'type': 'str'},
+        'display_name': {'key': 'institution.displayName', 'type': 'str'},
+        'location': {'key': 'institution.location', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'web_url': {'key': 'institution.webUrl', 'type': 'str'},
     }
 
     def __init__(
@@ -854,9 +863,12 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_month_year = kwargs.get('completion_month_year', None)
         self.end_month_year = kwargs.get('end_month_year', None)
-        self.institution = kwargs.get('institution', None)
         self.program = kwargs.get('program', None)
         self.start_month_year = kwargs.get('start_month_year', None)
+        self.description = kwargs.get('description', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.location = kwargs.get('location', None)
+        self.web_url = kwargs.get('web_url', None)
 
 
 class MicrosoftGraphEducationalActivityDetail(msrest.serialization.Model):

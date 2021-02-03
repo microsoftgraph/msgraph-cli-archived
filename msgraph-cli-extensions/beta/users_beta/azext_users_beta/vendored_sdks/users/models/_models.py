@@ -16885,8 +16885,13 @@ class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
     :type administrative_unit_id: str
     :param role_id: Unique identifier for the directory role that the member is in.
     :type role_id: str
-    :param role_member_info: identity.
-    :type role_member_info: ~users.models.MicrosoftGraphIdentity
+    :param display_name: The identity's display name. Note that this may not always be available or
+     up to date. For example, if a user changes their display name, the API may show the new value
+     in a future response, but the items associated with the user won't show up as having changed
+     when using delta.
+    :type display_name: str
+    :param id_role_member_info_id: Unique identifier for the identity.
+    :type id_role_member_info_id: str
     """
 
     _attribute_map = {
@@ -16894,7 +16899,8 @@ class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'administrative_unit_id': {'key': 'administrativeUnitId', 'type': 'str'},
         'role_id': {'key': 'roleId', 'type': 'str'},
-        'role_member_info': {'key': 'roleMemberInfo', 'type': 'MicrosoftGraphIdentity'},
+        'display_name': {'key': 'roleMemberInfo.displayName', 'type': 'str'},
+        'id_role_member_info_id': {'key': 'roleMemberInfo.id', 'type': 'str'},
     }
 
     def __init__(
@@ -16905,7 +16911,8 @@ class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.administrative_unit_id = kwargs.get('administrative_unit_id', None)
         self.role_id = kwargs.get('role_id', None)
-        self.role_member_info = kwargs.get('role_member_info', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.id_role_member_info_id = kwargs.get('id_role_member_info_id', None)
 
 
 class MicrosoftGraphSearchResult(msrest.serialization.Model):
@@ -20748,8 +20755,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :param user_type: A string value that can be used to classify user types in your directory,
      such as 'Member' and 'Guest'. Supports $filter.
     :type user_type: str
-    :param mailbox_settings: mailboxSettings.
-    :type mailbox_settings: ~users.models.MicrosoftGraphMailboxSettings
     :param device_enrollment_limit: The limit on the maximum number of devices that the user is
      permitted to enroll. Allowed values are 5 or 1000.
     :type device_enrollment_limit: int
@@ -20779,10 +20784,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type schools: list[str]
     :param skills: A list for the user to enumerate their skills.
     :type skills: list[str]
-    :param analytics: userAnalytics.
-    :type analytics: ~users.models.MicrosoftGraphUserAnalytics
-    :param information_protection: informationProtection.
-    :type information_protection: ~users.models.MicrosoftGraphInformationProtection
     :param app_role_assignments:
     :type app_role_assignments: list[~users.models.MicrosoftGraphAppRoleAssignment]
     :param created_objects: Directory objects that were created by the user. Read-only. Nullable.
@@ -20823,16 +20824,12 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :param events: The user's events. Default is to show Events under the Default Calendar. Read-
      only. Nullable.
     :type events: list[~users.models.MicrosoftGraphEvent]
-    :param inference_classification: inferenceClassification.
-    :type inference_classification: ~users.models.MicrosoftGraphInferenceClassification
     :param joined_groups:
     :type joined_groups: list[~users.models.MicrosoftGraphGroup]
     :param mail_folders: The user's mail folders. Read-only. Nullable.
     :type mail_folders: list[~users.models.MicrosoftGraphMailFolder]
     :param messages: The messages in a mailbox or folder. Read-only. Nullable.
     :type messages: list[~users.models.MicrosoftGraphMessage]
-    :param outlook: outlookUser.
-    :type outlook: ~users.models.MicrosoftGraphOutlookUser
     :param people: People that are relevant to the user. Read-only. Nullable.
     :type people: list[~users.models.MicrosoftGraphPerson]
     :param photo: profilePhoto.
@@ -20879,16 +20876,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
      list[~users.models.MicrosoftGraphMobileAppTroubleshootingEvent]
     :param notifications:
     :type notifications: list[~users.models.MicrosoftGraphNotification]
-    :param planner: plannerUser.
-    :type planner: ~users.models.MicrosoftGraphPlannerUser
     :param insights: itemInsights.
     :type insights: ~users.models.MicrosoftGraphItemInsights
-    :param settings: userSettings.
-    :type settings: ~users.models.MicrosoftGraphUserSettings
-    :param onenote: onenote.
-    :type onenote: ~users.models.MicrosoftGraphOnenote
-    :param profile: profile.
-    :type profile: ~users.models.MicrosoftGraphProfile
     :param activities: The user's activities across devices. Read-only. Nullable.
     :type activities: list[~users.models.MicrosoftGraphUserActivity]
     :param devices:
@@ -20897,16 +20886,230 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type online_meetings: list[~users.models.MicrosoftGraphOnlineMeeting]
     :param presence: presence.
     :type presence: ~users.models.MicrosoftGraphPresence
-    :param authentication: authentication.
-    :type authentication: ~users.models.MicrosoftGraphAuthentication
     :param chats:
     :type chats: list[~users.models.MicrosoftGraphChat]
     :param joined_teams:
     :type joined_teams: list[~users.models.MicrosoftGraphTeam]
-    :param teamwork: userTeamwork.
-    :type teamwork: ~users.models.MicrosoftGraphUserTeamwork
-    :param todo: todo.
-    :type todo: ~users.models.MicrosoftGraphTodo
+    :param id_todo_id: Read-only.
+    :type id_todo_id: str
+    :param lists:
+    :type lists: list[~users.models.MicrosoftGraphTodoTaskList]
+    :param id_teamwork_id: Read-only.
+    :type id_teamwork_id: str
+    :param installed_apps: The apps installed in the personal scope of this user.
+    :type installed_apps: list[~users.models.MicrosoftGraphUserScopeTeamsAppInstallation]
+    :param id_authentication_id: Read-only.
+    :type id_authentication_id: str
+    :param email_methods:
+    :type email_methods: list[~users.models.MicrosoftGraphEmailAuthenticationMethod]
+    :param fido2_methods:
+    :type fido2_methods: list[~users.models.MicrosoftGraphFido2AuthenticationMethod]
+    :param methods:
+    :type methods: list[~users.models.MicrosoftGraphAuthenticationMethod]
+    :param microsoft_authenticator_methods:
+    :type microsoft_authenticator_methods:
+     list[~users.models.MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod]
+    :param oath_methods:
+    :type oath_methods: list[~users.models.MicrosoftGraphSoftwareOathAuthenticationMethod]
+    :param operations_authentication_operations:
+    :type operations_authentication_operations:
+     list[~users.models.MicrosoftGraphLongRunningOperation]
+    :param passwordless_microsoft_authenticator_methods:
+    :type passwordless_microsoft_authenticator_methods:
+     list[~users.models.MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod]
+    :param password_methods:
+    :type password_methods: list[~users.models.MicrosoftGraphPasswordAuthenticationMethod]
+    :param phone_methods:
+    :type phone_methods: list[~users.models.MicrosoftGraphPhoneAuthenticationMethod]
+    :param security_question_methods:
+    :type security_question_methods:
+     list[~users.models.MicrosoftGraphSecurityQuestionAuthenticationMethod]
+    :param temporary_access_pass_methods:
+    :type temporary_access_pass_methods:
+     list[~users.models.MicrosoftGraphTemporaryAccessPassAuthenticationMethod]
+    :param id_profile_id: Read-only.
+    :type id_profile_id: str
+    :param account:
+    :type account: list[~users.models.MicrosoftGraphUserAccountInformation]
+    :param addresses:
+    :type addresses: list[~users.models.MicrosoftGraphItemAddress]
+    :param anniversaries:
+    :type anniversaries: list[~users.models.MicrosoftGraphPersonAnniversary]
+    :param awards:
+    :type awards: list[~users.models.MicrosoftGraphPersonAward]
+    :param certifications:
+    :type certifications: list[~users.models.MicrosoftGraphPersonCertification]
+    :param educational_activities:
+    :type educational_activities: list[~users.models.MicrosoftGraphEducationalActivity]
+    :param emails:
+    :type emails: list[~users.models.MicrosoftGraphItemEmail]
+    :param interests_profile_interests:
+    :type interests_profile_interests: list[~users.models.MicrosoftGraphPersonInterest]
+    :param languages:
+    :type languages: list[~users.models.MicrosoftGraphLanguageProficiency]
+    :param names:
+    :type names: list[~users.models.MicrosoftGraphPersonName]
+    :param notes:
+    :type notes: list[~users.models.MicrosoftGraphPersonAnnotation]
+    :param patents:
+    :type patents: list[~users.models.MicrosoftGraphItemPatent]
+    :param phones:
+    :type phones: list[~users.models.MicrosoftGraphItemPhone]
+    :param positions:
+    :type positions: list[~users.models.MicrosoftGraphWorkPosition]
+    :param projects:
+    :type projects: list[~users.models.MicrosoftGraphProjectParticipation]
+    :param publications:
+    :type publications: list[~users.models.MicrosoftGraphItemPublication]
+    :param skills_profile_skills:
+    :type skills_profile_skills: list[~users.models.MicrosoftGraphSkillProficiency]
+    :param web_accounts:
+    :type web_accounts: list[~users.models.MicrosoftGraphWebAccount]
+    :param websites:
+    :type websites: list[~users.models.MicrosoftGraphPersonWebsite]
+    :param id_onenote_id: Read-only.
+    :type id_onenote_id: str
+    :param notebooks: The collection of OneNote notebooks that are owned by the user or group.
+     Read-only. Nullable.
+    :type notebooks: list[~users.models.MicrosoftGraphNotebook]
+    :param operations_onenote_operations: The status of OneNote operations. Getting an operations
+     collection is not supported, but you can get the status of long-running operations if the
+     Operation-Location header is returned in the response. Read-only. Nullable.
+    :type operations_onenote_operations: list[~users.models.MicrosoftGraphOnenoteOperation]
+    :param pages: The pages in all OneNote notebooks that are owned by the user or group.  Read-
+     only. Nullable.
+    :type pages: list[~users.models.MicrosoftGraphOnenotePage]
+    :param resources: The image and other file resources in OneNote pages. Getting a resources
+     collection is not supported, but you can get the binary content of a specific resource. Read-
+     only. Nullable.
+    :type resources: list[~users.models.MicrosoftGraphOnenoteResource]
+    :param section_groups: The section groups in all OneNote notebooks that are owned by the user
+     or group.  Read-only. Nullable.
+    :type section_groups: list[~users.models.MicrosoftGraphSectionGroup]
+    :param sections: The sections in all OneNote notebooks that are owned by the user or group.
+     Read-only. Nullable.
+    :type sections: list[~users.models.MicrosoftGraphOnenoteSection]
+    :param id_settings_id: Read-only.
+    :type id_settings_id: str
+    :param contribution_to_content_discovery_as_organization_disabled:
+    :type contribution_to_content_discovery_as_organization_disabled: bool
+    :param contribution_to_content_discovery_disabled:
+    :type contribution_to_content_discovery_disabled: bool
+    :param id_settings_shift_preferences_id: Read-only.
+    :type id_settings_shift_preferences_id: str
+    :param created_date_time_settings_shift_preferences_created_date_time: The Timestamp type
+     represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type created_date_time_settings_shift_preferences_created_date_time: ~datetime.datetime
+    :param last_modified_date_time: The Timestamp type represents date and time information using
+     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+     like this: '2014-01-01T00:00:00Z'.
+    :type last_modified_date_time: ~datetime.datetime
+    :param application_settings_shift_preferences_last_modified_by_application: identity.
+    :type application_settings_shift_preferences_last_modified_by_application:
+     ~users.models.MicrosoftGraphIdentity
+    :param device_settings_shift_preferences_last_modified_by_device: identity.
+    :type device_settings_shift_preferences_last_modified_by_device:
+     ~users.models.MicrosoftGraphIdentity
+    :param user_settings_shift_preferences_last_modified_by_user: identity.
+    :type user_settings_shift_preferences_last_modified_by_user:
+     ~users.models.MicrosoftGraphIdentity
+    :param application_settings_shift_preferences_created_by_application: identity.
+    :type application_settings_shift_preferences_created_by_application:
+     ~users.models.MicrosoftGraphIdentity
+    :param device_settings_shift_preferences_created_by_device: identity.
+    :type device_settings_shift_preferences_created_by_device: ~users.models.MicrosoftGraphIdentity
+    :param user_settings_shift_preferences_created_by_user: identity.
+    :type user_settings_shift_preferences_created_by_user: ~users.models.MicrosoftGraphIdentity
+    :param availability: Availability of the user to be scheduled for work and its recurrence
+     pattern.
+    :type availability: list[~users.models.MicrosoftGraphShiftAvailability]
+    :param id_settings_regional_and_language_settings_id: Read-only.
+    :type id_settings_regional_and_language_settings_id: str
+    :param authoring_languages:
+    :type authoring_languages: list[~users.models.MicrosoftGraphLocaleInfo]
+    :param default_display_language: localeInfo.
+    :type default_display_language: ~users.models.MicrosoftGraphLocaleInfo
+    :param default_regional_format: localeInfo.
+    :type default_regional_format: ~users.models.MicrosoftGraphLocaleInfo
+    :param default_speech_input_language: localeInfo.
+    :type default_speech_input_language: ~users.models.MicrosoftGraphLocaleInfo
+    :param default_translation_language: localeInfo.
+    :type default_translation_language: ~users.models.MicrosoftGraphLocaleInfo
+    :param regional_format_overrides: regionalFormatOverrides.
+    :type regional_format_overrides: ~users.models.MicrosoftGraphRegionalFormatOverrides
+    :param id_planner_id: Read-only.
+    :type id_planner_id: str
+    :param favorite_plan_references: plannerFavoritePlanReferenceCollection.
+    :type favorite_plan_references: dict[str, object]
+    :param recent_plan_references: plannerRecentPlanReferenceCollection.
+    :type recent_plan_references: dict[str, object]
+    :param all:
+    :type all: list[~users.models.MicrosoftGraphPlannerDelta]
+    :param favorite_plans:
+    :type favorite_plans: list[~users.models.MicrosoftGraphPlannerPlan]
+    :param plans: Read-only. Nullable. Returns the plannerTasks assigned to the user.
+    :type plans: list[~users.models.MicrosoftGraphPlannerPlan]
+    :param recent_plans:
+    :type recent_plans: list[~users.models.MicrosoftGraphPlannerPlan]
+    :param tasks_planner_tasks: Read-only. Nullable. Returns the plannerPlans shared with the user.
+    :type tasks_planner_tasks: list[~users.models.MicrosoftGraphPlannerTask]
+    :param id_outlook_id: Read-only.
+    :type id_outlook_id: str
+    :param master_categories: A list of categories defined for the user.
+    :type master_categories: list[~users.models.MicrosoftGraphOutlookCategory]
+    :param task_folders:
+    :type task_folders: list[~users.models.MicrosoftGraphOutlookTaskFolder]
+    :param task_groups:
+    :type task_groups: list[~users.models.MicrosoftGraphOutlookTaskGroup]
+    :param tasks_outlook_tasks:
+    :type tasks_outlook_tasks: list[~users.models.MicrosoftGraphOutlookTask]
+    :param id_inference_classification_id: Read-only.
+    :type id_inference_classification_id: str
+    :param overrides: A set of overrides for a user to always classify messages from specific
+     senders in certain ways: focused, or other. Read-only. Nullable.
+    :type overrides: list[~users.models.MicrosoftGraphInferenceClassificationOverride]
+    :param id_information_protection_id: Read-only.
+    :type id_information_protection_id: str
+    :param policy: informationProtectionPolicy.
+    :type policy: ~users.models.MicrosoftGraphInformationProtectionPolicy
+    :param data_loss_prevention_policies:
+    :type data_loss_prevention_policies: list[~users.models.MicrosoftGraphDataLossPreventionPolicy]
+    :param sensitivity_labels:
+    :type sensitivity_labels: list[~users.models.MicrosoftGraphSensitivityLabel]
+    :param sensitivity_policy_settings: sensitivityPolicySettings.
+    :type sensitivity_policy_settings: ~users.models.MicrosoftGraphSensitivityPolicySettings
+    :param threat_assessment_requests:
+    :type threat_assessment_requests: list[~users.models.MicrosoftGraphThreatAssessmentRequest]
+    :param id_analytics_id: Read-only.
+    :type id_analytics_id: str
+    :param settings: settings.
+    :type settings: ~users.models.MicrosoftGraphSettings
+    :param activity_statistics:
+    :type activity_statistics: list[~users.models.MicrosoftGraphActivityStatistics]
+    :param archive_folder: Folder ID of an archive folder for the user.
+    :type archive_folder: str
+    :param automatic_replies_setting: automaticRepliesSetting.
+    :type automatic_replies_setting: ~users.models.MicrosoftGraphAutomaticRepliesSetting
+    :param date_format: The date format for the user's mailbox.
+    :type date_format: str
+    :param delegate_meeting_message_delivery_options:  Possible values include:
+     "sendToDelegateAndInformationToPrincipal", "sendToDelegateAndPrincipal", "sendToDelegateOnly".
+    :type delegate_meeting_message_delivery_options: str or
+     ~users.models.MicrosoftGraphDelegateMeetingMessageDeliveryOptions
+    :param language: localeInfo.
+    :type language: ~users.models.MicrosoftGraphLocaleInfo
+    :param time_format: The time format for the user's mailbox.
+    :type time_format: str
+    :param time_zone: The default time zone for the user's mailbox.
+    :type time_zone: str
+    :param user_purpose: userPurpose.
+    :type user_purpose: ~users.models.MicrosoftGraphUserPurpose
+    :param user_purpose_v2:  Possible values include: "unknown", "user", "linked", "shared",
+     "room", "equipment", "others".
+    :type user_purpose_v2: str or ~users.models.MicrosoftGraphMailboxRecipientType
+    :param working_hours: workingHours.
+    :type working_hours: ~users.models.MicrosoftGraphWorkingHours
     """
 
     _validation = {
@@ -20980,7 +21183,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'usage_location': {'key': 'usageLocation', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
         'user_type': {'key': 'userType', 'type': 'str'},
-        'mailbox_settings': {'key': 'mailboxSettings', 'type': 'MicrosoftGraphMailboxSettings'},
         'device_enrollment_limit': {'key': 'deviceEnrollmentLimit', 'type': 'int'},
         'about_me': {'key': 'aboutMe', 'type': 'str'},
         'birthday': {'key': 'birthday', 'type': 'iso-8601'},
@@ -20992,8 +21194,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'responsibilities': {'key': 'responsibilities', 'type': '[str]'},
         'schools': {'key': 'schools', 'type': '[str]'},
         'skills': {'key': 'skills', 'type': '[str]'},
-        'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphUserAnalytics'},
-        'information_protection': {'key': 'informationProtection', 'type': 'MicrosoftGraphInformationProtection'},
         'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[MicrosoftGraphAppRoleAssignment]'},
         'created_objects': {'key': 'createdObjects', 'type': '[MicrosoftGraphDirectoryObject]'},
         'direct_reports': {'key': 'directReports', 'type': '[MicrosoftGraphDirectoryObject]'},
@@ -21012,11 +21212,9 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'contact_folders': {'key': 'contactFolders', 'type': '[MicrosoftGraphContactFolder]'},
         'contacts': {'key': 'contacts', 'type': '[MicrosoftGraphContact]'},
         'events': {'key': 'events', 'type': '[MicrosoftGraphEvent]'},
-        'inference_classification': {'key': 'inferenceClassification', 'type': 'MicrosoftGraphInferenceClassification'},
         'joined_groups': {'key': 'joinedGroups', 'type': '[MicrosoftGraphGroup]'},
         'mail_folders': {'key': 'mailFolders', 'type': '[MicrosoftGraphMailFolder]'},
         'messages': {'key': 'messages', 'type': '[MicrosoftGraphMessage]'},
-        'outlook': {'key': 'outlook', 'type': 'MicrosoftGraphOutlookUser'},
         'people': {'key': 'people', 'type': '[MicrosoftGraphPerson]'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
         'photos': {'key': 'photos', 'type': '[MicrosoftGraphProfilePhoto]'},
@@ -21036,20 +21234,110 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'mobile_app_intent_and_states': {'key': 'mobileAppIntentAndStates', 'type': '[MicrosoftGraphMobileAppIntentAndState]'},
         'mobile_app_troubleshooting_events': {'key': 'mobileAppTroubleshootingEvents', 'type': '[MicrosoftGraphMobileAppTroubleshootingEvent]'},
         'notifications': {'key': 'notifications', 'type': '[MicrosoftGraphNotification]'},
-        'planner': {'key': 'planner', 'type': 'MicrosoftGraphPlannerUser'},
         'insights': {'key': 'insights', 'type': 'MicrosoftGraphItemInsights'},
-        'settings': {'key': 'settings', 'type': 'MicrosoftGraphUserSettings'},
-        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
-        'profile': {'key': 'profile', 'type': 'MicrosoftGraphProfile'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphUserActivity]'},
         'devices': {'key': 'devices', 'type': '[MicrosoftGraphDevice]'},
         'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
         'presence': {'key': 'presence', 'type': 'MicrosoftGraphPresence'},
-        'authentication': {'key': 'authentication', 'type': 'MicrosoftGraphAuthentication'},
         'chats': {'key': 'chats', 'type': '[MicrosoftGraphChat]'},
         'joined_teams': {'key': 'joinedTeams', 'type': '[MicrosoftGraphTeam]'},
-        'teamwork': {'key': 'teamwork', 'type': 'MicrosoftGraphUserTeamwork'},
-        'todo': {'key': 'todo', 'type': 'MicrosoftGraphTodo'},
+        'id_todo_id': {'key': 'todo.id', 'type': 'str'},
+        'lists': {'key': 'todo.lists', 'type': '[MicrosoftGraphTodoTaskList]'},
+        'id_teamwork_id': {'key': 'teamwork.id', 'type': 'str'},
+        'installed_apps': {'key': 'teamwork.installedApps', 'type': '[MicrosoftGraphUserScopeTeamsAppInstallation]'},
+        'id_authentication_id': {'key': 'authentication.id', 'type': 'str'},
+        'email_methods': {'key': 'authentication.emailMethods', 'type': '[MicrosoftGraphEmailAuthenticationMethod]'},
+        'fido2_methods': {'key': 'authentication.fido2Methods', 'type': '[MicrosoftGraphFido2AuthenticationMethod]'},
+        'methods': {'key': 'authentication.methods', 'type': '[MicrosoftGraphAuthenticationMethod]'},
+        'microsoft_authenticator_methods': {'key': 'authentication.microsoftAuthenticatorMethods', 'type': '[MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod]'},
+        'oath_methods': {'key': 'authentication.oathMethods', 'type': '[MicrosoftGraphSoftwareOathAuthenticationMethod]'},
+        'operations_authentication_operations': {'key': 'authentication.operations', 'type': '[MicrosoftGraphLongRunningOperation]'},
+        'passwordless_microsoft_authenticator_methods': {'key': 'authentication.passwordlessMicrosoftAuthenticatorMethods', 'type': '[MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod]'},
+        'password_methods': {'key': 'authentication.passwordMethods', 'type': '[MicrosoftGraphPasswordAuthenticationMethod]'},
+        'phone_methods': {'key': 'authentication.phoneMethods', 'type': '[MicrosoftGraphPhoneAuthenticationMethod]'},
+        'security_question_methods': {'key': 'authentication.securityQuestionMethods', 'type': '[MicrosoftGraphSecurityQuestionAuthenticationMethod]'},
+        'temporary_access_pass_methods': {'key': 'authentication.temporaryAccessPassMethods', 'type': '[MicrosoftGraphTemporaryAccessPassAuthenticationMethod]'},
+        'id_profile_id': {'key': 'profile.id', 'type': 'str'},
+        'account': {'key': 'profile.account', 'type': '[MicrosoftGraphUserAccountInformation]'},
+        'addresses': {'key': 'profile.addresses', 'type': '[MicrosoftGraphItemAddress]'},
+        'anniversaries': {'key': 'profile.anniversaries', 'type': '[MicrosoftGraphPersonAnniversary]'},
+        'awards': {'key': 'profile.awards', 'type': '[MicrosoftGraphPersonAward]'},
+        'certifications': {'key': 'profile.certifications', 'type': '[MicrosoftGraphPersonCertification]'},
+        'educational_activities': {'key': 'profile.educationalActivities', 'type': '[MicrosoftGraphEducationalActivity]'},
+        'emails': {'key': 'profile.emails', 'type': '[MicrosoftGraphItemEmail]'},
+        'interests_profile_interests': {'key': 'profile.interests', 'type': '[MicrosoftGraphPersonInterest]'},
+        'languages': {'key': 'profile.languages', 'type': '[MicrosoftGraphLanguageProficiency]'},
+        'names': {'key': 'profile.names', 'type': '[MicrosoftGraphPersonName]'},
+        'notes': {'key': 'profile.notes', 'type': '[MicrosoftGraphPersonAnnotation]'},
+        'patents': {'key': 'profile.patents', 'type': '[MicrosoftGraphItemPatent]'},
+        'phones': {'key': 'profile.phones', 'type': '[MicrosoftGraphItemPhone]'},
+        'positions': {'key': 'profile.positions', 'type': '[MicrosoftGraphWorkPosition]'},
+        'projects': {'key': 'profile.projects', 'type': '[MicrosoftGraphProjectParticipation]'},
+        'publications': {'key': 'profile.publications', 'type': '[MicrosoftGraphItemPublication]'},
+        'skills_profile_skills': {'key': 'profile.skills', 'type': '[MicrosoftGraphSkillProficiency]'},
+        'web_accounts': {'key': 'profile.webAccounts', 'type': '[MicrosoftGraphWebAccount]'},
+        'websites': {'key': 'profile.websites', 'type': '[MicrosoftGraphPersonWebsite]'},
+        'id_onenote_id': {'key': 'onenote.id', 'type': 'str'},
+        'notebooks': {'key': 'onenote.notebooks', 'type': '[MicrosoftGraphNotebook]'},
+        'operations_onenote_operations': {'key': 'onenote.operations', 'type': '[MicrosoftGraphOnenoteOperation]'},
+        'pages': {'key': 'onenote.pages', 'type': '[MicrosoftGraphOnenotePage]'},
+        'resources': {'key': 'onenote.resources', 'type': '[MicrosoftGraphOnenoteResource]'},
+        'section_groups': {'key': 'onenote.sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
+        'sections': {'key': 'onenote.sections', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'id_settings_id': {'key': 'settings.id', 'type': 'str'},
+        'contribution_to_content_discovery_as_organization_disabled': {'key': 'settings.contributionToContentDiscoveryAsOrganizationDisabled', 'type': 'bool'},
+        'contribution_to_content_discovery_disabled': {'key': 'settings.contributionToContentDiscoveryDisabled', 'type': 'bool'},
+        'id_settings_shift_preferences_id': {'key': 'settings.shiftPreferences.id', 'type': 'str'},
+        'created_date_time_settings_shift_preferences_created_date_time': {'key': 'settings.shiftPreferences.createdDateTime', 'type': 'iso-8601'},
+        'last_modified_date_time': {'key': 'settings.shiftPreferences.lastModifiedDateTime', 'type': 'iso-8601'},
+        'application_settings_shift_preferences_last_modified_by_application': {'key': 'settings.shiftPreferences.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_settings_shift_preferences_last_modified_by_device': {'key': 'settings.shiftPreferences.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_settings_shift_preferences_last_modified_by_user': {'key': 'settings.shiftPreferences.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'application_settings_shift_preferences_created_by_application': {'key': 'settings.shiftPreferences.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_settings_shift_preferences_created_by_device': {'key': 'settings.shiftPreferences.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_settings_shift_preferences_created_by_user': {'key': 'settings.shiftPreferences.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'availability': {'key': 'settings.shiftPreferences.availability', 'type': '[MicrosoftGraphShiftAvailability]'},
+        'id_settings_regional_and_language_settings_id': {'key': 'settings.regionalAndLanguageSettings.id', 'type': 'str'},
+        'authoring_languages': {'key': 'settings.regionalAndLanguageSettings.authoringLanguages', 'type': '[MicrosoftGraphLocaleInfo]'},
+        'default_display_language': {'key': 'settings.regionalAndLanguageSettings.defaultDisplayLanguage', 'type': 'MicrosoftGraphLocaleInfo'},
+        'default_regional_format': {'key': 'settings.regionalAndLanguageSettings.defaultRegionalFormat', 'type': 'MicrosoftGraphLocaleInfo'},
+        'default_speech_input_language': {'key': 'settings.regionalAndLanguageSettings.defaultSpeechInputLanguage', 'type': 'MicrosoftGraphLocaleInfo'},
+        'default_translation_language': {'key': 'settings.regionalAndLanguageSettings.defaultTranslationLanguage', 'type': 'MicrosoftGraphLocaleInfo'},
+        'regional_format_overrides': {'key': 'settings.regionalAndLanguageSettings.regionalFormatOverrides', 'type': 'MicrosoftGraphRegionalFormatOverrides'},
+        'id_planner_id': {'key': 'planner.id', 'type': 'str'},
+        'favorite_plan_references': {'key': 'planner.favoritePlanReferences', 'type': '{object}'},
+        'recent_plan_references': {'key': 'planner.recentPlanReferences', 'type': '{object}'},
+        'all': {'key': 'planner.all', 'type': '[MicrosoftGraphPlannerDelta]'},
+        'favorite_plans': {'key': 'planner.favoritePlans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'plans': {'key': 'planner.plans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'recent_plans': {'key': 'planner.recentPlans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'tasks_planner_tasks': {'key': 'planner.tasks', 'type': '[MicrosoftGraphPlannerTask]'},
+        'id_outlook_id': {'key': 'outlook.id', 'type': 'str'},
+        'master_categories': {'key': 'outlook.masterCategories', 'type': '[MicrosoftGraphOutlookCategory]'},
+        'task_folders': {'key': 'outlook.taskFolders', 'type': '[MicrosoftGraphOutlookTaskFolder]'},
+        'task_groups': {'key': 'outlook.taskGroups', 'type': '[MicrosoftGraphOutlookTaskGroup]'},
+        'tasks_outlook_tasks': {'key': 'outlook.tasks', 'type': '[MicrosoftGraphOutlookTask]'},
+        'id_inference_classification_id': {'key': 'inferenceClassification.id', 'type': 'str'},
+        'overrides': {'key': 'inferenceClassification.overrides', 'type': '[MicrosoftGraphInferenceClassificationOverride]'},
+        'id_information_protection_id': {'key': 'informationProtection.id', 'type': 'str'},
+        'policy': {'key': 'informationProtection.policy', 'type': 'MicrosoftGraphInformationProtectionPolicy'},
+        'data_loss_prevention_policies': {'key': 'informationProtection.dataLossPreventionPolicies', 'type': '[MicrosoftGraphDataLossPreventionPolicy]'},
+        'sensitivity_labels': {'key': 'informationProtection.sensitivityLabels', 'type': '[MicrosoftGraphSensitivityLabel]'},
+        'sensitivity_policy_settings': {'key': 'informationProtection.sensitivityPolicySettings', 'type': 'MicrosoftGraphSensitivityPolicySettings'},
+        'threat_assessment_requests': {'key': 'informationProtection.threatAssessmentRequests', 'type': '[MicrosoftGraphThreatAssessmentRequest]'},
+        'id_analytics_id': {'key': 'analytics.id', 'type': 'str'},
+        'settings': {'key': 'analytics.settings', 'type': 'MicrosoftGraphSettings'},
+        'activity_statistics': {'key': 'analytics.activityStatistics', 'type': '[MicrosoftGraphActivityStatistics]'},
+        'archive_folder': {'key': 'mailboxSettings.archiveFolder', 'type': 'str'},
+        'automatic_replies_setting': {'key': 'mailboxSettings.automaticRepliesSetting', 'type': 'MicrosoftGraphAutomaticRepliesSetting'},
+        'date_format': {'key': 'mailboxSettings.dateFormat', 'type': 'str'},
+        'delegate_meeting_message_delivery_options': {'key': 'mailboxSettings.delegateMeetingMessageDeliveryOptions', 'type': 'str'},
+        'language': {'key': 'mailboxSettings.language', 'type': 'MicrosoftGraphLocaleInfo'},
+        'time_format': {'key': 'mailboxSettings.timeFormat', 'type': 'str'},
+        'time_zone': {'key': 'mailboxSettings.timeZone', 'type': 'str'},
+        'user_purpose': {'key': 'mailboxSettings.userPurpose', 'type': 'MicrosoftGraphUserPurpose'},
+        'user_purpose_v2': {'key': 'mailboxSettings.userPurposeV2', 'type': 'str'},
+        'working_hours': {'key': 'mailboxSettings.workingHours', 'type': 'MicrosoftGraphWorkingHours'},
     }
 
     def __init__(
@@ -21121,7 +21409,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.usage_location = kwargs.get('usage_location', None)
         self.user_principal_name = kwargs.get('user_principal_name', None)
         self.user_type = kwargs.get('user_type', None)
-        self.mailbox_settings = kwargs.get('mailbox_settings', None)
         self.device_enrollment_limit = kwargs.get('device_enrollment_limit', None)
         self.about_me = kwargs.get('about_me', None)
         self.birthday = kwargs.get('birthday', None)
@@ -21133,8 +21420,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.responsibilities = kwargs.get('responsibilities', None)
         self.schools = kwargs.get('schools', None)
         self.skills = kwargs.get('skills', None)
-        self.analytics = kwargs.get('analytics', None)
-        self.information_protection = kwargs.get('information_protection', None)
         self.app_role_assignments = kwargs.get('app_role_assignments', None)
         self.created_objects = kwargs.get('created_objects', None)
         self.direct_reports = kwargs.get('direct_reports', None)
@@ -21153,11 +21438,9 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.contact_folders = kwargs.get('contact_folders', None)
         self.contacts = kwargs.get('contacts', None)
         self.events = kwargs.get('events', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
         self.joined_groups = kwargs.get('joined_groups', None)
         self.mail_folders = kwargs.get('mail_folders', None)
         self.messages = kwargs.get('messages', None)
-        self.outlook = kwargs.get('outlook', None)
         self.people = kwargs.get('people', None)
         self.photo = kwargs.get('photo', None)
         self.photos = kwargs.get('photos', None)
@@ -21177,20 +21460,110 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.mobile_app_intent_and_states = kwargs.get('mobile_app_intent_and_states', None)
         self.mobile_app_troubleshooting_events = kwargs.get('mobile_app_troubleshooting_events', None)
         self.notifications = kwargs.get('notifications', None)
-        self.planner = kwargs.get('planner', None)
         self.insights = kwargs.get('insights', None)
-        self.settings = kwargs.get('settings', None)
-        self.onenote = kwargs.get('onenote', None)
-        self.profile = kwargs.get('profile', None)
         self.activities = kwargs.get('activities', None)
         self.devices = kwargs.get('devices', None)
         self.online_meetings = kwargs.get('online_meetings', None)
         self.presence = kwargs.get('presence', None)
-        self.authentication = kwargs.get('authentication', None)
         self.chats = kwargs.get('chats', None)
         self.joined_teams = kwargs.get('joined_teams', None)
-        self.teamwork = kwargs.get('teamwork', None)
-        self.todo = kwargs.get('todo', None)
+        self.id_todo_id = kwargs.get('id_todo_id', None)
+        self.lists = kwargs.get('lists', None)
+        self.id_teamwork_id = kwargs.get('id_teamwork_id', None)
+        self.installed_apps = kwargs.get('installed_apps', None)
+        self.id_authentication_id = kwargs.get('id_authentication_id', None)
+        self.email_methods = kwargs.get('email_methods', None)
+        self.fido2_methods = kwargs.get('fido2_methods', None)
+        self.methods = kwargs.get('methods', None)
+        self.microsoft_authenticator_methods = kwargs.get('microsoft_authenticator_methods', None)
+        self.oath_methods = kwargs.get('oath_methods', None)
+        self.operations_authentication_operations = kwargs.get('operations_authentication_operations', None)
+        self.passwordless_microsoft_authenticator_methods = kwargs.get('passwordless_microsoft_authenticator_methods', None)
+        self.password_methods = kwargs.get('password_methods', None)
+        self.phone_methods = kwargs.get('phone_methods', None)
+        self.security_question_methods = kwargs.get('security_question_methods', None)
+        self.temporary_access_pass_methods = kwargs.get('temporary_access_pass_methods', None)
+        self.id_profile_id = kwargs.get('id_profile_id', None)
+        self.account = kwargs.get('account', None)
+        self.addresses = kwargs.get('addresses', None)
+        self.anniversaries = kwargs.get('anniversaries', None)
+        self.awards = kwargs.get('awards', None)
+        self.certifications = kwargs.get('certifications', None)
+        self.educational_activities = kwargs.get('educational_activities', None)
+        self.emails = kwargs.get('emails', None)
+        self.interests_profile_interests = kwargs.get('interests_profile_interests', None)
+        self.languages = kwargs.get('languages', None)
+        self.names = kwargs.get('names', None)
+        self.notes = kwargs.get('notes', None)
+        self.patents = kwargs.get('patents', None)
+        self.phones = kwargs.get('phones', None)
+        self.positions = kwargs.get('positions', None)
+        self.projects = kwargs.get('projects', None)
+        self.publications = kwargs.get('publications', None)
+        self.skills_profile_skills = kwargs.get('skills_profile_skills', None)
+        self.web_accounts = kwargs.get('web_accounts', None)
+        self.websites = kwargs.get('websites', None)
+        self.id_onenote_id = kwargs.get('id_onenote_id', None)
+        self.notebooks = kwargs.get('notebooks', None)
+        self.operations_onenote_operations = kwargs.get('operations_onenote_operations', None)
+        self.pages = kwargs.get('pages', None)
+        self.resources = kwargs.get('resources', None)
+        self.section_groups = kwargs.get('section_groups', None)
+        self.sections = kwargs.get('sections', None)
+        self.id_settings_id = kwargs.get('id_settings_id', None)
+        self.contribution_to_content_discovery_as_organization_disabled = kwargs.get('contribution_to_content_discovery_as_organization_disabled', None)
+        self.contribution_to_content_discovery_disabled = kwargs.get('contribution_to_content_discovery_disabled', None)
+        self.id_settings_shift_preferences_id = kwargs.get('id_settings_shift_preferences_id', None)
+        self.created_date_time_settings_shift_preferences_created_date_time = kwargs.get('created_date_time_settings_shift_preferences_created_date_time', None)
+        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
+        self.application_settings_shift_preferences_last_modified_by_application = kwargs.get('application_settings_shift_preferences_last_modified_by_application', None)
+        self.device_settings_shift_preferences_last_modified_by_device = kwargs.get('device_settings_shift_preferences_last_modified_by_device', None)
+        self.user_settings_shift_preferences_last_modified_by_user = kwargs.get('user_settings_shift_preferences_last_modified_by_user', None)
+        self.application_settings_shift_preferences_created_by_application = kwargs.get('application_settings_shift_preferences_created_by_application', None)
+        self.device_settings_shift_preferences_created_by_device = kwargs.get('device_settings_shift_preferences_created_by_device', None)
+        self.user_settings_shift_preferences_created_by_user = kwargs.get('user_settings_shift_preferences_created_by_user', None)
+        self.availability = kwargs.get('availability', None)
+        self.id_settings_regional_and_language_settings_id = kwargs.get('id_settings_regional_and_language_settings_id', None)
+        self.authoring_languages = kwargs.get('authoring_languages', None)
+        self.default_display_language = kwargs.get('default_display_language', None)
+        self.default_regional_format = kwargs.get('default_regional_format', None)
+        self.default_speech_input_language = kwargs.get('default_speech_input_language', None)
+        self.default_translation_language = kwargs.get('default_translation_language', None)
+        self.regional_format_overrides = kwargs.get('regional_format_overrides', None)
+        self.id_planner_id = kwargs.get('id_planner_id', None)
+        self.favorite_plan_references = kwargs.get('favorite_plan_references', None)
+        self.recent_plan_references = kwargs.get('recent_plan_references', None)
+        self.all = kwargs.get('all', None)
+        self.favorite_plans = kwargs.get('favorite_plans', None)
+        self.plans = kwargs.get('plans', None)
+        self.recent_plans = kwargs.get('recent_plans', None)
+        self.tasks_planner_tasks = kwargs.get('tasks_planner_tasks', None)
+        self.id_outlook_id = kwargs.get('id_outlook_id', None)
+        self.master_categories = kwargs.get('master_categories', None)
+        self.task_folders = kwargs.get('task_folders', None)
+        self.task_groups = kwargs.get('task_groups', None)
+        self.tasks_outlook_tasks = kwargs.get('tasks_outlook_tasks', None)
+        self.id_inference_classification_id = kwargs.get('id_inference_classification_id', None)
+        self.overrides = kwargs.get('overrides', None)
+        self.id_information_protection_id = kwargs.get('id_information_protection_id', None)
+        self.policy = kwargs.get('policy', None)
+        self.data_loss_prevention_policies = kwargs.get('data_loss_prevention_policies', None)
+        self.sensitivity_labels = kwargs.get('sensitivity_labels', None)
+        self.sensitivity_policy_settings = kwargs.get('sensitivity_policy_settings', None)
+        self.threat_assessment_requests = kwargs.get('threat_assessment_requests', None)
+        self.id_analytics_id = kwargs.get('id_analytics_id', None)
+        self.settings = kwargs.get('settings', None)
+        self.activity_statistics = kwargs.get('activity_statistics', None)
+        self.archive_folder = kwargs.get('archive_folder', None)
+        self.automatic_replies_setting = kwargs.get('automatic_replies_setting', None)
+        self.date_format = kwargs.get('date_format', None)
+        self.delegate_meeting_message_delivery_options = kwargs.get('delegate_meeting_message_delivery_options', None)
+        self.language = kwargs.get('language', None)
+        self.time_format = kwargs.get('time_format', None)
+        self.time_zone = kwargs.get('time_zone', None)
+        self.user_purpose = kwargs.get('user_purpose', None)
+        self.user_purpose_v2 = kwargs.get('user_purpose_v2', None)
+        self.working_hours = kwargs.get('working_hours', None)
 
 
 class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):

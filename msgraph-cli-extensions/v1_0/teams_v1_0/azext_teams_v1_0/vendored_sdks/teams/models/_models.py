@@ -12171,14 +12171,42 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param draft_shift: shiftItem.
-    :type draft_shift: ~teams.models.MicrosoftGraphShiftItem
     :param scheduling_group_id: ID of the scheduling group the shift is part of. Required.
     :type scheduling_group_id: str
-    :param shared_shift: shiftItem.
-    :type shared_shift: ~teams.models.MicrosoftGraphShiftItem
     :param user_id: ID of the user assigned to the shift. Required.
     :type user_id: str
+    :param end_date_time_shared_shift_end_date_time:
+    :type end_date_time_shared_shift_end_date_time: ~datetime.datetime
+    :param start_date_time_shared_shift_start_date_time:
+    :type start_date_time_shared_shift_start_date_time: ~datetime.datetime
+    :param theme_shared_shift_theme:  Possible values include: "white", "blue", "green", "purple",
+     "pink", "yellow", "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow",
+     "unknownFutureValue".
+    :type theme_shared_shift_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+    :param activities_shared_shift_activities: An incremental part of a shift which can cover
+     details of when and where an employee is during their shift. For example, an assignment or a
+     scheduled break or lunch. Required.
+    :type activities_shared_shift_activities: list[~teams.models.MicrosoftGraphShiftActivity]
+    :param display_name_shared_shift_display_name: The shift label of the shiftItem.
+    :type display_name_shared_shift_display_name: str
+    :param notes_shared_shift_notes: The shift notes for the shiftItem.
+    :type notes_shared_shift_notes: str
+    :param end_date_time_draft_shift_end_date_time:
+    :type end_date_time_draft_shift_end_date_time: ~datetime.datetime
+    :param start_date_time_draft_shift_start_date_time:
+    :type start_date_time_draft_shift_start_date_time: ~datetime.datetime
+    :param theme_draft_shift_theme:  Possible values include: "white", "blue", "green", "purple",
+     "pink", "yellow", "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow",
+     "unknownFutureValue".
+    :type theme_draft_shift_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+    :param activities_draft_shift_activities: An incremental part of a shift which can cover
+     details of when and where an employee is during their shift. For example, an assignment or a
+     scheduled break or lunch. Required.
+    :type activities_draft_shift_activities: list[~teams.models.MicrosoftGraphShiftActivity]
+    :param display_name_draft_shift_display_name: The shift label of the shiftItem.
+    :type display_name_draft_shift_display_name: str
+    :param notes_draft_shift_notes: The shift notes for the shiftItem.
+    :type notes_draft_shift_notes: str
     """
 
     _attribute_map = {
@@ -12193,10 +12221,20 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
         'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'draft_shift': {'key': 'draftShift', 'type': 'MicrosoftGraphShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
-        'shared_shift': {'key': 'sharedShift', 'type': 'MicrosoftGraphShiftItem'},
         'user_id': {'key': 'userId', 'type': 'str'},
+        'end_date_time_shared_shift_end_date_time': {'key': 'sharedShift.endDateTime', 'type': 'iso-8601'},
+        'start_date_time_shared_shift_start_date_time': {'key': 'sharedShift.startDateTime', 'type': 'iso-8601'},
+        'theme_shared_shift_theme': {'key': 'sharedShift.theme', 'type': 'str'},
+        'activities_shared_shift_activities': {'key': 'sharedShift.activities', 'type': '[MicrosoftGraphShiftActivity]'},
+        'display_name_shared_shift_display_name': {'key': 'sharedShift.displayName', 'type': 'str'},
+        'notes_shared_shift_notes': {'key': 'sharedShift.notes', 'type': 'str'},
+        'end_date_time_draft_shift_end_date_time': {'key': 'draftShift.endDateTime', 'type': 'iso-8601'},
+        'start_date_time_draft_shift_start_date_time': {'key': 'draftShift.startDateTime', 'type': 'iso-8601'},
+        'theme_draft_shift_theme': {'key': 'draftShift.theme', 'type': 'str'},
+        'activities_draft_shift_activities': {'key': 'draftShift.activities', 'type': '[MicrosoftGraphShiftActivity]'},
+        'display_name_draft_shift_display_name': {'key': 'draftShift.displayName', 'type': 'str'},
+        'notes_draft_shift_notes': {'key': 'draftShift.notes', 'type': 'str'},
     }
 
     def __init__(
@@ -12206,10 +12244,20 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         super(MicrosoftGraphShift, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.draft_shift = kwargs.get('draft_shift', None)
         self.scheduling_group_id = kwargs.get('scheduling_group_id', None)
-        self.shared_shift = kwargs.get('shared_shift', None)
         self.user_id = kwargs.get('user_id', None)
+        self.end_date_time_shared_shift_end_date_time = kwargs.get('end_date_time_shared_shift_end_date_time', None)
+        self.start_date_time_shared_shift_start_date_time = kwargs.get('start_date_time_shared_shift_start_date_time', None)
+        self.theme_shared_shift_theme = kwargs.get('theme_shared_shift_theme', None)
+        self.activities_shared_shift_activities = kwargs.get('activities_shared_shift_activities', None)
+        self.display_name_shared_shift_display_name = kwargs.get('display_name_shared_shift_display_name', None)
+        self.notes_shared_shift_notes = kwargs.get('notes_shared_shift_notes', None)
+        self.end_date_time_draft_shift_end_date_time = kwargs.get('end_date_time_draft_shift_end_date_time', None)
+        self.start_date_time_draft_shift_start_date_time = kwargs.get('start_date_time_draft_shift_start_date_time', None)
+        self.theme_draft_shift_theme = kwargs.get('theme_draft_shift_theme', None)
+        self.activities_draft_shift_activities = kwargs.get('activities_draft_shift_activities', None)
+        self.display_name_draft_shift_display_name = kwargs.get('display_name_draft_shift_display_name', None)
+        self.notes_draft_shift_notes = kwargs.get('notes_draft_shift_notes', None)
 
 
 class MicrosoftGraphShiftActivity(msrest.serialization.Model):

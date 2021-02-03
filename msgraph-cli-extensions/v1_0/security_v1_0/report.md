@@ -144,6 +144,26 @@ delete a security security.
 |**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
+### security security get
+
+get a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security.security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get|GetSecurity|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
 ### security security get-alert
 
 get-alert a security security.
@@ -270,6 +290,28 @@ list-secure-score-control-profile a security security.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### security security update
+
+update a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security.security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update|UpdateSecurity|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
+|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
+|**--secure-scores**|array||secure_scores|secureScores|
+
 ### security security update-alert
 
 update-alert a security security.
@@ -392,45 +434,3 @@ update-secure-score-control-profile a security security.
 |**--title**|string|Title of the control.|title|title|
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-
-### security security-security gety
-
-gety a security security-security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security-security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|gety|GetSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security security-security updatey
-
-updatey a security security-security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security-security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|updatey|UpdateSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
-|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
-|**--secure-scores**|array||secure_scores|secureScores|

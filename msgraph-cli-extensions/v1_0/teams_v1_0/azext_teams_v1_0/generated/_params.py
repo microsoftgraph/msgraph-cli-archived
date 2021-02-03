@@ -44,6 +44,7 @@ from azext_teams_v1_0.action import (
     AddScheduleOfferShiftRequests,
     AddScheduleOpenShiftChangeRequests,
     AddScheduleSchedulingGroups,
+    AddScheduleShifts,
     AddScheduleSwapShiftsChangeRequests,
     AddScheduleTimeOffReasons,
     AddScheduleTimeOffRequests,
@@ -78,6 +79,7 @@ from azext_teams_v1_0.action import (
     AddFolderView,
     AddFileHashes,
     AddDraftOpenShift,
+    AddSharedShiftActivities,
     AddDraftTimeOff,
     AddEncryption
 )
@@ -333,8 +335,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -583,8 +584,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -820,8 +820,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -1110,8 +1109,7 @@ def load_arguments(self, _):
         c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical grouping of '
                    'users in the schedule (usually by role).')
-        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*', help='')
         c.argument('time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons for a '
                    'time off in the schedule.')
@@ -2565,8 +2563,52 @@ def load_arguments(self, _):
 
     with self.argument_context('teams team-schedule create-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
+        c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
+        c.argument('shared_shift_end_date_time', help='')
+        c.argument('shared_shift_start_date_time', help='')
+        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
+                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('draft_shift_end_date_time', help='')
+        c.argument('draft_shift_start_date_time', help='')
+        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
+                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
 
     with self.argument_context('teams team-schedule create-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2975,8 +3017,52 @@ def load_arguments(self, _):
     with self.argument_context('teams team-schedule update-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('shift_id', type=str, help='key: id of shift')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
+        c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
+        c.argument('shared_shift_end_date_time', help='')
+        c.argument('shared_shift_start_date_time', help='')
+        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
+                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('draft_shift_end_date_time', help='')
+        c.argument('draft_shift_start_date_time', help='')
+        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
+                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
 
     with self.argument_context('teams team-schedule update-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3456,8 +3542,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -3706,8 +3791,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '

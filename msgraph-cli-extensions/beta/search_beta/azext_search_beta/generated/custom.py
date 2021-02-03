@@ -99,15 +99,15 @@ def search_external_update_connection(client,
                                     properties=schema_properties)
 
 
-def search_search_search_entity_geth_entity(client,
-                                            select=None,
-                                            expand=None):
+def search_search_entity_get_entity(client,
+                                    select=None,
+                                    expand=None):
     return client.get_search_entity(select=select,
                                     expand=expand)
 
 
-def search_search_search_entity_updateh_entity(client,
-                                               id_=None):
+def search_search_entity_update_entity(client,
+                                       id_=None):
     return client.update_search_entity(id=id_)
 
 

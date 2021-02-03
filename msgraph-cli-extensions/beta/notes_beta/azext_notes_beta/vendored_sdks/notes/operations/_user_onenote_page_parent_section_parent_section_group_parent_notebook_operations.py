@@ -631,7 +631,24 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         self,
         user_id,  # type: str
         onenote_page_id,  # type: str
-        body,  # type: "models.MicrosoftGraphOnenoteSection"
+        id=None,  # type: Optional[str]
+        self_parameter=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        is_default=None,  # type: Optional[bool]
+        pages_url=None,  # type: Optional[str]
+        pages=None,  # type: Optional[List["models.MicrosoftGraphOnenotePage"]]
+        parent_notebook=None,  # type: Optional["models.MicrosoftGraphNotebook"]
+        parent_section_group=None,  # type: Optional["models.MicrosoftGraphSectionGroup"]
+        one_note_client_url=None,  # type: Optional["models.MicrosoftGraphExternalLink"]
+        one_note_web_url=None,  # type: Optional["models.MicrosoftGraphExternalLink"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphOnenoteSection"
@@ -643,8 +660,48 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         :type user_id: str
         :param onenote_page_id: key: id of onenotePage.
         :type onenote_page_id: str
-        :param body: New navigation property.
-        :type body: ~notes.models.MicrosoftGraphOnenoteSection
+        :param id: Read-only.
+        :type id: str
+        :param self_parameter: The endpoint where you can get details about the page. Read-only.
+        :type self_parameter: str
+        :param created_date_time: The date and time when the page was created. The timestamp represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param display_name: The name of the notebook.
+        :type display_name: str
+        :param last_modified_date_time: The date and time when the notebook was last modified. The
+         timestamp represents date and time information using ISO 8601 format and is always in UTC time.
+         For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
+         only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param application: identity.
+        :type application: ~notes.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~notes.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~notes.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~notes.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~notes.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~notes.models.MicrosoftGraphIdentity
+        :param is_default: Indicates whether this is the user's default section. Read-only.
+        :type is_default: bool
+        :param pages_url: The pages endpoint where you can get details for all the pages in the
+         section. Read-only.
+        :type pages_url: str
+        :param pages: The collection of pages in the section.  Read-only. Nullable.
+        :type pages: list[~notes.models.MicrosoftGraphOnenotePage]
+        :param parent_notebook: notebook.
+        :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+        :param parent_section_group: sectionGroup.
+        :type parent_section_group: ~notes.models.MicrosoftGraphSectionGroup
+        :param one_note_client_url: externalLink.
+        :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+        :param one_note_web_url: externalLink.
+        :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphOnenoteSection, or the result of cls(response)
         :rtype: ~notes.models.MicrosoftGraphOnenoteSection
@@ -653,6 +710,8 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnenoteSection"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphOnenoteSection(id=id, self_property=self_parameter, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, is_default=is_default, pages_url=pages_url, pages=pages, parent_notebook=parent_notebook, parent_section_group=parent_section_group, one_note_client_url=one_note_client_url, one_note_web_url=one_note_web_url)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -674,7 +733,7 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphOnenoteSection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphOnenoteSection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -771,7 +830,24 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         user_id,  # type: str
         onenote_page_id,  # type: str
         onenote_section_id,  # type: str
-        body,  # type: "models.MicrosoftGraphOnenoteSection"
+        id=None,  # type: Optional[str]
+        self_parameter=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        display_name=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        is_default=None,  # type: Optional[bool]
+        pages_url=None,  # type: Optional[str]
+        pages=None,  # type: Optional[List["models.MicrosoftGraphOnenotePage"]]
+        parent_notebook=None,  # type: Optional["models.MicrosoftGraphNotebook"]
+        parent_section_group=None,  # type: Optional["models.MicrosoftGraphSectionGroup"]
+        one_note_client_url=None,  # type: Optional["models.MicrosoftGraphExternalLink"]
+        one_note_web_url=None,  # type: Optional["models.MicrosoftGraphExternalLink"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -785,8 +861,48 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         :type onenote_page_id: str
         :param onenote_section_id: key: id of onenoteSection.
         :type onenote_section_id: str
-        :param body: New navigation property values.
-        :type body: ~notes.models.MicrosoftGraphOnenoteSection
+        :param id: Read-only.
+        :type id: str
+        :param self_parameter: The endpoint where you can get details about the page. Read-only.
+        :type self_parameter: str
+        :param created_date_time: The date and time when the page was created. The timestamp represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param display_name: The name of the notebook.
+        :type display_name: str
+        :param last_modified_date_time: The date and time when the notebook was last modified. The
+         timestamp represents date and time information using ISO 8601 format and is always in UTC time.
+         For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
+         only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param application: identity.
+        :type application: ~notes.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~notes.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~notes.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~notes.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~notes.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~notes.models.MicrosoftGraphIdentity
+        :param is_default: Indicates whether this is the user's default section. Read-only.
+        :type is_default: bool
+        :param pages_url: The pages endpoint where you can get details for all the pages in the
+         section. Read-only.
+        :type pages_url: str
+        :param pages: The collection of pages in the section.  Read-only. Nullable.
+        :type pages: list[~notes.models.MicrosoftGraphOnenotePage]
+        :param parent_notebook: notebook.
+        :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+        :param parent_section_group: sectionGroup.
+        :type parent_section_group: ~notes.models.MicrosoftGraphSectionGroup
+        :param one_note_client_url: externalLink.
+        :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+        :param one_note_web_url: externalLink.
+        :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -795,6 +911,8 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphOnenoteSection(id=id, self_property=self_parameter, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, is_default=is_default, pages_url=pages_url, pages=pages, parent_notebook=parent_notebook, parent_section_group=parent_section_group, one_note_client_url=one_note_client_url, one_note_web_url=one_note_web_url)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -816,7 +934,7 @@ class UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations(obj
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphOnenoteSection')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphOnenoteSection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 

@@ -5254,7 +5254,36 @@ create-shift a teams team-schedule.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
+|**--scheduling-group-id**|string|ID of the scheduling group the shift is part of. Required.|scheduling_group_id|schedulingGroupId|
+|**--user-id**|string|ID of the user assigned to the shift. Required.|user_id|userId|
+|**--shared-shift-end-date-time**|date-time||end_date_time|endDateTime|
+|**--shared-shift-start-date-time**|date-time||start_date_time|startDateTime|
+|**--shared-shift-theme**|choice||theme|theme|
+|**--shared-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
+|**--shared-shift-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
+|**--shared-shift-notes**|string|The shift notes for the shiftItem.|notes|notes|
+|**--draft-shift-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
+|**--draft-shift-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
+|**--draft-shift-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
+|**--draft-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
+|**--draft-shift-display-name**|string|The shift label of the shiftItem.|display_name5|displayName|
+|**--draft-shift-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
 
 ### teams team-schedule create-swap-shift-change-request
 
@@ -5321,7 +5350,35 @@ create-time-card a teams team-schedule.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--breaks**|array||breaks|breaks|
+|**--confirmed-by**|choice||confirmed_by|confirmedBy|
+|**--notes**|object|itemBody|notes|notes|
+|**--state**|choice||state|state|
+|**--user-id**|string||user_id|userId|
+|**--original-entry-breaks**|array||microsoft_graph_time_card_entry_breaks|breaks|
+|**--original-entry-clock-in-event**|object|timeCardEvent|clock_in_event|clockInEvent|
+|**--original-entry-clock-out-event**|object|timeCardEvent|clock_out_event|clockOutEvent|
+|**--clock-out-event-at-approved-location**|boolean||at_approved_location|atApprovedLocation|
+|**--clock-out-event-date-time**|date-time||date_time|dateTime|
+|**--clock-out-event-notes**|object|itemBody|microsoft_graph_item_body_notes|notes|
+|**--clock-in-event-at-approved-location**|boolean||boolean_at_approved_location|atApprovedLocation|
+|**--clock-in-event-date-time**|date-time||microsoft_graph_time_card_event_date_time|dateTime|
+|**--clock-in-event-notes**|object|itemBody|notes1|notes|
 
 ### teams team-schedule create-time-off
 
@@ -6131,7 +6188,36 @@ update-shift a teams team-schedule.
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--shift-id**|string|key: id of shift|shift_id|shift-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
+|**--scheduling-group-id**|string|ID of the scheduling group the shift is part of. Required.|scheduling_group_id|schedulingGroupId|
+|**--user-id**|string|ID of the user assigned to the shift. Required.|user_id|userId|
+|**--shared-shift-end-date-time**|date-time||end_date_time|endDateTime|
+|**--shared-shift-start-date-time**|date-time||start_date_time|startDateTime|
+|**--shared-shift-theme**|choice||theme|theme|
+|**--shared-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
+|**--shared-shift-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
+|**--shared-shift-notes**|string|The shift notes for the shiftItem.|notes|notes|
+|**--draft-shift-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
+|**--draft-shift-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
+|**--draft-shift-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
+|**--draft-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
+|**--draft-shift-display-name**|string|The shift label of the shiftItem.|display_name5|displayName|
+|**--draft-shift-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
 
 ### teams team-schedule update-swap-shift-change-request
 
@@ -6200,7 +6286,35 @@ update-time-card a teams team-schedule.
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--time-card-id**|string|key: id of timeCard|time_card_id|timeCard-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--breaks**|array||breaks|breaks|
+|**--confirmed-by**|choice||confirmed_by|confirmedBy|
+|**--notes**|object|itemBody|notes|notes|
+|**--state**|choice||state|state|
+|**--user-id**|string||user_id|userId|
+|**--original-entry-breaks**|array||microsoft_graph_time_card_entry_breaks|breaks|
+|**--original-entry-clock-in-event**|object|timeCardEvent|clock_in_event|clockInEvent|
+|**--original-entry-clock-out-event**|object|timeCardEvent|clock_out_event|clockOutEvent|
+|**--clock-out-event-at-approved-location**|boolean||at_approved_location|atApprovedLocation|
+|**--clock-out-event-date-time**|date-time||date_time|dateTime|
+|**--clock-out-event-notes**|object|itemBody|microsoft_graph_item_body_notes|notes|
+|**--clock-in-event-at-approved-location**|boolean||boolean_at_approved_location|atApprovedLocation|
+|**--clock-in-event-date-time**|date-time||microsoft_graph_time_card_event_date_time|dateTime|
+|**--clock-in-event-notes**|object|itemBody|notes1|notes|
 
 ### teams team-schedule update-time-off
 
@@ -6978,7 +7092,35 @@ create-installed-app a teams user-teamwork.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
+|**--teams-app-definition-description**|string||description|description|
+|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
+|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--teams-app-definition-version**|string|The version number of the application.|version|version|
+|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--teams-app-id**|string|Read-only.|id3|id|
+|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
+|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--chat-id**|string|Read-only.|id4|id|
+|**--chat-created-date-time**|date-time||created_date_time|createdDateTime|
+|**--chat-last-updated-date-time**|date-time||last_updated_date_time|lastUpdatedDateTime|
+|**--chat-topic**|string||topic|topic|
+|**--chat-installed-apps**|array||installed_apps|installedApps|
+|**--chat-members**|array||members|members|
+|**--chat-messages**|array||messages|messages|
+|**--chat-tabs**|array||tabs|tabs|
 
 ### teams user-teamwork delete
 
@@ -7064,7 +7206,35 @@ update-installed-app a teams user-teamwork.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
+|**--teams-app-definition-description**|string||description|description|
+|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
+|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--teams-app-definition-version**|string|The version number of the application.|version|version|
+|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--teams-app-id**|string|Read-only.|id3|id|
+|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
+|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--chat-id**|string|Read-only.|id4|id|
+|**--chat-created-date-time**|date-time||created_date_time|createdDateTime|
+|**--chat-last-updated-date-time**|date-time||last_updated_date_time|lastUpdatedDateTime|
+|**--chat-topic**|string||topic|topic|
+|**--chat-installed-apps**|array||installed_apps|installedApps|
+|**--chat-members**|array||members|members|
+|**--chat-messages**|array||messages|messages|
+|**--chat-tabs**|array||tabs|tabs|
 
 ### teams user-teamwork-installed-app delete
 

@@ -48,30 +48,6 @@ class AddParentReferenceSharepointIds(argparse.Action):
         return d
 
 
-class AddLastModifiedByApplication(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.last_modified_by_application = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
 class AddListList(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -165,6 +141,170 @@ class AddQuotaStoragePlanInformation(argparse.Action):
             v = properties[k]
             if kl == 'upgrade-available':
                 d['upgrade_available'] = v[0]
+        return d
+
+
+class AddTimes(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.times = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'last-recorded-date-time':
+                d['last_recorded_date_time'] = v[0]
+            elif kl == 'observed-date-time':
+                d['observed_date_time'] = v[0]
+            elif kl == 'recorded-date-time':
+                d['recorded_date_time'] = v[0]
+        return d
+
+
+class AddActionDelete(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.action_delete = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'name':
+                d['name'] = v[0]
+            elif kl == 'object-type':
+                d['object_type'] = v[0]
+        return d
+
+
+class AddActionMention(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.action_mention = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'mentionees':
+                d['mentionees'] = v
+        return d
+
+
+class AddActionMove(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.action_move = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'from':
+                d['from_property'] = v[0]
+            elif kl == 'to':
+                d['to'] = v[0]
+        return d
+
+
+class AddActionRename(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.action_rename = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'new-name':
+                d['new_name'] = v[0]
+            elif kl == 'old-name':
+                d['old_name'] = v[0]
+        return d
+
+
+class AddActionShare(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.action_share = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'recipients':
+                d['recipients'] = v
+        return d
+
+
+class AddActionVersion(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.action_version = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'new-version':
+                d['new_version'] = v[0]
         return d
 
 
@@ -471,12 +611,18 @@ class AddDrivesVersions(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'publication':
                 d['publication'] = v[0]
-            elif kl == 'application':
-                d['application'] = v[0]
-            elif kl == 'device':
-                d['device'] = v[0]
-            elif kl == 'user':
-                d['user'] = v[0]
+            elif kl == 'display-name-last-modified-by-user-display-name':
+                d['display_name_last_modified_by_user_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-user-id':
+                d['id_last_modified_by_user_id'] = v[0]
+            elif kl == 'display-name-last-modified-by-device-display-name':
+                d['display_name_last_modified_by_device_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-device-id':
+                d['id_last_modified_by_device_id'] = v[0]
+            elif kl == 'display-name-last-modified-by-application-display-name':
+                d['display_name_last_modified_by_application_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-application-id':
+                d['id_last_modified_by_application_id'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
         return d
@@ -553,6 +699,38 @@ class AddWorkbookFunctions(argparse.Action):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+        return d
+
+
+class AddSharedOwner(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.shared_owner = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name-user-display-name':
+                d['display_name_user_display_name'] = v[0]
+            elif kl == 'id-user-id':
+                d['id_user_id'] = v[0]
+            elif kl == 'display-name-device-display-name':
+                d['display_name_device_display_name'] = v[0]
+            elif kl == 'id-device-id':
+                d['id_device_id'] = v[0]
+            elif kl == 'display-name-application-display-name':
+                d['display_name_application_display_name'] = v[0]
+            elif kl == 'id-application-id':
+                d['id_application_id'] = v[0]
         return d
 
 
@@ -723,12 +901,18 @@ class AddDrivesActivitiesVersions(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'publication':
                 d['publication'] = v[0]
-            elif kl == 'application':
-                d['application'] = v[0]
-            elif kl == 'device':
-                d['device'] = v[0]
-            elif kl == 'user':
-                d['user'] = v[0]
+            elif kl == 'display-name-last-modified-by-user-display-name':
+                d['display_name_last_modified_by_user_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-user-id':
+                d['id_last_modified_by_user_id'] = v[0]
+            elif kl == 'display-name-last-modified-by-device-display-name':
+                d['display_name_last_modified_by_device_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-device-id':
+                d['id_last_modified_by_device_id'] = v[0]
+            elif kl == 'display-name-last-modified-by-application-display-name':
+                d['display_name_last_modified_by_application_display_name'] = v[0]
+            elif kl == 'id-last-modified-by-application-id':
+                d['id_last_modified_by_application_id'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
         return d
@@ -1097,6 +1281,62 @@ class AddDrivesListItemsActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+        return d
+
+
+class AddPermissionGrantedToIdentities(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddPermissionGrantedToIdentities, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name-user-display-name':
+                d['display_name_user_display_name'] = v[0]
+            elif kl == 'id-user-id':
+                d['id_user_id'] = v[0]
+            elif kl == 'display-name-device-display-name':
+                d['display_name_device_display_name'] = v[0]
+            elif kl == 'id-device-id':
+                d['id_device_id'] = v[0]
+            elif kl == 'display-name-application-display-name':
+                d['display_name_application_display_name'] = v[0]
+            elif kl == 'id-application-id':
+                d['id_application_id'] = v[0]
+        return d
+
+
+class AddPermissionLinkApplication(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.permission_link_application = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
         return d
 
 

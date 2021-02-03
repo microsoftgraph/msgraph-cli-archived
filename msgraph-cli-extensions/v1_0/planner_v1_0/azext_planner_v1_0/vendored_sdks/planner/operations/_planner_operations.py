@@ -886,7 +886,41 @@ class PlannerOperations(object):
 
     def create_task(
         self,
-        body,  # type: "models.MicrosoftGraphPlannerTask"
+        id=None,  # type: Optional[str]
+        active_checklist_item_count=None,  # type: Optional[int]
+        applied_categories=None,  # type: Optional[Dict[str, object]]
+        assignee_priority=None,  # type: Optional[str]
+        assignments=None,  # type: Optional[Dict[str, object]]
+        bucket_id=None,  # type: Optional[str]
+        checklist_item_count=None,  # type: Optional[int]
+        completed_date_time=None,  # type: Optional[datetime.datetime]
+        conversation_thread_id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        due_date_time=None,  # type: Optional[datetime.datetime]
+        has_description=None,  # type: Optional[bool]
+        order_hint=None,  # type: Optional[str]
+        percent_complete=None,  # type: Optional[int]
+        plan_id=None,  # type: Optional[str]
+        preview_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphPlannerPreviewType"]]
+        reference_count=None,  # type: Optional[int]
+        start_date_time=None,  # type: Optional[datetime.datetime]
+        title=None,  # type: Optional[str]
+        bucket_task_board_format=None,  # type: Optional["models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat"]
+        progress_task_board_format=None,  # type: Optional["models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat"]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        checklist=None,  # type: Optional[Dict[str, object]]
+        description=None,  # type: Optional[str]
+        microsoft_graph_planner_preview_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphPlannerPreviewType"]]
+        references=None,  # type: Optional[Dict[str, object]]
+        id1=None,  # type: Optional[str]
+        order_hints_by_assignee=None,  # type: Optional[Dict[str, object]]
+        unassigned_order_hint=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphPlannerTask"
@@ -894,8 +928,96 @@ class PlannerOperations(object):
 
         Create new navigation property to tasks for planner.
 
-        :param body: New navigation property.
-        :type body: ~planner.models.MicrosoftGraphPlannerTask
+        :param id: Read-only.
+        :type id: str
+        :param active_checklist_item_count: Number of checklist items with value set to false,
+         representing incomplete items.
+        :type active_checklist_item_count: int
+        :param applied_categories: plannerAppliedCategories.
+        :type applied_categories: dict[str, object]
+        :param assignee_priority: Hint used to order items of this type in a list view. The format is
+         defined as outlined here.
+        :type assignee_priority: str
+        :param assignments: plannerAssignments.
+        :type assignments: dict[str, object]
+        :param bucket_id: Bucket ID to which the task belongs. The bucket needs to be in the plan that
+         the task is in. It is 28 characters long and case-sensitive. Format validation is done on the
+         service.
+        :type bucket_id: str
+        :param checklist_item_count: Number of checklist items that are present on the task.
+        :type checklist_item_count: int
+        :param completed_date_time: Read-only. Date and time at which the 'percentComplete' of the task
+         is set to '100'. The Timestamp type represents date and time information using ISO 8601 format
+         and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
+         '2014-01-01T00:00:00Z'.
+        :type completed_date_time: ~datetime.datetime
+        :param conversation_thread_id: Thread ID of the conversation on the task. This is the ID of the
+         conversation thread object created in the group.
+        :type conversation_thread_id: str
+        :param created_date_time: Read-only. Date and time at which the task is created. The Timestamp
+         type represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param due_date_time: Date and time at which the task is due. The Timestamp type represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type due_date_time: ~datetime.datetime
+        :param has_description: Read-only. Value is true if the details object of the task has a non-
+         empty description and false otherwise.
+        :type has_description: bool
+        :param order_hint: Hint used to order items of this type in a list view. The format is defined
+         as outlined here.
+        :type order_hint: str
+        :param percent_complete: Percentage of task completion. When set to 100, the task is considered
+         completed.
+        :type percent_complete: int
+        :param plan_id: Plan ID to which the task belongs.
+        :type plan_id: str
+        :param preview_type:
+        :type preview_type: str or ~planner.models.MicrosoftGraphPlannerPreviewType
+        :param reference_count: Number of external references that exist on the task.
+        :type reference_count: int
+        :param start_date_time: Date and time at which the task starts. The Timestamp type represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
+        :param title: Title of the task.
+        :type title: str
+        :param bucket_task_board_format: plannerBucketTaskBoardTaskFormat.
+        :type bucket_task_board_format: ~planner.models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat
+        :param progress_task_board_format: plannerProgressTaskBoardTaskFormat.
+        :type progress_task_board_format: ~planner.models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param checklist: plannerChecklistItems.
+        :type checklist: dict[str, object]
+        :param description: Description of the task.
+        :type description: str
+        :param microsoft_graph_planner_preview_type:
+        :type microsoft_graph_planner_preview_type: str or ~planner.models.MicrosoftGraphPlannerPreviewType
+        :param references: plannerExternalReferences.
+        :type references: dict[str, object]
+        :param id1: Read-only.
+        :type id1: str
+        :param order_hints_by_assignee: plannerOrderHintsByAssignee.
+        :type order_hints_by_assignee: dict[str, object]
+        :param unassigned_order_hint: Hint value used to order the task on the AssignedTo view of the
+         Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary
+         does not provide an order hint for the user the task is assigned to. The format is defined as
+         outlined here.
+        :type unassigned_order_hint: str
+        :param application: identity.
+        :type application: ~planner.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~planner.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~planner.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~planner.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~planner.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~planner.models.MicrosoftGraphIdentity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphPlannerTask, or the result of cls(response)
         :rtype: ~planner.models.MicrosoftGraphPlannerTask
@@ -904,6 +1026,8 @@ class PlannerOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerTask"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphPlannerTask(id=id, active_checklist_item_count=active_checklist_item_count, applied_categories=applied_categories, assignee_priority=assignee_priority, assignments=assignments, bucket_id=bucket_id, checklist_item_count=checklist_item_count, completed_date_time=completed_date_time, conversation_thread_id=conversation_thread_id, created_date_time=created_date_time, due_date_time=due_date_time, has_description=has_description, order_hint=order_hint, percent_complete=percent_complete, plan_id=plan_id, preview_type=preview_type, reference_count=reference_count, start_date_time=start_date_time, title=title, bucket_task_board_format=bucket_task_board_format, progress_task_board_format=progress_task_board_format, id_details_id=microsoft_graph_entity_id, checklist=checklist, description=description, preview_type_details_preview_type=microsoft_graph_planner_preview_type, references=references, id_assigned_to_task_board_format_id=id1, order_hints_by_assignee=order_hints_by_assignee, unassigned_order_hint=unassigned_order_hint, application_created_by_application=application, device_created_by_device=device, user_created_by_user=user, application_completed_by_application=microsoft_graph_identity_application, device_completed_by_device=microsoft_graph_identity_device, user_completed_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -920,7 +1044,7 @@ class PlannerOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerTask')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerTask')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1007,7 +1131,41 @@ class PlannerOperations(object):
     def update_task(
         self,
         planner_task_id,  # type: str
-        body,  # type: "models.MicrosoftGraphPlannerTask"
+        id=None,  # type: Optional[str]
+        active_checklist_item_count=None,  # type: Optional[int]
+        applied_categories=None,  # type: Optional[Dict[str, object]]
+        assignee_priority=None,  # type: Optional[str]
+        assignments=None,  # type: Optional[Dict[str, object]]
+        bucket_id=None,  # type: Optional[str]
+        checklist_item_count=None,  # type: Optional[int]
+        completed_date_time=None,  # type: Optional[datetime.datetime]
+        conversation_thread_id=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        due_date_time=None,  # type: Optional[datetime.datetime]
+        has_description=None,  # type: Optional[bool]
+        order_hint=None,  # type: Optional[str]
+        percent_complete=None,  # type: Optional[int]
+        plan_id=None,  # type: Optional[str]
+        preview_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphPlannerPreviewType"]]
+        reference_count=None,  # type: Optional[int]
+        start_date_time=None,  # type: Optional[datetime.datetime]
+        title=None,  # type: Optional[str]
+        bucket_task_board_format=None,  # type: Optional["models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat"]
+        progress_task_board_format=None,  # type: Optional["models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat"]
+        microsoft_graph_entity_id=None,  # type: Optional[str]
+        checklist=None,  # type: Optional[Dict[str, object]]
+        description=None,  # type: Optional[str]
+        microsoft_graph_planner_preview_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphPlannerPreviewType"]]
+        references=None,  # type: Optional[Dict[str, object]]
+        id1=None,  # type: Optional[str]
+        order_hints_by_assignee=None,  # type: Optional[Dict[str, object]]
+        unassigned_order_hint=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        microsoft_graph_identity_user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1017,8 +1175,96 @@ class PlannerOperations(object):
 
         :param planner_task_id: key: id of plannerTask.
         :type planner_task_id: str
-        :param body: New navigation property values.
-        :type body: ~planner.models.MicrosoftGraphPlannerTask
+        :param id: Read-only.
+        :type id: str
+        :param active_checklist_item_count: Number of checklist items with value set to false,
+         representing incomplete items.
+        :type active_checklist_item_count: int
+        :param applied_categories: plannerAppliedCategories.
+        :type applied_categories: dict[str, object]
+        :param assignee_priority: Hint used to order items of this type in a list view. The format is
+         defined as outlined here.
+        :type assignee_priority: str
+        :param assignments: plannerAssignments.
+        :type assignments: dict[str, object]
+        :param bucket_id: Bucket ID to which the task belongs. The bucket needs to be in the plan that
+         the task is in. It is 28 characters long and case-sensitive. Format validation is done on the
+         service.
+        :type bucket_id: str
+        :param checklist_item_count: Number of checklist items that are present on the task.
+        :type checklist_item_count: int
+        :param completed_date_time: Read-only. Date and time at which the 'percentComplete' of the task
+         is set to '100'. The Timestamp type represents date and time information using ISO 8601 format
+         and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
+         '2014-01-01T00:00:00Z'.
+        :type completed_date_time: ~datetime.datetime
+        :param conversation_thread_id: Thread ID of the conversation on the task. This is the ID of the
+         conversation thread object created in the group.
+        :type conversation_thread_id: str
+        :param created_date_time: Read-only. Date and time at which the task is created. The Timestamp
+         type represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type created_date_time: ~datetime.datetime
+        :param due_date_time: Date and time at which the task is due. The Timestamp type represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type due_date_time: ~datetime.datetime
+        :param has_description: Read-only. Value is true if the details object of the task has a non-
+         empty description and false otherwise.
+        :type has_description: bool
+        :param order_hint: Hint used to order items of this type in a list view. The format is defined
+         as outlined here.
+        :type order_hint: str
+        :param percent_complete: Percentage of task completion. When set to 100, the task is considered
+         completed.
+        :type percent_complete: int
+        :param plan_id: Plan ID to which the task belongs.
+        :type plan_id: str
+        :param preview_type:
+        :type preview_type: str or ~planner.models.MicrosoftGraphPlannerPreviewType
+        :param reference_count: Number of external references that exist on the task.
+        :type reference_count: int
+        :param start_date_time: Date and time at which the task starts. The Timestamp type represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
+        :param title: Title of the task.
+        :type title: str
+        :param bucket_task_board_format: plannerBucketTaskBoardTaskFormat.
+        :type bucket_task_board_format: ~planner.models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat
+        :param progress_task_board_format: plannerProgressTaskBoardTaskFormat.
+        :type progress_task_board_format: ~planner.models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat
+        :param microsoft_graph_entity_id: Read-only.
+        :type microsoft_graph_entity_id: str
+        :param checklist: plannerChecklistItems.
+        :type checklist: dict[str, object]
+        :param description: Description of the task.
+        :type description: str
+        :param microsoft_graph_planner_preview_type:
+        :type microsoft_graph_planner_preview_type: str or ~planner.models.MicrosoftGraphPlannerPreviewType
+        :param references: plannerExternalReferences.
+        :type references: dict[str, object]
+        :param id1: Read-only.
+        :type id1: str
+        :param order_hints_by_assignee: plannerOrderHintsByAssignee.
+        :type order_hints_by_assignee: dict[str, object]
+        :param unassigned_order_hint: Hint value used to order the task on the AssignedTo view of the
+         Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary
+         does not provide an order hint for the user the task is assigned to. The format is defined as
+         outlined here.
+        :type unassigned_order_hint: str
+        :param application: identity.
+        :type application: ~planner.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~planner.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~planner.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_application: identity.
+        :type microsoft_graph_identity_application: ~planner.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_device: identity.
+        :type microsoft_graph_identity_device: ~planner.models.MicrosoftGraphIdentity
+        :param microsoft_graph_identity_user: identity.
+        :type microsoft_graph_identity_user: ~planner.models.MicrosoftGraphIdentity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1027,6 +1273,8 @@ class PlannerOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphPlannerTask(id=id, active_checklist_item_count=active_checklist_item_count, applied_categories=applied_categories, assignee_priority=assignee_priority, assignments=assignments, bucket_id=bucket_id, checklist_item_count=checklist_item_count, completed_date_time=completed_date_time, conversation_thread_id=conversation_thread_id, created_date_time=created_date_time, due_date_time=due_date_time, has_description=has_description, order_hint=order_hint, percent_complete=percent_complete, plan_id=plan_id, preview_type=preview_type, reference_count=reference_count, start_date_time=start_date_time, title=title, bucket_task_board_format=bucket_task_board_format, progress_task_board_format=progress_task_board_format, id_details_id=microsoft_graph_entity_id, checklist=checklist, description=description, preview_type_details_preview_type=microsoft_graph_planner_preview_type, references=references, id_assigned_to_task_board_format_id=id1, order_hints_by_assignee=order_hints_by_assignee, unassigned_order_hint=unassigned_order_hint, application_created_by_application=application, device_created_by_device=device, user_created_by_user=user, application_completed_by_application=microsoft_graph_identity_application, device_completed_by_device=microsoft_graph_identity_device, user_completed_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1046,7 +1294,7 @@ class PlannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerTask')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerTask')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
