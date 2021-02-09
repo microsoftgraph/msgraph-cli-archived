@@ -19,12 +19,8 @@ def generate_extension_from_open_api_description(version='v1_0'):
         subprocess.run([
             'autorest',
             '--az',
-            '--v3',
             f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=@autorest/python@latest''',
-            r'''--use=@autorest/modelerfour@latest''',
-            r'''--use=@autorest/az@latest''',
         ],
                        shell=True)
 
