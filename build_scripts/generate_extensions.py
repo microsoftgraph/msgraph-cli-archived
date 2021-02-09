@@ -20,11 +20,11 @@ def generate_extension_from_open_api_description(version='v1_0'):
             'autorest',
             '--az',
             '--v3',
-            f'''--input-file:{file_path}''',
+            f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=@autorest/python@5.1.0-preview.4''',
-            r'''--use=@autorest/modelerfour@4.15.421''',
-            r'''--use=@autorest/az@1.5.1''',
+            r'''--use=@autorest/python@latest''',
+            r'''--use=@autorest/modelerfour@latest''',
+            r'''--use=@autorest/az@latest''',
         ],
                        shell=True)
 
@@ -82,7 +82,7 @@ az:
 
 az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
-cli-core-lib: msgraph.cli.core 
+cli-core-lib: msgraph.cli.core
 
 directive:
     - where:
