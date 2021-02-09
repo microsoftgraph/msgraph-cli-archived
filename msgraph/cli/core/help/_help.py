@@ -351,10 +351,7 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
 
                 indent = 2
 
-                # The long summary can be really long making it hard for users to see all the parameters
-                # So we extract the most important part, the usage information, which explains how the parameter
-                # should be used.
-                long_summary = layout.get('long_summary', None).split('\n')[0]
+                long_summary = layout.get('long_summary', None)
                 if long_summary:
                     _print_indent(long_summary, indent, width=self.textwrap_width)
 
