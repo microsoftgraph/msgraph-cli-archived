@@ -17,19 +17,19 @@ helps['planner group'] = """
     short-summary: planner group
 """
 
+helps['planner group update'] = """
+    type: command
+    short-summary: "Update the navigation property planner in groups"
+"""
+
 helps['planner group delete'] = """
     type: command
     short-summary: "Delete navigation property planner for groups"
 """
 
-helps['planner group get-planner'] = """
+helps['planner group get'] = """
     type: command
     short-summary: "Get planner from groups"
-"""
-
-helps['planner group update-planner'] = """
-    type: command
-    short-summary: "Update the navigation property planner in groups"
 """
 
 helps['planner group-planner'] = """
@@ -160,6 +160,77 @@ helps['planner group-planner-plan create-bucket'] = """
 helps['planner group-planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner group-planner-plan get-bucket'] = """
@@ -213,6 +284,77 @@ category6=XX
 helps['planner group-planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in groups"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner group-planner-plan-bucket'] = """
@@ -228,6 +370,77 @@ helps['planner group-planner-plan-bucket delete'] = """
 helps['planner group-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner group-planner-plan-bucket get-task'] = """
@@ -243,6 +456,77 @@ helps['planner group-planner-plan-bucket list-task'] = """
 helps['planner group-planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in groups"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner group-planner-plan-bucket-task'] = """
@@ -345,19 +629,19 @@ helps['planner group-planner-plan-task update-progress-task-board-format'] = """
     short-summary: "Update the navigation property progressTaskBoardFormat in groups"
 """
 
-helps['planner planner-planner'] = """
+helps['planner planner'] = """
     type: group
-    short-summary: planner planner-planner
+    short-summary: planner planner
 """
 
-helps['planner planner-planner get-planner'] = """
-    type: command
-    short-summary: "Get planner"
-"""
-
-helps['planner planner-planner update-planner'] = """
+helps['planner planner update'] = """
     type: command
     short-summary: "Update planner"
+"""
+
+helps['planner planner get'] = """
+    type: command
+    short-summary: "Get planner"
 """
 
 helps['planner planner'] = """
@@ -423,6 +707,77 @@ associated with the user won't show up as having changed when using delta.
 helps['planner planner create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner get-bucket'] = """
@@ -508,6 +863,77 @@ associated with the user won't show up as having changed when using delta.
 helps['planner planner update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-bucket'] = """
@@ -523,6 +949,77 @@ helps['planner planner-bucket delete'] = """
 helps['planner planner-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-bucket get-task'] = """
@@ -538,6 +1035,77 @@ helps['planner planner-bucket list-task'] = """
 helps['planner planner-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-bucket-task'] = """
@@ -608,6 +1176,77 @@ helps['planner planner-plan create-bucket'] = """
 helps['planner planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-plan get-bucket'] = """
@@ -661,6 +1300,77 @@ category6=XX
 helps['planner planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-plan-bucket'] = """
@@ -676,6 +1386,77 @@ helps['planner planner-plan-bucket delete'] = """
 helps['planner planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-plan-bucket get-task'] = """
@@ -691,6 +1472,77 @@ helps['planner planner-plan-bucket list-task'] = """
 helps['planner planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner-plan-bucket-task'] = """
@@ -848,19 +1700,19 @@ helps['planner user'] = """
     short-summary: planner user
 """
 
+helps['planner user update'] = """
+    type: command
+    short-summary: "Update the navigation property planner in users"
+"""
+
 helps['planner user delete'] = """
     type: command
     short-summary: "Delete navigation property planner for users"
 """
 
-helps['planner user get-planner'] = """
+helps['planner user get'] = """
     type: command
     short-summary: "Get planner from users"
-"""
-
-helps['planner user update-planner'] = """
-    type: command
-    short-summary: "Update the navigation property planner in users"
 """
 
 helps['planner user-planner'] = """
@@ -921,6 +1773,77 @@ associated with the user won't show up as having changed when using delta.
 helps['planner user-planner create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner user-planner get-plan'] = """
@@ -991,6 +1914,77 @@ associated with the user won't show up as having changed when using delta.
 helps['planner user-planner update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner user-planner-plan'] = """
@@ -1011,6 +2005,77 @@ helps['planner user-planner-plan create-bucket'] = """
 helps['planner user-planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner user-planner-plan get-bucket'] = """
@@ -1064,6 +2129,77 @@ category6=XX
 helps['planner user-planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner user-planner-plan-bucket'] = """
@@ -1079,6 +2215,77 @@ helps['planner user-planner-plan-bucket delete'] = """
 helps['planner user-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner user-planner-plan-bucket get-task'] = """
@@ -1094,6 +2301,77 @@ helps['planner user-planner-plan-bucket list-task'] = """
 helps['planner user-planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users"
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --completed-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --completed-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner user-planner-plan-bucket-task'] = """

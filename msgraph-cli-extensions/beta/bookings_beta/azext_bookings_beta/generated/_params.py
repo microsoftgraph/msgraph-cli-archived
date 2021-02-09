@@ -34,7 +34,7 @@ def load_arguments(self, _):
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('bookings booking-business-booking-business create-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business create-business') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
         c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
@@ -58,17 +58,17 @@ def load_arguments(self, _):
         c.argument('staff_members', type=validate_file_or_dict, help='All staff members that provides services in this '
                    'business. Expected value: json-string/@json-file.')
 
-    with self.argument_context('bookings booking-business-booking-business get-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business get-business') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings booking-business-booking-business list-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business list-business') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings booking-business-booking-business update-booking-business') as c:
+    with self.argument_context('bookings booking-business-booking-business update-business') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
@@ -552,21 +552,21 @@ def load_arguments(self, _):
         c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('bookings booking-currency-booking-currency create-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency create-currency') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('symbol', type=str, help='')
 
-    with self.argument_context('bookings booking-currency-booking-currency get-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency get-currency') as c:
         c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings booking-currency-booking-currency list-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency list-currency') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('bookings booking-currency-booking-currency update-booking-currency') as c:
+    with self.argument_context('bookings booking-currency-booking-currency update-currency') as c:
         c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('symbol', type=str, help='')

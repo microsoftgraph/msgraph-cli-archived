@@ -416,17 +416,17 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports report-report-root'] = """
+helps['reports report-root'] = """
     type: group
-    short-summary: reports report-report-root
+    short-summary: reports report-root
 """
 
-helps['reports report-report-root get-report-root'] = """
+helps['reports report-root get-root'] = """
     type: command
     short-summary: "Get reports"
 """
 
-helps['reports report-report-root update-report-root'] = """
+helps['reports report-root update-root'] = """
     type: command
     short-summary: "Update reports"
 """

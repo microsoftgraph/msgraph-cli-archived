@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
-helps['financials financial-financial'] = """
+helps['financials financial'] = """
     type: group
-    short-summary: financials financial-financial
+    short-summary: financials financial
 """
 
-helps['financials financial-financial get-financial'] = """
-    type: command
-    short-summary: "Get financials"
-"""
-
-helps['financials financial-financial update-financial'] = """
+helps['financials financial update'] = """
     type: command
     short-summary: "Update financials"
+"""
+
+helps['financials financial get'] = """
+    type: command
+    short-summary: "Get financials"
 """
 
 helps['financials financial'] = """

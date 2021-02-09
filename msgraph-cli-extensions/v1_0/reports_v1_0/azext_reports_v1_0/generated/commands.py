@@ -51,10 +51,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._report_report_root_operations#ReportRepor'
         'tRootOperations.{}',
         client_factory=cf_report_report_root)
-    with self.command_group('reports report-report-root', reports_v1_0_report_report_root,
+    with self.command_group('reports report-root', reports_v1_0_report_report_root,
                             client_factory=cf_report_report_root, is_experimental=True) as g:
-        g.custom_command('get-report-root', 'reports_report_report_root_get_report_root')
-        g.custom_command('update-report-root', 'reports_report_report_root_update_report_root')
+        g.custom_command('get-root', 'reports_report_root_get_root')
+        g.custom_command('update-root', 'reports_report_root_update_root')
 
     from azext_reports_v1_0.generated._client_factory import cf_report
     reports_v1_0_report = CliCommandType(

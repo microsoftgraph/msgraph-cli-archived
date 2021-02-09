@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['education education-education-root'] = """
+helps['education education-root'] = """
     type: group
-    short-summary: education education-education-root
+    short-summary: education education-root
 """
 
-helps['education education-education-root get-education-root'] = """
+helps['education education-root get-root'] = """
     type: command
     short-summary: "Get education"
 """
 
-helps['education education-education-root update-education-root'] = """
+helps['education education-root update-root'] = """
     type: command
     short-summary: "Update education"
 """

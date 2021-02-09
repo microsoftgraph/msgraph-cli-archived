@@ -22,29 +22,32 @@ def load_command_table(self, _):
         operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._group_operations#GroupOperations.{}',
         client_factory=cf_group)
     with self.command_group('sites group', sites_beta_group, client_factory=cf_group, is_experimental=True) as g:
+        g.custom_command('list', 'sites_group_list')
+        g.custom_command('create', 'sites_group_create')
+        g.custom_command('update', 'sites_group_update')
         g.custom_command('delete', 'sites_group_delete', confirmation=True)
-        g.custom_command('create-site', 'sites_group_create_site')
-        g.custom_command('get-site', 'sites_group_get_site')
-        g.custom_command('list-site', 'sites_group_list_site')
-        g.custom_command('update-site', 'sites_group_update_site')
+        g.custom_command('get', 'sites_group_get')
 
     from azext_sites_beta.generated._client_factory import cf_site_site
     sites_beta_site_site = CliCommandType(
         operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_site_operations#SiteSiteOperations.{}',
         client_factory=cf_site_site)
-    with self.command_group('sites site-site', sites_beta_site_site, client_factory=cf_site_site,
+    with self.command_group('sites site', sites_beta_site_site, client_factory=cf_site_site,
                             is_experimental=True) as g:
-        g.custom_command('delete', 'sites_site_site_delete', confirmation=True)
-        g.custom_command('create-site', 'sites_site_site_create_site')
-        g.custom_command('get-site', 'sites_site_site_get_site')
-        g.custom_command('list-site', 'sites_site_site_list_site')
-        g.custom_command('update-site', 'sites_site_site_update_site')
+        g.custom_command('list', 'sites_site_list')
+        g.custom_command('create', 'sites_site_create')
+        g.custom_command('update', 'sites_site_update')
+        g.custom_command('delete', 'sites_site_delete', confirmation=True)
+        g.custom_command('get', 'sites_site_get')
 
     from azext_sites_beta.generated._client_factory import cf_site
     sites_beta_site = CliCommandType(
         operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_operations#SiteOperations.{}',
         client_factory=cf_site)
     with self.command_group('sites site', sites_beta_site, client_factory=cf_site, is_experimental=True) as g:
+        g.custom_command('list', 'sites_site_list')
+        g.custom_command('create', 'sites_site_create')
+        g.custom_command('update', 'sites_site_update')
         g.custom_command('delete', 'sites_site_delete', confirmation=True)
         g.custom_command('add', 'sites_site_add')
         g.custom_command('create-column', 'sites_site_create_column')
@@ -52,8 +55,8 @@ def load_command_table(self, _):
         g.custom_command('create-drive', 'sites_site_create_drive')
         g.custom_command('create-list', 'sites_site_create_list')
         g.custom_command('create-page', 'sites_site_create_page')
-        g.custom_command('create-site', 'sites_site_create_site')
         g.custom_command('delta', 'sites_site_delta')
+        g.custom_command('get', 'sites_site_get')
         g.custom_command('get-activity-by-interval', 'sites_site_get_activity_by_interval')
         g.custom_command('get-analytic', 'sites_site_get_analytic')
         g.custom_command('get-by-path', 'sites_site_get_by_path')
@@ -63,13 +66,11 @@ def load_command_table(self, _):
         g.custom_command('get-list', 'sites_site_get_list')
         g.custom_command('get-page', 'sites_site_get_page')
         g.custom_command('get-ref-analytic', 'sites_site_get_ref_analytic')
-        g.custom_command('get-site', 'sites_site_get_site')
         g.custom_command('list-column', 'sites_site_list_column')
         g.custom_command('list-content-type', 'sites_site_list_content_type')
         g.custom_command('list-drive', 'sites_site_list_drive')
         g.custom_command('list-list', 'sites_site_list_list')
         g.custom_command('list-page', 'sites_site_list_page')
-        g.custom_command('list-site', 'sites_site_list_site')
         g.custom_command('remove', 'sites_site_remove')
         g.custom_command('set-ref-analytic', 'sites_site_set_ref_analytic')
         g.custom_command('update-column', 'sites_site_update_column')
@@ -77,7 +78,6 @@ def load_command_table(self, _):
         g.custom_command('update-drive', 'sites_site_update_drive')
         g.custom_command('update-list', 'sites_site_update_list')
         g.custom_command('update-page', 'sites_site_update_page')
-        g.custom_command('update-site', 'sites_site_update_site')
 
     from azext_sites_beta.generated._client_factory import cf_site_content_type
     sites_beta_site_content_type = CliCommandType(

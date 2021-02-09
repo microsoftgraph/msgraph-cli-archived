@@ -12,34 +12,1490 @@
 from knack.help_files import helps
 
 
-helps['users user-user'] = """
+helps['users user'] = """
     type: group
-    short-summary: users user-user
+    short-summary: users user
 """
 
-helps['users user-user delete'] = """
-    type: command
-    short-summary: "Delete entity from users"
-"""
-
-helps['users user-user create-user'] = """
-    type: command
-    short-summary: "Add new entity to users"
-"""
-
-helps['users user-user get-user'] = """
-    type: command
-    short-summary: "Get entity from users by key"
-"""
-
-helps['users user-user list-user'] = """
+helps['users user list'] = """
     type: command
     short-summary: "Get entities from users"
 """
 
-helps['users user-user update-user'] = """
+helps['users user create'] = """
+    type: command
+    short-summary: "Add new entity to users"
+    parameters:
+      - name: --sign-in-activity
+        short-summary: "signInActivity"
+        long-summary: |
+            Usage: --sign-in-activity last-sign-in-date-time=XX last-sign-in-request-id=XX
+
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --device-keys
+        long-summary: |
+            Usage: --device-keys device-id=XX key-material=XX key-type=XX
+
+
+            Multiple actions can be specified by using more than one --device-keys argument.
+      - name: --employee-org-data
+        short-summary: "employeeOrgData"
+        long-summary: |
+            Usage: --employee-org-data cost-center=XX division=XX
+
+            cost-center: The cost center associated with the user. Returned only on $select. Supports $filter.
+            division: The name of the division in which the user works. Returned only on $select. Supports $filter.
+      - name: --identities
+        short-summary: "Represents the identities that can be used to sign in to this user account. An identity can be \
+provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as \
+Facebook, Google, and Microsoft, and tied to a user account. May contain multiple items with the same signInType \
+value. Supports $filter."
+        long-summary: |
+            Usage: --identities issuer=XX issuer-assigned-id=XX sign-in-type=XX
+
+            issuer: Specifies the issuer of the identity, for example facebook.com.For local accounts (where \
+signInType is not federated), this property is the local B2C tenant default domain name, for example \
+contoso.onmicrosoft.com.For external users from other Azure AD organization, this will be the domain of the federated \
+organization, for example contoso.com.Supports $filter. 512 character limit.
+            issuer-assigned-id: Specifies the unique identifier assigned to the user by the issuer. The combination of \
+issuer and issuerAssignedId must be unique within the organization. Represents the sign-in name for the user, when \
+signInType is set to emailAddress or userName (also known as local accounts).When signInType is set to: emailAddress, \
+(or starts with emailAddress like emailAddress1) issuerAssignedId must be a valid email addressuserName, \
+issuerAssignedId must be a valid local part of an email addressSupports $filter. 512 character limit.
+            sign-in-type: Specifies the user sign-in types in your directory, such as emailAddress, userName or \
+federated. Here, federated represents a unique identifier for a user from an issuer, that can be in any format chosen \
+by the issuer. Additional validation is enforced on issuerAssignedId when the sign-in type is set to emailAddress or \
+userName. This property can also be set to any custom string.
+
+            Multiple actions can be specified by using more than one --identities argument.
+      - name: --license-assignment-states
+        short-summary: "State of license assignments for this user. Read-only."
+        long-summary: |
+            Usage: --license-assignment-states assigned-by-group=XX disabled-plans=XX error=XX sku-id=XX state=XX
+
+
+            Multiple actions can be specified by using more than one --license-assignment-states argument.
+      - name: --on-premises-extension-attributes
+        short-summary: "onPremisesExtensionAttributes"
+        long-summary: |
+            Usage: --on-premises-extension-attributes extension-attribute1=XX extension-attribute10=XX \
+extension-attribute11=XX extension-attribute12=XX extension-attribute13=XX extension-attribute14=XX \
+extension-attribute15=XX extension-attribute2=XX extension-attribute3=XX extension-attribute4=XX \
+extension-attribute5=XX extension-attribute6=XX extension-attribute7=XX extension-attribute8=XX \
+extension-attribute9=XX
+
+            extension-attribute1: First customizable extension attribute.
+            extension-attribute10: Tenth customizable extension attribute.
+            extension-attribute11: Eleventh customizable extension attribute.
+            extension-attribute12: Twelfth customizable extension attribute.
+            extension-attribute13: Thirteenth customizable extension attribute.
+            extension-attribute14: Fourteenth customizable extension attribute.
+            extension-attribute15: Fifteenth customizable extension attribute.
+            extension-attribute2: Second customizable extension attribute.
+            extension-attribute3: Third customizable extension attribute.
+            extension-attribute4: Fourth customizable extension attribute.
+            extension-attribute5: Fifth customizable extension attribute.
+            extension-attribute6: Sixth customizable extension attribute.
+            extension-attribute7: Seventh customizable extension attribute.
+            extension-attribute8: Eighth customizable extension attribute.
+            extension-attribute9: Ninth customizable extension attribute.
+      - name: --on-premises-provisioning-errors
+        short-summary: "Errors when using Microsoft synchronization product during provisioning."
+        long-summary: |
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+value=XX
+
+            category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
+value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the \
+property.
+            occurred-date-time: The date and time at which the error occurred.
+            property-causing-error: Name of the directory property causing the error. Current possible values: \
+UserPrincipalName or ProxyAddress
+            value: Value of the property causing the error.
+
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --app-role-assignments
+        long-summary: |
+            Usage: --app-role-assignments app-role-id=XX creation-timestamp=XX principal-display-name=XX \
+principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX id=XX
+
+            app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
+be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource \
+application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be \
+specified to signal that the principal is assigned to the resource app without any specific app roles. Required on \
+create. Does not support $filter.
+            creation-timestamp: The time when the app role assignment was created.The Timestamp type represents date \
+and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would \
+look like this: '2014-01-01T00:00:00Z'. Read-only. Does not support $filter.
+            principal-display-name: The display name of the user, group, or service principal that was granted the app \
+role assignment. Read-only. Supports $filter (eq and startswith).
+            principal-id: The unique identifier (id) for the user, group or service principal being granted the app \
+role. Required on create. Does not support $filter.
+            principal-type: The type of the assigned principal. This can either be 'User', 'Group' or \
+'ServicePrincipal'. Read-only. Does not support $filter.
+            resource-display-name: The display name of the resource app's service principal to which the assignment is \
+made. Does not support $filter.
+            resource-id: The unique identifier (id) for the resource service principal for which the assignment is \
+made. Required on create. Supports $filter (eq only).
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-objects
+        short-summary: "Directory objects that were created by the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --created-objects deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --created-objects argument.
+      - name: --direct-reports
+        short-summary: "The users and contacts that report to the user. (The users and contacts that have their \
+manager property set to this user.) Read-only. Nullable."
+        long-summary: |
+            Usage: --direct-reports deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --direct-reports argument.
+      - name: --license-details
+        short-summary: "A collection of this user's license details. Read-only."
+        long-summary: |
+            Usage: --license-details service-plans=XX sku-id=XX sku-part-number=XX id=XX
+
+            service-plans: Information about the service plans assigned with the license. Read-only, Not nullable
+            sku-id: Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related \
+SubscribedSku object. Read-only
+            sku-part-number: Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; \
+for example: 'AAD_Premium'. Read-only
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --license-details argument.
+      - name: --manager
+        short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
+many other directory entity types."
+        long-summary: |
+            Usage: --manager deleted-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --member-of
+        short-summary: "The groups and directory roles that the user is a member of. Read-only. Nullable."
+        long-summary: |
+            Usage: --member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --owned-devices
+        short-summary: "Devices that are owned by the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --owned-devices deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --owned-devices argument.
+      - name: --owned-objects
+        short-summary: "Directory objects that are owned by the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --owned-objects deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --owned-objects argument.
+      - name: --registered-devices
+        short-summary: "Devices that are registered for the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --registered-devices deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --registered-devices argument.
+      - name: --scoped-role-member-of
+        long-summary: |
+            Usage: --scoped-role-member-of administrative-unit-id=XX role-id=XX display-name=XX \
+id-role-member-info-id=XX id=XX
+
+            administrative-unit-id: Unique identifier for the administrative unit that the directory role is scoped to
+            role-id: Unique identifier for the directory role that the member is in.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id-role-member-info-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --scoped-role-member-of argument.
+      - name: --transitive-member-of
+        long-summary: |
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --photos
+        long-summary: |
+            Usage: --photos height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --agreement-acceptances
+        long-summary: |
+            Usage: --agreement-acceptances agreement-file-id=XX agreement-id=XX device-display-name=XX device-id=XX \
+device-os-type=XX device-os-version=XX expiration-date-time=XX recorded-date-time=XX state=XX user-display-name=XX \
+user-email=XX user-id=XX user-principal-name=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --agreement-acceptances argument.
+      - name: --windows-information-protection-device-registrations
+        short-summary: "Zero or more WIP device registrations that belong to the user."
+        long-summary: |
+            Usage: --windows-information-protection-device-registrations device-mac-address=XX device-name=XX \
+device-registration-id=XX device-type=XX last-check-in-date-time=XX user-id=XX id=XX
+
+            device-mac-address: Device Mac address.
+            device-name: Device name.
+            device-registration-id: Device identifier for this device registration record.
+            device-type: Device type, for example, Windows laptop VS Windows phone.
+            last-check-in-date-time: Last checkin time of the device.
+            user-id: UserId associated with this device registration record.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --windows-information-protection-device-registrati\
+ons argument.
+      - name: --insights
+        short-summary: "itemInsights"
+        long-summary: |
+            Usage: --insights shared=XX trending=XX used=XX id=XX
+
+            shared: Calculated relationship identifying documents shared with or by the user. This includes URLs, file \
+attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and \
+meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+            trending: Calculated relationship identifying documents trending around a user. Trending documents are \
+calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business \
+and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, \
+but has never viewed before.
+            used: Calculated relationship identifying the latest documents viewed or modified by a user, including \
+OneDrive for Business and SharePoint documents, ranked by recency of use.
+            id: Read-only.
+      - name: --presence
+        short-summary: "presence"
+        long-summary: |
+            Usage: --presence activity=XX availability=XX id=XX
+
+            id: Read-only.
+      - name: --authentication-email-methods
+        long-summary: |
+            Usage: --authentication-email-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-email-methods argument.
+      - name: --authentication-fido2methods
+        long-summary: |
+            Usage: --authentication-fido2methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-fido2methods argument.
+      - name: --authentication-methods
+        long-summary: |
+            Usage: --authentication-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-methods argument.
+      - name: --authentication-microsoft-authenticator-methods
+        long-summary: |
+            Usage: --authentication-microsoft-authenticator-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-microsoft-authenticator-methods \
+argument.
+      - name: --authentication-oath-methods
+        long-summary: |
+            Usage: --authentication-oath-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-oath-methods argument.
+      - name: --authentication-operations
+        long-summary: |
+            Usage: --authentication-operations created-date-time=XX last-action-date-time=XX resource-location=XX \
+status=XX status-detail=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-operations argument.
+      - name: --authentication-passwordless-microsoft-authenticator-methods
+        long-summary: |
+            Usage: --authentication-passwordless-microsoft-authenticator-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-passwordless-microsoft-authentica\
+tor-methods argument.
+      - name: --authentication-password-methods
+        long-summary: |
+            Usage: --authentication-password-methods creation-date-time=XX password=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-password-methods argument.
+      - name: --authentication-phone-methods
+        long-summary: |
+            Usage: --authentication-phone-methods phone-number=XX phone-type=XX sms-sign-in-state=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-phone-methods argument.
+      - name: --authentication-security-question-methods
+        long-summary: |
+            Usage: --authentication-security-question-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-security-question-methods \
+argument.
+      - name: --authentication-temporary-access-pass-methods
+        long-summary: |
+            Usage: --authentication-temporary-access-pass-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-temporary-access-pass-methods \
+argument.
+      - name: --profile-anniversaries
+        long-summary: |
+            Usage: --profile-anniversaries date=XX type=XX allowed-audiences=XX created-by=XX created-date-time=XX \
+inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-anniversaries argument.
+      - name: --profile-awards
+        long-summary: |
+            Usage: --profile-awards description=XX display-name=XX issued-date=XX issuing-authority=XX \
+thumbnail-url=XX web-url=XX allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX \
+last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-awards argument.
+      - name: --profile-certifications
+        long-summary: |
+            Usage: --profile-certifications certification-id=XX description=XX display-name=XX end-date=XX \
+issued-date=XX issuing-authority=XX issuing-company=XX start-date=XX thumbnail-url=XX web-url=XX allowed-audiences=XX \
+created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-certifications argument.
+      - name: --profile-emails
+        long-summary: |
+            Usage: --profile-emails address=XX display-name=XX type=XX allowed-audiences=XX created-by=XX \
+created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-emails argument.
+      - name: --profile-interests
+        long-summary: |
+            Usage: --profile-interests categories=XX collaboration-tags=XX description=XX display-name=XX web-url=XX \
+allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX \
+source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-interests argument.
+      - name: --profile-languages
+        long-summary: |
+            Usage: --profile-languages display-name=XX proficiency=XX reading=XX spoken=XX tag=XX written=XX \
+allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX \
+source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-languages argument.
+      - name: --profile-patents
+        long-summary: |
+            Usage: --profile-patents description=XX display-name=XX is-pending=XX issued-date=XX issuing-authority=XX \
+number=XX web-url=XX allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX \
+last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-patents argument.
+      - name: --profile-phones
+        long-summary: |
+            Usage: --profile-phones display-name=XX number=XX type=XX allowed-audiences=XX created-by=XX \
+created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-phones argument.
+      - name: --profile-publications
+        long-summary: |
+            Usage: --profile-publications description=XX display-name=XX published-date=XX publisher=XX \
+thumbnail-url=XX web-url=XX allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX \
+last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-publications argument.
+      - name: --profile-skills
+        long-summary: |
+            Usage: --profile-skills categories=XX collaboration-tags=XX display-name=XX proficiency=XX web-url=XX \
+allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX \
+source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-skills argument.
+      - name: --profile-websites
+        long-summary: |
+            Usage: --profile-websites categories=XX description=XX display-name=XX web-url=XX allowed-audiences=XX \
+created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-websites argument.
+      - name: --onenote-resources
+        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
+supported, but you can get the binary content of a specific resource. Read-only. Nullable."
+        long-summary: |
+            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+
+            content: The content stream
+            content-url: The URL for downloading the content
+            self: The endpoint where you can get details about the page. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --onenote-resources argument.
+      - name: --settings-shift-preferences-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-last-modified-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-regional-and-language-settings-authoring-languages
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-authoring-languages display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+
+            Multiple actions can be specified by using more than one --settings-regional-and-language-settings-authorin\
+g-languages argument.
+      - name: --settings-regional-and-language-settings-default-display-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-display-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-default-regional-format
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-regional-format display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-default-speech-input-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-speech-input-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-default-translation-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-translation-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-regional-format-overrides
+        short-summary: "regionalFormatOverrides"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-regional-format-overrides calendar=XX \
+first-day-of-week=XX long-date-format=XX long-time-format=XX short-date-format=XX short-time-format=XX time-zone=XX
+
+      - name: --planner-all
+        long-summary: |
+            Usage: --planner-all id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --planner-all argument.
+      - name: --outlook-master-categories
+        short-summary: "A list of categories defined for the user."
+        long-summary: |
+            Usage: --outlook-master-categories color=XX display-name=XX id=XX
+
+            display-name: A unique name that identifies a category in the user's mailbox. After a category is created, \
+the name cannot be changed. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --outlook-master-categories argument.
+      - name: --information-protection-data-loss-prevention-policies
+        long-summary: |
+            Usage: --information-protection-data-loss-prevention-policies name=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --information-protection-data-loss-prevention-poli\
+cies argument.
+      - name: --information-protection-sensitivity-policy-settings
+        short-summary: "sensitivityPolicySettings"
+        long-summary: |
+            Usage: --information-protection-sensitivity-policy-settings applicable-to=XX \
+downgrade-sensitivity-requires-justification=XX help-web-url=XX is-mandatory=XX id=XX
+
+            id: Read-only.
+      - name: --analytics-settings
+        short-summary: "settings"
+        long-summary: |
+            Usage: --analytics-settings has-graph-mailbox=XX has-license=XX has-opted-out=XX
+
+      - name: --analytics-activity-statistics
+        long-summary: |
+            Usage: --analytics-activity-statistics activity=XX duration=XX end-date=XX start-date=XX time-zone-used=XX \
+id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --analytics-activity-statistics argument.
+      - name: --mailbox-settings-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --mailbox-settings-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --mailbox-settings-user-purpose
+        short-summary: "userPurpose"
+        long-summary: |
+            Usage: --mailbox-settings-user-purpose value=XX
+
+"""
+
+helps['users user update'] = """
     type: command
     short-summary: "Update entity in users"
+    parameters:
+      - name: --sign-in-activity
+        short-summary: "signInActivity"
+        long-summary: |
+            Usage: --sign-in-activity last-sign-in-date-time=XX last-sign-in-request-id=XX
+
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --device-keys
+        long-summary: |
+            Usage: --device-keys device-id=XX key-material=XX key-type=XX
+
+
+            Multiple actions can be specified by using more than one --device-keys argument.
+      - name: --employee-org-data
+        short-summary: "employeeOrgData"
+        long-summary: |
+            Usage: --employee-org-data cost-center=XX division=XX
+
+            cost-center: The cost center associated with the user. Returned only on $select. Supports $filter.
+            division: The name of the division in which the user works. Returned only on $select. Supports $filter.
+      - name: --identities
+        short-summary: "Represents the identities that can be used to sign in to this user account. An identity can be \
+provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as \
+Facebook, Google, and Microsoft, and tied to a user account. May contain multiple items with the same signInType \
+value. Supports $filter."
+        long-summary: |
+            Usage: --identities issuer=XX issuer-assigned-id=XX sign-in-type=XX
+
+            issuer: Specifies the issuer of the identity, for example facebook.com.For local accounts (where \
+signInType is not federated), this property is the local B2C tenant default domain name, for example \
+contoso.onmicrosoft.com.For external users from other Azure AD organization, this will be the domain of the federated \
+organization, for example contoso.com.Supports $filter. 512 character limit.
+            issuer-assigned-id: Specifies the unique identifier assigned to the user by the issuer. The combination of \
+issuer and issuerAssignedId must be unique within the organization. Represents the sign-in name for the user, when \
+signInType is set to emailAddress or userName (also known as local accounts).When signInType is set to: emailAddress, \
+(or starts with emailAddress like emailAddress1) issuerAssignedId must be a valid email addressuserName, \
+issuerAssignedId must be a valid local part of an email addressSupports $filter. 512 character limit.
+            sign-in-type: Specifies the user sign-in types in your directory, such as emailAddress, userName or \
+federated. Here, federated represents a unique identifier for a user from an issuer, that can be in any format chosen \
+by the issuer. Additional validation is enforced on issuerAssignedId when the sign-in type is set to emailAddress or \
+userName. This property can also be set to any custom string.
+
+            Multiple actions can be specified by using more than one --identities argument.
+      - name: --license-assignment-states
+        short-summary: "State of license assignments for this user. Read-only."
+        long-summary: |
+            Usage: --license-assignment-states assigned-by-group=XX disabled-plans=XX error=XX sku-id=XX state=XX
+
+
+            Multiple actions can be specified by using more than one --license-assignment-states argument.
+      - name: --on-premises-extension-attributes
+        short-summary: "onPremisesExtensionAttributes"
+        long-summary: |
+            Usage: --on-premises-extension-attributes extension-attribute1=XX extension-attribute10=XX \
+extension-attribute11=XX extension-attribute12=XX extension-attribute13=XX extension-attribute14=XX \
+extension-attribute15=XX extension-attribute2=XX extension-attribute3=XX extension-attribute4=XX \
+extension-attribute5=XX extension-attribute6=XX extension-attribute7=XX extension-attribute8=XX \
+extension-attribute9=XX
+
+            extension-attribute1: First customizable extension attribute.
+            extension-attribute10: Tenth customizable extension attribute.
+            extension-attribute11: Eleventh customizable extension attribute.
+            extension-attribute12: Twelfth customizable extension attribute.
+            extension-attribute13: Thirteenth customizable extension attribute.
+            extension-attribute14: Fourteenth customizable extension attribute.
+            extension-attribute15: Fifteenth customizable extension attribute.
+            extension-attribute2: Second customizable extension attribute.
+            extension-attribute3: Third customizable extension attribute.
+            extension-attribute4: Fourth customizable extension attribute.
+            extension-attribute5: Fifth customizable extension attribute.
+            extension-attribute6: Sixth customizable extension attribute.
+            extension-attribute7: Seventh customizable extension attribute.
+            extension-attribute8: Eighth customizable extension attribute.
+            extension-attribute9: Ninth customizable extension attribute.
+      - name: --on-premises-provisioning-errors
+        short-summary: "Errors when using Microsoft synchronization product during provisioning."
+        long-summary: |
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+value=XX
+
+            category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
+value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the \
+property.
+            occurred-date-time: The date and time at which the error occurred.
+            property-causing-error: Name of the directory property causing the error. Current possible values: \
+UserPrincipalName or ProxyAddress
+            value: Value of the property causing the error.
+
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --app-role-assignments
+        long-summary: |
+            Usage: --app-role-assignments app-role-id=XX creation-timestamp=XX principal-display-name=XX \
+principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX id=XX
+
+            app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
+be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource \
+application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be \
+specified to signal that the principal is assigned to the resource app without any specific app roles. Required on \
+create. Does not support $filter.
+            creation-timestamp: The time when the app role assignment was created.The Timestamp type represents date \
+and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would \
+look like this: '2014-01-01T00:00:00Z'. Read-only. Does not support $filter.
+            principal-display-name: The display name of the user, group, or service principal that was granted the app \
+role assignment. Read-only. Supports $filter (eq and startswith).
+            principal-id: The unique identifier (id) for the user, group or service principal being granted the app \
+role. Required on create. Does not support $filter.
+            principal-type: The type of the assigned principal. This can either be 'User', 'Group' or \
+'ServicePrincipal'. Read-only. Does not support $filter.
+            resource-display-name: The display name of the resource app's service principal to which the assignment is \
+made. Does not support $filter.
+            resource-id: The unique identifier (id) for the resource service principal for which the assignment is \
+made. Required on create. Supports $filter (eq only).
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-objects
+        short-summary: "Directory objects that were created by the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --created-objects deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --created-objects argument.
+      - name: --direct-reports
+        short-summary: "The users and contacts that report to the user. (The users and contacts that have their \
+manager property set to this user.) Read-only. Nullable."
+        long-summary: |
+            Usage: --direct-reports deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --direct-reports argument.
+      - name: --license-details
+        short-summary: "A collection of this user's license details. Read-only."
+        long-summary: |
+            Usage: --license-details service-plans=XX sku-id=XX sku-part-number=XX id=XX
+
+            service-plans: Information about the service plans assigned with the license. Read-only, Not nullable
+            sku-id: Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related \
+SubscribedSku object. Read-only
+            sku-part-number: Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; \
+for example: 'AAD_Premium'. Read-only
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --license-details argument.
+      - name: --manager
+        short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
+many other directory entity types."
+        long-summary: |
+            Usage: --manager deleted-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --member-of
+        short-summary: "The groups and directory roles that the user is a member of. Read-only. Nullable."
+        long-summary: |
+            Usage: --member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --owned-devices
+        short-summary: "Devices that are owned by the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --owned-devices deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --owned-devices argument.
+      - name: --owned-objects
+        short-summary: "Directory objects that are owned by the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --owned-objects deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --owned-objects argument.
+      - name: --registered-devices
+        short-summary: "Devices that are registered for the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --registered-devices deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --registered-devices argument.
+      - name: --scoped-role-member-of
+        long-summary: |
+            Usage: --scoped-role-member-of administrative-unit-id=XX role-id=XX display-name=XX \
+id-role-member-info-id=XX id=XX
+
+            administrative-unit-id: Unique identifier for the administrative unit that the directory role is scoped to
+            role-id: Unique identifier for the directory role that the member is in.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id-role-member-info-id: Unique identifier for the identity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --scoped-role-member-of argument.
+      - name: --transitive-member-of
+        long-summary: |
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --photos
+        long-summary: |
+            Usage: --photos height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the user. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --agreement-acceptances
+        long-summary: |
+            Usage: --agreement-acceptances agreement-file-id=XX agreement-id=XX device-display-name=XX device-id=XX \
+device-os-type=XX device-os-version=XX expiration-date-time=XX recorded-date-time=XX state=XX user-display-name=XX \
+user-email=XX user-id=XX user-principal-name=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --agreement-acceptances argument.
+      - name: --windows-information-protection-device-registrations
+        short-summary: "Zero or more WIP device registrations that belong to the user."
+        long-summary: |
+            Usage: --windows-information-protection-device-registrations device-mac-address=XX device-name=XX \
+device-registration-id=XX device-type=XX last-check-in-date-time=XX user-id=XX id=XX
+
+            device-mac-address: Device Mac address.
+            device-name: Device name.
+            device-registration-id: Device identifier for this device registration record.
+            device-type: Device type, for example, Windows laptop VS Windows phone.
+            last-check-in-date-time: Last checkin time of the device.
+            user-id: UserId associated with this device registration record.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --windows-information-protection-device-registrati\
+ons argument.
+      - name: --insights
+        short-summary: "itemInsights"
+        long-summary: |
+            Usage: --insights shared=XX trending=XX used=XX id=XX
+
+            shared: Calculated relationship identifying documents shared with or by the user. This includes URLs, file \
+attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and \
+meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+            trending: Calculated relationship identifying documents trending around a user. Trending documents are \
+calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business \
+and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, \
+but has never viewed before.
+            used: Calculated relationship identifying the latest documents viewed or modified by a user, including \
+OneDrive for Business and SharePoint documents, ranked by recency of use.
+            id: Read-only.
+      - name: --presence
+        short-summary: "presence"
+        long-summary: |
+            Usage: --presence activity=XX availability=XX id=XX
+
+            id: Read-only.
+      - name: --authentication-email-methods
+        long-summary: |
+            Usage: --authentication-email-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-email-methods argument.
+      - name: --authentication-fido2methods
+        long-summary: |
+            Usage: --authentication-fido2methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-fido2methods argument.
+      - name: --authentication-methods
+        long-summary: |
+            Usage: --authentication-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-methods argument.
+      - name: --authentication-microsoft-authenticator-methods
+        long-summary: |
+            Usage: --authentication-microsoft-authenticator-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-microsoft-authenticator-methods \
+argument.
+      - name: --authentication-oath-methods
+        long-summary: |
+            Usage: --authentication-oath-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-oath-methods argument.
+      - name: --authentication-operations
+        long-summary: |
+            Usage: --authentication-operations created-date-time=XX last-action-date-time=XX resource-location=XX \
+status=XX status-detail=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-operations argument.
+      - name: --authentication-passwordless-microsoft-authenticator-methods
+        long-summary: |
+            Usage: --authentication-passwordless-microsoft-authenticator-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-passwordless-microsoft-authentica\
+tor-methods argument.
+      - name: --authentication-password-methods
+        long-summary: |
+            Usage: --authentication-password-methods creation-date-time=XX password=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-password-methods argument.
+      - name: --authentication-phone-methods
+        long-summary: |
+            Usage: --authentication-phone-methods phone-number=XX phone-type=XX sms-sign-in-state=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-phone-methods argument.
+      - name: --authentication-security-question-methods
+        long-summary: |
+            Usage: --authentication-security-question-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-security-question-methods \
+argument.
+      - name: --authentication-temporary-access-pass-methods
+        long-summary: |
+            Usage: --authentication-temporary-access-pass-methods id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --authentication-temporary-access-pass-methods \
+argument.
+      - name: --profile-anniversaries
+        long-summary: |
+            Usage: --profile-anniversaries date=XX type=XX allowed-audiences=XX created-by=XX created-date-time=XX \
+inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-anniversaries argument.
+      - name: --profile-awards
+        long-summary: |
+            Usage: --profile-awards description=XX display-name=XX issued-date=XX issuing-authority=XX \
+thumbnail-url=XX web-url=XX allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX \
+last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-awards argument.
+      - name: --profile-certifications
+        long-summary: |
+            Usage: --profile-certifications certification-id=XX description=XX display-name=XX end-date=XX \
+issued-date=XX issuing-authority=XX issuing-company=XX start-date=XX thumbnail-url=XX web-url=XX allowed-audiences=XX \
+created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-certifications argument.
+      - name: --profile-emails
+        long-summary: |
+            Usage: --profile-emails address=XX display-name=XX type=XX allowed-audiences=XX created-by=XX \
+created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-emails argument.
+      - name: --profile-interests
+        long-summary: |
+            Usage: --profile-interests categories=XX collaboration-tags=XX description=XX display-name=XX web-url=XX \
+allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX \
+source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-interests argument.
+      - name: --profile-languages
+        long-summary: |
+            Usage: --profile-languages display-name=XX proficiency=XX reading=XX spoken=XX tag=XX written=XX \
+allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX \
+source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-languages argument.
+      - name: --profile-patents
+        long-summary: |
+            Usage: --profile-patents description=XX display-name=XX is-pending=XX issued-date=XX issuing-authority=XX \
+number=XX web-url=XX allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX \
+last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-patents argument.
+      - name: --profile-phones
+        long-summary: |
+            Usage: --profile-phones display-name=XX number=XX type=XX allowed-audiences=XX created-by=XX \
+created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-phones argument.
+      - name: --profile-publications
+        long-summary: |
+            Usage: --profile-publications description=XX display-name=XX published-date=XX publisher=XX \
+thumbnail-url=XX web-url=XX allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX \
+last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-publications argument.
+      - name: --profile-skills
+        long-summary: |
+            Usage: --profile-skills categories=XX collaboration-tags=XX display-name=XX proficiency=XX web-url=XX \
+allowed-audiences=XX created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX \
+source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-skills argument.
+      - name: --profile-websites
+        long-summary: |
+            Usage: --profile-websites categories=XX description=XX display-name=XX web-url=XX allowed-audiences=XX \
+created-by=XX created-date-time=XX inference=XX last-modified-by=XX last-modified-date-time=XX source=XX id=XX
+
+            created-by: identitySet
+            inference: inferenceData
+            last-modified-by: identitySet
+            source: personDataSources
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --profile-websites argument.
+      - name: --onenote-resources
+        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
+supported, but you can get the binary content of a specific resource. Read-only. Nullable."
+        long-summary: |
+            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+
+            content: The content stream
+            content-url: The URL for downloading the content
+            self: The endpoint where you can get details about the page. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --onenote-resources argument.
+      - name: --settings-shift-preferences-last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-last-modified-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-shift-preferences-created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --settings-shift-preferences-created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --settings-regional-and-language-settings-authoring-languages
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-authoring-languages display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+
+            Multiple actions can be specified by using more than one --settings-regional-and-language-settings-authorin\
+g-languages argument.
+      - name: --settings-regional-and-language-settings-default-display-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-display-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-default-regional-format
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-regional-format display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-default-speech-input-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-speech-input-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-default-translation-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-default-translation-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --settings-regional-and-language-settings-regional-format-overrides
+        short-summary: "regionalFormatOverrides"
+        long-summary: |
+            Usage: --settings-regional-and-language-settings-regional-format-overrides calendar=XX \
+first-day-of-week=XX long-date-format=XX long-time-format=XX short-date-format=XX short-time-format=XX time-zone=XX
+
+      - name: --planner-all
+        long-summary: |
+            Usage: --planner-all id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --planner-all argument.
+      - name: --outlook-master-categories
+        short-summary: "A list of categories defined for the user."
+        long-summary: |
+            Usage: --outlook-master-categories color=XX display-name=XX id=XX
+
+            display-name: A unique name that identifies a category in the user's mailbox. After a category is created, \
+the name cannot be changed. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --outlook-master-categories argument.
+      - name: --information-protection-data-loss-prevention-policies
+        long-summary: |
+            Usage: --information-protection-data-loss-prevention-policies name=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --information-protection-data-loss-prevention-poli\
+cies argument.
+      - name: --information-protection-sensitivity-policy-settings
+        short-summary: "sensitivityPolicySettings"
+        long-summary: |
+            Usage: --information-protection-sensitivity-policy-settings applicable-to=XX \
+downgrade-sensitivity-requires-justification=XX help-web-url=XX is-mandatory=XX id=XX
+
+            id: Read-only.
+      - name: --analytics-settings
+        short-summary: "settings"
+        long-summary: |
+            Usage: --analytics-settings has-graph-mailbox=XX has-license=XX has-opted-out=XX
+
+      - name: --analytics-activity-statistics
+        long-summary: |
+            Usage: --analytics-activity-statistics activity=XX duration=XX end-date=XX start-date=XX time-zone-used=XX \
+id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --analytics-activity-statistics argument.
+      - name: --mailbox-settings-language
+        short-summary: "localeInfo"
+        long-summary: |
+            Usage: --mailbox-settings-language display-name=XX locale=XX
+
+            display-name: A name representing the user's locale in natural language, for example, 'English (United \
+States)'.
+            locale: A locale representation for the user, which includes the user's preferred language and \
+country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
+country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+      - name: --mailbox-settings-user-purpose
+        short-summary: "userPurpose"
+        long-summary: |
+            Usage: --mailbox-settings-user-purpose value=XX
+
+"""
+
+helps['users user delete'] = """
+    type: command
+    short-summary: "Delete entity from users"
+"""
+
+helps['users user get'] = """
+    type: command
+    short-summary: "Get entity from users by key"
 """
 
 helps['users user'] = """

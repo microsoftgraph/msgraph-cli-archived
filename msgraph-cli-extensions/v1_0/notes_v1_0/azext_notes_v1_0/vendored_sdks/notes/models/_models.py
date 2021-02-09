@@ -5134,8 +5134,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     :type last_modified_date_time: ~datetime.datetime
     :param level: The indentation level of the page. Read-only.
     :type level: int
-    :param links: pageLinks.
-    :type links: ~notes.models.MicrosoftGraphPageLinks
     :param order: The order of the page within its parent section. Read-only.
     :type order: int
     :param title: The title of the page.
@@ -5146,6 +5144,10 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
     :param parent_section: onenoteSection.
     :type parent_section: ~notes.models.MicrosoftGraphOnenoteSection
+    :param one_note_client_url: externalLink.
+    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+    :param one_note_web_url: externalLink.
+    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
     """
 
     _validation = {
@@ -5164,12 +5166,13 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         'created_by_app_id': {'key': 'createdByAppId', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'level': {'key': 'level', 'type': 'int'},
-        'links': {'key': 'links', 'type': 'MicrosoftGraphPageLinks'},
         'order': {'key': 'order', 'type': 'int'},
         'title': {'key': 'title', 'type': 'str'},
         'user_tags': {'key': 'userTags', 'type': '[str]'},
         'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
         'parent_section': {'key': 'parentSection', 'type': 'MicrosoftGraphOnenoteSection'},
+        'one_note_client_url': {'key': 'links.oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_web_url': {'key': 'links.oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
@@ -5184,12 +5187,13 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         self.created_by_app_id = kwargs.get('created_by_app_id', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.level = kwargs.get('level', None)
-        self.links = kwargs.get('links', None)
         self.order = kwargs.get('order', None)
         self.title = kwargs.get('title', None)
         self.user_tags = kwargs.get('user_tags', None)
         self.parent_notebook = kwargs.get('parent_notebook', None)
         self.parent_section = kwargs.get('parent_section', None)
+        self.one_note_client_url = kwargs.get('one_note_client_url', None)
+        self.one_note_web_url = kwargs.get('one_note_web_url', None)
 
 
 class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
@@ -5272,8 +5276,6 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     :type additional_properties: dict[str, object]
     :param is_default: Indicates whether this is the user's default section. Read-only.
     :type is_default: bool
-    :param links: sectionLinks.
-    :type links: ~notes.models.MicrosoftGraphSectionLinks
     :param pages_url: The pages endpoint where you can get details for all the pages in the
      section. Read-only.
     :type pages_url: str
@@ -5283,6 +5285,10 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
     :param parent_section_group: sectionGroup.
     :type parent_section_group: ~notes.models.MicrosoftGraphSectionGroup
+    :param one_note_client_url: externalLink.
+    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+    :param one_note_web_url: externalLink.
+    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
     """
 
     _attribute_map = {
@@ -5301,11 +5307,12 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
         'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
-        'links': {'key': 'links', 'type': 'MicrosoftGraphSectionLinks'},
         'pages_url': {'key': 'pagesUrl', 'type': 'str'},
         'pages': {'key': 'pages', 'type': '[MicrosoftGraphOnenotePage]'},
         'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
         'parent_section_group': {'key': 'parentSectionGroup', 'type': 'MicrosoftGraphSectionGroup'},
+        'one_note_client_url': {'key': 'links.oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_web_url': {'key': 'links.oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
@@ -5317,11 +5324,12 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
-        self.links = kwargs.get('links', None)
         self.pages_url = kwargs.get('pages_url', None)
         self.pages = kwargs.get('pages', None)
         self.parent_notebook = kwargs.get('parent_notebook', None)
         self.parent_section_group = kwargs.get('parent_section_group', None)
+        self.one_note_client_url = kwargs.get('one_note_client_url', None)
+        self.one_note_web_url = kwargs.get('one_note_web_url', None)
 
 
 class MicrosoftGraphPageLinks(msrest.serialization.Model):

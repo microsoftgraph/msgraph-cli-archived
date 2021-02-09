@@ -42,10 +42,10 @@ class AddResources(argparse._AppendAction):
         return d
 
 
-class AddLastModifiedByApplication(argparse.Action):
+class AddError(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.last_modified_by_application = action
+        namespace.error = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -59,10 +59,10 @@ class AddLastModifiedByApplication(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'message':
+                d['message'] = v[0]
         return d
 
 
@@ -88,10 +88,10 @@ class AddLinksOneNoteClientUrl(argparse.Action):
         return d
 
 
-class AddError(argparse.Action):
+class AddLastModifiedByApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.error = action
+        namespace.last_modified_by_application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -105,8 +105,8 @@ class AddError(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'message':
-                d['message'] = v[0]
+            if kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
         return d

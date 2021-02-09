@@ -23,10 +23,10 @@ def load_command_table(self, _):
     with self.command_group('teams app-catalog', teams_beta_app_catalog, client_factory=cf_app_catalog,
                             is_experimental=True) as g:
         g.custom_command('delete', 'teams_app_catalog_delete', confirmation=True)
-        g.custom_command('create-team-app', 'teams_app_catalog_create_team_app')
-        g.custom_command('get-team-app', 'teams_app_catalog_get_team_app')
-        g.custom_command('list-team-app', 'teams_app_catalog_list_team_app')
-        g.custom_command('update-team-app', 'teams_app_catalog_update_team_app')
+        g.custom_command('create-app', 'teams_app_catalog_create_app')
+        g.custom_command('get-app', 'teams_app_catalog_get_app')
+        g.custom_command('list-app', 'teams_app_catalog_list_app')
+        g.custom_command('update-app', 'teams_app_catalog_update_app')
 
     from azext_teams_beta.generated._client_factory import cf_app_catalog_team_app
     teams_beta_app_catalog_team_app = CliCommandType(
@@ -87,10 +87,10 @@ def load_command_table(self, _):
     with self.command_group('teams chat-installed-app', teams_beta_chat_installed_app,
                             client_factory=cf_chat_installed_app, is_experimental=True) as g:
         g.custom_command('delete', 'teams_chat_installed_app_delete', confirmation=True)
+        g.custom_command('get-app', 'teams_chat_installed_app_get_app')
+        g.custom_command('get-app-definition', 'teams_chat_installed_app_get_app_definition')
         g.custom_command('get-ref-team-app', 'teams_chat_installed_app_get_ref_team_app')
         g.custom_command('get-ref-team-app-definition', 'teams_chat_installed_app_get_ref_team_app_definition')
-        g.custom_command('get-team-app', 'teams_chat_installed_app_get_team_app')
-        g.custom_command('get-team-app-definition', 'teams_chat_installed_app_get_team_app_definition')
         g.custom_command('set-ref-team-app', 'teams_chat_installed_app_set_ref_team_app')
         g.custom_command('set-ref-team-app-definition', 'teams_chat_installed_app_set_ref_team_app_definition')
         g.custom_command('upgrade', 'teams_chat_installed_app_upgrade')
@@ -140,8 +140,8 @@ def load_command_table(self, _):
     with self.command_group('teams chat-tab', teams_beta_chat_tab, client_factory=cf_chat_tab,
                             is_experimental=True) as g:
         g.custom_command('delete', 'teams_chat_tab_delete', confirmation=True)
+        g.custom_command('get-app', 'teams_chat_tab_get_app')
         g.custom_command('get-ref-team-app', 'teams_chat_tab_get_ref_team_app')
-        g.custom_command('get-team-app', 'teams_chat_tab_get_team_app')
         g.custom_command('set-ref-team-app', 'teams_chat_tab_set_ref_team_app')
 
     from azext_teams_beta.generated._client_factory import cf_group
@@ -149,21 +149,21 @@ def load_command_table(self, _):
         operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._group_operations#GroupOperations.{}',
         client_factory=cf_group)
     with self.command_group('teams group', teams_beta_group, client_factory=cf_group, is_experimental=True) as g:
+        g.custom_command('update', 'teams_group_update')
         g.custom_command('delete', 'teams_group_delete', confirmation=True)
-        g.custom_command('get-team', 'teams_group_get_team')
-        g.custom_command('update-team', 'teams_group_update_team')
+        g.custom_command('get', 'teams_group_get')
 
     from azext_teams_beta.generated._client_factory import cf_team_team
     teams_beta_team_team = CliCommandType(
         operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_team_operations#TeamTeamOperations.{}',
         client_factory=cf_team_team)
-    with self.command_group('teams team-team', teams_beta_team_team, client_factory=cf_team_team,
+    with self.command_group('teams team', teams_beta_team_team, client_factory=cf_team_team,
                             is_experimental=True) as g:
-        g.custom_command('delete', 'teams_team_team_delete', confirmation=True)
-        g.custom_command('create-team', 'teams_team_team_create_team')
-        g.custom_command('get-team', 'teams_team_team_get_team')
-        g.custom_command('list-team', 'teams_team_team_list_team')
-        g.custom_command('update-team', 'teams_team_team_update_team')
+        g.custom_command('list', 'teams_team_list')
+        g.custom_command('create', 'teams_team_create')
+        g.custom_command('update', 'teams_team_update')
+        g.custom_command('delete', 'teams_team_delete', confirmation=True)
+        g.custom_command('get', 'teams_team_get')
 
     from azext_teams_beta.generated._client_factory import cf_team
     teams_beta_team = CliCommandType(
@@ -285,8 +285,8 @@ def load_command_table(self, _):
     with self.command_group('teams team-channel-tab', teams_beta_team_channel_tab, client_factory=cf_team_channel_tab,
                             is_experimental=True) as g:
         g.custom_command('delete', 'teams_team_channel_tab_delete', confirmation=True)
+        g.custom_command('get-app', 'teams_team_channel_tab_get_app')
         g.custom_command('get-ref-team-app', 'teams_team_channel_tab_get_ref_team_app')
-        g.custom_command('get-team-app', 'teams_team_channel_tab_get_team_app')
         g.custom_command('set-ref-team-app', 'teams_team_channel_tab_set_ref_team_app')
 
     from azext_teams_beta.generated._client_factory import cf_team_installed_app
@@ -297,10 +297,10 @@ def load_command_table(self, _):
     with self.command_group('teams team-installed-app', teams_beta_team_installed_app,
                             client_factory=cf_team_installed_app, is_experimental=True) as g:
         g.custom_command('delete', 'teams_team_installed_app_delete', confirmation=True)
+        g.custom_command('get-app', 'teams_team_installed_app_get_app')
+        g.custom_command('get-app-definition', 'teams_team_installed_app_get_app_definition')
         g.custom_command('get-ref-team-app', 'teams_team_installed_app_get_ref_team_app')
         g.custom_command('get-ref-team-app-definition', 'teams_team_installed_app_get_ref_team_app_definition')
-        g.custom_command('get-team-app', 'teams_team_installed_app_get_team_app')
-        g.custom_command('get-team-app-definition', 'teams_team_installed_app_get_team_app_definition')
         g.custom_command('set-ref-team-app', 'teams_team_installed_app_set_ref_team_app')
         g.custom_command('set-ref-team-app-definition', 'teams_team_installed_app_set_ref_team_app_definition')
         g.custom_command('upgrade', 'teams_team_installed_app_upgrade')
@@ -388,8 +388,8 @@ def load_command_table(self, _):
     with self.command_group('teams team-primary-channel-tab', teams_beta_team_primary_channel_tab,
                             client_factory=cf_team_primary_channel_tab, is_experimental=True) as g:
         g.custom_command('delete', 'teams_team_primary_channel_tab_delete', confirmation=True)
+        g.custom_command('get-app', 'teams_team_primary_channel_tab_get_app')
         g.custom_command('get-ref-team-app', 'teams_team_primary_channel_tab_get_ref_team_app')
-        g.custom_command('get-team-app', 'teams_team_primary_channel_tab_get_team_app')
         g.custom_command('set-ref-team-app', 'teams_team_primary_channel_tab_set_ref_team_app')
 
     from azext_teams_beta.generated._client_factory import cf_team_schedule
@@ -462,8 +462,8 @@ def load_command_table(self, _):
         client_factory=cf_teamwork_teamwork)
     with self.command_group('teams teamwork-teamwork', teams_beta_teamwork_teamwork,
                             client_factory=cf_teamwork_teamwork, is_experimental=True) as g:
-        g.custom_command('get-teamwork', 'teams_teamwork_teamwork_get_teamwork')
-        g.custom_command('update-teamwork', 'teams_teamwork_teamwork_update_teamwork')
+        g.custom_command('getwork', 'teams_teamwork_teamwork_getwork')
+        g.custom_command('updatework', 'teams_teamwork_teamwork_updatework')
 
     from azext_teams_beta.generated._client_factory import cf_teamwork
     teams_beta_teamwork = CliCommandType(
@@ -487,12 +487,12 @@ def load_command_table(self, _):
         g.custom_command('create-joined-team', 'teams_user_create_joined_team')
         g.custom_command('get-chat', 'teams_user_get_chat')
         g.custom_command('get-joined-team', 'teams_user_get_joined_team')
-        g.custom_command('get-teamwork', 'teams_user_get_teamwork')
+        g.custom_command('getwork', 'teams_user_getwork')
         g.custom_command('list-chat', 'teams_user_list_chat')
         g.custom_command('list-joined-team', 'teams_user_list_joined_team')
         g.custom_command('update-chat', 'teams_user_update_chat')
         g.custom_command('update-joined-team', 'teams_user_update_joined_team')
-        g.custom_command('update-teamwork', 'teams_user_update_teamwork')
+        g.custom_command('updatework', 'teams_user_updatework')
 
     from azext_teams_beta.generated._client_factory import cf_user_teamwork
     teams_beta_user_teamwork = CliCommandType(

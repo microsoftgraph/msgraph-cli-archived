@@ -1,8 +1,8 @@
 # Azure CLI Module Creation Report
 
-### sites group create-site
+### sites group create
 
-create-site a sites group.
+create a sites group.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -12,7 +12,7 @@ create-site a sites group.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-site|CreateSites|
+|create|CreateSites|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -89,9 +89,9 @@ delete a sites group.
 |**--site-id**|string|key: id of site|site_id|site-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### sites group get-site
+### sites group get
 
-get-site a sites group.
+get a sites group.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -101,7 +101,7 @@ get-site a sites group.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-site|GetSites|
+|get|GetSites|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -111,9 +111,9 @@ get-site a sites group.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### sites group list-site
+### sites group list
 
-list-site a sites group.
+list a sites group.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -123,7 +123,7 @@ list-site a sites group.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-site|ListSites|
+|list|ListSites|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -133,9 +133,9 @@ list-site a sites group.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### sites group update-site
+### sites group update
 
-update-site a sites group.
+update a sites group.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -145,7 +145,7 @@ update-site a sites group.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-site|UpdateSites|
+|update|UpdateSites|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -220,6 +220,74 @@ add a sites site.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--value**|array||value|value|
+
+### sites site create
+
+create a sites site.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|sites site|sites|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create|CreateSites|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--site-id**|string|key: id of site|site_id|site-id|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
+|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
+|**--drive**|object|drive|drive|drive|
+|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
+|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
+|**--lists**|array|The collection of lists under this site.|lists|lists|
+|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
+|**--onenote-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--onenote-notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
+|**--onenote-operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
+|**--onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|pages|pages|
+|**--onenote-resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
+|**--onenote-section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
+|**--onenote-sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
+|**--site-collection-data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
+|**--site-collection-hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
+|**--site-collection-root**|dictionary|root|microsoft_graph_root|root|
+|**--error-code**|string||code|code|
+|**--error-details**|array||details|details|
+|**--error-inner-error**|object|publicInnerError|inner_error|innerError|
+|**--error-message**|string||message|message|
+|**--error-target**|string||target|target|
 
 ### sites site create-column
 
@@ -408,74 +476,6 @@ create-list a sites site.
 |**--items**|array|All items contained in the list.|items|items|
 |**--subscriptions**|array|The set of subscriptions on the list.|subscriptions|subscriptions|
 
-### sites site create-site
-
-create-site a sites site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site|sites|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-site|CreateSites|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string|key: id of site|site_id|site-id|
-|**--id**|string|Read-only.|id|id|
-|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
-|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
-|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
-|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
-|**--name**|string|The name of the item. Read-write.|name|name|
-|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
-|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
-|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
-|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
-|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
-|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
-|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
-|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
-|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
-|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
-|**--parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
-|**--root**|dictionary|root|root|root|
-|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
-|**--analytics**|object|itemAnalytics|analytics|analytics|
-|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
-|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
-|**--drive**|object|drive|drive|drive|
-|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
-|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
-|**--lists**|array|The collection of lists under this site.|lists|lists|
-|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
-|**--onenote-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--onenote-notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
-|**--onenote-operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
-|**--onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|pages|pages|
-|**--onenote-resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
-|**--onenote-section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
-|**--onenote-sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
-|**--site-collection-data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
-|**--site-collection-hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
-|**--site-collection-root**|dictionary|root|microsoft_graph_root|root|
-|**--error-code**|string||code|code|
-|**--error-details**|array||details|details|
-|**--error-inner-error**|object|publicInnerError|inner_error|innerError|
-|**--error-message**|string||message|message|
-|**--error-target**|string||target|target|
-
 ### sites site delete
 
 delete a sites site.
@@ -506,6 +506,28 @@ delete a sites site.
 |**--list-id**|string|key: id of list|list_id|list-id|
 |**--site-id1**|string|key: id of site|site_id1|site-id1|
 |**--if-match**|string|ETag|if_match|If-Match|
+
+### sites site get
+
+get a sites site.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|sites site|sites|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get|GetSites|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--site-id**|string|key: id of site|site_id|site-id|
+|**--site-id1**|string|key: id of site|site_id1|site-id1|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
 ### sites site get-activity-by-interval53-ee
 
@@ -697,9 +719,9 @@ get-ref-analytic a sites site.
 |------|----|-----------|----------|------------|
 |**--site-id**|string|key: id of site|site_id|site-id|
 
-### sites site get-site
+### sites site list
 
-get-site a sites site.
+list a sites site.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -709,13 +731,13 @@ get-site a sites site.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-site|GetSites|
+|list|ListSites|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--site-id**|string|key: id of site|site_id|site-id|
-|**--site-id1**|string|key: id of site|site_id1|site-id1|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -807,28 +829,6 @@ list-list a sites site.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### sites site list-site
-
-list-site a sites site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site|sites|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-site|ListSites|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string|key: id of site|site_id|site-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
 ### sites site remove
 
 remove a sites site.
@@ -867,6 +867,75 @@ set-ref-analytic a sites site.
 |------|----|-----------|----------|------------|
 |**--site-id**|string|key: id of site|site_id|site-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
+
+### sites site update
+
+update a sites site.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|sites site|sites|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update|UpdateSites|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--site-id**|string|key: id of site|site_id|site-id|
+|**--site-id1**|string|key: id of site|site_id1|site-id1|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
+|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
+|**--drive**|object|drive|drive|drive|
+|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
+|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
+|**--lists**|array|The collection of lists under this site.|lists|lists|
+|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
+|**--onenote-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--onenote-notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
+|**--onenote-operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
+|**--onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|pages|pages|
+|**--onenote-resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
+|**--onenote-section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
+|**--onenote-sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
+|**--site-collection-data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
+|**--site-collection-hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
+|**--site-collection-root**|dictionary|root|microsoft_graph_root|root|
+|**--error-code**|string||code|code|
+|**--error-details**|array||details|details|
+|**--error-inner-error**|object|publicInnerError|inner_error|innerError|
+|**--error-message**|string||message|message|
+|**--error-target**|string||target|target|
 
 ### sites site update-column
 
@@ -1059,75 +1128,6 @@ update-list a sites site.
 |**--drive**|object|drive|drive|drive|
 |**--items**|array|All items contained in the list.|items|items|
 |**--subscriptions**|array|The set of subscriptions on the list.|subscriptions|subscriptions|
-
-### sites site update-site
-
-update-site a sites site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site|sites|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-site|UpdateSites|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string|key: id of site|site_id|site-id|
-|**--site-id1**|string|key: id of site|site_id1|site-id1|
-|**--id**|string|Read-only.|id|id|
-|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
-|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
-|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
-|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
-|**--name**|string|The name of the item. Read-write.|name|name|
-|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
-|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
-|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
-|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
-|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
-|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
-|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
-|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
-|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
-|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
-|**--parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
-|**--root**|dictionary|root|root|root|
-|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
-|**--analytics**|object|itemAnalytics|analytics|analytics|
-|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
-|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
-|**--drive**|object|drive|drive|drive|
-|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
-|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
-|**--lists**|array|The collection of lists under this site.|lists|lists|
-|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
-|**--onenote-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--onenote-notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
-|**--onenote-operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
-|**--onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|pages|pages|
-|**--onenote-resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
-|**--onenote-section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
-|**--onenote-sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
-|**--site-collection-data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
-|**--site-collection-hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
-|**--site-collection-root**|dictionary|root|microsoft_graph_root|root|
-|**--error-code**|string||code|code|
-|**--error-details**|array||details|details|
-|**--error-inner-error**|object|publicInnerError|inner_error|innerError|
-|**--error-message**|string||message|message|
-|**--error-target**|string||target|target|
 
 ### sites site-content-type create-column-link
 
@@ -5273,203 +5273,6 @@ copy-to-section-group a sites site-onenote-section-parent-section-group-section.
 |**--rename-as**|string||rename_as|renameAs|
 |**--site-collection-id**|string||site_collection_id|siteCollectionId|
 |**--string-site-id**|string||string_site_id|siteId|
-
-### sites site-site create-site
-
-create-site a sites site-site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site-site|sites.site|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-site|CreateSite|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
-|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
-|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
-|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
-|**--name**|string|The name of the item. Read-write.|name|name|
-|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
-|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
-|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
-|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
-|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
-|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
-|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
-|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
-|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
-|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
-|**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
-|**--root**|dictionary|root|root|root|
-|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
-|**--analytics**|object|itemAnalytics|analytics|analytics|
-|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
-|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
-|**--drive**|object|drive|drive|drive|
-|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
-|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
-|**--lists**|array|The collection of lists under this site.|lists|lists|
-|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
-|**--onenote-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--onenote-notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
-|**--onenote-operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
-|**--onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|pages|pages|
-|**--onenote-resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
-|**--onenote-section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
-|**--onenote-sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
-|**--site-collection-data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
-|**--site-collection-hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
-|**--site-collection-root**|dictionary|root|microsoft_graph_root|root|
-|**--error-code**|string||code|code|
-|**--error-details**|array||details|details|
-|**--error-inner-error**|object|publicInnerError|inner_error|innerError|
-|**--error-message**|string||message|message|
-|**--error-target**|string||target|target|
-
-### sites site-site delete
-
-delete a sites site-site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site-site|sites.site|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteSite|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string|key: id of site|site_id|site-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### sites site-site get-site
-
-get-site a sites site-site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site-site|sites.site|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-site|GetSite|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string|key: id of site|site_id|site-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### sites site-site list-site
-
-list-site a sites site-site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site-site|sites.site|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-site|ListSite|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### sites site-site update-site
-
-update-site a sites site-site.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|sites site-site|sites.site|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-site|UpdateSite|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string|key: id of site|site_id|site-id|
-|**--id**|string|Read-only.|id|id|
-|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
-|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
-|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
-|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
-|**--name**|string|The name of the item. Read-write.|name|name|
-|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
-|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
-|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
-|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
-|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
-|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
-|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
-|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
-|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
-|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
-|**--parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
-|**--root**|dictionary|root|root|root|
-|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
-|**--analytics**|object|itemAnalytics|analytics|analytics|
-|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
-|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
-|**--drive**|object|drive|drive|drive|
-|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
-|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
-|**--lists**|array|The collection of lists under this site.|lists|lists|
-|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
-|**--onenote-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--onenote-notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
-|**--onenote-operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
-|**--onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|pages|pages|
-|**--onenote-resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
-|**--onenote-section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
-|**--onenote-sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
-|**--site-collection-data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
-|**--site-collection-hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
-|**--site-collection-root**|dictionary|root|microsoft_graph_root|root|
-|**--error-code**|string||code|code|
-|**--error-details**|array||details|details|
-|**--error-inner-error**|object|publicInnerError|inner_error|innerError|
-|**--error-message**|string||message|message|
-|**--error-target**|string||target|target|
 
 ### sites user create-ref-followed-site
 

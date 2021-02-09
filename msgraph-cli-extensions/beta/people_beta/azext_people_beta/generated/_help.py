@@ -756,6 +756,88 @@ associated with the user won't show up as having changed when using delta.
 helps['people user-profile create-educational-activity'] = """
     type: command
     short-summary: "Create new navigation property to educationalActivities for users"
+    parameters:
+      - name: --inference
+        short-summary: "inferenceData"
+        long-summary: |
+            Usage: --inference confidence-score=XX user-has-verified-accuracy=XX
+
+      - name: --source
+        short-summary: "personDataSources"
+        long-summary: |
+            Usage: --source type=XX
+
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --program
+        short-summary: "educationalActivityDetail"
+        long-summary: |
+            Usage: --program abbreviation=XX activities=XX awards=XX description=XX display-name=XX fields-of-study=XX \
+grade=XX notes=XX web-url=XX
+
+      - name: --institution-location
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --institution-location city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
 """
 
 helps['people user-profile create-email'] = """
@@ -2289,6 +2371,88 @@ associated with the user won't show up as having changed when using delta.
 helps['people user-profile update-educational-activity'] = """
     type: command
     short-summary: "Update the navigation property educationalActivities in users"
+    parameters:
+      - name: --inference
+        short-summary: "inferenceData"
+        long-summary: |
+            Usage: --inference confidence-score=XX user-has-verified-accuracy=XX
+
+      - name: --source
+        short-summary: "personDataSources"
+        long-summary: |
+            Usage: --source type=XX
+
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --program
+        short-summary: "educationalActivityDetail"
+        long-summary: |
+            Usage: --program abbreviation=XX activities=XX awards=XX description=XX display-name=XX fields-of-study=XX \
+grade=XX notes=XX web-url=XX
+
+      - name: --institution-location
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --institution-location city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
 """
 
 helps['people user-profile update-email'] = """

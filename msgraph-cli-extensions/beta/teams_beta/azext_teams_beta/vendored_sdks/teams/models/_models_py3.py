@@ -22160,16 +22160,44 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param draft_shift: shiftItem.
-    :type draft_shift: ~teams.models.MicrosoftGraphShiftItem
     :param is_staged_for_deletion:
     :type is_staged_for_deletion: bool
     :param scheduling_group_id: ID of the scheduling group the shift is part of. Required.
     :type scheduling_group_id: str
-    :param shared_shift: shiftItem.
-    :type shared_shift: ~teams.models.MicrosoftGraphShiftItem
     :param user_id: ID of the user assigned to the shift. Required.
     :type user_id: str
+    :param end_date_time_shared_shift_end_date_time:
+    :type end_date_time_shared_shift_end_date_time: ~datetime.datetime
+    :param start_date_time_shared_shift_start_date_time:
+    :type start_date_time_shared_shift_start_date_time: ~datetime.datetime
+    :param theme_shared_shift_theme:  Possible values include: "white", "blue", "green", "purple",
+     "pink", "yellow", "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow",
+     "unknownFutureValue".
+    :type theme_shared_shift_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+    :param activities_shared_shift_activities: An incremental part of a shift which can cover
+     details of when and where an employee is during their shift. For example, an assignment or a
+     scheduled break or lunch. Required.
+    :type activities_shared_shift_activities: list[~teams.models.MicrosoftGraphShiftActivity]
+    :param display_name_shared_shift_display_name: The shift label of the shiftItem.
+    :type display_name_shared_shift_display_name: str
+    :param notes_shared_shift_notes: The shift notes for the shiftItem.
+    :type notes_shared_shift_notes: str
+    :param end_date_time_draft_shift_end_date_time:
+    :type end_date_time_draft_shift_end_date_time: ~datetime.datetime
+    :param start_date_time_draft_shift_start_date_time:
+    :type start_date_time_draft_shift_start_date_time: ~datetime.datetime
+    :param theme_draft_shift_theme:  Possible values include: "white", "blue", "green", "purple",
+     "pink", "yellow", "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow",
+     "unknownFutureValue".
+    :type theme_draft_shift_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
+    :param activities_draft_shift_activities: An incremental part of a shift which can cover
+     details of when and where an employee is during their shift. For example, an assignment or a
+     scheduled break or lunch. Required.
+    :type activities_draft_shift_activities: list[~teams.models.MicrosoftGraphShiftActivity]
+    :param display_name_draft_shift_display_name: The shift label of the shiftItem.
+    :type display_name_draft_shift_display_name: str
+    :param notes_draft_shift_notes: The shift notes for the shiftItem.
+    :type notes_draft_shift_notes: str
     """
 
     _attribute_map = {
@@ -22190,11 +22218,21 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
         'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'draft_shift': {'key': 'draftShift', 'type': 'MicrosoftGraphShiftItem'},
         'is_staged_for_deletion': {'key': 'isStagedForDeletion', 'type': 'bool'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
-        'shared_shift': {'key': 'sharedShift', 'type': 'MicrosoftGraphShiftItem'},
         'user_id': {'key': 'userId', 'type': 'str'},
+        'end_date_time_shared_shift_end_date_time': {'key': 'sharedShift.endDateTime', 'type': 'iso-8601'},
+        'start_date_time_shared_shift_start_date_time': {'key': 'sharedShift.startDateTime', 'type': 'iso-8601'},
+        'theme_shared_shift_theme': {'key': 'sharedShift.theme', 'type': 'str'},
+        'activities_shared_shift_activities': {'key': 'sharedShift.activities', 'type': '[MicrosoftGraphShiftActivity]'},
+        'display_name_shared_shift_display_name': {'key': 'sharedShift.displayName', 'type': 'str'},
+        'notes_shared_shift_notes': {'key': 'sharedShift.notes', 'type': 'str'},
+        'end_date_time_draft_shift_end_date_time': {'key': 'draftShift.endDateTime', 'type': 'iso-8601'},
+        'start_date_time_draft_shift_start_date_time': {'key': 'draftShift.startDateTime', 'type': 'iso-8601'},
+        'theme_draft_shift_theme': {'key': 'draftShift.theme', 'type': 'str'},
+        'activities_draft_shift_activities': {'key': 'draftShift.activities', 'type': '[MicrosoftGraphShiftActivity]'},
+        'display_name_draft_shift_display_name': {'key': 'draftShift.displayName', 'type': 'str'},
+        'notes_draft_shift_notes': {'key': 'draftShift.notes', 'type': 'str'},
     }
 
     def __init__(
@@ -22217,21 +22255,41 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         display_name_created_by_application_display_name: Optional[str] = None,
         id_created_by_application_id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        draft_shift: Optional["MicrosoftGraphShiftItem"] = None,
         is_staged_for_deletion: Optional[bool] = None,
         scheduling_group_id: Optional[str] = None,
-        shared_shift: Optional["MicrosoftGraphShiftItem"] = None,
         user_id: Optional[str] = None,
+        end_date_time_shared_shift_end_date_time: Optional[datetime.datetime] = None,
+        start_date_time_shared_shift_start_date_time: Optional[datetime.datetime] = None,
+        theme_shared_shift_theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
+        activities_shared_shift_activities: Optional[List["MicrosoftGraphShiftActivity"]] = None,
+        display_name_shared_shift_display_name: Optional[str] = None,
+        notes_shared_shift_notes: Optional[str] = None,
+        end_date_time_draft_shift_end_date_time: Optional[datetime.datetime] = None,
+        start_date_time_draft_shift_start_date_time: Optional[datetime.datetime] = None,
+        theme_draft_shift_theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
+        activities_draft_shift_activities: Optional[List["MicrosoftGraphShiftActivity"]] = None,
+        display_name_draft_shift_display_name: Optional[str] = None,
+        notes_draft_shift_notes: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, display_name_last_modified_by_user_display_name=display_name_last_modified_by_user_display_name, id_last_modified_by_user_id=id_last_modified_by_user_id, display_name_last_modified_by_device_display_name=display_name_last_modified_by_device_display_name, id_last_modified_by_device_id=id_last_modified_by_device_id, display_name_last_modified_by_application_display_name=display_name_last_modified_by_application_display_name, id_last_modified_by_application_id=id_last_modified_by_application_id, display_name_created_by_user_display_name=display_name_created_by_user_display_name, id_created_by_user_id=id_created_by_user_id, display_name_created_by_device_display_name=display_name_created_by_device_display_name, id_created_by_device_id=id_created_by_device_id, display_name_created_by_application_display_name=display_name_created_by_application_display_name, id_created_by_application_id=id_created_by_application_id, **kwargs)
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
-        self.draft_shift = draft_shift
         self.is_staged_for_deletion = is_staged_for_deletion
         self.scheduling_group_id = scheduling_group_id
-        self.shared_shift = shared_shift
         self.user_id = user_id
+        self.end_date_time_shared_shift_end_date_time = end_date_time_shared_shift_end_date_time
+        self.start_date_time_shared_shift_start_date_time = start_date_time_shared_shift_start_date_time
+        self.theme_shared_shift_theme = theme_shared_shift_theme
+        self.activities_shared_shift_activities = activities_shared_shift_activities
+        self.display_name_shared_shift_display_name = display_name_shared_shift_display_name
+        self.notes_shared_shift_notes = notes_shared_shift_notes
+        self.end_date_time_draft_shift_end_date_time = end_date_time_draft_shift_end_date_time
+        self.start_date_time_draft_shift_start_date_time = start_date_time_draft_shift_start_date_time
+        self.theme_draft_shift_theme = theme_draft_shift_theme
+        self.activities_draft_shift_activities = activities_draft_shift_activities
+        self.display_name_draft_shift_display_name = display_name_draft_shift_display_name
+        self.notes_draft_shift_notes = notes_draft_shift_notes
 
 
 class MicrosoftGraphShiftActivity(msrest.serialization.Model):
@@ -25012,21 +25070,33 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
     :type additional_properties: dict[str, object]
     :param breaks:
     :type breaks: list[~teams.models.MicrosoftGraphTimeCardBreak]
-    :param clock_in_event: timeCardEvent.
-    :type clock_in_event: ~teams.models.MicrosoftGraphTimeCardEvent
-    :param clock_out_event: timeCardEvent.
-    :type clock_out_event: ~teams.models.MicrosoftGraphTimeCardEvent
     :param confirmed_by:  Possible values include: "none", "user", "manager", "unknownFutureValue".
     :type confirmed_by: str or ~teams.models.MicrosoftGraphConfirmedBy
     :param notes: itemBody.
     :type notes: ~teams.models.MicrosoftGraphItemBody
-    :param original_entry: timeCardEntry.
-    :type original_entry: ~teams.models.MicrosoftGraphTimeCardEntry
     :param state:  Possible values include: "clockedIn", "onBreak", "clockedOut",
      "unknownFutureValue".
     :type state: str or ~teams.models.MicrosoftGraphTimeCardState
     :param user_id:
     :type user_id: str
+    :param breaks_original_entry_breaks:
+    :type breaks_original_entry_breaks: list[~teams.models.MicrosoftGraphTimeCardBreak]
+    :param clock_in_event: timeCardEvent.
+    :type clock_in_event: ~teams.models.MicrosoftGraphTimeCardEvent
+    :param clock_out_event: timeCardEvent.
+    :type clock_out_event: ~teams.models.MicrosoftGraphTimeCardEvent
+    :param at_approved_location_clock_out_event_at_approved_location:
+    :type at_approved_location_clock_out_event_at_approved_location: bool
+    :param date_time_clock_out_event_date_time:
+    :type date_time_clock_out_event_date_time: ~datetime.datetime
+    :param notes_clock_out_event_notes: itemBody.
+    :type notes_clock_out_event_notes: ~teams.models.MicrosoftGraphItemBody
+    :param at_approved_location_clock_in_event_at_approved_location:
+    :type at_approved_location_clock_in_event_at_approved_location: bool
+    :param date_time_clock_in_event_date_time:
+    :type date_time_clock_in_event_date_time: ~datetime.datetime
+    :param notes_clock_in_event_notes: itemBody.
+    :type notes_clock_in_event_notes: ~teams.models.MicrosoftGraphItemBody
     """
 
     _attribute_map = {
@@ -25048,13 +25118,19 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
         'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'breaks': {'key': 'breaks', 'type': '[MicrosoftGraphTimeCardBreak]'},
-        'clock_in_event': {'key': 'clockInEvent', 'type': 'MicrosoftGraphTimeCardEvent'},
-        'clock_out_event': {'key': 'clockOutEvent', 'type': 'MicrosoftGraphTimeCardEvent'},
         'confirmed_by': {'key': 'confirmedBy', 'type': 'str'},
         'notes': {'key': 'notes', 'type': 'MicrosoftGraphItemBody'},
-        'original_entry': {'key': 'originalEntry', 'type': 'MicrosoftGraphTimeCardEntry'},
         'state': {'key': 'state', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
+        'breaks_original_entry_breaks': {'key': 'originalEntry.breaks', 'type': '[MicrosoftGraphTimeCardBreak]'},
+        'clock_in_event': {'key': 'originalEntry.clockInEvent', 'type': 'MicrosoftGraphTimeCardEvent'},
+        'clock_out_event': {'key': 'originalEntry.clockOutEvent', 'type': 'MicrosoftGraphTimeCardEvent'},
+        'at_approved_location_clock_out_event_at_approved_location': {'key': 'clockOutEvent.atApprovedLocation', 'type': 'bool'},
+        'date_time_clock_out_event_date_time': {'key': 'clockOutEvent.dateTime', 'type': 'iso-8601'},
+        'notes_clock_out_event_notes': {'key': 'clockOutEvent.notes', 'type': 'MicrosoftGraphItemBody'},
+        'at_approved_location_clock_in_event_at_approved_location': {'key': 'clockInEvent.atApprovedLocation', 'type': 'bool'},
+        'date_time_clock_in_event_date_time': {'key': 'clockInEvent.dateTime', 'type': 'iso-8601'},
+        'notes_clock_in_event_notes': {'key': 'clockInEvent.notes', 'type': 'MicrosoftGraphItemBody'},
     }
 
     def __init__(
@@ -25078,26 +25154,38 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
         id_created_by_application_id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         breaks: Optional[List["MicrosoftGraphTimeCardBreak"]] = None,
-        clock_in_event: Optional["MicrosoftGraphTimeCardEvent"] = None,
-        clock_out_event: Optional["MicrosoftGraphTimeCardEvent"] = None,
         confirmed_by: Optional[Union[str, "MicrosoftGraphConfirmedBy"]] = None,
         notes: Optional["MicrosoftGraphItemBody"] = None,
-        original_entry: Optional["MicrosoftGraphTimeCardEntry"] = None,
         state: Optional[Union[str, "MicrosoftGraphTimeCardState"]] = None,
         user_id: Optional[str] = None,
+        breaks_original_entry_breaks: Optional[List["MicrosoftGraphTimeCardBreak"]] = None,
+        clock_in_event: Optional["MicrosoftGraphTimeCardEvent"] = None,
+        clock_out_event: Optional["MicrosoftGraphTimeCardEvent"] = None,
+        at_approved_location_clock_out_event_at_approved_location: Optional[bool] = None,
+        date_time_clock_out_event_date_time: Optional[datetime.datetime] = None,
+        notes_clock_out_event_notes: Optional["MicrosoftGraphItemBody"] = None,
+        at_approved_location_clock_in_event_at_approved_location: Optional[bool] = None,
+        date_time_clock_in_event_date_time: Optional[datetime.datetime] = None,
+        notes_clock_in_event_notes: Optional["MicrosoftGraphItemBody"] = None,
         **kwargs
     ):
         super(MicrosoftGraphTimeCard, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, display_name_last_modified_by_user_display_name=display_name_last_modified_by_user_display_name, id_last_modified_by_user_id=id_last_modified_by_user_id, display_name_last_modified_by_device_display_name=display_name_last_modified_by_device_display_name, id_last_modified_by_device_id=id_last_modified_by_device_id, display_name_last_modified_by_application_display_name=display_name_last_modified_by_application_display_name, id_last_modified_by_application_id=id_last_modified_by_application_id, display_name_created_by_user_display_name=display_name_created_by_user_display_name, id_created_by_user_id=id_created_by_user_id, display_name_created_by_device_display_name=display_name_created_by_device_display_name, id_created_by_device_id=id_created_by_device_id, display_name_created_by_application_display_name=display_name_created_by_application_display_name, id_created_by_application_id=id_created_by_application_id, **kwargs)
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.breaks = breaks
-        self.clock_in_event = clock_in_event
-        self.clock_out_event = clock_out_event
         self.confirmed_by = confirmed_by
         self.notes = notes
-        self.original_entry = original_entry
         self.state = state
         self.user_id = user_id
+        self.breaks_original_entry_breaks = breaks_original_entry_breaks
+        self.clock_in_event = clock_in_event
+        self.clock_out_event = clock_out_event
+        self.at_approved_location_clock_out_event_at_approved_location = at_approved_location_clock_out_event_at_approved_location
+        self.date_time_clock_out_event_date_time = date_time_clock_out_event_date_time
+        self.notes_clock_out_event_notes = notes_clock_out_event_notes
+        self.at_approved_location_clock_in_event_at_approved_location = at_approved_location_clock_in_event_at_approved_location
+        self.date_time_clock_in_event_date_time = date_time_clock_in_event_date_time
+        self.notes_clock_in_event_notes = notes_clock_in_event_notes
 
 
 class MicrosoftGraphTimeCardBreak(msrest.serialization.Model):
@@ -27418,8 +27506,22 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param chat: chat.
-    :type chat: ~teams.models.MicrosoftGraphChat
+    :param id_chat_id: Read-only.
+    :type id_chat_id: str
+    :param created_date_time:
+    :type created_date_time: ~datetime.datetime
+    :param last_updated_date_time:
+    :type last_updated_date_time: ~datetime.datetime
+    :param topic:
+    :type topic: str
+    :param installed_apps:
+    :type installed_apps: list[~teams.models.MicrosoftGraphTeamsAppInstallation]
+    :param members:
+    :type members: list[~teams.models.MicrosoftGraphConversationMember]
+    :param messages:
+    :type messages: list[~teams.models.MicrosoftGraphChatMessage]
+    :param tabs:
+    :type tabs: list[~teams.models.MicrosoftGraphTeamsTab]
     """
 
     _attribute_map = {
@@ -27446,7 +27548,14 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
         'external_id': {'key': 'teamsApp.externalId', 'type': 'str'},
         'app_definitions': {'key': 'teamsApp.appDefinitions', 'type': '[MicrosoftGraphTeamsAppDefinition]'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'chat': {'key': 'chat', 'type': 'MicrosoftGraphChat'},
+        'id_chat_id': {'key': 'chat.id', 'type': 'str'},
+        'created_date_time': {'key': 'chat.createdDateTime', 'type': 'iso-8601'},
+        'last_updated_date_time': {'key': 'chat.lastUpdatedDateTime', 'type': 'iso-8601'},
+        'topic': {'key': 'chat.topic', 'type': 'str'},
+        'installed_apps': {'key': 'chat.installedApps', 'type': '[MicrosoftGraphTeamsAppInstallation]'},
+        'members': {'key': 'chat.members', 'type': '[MicrosoftGraphConversationMember]'},
+        'messages': {'key': 'chat.messages', 'type': '[MicrosoftGraphChatMessage]'},
+        'tabs': {'key': 'chat.tabs', 'type': '[MicrosoftGraphTeamsTab]'},
     }
 
     def __init__(
@@ -27475,13 +27584,27 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
         external_id: Optional[str] = None,
         app_definitions: Optional[List["MicrosoftGraphTeamsAppDefinition"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        chat: Optional["MicrosoftGraphChat"] = None,
+        id_chat_id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        last_updated_date_time: Optional[datetime.datetime] = None,
+        topic: Optional[str] = None,
+        installed_apps: Optional[List["MicrosoftGraphTeamsAppInstallation"]] = None,
+        members: Optional[List["MicrosoftGraphConversationMember"]] = None,
+        messages: Optional[List["MicrosoftGraphChatMessage"]] = None,
+        tabs: Optional[List["MicrosoftGraphTeamsTab"]] = None,
         **kwargs
     ):
         super(MicrosoftGraphUserScopeTeamsAppInstallation, self).__init__(id=id, id_teams_app_definition_id=id_teams_app_definition_id, azure_ad_app_id=azure_ad_app_id, description=description, display_name_teams_app_definition_display_name=display_name_teams_app_definition_display_name, last_modified_date_time=last_modified_date_time, publishing_state=publishing_state, shortdescription=shortdescription, teams_app_id=teams_app_id, version=version, display_name_teams_app_definition_created_by_user_display_name=display_name_teams_app_definition_created_by_user_display_name, id_teams_app_definition_created_by_user_id=id_teams_app_definition_created_by_user_id, display_name_teams_app_definition_created_by_device_display_name=display_name_teams_app_definition_created_by_device_display_name, id_teams_app_definition_created_by_device_id=id_teams_app_definition_created_by_device_id, display_name_teams_app_definition_created_by_application_display_name=display_name_teams_app_definition_created_by_application_display_name, id_teams_app_definition_created_by_application_id=id_teams_app_definition_created_by_application_id, id_teams_app_id=id_teams_app_id, display_name_teams_app_display_name=display_name_teams_app_display_name, distribution_method=distribution_method, external_id=external_id, app_definitions=app_definitions, **kwargs)
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
-        self.chat = chat
+        self.id_chat_id = id_chat_id
+        self.created_date_time = created_date_time
+        self.last_updated_date_time = last_updated_date_time
+        self.topic = topic
+        self.installed_apps = installed_apps
+        self.members = members
+        self.messages = messages
+        self.tabs = tabs
 
 
 class MicrosoftGraphUserSettings(MicrosoftGraphEntity):

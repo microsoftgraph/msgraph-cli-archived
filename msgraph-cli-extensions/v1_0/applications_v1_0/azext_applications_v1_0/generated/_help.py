@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['applications application-application'] = """
+helps['applications application'] = """
     type: group
-    short-summary: applications application-application
+    short-summary: applications application
 """
 
-helps['applications application-application delete'] = """
+helps['applications application list'] = """
     type: command
-    short-summary: "Delete entity from applications"
+    short-summary: "Get entities from applications"
 """
 
-helps['applications application-application create-application'] = """
+helps['applications application create'] = """
     type: command
     short-summary: "Add new entity to applications"
     parameters:
@@ -324,27 +324,7 @@ incremental consent for example) will require user consent."
             Multiple actions can be specified by using more than one --api-pre-authorized-applications argument.
 """
 
-helps['applications application-application get-application'] = """
-    type: command
-    short-summary: "Get entity from applications by key"
-"""
-
-helps['applications application-application get-logo'] = """
-    type: command
-    short-summary: "Get media content for application from applications"
-"""
-
-helps['applications application-application list-application'] = """
-    type: command
-    short-summary: "Get entities from applications"
-"""
-
-helps['applications application-application set-logo'] = """
-    type: command
-    short-summary: "Update media content for application in applications"
-"""
-
-helps['applications application-application update-application'] = """
+helps['applications application update'] = """
     type: command
     short-summary: "Update entity in applications"
     parameters:
@@ -644,6 +624,26 @@ incremental consent for example) will require user consent."
             delegated-permission-ids: The unique identifier for the oauth2PermissionScopes the application requires.
 
             Multiple actions can be specified by using more than one --api-pre-authorized-applications argument.
+"""
+
+helps['applications application delete'] = """
+    type: command
+    short-summary: "Delete entity from applications"
+"""
+
+helps['applications application get'] = """
+    type: command
+    short-summary: "Get entity from applications by key"
+"""
+
+helps['applications application get-logo'] = """
+    type: command
+    short-summary: "Get media content for application from applications"
+"""
+
+helps['applications application set-logo'] = """
+    type: command
+    short-summary: "Update media content for application in applications"
 """
 
 helps['applications application'] = """

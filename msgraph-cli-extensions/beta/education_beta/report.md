@@ -2142,50 +2142,6 @@ delta a education education-class-teacher.
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 
-### education education-education-root get-education-root
-
-get-education-root a education education-education-root.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-education-root|education.educationRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-education-root|GetEducationRoot|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### education education-education-root update-education-root
-
-update-education-root a education education-education-root.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-education-root|education.educationRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-education-root|UpdateEducationRoot|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--synchronization-profiles**|array||synchronization_profiles|synchronizationProfiles|
-|**--classes**|array|Read-only. Nullable.|classes|classes|
-|**--me**|object|educationUser|me|me|
-|**--schools**|array|Read-only. Nullable.|schools|schools|
-|**--users**|array|Read-only. Nullable.|users|users|
-
 ### education education-me create-assignment
 
 create-assignment a education education-me.
@@ -3645,6 +3601,50 @@ delta a education education-me-taught-class.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+
+### education education-root get-root
+
+get-root a education education-root.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|education education-root|education.educationRoot|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-root|GetEducationRoot|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### education education-root update-root
+
+update-root a education education-root.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|education education-root|education.educationRoot|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-root|UpdateEducationRoot|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--synchronization-profiles**|array||synchronization_profiles|synchronizationProfiles|
+|**--classes**|array|Read-only. Nullable.|classes|classes|
+|**--me**|object|educationUser|me|me|
+|**--schools**|array|Read-only. Nullable.|schools|schools|
+|**--users**|array|Read-only. Nullable.|users|users|
 
 ### education education-school create-ref-class
 

@@ -20,10 +20,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_education_root_operations#E'
         'ducationEducationRootOperations.{}',
         client_factory=cf_education_education_root)
-    with self.command_group('education education-education-root', education_v1_0_education_education_root,
+    with self.command_group('education education-root', education_v1_0_education_education_root,
                             client_factory=cf_education_education_root, is_experimental=True) as g:
-        g.custom_command('get-education-root', 'education_education_education_root_get_education_root')
-        g.custom_command('update-education-root', 'education_education_education_root_update_education_root')
+        g.custom_command('get-root', 'education_education_root_get_root')
+        g.custom_command('update-root', 'education_education_root_update_root')
 
     from azext_education_v1_0.generated._client_factory import cf_education
     education_v1_0_education = CliCommandType(

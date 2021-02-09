@@ -17,10 +17,16 @@ from msgraph.cli.core.commands.parameters import (
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_files_beta.action import (
     AddParentReferenceSharepointIds,
-    AddLastModifiedByApplication,
     AddListList,
     AddFilesDriveUpdateListSubscriptions,
     AddQuotaStoragePlanInformation,
+    AddTimes,
+    AddActionDelete,
+    AddActionMention,
+    AddActionMove,
+    AddActionRename,
+    AddActionShare,
+    AddActionVersion,
     AddAudio,
     AddFileSystemInfo,
     AddImage,
@@ -32,6 +38,7 @@ from azext_files_beta.action import (
     AddWorkbookApplication,
     AddWorkbookComments,
     AddWorkbookFunctions,
+    AddSharedOwner,
     AddRemoteItemPackage,
     AddRemoteItemSpecialFolder,
     AddFolderView,
@@ -53,6 +60,8 @@ from azext_files_beta.action import (
     AddDrivesListActivitiesListitemRecipients,
     AddDrivesListItemsRecipients,
     AddDrivesListItemsActivitiesListitemRecipients,
+    AddPermissionGrantedToIdentities,
+    AddPermissionLinkApplication,
     AddOnenoteResources,
     AddSharesListActivitiesListitemRecipients,
     AddSharesListItemsRecipients,
@@ -95,12 +104,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -140,13 +173,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -172,9 +228,21 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files drive-drive get-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -212,12 +280,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -257,13 +349,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -289,9 +404,21 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files drive delete') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -301,8 +428,39 @@ def load_arguments(self, _):
 
     with self.argument_context('files drive create-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive create-bundle') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -330,12 +488,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -384,18 +566,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -404,8 +583,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -462,12 +640,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -516,18 +718,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -536,8 +735,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -594,12 +792,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -648,18 +870,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -668,8 +887,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -726,12 +944,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -780,18 +1022,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -800,8 +1039,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -958,8 +1196,39 @@ def load_arguments(self, _):
     with self.argument_context('files drive update-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive update-bundle') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -988,12 +1257,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -1042,18 +1335,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -1062,8 +1352,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -1121,12 +1410,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -1175,18 +1488,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -1195,8 +1505,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -1254,12 +1563,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -1308,18 +1641,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -1328,8 +1658,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -1386,13 +1715,37 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('display_name', type=str, help='The displayable title of the list.')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list', action=AddListList, nargs='*', help='listInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -1434,12 +1787,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -1488,18 +1865,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -1508,8 +1882,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -1567,12 +1940,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -1621,18 +2018,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -1641,8 +2035,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -1726,12 +2119,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -1780,18 +2197,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -1800,8 +2214,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -1859,12 +2272,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -1887,8 +2324,39 @@ def load_arguments(self, _):
     with self.argument_context('files drive-activity-list-item create-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-activity-list-item create-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -1905,9 +2373,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files drive-activity-list-item get-activity') as c:
@@ -1986,8 +2466,39 @@ def load_arguments(self, _):
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
         c.argument('item_activity_old_id1', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-activity-list-item update-drive-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -2016,12 +2527,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -2070,18 +2605,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -2090,8 +2622,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -2134,9 +2665,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files drive-activity-list-item-version delete') as c:
@@ -2174,8 +2717,39 @@ def load_arguments(self, _):
 
     with self.argument_context('files drive-list create-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-list create-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -2267,12 +2841,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -2403,8 +3001,39 @@ def load_arguments(self, _):
     with self.argument_context('files drive-list update-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-list update-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -2498,12 +3127,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -2543,13 +3196,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -2575,9 +3251,21 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files drive-list update-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -2606,12 +3294,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -2728,12 +3440,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -2782,18 +3518,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -2802,8 +3535,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -2861,12 +3593,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -2889,8 +3645,39 @@ def load_arguments(self, _):
     with self.argument_context('files drive-list-activity-list-item create-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-list-activity-list-item create-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -2907,9 +3694,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files drive-list-activity-list-item get-activity') as c:
@@ -2988,8 +3787,39 @@ def load_arguments(self, _):
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
         c.argument('item_activity_old_id1', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-list-activity-list-item update-drive-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -3018,12 +3848,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -3072,18 +3926,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -3092,8 +3943,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -3136,9 +3986,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files drive-list-activity-list-item-version delete') as c:
@@ -3208,8 +4070,39 @@ def load_arguments(self, _):
     with self.argument_context('files drive-list-item create-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-list-item create-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -3226,9 +4119,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files drive-list-item get-activity') as c:
@@ -3307,8 +4212,39 @@ def load_arguments(self, _):
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files drive-list-item update-drive-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -3337,12 +4273,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -3391,18 +4351,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -3411,8 +4368,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -3455,9 +4411,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files drive-list-item-activity delete') as c:
@@ -3519,12 +4487,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -3573,18 +4565,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -3593,8 +4582,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -3653,12 +4641,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -3744,12 +4756,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -3789,13 +4825,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -3821,9 +4880,21 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files group get-drive') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3864,12 +4935,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -3909,13 +5004,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -3941,16 +5059,234 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files share-shared-drive-item delete') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('files share-shared-drive-item create-shared-drive-item') as c:
-        c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('parent_reference_path', type=str,
+                   help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('parent_reference_site_id', type=str, help='')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('items', type=validate_file_or_dict, help='All driveItems contained in the sharing root. This '
+                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('root', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('site', type=validate_file_or_dict, help='site Expected value: json-string/@json-file.')
+        c.argument('permission_id', type=str, help='Read-only.')
+        c.argument('permission_expiration_date_time', help='A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset '
+                   'indicates the expiration time of the permission. DateTime.MinValue indicates there is no '
+                   'expiration set for this permission. Optional.')
+        c.argument('permission_granted_to_identities', action=AddPermissionGrantedToIdentities, nargs='*', help='For '
+                   'link type permissions, the details of the users to whom permission was granted. Read-only.')
+        c.argument('permission_has_password', arg_type=get_three_state_flag(), help='This indicates whether password '
+                   'is set for this permission, it\'s only showing in response. Optional and Read-only and for '
+                   'OneDrive Personal only.')
+        c.argument('permission_roles', nargs='*', help='The type of permission, e.g. read. See below for the full list '
+                   'of roles. Read-only.')
+        c.argument('permission_share_id', type=str, help='A unique token that can be used to access this shared item '
+                   'via the **shares** API. Read-only.')
+        c.argument('permission_link_application', action=AddPermissionLinkApplication, nargs='*', help='identity')
+        c.argument('permission_link_configurator_url', type=str, help='')
+        c.argument('permission_link_prevents_download', arg_type=get_three_state_flag(), help='If true then the user '
+                   'can only use this link to view the item on the web, and cannot use it to download the contents of '
+                   'the item. Only for OneDrive for Business and SharePoint.')
+        c.argument('permission_link_scope', type=str, help='The scope of the link represented by this permission. '
+                   'Value anonymous indicates the link is usable by anyone, organization indicates the link is only '
+                   'usable for users signed into the same tenant.')
+        c.argument('permission_link_type', type=str, help='The type of the link created.')
+        c.argument('permission_link_web_html', type=str, help='For embed links, this property contains the HTML code '
+                   'for an :code:`<iframe>` element that will embed the item in a webpage.')
+        c.argument('permission_link_web_url', type=str, help='A URL that opens the item in the browser on the OneDrive '
+                   'website.')
+        c.argument('permission_invitation_email', type=str, help='The email address provided for the recipient of the '
+                   'sharing invitation. Read-only.')
+        c.argument('permission_invitation_invited_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('permission_invitation_redeemed_by', type=str, help='')
+        c.argument('permission_invitation_sign_in_required', arg_type=get_three_state_flag(), help='If true the '
+                   'recipient of the invitation needs to sign in in order to access the shared item. Read-only.')
+        c.argument('permission_inherited_from_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('permission_inherited_from_drive_type', type=str, help='Identifies the type of drive. See [drive][] '
+                   'resource for values.')
+        c.argument('permission_inherited_from_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('permission_inherited_from_name', type=str,
+                   help='The name of the item being referenced. Read-only.')
+        c.argument('permission_inherited_from_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('permission_inherited_from_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('permission_inherited_from_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('permission_inherited_from_site_id', type=str, help='')
+        c.argument('permission_granted_to_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('permission_granted_to_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('permission_granted_to_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('permission_granted_to_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('permission_granted_to_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('permission_granted_to_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_id', type=str, help='Read-only.')
+        c.argument('list_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('list_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] '
+                   'resource for values.')
+        c.argument('list_parent_reference_id', type=str,
+                   help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('list_parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('list_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_parent_reference_share_id', type=str, help='A unique identifier for a shared resource that '
+                   'can be accessed via the [Shares][] API.')
+        c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('list_parent_reference_site_id', type=str, help='')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_display_name', type=str, help='The displayable title of the list.')
+        c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
+        c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
+        c.argument('list_system', type=validate_file_or_dict, help='systemFacet Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_activities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('list_columns', type=validate_file_or_dict, help='The collection of field definitions for this '
+                   'list. Expected value: json-string/@json-file.')
+        c.argument('list_content_types', type=validate_file_or_dict, help='The collection of content types present in '
+                   'this list. Expected value: json-string/@json-file.')
+        c.argument('list_drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
+        c.argument('list_items', type=validate_file_or_dict, help='All items contained in the list. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_subscriptions', action=AddFilesDriveUpdateListSubscriptions, nargs='*', help='The set of '
+                   'subscriptions on the list.')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files share-shared-drive-item get-shared-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -3964,8 +5300,213 @@ def load_arguments(self, _):
 
     with self.argument_context('files share-shared-drive-item update-shared-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('parent_reference_path', type=str,
+                   help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('parent_reference_site_id', type=str, help='')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('items', type=validate_file_or_dict, help='All driveItems contained in the sharing root. This '
+                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('root', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('site', type=validate_file_or_dict, help='site Expected value: json-string/@json-file.')
+        c.argument('permission_id', type=str, help='Read-only.')
+        c.argument('permission_expiration_date_time', help='A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset '
+                   'indicates the expiration time of the permission. DateTime.MinValue indicates there is no '
+                   'expiration set for this permission. Optional.')
+        c.argument('permission_granted_to_identities', action=AddPermissionGrantedToIdentities, nargs='*', help='For '
+                   'link type permissions, the details of the users to whom permission was granted. Read-only.')
+        c.argument('permission_has_password', arg_type=get_three_state_flag(), help='This indicates whether password '
+                   'is set for this permission, it\'s only showing in response. Optional and Read-only and for '
+                   'OneDrive Personal only.')
+        c.argument('permission_roles', nargs='*', help='The type of permission, e.g. read. See below for the full list '
+                   'of roles. Read-only.')
+        c.argument('permission_share_id', type=str, help='A unique token that can be used to access this shared item '
+                   'via the **shares** API. Read-only.')
+        c.argument('permission_link_application', action=AddPermissionLinkApplication, nargs='*', help='identity')
+        c.argument('permission_link_configurator_url', type=str, help='')
+        c.argument('permission_link_prevents_download', arg_type=get_three_state_flag(), help='If true then the user '
+                   'can only use this link to view the item on the web, and cannot use it to download the contents of '
+                   'the item. Only for OneDrive for Business and SharePoint.')
+        c.argument('permission_link_scope', type=str, help='The scope of the link represented by this permission. '
+                   'Value anonymous indicates the link is usable by anyone, organization indicates the link is only '
+                   'usable for users signed into the same tenant.')
+        c.argument('permission_link_type', type=str, help='The type of the link created.')
+        c.argument('permission_link_web_html', type=str, help='For embed links, this property contains the HTML code '
+                   'for an :code:`<iframe>` element that will embed the item in a webpage.')
+        c.argument('permission_link_web_url', type=str, help='A URL that opens the item in the browser on the OneDrive '
+                   'website.')
+        c.argument('permission_invitation_email', type=str, help='The email address provided for the recipient of the '
+                   'sharing invitation. Read-only.')
+        c.argument('permission_invitation_invited_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('permission_invitation_redeemed_by', type=str, help='')
+        c.argument('permission_invitation_sign_in_required', arg_type=get_three_state_flag(), help='If true the '
+                   'recipient of the invitation needs to sign in in order to access the shared item. Read-only.')
+        c.argument('permission_inherited_from_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('permission_inherited_from_drive_type', type=str, help='Identifies the type of drive. See [drive][] '
+                   'resource for values.')
+        c.argument('permission_inherited_from_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('permission_inherited_from_name', type=str,
+                   help='The name of the item being referenced. Read-only.')
+        c.argument('permission_inherited_from_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('permission_inherited_from_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('permission_inherited_from_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('permission_inherited_from_site_id', type=str, help='')
+        c.argument('permission_granted_to_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('permission_granted_to_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('permission_granted_to_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('permission_granted_to_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('permission_granted_to_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('permission_granted_to_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_id', type=str, help='Read-only.')
+        c.argument('list_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('list_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] '
+                   'resource for values.')
+        c.argument('list_parent_reference_id', type=str,
+                   help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('list_parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('list_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_parent_reference_share_id', type=str, help='A unique identifier for a shared resource that '
+                   'can be accessed via the [Shares][] API.')
+        c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('list_parent_reference_site_id', type=str, help='')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_display_name', type=str, help='The displayable title of the list.')
+        c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
+        c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
+        c.argument('list_system', type=validate_file_or_dict, help='systemFacet Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_activities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('list_columns', type=validate_file_or_dict, help='The collection of field definitions for this '
+                   'list. Expected value: json-string/@json-file.')
+        c.argument('list_content_types', type=validate_file_or_dict, help='The collection of content types present in '
+                   'this list. Expected value: json-string/@json-file.')
+        c.argument('list_drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
+        c.argument('list_items', type=validate_file_or_dict, help='All items contained in the list. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_subscriptions', action=AddFilesDriveUpdateListSubscriptions, nargs='*', help='The set of '
+                   'subscriptions on the list.')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files share delete') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -3998,12 +5539,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -4052,18 +5617,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -4072,8 +5634,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -4195,12 +5756,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -4249,18 +5834,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -4269,8 +5851,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -4328,12 +5909,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -4382,18 +5987,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -4402,8 +6004,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -4460,13 +6061,37 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('display_name', type=str, help='The displayable title of the list.')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list', action=AddListList, nargs='*', help='listInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -4508,12 +6133,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -4528,8 +6177,64 @@ def load_arguments(self, _):
 
     with self.argument_context('files share update-permission') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('expiration_date_time', help='A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the '
+                   'expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this '
+                   'permission. Optional.')
+        c.argument('granted_to_identities', action=AddPermissionGrantedToIdentities, nargs='*', help='For link type '
+                   'permissions, the details of the users to whom permission was granted. Read-only.')
+        c.argument('has_password', arg_type=get_three_state_flag(), help='This indicates whether password is set for '
+                   'this permission, it\'s only showing in response. Optional and Read-only and for OneDrive Personal '
+                   'only.')
+        c.argument('roles', nargs='*', help='The type of permission, e.g. read. See below for the full list of roles. '
+                   'Read-only.')
+        c.argument('share_id', type=str, help='A unique token that can be used to access this shared item via the '
+                   '**shares** API. Read-only.')
+        c.argument('link_application', action=AddPermissionLinkApplication, nargs='*', help='identity')
+        c.argument('link_configurator_url', type=str, help='')
+        c.argument('link_prevents_download', arg_type=get_three_state_flag(), help='If true then the user can only use '
+                   'this link to view the item on the web, and cannot use it to download the contents of the item. '
+                   'Only for OneDrive for Business and SharePoint.')
+        c.argument('link_scope', type=str, help='The scope of the link represented by this permission. Value anonymous '
+                   'indicates the link is usable by anyone, organization indicates the link is only usable for users '
+                   'signed into the same tenant.')
+        c.argument('link_type', type=str, help='The type of the link created.')
+        c.argument('link_web_html', type=str, help='For embed links, this property contains the HTML code for an '
+                   ':code:`<iframe>` element that will embed the item in a webpage.')
+        c.argument('link_web_url', type=str, help='A URL that opens the item in the browser on the OneDrive website.')
+        c.argument('invitation_email', type=str, help='The email address provided for the recipient of the sharing '
+                   'invitation. Read-only.')
+        c.argument('invitation_invited_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('invitation_redeemed_by', type=str, help='')
+        c.argument('invitation_sign_in_required', arg_type=get_three_state_flag(), help='If true the recipient of the '
+                   'invitation needs to sign in in order to access the shared item. Read-only.')
+        c.argument('inherited_from_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('inherited_from_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('inherited_from_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('inherited_from_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('inherited_from_path', type=str, help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('inherited_from_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('inherited_from_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('inherited_from_site_id', type=str, help='')
+        c.argument('granted_to_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('granted_to_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('granted_to_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('granted_to_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('granted_to_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('granted_to_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files share update-root') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -4557,12 +6262,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -4611,18 +6340,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -4631,8 +6357,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -4689,13 +6414,37 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('display_name', type=str, help='The full title for the site. Read-only.')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_site_display_name', type=str, help='The full title for the site. Read-only.')
         c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -4750,8 +6499,39 @@ def load_arguments(self, _):
 
     with self.argument_context('files share-list create-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list create-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -4843,12 +6623,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -4979,8 +6783,39 @@ def load_arguments(self, _):
     with self.argument_context('files share-list update-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list update-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -5074,12 +6909,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -5119,13 +6978,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -5151,9 +7033,21 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files share-list update-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -5182,12 +7076,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -5304,12 +7222,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -5358,18 +7300,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -5378,8 +7317,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -5437,12 +7375,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -5465,8 +7427,39 @@ def load_arguments(self, _):
     with self.argument_context('files share-list-activity-list-item create-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list-activity-list-item create-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -5483,9 +7476,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files share-list-activity-list-item get-activity') as c:
@@ -5564,8 +7569,39 @@ def load_arguments(self, _):
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
         c.argument('item_activity_old_id1', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list-activity-list-item update-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -5594,12 +7630,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -5648,18 +7708,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -5668,8 +7725,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -5712,9 +7768,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files share-list-activity-list-item-version delete') as c:
@@ -5784,8 +7852,39 @@ def load_arguments(self, _):
     with self.argument_context('files share-list-item create-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list-item create-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -5802,9 +7901,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files share-list-item get-activity') as c:
@@ -5883,8 +7994,39 @@ def load_arguments(self, _):
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list-item update-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -5913,12 +8055,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -5967,18 +8133,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -5987,8 +8150,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -6031,9 +8193,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files share-list-item-activity delete') as c:
@@ -6095,12 +8269,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -6149,18 +8347,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -6169,8 +8364,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -6229,12 +8423,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -6297,8 +8515,39 @@ def load_arguments(self, _):
 
     with self.argument_context('files share-list-item create-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list-item create-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -6313,9 +8562,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files share-list-item get-activity') as c:
@@ -6381,8 +8642,39 @@ def load_arguments(self, _):
     with self.argument_context('files share-list-item update-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('item_activity_old_id', type=str, help='key: id of itemActivityOLD')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('times', action=AddTimes, nargs='*', help='itemActivityTimeSet')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
+        c.argument('actor_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('actor_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('actor_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('actor_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('action_comment', type=validate_file_or_dict, help='commentAction Expected value: '
                    'json-string/@json-file.')
+        c.argument('action_create', type=validate_file_or_dict, help='createAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_delete', action=AddActionDelete, nargs='*', help='deleteAction')
+        c.argument('action_edit', type=validate_file_or_dict,
+                   help='editAction Expected value: json-string/@json-file.')
+        c.argument('action_mention', action=AddActionMention, nargs='*', help='mentionAction')
+        c.argument('action_move', action=AddActionMove, nargs='*', help='moveAction')
+        c.argument('action_rename', action=AddActionRename, nargs='*', help='renameAction')
+        c.argument('action_restore', type=validate_file_or_dict, help='restoreAction Expected value: '
+                   'json-string/@json-file.')
+        c.argument('action_share', action=AddActionShare, nargs='*', help='shareAction')
+        c.argument('action_version', action=AddActionVersion, nargs='*', help='versionAction')
 
     with self.argument_context('files share-list-item update-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -6410,12 +8702,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -6464,18 +8780,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -6484,8 +8797,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -6526,9 +8838,21 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
         c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('fields_id', type=str, help='Read-only.')
 
     with self.argument_context('files share-list-item-activity delete') as c:
@@ -6584,12 +8908,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('audio', action=AddAudio, nargs='*', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
@@ -6638,18 +8986,15 @@ def load_arguments(self, _):
                    'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
         c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
                    'collection')
-        c.argument('shared_owner', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
                    'organization, or users. Read-only.')
-        c.argument('shared_shared_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
         c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
                    'telemetry information. The application should issue a GET on this URL if the user interacts with '
                    'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('remote_item_file', type=validate_file_or_dict,
                    help='file Expected value: json-string/@json-file.')
@@ -6658,8 +9003,7 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
         c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
-                   'json-string/@json-file.')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
         c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
         c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
         c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
@@ -6717,12 +9061,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('content_type', action=AddContentType, nargs='*', help='contentTypeInfo')
         c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
@@ -6811,12 +9179,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -6856,13 +9248,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -6888,9 +9303,21 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')
 
     with self.argument_context('files user get-drive') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -6931,12 +9358,36 @@ def load_arguments(self, _):
         c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('microsoft_graph_identity_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('microsoft_graph_drive_type', type=str, help='Describes the type of drive represented by this '
                    'resource. OneDrive personal drives will return personal. OneDrive for Business will return '
                    'business. SharePoint document libraries will return documentLibrary. Read-only.')
@@ -6976,13 +9427,36 @@ def load_arguments(self, _):
         c.argument('list_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
                    'sharepointIds')
         c.argument('list_parent_reference_site_id', type=str, help='')
-        c.argument('list_last_modified_by_application', action=AddLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('list_last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user1', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('list_created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('user2', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('list_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_created_by_application_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_created_by_application_id', type=str, help='Unique identifier for the identity.')
         c.argument('list_display_name', type=str, help='The displayable title of the list.')
         c.argument('list_list', action=AddListList, nargs='*', help='listInfo')
         c.argument('list_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help='sharepointIds')
@@ -7008,6 +9482,18 @@ def load_arguments(self, _):
                    'storagePlanInformation')
         c.argument('quota_total', type=int, help='Total allowed storage space, in bytes. Read-only.')
         c.argument('quota_used', type=int, help='Total space used, in bytes. Read-only.')
-        c.argument('owner_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('owner_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('owner_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('owner_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('owner_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('owner_application_id', type=str, help='Unique identifier for the identity.')

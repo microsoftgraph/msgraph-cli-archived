@@ -140,11 +140,59 @@ associated with the user won't show up as having changed when using delta.
 helps['reports audit-log create-directory-provisioning'] = """
     type: command
     short-summary: "Create new navigation property to directoryProvisioning for auditLogs"
+    parameters:
+      - name: --initiated-by
+        short-summary: "initiator"
+        long-summary: |
+            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
+
+      - name: --modified-properties
+        long-summary: |
+            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
+
+            display-name: Indicates the property name of the target attribute that was changed.
+            new-value: Indicates the updated value for the propery.
+            old-value: Indicates the previous value (before the update) for the property.
+
+            Multiple actions can be specified by using more than one --modified-properties argument.
+      - name: --service-principal
+        short-summary: "provisioningServicePrincipal"
+        long-summary: |
+            Usage: --service-principal display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['reports audit-log create-provisioning'] = """
     type: command
     short-summary: "Create new navigation property to provisioning for auditLogs"
+    parameters:
+      - name: --initiated-by
+        short-summary: "initiator"
+        long-summary: |
+            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
+
+      - name: --modified-properties
+        long-summary: |
+            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
+
+            display-name: Indicates the property name of the target attribute that was changed.
+            new-value: Indicates the updated value for the propery.
+            old-value: Indicates the previous value (before the update) for the property.
+
+            Multiple actions can be specified by using more than one --modified-properties argument.
+      - name: --service-principal
+        short-summary: "provisioningServicePrincipal"
+        long-summary: |
+            Usage: --service-principal display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['reports audit-log create-restricted-sign-in'] = """
@@ -419,11 +467,59 @@ associated with the user won't show up as having changed when using delta.
 helps['reports audit-log update-directory-provisioning'] = """
     type: command
     short-summary: "Update the navigation property directoryProvisioning in auditLogs"
+    parameters:
+      - name: --initiated-by
+        short-summary: "initiator"
+        long-summary: |
+            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
+
+      - name: --modified-properties
+        long-summary: |
+            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
+
+            display-name: Indicates the property name of the target attribute that was changed.
+            new-value: Indicates the updated value for the propery.
+            old-value: Indicates the previous value (before the update) for the property.
+
+            Multiple actions can be specified by using more than one --modified-properties argument.
+      - name: --service-principal
+        short-summary: "provisioningServicePrincipal"
+        long-summary: |
+            Usage: --service-principal display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['reports audit-log update-provisioning'] = """
     type: command
     short-summary: "Update the navigation property provisioning in auditLogs"
+    parameters:
+      - name: --initiated-by
+        short-summary: "initiator"
+        long-summary: |
+            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
+
+      - name: --modified-properties
+        long-summary: |
+            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
+
+            display-name: Indicates the property name of the target attribute that was changed.
+            new-value: Indicates the updated value for the propery.
+            old-value: Indicates the previous value (before the update) for the property.
+
+            Multiple actions can be specified by using more than one --modified-properties argument.
+      - name: --service-principal
+        short-summary: "provisioningServicePrincipal"
+        long-summary: |
+            Usage: --service-principal display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['reports audit-log update-restricted-sign-in'] = """
@@ -592,17 +688,17 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports report-report-root'] = """
+helps['reports report-root'] = """
     type: group
-    short-summary: reports report-report-root
+    short-summary: reports report-root
 """
 
-helps['reports report-report-root get-report-root'] = """
+helps['reports report-root get-root'] = """
     type: command
     short-summary: "Get reports"
 """
 
-helps['reports report-report-root update-report-root'] = """
+helps['reports report-root update-root'] = """
     type: command
     short-summary: "Update reports"
     parameters:

@@ -1,8 +1,8 @@
 # Azure CLI Module Creation Report
 
-### mail user create-mail-folder
+### mail user create-folder
 
-create-mail-folder a mail user.
+create-folder a mail user.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -12,7 +12,7 @@ create-mail-folder a mail user.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-mail-folder|CreateMailFolders|
+|create-folder|CreateMailFolders|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -119,6 +119,28 @@ delete a mail user.
 |**--message-id**|string|key: id of message|message_id|message-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
+### mail user get-folder
+
+get-folder a mail user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|mail user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-folder|GetMailFolders|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
 ### mail user get-inference-classification
 
 get-inference-classification a mail user.
@@ -137,28 +159,6 @@ get-inference-classification a mail user.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### mail user get-mail-folder
-
-get-mail-folder a mail user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|mail user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mail-folder|GetMailFolders|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -204,9 +204,9 @@ get-message-content a mail user.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--message-id**|string|key: id of message|message_id|message-id|
 
-### mail user list-mail-folder
+### mail user list-folder
 
-list-mail-folder a mail user.
+list-folder a mail user.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -216,7 +216,7 @@ list-mail-folder a mail user.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-mail-folder|ListMailFolders|
+|list-folder|ListMailFolders|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -269,6 +269,39 @@ set-message-content a mail user.
 |**--message-id**|string|key: id of message|message_id|message-id|
 |**--data**|binary|New media content.|data|data|
 
+### mail user update-folder
+
+update-folder a mail user.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|mail user|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-folder|UpdateMailFolders|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--id**|string|Read-only.|id|id|
+|**--child-folder-count**|integer|The number of immediate child mailFolders in the current mailFolder.|child_folder_count|childFolderCount|
+|**--display-name**|string|The mailFolder's display name.|display_name|displayName|
+|**--parent-folder-id**|string|The unique identifier for the mailFolder's parent mailFolder.|parent_folder_id|parentFolderId|
+|**--total-item-count**|integer|The number of items in the mailFolder.|total_item_count|totalItemCount|
+|**--unread-item-count**|integer|The number of items in the mailFolder marked as unread.|unread_item_count|unreadItemCount|
+|**--well-known-name**|string||well_known_name|wellKnownName|
+|**--child-folders**|array|The collection of child folders in the mailFolder.|child_folders|childFolders|
+|**--message-rules**|array|The collection of rules that apply to the user's Inbox folder.|message_rules|messageRules|
+|**--messages**|array|The collection of messages in the mailFolder.|messages|messages|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--user-configurations**|array||user_configurations|userConfigurations|
+
 ### mail user update-inference-classification
 
 update-inference-classification a mail user.
@@ -289,39 +322,6 @@ update-inference-classification a mail user.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--overrides**|array|A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.|overrides|overrides|
-
-### mail user update-mail-folder
-
-update-mail-folder a mail user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|mail user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-mail-folder|UpdateMailFolders|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
-|**--id**|string|Read-only.|id|id|
-|**--child-folder-count**|integer|The number of immediate child mailFolders in the current mailFolder.|child_folder_count|childFolderCount|
-|**--display-name**|string|The mailFolder's display name.|display_name|displayName|
-|**--parent-folder-id**|string|The unique identifier for the mailFolder's parent mailFolder.|parent_folder_id|parentFolderId|
-|**--total-item-count**|integer|The number of items in the mailFolder.|total_item_count|totalItemCount|
-|**--unread-item-count**|integer|The number of items in the mailFolder marked as unread.|unread_item_count|unreadItemCount|
-|**--well-known-name**|string||well_known_name|wellKnownName|
-|**--child-folders**|array|The collection of child folders in the mailFolder.|child_folders|childFolders|
-|**--message-rules**|array|The collection of rules that apply to the user's Inbox folder.|message_rules|messageRules|
-|**--messages**|array|The collection of messages in the mailFolder.|messages|messages|
-|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
-|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
-|**--user-configurations**|array||user_configurations|userConfigurations|
 
 ### mail user update-message
 
@@ -615,7 +615,83 @@ create-message-rule a mail user-mail-folder.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The display name of the rule.|display_name|displayName|
+|**--has-error**|boolean|Indicates whether the rule is in an error condition. Read-only.|has_error|hasError|
+|**--is-enabled**|boolean|Indicates whether the rule is enabled to be applied to messages.|is_enabled|isEnabled|
+|**--is-read-only**|boolean|Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.|is_read_only|isReadOnly|
+|**--sequence**|integer|Indicates the order in which the rule is executed, among other rules.|sequence|sequence|
+|**--exceptions-body-contains**|array|Represents the strings that should appear in the body of an incoming message in order for the condition or exception to apply.|body_contains|bodyContains|
+|**--exceptions-body-or-subject-contains**|array|Represents the strings that should appear in the body or subject of an incoming message in order for the condition or exception to apply.|body_or_subject_contains|bodyOrSubjectContains|
+|**--exceptions-categories**|array|Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.|categories|categories|
+|**--exceptions-from-addresses**|array|Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.|from_addresses|fromAddresses|
+|**--exceptions-has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|has_attachments|hasAttachments|
+|**--exceptions-header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|header_contains|headerContains|
+|**--exceptions-importance**|choice||importance|importance|
+|**--exceptions-is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--exceptions-is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--exceptions-is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--exceptions-is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--exceptions-is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--exceptions-is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--exceptions-is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--exceptions-is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--exceptions-is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--exceptions-is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--exceptions-is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
+|**--exceptions-message-action-flag**|choice||message_action_flag|messageActionFlag|
+|**--exceptions-not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|not_sent_to_me|notSentToMe|
+|**--exceptions-recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|recipient_contains|recipientContains|
+|**--exceptions-sender-contains**|array|Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.|sender_contains|senderContains|
+|**--exceptions-sensitivity**|choice||sensitivity|sensitivity|
+|**--exceptions-sent-cc-me**|boolean|Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.|sent_cc_me|sentCcMe|
+|**--exceptions-sent-only-to-me**|boolean|Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.|sent_only_to_me|sentOnlyToMe|
+|**--exceptions-sent-to-addresses**|array|Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.|sent_to_addresses|sentToAddresses|
+|**--exceptions-sent-to-me**|boolean|Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.|sent_to_me|sentToMe|
+|**--exceptions-sent-to-or-cc-me**|boolean|Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.|sent_to_or_cc_me|sentToOrCcMe|
+|**--exceptions-subject-contains**|array|Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.|subject_contains|subjectContains|
+|**--exceptions-within-size-range**|object|sizeRange|within_size_range|withinSizeRange|
+|**--conditions-body-contains**|array|Represents the strings that should appear in the body of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_body_contains|bodyContains|
+|**--conditions-body-or-subject-contains**|array|Represents the strings that should appear in the body or subject of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains|bodyOrSubjectContains|
+|**--conditions-categories**|array|Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_categories|categories|
+|**--conditions-from-addresses**|array|Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_from_addresses|fromAddresses|
+|**--conditions-has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|boolean_has_attachments|hasAttachments|
+|**--conditions-header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_header_contains|headerContains|
+|**--conditions-importance**|choice||microsoft_graph_importance|importance|
+|**--conditions-is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--conditions-is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--conditions-is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--conditions-is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--conditions-is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--conditions-is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--conditions-is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--conditions-is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--conditions-is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--conditions-is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--conditions-is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
+|**--conditions-message-action-flag**|choice||microsoft_graph_message_action_flag_message_action_flag|messageActionFlag|
+|**--conditions-not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|boolean_not_sent_to_me|notSentToMe|
+|**--conditions-recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_recipient_contains|recipientContains|
+|**--conditions-sender-contains**|array|Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_sender_contains|senderContains|
+|**--conditions-sensitivity**|choice||microsoft_graph_sensitivity|sensitivity|
+|**--conditions-sent-cc-me**|boolean|Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.|boolean_sent_cc_me|sentCcMe|
+|**--conditions-sent-only-to-me**|boolean|Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.|boolean_sent_only_to_me|sentOnlyToMe|
+|**--conditions-sent-to-addresses**|array|Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses|sentToAddresses|
+|**--conditions-sent-to-me**|boolean|Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.|boolean_sent_to_me|sentToMe|
+|**--conditions-sent-to-or-cc-me**|boolean|Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.|boolean_sent_to_or_cc_me|sentToOrCcMe|
+|**--conditions-subject-contains**|array|Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_subject_contains|subjectContains|
+|**--conditions-within-size-range**|object|sizeRange|microsoft_graph_size_range_within_size_range|withinSizeRange|
+|**--actions-assign-categories**|array|A list of categories to be assigned to a message.|assign_categories|assignCategories|
+|**--actions-copy-to-folder**|string|The ID of a folder that a message is to be copied to.|copy_to_folder|copyToFolder|
+|**--actions-delete**|boolean|Indicates whether a message should be moved to the Deleted Items folder.|delete|delete|
+|**--actions-forward-as-attachment-to**|array|The email addresses of the recipients to which a message should be forwarded as an attachment.|forward_as_attachment_to|forwardAsAttachmentTo|
+|**--actions-forward-to**|array|The email addresses of the recipients to which a message should be forwarded.|forward_to|forwardTo|
+|**--actions-mark-as-read**|boolean|Indicates whether a message should be marked as read.|mark_as_read|markAsRead|
+|**--actions-mark-importance**|choice||mark_importance|markImportance|
+|**--actions-move-to-folder**|string|The ID of the folder that a message will be moved to.|move_to_folder|moveToFolder|
+|**--actions-permanent-delete**|boolean|Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder.|permanent_delete|permanentDelete|
+|**--actions-redirect-to**|array|The email addresses to which a message should be redirected.|redirect_to|redirectTo|
+|**--actions-stop-processing-rules**|boolean|Indicates whether subsequent rules should be evaluated.|stop_processing_rules|stopProcessingRules|
 
 ### mail user-mail-folder create-multi-value-extended-property
 
@@ -1153,7 +1229,83 @@ update-message-rule a mail user-mail-folder.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
 |**--message-rule-id**|string|key: id of messageRule|message_rule_id|messageRule-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The display name of the rule.|display_name|displayName|
+|**--has-error**|boolean|Indicates whether the rule is in an error condition. Read-only.|has_error|hasError|
+|**--is-enabled**|boolean|Indicates whether the rule is enabled to be applied to messages.|is_enabled|isEnabled|
+|**--is-read-only**|boolean|Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.|is_read_only|isReadOnly|
+|**--sequence**|integer|Indicates the order in which the rule is executed, among other rules.|sequence|sequence|
+|**--exceptions-body-contains**|array|Represents the strings that should appear in the body of an incoming message in order for the condition or exception to apply.|body_contains|bodyContains|
+|**--exceptions-body-or-subject-contains**|array|Represents the strings that should appear in the body or subject of an incoming message in order for the condition or exception to apply.|body_or_subject_contains|bodyOrSubjectContains|
+|**--exceptions-categories**|array|Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.|categories|categories|
+|**--exceptions-from-addresses**|array|Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.|from_addresses|fromAddresses|
+|**--exceptions-has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|has_attachments|hasAttachments|
+|**--exceptions-header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|header_contains|headerContains|
+|**--exceptions-importance**|choice||importance|importance|
+|**--exceptions-is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--exceptions-is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--exceptions-is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--exceptions-is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--exceptions-is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--exceptions-is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--exceptions-is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--exceptions-is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--exceptions-is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--exceptions-is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--exceptions-is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
+|**--exceptions-message-action-flag**|choice||message_action_flag|messageActionFlag|
+|**--exceptions-not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|not_sent_to_me|notSentToMe|
+|**--exceptions-recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|recipient_contains|recipientContains|
+|**--exceptions-sender-contains**|array|Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.|sender_contains|senderContains|
+|**--exceptions-sensitivity**|choice||sensitivity|sensitivity|
+|**--exceptions-sent-cc-me**|boolean|Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.|sent_cc_me|sentCcMe|
+|**--exceptions-sent-only-to-me**|boolean|Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.|sent_only_to_me|sentOnlyToMe|
+|**--exceptions-sent-to-addresses**|array|Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.|sent_to_addresses|sentToAddresses|
+|**--exceptions-sent-to-me**|boolean|Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.|sent_to_me|sentToMe|
+|**--exceptions-sent-to-or-cc-me**|boolean|Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.|sent_to_or_cc_me|sentToOrCcMe|
+|**--exceptions-subject-contains**|array|Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.|subject_contains|subjectContains|
+|**--exceptions-within-size-range**|object|sizeRange|within_size_range|withinSizeRange|
+|**--conditions-body-contains**|array|Represents the strings that should appear in the body of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_body_contains|bodyContains|
+|**--conditions-body-or-subject-contains**|array|Represents the strings that should appear in the body or subject of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains|bodyOrSubjectContains|
+|**--conditions-categories**|array|Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_categories|categories|
+|**--conditions-from-addresses**|array|Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_from_addresses|fromAddresses|
+|**--conditions-has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|boolean_has_attachments|hasAttachments|
+|**--conditions-header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_header_contains|headerContains|
+|**--conditions-importance**|choice||microsoft_graph_importance|importance|
+|**--conditions-is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--conditions-is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--conditions-is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--conditions-is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--conditions-is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--conditions-is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--conditions-is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--conditions-is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--conditions-is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--conditions-is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--conditions-is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
+|**--conditions-message-action-flag**|choice||microsoft_graph_message_action_flag_message_action_flag|messageActionFlag|
+|**--conditions-not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|boolean_not_sent_to_me|notSentToMe|
+|**--conditions-recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_recipient_contains|recipientContains|
+|**--conditions-sender-contains**|array|Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_sender_contains|senderContains|
+|**--conditions-sensitivity**|choice||microsoft_graph_sensitivity|sensitivity|
+|**--conditions-sent-cc-me**|boolean|Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.|boolean_sent_cc_me|sentCcMe|
+|**--conditions-sent-only-to-me**|boolean|Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.|boolean_sent_only_to_me|sentOnlyToMe|
+|**--conditions-sent-to-addresses**|array|Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses|sentToAddresses|
+|**--conditions-sent-to-me**|boolean|Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.|boolean_sent_to_me|sentToMe|
+|**--conditions-sent-to-or-cc-me**|boolean|Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.|boolean_sent_to_or_cc_me|sentToOrCcMe|
+|**--conditions-subject-contains**|array|Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_subject_contains|subjectContains|
+|**--conditions-within-size-range**|object|sizeRange|microsoft_graph_size_range_within_size_range|withinSizeRange|
+|**--actions-assign-categories**|array|A list of categories to be assigned to a message.|assign_categories|assignCategories|
+|**--actions-copy-to-folder**|string|The ID of a folder that a message is to be copied to.|copy_to_folder|copyToFolder|
+|**--actions-delete**|boolean|Indicates whether a message should be moved to the Deleted Items folder.|delete|delete|
+|**--actions-forward-as-attachment-to**|array|The email addresses of the recipients to which a message should be forwarded as an attachment.|forward_as_attachment_to|forwardAsAttachmentTo|
+|**--actions-forward-to**|array|The email addresses of the recipients to which a message should be forwarded.|forward_to|forwardTo|
+|**--actions-mark-as-read**|boolean|Indicates whether a message should be marked as read.|mark_as_read|markAsRead|
+|**--actions-mark-importance**|choice||mark_importance|markImportance|
+|**--actions-move-to-folder**|string|The ID of the folder that a message will be moved to.|move_to_folder|moveToFolder|
+|**--actions-permanent-delete**|boolean|Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder.|permanent_delete|permanentDelete|
+|**--actions-redirect-to**|array|The email addresses to which a message should be redirected.|redirect_to|redirectTo|
+|**--actions-stop-processing-rules**|boolean|Indicates whether subsequent rules should be evaluated.|stop_processing_rules|stopProcessingRules|
 
 ### mail user-mail-folder update-multi-value-extended-property
 

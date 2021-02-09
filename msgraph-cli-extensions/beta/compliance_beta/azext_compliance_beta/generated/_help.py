@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
-helps['compliance compliance-compliance'] = """
+helps['compliance compliance'] = """
     type: group
-    short-summary: compliance compliance-compliance
+    short-summary: compliance compliance
 """
 
-helps['compliance compliance-compliance get-compliance'] = """
-    type: command
-    short-summary: "Get compliance"
-"""
-
-helps['compliance compliance-compliance update-compliance'] = """
+helps['compliance compliance update'] = """
     type: command
     short-summary: "Update compliance"
+"""
+
+helps['compliance compliance get'] = """
+    type: command
+    short-summary: "Get compliance"
 """
 
 helps['compliance compliance'] = """

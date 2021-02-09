@@ -11,16 +11,16 @@
 # pylint: disable=too-many-lines
 
 
-def financials_financial_financial_get_financial(client,
-                                                 select=None,
-                                                 expand=None):
+def financials_financial_update(client,
+                                companies=None):
+    return client.update_financial(companies=companies)
+
+
+def financials_financial_get(client,
+                             select=None,
+                             expand=None):
     return client.get_financial(select=select,
                                 expand=expand)
-
-
-def financials_financial_financial_update_financial(client,
-                                                    companies=None):
-    return client.update_financial(companies=companies)
 
 
 def financials_financial_delete(client,

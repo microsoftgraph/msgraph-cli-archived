@@ -24,12 +24,10 @@ def load_command_table(self, _):
                             bookings_beta_booking_business_booking_business,
                             client_factory=cf_booking_business_booking_business, is_experimental=True) as g:
         g.custom_command('delete', 'bookings_booking_business_booking_business_delete', confirmation=True)
-        g.custom_command('create-booking-business', 'bookings_booking_business_booking_business_create_booking_business'
-                         '')
-        g.custom_command('get-booking-business', 'bookings_booking_business_booking_business_get_booking_business')
-        g.custom_command('list-booking-business', 'bookings_booking_business_booking_business_list_booking_business')
-        g.custom_command('update-booking-business', 'bookings_booking_business_booking_business_update_booking_business'
-                         '')
+        g.custom_command('create-business', 'bookings_booking_business_booking_business_create_business')
+        g.custom_command('get-business', 'bookings_booking_business_booking_business_get_business')
+        g.custom_command('list-business', 'bookings_booking_business_booking_business_list_business')
+        g.custom_command('update-business', 'bookings_booking_business_booking_business_update_business')
 
     from azext_bookings_beta.generated._client_factory import cf_booking_business
     bookings_beta_booking_business = CliCommandType(
@@ -89,9 +87,7 @@ def load_command_table(self, _):
                             bookings_beta_booking_currency_booking_currency,
                             client_factory=cf_booking_currency_booking_currency, is_experimental=True) as g:
         g.custom_command('delete', 'bookings_booking_currency_booking_currency_delete', confirmation=True)
-        g.custom_command('create-booking-currency', 'bookings_booking_currency_booking_currency_create_booking_currency'
-                         '')
-        g.custom_command('get-booking-currency', 'bookings_booking_currency_booking_currency_get_booking_currency')
-        g.custom_command('list-booking-currency', 'bookings_booking_currency_booking_currency_list_booking_currency')
-        g.custom_command('update-booking-currency', 'bookings_booking_currency_booking_currency_update_booking_currency'
-                         '')
+        g.custom_command('create-currency', 'bookings_booking_currency_booking_currency_create_currency')
+        g.custom_command('get-currency', 'bookings_booking_currency_booking_currency_get_currency')
+        g.custom_command('list-currency', 'bookings_booking_currency_booking_currency_list_currency')
+        g.custom_command('update-currency', 'bookings_booking_currency_booking_currency_update_currency')

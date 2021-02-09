@@ -16,8 +16,8 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_mail_beta.action import (
-    AddMailUserCreateMailFolderMultiValueExtendedProperties,
-    AddMailUserCreateMailFolderSingleValueExtendedProperties,
+    AddMailUserCreateFolderMultiValueExtendedProperties,
+    AddMailUserCreateFolderSingleValueExtendedProperties,
     AddUserConfigurations,
     AddBccRecipients,
     AddBody,
@@ -31,6 +31,12 @@ from azext_mail_beta.action import (
     AddMailUserCreateMessageSingleValueExtendedProperties,
     AddFlagCompletedDateTime,
     AddOverrides,
+    AddExceptionsFromAddresses,
+    AddExceptionsSentToAddresses,
+    AddExceptionsWithinSizeRange,
+    AddActionsForwardAsAttachmentTo,
+    AddActionsForwardTo,
+    AddActionsRedirectTo,
     AddCreatedBy
 )
 
@@ -43,7 +49,7 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
         c.argument('message_id', type=str, help='key: id of message')
 
-    with self.argument_context('mail user create-mail-folder') as c:
+    with self.argument_context('mail user create-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('child_folder_count', type=int, help='The number of immediate child mailFolders in the current '
@@ -60,10 +66,10 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateFolderMultiValueExtendedProperties,
                    nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+        c.argument('single_value_extended_properties', action=AddMailUserCreateFolderSingleValueExtendedProperties,
                    nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
         c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
@@ -144,14 +150,14 @@ def load_arguments(self, _):
         c.argument('flag_flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='')
         c.argument('flag_start_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
 
-    with self.argument_context('mail user get-inference-classification') as c:
+    with self.argument_context('mail user get-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('mail user get-mail-folder') as c:
+    with self.argument_context('mail user get-inference-classification') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
@@ -165,7 +171,7 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
 
-    with self.argument_context('mail user list-mail-folder') as c:
+    with self.argument_context('mail user list-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
@@ -182,13 +188,7 @@ def load_arguments(self, _):
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('mail user update-inference-classification') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('overrides', action=AddOverrides, nargs='*', help='A set of overrides for a user to always classify '
-                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable.')
-
-    with self.argument_context('mail user update-mail-folder') as c:
+    with self.argument_context('mail user update-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -206,13 +206,19 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateFolderMultiValueExtendedProperties,
                    nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+        c.argument('single_value_extended_properties', action=AddMailUserCreateFolderSingleValueExtendedProperties,
                    nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
         c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
+
+    with self.argument_context('mail user update-inference-classification') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('overrides', action=AddOverrides, nargs='*', help='A set of overrides for a user to always classify '
+                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable.')
 
     with self.argument_context('mail user update-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -357,10 +363,10 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateFolderMultiValueExtendedProperties,
                    nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+        c.argument('single_value_extended_properties', action=AddMailUserCreateFolderSingleValueExtendedProperties,
                    nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
         c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
@@ -445,8 +451,171 @@ def load_arguments(self, _):
     with self.argument_context('mail user-mail-folder create-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The display name of the rule.')
+        c.argument('has_error', arg_type=get_three_state_flag(), help='Indicates whether the rule is in an error '
+                   'condition. Read-only.')
+        c.argument('is_enabled', arg_type=get_three_state_flag(), help='Indicates whether the rule is enabled to be '
+                   'applied to messages.')
+        c.argument('is_read_only', arg_type=get_three_state_flag(), help='Indicates if the rule is read-only and '
+                   'cannot be modified or deleted by the rules REST API.')
+        c.argument('sequence', type=int, help='Indicates the order in which the rule is executed, among other rules.')
+        c.argument('exceptions_body_contains', nargs='*', help='Represents the strings that should appear in the body '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_body_or_subject_contains', nargs='*', help='Represents the strings that should appear '
+                   'in the body or subject of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_categories', nargs='*', help='Represents the categories that an incoming message should '
+                   'be labeled with in order for the condition or exception to apply.')
+        c.argument('exceptions_from_addresses', action=AddExceptionsFromAddresses, nargs='*', help='Represents the '
+                   'specific sender email addresses of an incoming message in order for the condition or exception to '
+                   'apply.')
+        c.argument('exceptions_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must have attachments in order for the condition or exception to apply.')
+        c.argument('exceptions_header_contains', nargs='*', help='Represents the strings that appear in the headers of '
+                   'an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.')
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.')
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.')
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.')
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.')
+        c.argument('exceptions_message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp',
+                                                                             'fyi', 'forward', 'noResponseNecessary', ''
+                                                                             'read', 'reply', 'replyToAll', 'review']),
+                   help='')
+        c.argument('exceptions_not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must not be a recipient of an incoming message in order for the condition or exception '
+                   'to apply.')
+        c.argument('exceptions_recipient_contains', nargs='*', help='Represents the strings that appear in either the '
+                   'toRecipients or ccRecipients properties of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sender_contains', nargs='*', help='Represents the strings that appear in the from '
+                   'property of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']),
+                   help='')
+        c.argument('exceptions_sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be the only recipient in an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_to_addresses', action=AddExceptionsSentToAddresses, nargs='*', help='Represents '
+                   'the email addresses that an incoming message must have been sent to in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner '
+                   'of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in '
+                   'order for the condition or exception to apply.')
+        c.argument('exceptions_subject_contains', nargs='*', help='Represents the strings that appear in the subject '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_within_size_range', action=AddExceptionsWithinSizeRange, nargs='*', help='sizeRange')
+        c.argument('conditions_body_contains', nargs='*', help='Represents the strings that should appear in the body '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_body_or_subject_contains', nargs='*', help='Represents the strings that should appear '
+                   'in the body or subject of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_categories', nargs='*', help='Represents the categories that an incoming message should '
+                   'be labeled with in order for the condition or exception to apply.')
+        c.argument('conditions_from_addresses', action=AddExceptionsFromAddresses, nargs='*', help='Represents the '
+                   'specific sender email addresses of an incoming message in order for the condition or exception to '
+                   'apply.')
+        c.argument('conditions_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must have attachments in order for the condition or exception to apply.')
+        c.argument('conditions_header_contains', nargs='*', help='Represents the strings that appear in the headers of '
+                   'an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('conditions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.')
+        c.argument('conditions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.')
+        c.argument('conditions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.')
+        c.argument('conditions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.')
+        c.argument('conditions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.')
+        c.argument('conditions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.')
+        c.argument('conditions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.')
+        c.argument('conditions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.')
+        c.argument('conditions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.')
+        c.argument('conditions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.')
+        c.argument('conditions_message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp',
+                                                                             'fyi', 'forward', 'noResponseNecessary', ''
+                                                                             'read', 'reply', 'replyToAll', 'review']),
+                   help='')
+        c.argument('conditions_not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must not be a recipient of an incoming message in order for the condition or exception '
+                   'to apply.')
+        c.argument('conditions_recipient_contains', nargs='*', help='Represents the strings that appear in either the '
+                   'toRecipients or ccRecipients properties of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sender_contains', nargs='*', help='Represents the strings that appear in the from '
+                   'property of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']),
+                   help='')
+        c.argument('conditions_sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be the only recipient in an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_to_addresses', action=AddExceptionsSentToAddresses, nargs='*', help='Represents '
+                   'the email addresses that an incoming message must have been sent to in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner '
+                   'of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in '
+                   'order for the condition or exception to apply.')
+        c.argument('conditions_subject_contains', nargs='*', help='Represents the strings that appear in the subject '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_within_size_range', action=AddExceptionsWithinSizeRange, nargs='*', help='sizeRange')
+        c.argument('actions_assign_categories', nargs='*', help='A list of categories to be assigned to a message.')
+        c.argument('actions_copy_to_folder', type=str, help='The ID of a folder that a message is to be copied to.')
+        c.argument('actions_delete', arg_type=get_three_state_flag(), help='Indicates whether a message should be '
+                   'moved to the Deleted Items folder.')
+        c.argument('actions_forward_as_attachment_to', action=AddActionsForwardAsAttachmentTo, nargs='*', help='The '
+                   'email addresses of the recipients to which a message should be forwarded as an attachment.')
+        c.argument('actions_forward_to', action=AddActionsForwardTo, nargs='*', help='The email addresses of the '
+                   'recipients to which a message should be forwarded.')
+        c.argument('actions_mark_as_read', arg_type=get_three_state_flag(), help='Indicates whether a message should '
+                   'be marked as read.')
+        c.argument('actions_mark_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('actions_move_to_folder', type=str, help='The ID of the folder that a message will be moved to.')
+        c.argument('actions_permanent_delete', arg_type=get_three_state_flag(), help='Indicates whether a message '
+                   'should be permanently deleted and not saved to the Deleted Items folder.')
+        c.argument('actions_redirect_to', action=AddActionsRedirectTo, nargs='*', help='The email addresses to which a '
+                   'message should be redirected.')
+        c.argument('actions_stop_processing_rules', arg_type=get_three_state_flag(), help='Indicates whether '
+                   'subsequent rules should be evaluated.')
 
     with self.argument_context('mail user-mail-folder create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -582,10 +751,10 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateFolderMultiValueExtendedProperties,
                    nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+        c.argument('single_value_extended_properties', action=AddMailUserCreateFolderSingleValueExtendedProperties,
                    nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
                    'Read-only. Nullable.')
         c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
@@ -672,8 +841,171 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_rule_id', type=str, help='key: id of messageRule')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The display name of the rule.')
+        c.argument('has_error', arg_type=get_three_state_flag(), help='Indicates whether the rule is in an error '
+                   'condition. Read-only.')
+        c.argument('is_enabled', arg_type=get_three_state_flag(), help='Indicates whether the rule is enabled to be '
+                   'applied to messages.')
+        c.argument('is_read_only', arg_type=get_three_state_flag(), help='Indicates if the rule is read-only and '
+                   'cannot be modified or deleted by the rules REST API.')
+        c.argument('sequence', type=int, help='Indicates the order in which the rule is executed, among other rules.')
+        c.argument('exceptions_body_contains', nargs='*', help='Represents the strings that should appear in the body '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_body_or_subject_contains', nargs='*', help='Represents the strings that should appear '
+                   'in the body or subject of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_categories', nargs='*', help='Represents the categories that an incoming message should '
+                   'be labeled with in order for the condition or exception to apply.')
+        c.argument('exceptions_from_addresses', action=AddExceptionsFromAddresses, nargs='*', help='Represents the '
+                   'specific sender email addresses of an incoming message in order for the condition or exception to '
+                   'apply.')
+        c.argument('exceptions_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must have attachments in order for the condition or exception to apply.')
+        c.argument('exceptions_header_contains', nargs='*', help='Represents the strings that appear in the headers of '
+                   'an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.')
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.')
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.')
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.')
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.')
+        c.argument('exceptions_message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp',
+                                                                             'fyi', 'forward', 'noResponseNecessary', ''
+                                                                             'read', 'reply', 'replyToAll', 'review']),
+                   help='')
+        c.argument('exceptions_not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must not be a recipient of an incoming message in order for the condition or exception '
+                   'to apply.')
+        c.argument('exceptions_recipient_contains', nargs='*', help='Represents the strings that appear in either the '
+                   'toRecipients or ccRecipients properties of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sender_contains', nargs='*', help='Represents the strings that appear in the from '
+                   'property of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']),
+                   help='')
+        c.argument('exceptions_sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be the only recipient in an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_to_addresses', action=AddExceptionsSentToAddresses, nargs='*', help='Represents '
+                   'the email addresses that an incoming message must have been sent to in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('exceptions_sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner '
+                   'of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in '
+                   'order for the condition or exception to apply.')
+        c.argument('exceptions_subject_contains', nargs='*', help='Represents the strings that appear in the subject '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('exceptions_within_size_range', action=AddExceptionsWithinSizeRange, nargs='*', help='sizeRange')
+        c.argument('conditions_body_contains', nargs='*', help='Represents the strings that should appear in the body '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_body_or_subject_contains', nargs='*', help='Represents the strings that should appear '
+                   'in the body or subject of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_categories', nargs='*', help='Represents the categories that an incoming message should '
+                   'be labeled with in order for the condition or exception to apply.')
+        c.argument('conditions_from_addresses', action=AddExceptionsFromAddresses, nargs='*', help='Represents the '
+                   'specific sender email addresses of an incoming message in order for the condition or exception to '
+                   'apply.')
+        c.argument('conditions_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must have attachments in order for the condition or exception to apply.')
+        c.argument('conditions_header_contains', nargs='*', help='Represents the strings that appear in the headers of '
+                   'an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('conditions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.')
+        c.argument('conditions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.')
+        c.argument('conditions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.')
+        c.argument('conditions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.')
+        c.argument('conditions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.')
+        c.argument('conditions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.')
+        c.argument('conditions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.')
+        c.argument('conditions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.')
+        c.argument('conditions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.')
+        c.argument('conditions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.')
+        c.argument('conditions_message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp',
+                                                                             'fyi', 'forward', 'noResponseNecessary', ''
+                                                                             'read', 'reply', 'replyToAll', 'review']),
+                   help='')
+        c.argument('conditions_not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must not be a recipient of an incoming message in order for the condition or exception '
+                   'to apply.')
+        c.argument('conditions_recipient_contains', nargs='*', help='Represents the strings that appear in either the '
+                   'toRecipients or ccRecipients properties of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sender_contains', nargs='*', help='Represents the strings that appear in the from '
+                   'property of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']),
+                   help='')
+        c.argument('conditions_sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be the only recipient in an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_to_addresses', action=AddExceptionsSentToAddresses, nargs='*', help='Represents '
+                   'the email addresses that an incoming message must have been sent to in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.')
+        c.argument('conditions_sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner '
+                   'of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in '
+                   'order for the condition or exception to apply.')
+        c.argument('conditions_subject_contains', nargs='*', help='Represents the strings that appear in the subject '
+                   'of an incoming message in order for the condition or exception to apply.')
+        c.argument('conditions_within_size_range', action=AddExceptionsWithinSizeRange, nargs='*', help='sizeRange')
+        c.argument('actions_assign_categories', nargs='*', help='A list of categories to be assigned to a message.')
+        c.argument('actions_copy_to_folder', type=str, help='The ID of a folder that a message is to be copied to.')
+        c.argument('actions_delete', arg_type=get_three_state_flag(), help='Indicates whether a message should be '
+                   'moved to the Deleted Items folder.')
+        c.argument('actions_forward_as_attachment_to', action=AddActionsForwardAsAttachmentTo, nargs='*', help='The '
+                   'email addresses of the recipients to which a message should be forwarded as an attachment.')
+        c.argument('actions_forward_to', action=AddActionsForwardTo, nargs='*', help='The email addresses of the '
+                   'recipients to which a message should be forwarded.')
+        c.argument('actions_mark_as_read', arg_type=get_three_state_flag(), help='Indicates whether a message should '
+                   'be marked as read.')
+        c.argument('actions_mark_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('actions_move_to_folder', type=str, help='The ID of the folder that a message will be moved to.')
+        c.argument('actions_permanent_delete', arg_type=get_three_state_flag(), help='Indicates whether a message '
+                   'should be permanently deleted and not saved to the Deleted Items folder.')
+        c.argument('actions_redirect_to', action=AddActionsRedirectTo, nargs='*', help='The email addresses to which a '
+                   'message should be redirected.')
+        c.argument('actions_stop_processing_rules', arg_type=get_three_state_flag(), help='Indicates whether '
+                   'subsequent rules should be evaluated.')
 
     with self.argument_context('mail user-mail-folder update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')

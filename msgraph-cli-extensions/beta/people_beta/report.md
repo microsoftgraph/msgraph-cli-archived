@@ -565,7 +565,26 @@ create-educational-activity a people user-profile.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--allowed-audiences**|choice||allowed_audiences|allowedAudiences|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--inference**|object|inferenceData|inference|inference|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--source**|object|personDataSources|source|source|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--last-modified-by-user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--completion-month-year**|date||completion_month_year|completionMonthYear|
+|**--end-month-year**|date||end_month_year|endMonthYear|
+|**--program**|object|educationalActivityDetail|program|program|
+|**--start-month-year**|date||start_month_year|startMonthYear|
+|**--institution-description**|string||description|description|
+|**--institution-display-name**|string||display_name|displayName|
+|**--institution-location**|object|physicalAddress|location|location|
+|**--institution-web-url**|string||web_url|webUrl|
 
 ### people user-profile create-email
 
@@ -2153,7 +2172,26 @@ update-educational-activity a people user-profile.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--educational-activity-id**|string|key: id of educationalActivity|educational_activity_id|educationalActivity-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--allowed-audiences**|choice||allowed_audiences|allowedAudiences|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--inference**|object|inferenceData|inference|inference|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--source**|object|personDataSources|source|source|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--last-modified-by-user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--completion-month-year**|date||completion_month_year|completionMonthYear|
+|**--end-month-year**|date||end_month_year|endMonthYear|
+|**--program**|object|educationalActivityDetail|program|program|
+|**--start-month-year**|date||start_month_year|startMonthYear|
+|**--institution-description**|string||description|description|
+|**--institution-display-name**|string||display_name|displayName|
+|**--institution-location**|object|physicalAddress|location|location|
+|**--institution-web-url**|string||web_url|webUrl|
 
 ### people user-profile update-email
 

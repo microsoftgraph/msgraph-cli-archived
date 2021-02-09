@@ -1,5 +1,38 @@
 # Azure CLI Module Creation Report
 
+### security security create-action
+
+create-action a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-action|CreateSecurityActions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--action-reason**|string||action_reason|actionReason|
+|**--app-id**|string||app_id|appId|
+|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
+|**--client-context**|string||client_context|clientContext|
+|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--error-info**|object|ResultInfo|error_info|errorInfo|
+|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
+|**--name**|string||name|name|
+|**--parameters**|array||parameters|parameters|
+|**--states**|array||states|states|
+|**--status**|choice||status|status|
+|**--user**|string||user|user|
+|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
 ### security security create-alert
 
 create-alert a security security.
@@ -317,39 +350,6 @@ create-secure-score-control-profile a security security.
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security security create-security-action
-
-create-security-action a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-security-action|CreateSecurityActions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--action-reason**|string||action_reason|actionReason|
-|**--app-id**|string||app_id|appId|
-|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
-|**--client-context**|string||client_context|clientContext|
-|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
-|**--created-date-time**|date-time||created_date_time|createdDateTime|
-|**--error-info**|object|ResultInfo|error_info|errorInfo|
-|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
-|**--name**|string||name|name|
-|**--parameters**|array||parameters|parameters|
-|**--states**|array||states|states|
-|**--status**|choice||status|status|
-|**--user**|string||user|user|
-|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-
 ### security security create-ti-indicator
 
 create-ti-indicator a security security.
@@ -497,6 +497,47 @@ delete a security security.
 |**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
 |**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
 |**--if-match**|string|ETag|if_match|If-Match|
+
+### security security get
+
+get a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security.security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get|GetSecurity|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### security security get-action
+
+get-action a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-action|GetSecurityActions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
 ### security security get-alert
 
@@ -687,27 +728,6 @@ get-secure-score-control-profile a security security.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security security get-security-action
-
-get-security-action a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-security-action|GetSecurityActions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
 ### security security get-ti-indicator
 
 get-ti-indicator a security security.
@@ -747,6 +767,27 @@ get-user-security-profile a security security.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### security security list-action
+
+list-action a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-action|ListSecurityActions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -939,27 +980,6 @@ list-secure-score-control-profile a security security.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security security list-security-action
-
-list-security-action a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-security-action|ListSecurityActions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
 ### security security list-ti-indicator
 
 list-ti-indicator a security security.
@@ -1001,6 +1021,72 @@ list-user-security-profile a security security.
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### security security update
+
+update a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security.security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update|UpdateSecurity|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--provider-status**|array||provider_status|providerStatus|
+|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
+|**--cloud-app-security-profiles**|array||cloud_app_security_profiles|cloudAppSecurityProfiles|
+|**--domain-security-profiles**|array||domain_security_profiles|domainSecurityProfiles|
+|**--file-security-profiles**|array||file_security_profiles|fileSecurityProfiles|
+|**--host-security-profiles**|array||host_security_profiles|hostSecurityProfiles|
+|**--ip-security-profiles**|array||ip_security_profiles|ipSecurityProfiles|
+|**--provider-tenant-settings**|array||provider_tenant_settings|providerTenantSettings|
+|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
+|**--secure-scores**|array||secure_scores|secureScores|
+|**--security-actions**|array||security_actions|securityActions|
+|**--ti-indicators**|array||ti_indicators|tiIndicators|
+|**--user-security-profiles**|array||user_security_profiles|userSecurityProfiles|
+
+### security security update-action
+
+update-action a security security.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security|Security|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-action|UpdateSecurityActions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--id**|string|Read-only.|id|id|
+|**--action-reason**|string||action_reason|actionReason|
+|**--app-id**|string||app_id|appId|
+|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
+|**--client-context**|string||client_context|clientContext|
+|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--error-info**|object|ResultInfo|error_info|errorInfo|
+|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
+|**--name**|string||name|name|
+|**--parameters**|array||parameters|parameters|
+|**--states**|array||states|states|
+|**--status**|choice||status|status|
+|**--user**|string||user|user|
+|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
 ### security security update-alert
 
@@ -1328,40 +1414,6 @@ update-secure-score-control-profile a security security.
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security security update-security-action
-
-update-security-action a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-security-action|UpdateSecurityActions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
-|**--id**|string|Read-only.|id|id|
-|**--action-reason**|string||action_reason|actionReason|
-|**--app-id**|string||app_id|appId|
-|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
-|**--client-context**|string||client_context|clientContext|
-|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
-|**--created-date-time**|date-time||created_date_time|createdDateTime|
-|**--error-info**|object|ResultInfo|error_info|errorInfo|
-|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
-|**--name**|string||name|name|
-|**--parameters**|array||parameters|parameters|
-|**--states**|array||states|states|
-|**--status**|choice||status|status|
-|**--user**|string||user|user|
-|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-
 ### security security update-ti-indicator
 
 update-ti-indicator a security security.
@@ -1470,6 +1522,25 @@ update-user-security-profile a security security.
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
+### security security-action cancel-security-action
+
+cancel-security-action a security security-action.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|security security-action|Security.securityActions|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|cancel-security-action|cancelSecurityAction|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+
 ### security security-alert update-alert
 
 update-alert a security security-alert.
@@ -1488,77 +1559,6 @@ update-alert a security security-alert.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--value**|array||value|value|
-
-### security security-security get-security
-
-get-security a security security-security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security-security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-security|GetSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security security-security update-security
-
-update-security a security security-security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security-security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-security|UpdateSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--provider-status**|array||provider_status|providerStatus|
-|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
-|**--cloud-app-security-profiles**|array||cloud_app_security_profiles|cloudAppSecurityProfiles|
-|**--domain-security-profiles**|array||domain_security_profiles|domainSecurityProfiles|
-|**--file-security-profiles**|array||file_security_profiles|fileSecurityProfiles|
-|**--host-security-profiles**|array||host_security_profiles|hostSecurityProfiles|
-|**--ip-security-profiles**|array||ip_security_profiles|ipSecurityProfiles|
-|**--provider-tenant-settings**|array||provider_tenant_settings|providerTenantSettings|
-|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
-|**--secure-scores**|array||secure_scores|secureScores|
-|**--security-actions**|array||security_actions|securityActions|
-|**--ti-indicators**|array||ti_indicators|tiIndicators|
-|**--user-security-profiles**|array||user_security_profiles|userSecurityProfiles|
-
-### security security-security-action cancel-security-action
-
-cancel-security-action a security security-security-action.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security-security-action|Security.securityActions|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|cancel-security-action|cancelSecurityAction|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
 
 ### security security-ti-indicator delete-ti-indicator
 

@@ -38,17 +38,17 @@ from azext_security_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('security security-security get-security') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('security security-security update-security') as c:
+    with self.argument_context('security security update') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('alerts', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
         c.argument('secure_score_control_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('secure_scores', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('security security get') as c:
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('security security delete') as c:
         c.argument('alert_id', type=str, help='key: id of alert')

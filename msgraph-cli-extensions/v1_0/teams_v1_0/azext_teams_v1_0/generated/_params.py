@@ -44,6 +44,7 @@ from azext_teams_v1_0.action import (
     AddScheduleOfferShiftRequests,
     AddScheduleOpenShiftChangeRequests,
     AddScheduleSchedulingGroups,
+    AddScheduleShifts,
     AddScheduleSwapShiftsChangeRequests,
     AddScheduleTimeOffReasons,
     AddScheduleTimeOffRequests,
@@ -78,6 +79,7 @@ from azext_teams_v1_0.action import (
     AddFolderView,
     AddFileHashes,
     AddDraftOpenShift,
+    AddSharedShiftActivities,
     AddDraftTimeOff,
     AddEncryption
 )
@@ -106,16 +108,7 @@ def load_arguments(self, _):
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('teams group delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams group get-team') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams group update-team') as c:
+    with self.argument_context('teams group update') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
@@ -342,8 +335,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -352,257 +344,256 @@ def load_arguments(self, _):
         c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
                    'Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams team-team delete') as c:
-        c.argument('team_id', type=str, help='key: id of team')
+    with self.argument_context('teams group delete') as c:
+        c.argument('group_id', type=str, help='key: id of group')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-team create-team') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
-                   'sensitivity of the team. Must match one of a pre-configured set in the tenant\'s directory.')
-        c.argument('description', type=str, help='An optional description for the team.')
-        c.argument('display_name', type=str, help='The name of the team.')
-        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
-        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
-        c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
-                   'the audit log/Office 365 Management Activity API.')
-        c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
-        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
-        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
-        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
-                                                             'educationProfessionalLearningCommunity',
-                                                             'educationStaff', 'healthcareStandard', ''
-                                                             'healthcareCareCoordination', 'unknownFutureValue']),
-                   help='')
-        c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
-                                                        'unknownFutureValue']), help='')
-        c.argument('web_url', type=str, help='A hyperlink that will go to the team in the Microsoft Teams client. This '
-                   'is the URL that you get when you right-click a team in the Microsoft Teams client and select Get '
-                   'link to team. This URL should be treated as an opaque blob, and not parsed.')
-        c.argument('channels', type=validate_file_or_dict, help='The collection of channels & messages associated with '
-                   'the team. Expected value: json-string/@json-file.')
-        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
-        c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
-                   'this team. Expected value: json-string/@json-file.')
-        c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
-                   'json-string/@json-file.')
-        c.argument('template_id', type=str, help='Read-only.')
-        c.argument('group_id', type=str, help='Read-only.')
-        c.argument('group_deleted_date_time', help='')
-        c.argument('group_assigned_labels', action=AddGroupAssignedLabels, nargs='*', help='The list of sensitivity '
-                   'label pairs (label ID, label name) associated with an Microsoft 365 group. Returned only on '
-                   '$select. Read-only.')
-        c.argument('group_assigned_licenses', action=AddGroupAssignedLicenses, nargs='*', help='The licenses that are '
-                   'assigned to the group. Returned only on $select. Read-only.')
-        c.argument('group_classification', type=str, help='Describes a classification for the group (such as low, '
-                   'medium or high business impact). Valid values for this property are defined by creating a '
-                   'ClassificationList setting value, based on the template definition.Returned by default.')
-        c.argument('group_created_date_time', help='Timestamp of when the group was created. The value cannot be '
-                   'modified and is automatically populated when the group is created. The Timestamp type represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only.')
-        c.argument('group_description', type=str, help='An optional description for the group. Returned by default.')
-        c.argument('group_display_name', type=str, help='The display name for the group. This property is required '
-                   'when a group is created and cannot be cleared during updates. Returned by default. Supports '
-                   '$filter and $orderby.')
-        c.argument('group_expiration_date_time', help='Timestamp of when the group is set to expire. The value cannot '
-                   'be modified and is automatically populated when the group is created. The Timestamp type '
-                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
-                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Returned by default. '
-                   'Read-only.')
-        c.argument('group_group_types', nargs='*', help='Specifies the group type and its membership.  If the '
-                   'collection contains Unified, the group is a Microsoft 365 group; otherwise, it\'s either a '
-                   'security group or distribution group. For details, see groups overview.If the collection includes '
-                   'DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by '
-                   'default. Supports $filter.')
-        c.argument('group_has_members_with_license_errors', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'there are members in this group that have license errors from its group-based license assignment. '
-                   'This property is never returned on a GET operation. You can use it as a $filter argument to get '
-                   'groups that have members with license errors (that is, filter for this property being true). See '
-                   'an example.')
-        c.argument('group_license_processing_state', action=AddGroupLicenseProcessingState, nargs='*', help=''
-                   'licenseProcessingState')
-        c.argument('group_mail', type=str, help='The SMTP address for the group, for example, '
-                   '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
-                   'mail-enabled. Returned by default.')
-        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
-                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
-        c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
-                   'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
-                   'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
-        c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
-                   'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
-        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect.Returned by default. Read-only.')
-        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
-                   'synced with the on-premises directory.The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
-        c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
-                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
-        c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
-        c.argument('group_on_premises_security_identifier', type=str, help='Contains the on-premises security '
-                   'identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by '
-                   'default. Read-only.')
-        c.argument('group_on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this group is '
-                   'synced from an on-premises directory; false if this group was originally synced from an '
-                   'on-premises directory but is no longer synced; null if this object has never been synced from an '
-                   'on-premises directory (default). Returned by default. Read-only. Supports $filter.')
-        c.argument('group_preferred_data_location', type=str, help='The preferred data location for the group. For '
-                   'more information, see  OneDrive Online Multi-Geo. Returned by default.')
-        c.argument('group_preferred_language', type=str, help='The preferred language for an Microsoft 365 group. '
-                   'Should follow ISO 639-1 Code; for example \'en-US\'. Returned by default.')
-        c.argument('group_proxy_addresses', nargs='*', help='Email addresses for the group that direct to the same '
-                   'group mailbox. For example: [\'SMTP: bob@contoso.com\', \'smtp: bob@sales.contoso.com\']. The any '
-                   'operator is required to filter expressions on multi-valued properties. Returned by default. '
-                   'Read-only. Not nullable. Supports $filter.')
-        c.argument('group_renewed_date_time', help='Timestamp of when the group was last renewed. This cannot be '
-                   'modified directly and is only updated via the renew service action. The Timestamp type represents '
-                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
-                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only.')
-        c.argument('group_security_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is a '
-                   'security group. Returned by default. Supports $filter.')
-        c.argument('group_security_identifier', type=str, help='Security identifier of the group, used in Windows '
-                   'scenarios. Returned by default.')
-        c.argument('group_theme', type=str, help='Specifies an Microsoft 365 group\'s color theme. Possible values are '
-                   'Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.')
-        c.argument('group_visibility', type=str, help='Specifies the visibility of a Microsoft 365 group. Possible '
-                   'values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See group '
-                   'visibility options to learn more.Visibility can be set only when a group is created; it is not '
-                   'editable.Visibility is supported only for unified groups; it is not supported for security groups. '
-                   'Returned by default.')
-        c.argument('group_allow_external_senders', arg_type=get_three_state_flag(), help='Indicates if people external '
-                   'to the organization can send messages to the group. Default value is false. Returned only on '
-                   '$select.')
-        c.argument('group_auto_subscribe_new_members', arg_type=get_three_state_flag(), help='Indicates if new members '
-                   'added to the group will be auto-subscribed to receive email notifications. You can set this '
-                   'property in a PATCH request for the group; do not set it in the initial POST request that creates '
-                   'the group. Default value is false. Returned only on $select.')
-        c.argument('group_hide_from_address_lists', arg_type=get_three_state_flag(), help='True if the group is not '
-                   'displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting '
-                   'message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default '
-                   'value is false. Returned only on $select.')
-        c.argument('group_hide_from_outlook_clients', arg_type=get_three_state_flag(), help='True if the group is not '
-                   'displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, '
-                   'false. Default value is false. Returned only on $select.')
-        c.argument('group_is_subscribed_by_mail', arg_type=get_three_state_flag(), help='Indicates whether the '
-                   'signed-in user is subscribed to receive email conversations. Default value is true. Returned only '
-                   'on $select.')
-        c.argument('group_unseen_count', type=int, help='Count of conversations that have received new posts since the '
-                   'signed-in user last visited the group. Returned only on $select.')
-        c.argument('group_is_archived', arg_type=get_three_state_flag(), help='')
-        c.argument('group_app_role_assignments', action=AddGroupAppRoleAssignments, nargs='*', help='')
-        c.argument('group_created_on_behalf_of', action=AddGroupCreatedOnBehalfOf, nargs='*', help='Represents an '
-                   'Azure Active Directory object. The directoryObject type is the base type for many other directory '
-                   'entity types.')
-        c.argument('group_member_of', action=AddGroupMemberOf, nargs='*', help='Groups that this group is a member of. '
-                   'HTTP Methods: GET (supported for all groups). Read-only. Nullable.')
-        c.argument('group_members', action=AddGroupMembers, nargs='*', help='Users and groups that are members of this '
-                   'group. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, '
-                   'security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and '
-                   'security groups) Nullable.')
-        c.argument('group_members_with_license_errors', action=AddGroupMembersWithLicenseErrors, nargs='*', help='A '
-                   'list of group members with license errors from this group-based license assignment. Read-only.')
-        c.argument('group_owners', action=AddGroupOwners, nargs='*', help='The owners of the group. The owners are a '
-                   'set of non-admin users who are allowed to modify this object. Limited to 100 owners. HTTP Methods: '
-                   'GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and '
-                   'mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups). '
-                   'Nullable.')
-        c.argument('group_settings', action=AddGroupSettings, nargs='*', help='Read-only. Nullable.')
-        c.argument('group_transitive_member_of', action=AddGroupTransitiveMemberOf, nargs='*', help='')
-        c.argument('group_transitive_members', action=AddGroupTransitiveMembers, nargs='*', help='')
-        c.argument('group_accepted_senders', action=AddGroupAcceptedSenders, nargs='*', help='The list of users or '
-                   'groups that are allowed to create post\'s or calendar events in this group. If this list is '
-                   'non-empty then only users or groups listed here are allowed to post.')
-        c.argument('group_calendar', type=validate_file_or_dict, help='calendar Expected value: '
-                   'json-string/@json-file.')
-        c.argument('group_calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. '
-                   'Read-only. Expected value: json-string/@json-file.')
-        c.argument('group_conversations', type=validate_file_or_dict, help='The group\'s conversations. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('group_events', type=validate_file_or_dict, help='The group\'s calendar events. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('group_photo', action=AddGroupPhoto, nargs='*', help='profilePhoto')
-        c.argument('group_photos', action=AddGroupPhotos, nargs='*', help='The profile photos owned by the group. '
-                   'Read-only. Nullable.')
-        c.argument('group_rejected_senders', action=AddGroupRejectedSenders, nargs='*', help='The list of users or '
-                   'groups that are not allowed to create posts or calendar events in this group. Nullable')
-        c.argument('group_threads', type=validate_file_or_dict, help='The group\'s conversation threads. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('group_drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
-        c.argument('group_drives', type=validate_file_or_dict, help='The group\'s drives. Read-only. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('group_sites', type=validate_file_or_dict, help='The list of SharePoint sites in this group. Access '
-                   'the default site with /sites/root. Expected value: json-string/@json-file.')
-        c.argument('group_extensions', action=AddGroupExtensions, nargs='*', help='The collection of open extensions '
-                   'defined for the group. Read-only. Nullable.')
-        c.argument('group_group_lifecycle_policies', action=AddGroupGroupLifecyclePolicies, nargs='*', help='The '
-                   'collection of lifecycle policies for this group. Read-only. Nullable.')
-        c.argument('group_planner', type=validate_file_or_dict, help='plannerGroup Expected value: '
-                   'json-string/@json-file.')
-        c.argument('group_onenote', type=validate_file_or_dict,
-                   help='onenote Expected value: json-string/@json-file.')
-        c.argument('group_team', type=validate_file_or_dict, help='team Expected value: json-string/@json-file.')
-        c.argument('schedule_id', type=str, help='Read-only.')
-        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
-                   'enabled for the team. Required.')
-        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'offer shift requests are enabled for the schedule.')
-        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
-                   'shifts are enabled for the schedule.')
-        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
-                                                                       'Failed']), help='')
-        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
-                   'provisioning failed.')
-        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'swap shifts requests are enabled for the schedule.')
-        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
-                   'is enabled for the schedule.')
-        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
-                   'off requests are enabled for the schedule.')
-        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
-                   'database format. Required.')
-        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
-        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_open_shifts', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
-                   'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
-                   'for a time off in the schedule.')
-        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
-        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
-                   'Expected value: json-string/@json-file.')
-
-    with self.argument_context('teams team-team get-team') as c:
-        c.argument('team_id', type=str, help='key: id of team')
+    with self.argument_context('teams group get') as c:
+        c.argument('group_id', type=str, help='key: id of group')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams team-team list-team') as c:
+    with self.argument_context('teams team list') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams team-team update-team') as c:
+    with self.argument_context('teams team create') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
+                   'sensitivity of the team. Must match one of a pre-configured set in the tenant\'s directory.')
+        c.argument('description', type=str, help='An optional description for the team.')
+        c.argument('display_name', type=str, help='The name of the team.')
+        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
+        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
+        c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
+                   'the audit log/Office 365 Management Activity API.')
+        c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
+        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
+        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
+        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
+                                                             'educationProfessionalLearningCommunity',
+                                                             'educationStaff', 'healthcareStandard', ''
+                                                             'healthcareCareCoordination', 'unknownFutureValue']),
+                   help='')
+        c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
+                                                        'unknownFutureValue']), help='')
+        c.argument('web_url', type=str, help='A hyperlink that will go to the team in the Microsoft Teams client. This '
+                   'is the URL that you get when you right-click a team in the Microsoft Teams client and select Get '
+                   'link to team. This URL should be treated as an opaque blob, and not parsed.')
+        c.argument('channels', type=validate_file_or_dict, help='The collection of channels & messages associated with '
+                   'the team. Expected value: json-string/@json-file.')
+        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
+        c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
+                   'this team. Expected value: json-string/@json-file.')
+        c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
+                   'json-string/@json-file.')
+        c.argument('template_id', type=str, help='Read-only.')
+        c.argument('group_id', type=str, help='Read-only.')
+        c.argument('group_deleted_date_time', help='')
+        c.argument('group_assigned_labels', action=AddGroupAssignedLabels, nargs='*', help='The list of sensitivity '
+                   'label pairs (label ID, label name) associated with an Microsoft 365 group. Returned only on '
+                   '$select. Read-only.')
+        c.argument('group_assigned_licenses', action=AddGroupAssignedLicenses, nargs='*', help='The licenses that are '
+                   'assigned to the group. Returned only on $select. Read-only.')
+        c.argument('group_classification', type=str, help='Describes a classification for the group (such as low, '
+                   'medium or high business impact). Valid values for this property are defined by creating a '
+                   'ClassificationList setting value, based on the template definition.Returned by default.')
+        c.argument('group_created_date_time', help='Timestamp of when the group was created. The value cannot be '
+                   'modified and is automatically populated when the group is created. The Timestamp type represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only.')
+        c.argument('group_description', type=str, help='An optional description for the group. Returned by default.')
+        c.argument('group_display_name', type=str, help='The display name for the group. This property is required '
+                   'when a group is created and cannot be cleared during updates. Returned by default. Supports '
+                   '$filter and $orderby.')
+        c.argument('group_expiration_date_time', help='Timestamp of when the group is set to expire. The value cannot '
+                   'be modified and is automatically populated when the group is created. The Timestamp type '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Returned by default. '
+                   'Read-only.')
+        c.argument('group_group_types', nargs='*', help='Specifies the group type and its membership.  If the '
+                   'collection contains Unified, the group is a Microsoft 365 group; otherwise, it\'s either a '
+                   'security group or distribution group. For details, see groups overview.If the collection includes '
+                   'DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by '
+                   'default. Supports $filter.')
+        c.argument('group_has_members_with_license_errors', arg_type=get_three_state_flag(), help='Indicates whether '
+                   'there are members in this group that have license errors from its group-based license assignment. '
+                   'This property is never returned on a GET operation. You can use it as a $filter argument to get '
+                   'groups that have members with license errors (that is, filter for this property being true). See '
+                   'an example.')
+        c.argument('group_license_processing_state', action=AddGroupLicenseProcessingState, nargs='*', help=''
+                   'licenseProcessingState')
+        c.argument('group_mail', type=str, help='The SMTP address for the group, for example, '
+                   '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
+        c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
+                   'mail-enabled. Returned by default.')
+        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
+                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
+        c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
+                   'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
+                   'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
+        c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
+                   'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
+        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
+                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
+                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
+                   'Connect.Returned by default. Read-only.')
+        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
+                   'synced with the on-premises directory.The Timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
+        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
+                   'synchronized from the on-premises directory. The property is only populated for customers who are '
+                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
+                   'by default. Read-only.')
+        c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
+                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
+        c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
+                   'synchronized from the on-premises directory. The property is only populated for customers who are '
+                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
+                   'by default. Read-only.')
+        c.argument('group_on_premises_security_identifier', type=str, help='Contains the on-premises security '
+                   'identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by '
+                   'default. Read-only.')
+        c.argument('group_on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this group is '
+                   'synced from an on-premises directory; false if this group was originally synced from an '
+                   'on-premises directory but is no longer synced; null if this object has never been synced from an '
+                   'on-premises directory (default). Returned by default. Read-only. Supports $filter.')
+        c.argument('group_preferred_data_location', type=str, help='The preferred data location for the group. For '
+                   'more information, see  OneDrive Online Multi-Geo. Returned by default.')
+        c.argument('group_preferred_language', type=str, help='The preferred language for an Microsoft 365 group. '
+                   'Should follow ISO 639-1 Code; for example \'en-US\'. Returned by default.')
+        c.argument('group_proxy_addresses', nargs='*', help='Email addresses for the group that direct to the same '
+                   'group mailbox. For example: [\'SMTP: bob@contoso.com\', \'smtp: bob@sales.contoso.com\']. The any '
+                   'operator is required to filter expressions on multi-valued properties. Returned by default. '
+                   'Read-only. Not nullable. Supports $filter.')
+        c.argument('group_renewed_date_time', help='Timestamp of when the group was last renewed. This cannot be '
+                   'modified directly and is only updated via the renew service action. The Timestamp type represents '
+                   'date and time information using ISO 8601 format and is always in UTC time. For example, midnight '
+                   'UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only.')
+        c.argument('group_security_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is a '
+                   'security group. Returned by default. Supports $filter.')
+        c.argument('group_security_identifier', type=str, help='Security identifier of the group, used in Windows '
+                   'scenarios. Returned by default.')
+        c.argument('group_theme', type=str, help='Specifies an Microsoft 365 group\'s color theme. Possible values are '
+                   'Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.')
+        c.argument('group_visibility', type=str, help='Specifies the visibility of a Microsoft 365 group. Possible '
+                   'values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See group '
+                   'visibility options to learn more.Visibility can be set only when a group is created; it is not '
+                   'editable.Visibility is supported only for unified groups; it is not supported for security groups. '
+                   'Returned by default.')
+        c.argument('group_allow_external_senders', arg_type=get_three_state_flag(), help='Indicates if people external '
+                   'to the organization can send messages to the group. Default value is false. Returned only on '
+                   '$select.')
+        c.argument('group_auto_subscribe_new_members', arg_type=get_three_state_flag(), help='Indicates if new members '
+                   'added to the group will be auto-subscribed to receive email notifications. You can set this '
+                   'property in a PATCH request for the group; do not set it in the initial POST request that creates '
+                   'the group. Default value is false. Returned only on $select.')
+        c.argument('group_hide_from_address_lists', arg_type=get_three_state_flag(), help='True if the group is not '
+                   'displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting '
+                   'message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default '
+                   'value is false. Returned only on $select.')
+        c.argument('group_hide_from_outlook_clients', arg_type=get_three_state_flag(), help='True if the group is not '
+                   'displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, '
+                   'false. Default value is false. Returned only on $select.')
+        c.argument('group_is_subscribed_by_mail', arg_type=get_three_state_flag(), help='Indicates whether the '
+                   'signed-in user is subscribed to receive email conversations. Default value is true. Returned only '
+                   'on $select.')
+        c.argument('group_unseen_count', type=int, help='Count of conversations that have received new posts since the '
+                   'signed-in user last visited the group. Returned only on $select.')
+        c.argument('group_is_archived', arg_type=get_three_state_flag(), help='')
+        c.argument('group_app_role_assignments', action=AddGroupAppRoleAssignments, nargs='*', help='')
+        c.argument('group_created_on_behalf_of', action=AddGroupCreatedOnBehalfOf, nargs='*', help='Represents an '
+                   'Azure Active Directory object. The directoryObject type is the base type for many other directory '
+                   'entity types.')
+        c.argument('group_member_of', action=AddGroupMemberOf, nargs='*', help='Groups that this group is a member of. '
+                   'HTTP Methods: GET (supported for all groups). Read-only. Nullable.')
+        c.argument('group_members', action=AddGroupMembers, nargs='*', help='Users and groups that are members of this '
+                   'group. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, '
+                   'security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and '
+                   'security groups) Nullable.')
+        c.argument('group_members_with_license_errors', action=AddGroupMembersWithLicenseErrors, nargs='*', help='A '
+                   'list of group members with license errors from this group-based license assignment. Read-only.')
+        c.argument('group_owners', action=AddGroupOwners, nargs='*', help='The owners of the group. The owners are a '
+                   'set of non-admin users who are allowed to modify this object. Limited to 100 owners. HTTP Methods: '
+                   'GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and '
+                   'mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups). '
+                   'Nullable.')
+        c.argument('group_settings', action=AddGroupSettings, nargs='*', help='Read-only. Nullable.')
+        c.argument('group_transitive_member_of', action=AddGroupTransitiveMemberOf, nargs='*', help='')
+        c.argument('group_transitive_members', action=AddGroupTransitiveMembers, nargs='*', help='')
+        c.argument('group_accepted_senders', action=AddGroupAcceptedSenders, nargs='*', help='The list of users or '
+                   'groups that are allowed to create post\'s or calendar events in this group. If this list is '
+                   'non-empty then only users or groups listed here are allowed to post.')
+        c.argument('group_calendar', type=validate_file_or_dict, help='calendar Expected value: '
+                   'json-string/@json-file.')
+        c.argument('group_calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. '
+                   'Read-only. Expected value: json-string/@json-file.')
+        c.argument('group_conversations', type=validate_file_or_dict, help='The group\'s conversations. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('group_events', type=validate_file_or_dict, help='The group\'s calendar events. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('group_photo', action=AddGroupPhoto, nargs='*', help='profilePhoto')
+        c.argument('group_photos', action=AddGroupPhotos, nargs='*', help='The profile photos owned by the group. '
+                   'Read-only. Nullable.')
+        c.argument('group_rejected_senders', action=AddGroupRejectedSenders, nargs='*', help='The list of users or '
+                   'groups that are not allowed to create posts or calendar events in this group. Nullable')
+        c.argument('group_threads', type=validate_file_or_dict, help='The group\'s conversation threads. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('group_drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
+        c.argument('group_drives', type=validate_file_or_dict, help='The group\'s drives. Read-only. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('group_sites', type=validate_file_or_dict, help='The list of SharePoint sites in this group. Access '
+                   'the default site with /sites/root. Expected value: json-string/@json-file.')
+        c.argument('group_extensions', action=AddGroupExtensions, nargs='*', help='The collection of open extensions '
+                   'defined for the group. Read-only. Nullable.')
+        c.argument('group_group_lifecycle_policies', action=AddGroupGroupLifecyclePolicies, nargs='*', help='The '
+                   'collection of lifecycle policies for this group. Read-only. Nullable.')
+        c.argument('group_planner', type=validate_file_or_dict, help='plannerGroup Expected value: '
+                   'json-string/@json-file.')
+        c.argument('group_onenote', type=validate_file_or_dict,
+                   help='onenote Expected value: json-string/@json-file.')
+        c.argument('group_team', type=validate_file_or_dict, help='team Expected value: json-string/@json-file.')
+        c.argument('schedule_id', type=str, help='Read-only.')
+        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
+                   'enabled for the team. Required.')
+        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
+                   'offer shift requests are enabled for the schedule.')
+        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
+                   'shifts are enabled for the schedule.')
+        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
+                                                                       'Failed']), help='')
+        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
+                   'provisioning failed.')
+        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
+                   'swap shifts requests are enabled for the schedule.')
+        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
+                   'is enabled for the schedule.')
+        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
+                   'off requests are enabled for the schedule.')
+        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
+                   'database format. Required.')
+        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
+        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
+        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
+                   help='')
+        c.argument('schedule_open_shifts', type=validate_file_or_dict,
+                   help=' Expected value: json-string/@json-file.')
+        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
+                   'grouping of users in the schedule (usually by role).')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
+        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
+                   help='')
+        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
+                   'for a time off in the schedule.')
+        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
+        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
+                   'Expected value: json-string/@json-file.')
+
+    with self.argument_context('teams team update') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
@@ -829,8 +820,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -838,6 +828,15 @@ def load_arguments(self, _):
         c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
         c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
                    'Expected value: json-string/@json-file.')
+
+    with self.argument_context('teams team delete') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams team get') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teams team delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1110,8 +1109,7 @@ def load_arguments(self, _):
         c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical grouping of '
                    'users in the schedule (usually by role).')
-        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*', help='')
         c.argument('time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons for a '
                    'time off in the schedule.')
@@ -1740,17 +1738,17 @@ def load_arguments(self, _):
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-channel-tab get-ref-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-
-    with self.argument_context('teams team-channel-tab get-team-app') as c:
+    with self.argument_context('teams team-channel-tab get-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams team-channel-tab get-ref-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
     with self.argument_context('teams team-channel-tab set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1764,6 +1762,18 @@ def load_arguments(self, _):
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
+    with self.argument_context('teams team-installed-app get-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams team-installed-app get-app-definition') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
     with self.argument_context('teams team-installed-app get-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
@@ -1771,18 +1781,6 @@ def load_arguments(self, _):
     with self.argument_context('teams team-installed-app get-ref-team-app-definition') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-
-    with self.argument_context('teams team-installed-app get-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-installed-app get-team-app-definition') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teams team-installed-app set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2396,15 +2394,15 @@ def load_arguments(self, _):
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-primary-channel-tab get-ref-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-
-    with self.argument_context('teams team-primary-channel-tab get-team-app') as c:
+    with self.argument_context('teams team-primary-channel-tab get-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams team-primary-channel-tab get-ref-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
     with self.argument_context('teams team-primary-channel-tab set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2565,8 +2563,52 @@ def load_arguments(self, _):
 
     with self.argument_context('teams team-schedule create-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
+        c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
+        c.argument('shared_shift_end_date_time', help='')
+        c.argument('shared_shift_start_date_time', help='')
+        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
+                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('draft_shift_end_date_time', help='')
+        c.argument('draft_shift_start_date_time', help='')
+        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
+                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
 
     with self.argument_context('teams team-schedule create-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2975,8 +3017,52 @@ def load_arguments(self, _):
     with self.argument_context('teams team-schedule update-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('shift_id', type=str, help='key: id of shift')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
+        c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
+        c.argument('shared_shift_end_date_time', help='')
+        c.argument('shared_shift_start_date_time', help='')
+        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
+                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('draft_shift_end_date_time', help='')
+        c.argument('draft_shift_start_date_time', help='')
+        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
+                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
+                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
+                   help='')
+        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
+                   'a shift which can cover details of when and where an employee is during their shift. For example, '
+                   'an assignment or a scheduled break or lunch. Required.')
+        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
+        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
 
     with self.argument_context('teams team-schedule update-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3130,11 +3216,11 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'')
         c.argument('time_off_reason_id', type=str, help='The reason for the time off.')
 
-    with self.argument_context('teams teamwork-teamwork get-teamwork') as c:
+    with self.argument_context('teams teamwork-teamwork getwork') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teams teamwork-teamwork update-teamwork') as c:
+    with self.argument_context('teams teamwork-teamwork updatework') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('workforce_integrations', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
@@ -3456,8 +3542,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
@@ -3706,8 +3791,7 @@ def load_arguments(self, _):
                    help=' Expected value: json-string/@json-file.')
         c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
                    'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
-                   'json-string/@json-file.')
+        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
         c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
                    help='')
         c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '

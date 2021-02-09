@@ -17,12 +17,12 @@ helps['sites group'] = """
     short-summary: sites group
 """
 
-helps['sites group delete'] = """
+helps['sites group list'] = """
     type: command
-    short-summary: "Delete navigation property sites for groups"
+    short-summary: "Get sites from groups"
 """
 
-helps['sites group create-site'] = """
+helps['sites group create'] = """
     type: command
     short-summary: "Create new navigation property to sites for groups"
     parameters:
@@ -133,17 +133,7 @@ supported, but you can get the binary content of a specific resource. Read-only.
 
 """
 
-helps['sites group get-site'] = """
-    type: command
-    short-summary: "Get sites from groups"
-"""
-
-helps['sites group list-site'] = """
-    type: command
-    short-summary: "Get sites from groups"
-"""
-
-helps['sites group update-site'] = """
+helps['sites group update'] = """
     type: command
     short-summary: "Update the navigation property sites in groups"
     parameters:
@@ -254,17 +244,27 @@ supported, but you can get the binary content of a specific resource. Read-only.
 
 """
 
-helps['sites site-site'] = """
-    type: group
-    short-summary: sites site-site
-"""
-
-helps['sites site-site delete'] = """
+helps['sites group delete'] = """
     type: command
-    short-summary: "Delete entity from sites"
+    short-summary: "Delete navigation property sites for groups"
 """
 
-helps['sites site-site create-site'] = """
+helps['sites group get'] = """
+    type: command
+    short-summary: "Get sites from groups"
+"""
+
+helps['sites site'] = """
+    type: group
+    short-summary: sites site
+"""
+
+helps['sites site list'] = """
+    type: command
+    short-summary: "Get entities from sites"
+"""
+
+helps['sites site create'] = """
     type: command
     short-summary: "Add new entity to sites"
     parameters:
@@ -375,17 +375,7 @@ supported, but you can get the binary content of a specific resource. Read-only.
 
 """
 
-helps['sites site-site get-site'] = """
-    type: command
-    short-summary: "Get entity from sites by key"
-"""
-
-helps['sites site-site list-site'] = """
-    type: command
-    short-summary: "Get entities from sites"
-"""
-
-helps['sites site-site update-site'] = """
+helps['sites site update'] = """
     type: command
     short-summary: "Update entity in sites"
     parameters:
@@ -496,9 +486,246 @@ supported, but you can get the binary content of a specific resource. Read-only.
 
 """
 
+helps['sites site delete'] = """
+    type: command
+    short-summary: "Delete entity from sites"
+"""
+
+helps['sites site get'] = """
+    type: command
+    short-summary: "Get entity from sites by key"
+"""
+
 helps['sites site'] = """
     type: group
     short-summary: sites site
+"""
+
+helps['sites site list'] = """
+    type: command
+    short-summary: "Get sites from sites"
+"""
+
+helps['sites site create'] = """
+    type: command
+    short-summary: "Create new navigation property to sites for sites"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --onenote-resources
+        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
+supported, but you can get the binary content of a specific resource. Read-only. Nullable."
+        long-summary: |
+            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+
+            content: The content stream
+            content-url: The URL for downloading the content
+            self: The endpoint where you can get details about the page. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --onenote-resources argument.
+      - name: --error-details
+        long-summary: |
+            Usage: --error-details code=XX message=XX target=XX
+
+
+            Multiple actions can be specified by using more than one --error-details argument.
+      - name: --error-inner-error
+        short-summary: "publicInnerError"
+        long-summary: |
+            Usage: --error-inner-error code=XX details=XX message=XX target=XX
+
+"""
+
+helps['sites site update'] = """
+    type: command
+    short-summary: "Update the navigation property sites in sites"
+    parameters:
+      - name: --parent-reference-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --onenote-resources
+        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
+supported, but you can get the binary content of a specific resource. Read-only. Nullable."
+        long-summary: |
+            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+
+            content: The content stream
+            content-url: The URL for downloading the content
+            self: The endpoint where you can get details about the page. Read-only.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --onenote-resources argument.
+      - name: --error-details
+        long-summary: |
+            Usage: --error-details code=XX message=XX target=XX
+
+
+            Multiple actions can be specified by using more than one --error-details argument.
+      - name: --error-inner-error
+        short-summary: "publicInnerError"
+        long-summary: |
+            Usage: --error-inner-error code=XX details=XX message=XX target=XX
+
 """
 
 helps['sites site delete'] = """
@@ -886,115 +1113,9 @@ must make use of the HTTPS protocol.
             Multiple actions can be specified by using more than one --subscriptions argument.
 """
 
-helps['sites site create-site'] = """
+helps['sites site get'] = """
     type: command
-    short-summary: "Create new navigation property to sites for sites"
-    parameters:
-      - name: --parent-reference-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --onenote-resources
-        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
-supported, but you can get the binary content of a specific resource. Read-only. Nullable."
-        long-summary: |
-            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
-
-            content: The content stream
-            content-url: The URL for downloading the content
-            self: The endpoint where you can get details about the page. Read-only.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --onenote-resources argument.
-      - name: --error-details
-        long-summary: |
-            Usage: --error-details code=XX message=XX target=XX
-
-
-            Multiple actions can be specified by using more than one --error-details argument.
-      - name: --error-inner-error
-        short-summary: "publicInnerError"
-        long-summary: |
-            Usage: --error-inner-error code=XX details=XX message=XX target=XX
-
+    short-summary: "Get sites from sites"
 """
 
 helps['sites site get-activity-by-interval53-ee'] = """
@@ -1042,11 +1163,6 @@ helps['sites site get-ref-analytic'] = """
     short-summary: "Get ref of analytics from sites"
 """
 
-helps['sites site get-site'] = """
-    type: command
-    short-summary: "Get sites from sites"
-"""
-
 helps['sites site list-column'] = """
     type: command
     short-summary: "Get columns from sites"
@@ -1065,11 +1181,6 @@ helps['sites site list-drive'] = """
 helps['sites site list-list'] = """
     type: command
     short-summary: "Get lists from sites"
-"""
-
-helps['sites site list-site'] = """
-    type: command
-    short-summary: "Get sites from sites"
 """
 
 helps['sites site remove'] = """
@@ -1455,117 +1566,6 @@ must make use of the HTTPS protocol.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --subscriptions argument.
-"""
-
-helps['sites site update-site'] = """
-    type: command
-    short-summary: "Update the navigation property sites in sites"
-    parameters:
-      - name: --parent-reference-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --created-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-identity-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --microsoft-graph-identity-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --microsoft-graph-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --onenote-resources
-        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
-supported, but you can get the binary content of a specific resource. Read-only. Nullable."
-        long-summary: |
-            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
-
-            content: The content stream
-            content-url: The URL for downloading the content
-            self: The endpoint where you can get details about the page. Read-only.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --onenote-resources argument.
-      - name: --error-details
-        long-summary: |
-            Usage: --error-details code=XX message=XX target=XX
-
-
-            Multiple actions can be specified by using more than one --error-details argument.
-      - name: --error-inner-error
-        short-summary: "publicInnerError"
-        long-summary: |
-            Usage: --error-inner-error code=XX details=XX message=XX target=XX
-
 """
 
 helps['sites site-content-type'] = """

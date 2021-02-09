@@ -750,9 +750,9 @@ cancel a bookings booking-business-appointment.
 |**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
-### bookings booking-business-booking-business create-booking-business
+### bookings booking-business-booking-business create-business
 
-create-booking-business a bookings booking-business-booking-business.
+create-business a bookings booking-business-booking-business.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -762,7 +762,7 @@ create-booking-business a bookings booking-business-booking-business.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-booking-business|CreateBookingBusiness|
+|create-business|CreateBookingBusiness|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -805,9 +805,9 @@ delete a bookings booking-business-booking-business.
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### bookings booking-business-booking-business get-booking-business
+### bookings booking-business-booking-business get-business
 
-get-booking-business a bookings booking-business-booking-business.
+get-business a bookings booking-business-booking-business.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -817,7 +817,7 @@ get-booking-business a bookings booking-business-booking-business.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-booking-business|GetBookingBusiness|
+|get-business|GetBookingBusiness|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -826,9 +826,9 @@ get-booking-business a bookings booking-business-booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business-booking-business list-booking-business
+### bookings booking-business-booking-business list-business
 
-list-booking-business a bookings booking-business-booking-business.
+list-business a bookings booking-business-booking-business.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -838,7 +838,7 @@ list-booking-business a bookings booking-business-booking-business.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-booking-business|ListBookingBusiness|
+|list-business|ListBookingBusiness|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -847,9 +847,9 @@ list-booking-business a bookings booking-business-booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business-booking-business update-booking-business
+### bookings booking-business-booking-business update-business
 
-update-booking-business a bookings booking-business-booking-business.
+update-business a bookings booking-business-booking-business.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -859,7 +859,7 @@ update-booking-business a bookings booking-business-booking-business.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-booking-business|UpdateBookingBusiness|
+|update-business|UpdateBookingBusiness|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -904,9 +904,9 @@ cancel a bookings booking-business-calendar-view.
 |**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
-### bookings booking-currency-booking-currency create-booking-currency
+### bookings booking-currency-booking-currency create-currency
 
-create-booking-currency a bookings booking-currency-booking-currency.
+create-currency a bookings booking-currency-booking-currency.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -916,7 +916,7 @@ create-booking-currency a bookings booking-currency-booking-currency.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-booking-currency|CreateBookingCurrency|
+|create-currency|CreateBookingCurrency|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -944,9 +944,9 @@ delete a bookings booking-currency-booking-currency.
 |**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### bookings booking-currency-booking-currency get-booking-currency
+### bookings booking-currency-booking-currency get-currency
 
-get-booking-currency a bookings booking-currency-booking-currency.
+get-currency a bookings booking-currency-booking-currency.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -956,7 +956,7 @@ get-booking-currency a bookings booking-currency-booking-currency.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-booking-currency|GetBookingCurrency|
+|get-currency|GetBookingCurrency|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -965,9 +965,9 @@ get-booking-currency a bookings booking-currency-booking-currency.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-currency-booking-currency list-booking-currency
+### bookings booking-currency-booking-currency list-currency
 
-list-booking-currency a bookings booking-currency-booking-currency.
+list-currency a bookings booking-currency-booking-currency.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -977,7 +977,7 @@ list-booking-currency a bookings booking-currency-booking-currency.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-booking-currency|ListBookingCurrency|
+|list-currency|ListBookingCurrency|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -986,9 +986,9 @@ list-booking-currency a bookings booking-currency-booking-currency.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-currency-booking-currency update-booking-currency
+### bookings booking-currency-booking-currency update-currency
 
-update-booking-currency a bookings booking-currency-booking-currency.
+update-currency a bookings booking-currency-booking-currency.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -998,7 +998,7 @@ update-booking-currency a bookings booking-currency-booking-currency.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-booking-currency|UpdateBookingCurrency|
+|update-currency|UpdateBookingCurrency|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

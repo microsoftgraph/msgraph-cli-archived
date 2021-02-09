@@ -11,28 +11,21 @@
 # pylint: disable=too-many-lines
 
 
-def security_security_security_get_security(client,
-                                            select=None,
-                                            expand=None):
-    return client.get_security(select=select,
-                               expand=expand)
-
-
-def security_security_security_update_security(client,
-                                               id_=None,
-                                               provider_status=None,
-                                               alerts=None,
-                                               cloud_app_security_profiles=None,
-                                               domain_security_profiles=None,
-                                               file_security_profiles=None,
-                                               host_security_profiles=None,
-                                               ip_security_profiles=None,
-                                               provider_tenant_settings=None,
-                                               secure_score_control_profiles=None,
-                                               secure_scores=None,
-                                               security_actions=None,
-                                               ti_indicators=None,
-                                               user_security_profiles=None):
+def security_security_update(client,
+                             id_=None,
+                             provider_status=None,
+                             alerts=None,
+                             cloud_app_security_profiles=None,
+                             domain_security_profiles=None,
+                             file_security_profiles=None,
+                             host_security_profiles=None,
+                             ip_security_profiles=None,
+                             provider_tenant_settings=None,
+                             secure_score_control_profiles=None,
+                             secure_scores=None,
+                             security_actions=None,
+                             ti_indicators=None,
+                             user_security_profiles=None):
     return client.update_security(id=id_,
                                   provider_status=provider_status,
                                   alerts=alerts,
@@ -47,6 +40,13 @@ def security_security_security_update_security(client,
                                   security_actions=security_actions,
                                   ti_indicators=ti_indicators,
                                   user_security_profiles=user_security_profiles)
+
+
+def security_security_get(client,
+                          select=None,
+                          expand=None):
+    return client.get_security(select=select,
+                               expand=expand)
 
 
 def security_security_delete(client,
@@ -98,6 +98,39 @@ def security_security_delete(client,
                                           if_match=if_match)
     return client.delete_user_security_profile(user_security_profile_id=user_security_profile_id,
                                                if_match=if_match)
+
+
+def security_security_create_action(client,
+                                    id_=None,
+                                    action_reason=None,
+                                    app_id=None,
+                                    azure_tenant_id=None,
+                                    client_context=None,
+                                    completed_date_time=None,
+                                    created_date_time=None,
+                                    error_info=None,
+                                    last_action_date_time=None,
+                                    name=None,
+                                    parameters=None,
+                                    states=None,
+                                    status=None,
+                                    user=None,
+                                    vendor_information=None):
+    return client.create_security_action(id=id_,
+                                         action_reason=action_reason,
+                                         app_id=app_id,
+                                         azure_tenant_id=azure_tenant_id,
+                                         client_context=client_context,
+                                         completed_date_time=completed_date_time,
+                                         created_date_time=created_date_time,
+                                         error_info=error_info,
+                                         last_action_date_time=last_action_date_time,
+                                         name=name,
+                                         parameters=parameters,
+                                         states=states,
+                                         status=status,
+                                         user=user,
+                                         vendor_information=vendor_information)
 
 
 def security_security_create_alert(client,
@@ -437,39 +470,6 @@ def security_security_create_secure_score_control_profile(client,
                                                       vendor_information=vendor_information)
 
 
-def security_security_create_security_action(client,
-                                             id_=None,
-                                             action_reason=None,
-                                             app_id=None,
-                                             azure_tenant_id=None,
-                                             client_context=None,
-                                             completed_date_time=None,
-                                             created_date_time=None,
-                                             error_info=None,
-                                             last_action_date_time=None,
-                                             name=None,
-                                             parameters=None,
-                                             states=None,
-                                             status=None,
-                                             user=None,
-                                             vendor_information=None):
-    return client.create_security_action(id=id_,
-                                         action_reason=action_reason,
-                                         app_id=app_id,
-                                         azure_tenant_id=azure_tenant_id,
-                                         client_context=client_context,
-                                         completed_date_time=completed_date_time,
-                                         created_date_time=created_date_time,
-                                         error_info=error_info,
-                                         last_action_date_time=last_action_date_time,
-                                         name=name,
-                                         parameters=parameters,
-                                         states=states,
-                                         status=status,
-                                         user=user,
-                                         vendor_information=vendor_information)
-
-
 def security_security_create_ti_indicator(client,
                                           id_=None,
                                           action=None,
@@ -616,6 +616,15 @@ def security_security_create_user_security_profile(client,
                                                vendor_information=vendor_information)
 
 
+def security_security_get_action(client,
+                                 security_action_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_security_action(security_action_id=security_action_id,
+                                      select=select,
+                                      expand=expand)
+
+
 def security_security_get_alert(client,
                                 alert_id,
                                 select=None,
@@ -697,15 +706,6 @@ def security_security_get_secure_score_control_profile(client,
                                                    expand=expand)
 
 
-def security_security_get_security_action(client,
-                                          security_action_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_security_action(security_action_id=security_action_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def security_security_get_ti_indicator(client,
                                        ti_indicator_id,
                                        select=None,
@@ -722,6 +722,15 @@ def security_security_get_user_security_profile(client,
     return client.get_user_security_profile(user_security_profile_id=user_security_profile_id,
                                             select=select,
                                             expand=expand)
+
+
+def security_security_list_action(client,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
+    return client.list_security_action(orderby=orderby,
+                                       select=select,
+                                       expand=expand)
 
 
 def security_security_list_alert(client,
@@ -805,15 +814,6 @@ def security_security_list_secure_score_control_profile(client,
                                                     expand=expand)
 
 
-def security_security_list_security_action(client,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
-    return client.list_security_action(orderby=orderby,
-                                       select=select,
-                                       expand=expand)
-
-
 def security_security_list_ti_indicator(client,
                                         orderby=None,
                                         select=None,
@@ -830,6 +830,41 @@ def security_security_list_user_security_profile(client,
     return client.list_user_security_profile(orderby=orderby,
                                              select=select,
                                              expand=expand)
+
+
+def security_security_update_action(client,
+                                    security_action_id,
+                                    id_=None,
+                                    action_reason=None,
+                                    app_id=None,
+                                    azure_tenant_id=None,
+                                    client_context=None,
+                                    completed_date_time=None,
+                                    created_date_time=None,
+                                    error_info=None,
+                                    last_action_date_time=None,
+                                    name=None,
+                                    parameters=None,
+                                    states=None,
+                                    status=None,
+                                    user=None,
+                                    vendor_information=None):
+    return client.update_security_action(security_action_id=security_action_id,
+                                         id=id_,
+                                         action_reason=action_reason,
+                                         app_id=app_id,
+                                         azure_tenant_id=azure_tenant_id,
+                                         client_context=client_context,
+                                         completed_date_time=completed_date_time,
+                                         created_date_time=created_date_time,
+                                         error_info=error_info,
+                                         last_action_date_time=last_action_date_time,
+                                         name=name,
+                                         parameters=parameters,
+                                         states=states,
+                                         status=status,
+                                         user=user,
+                                         vendor_information=vendor_information)
 
 
 def security_security_update_alert(client,
@@ -1187,41 +1222,6 @@ def security_security_update_secure_score_control_profile(client,
                                                       vendor_information=vendor_information)
 
 
-def security_security_update_security_action(client,
-                                             security_action_id,
-                                             id_=None,
-                                             action_reason=None,
-                                             app_id=None,
-                                             azure_tenant_id=None,
-                                             client_context=None,
-                                             completed_date_time=None,
-                                             created_date_time=None,
-                                             error_info=None,
-                                             last_action_date_time=None,
-                                             name=None,
-                                             parameters=None,
-                                             states=None,
-                                             status=None,
-                                             user=None,
-                                             vendor_information=None):
-    return client.update_security_action(security_action_id=security_action_id,
-                                         id=id_,
-                                         action_reason=action_reason,
-                                         app_id=app_id,
-                                         azure_tenant_id=azure_tenant_id,
-                                         client_context=client_context,
-                                         completed_date_time=completed_date_time,
-                                         created_date_time=created_date_time,
-                                         error_info=error_info,
-                                         last_action_date_time=last_action_date_time,
-                                         name=name,
-                                         parameters=parameters,
-                                         states=states,
-                                         status=status,
-                                         user=user,
-                                         vendor_information=vendor_information)
-
-
 def security_security_update_ti_indicator(client,
                                           ti_indicator_id,
                                           id_=None,
@@ -1377,8 +1377,8 @@ def security_security_alert_update_alert(client,
     return client.update_alert(value=value)
 
 
-def security_security_security_action_cancel_security_action(client,
-                                                             security_action_id):
+def security_security_action_cancel_security_action(client,
+                                                    security_action_id):
     return client.cancel_security_action(security_action_id=security_action_id)
 
 

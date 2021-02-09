@@ -2126,19 +2126,19 @@ managed-device-enrollment-top-failures4669 a reports report.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 
-### reports report-report-root get-report-root
+### reports report-root get-root
 
-get-report-root a reports report-report-root.
+get-root a reports report-root.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports report-report-root|reports.reportRoot|
+|reports report-root|reports.reportRoot|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-report-root|GetReportRoot|
+|get-root|GetReportRoot|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2146,19 +2146,19 @@ get-report-root a reports report-report-root.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report-report-root update-report-root
+### reports report-root update-root
 
-update-report-root a reports report-report-root.
+update-root a reports report-root.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports report-report-root|reports.reportRoot|
+|reports report-root|reports.reportRoot|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-report-root|UpdateReportRoot|
+|update-root|UpdateReportRoot|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

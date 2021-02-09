@@ -363,11 +363,11 @@ def load_arguments(self, _):
         c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
                    'calculated using latitude/longitude information from the sign-in activity.')
 
-    with self.argument_context('reports report-report-root get-report-root') as c:
+    with self.argument_context('reports report-root get-root') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports report-report-root update-report-root') as c:
+    with self.argument_context('reports report-root update-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('reports report get-email-activity-count') as c:

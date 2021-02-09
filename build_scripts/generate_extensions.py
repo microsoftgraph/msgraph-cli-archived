@@ -67,12 +67,22 @@ cli:
     cli-flatten-payload-max-prop: 256
     # max depth of flatten
     cli-flatten-payload-max-level: 1
+    cli-flatten-payload-max-complexity: 0.5
+    cli-flatten-payload-max-array-object-prop-count: 8
 ```
     """
     write_to('readme.cli.md', config)
 
 
 def generate_az_config_for(file_name, version):
+    parsed_file_name = file_name
+
+    # For filenames that are plural we get their singular form by removing the s.
+    # Command group use the singular form of the filename, ie if filename is applications
+    # the command group will be mg applications application
+    if file_name[-1] == 's':
+        parsed_file_name = file_name[:-1]
+
     config = f"""
 # CLI
 
@@ -95,6 +105,26 @@ directive:
           group: {file_name}_{version}
       set:
           group: {file_name}
+    - where:
+          group: {parsed_file_name}-{parsed_file_name}
+      set:
+          group: {parsed_file_name}
+    - where:
+          command: create-{parsed_file_name}
+      set:
+          command: create
+    - where:
+          command: get-{parsed_file_name}
+      set:
+          command: get
+    - where:
+          command: list-{parsed_file_name}
+      set:
+          command: list
+    - where:
+          command: update-{parsed_file_name}
+      set:
+          command: update
 
 modelerfour:
     lenient-model-deduplication: true

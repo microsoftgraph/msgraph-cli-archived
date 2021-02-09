@@ -20,15 +20,15 @@ def load_command_table(self, _):
         operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._application_application_operati'
         'ons#ApplicationApplicationOperations.{}',
         client_factory=cf_application_application)
-    with self.command_group('applications application-application', applications_v1_0_application_application,
+    with self.command_group('applications application', applications_v1_0_application_application,
                             client_factory=cf_application_application, is_experimental=True) as g:
-        g.custom_command('delete', 'applications_application_application_delete', confirmation=True)
-        g.custom_command('create-application', 'applications_application_application_create_application')
-        g.custom_command('get-application', 'applications_application_application_get_application')
-        g.custom_command('get-logo', 'applications_application_application_get_logo')
-        g.custom_command('list-application', 'applications_application_application_list_application')
-        g.custom_command('set-logo', 'applications_application_application_set_logo')
-        g.custom_command('update-application', 'applications_application_application_update_application')
+        g.custom_command('list', 'applications_application_list')
+        g.custom_command('create', 'applications_application_create')
+        g.custom_command('update', 'applications_application_update')
+        g.custom_command('delete', 'applications_application_delete', confirmation=True)
+        g.custom_command('get', 'applications_application_get')
+        g.custom_command('get-logo', 'applications_application_get_logo')
+        g.custom_command('set-logo', 'applications_application_set_logo')
 
     from azext_applications_v1_0.generated._client_factory import cf_application
     applications_v1_0_application = CliCommandType(

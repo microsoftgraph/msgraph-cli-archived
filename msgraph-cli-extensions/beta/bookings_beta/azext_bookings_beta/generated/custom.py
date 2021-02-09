@@ -18,24 +18,24 @@ def bookings_booking_business_booking_business_delete(client,
                                           if_match=if_match)
 
 
-def bookings_booking_business_booking_business_create_booking_business(client,
-                                                                       id_=None,
-                                                                       display_name=None,
-                                                                       address=None,
-                                                                       business_hours=None,
-                                                                       business_type=None,
-                                                                       default_currency_iso=None,
-                                                                       email=None,
-                                                                       is_published=None,
-                                                                       phone=None,
-                                                                       public_url=None,
-                                                                       scheduling_policy=None,
-                                                                       web_site_url=None,
-                                                                       appointments=None,
-                                                                       calendar_view=None,
-                                                                       customers=None,
-                                                                       services=None,
-                                                                       staff_members=None):
+def bookings_booking_business_booking_business_create_business(client,
+                                                               id_=None,
+                                                               display_name=None,
+                                                               address=None,
+                                                               business_hours=None,
+                                                               business_type=None,
+                                                               default_currency_iso=None,
+                                                               email=None,
+                                                               is_published=None,
+                                                               phone=None,
+                                                               public_url=None,
+                                                               scheduling_policy=None,
+                                                               web_site_url=None,
+                                                               appointments=None,
+                                                               calendar_view=None,
+                                                               customers=None,
+                                                               services=None,
+                                                               staff_members=None):
     return client.create_booking_business(id=id_,
                                           display_name=display_name,
                                           address=address,
@@ -55,43 +55,43 @@ def bookings_booking_business_booking_business_create_booking_business(client,
                                           staff_members=staff_members)
 
 
-def bookings_booking_business_booking_business_get_booking_business(client,
-                                                                    booking_business_id,
-                                                                    select=None,
-                                                                    expand=None):
+def bookings_booking_business_booking_business_get_business(client,
+                                                            booking_business_id,
+                                                            select=None,
+                                                            expand=None):
     return client.get_booking_business(booking_business_id=booking_business_id,
                                        select=select,
                                        expand=expand)
 
 
-def bookings_booking_business_booking_business_list_booking_business(client,
-                                                                     orderby=None,
-                                                                     select=None,
-                                                                     expand=None):
+def bookings_booking_business_booking_business_list_business(client,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_booking_business(orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def bookings_booking_business_booking_business_update_booking_business(client,
-                                                                       booking_business_id,
-                                                                       id_=None,
-                                                                       display_name=None,
-                                                                       address=None,
-                                                                       business_hours=None,
-                                                                       business_type=None,
-                                                                       default_currency_iso=None,
-                                                                       email=None,
-                                                                       is_published=None,
-                                                                       phone=None,
-                                                                       public_url=None,
-                                                                       scheduling_policy=None,
-                                                                       web_site_url=None,
-                                                                       appointments=None,
-                                                                       calendar_view=None,
-                                                                       customers=None,
-                                                                       services=None,
-                                                                       staff_members=None):
+def bookings_booking_business_booking_business_update_business(client,
+                                                               booking_business_id,
+                                                               id_=None,
+                                                               display_name=None,
+                                                               address=None,
+                                                               business_hours=None,
+                                                               business_type=None,
+                                                               default_currency_iso=None,
+                                                               email=None,
+                                                               is_published=None,
+                                                               phone=None,
+                                                               public_url=None,
+                                                               scheduling_policy=None,
+                                                               web_site_url=None,
+                                                               appointments=None,
+                                                               calendar_view=None,
+                                                               customers=None,
+                                                               services=None,
+                                                               staff_members=None):
     return client.update_booking_business(booking_business_id=booking_business_id,
                                           id=id_,
                                           display_name=display_name,
@@ -841,35 +841,35 @@ def bookings_booking_currency_booking_currency_delete(client,
                                           if_match=if_match)
 
 
-def bookings_booking_currency_booking_currency_create_booking_currency(client,
-                                                                       id_=None,
-                                                                       symbol=None):
+def bookings_booking_currency_booking_currency_create_currency(client,
+                                                               id_=None,
+                                                               symbol=None):
     return client.create_booking_currency(id=id_,
                                           symbol=symbol)
 
 
-def bookings_booking_currency_booking_currency_get_booking_currency(client,
-                                                                    booking_currency_id,
-                                                                    select=None,
-                                                                    expand=None):
+def bookings_booking_currency_booking_currency_get_currency(client,
+                                                            booking_currency_id,
+                                                            select=None,
+                                                            expand=None):
     return client.get_booking_currency(booking_currency_id=booking_currency_id,
                                        select=select,
                                        expand=expand)
 
 
-def bookings_booking_currency_booking_currency_list_booking_currency(client,
-                                                                     orderby=None,
-                                                                     select=None,
-                                                                     expand=None):
+def bookings_booking_currency_booking_currency_list_currency(client,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_booking_currency(orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def bookings_booking_currency_booking_currency_update_booking_currency(client,
-                                                                       booking_currency_id,
-                                                                       id_=None,
-                                                                       symbol=None):
+def bookings_booking_currency_booking_currency_update_currency(client,
+                                                               booking_currency_id,
+                                                               id_=None,
+                                                               symbol=None):
     return client.update_booking_currency(booking_currency_id=booking_currency_id,
                                           id=id_,
                                           symbol=symbol)

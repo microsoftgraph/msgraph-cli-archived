@@ -39,6 +39,7 @@ from azext_people_beta.action import (
     AddPreferredLanguageTag,
     AddPeopleUserProfileCreateAddressDetail,
     AddGeoCoordinates,
+    AddProgram,
     AddPronunciation,
     AddPeopleUserProfileCreateNoteDetail,
     AddPeopleUserProfileCreatePositionColleagues,
@@ -337,8 +338,29 @@ def load_arguments(self, _):
 
     with self.argument_context('people user-profile create-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
+                                                                'organization', 'federatedOrganizations', 'everyone', ''
+                                                                'unknownFutureValue']), help='')
+        c.argument('created_date_time', help='')
+        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('last_modified_date_time', help='')
+        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('completion_month_year', help='')
+        c.argument('end_month_year', help='')
+        c.argument('program', action=AddProgram, nargs='*', help='educationalActivityDetail')
+        c.argument('start_month_year', help='')
+        c.argument('institution_description', type=str, help='')
+        c.argument('institution_display_name', type=str, help='')
+        c.argument('institution_location', action=AddPeopleUserProfileCreateAddressDetail, nargs='*', help=''
+                   'physicalAddress')
+        c.argument('institution_web_url', type=str, help='')
 
     with self.argument_context('people user-profile create-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1010,8 +1032,29 @@ def load_arguments(self, _):
     with self.argument_context('people user-profile update-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
+                                                                'organization', 'federatedOrganizations', 'everyone', ''
+                                                                'unknownFutureValue']), help='')
+        c.argument('created_date_time', help='')
+        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('last_modified_date_time', help='')
+        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
+        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('completion_month_year', help='')
+        c.argument('end_month_year', help='')
+        c.argument('program', action=AddProgram, nargs='*', help='educationalActivityDetail')
+        c.argument('start_month_year', help='')
+        c.argument('institution_description', type=str, help='')
+        c.argument('institution_display_name', type=str, help='')
+        c.argument('institution_location', action=AddPeopleUserProfileCreateAddressDetail, nargs='*', help=''
+                   'physicalAddress')
+        c.argument('institution_web_url', type=str, help='')
 
     with self.argument_context('people user-profile update-email') as c:
         c.argument('user_id', type=str, help='key: id of user')

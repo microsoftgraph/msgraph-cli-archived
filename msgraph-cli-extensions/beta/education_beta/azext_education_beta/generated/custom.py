@@ -11,20 +11,20 @@
 # pylint: disable=too-many-lines
 
 
-def education_education_education_root_get_education_root(client,
-                                                          select=None,
-                                                          expand=None):
+def education_education_root_get_root(client,
+                                      select=None,
+                                      expand=None):
     return client.get_education_root(select=select,
                                      expand=expand)
 
 
-def education_education_education_root_update_education_root(client,
-                                                             id_=None,
-                                                             synchronization_profiles=None,
-                                                             classes=None,
-                                                             me=None,
-                                                             schools=None,
-                                                             users=None):
+def education_education_root_update_root(client,
+                                         id_=None,
+                                         synchronization_profiles=None,
+                                         classes=None,
+                                         me=None,
+                                         schools=None,
+                                         users=None):
     return client.update_education_root(id=id_,
                                         synchronization_profiles=synchronization_profiles,
                                         classes=classes,

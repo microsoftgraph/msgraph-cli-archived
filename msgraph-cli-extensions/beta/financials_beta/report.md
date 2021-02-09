@@ -78,6 +78,26 @@ delete a financials financial.
 |**--company-id**|string|key: id of company|company_id|company-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
+### financials financial get
+
+get a financials financial.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|financials financial|financials.financials|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get|GetFinancials|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
 ### financials financial get-company
 
 get-company a financials financial.
@@ -119,6 +139,25 @@ list-company a financials financial.
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### financials financial update
+
+update a financials financial.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|financials financial|financials.financials|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update|UpdateFinancials|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--companies**|array||companies|companies|
 
 ### financials financial update-company
 
@@ -14704,42 +14743,3 @@ update-picture a financials financial-company-vendor.
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
-
-### financials financial-financial get-financial
-
-get-financial a financials financial-financial.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|financials financial-financial|financials.financials|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-financial|GetFinancials|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### financials financial-financial update-financial
-
-update-financial a financials financial-financial.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|financials financial-financial|financials.financials|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-financial|UpdateFinancials|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--companies**|array||companies|companies|

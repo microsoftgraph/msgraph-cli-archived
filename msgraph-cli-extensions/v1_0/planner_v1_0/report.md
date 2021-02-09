@@ -20,9 +20,9 @@ delete a planner group.
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### planner group get-planner
+### planner group get
 
-get-planner a planner group.
+get a planner group.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -32,7 +32,7 @@ get-planner a planner group.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-planner|GetPlanner|
+|get|GetPlanner|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -41,9 +41,9 @@ get-planner a planner group.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### planner group update-planner
+### planner group update
 
-update-planner a planner group.
+update a planner group.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -53,7 +53,7 @@ update-planner a planner group.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-planner|UpdatePlanner|
+|update|UpdatePlanner|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -234,7 +234,41 @@ create-task a planner group-planner-plan.
 |------|----|-----------|----------|------------|
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner group-planner-plan delete
 
@@ -444,7 +478,41 @@ update-task a planner group-planner-plan.
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner group-planner-plan-bucket create-task
 
@@ -466,7 +534,41 @@ create-task a planner group-planner-plan-bucket.
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner group-planner-plan-bucket delete
 
@@ -560,7 +662,41 @@ update-task a planner group-planner-plan-bucket.
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner group-planner-plan-bucket-task delete
 
@@ -1067,7 +1203,41 @@ create-task a planner planner.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner delete
 
@@ -1092,6 +1262,26 @@ delete a planner planner.
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
+
+### planner planner get
+
+get a planner planner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|planner planner|planner.planner|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get|GetPlanner|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
 ### planner planner get-bucket
 
@@ -1219,6 +1409,28 @@ list-task a planner planner.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### planner planner update
+
+update a planner planner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|planner planner|planner.planner|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update|UpdatePlanner|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--buckets**|array|Read-only. Nullable. Returns a collection of the specified buckets|buckets|buckets|
+|**--plans**|array|Read-only. Nullable. Returns a collection of the specified plans|plans|plans|
+|**--tasks**|array|Read-only. Nullable. Returns a collection of the specified tasks|tasks|tasks|
+
 ### planner planner update-bucket
 
 update-bucket a planner planner.
@@ -1292,7 +1504,41 @@ update-task a planner planner.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-bucket create-task
 
@@ -1312,7 +1558,41 @@ create-task a planner planner-bucket.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-bucket delete
 
@@ -1398,7 +1678,41 @@ update-task a planner planner-bucket.
 |------|----|-----------|----------|------------|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-bucket-task delete
 
@@ -1646,7 +1960,41 @@ create-task a planner planner-plan.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-plan delete
 
@@ -1847,7 +2195,41 @@ update-task a planner planner-plan.
 |------|----|-----------|----------|------------|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-plan-bucket create-task
 
@@ -1868,7 +2250,41 @@ create-task a planner planner-plan-bucket.
 |------|----|-----------|----------|------------|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-plan-bucket delete
 
@@ -1958,7 +2374,41 @@ update-task a planner planner-plan-bucket.
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner planner-plan-bucket-task delete
 
@@ -2377,48 +2827,6 @@ update-progress-task-board-format a planner planner-plan-task.
 |**--id**|string|Read-only.|id|id|
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
-### planner planner-planner get-planner
-
-get-planner a planner planner-planner.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|planner planner-planner|planner.planner|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-planner|GetPlanner|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### planner planner-planner update-planner
-
-update-planner a planner planner-planner.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|planner planner-planner|planner.planner|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-planner|UpdatePlanner|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--buckets**|array|Read-only. Nullable. Returns a collection of the specified buckets|buckets|buckets|
-|**--plans**|array|Read-only. Nullable. Returns a collection of the specified plans|plans|plans|
-|**--tasks**|array|Read-only. Nullable. Returns a collection of the specified tasks|tasks|tasks|
-
 ### planner planner-task delete
 
 delete a planner planner-task.
@@ -2634,9 +3042,9 @@ delete a planner user.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### planner user get-planner
+### planner user get
 
-get-planner a planner user.
+get a planner user.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -2646,7 +3054,7 @@ get-planner a planner user.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-planner|GetPlanner|
+|get|GetPlanner|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2655,9 +3063,9 @@ get-planner a planner user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### planner user update-planner
+### planner user update
 
-update-planner a planner user.
+update a planner user.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -2667,7 +3075,7 @@ update-planner a planner user.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-planner|UpdatePlanner|
+|update|UpdatePlanner|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2726,7 +3134,41 @@ create-task a planner user-planner.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner user-planner delete
 
@@ -2890,7 +3332,41 @@ update-task a planner user-planner.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner user-planner-plan create-bucket
 
@@ -2936,7 +3412,41 @@ create-task a planner user-planner-plan.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner user-planner-plan delete
 
@@ -3146,7 +3656,41 @@ update-task a planner user-planner-plan.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner user-planner-plan-bucket create-task
 
@@ -3168,7 +3712,41 @@ create-task a planner user-planner-plan-bucket.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner user-planner-plan-bucket delete
 
@@ -3262,7 +3840,41 @@ update-task a planner user-planner-plan-bucket.
 |**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
 |**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--active-checklist-item-count**|integer|Number of checklist items with value set to false, representing incomplete items.|active_checklist_item_count|activeChecklistItemCount|
+|**--applied-categories**|dictionary|plannerAppliedCategories|applied_categories|appliedCategories|
+|**--assignee-priority**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|assignee_priority|assigneePriority|
+|**--assignments**|dictionary|plannerAssignments|assignments|assignments|
+|**--bucket-id**|string|Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.|bucket_id|bucketId|
+|**--checklist-item-count**|integer|Number of checklist items that are present on the task.|checklist_item_count|checklistItemCount|
+|**--completed-date-time**|date-time|Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|completed_date_time|completedDateTime|
+|**--conversation-thread-id**|string|Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.|conversation_thread_id|conversationThreadId|
+|**--created-date-time**|date-time|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--due-date-time**|date-time|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|due_date_time|dueDateTime|
+|**--has-description**|boolean|Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.|has_description|hasDescription|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--percent-complete**|integer|Percentage of task completion. When set to 100, the task is considered completed.|percent_complete|percentComplete|
+|**--plan-id**|string|Plan ID to which the task belongs.|plan_id|planId|
+|**--preview-type**|choice||preview_type|previewType|
+|**--reference-count**|integer|Number of external references that exist on the task.|reference_count|referenceCount|
+|**--start-date-time**|date-time|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
+|**--title**|string|Title of the task.|title|title|
+|**--bucket-task-board-format**|object|plannerBucketTaskBoardTaskFormat|bucket_task_board_format|bucketTaskBoardFormat|
+|**--progress-task-board-format**|object|plannerProgressTaskBoardTaskFormat|progress_task_board_format|progressTaskBoardFormat|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-checklist**|dictionary|plannerChecklistItems|checklist|checklist|
+|**--details-description**|string|Description of the task|description|description|
+|**--details-preview-type**|choice||microsoft_graph_planner_preview_type|previewType|
+|**--details-references**|dictionary|plannerExternalReferences|references|references|
+|**--assigned-to-task-board-format-id**|string|Read-only.|id1|id|
+|**--assigned-to-task-board-format-order-hints-by-assignee**|dictionary|plannerOrderHintsByAssignee|order_hints_by_assignee|orderHintsByAssignee|
+|**--assigned-to-task-board-format-unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+|**--completed-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--completed-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--completed-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### planner user-planner-plan-bucket-task delete
 

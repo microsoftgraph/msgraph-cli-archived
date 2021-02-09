@@ -22,7 +22,7 @@ helps['mail user delete'] = """
     short-summary: "Delete navigation property inferenceClassification for users"
 """
 
-helps['mail user create-mail-folder'] = """
+helps['mail user create-folder'] = """
     type: command
     short-summary: "Create new navigation property to mailFolders for users"
     parameters:
@@ -187,14 +187,14 @@ values.
 values.
 """
 
+helps['mail user get-folder'] = """
+    type: command
+    short-summary: "Get mailFolders from users"
+"""
+
 helps['mail user get-inference-classification'] = """
     type: command
     short-summary: "Get inferenceClassification from users"
-"""
-
-helps['mail user get-mail-folder'] = """
-    type: command
-    short-summary: "Get mailFolders from users"
 """
 
 helps['mail user get-message'] = """
@@ -207,7 +207,7 @@ helps['mail user get-message-content'] = """
     short-summary: "Get media content for the navigation property messages from users"
 """
 
-helps['mail user list-mail-folder'] = """
+helps['mail user list-folder'] = """
     type: command
     short-summary: "Get mailFolders from users"
 """
@@ -222,24 +222,7 @@ helps['mail user set-message-content'] = """
     short-summary: "Update media content for the navigation property messages in users"
 """
 
-helps['mail user update-inference-classification'] = """
-    type: command
-    short-summary: "Update the navigation property inferenceClassification in users"
-    parameters:
-      - name: --overrides
-        short-summary: "A set of overrides for a user to always classify messages from specific senders in certain \
-ways: focused, or other. Read-only. Nullable."
-        long-summary: |
-            Usage: --overrides classify-as=XX address=XX name=XX id=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --overrides argument.
-"""
-
-helps['mail user update-mail-folder'] = """
+helps['mail user update-folder'] = """
     type: command
     short-summary: "Update the navigation property mailFolders in users"
     parameters:
@@ -270,6 +253,23 @@ Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --user-configurations argument.
+"""
+
+helps['mail user update-inference-classification'] = """
+    type: command
+    short-summary: "Update the navigation property inferenceClassification in users"
+    parameters:
+      - name: --overrides
+        short-summary: "A set of overrides for a user to always classify messages from specific senders in certain \
+ways: focused, or other. Read-only. Nullable."
+        long-summary: |
+            Usage: --overrides classify-as=XX address=XX name=XX id=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --overrides argument.
 """
 
 helps['mail user update-message'] = """
@@ -612,6 +612,93 @@ values.
 helps['mail user-mail-folder create-message-rule'] = """
     type: command
     short-summary: "Create new navigation property to messageRules for users"
+    parameters:
+      - name: --exceptions-from-addresses
+        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
+condition or exception to apply."
+        long-summary: |
+            Usage: --exceptions-from-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --exceptions-from-addresses argument.
+      - name: --exceptions-sent-to-addresses
+        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
+the condition or exception to apply."
+        long-summary: |
+            Usage: --exceptions-sent-to-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --exceptions-sent-to-addresses argument.
+      - name: --exceptions-within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --exceptions-within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+      - name: --conditions-from-addresses
+        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
+condition or exception to apply."
+        long-summary: |
+            Usage: --conditions-from-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --conditions-from-addresses argument.
+      - name: --conditions-sent-to-addresses
+        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
+the condition or exception to apply."
+        long-summary: |
+            Usage: --conditions-sent-to-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --conditions-sent-to-addresses argument.
+      - name: --conditions-within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --conditions-within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+      - name: --actions-forward-as-attachment-to
+        short-summary: "The email addresses of the recipients to which a message should be forwarded as an \
+attachment."
+        long-summary: |
+            Usage: --actions-forward-as-attachment-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --actions-forward-as-attachment-to argument.
+      - name: --actions-forward-to
+        short-summary: "The email addresses of the recipients to which a message should be forwarded."
+        long-summary: |
+            Usage: --actions-forward-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --actions-forward-to argument.
+      - name: --actions-redirect-to
+        short-summary: "The email addresses to which a message should be redirected."
+        long-summary: |
+            Usage: --actions-redirect-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --actions-redirect-to argument.
 """
 
 helps['mail user-mail-folder create-multi-value-extended-property'] = """
@@ -867,6 +954,93 @@ values.
 helps['mail user-mail-folder update-message-rule'] = """
     type: command
     short-summary: "Update the navigation property messageRules in users"
+    parameters:
+      - name: --exceptions-from-addresses
+        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
+condition or exception to apply."
+        long-summary: |
+            Usage: --exceptions-from-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --exceptions-from-addresses argument.
+      - name: --exceptions-sent-to-addresses
+        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
+the condition or exception to apply."
+        long-summary: |
+            Usage: --exceptions-sent-to-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --exceptions-sent-to-addresses argument.
+      - name: --exceptions-within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --exceptions-within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+      - name: --conditions-from-addresses
+        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
+condition or exception to apply."
+        long-summary: |
+            Usage: --conditions-from-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --conditions-from-addresses argument.
+      - name: --conditions-sent-to-addresses
+        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
+the condition or exception to apply."
+        long-summary: |
+            Usage: --conditions-sent-to-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --conditions-sent-to-addresses argument.
+      - name: --conditions-within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --conditions-within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+      - name: --actions-forward-as-attachment-to
+        short-summary: "The email addresses of the recipients to which a message should be forwarded as an \
+attachment."
+        long-summary: |
+            Usage: --actions-forward-as-attachment-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --actions-forward-as-attachment-to argument.
+      - name: --actions-forward-to
+        short-summary: "The email addresses of the recipients to which a message should be forwarded."
+        long-summary: |
+            Usage: --actions-forward-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --actions-forward-to argument.
+      - name: --actions-redirect-to
+        short-summary: "The email addresses to which a message should be redirected."
+        long-summary: |
+            Usage: --actions-redirect-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --actions-redirect-to argument.
 """
 
 helps['mail user-mail-folder update-multi-value-extended-property'] = """

@@ -22,7 +22,7 @@ helps['bookings booking-business-booking-business delete'] = """
     short-summary: "Delete entity from bookingBusinesses"
 """
 
-helps['bookings booking-business-booking-business create-booking-business'] = """
+helps['bookings booking-business-booking-business create-business'] = """
     type: command
     short-summary: "Add new entity to bookingBusinesses"
     parameters:
@@ -67,17 +67,17 @@ send-confirmations-to-owner=XX time-slot-interval=XX
             Multiple actions can be specified by using more than one --customers argument.
 """
 
-helps['bookings booking-business-booking-business get-booking-business'] = """
+helps['bookings booking-business-booking-business get-business'] = """
     type: command
     short-summary: "Get entity from bookingBusinesses by key"
 """
 
-helps['bookings booking-business-booking-business list-booking-business'] = """
+helps['bookings booking-business-booking-business list-business'] = """
     type: command
     short-summary: "Get entities from bookingBusinesses"
 """
 
-helps['bookings booking-business-booking-business update-booking-business'] = """
+helps['bookings booking-business-booking-business update-business'] = """
     type: command
     short-summary: "Update entity in bookingBusinesses"
     parameters:
@@ -706,22 +706,22 @@ helps['bookings booking-currency-booking-currency delete'] = """
     short-summary: "Delete entity from bookingCurrencies"
 """
 
-helps['bookings booking-currency-booking-currency create-booking-currency'] = """
+helps['bookings booking-currency-booking-currency create-currency'] = """
     type: command
     short-summary: "Add new entity to bookingCurrencies"
 """
 
-helps['bookings booking-currency-booking-currency get-booking-currency'] = """
+helps['bookings booking-currency-booking-currency get-currency'] = """
     type: command
     short-summary: "Get entity from bookingCurrencies by key"
 """
 
-helps['bookings booking-currency-booking-currency list-booking-currency'] = """
+helps['bookings booking-currency-booking-currency list-currency'] = """
     type: command
     short-summary: "Get entities from bookingCurrencies"
 """
 
-helps['bookings booking-currency-booking-currency update-booking-currency'] = """
+helps['bookings booking-currency-booking-currency update-currency'] = """
     type: command
     short-summary: "Update entity in bookingCurrencies"
 """

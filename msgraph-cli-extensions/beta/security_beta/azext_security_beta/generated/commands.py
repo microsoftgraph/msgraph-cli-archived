@@ -20,10 +20,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_operations#SecuritySe'
         'curityOperations.{}',
         client_factory=cf_security_security)
-    with self.command_group('security security-security', security_beta_security_security,
-                            client_factory=cf_security_security, is_experimental=True) as g:
-        g.custom_command('get-security', 'security_security_security_get_security')
-        g.custom_command('update-security', 'security_security_security_update_security')
+    with self.command_group('security security', security_beta_security_security, client_factory=cf_security_security,
+                            is_experimental=True) as g:
+        g.custom_command('update', 'security_security_update')
+        g.custom_command('get', 'security_security_get')
 
     from azext_security_beta.generated._client_factory import cf_security
     security_beta_security = CliCommandType(
@@ -33,6 +33,7 @@ def load_command_table(self, _):
     with self.command_group('security security', security_beta_security, client_factory=cf_security,
                             is_experimental=True) as g:
         g.custom_command('delete', 'security_security_delete', confirmation=True)
+        g.custom_command('create-action', 'security_security_create_action')
         g.custom_command('create-alert', 'security_security_create_alert')
         g.custom_command('create-cloud-app-security-profile', 'security_security_create_cloud_app_security_profile')
         g.custom_command('create-domain-security-profile', 'security_security_create_domain_security_profile')
@@ -43,9 +44,9 @@ def load_command_table(self, _):
         g.custom_command('create-secure-score', 'security_security_create_secure_score')
         g.custom_command('create-secure-score-control-profile',
                          'security_security_create_secure_score_control_profile')
-        g.custom_command('create-security-action', 'security_security_create_security_action')
         g.custom_command('create-ti-indicator', 'security_security_create_ti_indicator')
         g.custom_command('create-user-security-profile', 'security_security_create_user_security_profile')
+        g.custom_command('get-action', 'security_security_get_action')
         g.custom_command('get-alert', 'security_security_get_alert')
         g.custom_command('get-cloud-app-security-profile', 'security_security_get_cloud_app_security_profile')
         g.custom_command('get-domain-security-profile', 'security_security_get_domain_security_profile')
@@ -55,9 +56,9 @@ def load_command_table(self, _):
         g.custom_command('get-provider-tenant-setting', 'security_security_get_provider_tenant_setting')
         g.custom_command('get-secure-score', 'security_security_get_secure_score')
         g.custom_command('get-secure-score-control-profile', 'security_security_get_secure_score_control_profile')
-        g.custom_command('get-security-action', 'security_security_get_security_action')
         g.custom_command('get-ti-indicator', 'security_security_get_ti_indicator')
         g.custom_command('get-user-security-profile', 'security_security_get_user_security_profile')
+        g.custom_command('list-action', 'security_security_list_action')
         g.custom_command('list-alert', 'security_security_list_alert')
         g.custom_command('list-cloud-app-security-profile', 'security_security_list_cloud_app_security_profile')
         g.custom_command('list-domain-security-profile', 'security_security_list_domain_security_profile')
@@ -67,9 +68,9 @@ def load_command_table(self, _):
         g.custom_command('list-provider-tenant-setting', 'security_security_list_provider_tenant_setting')
         g.custom_command('list-secure-score', 'security_security_list_secure_score')
         g.custom_command('list-secure-score-control-profile', 'security_security_list_secure_score_control_profile')
-        g.custom_command('list-security-action', 'security_security_list_security_action')
         g.custom_command('list-ti-indicator', 'security_security_list_ti_indicator')
         g.custom_command('list-user-security-profile', 'security_security_list_user_security_profile')
+        g.custom_command('update-action', 'security_security_update_action')
         g.custom_command('update-alert', 'security_security_update_alert')
         g.custom_command('update-cloud-app-security-profile', 'security_security_update_cloud_app_security_profile')
         g.custom_command('update-domain-security-profile', 'security_security_update_domain_security_profile')
@@ -80,7 +81,6 @@ def load_command_table(self, _):
         g.custom_command('update-secure-score', 'security_security_update_secure_score')
         g.custom_command('update-secure-score-control-profile',
                          'security_security_update_secure_score_control_profile')
-        g.custom_command('update-security-action', 'security_security_update_security_action')
         g.custom_command('update-ti-indicator', 'security_security_update_ti_indicator')
         g.custom_command('update-user-security-profile', 'security_security_update_user_security_profile')
 
@@ -98,9 +98,9 @@ def load_command_table(self, _):
         operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_action_operations#Sec'
         'uritySecurityActionOperations.{}',
         client_factory=cf_security_security_action)
-    with self.command_group('security security-security-action', security_beta_security_security_action,
+    with self.command_group('security security-action', security_beta_security_security_action,
                             client_factory=cf_security_security_action, is_experimental=True) as g:
-        g.custom_command('cancel-security-action', 'security_security_security_action_cancel_security_action')
+        g.custom_command('cancel-security-action', 'security_security_action_cancel_security_action')
 
     from azext_security_beta.generated._client_factory import cf_security_tiindicator
     security_beta_security_tiindicator = CliCommandType(

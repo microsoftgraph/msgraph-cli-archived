@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['users user-user'] = """
+helps['users user'] = """
     type: group
-    short-summary: users user-user
+    short-summary: users user
 """
 
-helps['users user-user delete'] = """
+helps['users user list'] = """
     type: command
-    short-summary: "Delete entity from users"
+    short-summary: "Get entities from users"
 """
 
-helps['users user-user create-user'] = """
+helps['users user create'] = """
     type: command
     short-summary: "Add new entity to users"
     parameters:
@@ -376,17 +376,7 @@ country/region. For example, 'en-us'. The language component follows 2-letter co
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 """
 
-helps['users user-user get-user'] = """
-    type: command
-    short-summary: "Get entity from users by key"
-"""
-
-helps['users user-user list-user'] = """
-    type: command
-    short-summary: "Get entities from users"
-"""
-
-helps['users user-user update-user'] = """
+helps['users user update'] = """
     type: command
     short-summary: "Update entity in users"
     parameters:
@@ -738,6 +728,16 @@ States)'.
             locale: A locale representation for the user, which includes the user's preferred language and \
 country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+"""
+
+helps['users user delete'] = """
+    type: command
+    short-summary: "Delete entity from users"
+"""
+
+helps['users user get'] = """
+    type: command
+    short-summary: "Get entity from users by key"
 """
 
 helps['users user'] = """

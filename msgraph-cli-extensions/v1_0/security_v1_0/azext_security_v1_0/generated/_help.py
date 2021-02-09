@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
-helps['security security-security'] = """
+helps['security security'] = """
     type: group
-    short-summary: security security-security
+    short-summary: security security
 """
 
-helps['security security-security get-security'] = """
-    type: command
-    short-summary: "Get Security"
-"""
-
-helps['security security-security update-security'] = """
+helps['security security update'] = """
     type: command
     short-summary: "Update Security"
+"""
+
+helps['security security get'] = """
+    type: command
+    short-summary: "Get Security"
 """
 
 helps['security security'] = """

@@ -46,12 +46,12 @@ from azext_financials_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('financials financial-financial get-financial') as c:
+    with self.argument_context('financials financial update') as c:
+        c.argument('companies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('financials financial get') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-financial update-financial') as c:
-        c.argument('companies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('financials financial delete') as c:
         c.argument('company_id', type=str, help='key: id of company')

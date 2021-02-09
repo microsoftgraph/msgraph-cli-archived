@@ -393,15 +393,15 @@ def reports_audit_log_update_sign_in(client,
                                  state=location_state)
 
 
-def reports_report_report_root_get_report_root(client,
-                                               select=None,
-                                               expand=None):
+def reports_report_root_get_root(client,
+                                 select=None,
+                                 expand=None):
     return client.get_report_root(select=select,
                                   expand=expand)
 
 
-def reports_report_report_root_update_report_root(client,
-                                                  id_=None):
+def reports_report_root_update_root(client,
+                                    id_=None):
     return client.update_report_root(id=id_)
 
 

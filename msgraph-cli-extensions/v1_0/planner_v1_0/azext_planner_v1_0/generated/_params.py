@@ -10,30 +10,35 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from msgraph.cli.core.commands.parameters import get_enum_type
+from msgraph.cli.core.commands.parameters import (
+    get_three_state_flag,
+    get_enum_type
+)
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_planner_v1_0.action import (
     AddDetailsCategoryDescriptions,
-    AddCreatedByApplication
+    AddCreatedByApplication,
+    AddBucketTaskBoardFormat,
+    AddProgressTaskBoardFormat
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('planner group delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('planner group get-planner') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('planner group update-planner') as c:
+    with self.argument_context('planner group update') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans owned by '
                    'the group. Expected value: json-string/@json-file.')
+
+    with self.argument_context('planner group delete') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group get') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('planner group-planner delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -118,8 +123,70 @@ def load_arguments(self, _):
     with self.argument_context('planner group-planner-plan create-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner group-planner-plan get-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -180,8 +247,70 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner group-planner-plan-bucket delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -194,8 +323,70 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner group-planner-plan-bucket get-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -218,8 +409,70 @@ def load_arguments(self, _):
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner group-planner-plan-bucket-task delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -380,11 +633,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner-planner get-planner') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('planner planner-planner update-planner') as c:
+    with self.argument_context('planner planner update') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('buckets', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified buckets Expected value: json-string/@json-file.')
@@ -392,6 +641,10 @@ def load_arguments(self, _):
                    'specified plans Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified tasks Expected value: json-string/@json-file.')
+
+    with self.argument_context('planner planner get') as c:
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('planner planner delete') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -430,8 +683,70 @@ def load_arguments(self, _):
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner create-task') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner get-bucket') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -497,8 +812,70 @@ def load_arguments(self, _):
 
     with self.argument_context('planner planner update-task') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-bucket delete') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -507,8 +884,70 @@ def load_arguments(self, _):
 
     with self.argument_context('planner planner-bucket create-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-bucket get-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -525,8 +964,70 @@ def load_arguments(self, _):
     with self.argument_context('planner planner-bucket update-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-bucket-task delete') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -612,8 +1113,70 @@ def load_arguments(self, _):
 
     with self.argument_context('planner planner-plan create-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-plan get-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -666,8 +1229,70 @@ def load_arguments(self, _):
     with self.argument_context('planner planner-plan update-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-plan-bucket delete') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -678,8 +1303,70 @@ def load_arguments(self, _):
     with self.argument_context('planner planner-plan-bucket create-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-plan-bucket get-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -699,8 +1386,70 @@ def load_arguments(self, _):
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner planner-plan-bucket-task delete') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -900,22 +1649,22 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('planner user get-planner') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('planner user update-planner') as c:
+    with self.argument_context('planner user update') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerTasks assigned '
                    'to the user. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
                    'with the user. Expected value: json-string/@json-file.')
+
+    with self.argument_context('planner user delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user get') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('planner user-planner delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -947,8 +1696,70 @@ def load_arguments(self, _):
 
     with self.argument_context('planner user-planner create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner user-planner get-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1000,8 +1811,70 @@ def load_arguments(self, _):
     with self.argument_context('planner user-planner update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner user-planner-plan delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1024,8 +1897,70 @@ def load_arguments(self, _):
     with self.argument_context('planner user-planner-plan create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner user-planner-plan get-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1086,8 +2021,70 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner user-planner-plan-bucket delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1100,8 +2097,70 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner user-planner-plan-bucket get-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1124,8 +2183,70 @@ def load_arguments(self, _):
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('active_checklist_item_count', type=int, help='Number of checklist items with value set to false, '
+                   'representing incomplete items.')
+        c.argument('applied_categories', type=validate_file_or_dict, help='plannerAppliedCategories Expected value: '
                    'json-string/@json-file.')
+        c.argument('assignee_priority', type=str, help='Hint used to order items of this type in a list view. The '
+                   'format is defined as outlined here.')
+        c.argument('assignments', type=validate_file_or_dict, help='plannerAssignments Expected value: '
+                   'json-string/@json-file.')
+        c.argument('bucket_id', type=str, help='Bucket ID to which the task belongs. The bucket needs to be in the '
+                   'plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done '
+                   'on the service.')
+        c.argument('checklist_item_count', type=int, help='Number of checklist items that are present on the task.')
+        c.argument('completed_date_time', help='Read-only. Date and time at which the \'percentComplete\' of the task '
+                   'is set to \'100\'. The Timestamp type represents date and time information using ISO 8601 format '
+                   'and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('conversation_thread_id', type=str, help='Thread ID of the conversation on the task. This is the ID '
+                   'of the conversation thread object created in the group.')
+        c.argument('created_date_time', help='Read-only. Date and time at which the task is created. The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('due_date_time', help='Date and time at which the task is due. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('has_description', arg_type=get_three_state_flag(), help='Read-only. Value is true if the details '
+                   'object of the task has a non-empty description and false otherwise.')
+        c.argument('order_hint', type=str, help='Hint used to order items of this type in a list view. The format is '
+                   'defined as outlined here.')
+        c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
+                   'considered completed.')
+        c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+                                                           'reference']), help='')
+        c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
+        c.argument('start_date_time', help='Date and time at which the task starts. The Timestamp type represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('title', type=str, help='Title of the task.')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
+                   'plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
+                   'plannerProgressTaskBoardTaskFormat')
+        c.argument('details_id', type=str, help='Read-only.')
+        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.')
+        c.argument('details_description', type=str, help='Description of the task')
+        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
+                                                                   'description', 'reference']), help='')
+        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
+        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
+                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
+        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
+                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
+                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
+                   'to. The format is defined as outlined here.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('planner user-planner-plan-bucket-task delete') as c:
         c.argument('user_id', type=str, help='key: id of user')

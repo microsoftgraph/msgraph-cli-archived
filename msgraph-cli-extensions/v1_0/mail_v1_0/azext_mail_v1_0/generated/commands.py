@@ -21,15 +21,15 @@ def load_command_table(self, _):
         client_factory=cf_user)
     with self.command_group('mail user', mail_v1_0_user, client_factory=cf_user, is_experimental=True) as g:
         g.custom_command('delete', 'mail_user_delete', confirmation=True)
-        g.custom_command('create-mail-folder', 'mail_user_create_mail_folder')
+        g.custom_command('create-folder', 'mail_user_create_folder')
         g.custom_command('create-message', 'mail_user_create_message')
+        g.custom_command('get-folder', 'mail_user_get_folder')
         g.custom_command('get-inference-classification', 'mail_user_get_inference_classification')
-        g.custom_command('get-mail-folder', 'mail_user_get_mail_folder')
         g.custom_command('get-message', 'mail_user_get_message')
-        g.custom_command('list-mail-folder', 'mail_user_list_mail_folder')
+        g.custom_command('list-folder', 'mail_user_list_folder')
         g.custom_command('list-message', 'mail_user_list_message')
+        g.custom_command('update-folder', 'mail_user_update_folder')
         g.custom_command('update-inference-classification', 'mail_user_update_inference_classification')
-        g.custom_command('update-mail-folder', 'mail_user_update_mail_folder')
         g.custom_command('update-message', 'mail_user_update_message')
 
     from azext_mail_v1_0.generated._client_factory import cf_user_inference_classification

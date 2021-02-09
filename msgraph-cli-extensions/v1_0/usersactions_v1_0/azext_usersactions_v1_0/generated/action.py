@@ -480,6 +480,70 @@ class AddAddLicenses(argparse._AppendAction):
         return d
 
 
+class AddAttendees(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAttendees, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'type':
+                d['type'] = v[0]
+            elif kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+        return d
+
+
+class AddLocationConstraintLocations(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddLocationConstraintLocations, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'resolve-availability':
+                d['resolve_availability'] = v[0]
+            elif kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'coordinates':
+                d['coordinates'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'location-email-address':
+                d['location_email_address'] = v[0]
+            elif kl == 'location-type':
+                d['location_type'] = v[0]
+            elif kl == 'location-uri':
+                d['location_uri'] = v[0]
+            elif kl == 'unique-id':
+                d['unique_id'] = v[0]
+            elif kl == 'unique-id-type':
+                d['unique_id_type'] = v[0]
+        return d
+
+
 class AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)

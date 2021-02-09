@@ -22,10 +22,10 @@ def load_command_table(self, _):
         operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_financial_operations#Fina'
         'ncialFinancialOperations.{}',
         client_factory=cf_financial_financial)
-    with self.command_group('financials financial-financial', financials_beta_financial_financial,
+    with self.command_group('financials financial', financials_beta_financial_financial,
                             client_factory=cf_financial_financial, is_experimental=True) as g:
-        g.custom_command('get-financial', 'financials_financial_financial_get_financial')
-        g.custom_command('update-financial', 'financials_financial_financial_update_financial')
+        g.custom_command('update', 'financials_financial_update')
+        g.custom_command('get', 'financials_financial_get')
 
     from azext_financials_beta.generated._client_factory import cf_financial
     financials_beta_financial = CliCommandType(

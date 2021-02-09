@@ -36,6 +36,8 @@ from azext_usersactions_v1_0.action import (
     AddUsersactionsUserMessageCreateForwardToRecipients,
     AddUsersactionsUserMessageForwardToRecipients,
     AddAddLicenses,
+    AddAttendees,
+    AddLocationConstraintLocations,
     AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands,
     AddUsersOnenoteNotebooksSectionsPagesCommands,
     AddUsersOnenotePagesCommands,
@@ -1954,8 +1956,25 @@ def load_arguments(self, _):
 
     with self.argument_context('usersactions user find-meeting-time') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict,
-                   help='Action parameters Expected value: json-string/@json-file.')
+        c.argument('attendees', action=AddAttendees, nargs='*', help='')
+        c.argument('meeting_duration', help='')
+        c.argument('max_candidates', type=int, help='')
+        c.argument('is_organizer_optional', arg_type=get_three_state_flag(), help='')
+        c.argument('return_suggestion_reasons', arg_type=get_three_state_flag(), help='')
+        c.argument('minimum_attendee_percentage', type=float, help='')
+        c.argument('time_constraint_activity_domain', arg_type=get_enum_type(['unknown', 'work', 'personal', ''
+                                                                              'unrestricted']), help='')
+        c.argument('time_constraint_time_slots', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('location_constraint_is_required', arg_type=get_three_state_flag(), help='The client requests the '
+                   'service to include in the response a meeting location for the meeting. If this is true and all the '
+                   'resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is '
+                   'false and all the resources are busy, findMeetingTimes would still look for meeting times without '
+                   'locations.')
+        c.argument('location_constraint_locations', action=AddLocationConstraintLocations, nargs='*', help='Constraint '
+                   'information for one or more locations that the client requests for the meeting.')
+        c.argument('location_constraint_suggest_location', arg_type=get_three_state_flag(), help='The client requests '
+                   'the service to suggest one or more meeting locations.')
 
     with self.argument_context('usersactions user get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
