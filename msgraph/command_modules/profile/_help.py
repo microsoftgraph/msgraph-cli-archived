@@ -36,6 +36,11 @@ type: command
 short-summary: Show profile information
 """
 
+helps['profile show-clouds'] = """
+type: command
+short-summary: Show list of supported clouds
+"""
+
 helps['profile delete-cloud'] = """
 type: command
 short-summary: Deletes a user defined cloud
