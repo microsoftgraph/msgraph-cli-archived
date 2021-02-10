@@ -24,7 +24,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
             group.command('add-cloud', 'add_cloud')
             group.command('update-cloud', 'update_cloud')
             group.command('delete-cloud', 'delete_cloud')
-            group.command('select-version', 'select_version')
+            group.command('set-version', 'set_version')
             group.command('show-profile', 'show_profile')
 
         return self.command_table
