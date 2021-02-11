@@ -6,8 +6,11 @@
 '''
 Update the _help.py file after changing the signature or behavior of functions in this file
 '''
-from knack.prompting import prompt_choice_list
+
 from msgraph.cli.core.profile import ProfileProvider
+from msgraph.cli.core.exceptions import CLIError
+from msgraph.cli.core.constants import GRAPH_VERSIONS
+
 from ._cloud_manager import CloudManager
 
 profile_provider = ProfileProvider()
@@ -32,25 +35,19 @@ def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
     print(f'Cloud "{name}" added successfully')
 
 
-def select_cloud():
+def show_clouds():
+    return cloud_manager.get_clouds()
+
+
+def set_cloud(name: str):
     supported_clouds = cloud_manager.get_clouds()
-    formatted = []
 
-    for cloud_name in supported_clouds:
-        cloud = supported_clouds[cloud_name]
-        formatted.append({
-            'name':
-            cloud.get('name'),
-            'desc':
-            f"""Graph Endpoint: {cloud.get('graph_endpoint')} - Azure AD Endpoint: {cloud.get('azure_ad_endpoint')}
-            """
-        })
-
-    selected = prompt_choice_list('Select a cloud \n', formatted)
-    name = formatted[selected].get('name')
+    if name not in supported_clouds.keys():
+        raise CLIError(
+            f'Cloud {name} not found. Run "mg profile show-clouds" to see available clouds')
 
     cloud_manager.set_current_cloud(name)
-    print(f'{name} cloud selected')
+    print(f'Using cloud: {name}')
 
 
 def update_cloud(cloud: str, name=None, graph_endpoint=None, azure_ad_endpoint=None):
@@ -73,18 +70,17 @@ def update_cloud(cloud: str, name=None, graph_endpoint=None, azure_ad_endpoint=N
         print(f'{cloud} does not exist')
 
 
-def select_version():
-    supported_versions = ['v1.0', 'beta']
+def set_version(graph_version: str):
+    if graph_version not in GRAPH_VERSIONS:
+        raise CLIError(
+            f'{graph_version} not supported. "v1.0" and "beta" are the supported graph versions.')
+
     profile = profile_provider.read_profile()
-
-    selected = prompt_choice_list('Select graph version', supported_versions)
-    selected_version = supported_versions[selected]
-
-    profile.update({'version': selected_version})
+    profile.update({'version': graph_version})
     profile_provider.write_profile(profile,
                                    error_msg='An error occured while setting the selected version')
 
-    print(f'Version {selected_version} selected')
+    print(f'Using graph version: {graph_version}')
 
 
 def show_profile():
@@ -102,4 +98,4 @@ def _validate(url: str):
     try:
         request.urlopen(url)
     except IOError as error:
-        raise Exception('Invalid endpoint')
+        raise Exception('Invalid endpoint') from error
