@@ -12,7 +12,7 @@ cd $BUILD_SOURCESDIRECTORY
 echo "Search setup files from `pwd`."
 python --version
 
-pip install -U pip setuptools wheel
+pip install --upgrade pip setuptools wheel
 pip list
 
 pushd "build_scripts"
