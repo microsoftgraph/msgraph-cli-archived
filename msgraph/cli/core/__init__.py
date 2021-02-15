@@ -32,7 +32,7 @@ class MgCLI(CLI):
 
     def get_cli_version(self):
         #TODO: Read version from environment variable
-        return os.environ['CLI_VERSION']
+        return __version__
 
 
 # This is the entry point into the Knack CLI framework.
