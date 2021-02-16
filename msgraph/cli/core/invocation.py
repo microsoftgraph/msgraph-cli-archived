@@ -202,12 +202,6 @@ class GraphCliCommandInvoker(CommandInvoker):
             devnull = os.open(os.devnull, os.O_WRONLY)
             os.dup2(devnull, sys.stdout.fileno())
             return sys.exit()
-        except KeyboardInterrupt:
-            # Python flushes standard streams on exit; redirect remaining output to devnull
-            # to avoid another BrokenPipeError at shutdown
-            devnull = os.open(os.devnull, os.O_WRONLY)
-            os.dup2(devnull, sys.stdout.fileno())
-            return sys.exit()
 
     def _run_jobs_serially(self, jobs, ids):
         results, exceptions = [], []

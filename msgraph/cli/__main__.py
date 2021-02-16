@@ -6,7 +6,7 @@
 
 import sys
 import signal
-from os import path, devnull, dup2, open, O_WRONLY
+from os import path, devnull, dup2, open, O_WRONLY, kill, getpid
 
 from colorama import init, Fore
 
@@ -53,9 +53,13 @@ def ctrl_c_handler(signum, frame):
     # to avoid another BrokenPipeError at shutdown
     dev = open(devnull, O_WRONLY)
     dup2(dev, sys.stdout.fileno())
+
+    # Kill the current process
+    kill(getpid(), signal.CTRL_C_EVENT)
     sys.exit()
 
 
+# Kill CLI process with CTRL+C in *nix systems.
 signal.signal(signal.SIGINT, ctrl_c_handler)
 
 exit_code = cli_main(mg_cli, sys.argv[1:])
