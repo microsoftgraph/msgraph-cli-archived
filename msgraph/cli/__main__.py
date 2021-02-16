@@ -5,7 +5,8 @@
 # --------------------------------------------------------------------------
 
 import sys
-from os import path
+import signal
+from os import path, devnull, dup2, open, O_WRONLY
 
 from colorama import init, Fore
 
@@ -46,6 +47,16 @@ def cli_main(cli, args):
     create_profile_if_none_exists()
     return cli.invoke(args)
 
+
+def handler(signum, frame):
+    # Python flushes standard streams on exit; redirect remaining output to devnull
+    # to avoid another BrokenPipeError at shutdown
+    dev = open(devnull, O_WRONLY)
+    dup2(dev, sys.stdout.fileno())
+    sys.exit()
+
+
+signal.signal(signal.SIGINT, handler)
 
 exit_code = cli_main(mg_cli, sys.argv[1:])
 sys.exit(exit_code)
