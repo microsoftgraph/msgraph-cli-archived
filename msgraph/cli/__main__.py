@@ -6,7 +6,7 @@
 
 import sys
 import signal
-from os import path, devnull, dup2, open, O_WRONLY, kill, getpid
+from os import path, devnull, dup2, open, O_WRONLY
 
 from colorama import init, Fore
 
@@ -53,12 +53,7 @@ def ctrl_c_handler(signum, frame):
     # to avoid another BrokenPipeError at shutdown
     dev = open(devnull, O_WRONLY)
     dup2(dev, sys.stdout.fileno())
-
-    if sys.platform.startswith('win'):
-        # We need this to kill the CLI process in windows
-        kill(getpid(), signal.CTRL_C_EVENT)  #pylint: disable=no-member
-
-    sys.exit()
+    sys.exit(0)
 
 
 # Kill CLI process when CTRL+C is pressed
