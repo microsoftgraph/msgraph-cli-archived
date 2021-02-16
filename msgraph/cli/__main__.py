@@ -48,7 +48,7 @@ def cli_main(cli, args):
     return cli.invoke(args)
 
 
-def handler(signum, frame):
+def ctrl_c_handler(signum, frame):
     # Python flushes standard streams on exit; redirect remaining output to devnull
     # to avoid another BrokenPipeError at shutdown
     dev = open(devnull, O_WRONLY)
@@ -56,7 +56,7 @@ def handler(signum, frame):
     sys.exit()
 
 
-signal.signal(signal.SIGINT, handler)
+signal.signal(signal.SIGINT, ctrl_c_handler)
 
 exit_code = cli_main(mg_cli, sys.argv[1:])
 sys.exit(exit_code)
