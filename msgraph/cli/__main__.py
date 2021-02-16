@@ -54,12 +54,14 @@ def ctrl_c_handler(signum, frame):
     dev = open(devnull, O_WRONLY)
     dup2(dev, sys.stdout.fileno())
 
-    # Kill the current process
-    kill(getpid(), signal.CTRL_C_EVENT)
+    if sys.platform.startswith('win'):
+        # We need this to kill the CLI process in windows
+        kill(getpid(), signal.CTRL_C_EVENT)  #pylint: disable=no-member
+
     sys.exit()
 
 
-# Kill CLI process with CTRL+C in *nix systems.
+# Kill CLI process when CTRL+C is pressed
 signal.signal(signal.SIGINT, ctrl_c_handler)
 
 exit_code = cli_main(mg_cli, sys.argv[1:])
