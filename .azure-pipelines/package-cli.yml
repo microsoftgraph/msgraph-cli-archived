@@ -164,7 +164,7 @@ stages:
             gitHubConnection: 'ddyett'
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
-            tag: '$(CLI_VERSION)'
+            tag: '$(NEW_CLI_VERSION)'
             assets: |
               $(Pipeline.Workspace)/msgraph_msi/*.msi
               $(Pipeline.Workspace)/msgraph_deb/*.deb
