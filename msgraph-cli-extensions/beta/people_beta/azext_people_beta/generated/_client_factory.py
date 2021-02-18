@@ -10,7 +10,7 @@
 
 
 def cf_people_beta_cl(cli_ctx, *_):
-    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
     from azext_people_beta.vendored_sdks.people import People
     return get_mgmt_service_client(cli_ctx,
                                    People,

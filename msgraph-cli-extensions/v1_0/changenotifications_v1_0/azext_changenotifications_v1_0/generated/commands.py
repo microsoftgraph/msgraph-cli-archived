@@ -9,20 +9,22 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_changenotifications_v1_0.generated._client_factory import cf_subscription_subscription
+
     changenotifications_v1_0_subscription_subscription = CliCommandType(
-        operations_tmpl='azext_changenotifications_v1_0.vendored_sdks.changenotifications.operations._subscriptions_sub'
-        'scription_operations#SubscriptionsSubscriptionOperations.{}',
-        client_factory=cf_subscription_subscription)
-    with self.command_group('changenotifications subscription-subscription',
-                            changenotifications_v1_0_subscription_subscription,
-                            client_factory=cf_subscription_subscription) as g:
+        operations_tmpl='azext_changenotifications_v1_0.vendored_sdks.changenotifications.operations._subscriptions_subscription_operations#SubscriptionsSubscriptionOperations.{}',
+        client_factory=cf_subscription_subscription,
+    )
+    with self.command_group(
+        'changenotifications subscription-subscription', changenotifications_v1_0_subscription_subscription
+    ) as g:
         g.custom_command('delete', 'changenotifications_subscription_subscription_delete', confirmation=True)
         g.custom_command('create-subscription', 'changenotifications_subscription_subscription_create_subscription')
         g.custom_command('list-subscription', 'changenotifications_subscription_subscription_list_subscription')

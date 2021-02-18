@@ -11,7 +11,7 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from azure.cli.core.commands.validators import validate_file_or_dict
+from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_personalcontacts_v1_0.action import (
     AddBusinessAddress,
     AddEmailAddresses,

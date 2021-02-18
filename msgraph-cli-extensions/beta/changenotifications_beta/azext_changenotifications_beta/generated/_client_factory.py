@@ -10,7 +10,7 @@
 
 
 def cf_changenotifications_beta_cl(cli_ctx, *_):
-    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
     from azext_changenotifications_beta.vendored_sdks.changenotifications import ChangeNotifications
     return get_mgmt_service_client(cli_ctx,
                                    ChangeNotifications,

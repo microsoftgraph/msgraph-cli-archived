@@ -8,7 +8,7 @@
 # regenerated.
 # --------------------------------------------------------------------------
 
-from azure.cli.core import AzCommandsLoader
+from msgraph.cli.core import AzCommandsLoader
 from azext_crossdeviceexperiences_v1_0.generated._help import helps  # pylint: disable=unused-import
 try:
     from azext_crossdeviceexperiences_v1_0.manual._help import helps  # pylint: disable=reimported
@@ -19,7 +19,7 @@ except ImportError:
 class CrossDeviceExperiencesCommandsLoader(AzCommandsLoader):
 
     def __init__(self, cli_ctx=None):
-        from azure.cli.core.commands import CliCommandType
+        from msgraph.cli.core.commands import CliCommandType
         from azext_crossdeviceexperiences_v1_0.generated._client_factory import cf_crossdeviceexperiences_v1_0_cl
         crossdeviceexperiences_v1_0_custom = CliCommandType(
             operations_tmpl='azext_crossdeviceexperiences_v1_0.custom#{}',

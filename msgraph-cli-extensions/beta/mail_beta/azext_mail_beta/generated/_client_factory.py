@@ -10,7 +10,7 @@
 
 
 def cf_mail_beta_cl(cli_ctx, *_):
-    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
     from azext_mail_beta.vendored_sdks.mail import Mail
     return get_mgmt_service_client(cli_ctx,
                                    Mail,

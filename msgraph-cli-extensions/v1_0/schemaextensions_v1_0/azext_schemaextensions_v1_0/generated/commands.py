@@ -9,29 +9,35 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_schemaextensions_v1_0.generated._client_factory import cf_schema_extension_schema_extension
+
     schemaextensions_v1_0_schema_extension_schema_extension = CliCommandType(
-        operations_tmpl='azext_schemaextensions_v1_0.vendored_sdks.schemaextensions.operations._schema_extensions_schem'
-        'a_extension_operations#SchemaExtensionsSchemaExtensionOperations.{}',
-        client_factory=cf_schema_extension_schema_extension)
-    with self.command_group('schemaextensions schema-extension-schema-extension',
-                            schemaextensions_v1_0_schema_extension_schema_extension,
-                            client_factory=cf_schema_extension_schema_extension) as g:
+        operations_tmpl='azext_schemaextensions_v1_0.vendored_sdks.schemaextensions.operations._schema_extensions_schema_extension_operations#SchemaExtensionsSchemaExtensionOperations.{}',
+        client_factory=cf_schema_extension_schema_extension,
+    )
+    with self.command_group(
+        'schemaextensions schema-extension-schema-extension', schemaextensions_v1_0_schema_extension_schema_extension
+    ) as g:
         g.custom_command('delete', 'schemaextensions_schema_extension_schema_extension_delete', confirmation=True)
-        g.custom_command('create-schema-extension', 'schemaextensions_schema_extension_schema_extension_create_schema_e'
-                         'xtension')
-        g.custom_command('list-schema-extension', 'schemaextensions_schema_extension_schema_extension_list_schema_exten'
-                         'sion')
-        g.custom_command('show-schema-extension', 'schemaextensions_schema_extension_schema_extension_show_schema_exten'
-                         'sion')
-        g.custom_command('update-schema-extension', 'schemaextensions_schema_extension_schema_extension_update_schema_e'
-                         'xtension')
+        g.custom_command(
+            'create-schema-extension', 'schemaextensions_schema_extension_schema_extension_create_schema_extension'
+        )
+        g.custom_command(
+            'list-schema-extension', 'schemaextensions_schema_extension_schema_extension_list_schema_extension'
+        )
+        g.custom_command(
+            'show-schema-extension', 'schemaextensions_schema_extension_schema_extension_show_schema_extension'
+        )
+        g.custom_command(
+            'update-schema-extension', 'schemaextensions_schema_extension_schema_extension_update_schema_extension'
+        )
 
     with self.command_group('schemaextensions_v1_0', is_experimental=True):
         pass

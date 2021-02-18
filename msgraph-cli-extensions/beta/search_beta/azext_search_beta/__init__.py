@@ -8,7 +8,7 @@
 # regenerated.
 # --------------------------------------------------------------------------
 
-from azure.cli.core import AzCommandsLoader
+from msgraph.cli.core import AzCommandsLoader
 from azext_search_beta.generated._help import helps  # pylint: disable=unused-import
 try:
     from azext_search_beta.manual._help import helps  # pylint: disable=reimported
@@ -19,7 +19,7 @@ except ImportError:
 class SearchCommandsLoader(AzCommandsLoader):
 
     def __init__(self, cli_ctx=None):
-        from azure.cli.core.commands import CliCommandType
+        from msgraph.cli.core.commands import CliCommandType
         from azext_search_beta.generated._client_factory import cf_search_beta_cl
         search_beta_custom = CliCommandType(
             operations_tmpl='azext_search_beta.custom#{}',

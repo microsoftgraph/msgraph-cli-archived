@@ -9,20 +9,22 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_bookings_beta.generated._client_factory import cf_booking_business_booking_business
+
     bookings_beta_booking_business_booking_business = CliCommandType(
-        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_booking_business_ope'
-        'rations#BookingBusinessesBookingBusinessOperations.{}',
-        client_factory=cf_booking_business_booking_business)
-    with self.command_group('bookings booking-business-booking-business',
-                            bookings_beta_booking_business_booking_business,
-                            client_factory=cf_booking_business_booking_business) as g:
+        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_booking_business_operations#BookingBusinessesBookingBusinessOperations.{}',
+        client_factory=cf_booking_business_booking_business,
+    )
+    with self.command_group(
+        'bookings booking-business-booking-business', bookings_beta_booking_business_booking_business
+    ) as g:
         g.custom_command('delete', 'bookings_booking_business_booking_business_delete', confirmation=True)
         g.custom_command('create-business', 'bookings_booking_business_booking_business_create_business')
         g.custom_command('list-business', 'bookings_booking_business_booking_business_list_business')
@@ -30,12 +32,12 @@ def load_command_table(self, _):
         g.custom_command('update-business', 'bookings_booking_business_booking_business_update_business')
 
     from azext_bookings_beta.generated._client_factory import cf_booking_business
+
     bookings_beta_booking_business = CliCommandType(
-        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_operations#BookingBu'
-        'sinessesOperations.{}',
-        client_factory=cf_booking_business)
-    with self.command_group('bookings booking-business', bookings_beta_booking_business,
-                            client_factory=cf_booking_business) as g:
+        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_operations#BookingBusinessesOperations.{}',
+        client_factory=cf_booking_business,
+    )
+    with self.command_group('bookings booking-business', bookings_beta_booking_business) as g:
         g.custom_command('delete', 'bookings_booking_business_delete', confirmation=True)
         g.custom_command('create-appointment', 'bookings_booking_business_create_appointment')
         g.custom_command('create-calendar-view', 'bookings_booking_business_create_calendar_view')
@@ -61,31 +63,34 @@ def load_command_table(self, _):
         g.custom_command('update-staff-member', 'bookings_booking_business_update_staff_member')
 
     from azext_bookings_beta.generated._client_factory import cf_booking_business_appointment
+
     bookings_beta_booking_business_appointment = CliCommandType(
-        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_appointments_operati'
-        'ons#BookingBusinessesAppointmentsOperations.{}',
-        client_factory=cf_booking_business_appointment)
-    with self.command_group('bookings booking-business-appointment', bookings_beta_booking_business_appointment,
-                            client_factory=cf_booking_business_appointment) as g:
+        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_appointments_operations#BookingBusinessesAppointmentsOperations.{}',
+        client_factory=cf_booking_business_appointment,
+    )
+    with self.command_group('bookings booking-business-appointment', bookings_beta_booking_business_appointment) as g:
         g.custom_command('cancel', 'bookings_booking_business_appointment_cancel')
 
     from azext_bookings_beta.generated._client_factory import cf_booking_business_calendar_view
+
     bookings_beta_booking_business_calendar_view = CliCommandType(
-        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_calendar_view_operat'
-        'ions#BookingBusinessesCalendarViewOperations.{}',
-        client_factory=cf_booking_business_calendar_view)
-    with self.command_group('bookings booking-business-calendar-view', bookings_beta_booking_business_calendar_view,
-                            client_factory=cf_booking_business_calendar_view) as g:
+        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_calendar_view_operations#BookingBusinessesCalendarViewOperations.{}',
+        client_factory=cf_booking_business_calendar_view,
+    )
+    with self.command_group(
+        'bookings booking-business-calendar-view', bookings_beta_booking_business_calendar_view
+    ) as g:
         g.custom_command('cancel', 'bookings_booking_business_calendar_view_cancel')
 
     from azext_bookings_beta.generated._client_factory import cf_booking_currency_booking_currency
+
     bookings_beta_booking_currency_booking_currency = CliCommandType(
-        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_currencies_booking_currency_ope'
-        'rations#BookingCurrenciesBookingCurrencyOperations.{}',
-        client_factory=cf_booking_currency_booking_currency)
-    with self.command_group('bookings booking-currency-booking-currency',
-                            bookings_beta_booking_currency_booking_currency,
-                            client_factory=cf_booking_currency_booking_currency) as g:
+        operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_currencies_booking_currency_operations#BookingCurrenciesBookingCurrencyOperations.{}',
+        client_factory=cf_booking_currency_booking_currency,
+    )
+    with self.command_group(
+        'bookings booking-currency-booking-currency', bookings_beta_booking_currency_booking_currency
+    ) as g:
         g.custom_command('delete', 'bookings_booking_currency_booking_currency_delete', confirmation=True)
         g.custom_command('create-currency', 'bookings_booking_currency_booking_currency_create_currency')
         g.custom_command('list-currency', 'bookings_booking_currency_booking_currency_list_currency')

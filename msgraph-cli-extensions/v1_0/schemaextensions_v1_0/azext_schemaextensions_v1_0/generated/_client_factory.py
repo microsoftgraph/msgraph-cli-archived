@@ -10,7 +10,7 @@
 
 
 def cf_schemaextensions_v1_0_cl(cli_ctx, *_):
-    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
     from azext_schemaextensions_v1_0.vendored_sdks.schemaextensions import SchemaExtensions
     return get_mgmt_service_client(cli_ctx,
                                    SchemaExtensions,

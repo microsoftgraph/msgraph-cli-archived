@@ -9,17 +9,20 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_calendar_v1_0.generated._client_factory import cf_group
+
     calendar_v1_0_group = CliCommandType(
         operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_operations#GroupsOperations.{}',
-        client_factory=cf_group)
-    with self.command_group('calendar group', calendar_v1_0_group, client_factory=cf_group) as g:
+        client_factory=cf_group,
+    )
+    with self.command_group('calendar group', calendar_v1_0_group) as g:
         g.custom_command('update', 'calendar_group_update')
         g.custom_command('delete', 'calendar_group_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_group_create_event')
@@ -33,276 +36,354 @@ def load_command_table(self, _):
         g.custom_command('update-view', 'calendar_group_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_calendar
+
     calendar_v1_0_group_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_operations#GroupsCalend'
-        'arOperations.{}',
-        client_factory=cf_group_calendar)
-    with self.command_group('calendar group-calendar', calendar_v1_0_group_calendar,
-                            client_factory=cf_group_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_operations#GroupsCalendarOperations.{}',
+        client_factory=cf_group_calendar,
+    )
+    with self.command_group('calendar group-calendar', calendar_v1_0_group_calendar) as g:
         g.custom_command('delete', 'calendar_group_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_group_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_calendar_create_multi_value_extended_p'
-                         'roperty')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_group_calendar_create_multi_value_extended_property'
+        )
         g.custom_command('create-permission', 'calendar_group_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_calendar_create_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_group_calendar_create_single_value_extended_property'
+        )
         g.custom_command('create-view', 'calendar_group_calendar_create_view')
         g.custom_command('list-event', 'calendar_group_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_calendar_list_multi_value_extended_prope'
-                         'rty')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_group_calendar_list_multi_value_extended_property'
+        )
         g.custom_command('list-permission', 'calendar_group_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_calendar_list_single_value_extended_pro'
-                         'perty')
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_group_calendar_list_single_value_extended_property'
+        )
         g.custom_command('list-view', 'calendar_group_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_group_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_group_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_group_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_calendar_show_multi_value_extended_prope'
-                         'rty')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_calendar_show_single_value_extended_pro'
-                         'perty')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_group_calendar_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_group_calendar_show_single_value_extended_property'
+        )
         g.custom_command('update-event', 'calendar_group_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_calendar_update_multi_value_extended_p'
-                         'roperty')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_group_calendar_update_multi_value_extended_property'
+        )
         g.custom_command('update-permission', 'calendar_group_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_calendar_update_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_group_calendar_update_single_value_extended_property'
+        )
         g.custom_command('update-view', 'calendar_group_calendar_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_calendar_calendar_view
+
     calendar_v1_0_group_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_calendar_view_operation'
-        's#GroupsCalendarCalendarViewOperations.{}',
-        client_factory=cf_group_calendar_calendar_view)
-    with self.command_group('calendar group-calendar-view', calendar_v1_0_group_calendar_calendar_view,
-                            client_factory=cf_group_calendar_calendar_view) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_calendar_view_operations#GroupsCalendarCalendarViewOperations.{}',
+        client_factory=cf_group_calendar_calendar_view,
+    )
+    with self.command_group('calendar group-calendar-view', calendar_v1_0_group_calendar_calendar_view) as g:
         g.custom_command('update', 'calendar_group_calendar_view_update')
         g.custom_command('delete', 'calendar_group_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_group_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_group_calendar_view_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_calendar_view_create_multi_value_exten'
-                         'ded_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_calendar_view_create_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_group_calendar_view_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_group_calendar_view_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_group_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_group_calendar_view_list_extension')
         g.custom_command('list-instance', 'calendar_group_calendar_view_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_calendar_view_list_multi_value_extended_'
-                         'property')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_calendar_view_list_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_group_calendar_view_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_group_calendar_view_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_group_calendar_view_show_attachment')
         g.custom_command('show-calendar', 'calendar_group_calendar_view_show_calendar')
         g.custom_command('show-extension', 'calendar_group_calendar_view_show_extension')
         g.custom_command('show-instance', 'calendar_group_calendar_view_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_calendar_view_show_multi_value_extended_'
-                         'property')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_calendar_view_show_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_group_calendar_view_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_group_calendar_view_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_group_calendar_view_update_attachment')
         g.custom_command('update-extension', 'calendar_group_calendar_view_update_extension')
         g.custom_command('update-instance', 'calendar_group_calendar_view_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_calendar_view_update_multi_value_exten'
-                         'ded_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_calendar_view_update_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_group_calendar_view_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_group_calendar_view_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_calendar_event
+
     calendar_v1_0_group_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_events_operations#Group'
-        'sCalendarEventsOperations.{}',
-        client_factory=cf_group_calendar_event)
-    with self.command_group('calendar group-calendar-event', calendar_v1_0_group_calendar_event,
-                            client_factory=cf_group_calendar_event) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_events_operations#GroupsCalendarEventsOperations.{}',
+        client_factory=cf_group_calendar_event,
+    )
+    with self.command_group('calendar group-calendar-event', calendar_v1_0_group_calendar_event) as g:
         g.custom_command('update', 'calendar_group_calendar_event_update')
         g.custom_command('delete', 'calendar_group_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_group_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_group_calendar_event_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_calendar_event_create_multi_value_exte'
-                         'nded_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_calendar_event_create_single_value_ex'
-                         'tended_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_group_calendar_event_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_group_calendar_event_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_group_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_group_calendar_event_list_extension')
         g.custom_command('list-instance', 'calendar_group_calendar_event_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_calendar_event_list_multi_value_extended'
-                         '_property')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_calendar_event_list_single_value_extend'
-                         'ed_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_group_calendar_event_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_group_calendar_event_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_group_calendar_event_show_attachment')
         g.custom_command('show-calendar', 'calendar_group_calendar_event_show_calendar')
         g.custom_command('show-extension', 'calendar_group_calendar_event_show_extension')
         g.custom_command('show-instance', 'calendar_group_calendar_event_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_calendar_event_show_multi_value_extended'
-                         '_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_calendar_event_show_single_value_extend'
-                         'ed_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_group_calendar_event_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_group_calendar_event_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_group_calendar_event_update_attachment')
         g.custom_command('update-extension', 'calendar_group_calendar_event_update_extension')
         g.custom_command('update-instance', 'calendar_group_calendar_event_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_calendar_event_update_multi_value_exte'
-                         'nded_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_calendar_event_update_single_value_ex'
-                         'tended_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_group_calendar_event_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_group_calendar_event_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_calendar_view
+
     calendar_v1_0_group_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_view_operations#GroupsC'
-        'alendarViewOperations.{}',
-        client_factory=cf_group_calendar_view)
-    with self.command_group('calendar group-calendar-view', calendar_v1_0_group_calendar_view,
-                            client_factory=cf_group_calendar_view) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_view_operations#GroupsCalendarViewOperations.{}',
+        client_factory=cf_group_calendar_view,
+    )
+    with self.command_group('calendar group-calendar-view', calendar_v1_0_group_calendar_view) as g:
         g.custom_command('delete', 'calendar_group_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_group_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_group_calendar_view_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_calendar_view_create_multi_value_exten'
-                         'ded_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_calendar_view_create_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_group_calendar_view_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_group_calendar_view_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_group_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_group_calendar_view_list_extension')
         g.custom_command('list-instance', 'calendar_group_calendar_view_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_calendar_view_list_multi_value_extended_'
-                         'property')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_calendar_view_list_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_group_calendar_view_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_group_calendar_view_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_group_calendar_view_show_attachment')
         g.custom_command('show-calendar', 'calendar_group_calendar_view_show_calendar')
         g.custom_command('show-extension', 'calendar_group_calendar_view_show_extension')
         g.custom_command('show-instance', 'calendar_group_calendar_view_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_calendar_view_show_multi_value_extended_'
-                         'property')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_calendar_view_show_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_group_calendar_view_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_group_calendar_view_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_group_calendar_view_update_attachment')
         g.custom_command('update-extension', 'calendar_group_calendar_view_update_extension')
         g.custom_command('update-instance', 'calendar_group_calendar_view_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_calendar_view_update_multi_value_exten'
-                         'ded_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_calendar_view_update_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_group_calendar_view_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_group_calendar_view_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_calendar_view_calendar
+
     calendar_v1_0_group_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_view_calendar_operation'
-        's#GroupsCalendarViewCalendarOperations.{}',
-        client_factory=cf_group_calendar_view_calendar)
-    with self.command_group('calendar group-calendar-view-calendar', calendar_v1_0_group_calendar_view_calendar,
-                            client_factory=cf_group_calendar_view_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_calendar_view_calendar_operations#GroupsCalendarViewCalendarOperations.{}',
+        client_factory=cf_group_calendar_view_calendar,
+    )
+    with self.command_group('calendar group-calendar-view-calendar', calendar_v1_0_group_calendar_view_calendar) as g:
         g.custom_command('delete', 'calendar_group_calendar_view_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_group_calendar_view_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_calendar_view_calendar_create_multi_va'
-                         'lue_extended_property')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'calendar_group_calendar_view_calendar_create_multi_value_extended_property',
+        )
         g.custom_command('create-permission', 'calendar_group_calendar_view_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_calendar_view_calendar_create_single_'
-                         'value_extended_property')
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_group_calendar_view_calendar_create_single_value_extended_property',
+        )
         g.custom_command('create-view', 'calendar_group_calendar_view_calendar_create_view')
         g.custom_command('list-event', 'calendar_group_calendar_view_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_calendar_view_calendar_list_multi_value_'
-                         'extended_property')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'calendar_group_calendar_view_calendar_list_multi_value_extended_property',
+        )
         g.custom_command('list-permission', 'calendar_group_calendar_view_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_calendar_view_calendar_list_single_valu'
-                         'e_extended_property')
+        g.custom_command(
+            'list-single-value-extended-property',
+            'calendar_group_calendar_view_calendar_list_single_value_extended_property',
+        )
         g.custom_command('list-view', 'calendar_group_calendar_view_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_group_calendar_view_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_group_calendar_view_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_group_calendar_view_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_calendar_view_calendar_show_multi_value_'
-                         'extended_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_calendar_view_calendar_show_single_valu'
-                         'e_extended_property')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'calendar_group_calendar_view_calendar_show_multi_value_extended_property',
+        )
+        g.custom_command(
+            'show-single-value-extended-property',
+            'calendar_group_calendar_view_calendar_show_single_value_extended_property',
+        )
         g.custom_command('update-event', 'calendar_group_calendar_view_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_calendar_view_calendar_update_multi_va'
-                         'lue_extended_property')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'calendar_group_calendar_view_calendar_update_multi_value_extended_property',
+        )
         g.custom_command('update-permission', 'calendar_group_calendar_view_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_calendar_view_calendar_update_single_'
-                         'value_extended_property')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_group_calendar_view_calendar_update_single_value_extended_property',
+        )
         g.custom_command('update-view', 'calendar_group_calendar_view_calendar_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_event
+
     calendar_v1_0_group_event = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_events_operations#GroupsEventsOp'
-        'erations.{}',
-        client_factory=cf_group_event)
-    with self.command_group('calendar group-event', calendar_v1_0_group_event, client_factory=cf_group_event) as g:
+        operations_tmpl=(
+            'azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_events_operations#GroupsEventsOperations.{}'
+        ),
+        client_factory=cf_group_event,
+    )
+    with self.command_group('calendar group-event', calendar_v1_0_group_event) as g:
         g.custom_command('update', 'calendar_group_event_update')
         g.custom_command('delete', 'calendar_group_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_event_create_attachment')
         g.custom_command('create-extension', 'calendar_group_event_create_extension')
         g.custom_command('create-instance', 'calendar_group_event_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_event_create_multi_value_extended_prop'
-                         'erty')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_event_create_single_value_extended_pr'
-                         'operty')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_group_event_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_group_event_create_single_value_extended_property'
+        )
         g.custom_command('list-attachment', 'calendar_group_event_list_attachment')
         g.custom_command('list-extension', 'calendar_group_event_list_extension')
         g.custom_command('list-instance', 'calendar_group_event_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_event_list_multi_value_extended_property'
-                         '')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_event_list_single_value_extended_proper'
-                         'ty')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_group_event_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_group_event_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_group_event_show_attachment')
         g.custom_command('show-calendar', 'calendar_group_event_show_calendar')
         g.custom_command('show-extension', 'calendar_group_event_show_extension')
         g.custom_command('show-instance', 'calendar_group_event_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_event_show_multi_value_extended_property'
-                         '')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_event_show_single_value_extended_proper'
-                         'ty')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_group_event_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_group_event_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_group_event_update_attachment')
         g.custom_command('update-extension', 'calendar_group_event_update_extension')
         g.custom_command('update-instance', 'calendar_group_event_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_event_update_multi_value_extended_prop'
-                         'erty')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_event_update_single_value_extended_pr'
-                         'operty')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_group_event_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_group_event_update_single_value_extended_property'
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_group_event_calendar
+
     calendar_v1_0_group_event_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_events_calendar_operations#Group'
-        'sEventsCalendarOperations.{}',
-        client_factory=cf_group_event_calendar)
-    with self.command_group('calendar group-event-calendar', calendar_v1_0_group_event_calendar,
-                            client_factory=cf_group_event_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._groups_events_calendar_operations#GroupsEventsCalendarOperations.{}',
+        client_factory=cf_group_event_calendar,
+    )
+    with self.command_group('calendar group-event-calendar', calendar_v1_0_group_event_calendar) as g:
         g.custom_command('delete', 'calendar_group_event_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_group_event_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_group_event_calendar_create_multi_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_group_event_calendar_create_multi_value_extended_property'
+        )
         g.custom_command('create-permission', 'calendar_group_event_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_group_event_calendar_create_single_value_ex'
-                         'tended_property')
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_group_event_calendar_create_single_value_extended_property',
+        )
         g.custom_command('create-view', 'calendar_group_event_calendar_create_view')
         g.custom_command('list-event', 'calendar_group_event_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_group_event_calendar_list_multi_value_extended'
-                         '_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_group_event_calendar_list_multi_value_extended_property'
+        )
         g.custom_command('list-permission', 'calendar_group_event_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_group_event_calendar_list_single_value_extend'
-                         'ed_property')
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_group_event_calendar_list_single_value_extended_property'
+        )
         g.custom_command('list-view', 'calendar_group_event_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_group_event_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_group_event_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_group_event_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_group_event_calendar_show_multi_value_extended'
-                         '_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_group_event_calendar_show_single_value_extend'
-                         'ed_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_group_event_calendar_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_group_event_calendar_show_single_value_extended_property'
+        )
         g.custom_command('update-event', 'calendar_group_event_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_group_event_calendar_update_multi_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_group_event_calendar_update_multi_value_extended_property'
+        )
         g.custom_command('update-permission', 'calendar_group_event_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_group_event_calendar_update_single_value_ex'
-                         'tended_property')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_group_event_calendar_update_single_value_extended_property',
+        )
         g.custom_command('update-view', 'calendar_group_event_calendar_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_place_place
+
     calendar_v1_0_place_place = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._places_place_operations#PlacesPlaceOper'
-        'ations.{}',
-        client_factory=cf_place_place)
-    with self.command_group('calendar place-place', calendar_v1_0_place_place, client_factory=cf_place_place) as g:
+        operations_tmpl=(
+            'azext_calendar_v1_0.vendored_sdks.calendar.operations._places_place_operations#PlacesPlaceOperations.{}'
+        ),
+        client_factory=cf_place_place,
+    )
+    with self.command_group('calendar place-place', calendar_v1_0_place_place) as g:
         g.custom_command('delete', 'calendar_place_place_delete', confirmation=True)
         g.custom_command('create-place', 'calendar_place_place_create_place')
         g.custom_command('list-place', 'calendar_place_place_list_place')
@@ -310,10 +391,12 @@ def load_command_table(self, _):
         g.custom_command('update-place', 'calendar_place_place_update_place')
 
     from azext_calendar_v1_0.generated._client_factory import cf_user
+
     calendar_v1_0_user = CliCommandType(
         operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_operations#UsersOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('calendar user', calendar_v1_0_user, client_factory=cf_user) as g:
+        client_factory=cf_user,
+    )
+    with self.command_group('calendar user', calendar_v1_0_user) as g:
         g.custom_command('list', 'calendar_user_list')
         g.custom_command('create', 'calendar_user_create')
         g.custom_command('update', 'calendar_user_update')
@@ -333,119 +416,145 @@ def load_command_table(self, _):
         g.custom_command('update-view', 'calendar_user_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar
+
     calendar_v1_0_user_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_operations#UsersCalendar'
-        'Operations.{}',
-        client_factory=cf_user_calendar)
-    with self.command_group('calendar user-calendar', calendar_v1_0_user_calendar,
-                            client_factory=cf_user_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_operations#UsersCalendarOperations.{}',
+        client_factory=cf_user_calendar,
+    )
+    with self.command_group('calendar user-calendar', calendar_v1_0_user_calendar) as g:
         g.custom_command('delete', 'calendar_user_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_user_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_create_multi_value_extended_pr'
-                         'operty')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_create_single_value_extended_'
-                         'property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_user_calendar_create_single_value_extended_property'
+        )
         g.custom_command('list-event', 'calendar_user_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_list_multi_value_extended_proper'
-                         'ty')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_list_single_value_extended_prop'
-                         'erty')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_list_single_value_extended_property'
+        )
         g.custom_command('show-calendar-permission', 'calendar_user_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_user_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_user_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_show_multi_value_extended_proper'
-                         'ty')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_show_single_value_extended_prop'
-                         'erty')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_show_single_value_extended_property'
+        )
         g.custom_command('update-event', 'calendar_user_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_update_multi_value_extended_pr'
-                         'operty')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_update_single_value_extended_'
-                         'property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_user_calendar_update_single_value_extended_property'
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_calendar_view
+
     calendar_v1_0_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_calendar_view_operations'
-        '#UsersCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view)
-    with self.command_group('calendar user-calendar-view', calendar_v1_0_user_calendar_calendar_view,
-                            client_factory=cf_user_calendar_calendar_view) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_calendar_view_operations#UsersCalendarCalendarViewOperations.{}',
+        client_factory=cf_user_calendar_calendar_view,
+    )
+    with self.command_group('calendar user-calendar-view', calendar_v1_0_user_calendar_calendar_view) as g:
         g.custom_command('delete', 'calendar_user_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_view_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_view_create_multi_value_extend'
-                         'ed_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_view_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_extended_property'
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_view_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_view_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_view_list_multi_value_extended_p'
-                         'roperty')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_view_list_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_view_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_view_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_view_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_view_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_view_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_view_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_view_show_multi_value_extended_p'
-                         'roperty')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_view_show_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_view_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_view_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_view_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_view_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_view_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_view_update_multi_value_extend'
-                         'ed_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_view_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_extended_property'
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_event
+
     calendar_v1_0_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_events_operations#UsersC'
-        'alendarEventsOperations.{}',
-        client_factory=cf_user_calendar_event)
-    with self.command_group('calendar user-calendar-event', calendar_v1_0_user_calendar_event,
-                            client_factory=cf_user_calendar_event) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_events_operations#UsersCalendarEventsOperations.{}',
+        client_factory=cf_user_calendar_event,
+    )
+    with self.command_group('calendar user-calendar-event', calendar_v1_0_user_calendar_event) as g:
         g.custom_command('delete', 'calendar_user_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_event_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_event_create_multi_value_exten'
-                         'ded_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_event_create_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_event_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_calendar_event_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_event_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_event_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_event_list_multi_value_extended_'
-                         'property')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_event_list_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_event_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_event_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_event_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_event_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_event_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_event_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_event_show_multi_value_extended_'
-                         'property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_event_show_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_event_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_event_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_event_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_event_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_event_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_event_update_multi_value_exten'
-                         'ded_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_event_update_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_event_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_calendar_event_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_group
+
     calendar_v1_0_user_calendar_group = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_operations#UsersC'
-        'alendarGroupsOperations.{}',
-        client_factory=cf_user_calendar_group)
-    with self.command_group('calendar user-calendar-group', calendar_v1_0_user_calendar_group,
-                            client_factory=cf_user_calendar_group) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_operations#UsersCalendarGroupsOperations.{}',
+        client_factory=cf_user_calendar_group,
+    )
+    with self.command_group('calendar user-calendar-group', calendar_v1_0_user_calendar_group) as g:
         g.custom_command('list', 'calendar_user_calendar_group_list')
         g.custom_command('create', 'calendar_user_calendar_group_create')
         g.custom_command('update', 'calendar_user_calendar_group_update')
@@ -453,385 +562,502 @@ def load_command_table(self, _):
         g.custom_command('show-calendar', 'calendar_user_calendar_group_show_calendar')
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_group_calendar
+
     calendar_v1_0_user_calendar_group_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_calendars_operati'
-        'ons#UsersCalendarGroupsCalendarsOperations.{}',
-        client_factory=cf_user_calendar_group_calendar)
-    with self.command_group('calendar user-calendar-group-calendar', calendar_v1_0_user_calendar_group_calendar,
-                            client_factory=cf_user_calendar_group_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_calendars_operations#UsersCalendarGroupsCalendarsOperations.{}',
+        client_factory=cf_user_calendar_group_calendar,
+    )
+    with self.command_group('calendar user-calendar-group-calendar', calendar_v1_0_user_calendar_group_calendar) as g:
         g.custom_command('delete', 'calendar_user_calendar_group_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_user_calendar_group_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_group_calendar_create_multi_va'
-                         'lue_extended_property')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_create_multi_value_extended_property',
+        )
         g.custom_command('create-permission', 'calendar_user_calendar_group_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_group_calendar_create_single_'
-                         'value_extended_property')
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_create_single_value_extended_property',
+        )
         g.custom_command('create-view', 'calendar_user_calendar_group_calendar_create_view')
         g.custom_command('list-event', 'calendar_user_calendar_group_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_group_calendar_list_multi_value_'
-                         'extended_property')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_list_multi_value_extended_property',
+        )
         g.custom_command('list-permission', 'calendar_user_calendar_group_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_group_calendar_list_single_valu'
-                         'e_extended_property')
+        g.custom_command(
+            'list-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_list_single_value_extended_property',
+        )
         g.custom_command('list-view', 'calendar_user_calendar_group_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_user_calendar_group_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_user_calendar_group_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_user_calendar_group_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_group_calendar_show_multi_value_'
-                         'extended_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_group_calendar_show_single_valu'
-                         'e_extended_property')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_show_multi_value_extended_property',
+        )
+        g.custom_command(
+            'show-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_show_single_value_extended_property',
+        )
         g.custom_command('update-event', 'calendar_user_calendar_group_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_group_calendar_update_multi_va'
-                         'lue_extended_property')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_update_multi_value_extended_property',
+        )
         g.custom_command('update-permission', 'calendar_user_calendar_group_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_group_calendar_update_single_'
-                         'value_extended_property')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_update_single_value_extended_property',
+        )
         g.custom_command('update-view', 'calendar_user_calendar_group_calendar_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_group_calendar_calendar_view
+
     calendar_v1_0_user_calendar_group_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_calendars_calenda'
-        'r_view_operations#UsersCalendarGroupsCalendarsCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view)
-    with self.command_group('calendar user-calendar-group-calendar-view',
-                            calendar_v1_0_user_calendar_group_calendar_calendar_view,
-                            client_factory=cf_user_calendar_group_calendar_calendar_view) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_calendars_calendar_view_operations#UsersCalendarGroupsCalendarsCalendarViewOperations.{}',
+        client_factory=cf_user_calendar_group_calendar_calendar_view,
+    )
+    with self.command_group(
+        'calendar user-calendar-group-calendar-view', calendar_v1_0_user_calendar_group_calendar_calendar_view
+    ) as g:
         g.custom_command('update', 'calendar_user_calendar_group_calendar_view_update')
         g.custom_command('delete', 'calendar_user_calendar_group_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_group_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_group_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_group_calendar_view_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_group_calendar_view_create_mul'
-                         'ti_value_extended_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_group_calendar_view_create_si'
-                         'ngle_value_extended_property')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_create_multi_value_extended_property',
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_group_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_group_calendar_view_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_group_calendar_view_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_group_calendar_view_list_multi_v'
-                         'alue_extended_property')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_group_calendar_view_list_single'
-                         '_value_extended_property')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_list_multi_value_extended_property',
+        )
+        g.custom_command(
+            'list-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_list_single_value_extended_property',
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_group_calendar_view_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_group_calendar_view_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_group_calendar_view_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_group_calendar_view_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_group_calendar_view_show_multi_v'
-                         'alue_extended_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_group_calendar_view_show_single'
-                         '_value_extended_property')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_show_multi_value_extended_property',
+        )
+        g.custom_command(
+            'show-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_show_single_value_extended_property',
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_group_calendar_view_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_group_calendar_view_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_group_calendar_view_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_group_calendar_view_update_mul'
-                         'ti_value_extended_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_group_calendar_view_update_si'
-                         'ngle_value_extended_property')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_update_multi_value_extended_property',
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_group_calendar_event
+
     calendar_v1_0_user_calendar_group_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_calendars_events_'
-        'operations#UsersCalendarGroupsCalendarsEventsOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event)
-    with self.command_group('calendar user-calendar-group-calendar-event',
-                            calendar_v1_0_user_calendar_group_calendar_event,
-                            client_factory=cf_user_calendar_group_calendar_event) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_groups_calendars_events_operations#UsersCalendarGroupsCalendarsEventsOperations.{}',
+        client_factory=cf_user_calendar_group_calendar_event,
+    )
+    with self.command_group(
+        'calendar user-calendar-group-calendar-event', calendar_v1_0_user_calendar_group_calendar_event
+    ) as g:
         g.custom_command('update', 'calendar_user_calendar_group_calendar_event_update')
         g.custom_command('delete', 'calendar_user_calendar_group_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_group_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_group_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_group_calendar_event_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_group_calendar_event_create_mu'
-                         'lti_value_extended_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_group_calendar_event_create_s'
-                         'ingle_value_extended_property')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_create_multi_value_extended_property',
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_group_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_group_calendar_event_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_group_calendar_event_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_group_calendar_event_list_multi_'
-                         'value_extended_property')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_group_calendar_event_list_singl'
-                         'e_value_extended_property')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_list_multi_value_extended_property',
+        )
+        g.custom_command(
+            'list-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_list_single_value_extended_property',
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_group_calendar_event_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_group_calendar_event_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_group_calendar_event_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_group_calendar_event_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_group_calendar_event_show_multi_'
-                         'value_extended_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_group_calendar_event_show_singl'
-                         'e_value_extended_property')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_show_multi_value_extended_property',
+        )
+        g.custom_command(
+            'show-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_show_single_value_extended_property',
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_group_calendar_event_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_group_calendar_event_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_group_calendar_event_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_group_calendar_event_update_mu'
-                         'lti_value_extended_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_group_calendar_event_update_s'
-                         'ingle_value_extended_property')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_update_multi_value_extended_property',
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar
+
     calendar_v1_0_user_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendars_operations#UsersCalenda'
-        'rsOperations.{}',
-        client_factory=cf_user_calendar)
-    with self.command_group('calendar user-calendar', calendar_v1_0_user_calendar,
-                            client_factory=cf_user_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendars_operations#UsersCalendarsOperations.{}',
+        client_factory=cf_user_calendar,
+    )
+    with self.command_group('calendar user-calendar', calendar_v1_0_user_calendar) as g:
         g.custom_command('delete', 'calendar_user_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_user_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_create_multi_value_extended_pr'
-                         'operty')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_create_multi_value_extended_property'
+        )
         g.custom_command('create-permission', 'calendar_user_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_create_single_value_extended_'
-                         'property')
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_user_calendar_create_single_value_extended_property'
+        )
         g.custom_command('create-view', 'calendar_user_calendar_create_view')
         g.custom_command('list-event', 'calendar_user_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_list_multi_value_extended_proper'
-                         'ty')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_list_multi_value_extended_property'
+        )
         g.custom_command('list-permission', 'calendar_user_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_list_single_value_extended_prop'
-                         'erty')
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_list_single_value_extended_property'
+        )
         g.custom_command('list-view', 'calendar_user_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_user_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_user_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_user_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_show_multi_value_extended_proper'
-                         'ty')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_show_single_value_extended_prop'
-                         'erty')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_show_single_value_extended_property'
+        )
         g.custom_command('update-event', 'calendar_user_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_update_multi_value_extended_pr'
-                         'operty')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_update_multi_value_extended_property'
+        )
         g.custom_command('update-permission', 'calendar_user_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_update_single_value_extended_'
-                         'property')
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_user_calendar_update_single_value_extended_property'
+        )
         g.custom_command('update-view', 'calendar_user_calendar_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_calendar_view
+
     calendar_v1_0_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendars_calendar_view_operation'
-        's#UsersCalendarsCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view)
-    with self.command_group('calendar user-calendar-view', calendar_v1_0_user_calendar_calendar_view,
-                            client_factory=cf_user_calendar_calendar_view) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendars_calendar_view_operations#UsersCalendarsCalendarViewOperations.{}',
+        client_factory=cf_user_calendar_calendar_view,
+    )
+    with self.command_group('calendar user-calendar-view', calendar_v1_0_user_calendar_calendar_view) as g:
         g.custom_command('update', 'calendar_user_calendar_view_update')
         g.custom_command('delete', 'calendar_user_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_view_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_view_create_multi_value_extend'
-                         'ed_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_view_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_extended_property'
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_view_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_view_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_view_list_multi_value_extended_p'
-                         'roperty')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_view_list_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_view_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_view_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_view_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_view_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_view_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_view_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_view_show_multi_value_extended_p'
-                         'roperty')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_view_show_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_view_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_view_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_view_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_view_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_view_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_view_update_multi_value_extend'
-                         'ed_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_view_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_extended_property'
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_event
+
     calendar_v1_0_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendars_events_operations#Users'
-        'CalendarsEventsOperations.{}',
-        client_factory=cf_user_calendar_event)
-    with self.command_group('calendar user-calendar-event', calendar_v1_0_user_calendar_event,
-                            client_factory=cf_user_calendar_event) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendars_events_operations#UsersCalendarsEventsOperations.{}',
+        client_factory=cf_user_calendar_event,
+    )
+    with self.command_group('calendar user-calendar-event', calendar_v1_0_user_calendar_event) as g:
         g.custom_command('update', 'calendar_user_calendar_event_update')
         g.custom_command('delete', 'calendar_user_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_event_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_event_create_multi_value_exten'
-                         'ded_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_event_create_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_event_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_calendar_event_create_single_value_extended_property',
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_event_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_event_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_event_list_multi_value_extended_'
-                         'property')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_event_list_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_event_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_event_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_event_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_event_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_event_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_event_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_event_show_multi_value_extended_'
-                         'property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_event_show_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_event_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_event_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_event_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_event_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_event_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_event_update_multi_value_exten'
-                         'ded_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_event_update_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_event_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_calendar_event_update_single_value_extended_property',
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_view
+
     calendar_v1_0_user_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_view_operations#UsersCal'
-        'endarViewOperations.{}',
-        client_factory=cf_user_calendar_view)
-    with self.command_group('calendar user-calendar-view', calendar_v1_0_user_calendar_view,
-                            client_factory=cf_user_calendar_view) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_view_operations#UsersCalendarViewOperations.{}',
+        client_factory=cf_user_calendar_view,
+    )
+    with self.command_group('calendar user-calendar-view', calendar_v1_0_user_calendar_view) as g:
         g.custom_command('delete', 'calendar_user_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_view_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_view_create_multi_value_extend'
-                         'ed_property')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_calendar_view_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_extended_property'
+        )
         g.custom_command('list-attachment', 'calendar_user_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_view_list_extension')
         g.custom_command('list-instance', 'calendar_user_calendar_view_list_instance')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_view_list_multi_value_extended_p'
-                         'roperty')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_view_list_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_calendar_view_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_calendar_view_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_user_calendar_view_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_calendar_view_show_calendar')
         g.custom_command('show-extension', 'calendar_user_calendar_view_show_extension')
         g.custom_command('show-instance', 'calendar_user_calendar_view_show_instance')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_view_show_multi_value_extended_p'
-                         'roperty')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_view_show_single_value_extended'
-                         '_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_calendar_view_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_calendar_view_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_user_calendar_view_update_attachment')
         g.custom_command('update-extension', 'calendar_user_calendar_view_update_extension')
         g.custom_command('update-instance', 'calendar_user_calendar_view_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_view_update_multi_value_extend'
-                         'ed_property')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_exte'
-                         'nded_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_calendar_view_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_extended_property'
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_calendar_view_calendar
+
     calendar_v1_0_user_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_view_calendar_operations'
-        '#UsersCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_view_calendar)
-    with self.command_group('calendar user-calendar-view-calendar', calendar_v1_0_user_calendar_view_calendar,
-                            client_factory=cf_user_calendar_view_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_calendar_view_calendar_operations#UsersCalendarViewCalendarOperations.{}',
+        client_factory=cf_user_calendar_view_calendar,
+    )
+    with self.command_group('calendar user-calendar-view-calendar', calendar_v1_0_user_calendar_view_calendar) as g:
         g.custom_command('delete', 'calendar_user_calendar_view_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_user_calendar_view_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_calendar_view_calendar_create_multi_val'
-                         'ue_extended_property')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'calendar_user_calendar_view_calendar_create_multi_value_extended_property',
+        )
         g.custom_command('create-permission', 'calendar_user_calendar_view_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_calendar_view_calendar_create_single_v'
-                         'alue_extended_property')
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_calendar_view_calendar_create_single_value_extended_property',
+        )
         g.custom_command('create-view', 'calendar_user_calendar_view_calendar_create_view')
         g.custom_command('list-event', 'calendar_user_calendar_view_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_calendar_view_calendar_list_multi_value_e'
-                         'xtended_property')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'calendar_user_calendar_view_calendar_list_multi_value_extended_property',
+        )
         g.custom_command('list-permission', 'calendar_user_calendar_view_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_calendar_view_calendar_list_single_value'
-                         '_extended_property')
+        g.custom_command(
+            'list-single-value-extended-property',
+            'calendar_user_calendar_view_calendar_list_single_value_extended_property',
+        )
         g.custom_command('list-view', 'calendar_user_calendar_view_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_user_calendar_view_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_user_calendar_view_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_user_calendar_view_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_calendar_view_calendar_show_multi_value_e'
-                         'xtended_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_calendar_view_calendar_show_single_value'
-                         '_extended_property')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'calendar_user_calendar_view_calendar_show_multi_value_extended_property',
+        )
+        g.custom_command(
+            'show-single-value-extended-property',
+            'calendar_user_calendar_view_calendar_show_single_value_extended_property',
+        )
         g.custom_command('update-event', 'calendar_user_calendar_view_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_calendar_view_calendar_update_multi_val'
-                         'ue_extended_property')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'calendar_user_calendar_view_calendar_update_multi_value_extended_property',
+        )
         g.custom_command('update-permission', 'calendar_user_calendar_view_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_calendar_view_calendar_update_single_v'
-                         'alue_extended_property')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_calendar_view_calendar_update_single_value_extended_property',
+        )
         g.custom_command('update-view', 'calendar_user_calendar_view_calendar_update_view')
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_event
+
     calendar_v1_0_user_event = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_events_operations#UsersEventsOper'
-        'ations.{}',
-        client_factory=cf_user_event)
-    with self.command_group('calendar user-event', calendar_v1_0_user_event, client_factory=cf_user_event) as g:
+        operations_tmpl=(
+            'azext_calendar_v1_0.vendored_sdks.calendar.operations._users_events_operations#UsersEventsOperations.{}'
+        ),
+        client_factory=cf_user_event,
+    )
+    with self.command_group('calendar user-event', calendar_v1_0_user_event) as g:
         g.custom_command('update', 'calendar_user_event_update')
         g.custom_command('delete', 'calendar_user_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_event_create_instance')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_event_create_multi_value_extended_prope'
-                         'rty')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_event_create_single_value_extended_pro'
-                         'perty')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_event_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property', 'calendar_user_event_create_single_value_extended_property'
+        )
         g.custom_command('list-attachment', 'calendar_user_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_event_list_extension')
         g.custom_command('list-instance', 'calendar_user_event_list_instance')
-        g.custom_command('list-multi-value-extended-property',
-                         'calendar_user_event_list_multi_value_extended_property')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_event_list_single_value_extended_propert'
-                         'y')
+        g.custom_command('list-multi-value-extended-property', 'calendar_user_event_list_multi_value_extended_property')
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_event_list_single_value_extended_property'
+        )
         g.custom_command('show-attachment', 'calendar_user_event_show_attachment')
         g.custom_command('show-calendar', 'calendar_user_event_show_calendar')
         g.custom_command('show-extension', 'calendar_user_event_show_extension')
         g.custom_command('show-instance', 'calendar_user_event_show_instance')
-        g.custom_command('show-multi-value-extended-property',
-                         'calendar_user_event_show_multi_value_extended_property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_event_show_single_value_extended_propert'
-                         'y')
+        g.custom_command('show-multi-value-extended-property', 'calendar_user_event_show_multi_value_extended_property')
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_event_show_single_value_extended_property'
+        )
         g.custom_command('update-attachment', 'calendar_user_event_update_attachment')
         g.custom_command('update-extension', 'calendar_user_event_update_extension')
         g.custom_command('update-instance', 'calendar_user_event_update_instance')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_event_update_multi_value_extended_prope'
-                         'rty')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_event_update_single_value_extended_pro'
-                         'perty')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_event_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'calendar_user_event_update_single_value_extended_property'
+        )
 
     from azext_calendar_v1_0.generated._client_factory import cf_user_event_calendar
+
     calendar_v1_0_user_event_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_events_calendar_operations#UsersE'
-        'ventsCalendarOperations.{}',
-        client_factory=cf_user_event_calendar)
-    with self.command_group('calendar user-event-calendar', calendar_v1_0_user_event_calendar,
-                            client_factory=cf_user_event_calendar) as g:
+        operations_tmpl='azext_calendar_v1_0.vendored_sdks.calendar.operations._users_events_calendar_operations#UsersEventsCalendarOperations.{}',
+        client_factory=cf_user_event_calendar,
+    )
+    with self.command_group('calendar user-event-calendar', calendar_v1_0_user_event_calendar) as g:
         g.custom_command('delete', 'calendar_user_event_calendar_delete', confirmation=True)
         g.custom_command('create-event', 'calendar_user_event_calendar_create_event')
-        g.custom_command('create-multi-value-extended-property', 'calendar_user_event_calendar_create_multi_value_exten'
-                         'ded_property')
+        g.custom_command(
+            'create-multi-value-extended-property', 'calendar_user_event_calendar_create_multi_value_extended_property'
+        )
         g.custom_command('create-permission', 'calendar_user_event_calendar_create_permission')
-        g.custom_command('create-single-value-extended-property', 'calendar_user_event_calendar_create_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'create-single-value-extended-property',
+            'calendar_user_event_calendar_create_single_value_extended_property',
+        )
         g.custom_command('create-view', 'calendar_user_event_calendar_create_view')
         g.custom_command('list-event', 'calendar_user_event_calendar_list_event')
-        g.custom_command('list-multi-value-extended-property', 'calendar_user_event_calendar_list_multi_value_extended_'
-                         'property')
+        g.custom_command(
+            'list-multi-value-extended-property', 'calendar_user_event_calendar_list_multi_value_extended_property'
+        )
         g.custom_command('list-permission', 'calendar_user_event_calendar_list_permission')
-        g.custom_command('list-single-value-extended-property', 'calendar_user_event_calendar_list_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'list-single-value-extended-property', 'calendar_user_event_calendar_list_single_value_extended_property'
+        )
         g.custom_command('list-view', 'calendar_user_event_calendar_list_view')
         g.custom_command('show-calendar-permission', 'calendar_user_event_calendar_show_calendar_permission')
         g.custom_command('show-calendar-view', 'calendar_user_event_calendar_show_calendar_view')
         g.custom_command('show-event', 'calendar_user_event_calendar_show_event')
-        g.custom_command('show-multi-value-extended-property', 'calendar_user_event_calendar_show_multi_value_extended_'
-                         'property')
-        g.custom_command('show-single-value-extended-property', 'calendar_user_event_calendar_show_single_value_extende'
-                         'd_property')
+        g.custom_command(
+            'show-multi-value-extended-property', 'calendar_user_event_calendar_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'calendar_user_event_calendar_show_single_value_extended_property'
+        )
         g.custom_command('update-event', 'calendar_user_event_calendar_update_event')
-        g.custom_command('update-multi-value-extended-property', 'calendar_user_event_calendar_update_multi_value_exten'
-                         'ded_property')
+        g.custom_command(
+            'update-multi-value-extended-property', 'calendar_user_event_calendar_update_multi_value_extended_property'
+        )
         g.custom_command('update-permission', 'calendar_user_event_calendar_update_permission')
-        g.custom_command('update-single-value-extended-property', 'calendar_user_event_calendar_update_single_value_ext'
-                         'ended_property')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'calendar_user_event_calendar_update_single_value_extended_property',
+        )
         g.custom_command('update-view', 'calendar_user_event_calendar_update_view')
 
     with self.command_group('calendar_v1_0', is_experimental=True):

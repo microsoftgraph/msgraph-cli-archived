@@ -9,17 +9,20 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_people_beta.generated._client_factory import cf_user
+
     people_beta_user = CliCommandType(
         operations_tmpl='azext_people_beta.vendored_sdks.people.operations._users_operations#UsersOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('people user', people_beta_user, client_factory=cf_user) as g:
+        client_factory=cf_user,
+    )
+    with self.command_group('people user', people_beta_user) as g:
         g.custom_command('delete', 'people_user_delete', confirmation=True)
         g.custom_command('create-person', 'people_user_create_person')
         g.custom_command('list-person', 'people_user_list_person')
@@ -31,11 +34,14 @@ def load_command_table(self, _):
         g.custom_command('update-profile', 'people_user_update_profile')
 
     from azext_people_beta.generated._client_factory import cf_user_analytic
+
     people_beta_user_analytic = CliCommandType(
-        operations_tmpl='azext_people_beta.vendored_sdks.people.operations._users_analytics_operations#UsersAnalyticsOp'
-        'erations.{}',
-        client_factory=cf_user_analytic)
-    with self.command_group('people user-analytic', people_beta_user_analytic, client_factory=cf_user_analytic) as g:
+        operations_tmpl=(
+            'azext_people_beta.vendored_sdks.people.operations._users_analytics_operations#UsersAnalyticsOperations.{}'
+        ),
+        client_factory=cf_user_analytic,
+    )
+    with self.command_group('people user-analytic', people_beta_user_analytic) as g:
         g.custom_command('delete', 'people_user_analytic_delete', confirmation=True)
         g.custom_command('create-activity-statistics', 'people_user_analytic_create_activity_statistics')
         g.custom_command('list-activity-statistics', 'people_user_analytic_list_activity_statistics')
@@ -43,11 +49,14 @@ def load_command_table(self, _):
         g.custom_command('update-activity-statistics', 'people_user_analytic_update_activity_statistics')
 
     from azext_people_beta.generated._client_factory import cf_user_profile
+
     people_beta_user_profile = CliCommandType(
-        operations_tmpl='azext_people_beta.vendored_sdks.people.operations._users_profile_operations#UsersProfileOperat'
-        'ions.{}',
-        client_factory=cf_user_profile)
-    with self.command_group('people user-profile', people_beta_user_profile, client_factory=cf_user_profile) as g:
+        operations_tmpl=(
+            'azext_people_beta.vendored_sdks.people.operations._users_profile_operations#UsersProfileOperations.{}'
+        ),
+        client_factory=cf_user_profile,
+    )
+    with self.command_group('people user-profile', people_beta_user_profile) as g:
         g.custom_command('delete', 'people_user_profile_delete', confirmation=True)
         g.custom_command('create-account', 'people_user_profile_create_account')
         g.custom_command('create-address', 'people_user_profile_create_address')

@@ -10,11 +10,11 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from azure.cli.core.commands.parameters import (
+from msgraph.cli.core.commands.parameters import (
     get_three_state_flag,
     get_enum_type
 )
-from azure.cli.core.commands.validators import validate_file_or_dict
+from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_crossdeviceexperiences_beta.action import (
     AddAttribution,
     AddAlternativeSecurityIds,

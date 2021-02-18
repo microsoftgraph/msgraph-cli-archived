@@ -9,19 +9,20 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_crossdeviceexperiences_beta.generated._client_factory import cf_user
+
     crossdeviceexperiences_beta_user = CliCommandType(
-        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_opera'
-        'tions#UsersOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('crossdeviceexperiences user', crossdeviceexperiences_beta_user,
-                            client_factory=cf_user) as g:
+        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_operations#UsersOperations.{}',
+        client_factory=cf_user,
+    )
+    with self.command_group('crossdeviceexperiences user', crossdeviceexperiences_beta_user) as g:
         g.custom_command('delete', 'crossdeviceexperiences_user_delete', confirmation=True)
         g.custom_command('create-activity', 'crossdeviceexperiences_user_create_activity')
         g.custom_command('create-device', 'crossdeviceexperiences_user_create_device')
@@ -33,12 +34,12 @@ def load_command_table(self, _):
         g.custom_command('update-device', 'crossdeviceexperiences_user_update_device')
 
     from azext_crossdeviceexperiences_beta.generated._client_factory import cf_user_activity
+
     crossdeviceexperiences_beta_user_activity = CliCommandType(
-        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_activ'
-        'ities_operations#UsersActivitiesOperations.{}',
-        client_factory=cf_user_activity)
-    with self.command_group('crossdeviceexperiences user-activity', crossdeviceexperiences_beta_user_activity,
-                            client_factory=cf_user_activity) as g:
+        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_activities_operations#UsersActivitiesOperations.{}',
+        client_factory=cf_user_activity,
+    )
+    with self.command_group('crossdeviceexperiences user-activity', crossdeviceexperiences_beta_user_activity) as g:
         g.custom_command('delete', 'crossdeviceexperiences_user_activity_delete', confirmation=True)
         g.custom_command('create-history-item', 'crossdeviceexperiences_user_activity_create_history_item')
         g.custom_command('list-history-item', 'crossdeviceexperiences_user_activity_list_history_item')
@@ -46,13 +47,14 @@ def load_command_table(self, _):
         g.custom_command('update-history-item', 'crossdeviceexperiences_user_activity_update_history_item')
 
     from azext_crossdeviceexperiences_beta.generated._client_factory import cf_user_activity_history_item
+
     crossdeviceexperiences_beta_user_activity_history_item = CliCommandType(
-        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_activ'
-        'ities_history_items_operations#UsersActivitiesHistoryItemsOperations.{}',
-        client_factory=cf_user_activity_history_item)
-    with self.command_group('crossdeviceexperiences user-activity-history-item',
-                            crossdeviceexperiences_beta_user_activity_history_item,
-                            client_factory=cf_user_activity_history_item) as g:
+        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_activities_history_items_operations#UsersActivitiesHistoryItemsOperations.{}',
+        client_factory=cf_user_activity_history_item,
+    )
+    with self.command_group(
+        'crossdeviceexperiences user-activity-history-item', crossdeviceexperiences_beta_user_activity_history_item
+    ) as g:
         g.custom_command('delete', 'crossdeviceexperiences_user_activity_history_item_delete', confirmation=True)
         g.custom_command('set-ref-activity', 'crossdeviceexperiences_user_activity_history_item_set_ref_activity')
         g.custom_command('show-activity', 'crossdeviceexperiences_user_activity_history_item_show_activity')

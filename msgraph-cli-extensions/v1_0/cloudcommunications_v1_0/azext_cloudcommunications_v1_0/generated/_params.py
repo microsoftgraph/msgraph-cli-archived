@@ -10,7 +10,7 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from azure.cli.core.commands.validators import validate_file_or_dict
+from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_cloudcommunications_v1_0.action import (
     AddAudioConferencing,
     AddChatInfo,

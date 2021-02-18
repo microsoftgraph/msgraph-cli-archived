@@ -9,41 +9,48 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_directoryobjects_v1_0.generated._client_factory import cf_directory_object_directory_object
+
     directoryobjects_v1_0_directory_object_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_objects_direc'
-        'tory_object_operations#DirectoryObjectsDirectoryObjectOperations.{}',
-        client_factory=cf_directory_object_directory_object)
-    with self.command_group('directoryobjects directory-object-directory-object',
-                            directoryobjects_v1_0_directory_object_directory_object,
-                            client_factory=cf_directory_object_directory_object) as g:
+        operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_objects_directory_object_operations#DirectoryObjectsDirectoryObjectOperations.{}',
+        client_factory=cf_directory_object_directory_object,
+    )
+    with self.command_group(
+        'directoryobjects directory-object-directory-object', directoryobjects_v1_0_directory_object_directory_object
+    ) as g:
         g.custom_command('delete', 'directoryobjects_directory_object_directory_object_delete', confirmation=True)
-        g.custom_command('create-directory-object', 'directoryobjects_directory_object_directory_object_create_director'
-                         'y_object')
-        g.custom_command('list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_ob'
-                         'ject')
-        g.custom_command('show-directory-object', 'directoryobjects_directory_object_directory_object_show_directory_ob'
-                         'ject')
-        g.custom_command('update-directory-object', 'directoryobjects_directory_object_directory_object_update_director'
-                         'y_object')
+        g.custom_command(
+            'create-directory-object', 'directoryobjects_directory_object_directory_object_create_directory_object'
+        )
+        g.custom_command(
+            'list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_object'
+        )
+        g.custom_command(
+            'show-directory-object', 'directoryobjects_directory_object_directory_object_show_directory_object'
+        )
+        g.custom_command(
+            'update-directory-object', 'directoryobjects_directory_object_directory_object_update_directory_object'
+        )
 
     from azext_directoryobjects_v1_0.generated._client_factory import cf_directory_object
+
     directoryobjects_v1_0_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_objects_opera'
-        'tions#DirectoryObjectsOperations.{}',
-        client_factory=cf_directory_object)
-    with self.command_group('directoryobjects directory-object', directoryobjects_v1_0_directory_object,
-                            client_factory=cf_directory_object) as g:
+        operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_objects_operations#DirectoryObjectsOperations.{}',
+        client_factory=cf_directory_object,
+    )
+    with self.command_group('directoryobjects directory-object', directoryobjects_v1_0_directory_object) as g:
         g.custom_command('check-member-group', 'directoryobjects_directory_object_check_member_group')
         g.custom_command('check-member-object', 'directoryobjects_directory_object_check_member_object')
-        g.custom_command('get-available-extension-property', 'directoryobjects_directory_object_get_available_extension'
-                         '_property')
+        g.custom_command(
+            'get-available-extension-property', 'directoryobjects_directory_object_get_available_extension_property'
+        )
         g.custom_command('get-by-id', 'directoryobjects_directory_object_get_by_id')
         g.custom_command('get-member-group', 'directoryobjects_directory_object_get_member_group')
         g.custom_command('get-member-object', 'directoryobjects_directory_object_get_member_object')

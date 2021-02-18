@@ -8,7 +8,7 @@
 # regenerated.
 # --------------------------------------------------------------------------
 
-from azure.cli.core import AzCommandsLoader
+from msgraph.cli.core import AzCommandsLoader
 from azext_usersfunctions_beta.generated._help import helps  # pylint: disable=unused-import
 try:
     from azext_usersfunctions_beta.manual._help import helps  # pylint: disable=reimported
@@ -19,7 +19,7 @@ except ImportError:
 class UsersFunctionsCommandsLoader(AzCommandsLoader):
 
     def __init__(self, cli_ctx=None):
-        from azure.cli.core.commands import CliCommandType
+        from msgraph.cli.core.commands import CliCommandType
         from azext_usersfunctions_beta.generated._client_factory import cf_usersfunctions_beta_cl
         usersfunctions_beta_custom = CliCommandType(
             operations_tmpl='azext_usersfunctions_beta.custom#{}',

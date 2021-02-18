@@ -8,7 +8,7 @@
 # regenerated.
 # --------------------------------------------------------------------------
 
-from azure.cli.core import AzCommandsLoader
+from msgraph.cli.core import AzCommandsLoader
 from azext_mail_v1_0.generated._help import helps  # pylint: disable=unused-import
 try:
     from azext_mail_v1_0.manual._help import helps  # pylint: disable=reimported
@@ -19,7 +19,7 @@ except ImportError:
 class MailCommandsLoader(AzCommandsLoader):
 
     def __init__(self, cli_ctx=None):
-        from azure.cli.core.commands import CliCommandType
+        from msgraph.cli.core.commands import CliCommandType
         from azext_mail_v1_0.generated._client_factory import cf_mail_v1_0_cl
         mail_v1_0_custom = CliCommandType(
             operations_tmpl='azext_mail_v1_0.custom#{}',

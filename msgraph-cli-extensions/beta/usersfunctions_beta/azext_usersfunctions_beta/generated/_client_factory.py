@@ -10,7 +10,7 @@
 
 
 def cf_usersfunctions_beta_cl(cli_ctx, *_):
-    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
     from azext_usersfunctions_beta.vendored_sdks.usersfunctions import UsersFunctions
     return get_mgmt_service_client(cli_ctx,
                                    UsersFunctions,

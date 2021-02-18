@@ -9,17 +9,20 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
-from azure.cli.core.commands import CliCommandType
+from msgraph.cli.core.commands import CliCommandType
 
 
 def load_command_table(self, _):
 
     from azext_people_v1_0.generated._client_factory import cf_user
+
     people_v1_0_user = CliCommandType(
         operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_operations#UsersOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('people user', people_v1_0_user, client_factory=cf_user) as g:
+        client_factory=cf_user,
+    )
+    with self.command_group('people user', people_v1_0_user) as g:
         g.custom_command('delete', 'people_user_delete', confirmation=True)
         g.custom_command('create-person', 'people_user_create_person')
         g.custom_command('list-person', 'people_user_list_person')
@@ -29,11 +32,14 @@ def load_command_table(self, _):
         g.custom_command('update-person', 'people_user_update_person')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight
+
     people_v1_0_user_insight = CliCommandType(
-        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_operations#UsersInsightsOper'
-        'ations.{}',
-        client_factory=cf_user_insight)
-    with self.command_group('people user-insight', people_v1_0_user_insight, client_factory=cf_user_insight) as g:
+        operations_tmpl=(
+            'azext_people_v1_0.vendored_sdks.people.operations._users_insights_operations#UsersInsightsOperations.{}'
+        ),
+        client_factory=cf_user_insight,
+    )
+    with self.command_group('people user-insight', people_v1_0_user_insight) as g:
         g.custom_command('delete', 'people_user_insight_delete', confirmation=True)
         g.custom_command('create-shared', 'people_user_insight_create_shared')
         g.custom_command('create-trending', 'people_user_insight_create_trending')
@@ -49,12 +55,12 @@ def load_command_table(self, _):
         g.custom_command('update-used', 'people_user_insight_update_used')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight_shared
+
     people_v1_0_user_insight_shared = CliCommandType(
-        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_shared_operations#UsersInsig'
-        'htsSharedOperations.{}',
-        client_factory=cf_user_insight_shared)
-    with self.command_group('people user-insight-shared', people_v1_0_user_insight_shared,
-                            client_factory=cf_user_insight_shared) as g:
+        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_shared_operations#UsersInsightsSharedOperations.{}',
+        client_factory=cf_user_insight_shared,
+    )
+    with self.command_group('people user-insight-shared', people_v1_0_user_insight_shared) as g:
         g.custom_command('delete', 'people_user_insight_shared_delete', confirmation=True)
         g.custom_command('set-ref-last-shared-method', 'people_user_insight_shared_set_ref_last_shared_method')
         g.custom_command('set-ref-resource', 'people_user_insight_shared_set_ref_resource')
@@ -64,24 +70,24 @@ def load_command_table(self, _):
         g.custom_command('show-resource', 'people_user_insight_shared_show_resource')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight_trending
+
     people_v1_0_user_insight_trending = CliCommandType(
-        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_trending_operations#UsersIns'
-        'ightsTrendingOperations.{}',
-        client_factory=cf_user_insight_trending)
-    with self.command_group('people user-insight-trending', people_v1_0_user_insight_trending,
-                            client_factory=cf_user_insight_trending) as g:
+        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_trending_operations#UsersInsightsTrendingOperations.{}',
+        client_factory=cf_user_insight_trending,
+    )
+    with self.command_group('people user-insight-trending', people_v1_0_user_insight_trending) as g:
         g.custom_command('delete', 'people_user_insight_trending_delete', confirmation=True)
         g.custom_command('set-ref-resource', 'people_user_insight_trending_set_ref_resource')
         g.custom_command('show-ref-resource', 'people_user_insight_trending_show_ref_resource')
         g.custom_command('show-resource', 'people_user_insight_trending_show_resource')
 
     from azext_people_v1_0.generated._client_factory import cf_user_insight_used
+
     people_v1_0_user_insight_used = CliCommandType(
-        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_used_operations#UsersInsight'
-        'sUsedOperations.{}',
-        client_factory=cf_user_insight_used)
-    with self.command_group('people user-insight-used', people_v1_0_user_insight_used,
-                            client_factory=cf_user_insight_used) as g:
+        operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_used_operations#UsersInsightsUsedOperations.{}',
+        client_factory=cf_user_insight_used,
+    )
+    with self.command_group('people user-insight-used', people_v1_0_user_insight_used) as g:
         g.custom_command('delete', 'people_user_insight_used_delete', confirmation=True)
         g.custom_command('set-ref-resource', 'people_user_insight_used_set_ref_resource')
         g.custom_command('show-ref-resource', 'people_user_insight_used_show_ref_resource')

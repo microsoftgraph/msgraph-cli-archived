@@ -11,7 +11,7 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from azure.cli.core.commands.parameters import (
+from msgraph.cli.core.commands.parameters import (
     get_three_state_flag,
     get_enum_type
 )

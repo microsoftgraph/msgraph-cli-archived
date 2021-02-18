@@ -10,7 +10,7 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from azure.cli.core.commands.parameters import get_three_state_flag
+from msgraph.cli.core.commands.parameters import get_three_state_flag
 
 
 def load_arguments(self, _):

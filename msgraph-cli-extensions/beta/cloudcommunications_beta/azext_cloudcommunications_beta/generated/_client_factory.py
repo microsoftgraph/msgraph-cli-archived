@@ -10,7 +10,7 @@
 
 
 def cf_cloudcommunications_beta_cl(cli_ctx, *_):
-    from azure.cli.core.commands.client_factory import get_mgmt_service_client
+    from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
     from azext_cloudcommunications_beta.vendored_sdks.cloudcommunications import CloudCommunications
     return get_mgmt_service_client(cli_ctx,
                                    CloudCommunications,
