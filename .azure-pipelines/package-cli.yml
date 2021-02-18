@@ -35,7 +35,7 @@ stages:
         inputs:
           script: |
             python setup.py sdist bdist_wheel
-            set CLI_VERSION=$(CLI_VERSION)
+            set CLI_VERSION=(for /f "tokens=3 usebackq" %i in (`find  "__version__"  msgraph\cli\core\__init__.py`)  do @echo %i)
             set
             cd build_scripts/windows/scripts
             build.cmd
