@@ -5,19 +5,40 @@
 # --------------------------------------------------------------------------------------------
 from knack.help_files import helps
 
-helps['profile select-version'] = """
+helps['profile set-version'] = """
 type: command
-short-summary: Select a graph-version from supported versions.
+short-summary: Set version of graph to use.
+parameters:
+  - name: --graph-version
+    type: string
+    short-summary: Graph version to use
+examples:
+  - name: Set Graph Version
+    text: >
+      mg profile set-version --graph-version beta
 """
 
-helps['profile select-cloud'] = """
+helps['profile set-cloud'] = """
 type: command
-short-summary: Select a cloud from supported clouds.
+short-summary: Set a cloud.
+parameters:
+  - name: --name
+    type: string
+    short-summary: Cloud to use
+examples:
+  - name: Set cloud
+    text: >
+      mg set-cloud --name PUBLIC
 """
 
 helps['profile show-profile'] = """
 type: command
 short-summary: Show profile information
+"""
+
+helps['profile show-clouds'] = """
+type: command
+short-summary: Show list of supported clouds
 """
 
 helps['profile delete-cloud'] = """
